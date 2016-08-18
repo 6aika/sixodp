@@ -32,7 +32,7 @@
     - { role: ckan-extension, ckanext: ckanext-harvest }
     - ckan
     - ckan-translations
-    - supervisor
+    #- supervisor
     - solr-reindex
   handlers:
     - include: handlers/handlers.yml

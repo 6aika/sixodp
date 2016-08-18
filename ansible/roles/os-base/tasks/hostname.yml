@@ -7,5 +7,5 @@
   register: hostname_update
 
 - name: Update hostname
-  command: service hostname restart
+  command: hostname {{ internal_hostname }}
   when: hostname_update|changed

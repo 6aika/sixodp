@@ -1,5 +1,6 @@
 ---
 
+#TODO: fix supervisor for ubuntu xenial https://bugs.launchpad.net/ubuntu/+source/supervisor/+bug/1594740
 - name: Create log path for supervisor
   file: path={{ supervisor_log_path }} state=directory
 

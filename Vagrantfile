@@ -6,8 +6,7 @@
 $script = <<SCRIPT
 if [ ! -f /vagrant_bootstrap_done.info ]; then
   sudo apt-get update
-  sudo apt-get -y dist-upgrade
-  sudo apt-get -y install python-dev python-pip
+  sudo apt-get -y install python-dev python-pip build-essential libssl-dev libffi-dev
   sudo pip install markupsafe ansible
   sudo touch /vagrant_bootstrap_done.info
 fi
@@ -18,7 +17,7 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.define "catalog" do |server|
-    server.vm.box = "ubuntu/trusty64"
+    server.vm.box = "bento/ubuntu-16.04"
     server.vm.network :private_network, ip: "10.100.10.10"
     server.vm.network :private_network, ip: "10.100.10.11"
     server.vm.hostname = "api-catalog"

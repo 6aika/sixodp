@@ -26,7 +26,7 @@
     - python-dev
     - python-virtualenv
     - python-psycopg2
-    - postgresql-server-dev-9.3
+    - postgresql-server-dev-9.5
     - libpq5
     - git-core
     - unzip
