@@ -10,7 +10,6 @@
 - include: hostname.yml
 - include: hosts.yml
 
-
 - name: Copy apt sources.list
   template: src=sources.list.j2 dest=/etc/apt/sources.list mode="0644" owner=root group=root
   when: apt_source_url != false

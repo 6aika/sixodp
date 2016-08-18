@@ -1,12 +1,9 @@
 ---
 
-public_facing_hostname: liityntakatalogi.suomi.fi
-internal_hostname: catalog-prod
-ckan_site_name: Liityntäkatalogi
+public_facing_hostname: dataportaali-prod.goforecrew.com
+internal_hostname: sixodp-prod
+ckan_site_name: Dataportaali
 ckan_featured_orgs:
-
-analytics_server_public_facing_hostname: kapastats01.csc.fi
-analytics_site_id: 2
 
 database_ckan:
   host: 127.0.0.1
@@ -17,7 +14,10 @@ database_ckan:
   password: "{{ secret.database_ckan_password }}"
 
 nginx:
-  alternative_hostnames: api.suomi.fi apikatalogi.suomi.fi katalogiprod01.csc.fi www.{{ public_facing_hostname }}
+  use_ssl_certificate: true
+  use_selfsigned_certificate: false
+  fqdn_common_part: goforecrew.com
+  alternative_hostnames: www.{{ public_facing_hostname }}
 
 solr:
   host: 127.0.0.1
@@ -52,14 +52,6 @@ email:
   from: no-reply@{{ email_domain }}
   error_recipient: admin@localhost
   error_from: error@{{ email_domain }}
-  contact: kapa-asiakaspalvelu@vrk.fi
-
-xroad:
-  securityserver:
-    host: "vrkkapalp05.csc.fi"
-    alias: "vrkkapalp05"
-    port: 8443
-  client_id: FI.GOV.0245437-2.APICatalogClient
-  service_id: FI.ORG.0920632-0.ServiceList
+  contact: not-implemented@localhost
 
 robots_allowed: true

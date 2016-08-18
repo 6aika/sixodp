@@ -1,0 +1,9 @@
+---
+
+- name: Create TLS certificate directory
+  file: path="{{ ssl_certificate_path }}" state=directory mode="0500" owner=root group=root
+
+- name: Generate self-signed TLS certificate
+  command: openssl req -new -nodes -x509 -subj "/C=FI/ST=Pirkanmaa/L=Tampere/O=Tredea/CN=*.{{ nginx.fqdn_common_part }}" -days 3650 -keyout "{{ ssl_certificate_path }}/{{ ssl_key_filename }}" -out "{{ ssl_certificate_path }}/{{ ssl_cert_filename }}" -extensions v3_ca
+  args:
+    creates: "{{ ssl_certificate_path }}/{{ ssl_cert_filename }}"

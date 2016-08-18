@@ -1,14 +1,9 @@
 ---
-vagrant: true
 
 public_facing_hostname: 10.100.10.10
-internal_hostname: catalog-vagrant
-ckan_site_name: Liityntäkatalogi
+internal_hostname: sixodp-vagrant
+ckan_site_name: Dataportaali
 ckan_featured_orgs:
-
-analytics_server_public_facing_hostname: 10.100.10.11
-analytics_internal_hostname: analytics-vagrant
-analytics_site_id: 1
 
 database_ckan:
   host: 127.0.0.1
@@ -19,7 +14,10 @@ database_ckan:
   password: "{{ secret.database_ckan_password }}"
 
 nginx:
-  alternative_hostnames: catalog-alternative www.{{ public_facing_hostname }}
+  use_ssl_certificate: true
+  use_selfsigned_certificate: true
+  fqdn_common_part: goforecrew.com
+  alternative_hostnames: www.{{ public_facing_hostname }}
 
 solr:
   host: 127.0.0.1
@@ -55,11 +53,5 @@ email:
   error_recipient: vagrant@localhost
   error_from: error@{{ email_domain }}
   contact: vagrant@localhost
-
-xroad:
-  securityserver:
-    host: "gdev-ss2.i.palveluvayla.com"
-    alias: "gdev-ss2"
-    port: 12765
 
 robots_allowed: true

@@ -9,7 +9,6 @@ autostart=true
 autorestart=true
 startsecs=10
 
-
 [program:ckan_fetch_consumer]
 
 command=nice -n 20 {{ virtualenv }}/bin/paster --plugin=ckanext-harvest harvester fetch_consumer --config={{ ckan_ini }}
@@ -20,4 +19,3 @@ stderr_logfile={{ supervisor_log_path }}/fetch_consumer.log
 autostart=true
 autorestart=true
 startsecs=10
-

@@ -32,9 +32,6 @@ sqlalchemy.url = postgres://{{ database_ckan.username }}:{{ database_ckan.passwo
 ckan.site_url = https://{{ public_facing_hostname }}
 ckan.site_url_internally = https://{{ public_facing_hostname }}/data/
 
-piwik.site_url = https://{{ analytics_server_public_facing_hostname }}
-piwik.site_id = {{ analytics_site_id }}
-
 ckan.auth.anon_create_dataset = false
 ckan.auth.create_unowned_dataset = false
 ckan.auth.create_dataset_if_not_in_organization = false
@@ -56,7 +53,7 @@ ckan.featured_orgs = {{ ckan_featured_orgs }}
 ckan.plugins = {{ ckan_plugins }}
 
 ckan.preview.xml_formats = xml xsd xsd+xml soap soap+xml rdf rdf+xml owl+xml atom rss wsdl wsdl+xml
-ckan.views.default_views = wsdl_view text_view 
+ckan.views.default_views = text_view 
 
 ckanext.pages.editor = ckeditor
 
@@ -91,7 +88,7 @@ smtp.mail_from = no-reply
 
 ckanext.contact.mail_to = {{ email.contact }}
 ckanext.contact.recipient_name =
-ckanext.contact.subject = Palautetta Liityntäkatalogista
+ckanext.contact.subject = Palautetta dataportaalista
 
 ckan.harvest.mq.type = redis
 ckan.harvest.mq.hostname = {{ redis.host }}

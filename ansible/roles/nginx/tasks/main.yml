@@ -19,7 +19,7 @@
   with_items:
     - { "src": "50x.html", "dest": "50x.html" }
 
-- name: Ensure static file ermissions
+- name: Ensure static file permissions
   command: chmod -R "0775" "{{ static_path }}"
 
 - name: Disable default site
@@ -29,7 +29,9 @@
   file: src="/etc/nginx/sites-available/{{ item }}" dest="/etc/nginx/sites-enabled/{{ item }}" state=link
   with_items:
     - primary_site
-  notify: Restart Nginx
+
+- include: ssl.yml
+  when: nginx.use_ssl_certificate
 
 - name: Ensure Nginx is restarted
   service: name=nginx state=restarted
