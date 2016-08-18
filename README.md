@@ -1,20 +1,20 @@
-## API Catalog (*Liityntäkatalogi*)
+## Open Data Portal of the Six City Strategy
 
-This repository provides the API catalog of the Finnish National Data Exchange Layer (*Kansallinen palveluväylä*). The catalog provides a search engine for the interfaces available on the data exchange layer.
+This repository provides the open data catalog of the [Six City Strategy](http://6aika.fi/in-english/) in Finland.
 
-The catalog is available at [liityntakatalogi.suomi.fi](http://liityntakatalogi.suomi.fi/). A development sandbox of the catalog is available at [liityntakatalogi.qa.suomi.fi](http://liityntakatalogi.qa.suomi.fi/)
+No live demo available yet, URL will be updated here.
 
 ### Getting started
 
 Prerequisites:
 
-- [Vagrant](https://www.vagrantup.com/) (tested on 1.8.4)
-- [VirtualBox](https://www.virtualbox.org/) (tested on 5.0.20)
+- [Vagrant](https://www.vagrantup.com/) (tested on 1.8.5)
+- [VirtualBox](https://www.virtualbox.org/) (tested on 5.1.2)
 
 Clone the repository and its submodules, and start Vagrant:
 
-    git clone https://github.com/vrk-kpa/api-catalog.git
-    cd api-catalog/
+    git clone https://github.com/6aika/sixodp.git
+    cd sixodp/
     git submodule update --init --recursive
     vagrant up
 
@@ -62,7 +62,7 @@ With Vagrant, the host machine shares the working directory into the virtual mac
 
 ### Support / Contact / Contribution
 
-Please file a [new issue](https://github.com/vrk-kpa/api-catalog/issues) at GitHub.
+Please file a [new issue](https://github.com/6aika/sixodp/issues) at GitHub.
 
 ### Copying and License
 
