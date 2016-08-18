@@ -18,7 +18,7 @@ Clone the repository and its submodules, and start Vagrant:
     git submodule update --init --recursive
     vagrant up
 
-After [Ansible](http://www.ansible.com/) provisions the system, the service will be running in the virtual machine and is available from your host machine at https://10.100.10.10/
+After [Ansible](http://www.ansible.com/) provisions the system, the service will be running in the virtual machine and is available from your host machine at https://10.106.10.10/
 
 User credentials for an administrator are `admin:admin`, and `test:test` for a regular user.
 

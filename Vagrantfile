@@ -16,16 +16,15 @@ SCRIPT
 VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-  config.vm.define "catalog" do |server|
+  config.vm.define "sixodp" do |server|
     server.vm.box = "bento/ubuntu-16.04"
-    server.vm.network :private_network, ip: "10.100.10.10"
-    server.vm.network :private_network, ip: "10.100.10.11"
-    server.vm.hostname = "api-catalog"
+    server.vm.network :private_network, ip: "10.106.10.10"
+    server.vm.hostname = "sixodp"
 
     case RUBY_PLATFORM
     when /mswin|msys|mingw|cygwin|bccwin|wince|emc/
       # Fix Windows file rights, otherwise Ansible tries to execute files
-      server.vm.synced_folder "./", "/src", :mount_options => ["dmode=755","fmode=644"]
+      server.vm.synced_folder "./", "/src", type:"virtualbox", :mount_options => ["dmode=755","fmode=644"]
     else
       # Basic VM synced folder mount
       server.vm.synced_folder "", "/src"

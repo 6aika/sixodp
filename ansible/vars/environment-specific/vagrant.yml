@@ -1,6 +1,6 @@
 ---
 
-public_facing_hostname: 10.100.10.10
+public_facing_hostname: 10.106.10.10
 internal_hostname: sixodp-vagrant
 ckan_site_name: Dataportaali
 ckan_featured_orgs:
