@@ -1,6 +1,6 @@
 .vagrant/
 *.pyc
-api-catalog-secrets
+sixodp-secrets
 server.csr
 server.pass.key
 .DS_Store
