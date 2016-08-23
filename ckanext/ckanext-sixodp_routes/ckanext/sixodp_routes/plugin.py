@@ -35,18 +35,18 @@ def admin_only(context, data_dict=None):
     return {'success': False, 'msg': 'Access restricted to system administrators'}
 
 
-class Apicatalog_RoutesPlugin(ckan.plugins.SingletonPlugin):
+class Sixodp_RoutesPlugin(ckan.plugins.SingletonPlugin):
     ckan.plugins.implements(ckan.plugins.IRoutes, inherit=True)
     ckan.plugins.implements(ckan.plugins.IAuthFunctions)
 
     # IRoutes
 
     def before_map(self, m):
-        controller = 'ckanext.apicatalog_routes.plugin:Apicatalog_RevisionController'
+        controller = 'ckanext.sixodp_routes.plugin:Sixodp_RevisionController'
         m.connect('/revision/list', action='list', controller=controller)
         m.connect('/revision/diff/{id}', action='diff', controller=controller)
 
-        user_controller = 'ckanext.apicatalog_routes.plugin:Apicatalog_UserController'
+        user_controller = 'ckanext.sixodp_routes.plugin:Sixodp_UserController'
 
         m.connect('user_edit', '/user/edit/{id:.*}', action='edit', controller=user_controller, ckan_icon='cog')
         m.connect('/user/reset', action='request_reset', controller=user_controller)
@@ -68,23 +68,23 @@ def auth_context():
             'auth_user_obj': c.userobj}
 
 
-class Apicatalog_RevisionController(RevisionController):
+class Sixodp_RevisionController(RevisionController):
 
     def list(self):
         try:
             ckan.logic.check_access('revision_list', auth_context())
-            return super(Apicatalog_RevisionController, self).list()
+            return super(Sixodp_RevisionController, self).list()
         except ckan.logic.NotAuthorized:
             ckan.lib.base.abort(403, _('Not authorized to see this page'))
 
     def diff(self, id=None):
         try:
             ckan.logic.check_access('revision_diff', auth_context())
-            return super(Apicatalog_RevisionController, self).diff(id=id)
+            return super(Sixodp_RevisionController, self).diff(id=id)
         except ckan.logic.NotAuthorized:
             ckan.lib.base.abort(403, _('Not authorized to see this page'))
 
-class Apicatalog_UserController(UserController):
+class Sixodp_UserController(UserController):
 
     # Copy paste from ckan 2.5.1 to get to the _save_edit function
     def edit(self, id=None, data=None, errors=None, error_summary=None):

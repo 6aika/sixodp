@@ -9,21 +9,21 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='''ckanext-apicatalog_routes''',
+    name='''ckanext-sixodp_routes''',
 
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # http://packaging.python.org/en/latest/tutorial.html#version
     version='0.0.1',
 
-    description='''Api-catalog specific routes''',
+    description='''SixODP specific routes''',
     long_description=long_description,
 
     # The project's main homepage.
-    url='https://github.com/vrk-kpa/ckanext-apicatalog_routes',
+    url='https://github.com/6aika/sixodp',
 
     # Author details
-    author='''vrk-kpa''',
+    author='''6aika''',
     author_email='''''',
 
     # Choose your license
@@ -48,7 +48,7 @@ setup(
 
 
     # What does your project relate to?
-    keywords='''CKAN apicatalog routes''',
+    keywords='''CKAN sixodp routes''',
 
     # You can just specify the packages manually here if your project is
     # simple. Or you can use find_packages().
@@ -78,7 +78,7 @@ setup(
     # pip to create the appropriate form of executable for the target platform.
     entry_points='''
         [ckan.plugins]
-        apicatalog_routes=ckanext.apicatalog_routes.plugin:Apicatalog_RoutesPlugin
-        apicatalog_feed=ckanext.apicatalog_routes.feed:Apicatalog_FeedPlugin
+        sixodp_routes=ckanext.sixodp_routes.plugin:Sixodp_RoutesPlugin
+        sixodp_feed=ckanext.sixodp_routes.feed:Sixodp_FeedPlugin
     ''',
 )
