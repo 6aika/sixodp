@@ -25,7 +25,7 @@ cd ckan
 paster db init -c test-core.ini
 cd -
 
-echo "Installing ckanext-ckanext-apicatalog_routes and its requirements..."
+echo "Installing ckanext-sixodp_routes and its requirements..."
 python setup.py develop
 pip install -r dev-requirements.txt
 
