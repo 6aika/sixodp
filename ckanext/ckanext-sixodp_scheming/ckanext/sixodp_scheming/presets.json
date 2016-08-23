@@ -4,7 +4,7 @@
   "about_url": "http://github.com/open-data/ckanext-scheming#preset",
   "presets": [
     {
-      "preset_name": "apicatalog_tag_string_autocomplete",
+      "preset_name": "sixodp_tag_string_autocomplete",
       "values": {
         "validators": "ignore_missing lower_if_exists tag_string_convert",
         "form_attrs": {
@@ -15,7 +15,7 @@
       }
     },
     {
-      "preset_name": "apicatalog_resource_format_autocomplete",
+      "preset_name": "sixodp_resource_format_autocomplete",
       "values": {
         "validators": "if_empty_guess_format ignore_missing clean_format upper_if_exists unicode",
         "form_placeholder": "eg. CSV, XML or JSON",

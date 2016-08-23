@@ -156,7 +156,7 @@
     {
       "field_name": "format",
       "label": "Format",
-      "preset": "apicatalog_resource_format_autocomplete"
+      "preset": "sixodp_resource_format_autocomplete"
     },
     {
       "field_name": "validSince",

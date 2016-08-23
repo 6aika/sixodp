@@ -13,7 +13,7 @@ class Sixodp_FeedPlugin(ckan.plugins.SingletonPlugin):
     # IRoutes
 
     def before_map(self, m):
-        controller = 'ckanext.sixodp_routes.feed:Apicatalog_FeedController'
+        controller = 'ckanext.sixodp_routes.feed:Sixodp_FeedController'
         m.connect('/feeds/dataset.atom', action='general', controller=controller)
         m.connect('/feeds/custom.atom', action='custom', controller=controller)
         return m
