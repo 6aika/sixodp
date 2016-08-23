@@ -13,7 +13,7 @@
   roles:
     - { role: ckan-extension, ckanext: ckanext-sixodp_routes }
     - { role: ckan-extension, ckanext: ckanext-sixodp_scheming }
-    - { role: ckan-extension, ckanext: ckanext-apicatalog_ui }
+    - { role: ckan-extension, ckanext: ckanext-sixodp_ui }
     - { role: ckan-extension, ckanext: ckanext-fluentall }
     - { role: ckan-extension, ckanext: ckanext-scheming }
     - { role: ckan-extension, ckanext: ckanext-fluent }

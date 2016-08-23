@@ -12,6 +12,6 @@
     - "{{ secrets_file_path }}"
   roles:
     - { role: ckan-ui }
-    - { role: ckan-extension, ckanext: ckanext-apicatalog_ui }
+    - { role: ckan-extension, ckanext: ckanext-sixodp_ui }
     - ckan
     - ckan-translations
