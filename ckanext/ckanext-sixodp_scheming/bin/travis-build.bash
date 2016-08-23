@@ -25,7 +25,7 @@ cd ckan
 paster db init -c test-core.ini
 cd -
 
-echo "Installing ckanext-ckanext-apicatalog_scheming and its requirements..."
+echo "Installing ckanext-sixodp_scheming and its requirements..."
 python setup.py develop
 pip install -r dev-requirements.txt
 
