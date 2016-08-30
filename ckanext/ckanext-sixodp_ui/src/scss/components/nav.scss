@@ -1,0 +1,37 @@
+nav {
+  display: flex;
+  width: 100%;
+}
+
+.nav {
+  display: flex;
+  padding: 0;
+  height: $nav-height;
+}
+
+.nav li {
+  list-style: none;
+  line-height: $nav-height;
+  width: 100%;
+
+  a {
+    color: $black !important;
+    display: block;
+    font-size: $font-size;
+    padding: 0 $base*2;
+    text-decoration: none;
+  }
+
+  @media (min-width: 780px) {
+    flex: 0;
+  }
+}
+
+.nav--centered {
+  flex: 1;
+  justify-content: center;
+}
+
+.nav--right {
+  margin-left: auto;
+}
