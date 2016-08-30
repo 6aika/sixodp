@@ -32,6 +32,7 @@
     - { role: ckan-extension, ckanext: ckanext-contact }
     - { role: ckan-extension, ckanext: ckanext-harvest }
     - ckan
+    - ckan-cron
     #- ckan-translations
     #- supervisor
     - solr-reindex
