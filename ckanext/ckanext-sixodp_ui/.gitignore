@@ -40,3 +40,6 @@ coverage.xml
 
 # Sphinx documentation
 docs/_build/
+
+# Generated CSS
+ckanext/sixodp_ui/fanstatic/*.css
