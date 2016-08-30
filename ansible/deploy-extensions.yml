@@ -22,5 +22,3 @@
     - { role: ckan-extension, ckanext: ckanext-harvest }
     - ckan
     - ckan-translations
-  handlers:
-    - include: handlers/handlers.yml

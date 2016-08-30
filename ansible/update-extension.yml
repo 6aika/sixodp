@@ -16,5 +16,3 @@
     - "{{ secrets_file_path }}"
   roles:
     - ckan-extension
-  handlers:
-    - include: handlers/handlers.yml

@@ -35,5 +35,3 @@
     #- ckan-translations
     #- supervisor
     - solr-reindex
-  handlers:
-    - include: handlers/handlers.yml

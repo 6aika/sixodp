@@ -54,6 +54,3 @@
 
     - name: Start CKAN
       service: name=apache2 state=restarted
-
-  handlers:
-    - include: handlers/handlers.yml
