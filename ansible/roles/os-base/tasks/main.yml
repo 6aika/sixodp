@@ -38,6 +38,7 @@
     - libxml2-dev
     - libxslt1-dev
     - node-less
+    - curl
 
 # Note: psycopg2 requires postgresql-server-dev
 
