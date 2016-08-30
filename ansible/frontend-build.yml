@@ -15,3 +15,4 @@
     - { role: ckan-extension, ckanext: ckanext-sixodp_ui }
     - ckan
     - ckan-translations
+    - node

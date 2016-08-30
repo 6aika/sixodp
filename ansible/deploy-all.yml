@@ -21,6 +21,7 @@
     - nginx
     - apache
     - postfix
+    - node
     - { role: ckan-extension, ckanext: ckanext-sixodp_routes }
     - { role: ckan-extension, ckanext: ckanext-sixodp_scheming }
     - { role: ckan-extension, ckanext: ckanext-sixodp_ui }
