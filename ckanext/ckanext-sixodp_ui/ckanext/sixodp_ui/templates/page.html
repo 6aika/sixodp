@@ -2,10 +2,6 @@
 
 {%- block page -%}
 
-  {% block skip %}
-    <div class="hide"><a href="#content">{{ _('Skip to content') }}</a></div>
-  {% endblock %}
-
   {#
   Override the header on a page by page basis by extending this block. If
   making sitewide header changes it is preferable to override the header.html
@@ -139,6 +135,8 @@
       {% resource 'base/tracking.js' %}
     {% endif %}
   {{ super() }}
+
+  <script type="text/javascript" src="/base/app.js"></script>
 
   <!-- Piwik -->
   <script type="text/javascript">
