@@ -6,27 +6,10 @@
 
   <form class="module-content search-form" method="get" action="{% url_for controller='package', action='search' %}">
     <div class="row">
-      <div class="col-xs-8 col-xs-offset-1">
-        <div class="search-input control-group search-giant">
-          <input type="text" class="search" name="q" value="" autocomplete="off" placeholder="{% block search_placeholder %}{{ placeholder }}{% endblock %}" />
-        </div>
-      </div>
-      <div class="col-xs-2">
-        <button class="button-hollow" type="submit">
-          <i class="icon-search"></i>
-          <span class="hidden-xs">{{ _('Search') }}</span>
-        </button>
-      </div>
-    </div>
-    <div class="row hidden-xs">
-      <div class="col-sm-offset-1 tags">
-        <span>{{ _('Popular tags') + ':' }}</span>
-        {% for tag in tags %}
-          <a class="tag" href="{% url_for controller='package', action='search', tags=tag.name %}">{{ h.truncate(tag.display_name, 22) }}</a>
-        {% endfor %}
+      <div class="wrapper">
+        <input type="text" id="search" placeholder="{% block search_placeholder %}{{ placeholder }}{% endblock %}" class="input--large search" name="q" value="" autocomplete="off" />
+        <button type="button" class="btn">Etsi</button>
       </div>
     </div>
   </form>
-
-
 </div>
