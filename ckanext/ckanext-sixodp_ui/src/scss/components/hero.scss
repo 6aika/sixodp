@@ -1,0 +1,11 @@
+.hero-background-container {
+  margin-top: $base*12;
+  margin-bottom: $base*12;
+  padding: $base*12 0;
+
+  .container {
+    padding: $base*6 $base*4;
+    background: rgba(255,255,255,0.8);
+    border-radius: 4px;
+  }
+}

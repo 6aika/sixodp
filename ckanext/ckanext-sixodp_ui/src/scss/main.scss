@@ -1,6 +1,11 @@
-@import "materialize.css";
+//@import "materialize.css";
 @import "base/variables";
+@import "base/animations";
 @import "base/layout";
 
 // Components
 @import "components/nav";
+@import "components/hero";
+@import "components/label";
+@import "components/input";
+@import "components/button";

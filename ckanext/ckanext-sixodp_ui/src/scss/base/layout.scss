@@ -11,4 +11,37 @@ body {
   margin: 0;
   font-family: $font;
   font-size: $font-size;
+  background: url('/base/images/frontpage.jpeg') no-repeat fixed;
+  background-size: cover;
+
+  &:before {
+    content: '';
+    display: block;
+    z-index: -1;
+    position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    background: rgba(0,0,0,0.05);
+  }
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+
+  @media (min-width: 480px) {
+    width: 80%;
+  }
+
+  @media (min-width: 1080px) {
+    width: 960px;
+  }
+}
+
+.wrapper {
+  display: flex;
+  max-width: 720px;
+  margin: 0 auto;
 }

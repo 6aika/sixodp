@@ -1,0 +1,25 @@
+button {
+  padding: $base $base*2;
+  color: #fff;
+  background-color: $color--primary;
+  border: 0;
+  font-size: $base*1.6;
+  cursor: pointer;
+  overflow: hidden;
+  outline: 0;
+  position: relative;
+  transition: all .3s linear;
+
+  &:hover {
+    background-color: lighten($color--primary, 15%);
+  }
+
+  .ripplr {
+    position: absolute;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    animation: ripple-animation 2s;
+  }
+}
