@@ -8,3 +8,6 @@
 
 - name: Update npm
   command: npm install -g npm
+
+- name: Install browserify
+  command: npm install -g browserify
