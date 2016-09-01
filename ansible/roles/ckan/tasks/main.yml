@@ -9,8 +9,8 @@
 - name: Install CKAN requirements
   pip: requirements={{ virtualenv }}/src/ckan/requirements.txt virtualenv={{ virtualenv }} state=latest
 
-
-# can be removed after upgrading ckan to newer than 2.5
+# TODO Can be removed when upgrading ckan to 2.5.3
+# https://github.com/ckan/ckan/issues/3214
 - name: Upgrade bleach to 1.4.3
   pip: name=bleach version=1.4.3 virtualenv={{ virtualenv }}
 
