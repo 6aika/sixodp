@@ -1,0 +1,13 @@
+---
+
+- name: Copy CKAN configuration
+  template: src={{ item.src }} dest={{ item.dest }} mode={{ item.mode }} owner={{ item.owner }} group={{ item.group }}
+  with_items:
+    - { src: ckan.py, dest: /usr/bin/ckan, mode: "0755", owner: root, group: root }
+    - { src: ckan.ini.j2, dest: "{{ ckan_ini }}", mode: "0640", owner: root, group: "{{ www_group }}" }
+    - { src: apache.wsgi.j2, dest: /etc/ckan/default/apache.wsgi, mode: "0640", owner: root, group: "{{ www_group }}" }
+    - { src: who.ini.j2, dest: /etc/ckan/default/who.ini, mode: "0640", owner: root, group: "{{ www_group }}" }
+
+- name: Disallow robots
+  template: src={{ search_engine_robots_filename }} dest={{ virtualenv }}/src/ckan/ckan/public/robots.txt owner=root group=root mode=0644
+  when: not robots_allowed

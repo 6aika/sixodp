@@ -6,6 +6,7 @@ www_group: www-data
 server_path: /opt/datacatalog
 cache_path: "{{ server_path }}/cache"
 data_path: "{{ server_path }}/data"
+ckan_storage_path: "{{ data_path }}/ckan"
 
 ckan_ini: /etc/ckan/default/production.ini
 virtualenv: /usr/lib/ckan/default

@@ -1,0 +1,15 @@
+---
+
+patches_cache_path: "{{ cache_path }}/patch"
+ckan_source_path: "{{ virtualenv }}/src/ckan"
+
+ckan_patches:
+  - { file: "fix_401_to_403" }
+  - { file: "remove_gravatar" }
+  - { file: "csrf" }
+  - { file: "alert_fix" }
+  - { file: "allow_org_admins_create_users" }
+  - { file: "set_attachment_content_disposition" }
+
+files_created_by_patches:
+  - { file: '/usr/lib/ckan/default/src/ckan/ckan/lib/csrf_token.py'}

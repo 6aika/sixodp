@@ -23,7 +23,9 @@
     - postfix
     - node
     - ckan-extensions
-    - ckan
+    - ckan-install
+    - ckan-config
+    - ckan-install-patches
     - ckan-database
     - ckan-cron
     #- ckan-translations

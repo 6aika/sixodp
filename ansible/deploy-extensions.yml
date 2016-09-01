@@ -12,6 +12,6 @@
     - "{{ secrets_file_path }}"
   roles:
     - ckan-extensions
-    - ckan
+    - ckan-config
     - ckan-translations
     - ckan-restart
