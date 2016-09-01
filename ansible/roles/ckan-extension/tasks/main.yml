@@ -6,7 +6,7 @@
 # On servers, create an archive of the current sources, upload and unarchive
 
 - name: Archive extension
-  local_action: command zip -FSr /tmp/api-catalog-{{ ckanext }}.zip {{ ckanext }} chdir="../ckanext"
+  local_action: command zip -FSr /tmp/{{ ckanext }}.zip {{ ckanext }} chdir="../ckanext"
   become: false
   when: deployment_environment_id != "vagrant"
 
@@ -15,7 +15,7 @@
   when: deployment_environment_id != "vagrant"
 
 - name: Copy and unarchive extension
-  unarchive: src=/tmp/api-catalog-{{ ckanext }}.zip dest="{{ ckanext_sync_path }}/" owner=root group=root
+  unarchive: src=/tmp/{{ ckanext }}.zip dest="{{ ckanext_sync_path }}/" owner=root group=root
   when: deployment_environment_id != "vagrant"
 
 # On Vagrant, symlink sources from host so that they can be edited live
