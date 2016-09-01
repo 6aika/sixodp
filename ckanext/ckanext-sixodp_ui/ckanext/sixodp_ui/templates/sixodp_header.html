@@ -1,23 +1,36 @@
 {% block header_wrapper %}
   {% block header_account %}
     <div class="navbar navbar-fixed">
-      <nav>
-        <ul>
-          <li class="logo">
+      <nav class="nav-wrapper">
+        <ul class="nav">
+          <li class="nav-item logo">
             <a href="{{ h.url('home') }}" class="brand-logo">
               <img src="/base/images/6aika_logo.png" alt="6Aika logo" width="80" />
             </a>
           </li>
           {% block header_site_navigation_tabs %}
-            {{ h.build_nav('search', _('Datasets')) }}
-            {{ h.build_nav('organizations_index', _('Organizations')) }}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ h.url_for(controller='package', action='search') }}">
+                {{ _('Datasets') }}
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ h.url_for(controller='organization', action='index') }}">
+                {{ _('Organizations') }}
+              </a>
+            </li>
           {% endblock %}
           {{ h.build_nav_main() }}
-          {{ h.build_nav('contact_form', _('Feedback')) }}
-          <li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{ h.url_for(controller='ckanext.contact.controllers.contact:ContactController', action='form') }}">
+              {{ _('Feedback') }}
+            </a>
+          </li>
+          <li class="nav-item">
             {% snippet 'home/snippets/sixodp_language-changer.html' %}
           </li>
-          <li style="margin-left: auto;">
+          <li class="nav-item" style="margin-left: auto;">
             {% snippet 'home/snippets/sixodp_profile.html' %}
           </li>
         </ul>
