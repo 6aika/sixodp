@@ -5,3 +5,4 @@
   with_items:
     - pip
     - setuptools
+    - boto

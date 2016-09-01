@@ -55,3 +55,9 @@ email:
   contact: not-implemented@localhost
 
 robots_allowed: false
+
+AWS:
+  use_iam_role: true
+  check_access: true
+  ckan_s3_bucket: sixodp-testi-ampari
+  filesystem_download_fallback: false

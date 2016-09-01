@@ -55,3 +55,11 @@ email:
   contact: vagrant@localhost
 
 robots_allowed: true
+
+AWS:
+  use_iam_role: false
+  access_key: somekey
+  secret_access_key: somesecret
+  check_access: false
+  ckan_s3_bucket: sixodp-testi-ampari
+  filesystem_download_fallback: true
