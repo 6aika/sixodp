@@ -2,7 +2,7 @@
 
 This repository provides the open data catalog of the [Six City Strategy](http://6aika.fi/in-english/) in Finland.
 
-Live demo at https://6aika.goforecrew.com
+Live demo at https://demo.dataportaali.com
 
 ### Getting started
 
