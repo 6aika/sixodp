@@ -110,6 +110,11 @@ ckan.storage_path = {{ ckan_storage_path }}
 solr_url = http://{{ solr.host }}:{{ solr.port }}/solr/ckan
 
 ckanext.s3filestore.aws_bucket_name = {{ AWS.ckan_s3_bucket }}
+
+{% if AWS.use_iam_role -%}
+ckanext.s3filestore.aws_use_ami_role = true
+{%- endif %}
+
 {% if not AWS.use_iam_role -%}
 ckanext.s3filestore.check_access_on_startup = {{ AWS.check_access }}
 ckanext.s3filestore.aws_access_key_id = {{ AWS.access_key }}
