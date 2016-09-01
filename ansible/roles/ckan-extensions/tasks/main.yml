@@ -1,0 +1,10 @@
+---
+
+- name: Ensure temp directory for extensions
+  file: path={{ ckanext_sync_path }} state=directory
+
+- include: extension.yml
+  with_items: "{{ ckan_extensions }}"
+
+- name: Restart Apache
+  service: name=apache2 state=restarted

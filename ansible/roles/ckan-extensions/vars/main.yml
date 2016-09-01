@@ -1,0 +1,15 @@
+---
+
+ckanext_sync_path: "{{ server_path }}/ckanext"
+
+ckan_extensions:
+  - ckanext-sixodp_routes
+  - ckanext-sixodp_scheming
+  - ckanext-sixodp_ui
+  - ckanext-fluentall
+  - ckanext-scheming
+  - ckanext-fluent
+  - ckanext-pages
+  - ckanext-contact
+  - ckanext-harvest
+  - ckanext-s3filestore
