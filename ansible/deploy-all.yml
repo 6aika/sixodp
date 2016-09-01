@@ -24,7 +24,9 @@
     - node
     - ckan-extensions
     - ckan
+    - ckan-database
     - ckan-cron
     #- ckan-translations
+    - ckan-restart
     #- supervisor
     - solr-reindex
