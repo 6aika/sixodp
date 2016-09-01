@@ -4,9 +4,11 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "watch 'npm run build' ./src/scss",
+    "watch-sass": "watch 'npm run build' ./src/scss",
+    "watch-js": "watch 'npm run browserify' ./src/js",
+    "browserify": "browserify src/js/main.js -o ckanext/sixodp_ui/fanstatic/javascript/app.js",
     "build": "node-sass ./src/scss/main.scss ckanext/sixodp_ui/fanstatic/main.css",
-    "dev": "npm-run-all watch"
+    "dev": "npm-run-all --parallel watch-sass watch-js"
   },
   "author": "hetenho",
   "license": "ISC",
