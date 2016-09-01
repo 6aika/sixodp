@@ -11,8 +11,9 @@
     - "vars/environment-specific/{{ deployment_environment_id }}.yml"
     - "{{ secrets_file_path }}"
   roles:
-    - { role: ckan-ui }
-    - { role: ckan-extension, ckanext: ckanext-sixodp_ui }
+    #- ckan-ui
+    - { role: ckan-extensions, ckan_extensions: ckanext-sixodp_ui }
     - ckan
     - ckan-translations
+    - ckan-restart
     - node

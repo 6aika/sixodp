@@ -6,7 +6,6 @@
 - name: Copy CKAN patches
   copy: src="patches/{{ item.file }}.patch" dest="{{ patches_cache_path }}"
   with_items: "{{ ckan_patches }}"
-  register: copy_patches
   tags:
     - patch_ckan
 
@@ -23,7 +22,7 @@
   tags:
   - patch_ckan
 
-- name: re-minify CKAN javascript files
+- name: Re-minify CKAN core javascript files after patches
   shell: ./bin/paster --plugin=ckan minify {{ ckan_source_path }}/ckan/public/base/javascript "--config={{ ckan_ini }}" chdir="{{ virtualenv }}"
   tags:
   - patch_ckan
