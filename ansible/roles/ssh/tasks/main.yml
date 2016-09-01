@@ -10,5 +10,13 @@
     backup: yes
     validate: '/usr/sbin/sshd -T -f %s'
 
+- name: Authorize SSH keys
+  authorized_key:
+    user={{ ssh_admin_user }}
+    key="{{ item }}"
+    state=present
+  with_items: "{{ ssh_keys }}"
+  when: deployment_environment_id != "vagrant"
+
 - name: Restart SSH
   service: name=ssh state=restarted
