@@ -11,3 +11,6 @@
 
 - name: Install browserify
   command: npm install -g browserify
+
+- name: Run NPM install
+  command: npm install
