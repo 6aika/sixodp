@@ -28,6 +28,7 @@
   become: true
   become_user: solr
   when: fetch_solr|changed
+  ignore_errors: True
 
 - name: Copy CKAN Solr schema and config
   copy: src={{ item }} dest=/var/solr/data/ckan/conf/{{ item }} mode="0644" owner=solr group=solr
