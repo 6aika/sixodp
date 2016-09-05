@@ -17,5 +17,8 @@
     "node-sass": "^3.8.0",
     "npm-run-all": "^3.0.0",
     "watch": "^0.19.2"
+  },
+  "dependencies": {
+    "ripplr": "^1.2.0"
   }
 }
