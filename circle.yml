@@ -8,6 +8,8 @@ checkout:
     - git submodule sync
     - git submodule update --init
 dependencies:
+  pre:
+    - npm install -g browserify
   override:
     - npm install:
         pwd: ckanext/ckanext-sixodp_ui
