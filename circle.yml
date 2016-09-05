@@ -1,14 +1,7 @@
 machine:
-  node:
-    version: v6.1.0
   python:
     version: 2.7.11
 checkout:
   post:
     - git submodule sync
     - git submodule update --init
-dependencies:
-  override:
-    - npm install:
-      pwd:
-        ckanext/ckanext-sixodp_ui
