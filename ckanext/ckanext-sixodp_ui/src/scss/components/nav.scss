@@ -40,7 +40,7 @@
 .brand-logo {
   display: inline-block;
   vertical-align: middle;
-  line-height: 60px;
+  line-height: $nav-height;
 
   img {
     vertical-align: middle;
@@ -65,23 +65,36 @@
   }
 
   &.opened {
-    background: rgba(0,0,0,0.1);
+    background: #fff;
+  }
+
+  &.open {
+    position: relative;
+    z-index: 1;
+
+    a {
+      color: $black;
+
+      &:hover {
+        color: $color--primary;
+      }
+    }
   }
 }
 
 .language-changer.open {
-  max-height: 240px;
+  max-height: $base * 24;
 }
 
 #profile.open {
-  max-height: 480px;
+  max-height: $base * 48;
 }
 
 .nav-link.dropdown-toggle {
   @extend .centered;
-  height: 60px;
+  height: $nav-height;
 
   .material-icon-label {
-    margin-left: 5px;
+    margin-left: $base/2;
   }
 }
