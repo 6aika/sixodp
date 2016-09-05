@@ -13,3 +13,6 @@ dependencies:
   override:
     - npm install:
         pwd: ckanext/ckanext-sixodp_ui
+general:
+  artifacts:
+    - "ckanext/ckanext-sixodp_ui"
