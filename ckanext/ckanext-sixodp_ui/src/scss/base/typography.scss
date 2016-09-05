@@ -1,0 +1,16 @@
+body {
+  font-family: $font;
+  font-size: $font-size;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.7;
+}
+
+p {
+  line-height: 1.5;
+}
+
+a {
+  color: $color--primary;
+}
