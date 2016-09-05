@@ -15,9 +15,9 @@ dependencies:
         pwd: ckanext/ckanext-sixodp_ui
 general:
   artifacts:
-    - "ckanext-sixodp_ui.tar.gz"
+    - "~/ckanext-sixodp_ui.tar.gz"
 deployment:
   master:
     branch: master
     commands:
-       - tar --exclude=".git node_modules" -czvf ~/ckanext-sixodp_ui.tar.gz ckanext/ckanext-sixodp_ui
+       - tar --exclude=".git ckanext/ckanext/sixodp_ui/node_modules" -czvf ~/ckanext-sixodp_ui.tar.gz ckanext/ckanext-sixodp_ui
