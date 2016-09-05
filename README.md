@@ -49,10 +49,10 @@ With Vagrant, the host machine shares the working directory into the virtual mac
     .
     ├── ansible
     │   ├── deploy-all.yml                  Top-level playbook for configuring complete service
-    │   ├── inventories                     Target server lists (hostname, ssh user and key)
+    │   ├── inventories                     Target server lists
     │   ├── roles                           Main configuration
     │   └── vars                            Variables common for all roles
-    │       ├── api-catalog-secrets         Passwords and other secrets (not included here)
+    │       ├── sixodp-secrets              Passwords and other secrets (not included here)
     │       ├── common.yml                  Variables common for all roles and environments
     │       ├── environment-specific        Configuration specific for each deployment env
     │       └── secrets-defaults.yml        Default passwords, used in Vagrant
@@ -66,8 +66,6 @@ Please file a [new issue](https://github.com/6aika/sixodp/issues) at GitHub.
 
 ### Copying and License
 
-This material is copyright (c) 2015-2016 Population Register Centre.
+This material is copyright by Tampere Region Economic Development Agency Tredea, and is based on earlier work by Population Register Centre and Finnish State Treasury.
 
-CKAN-related content like [CKAN extensions](/ckanext) are licensed under the GNU Affero General Public License (AGPL) v3.0 whose full text may be found at: http://www.fsf.org/licensing/licenses/agpl-3.0.html
-
-All other content in this repository is licensed under the MIT license.
+CKAN-related source code such as the [CKAN extensions](/ckanext) and patches are licensed under the [AGPL v3.0](http://www.fsf.org/licensing/licenses/agpl-3.0.html). All other content in this repository is licensed under the MIT license.
