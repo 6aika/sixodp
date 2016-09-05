@@ -53,24 +53,35 @@
   overflow: hidden;
   height: 100%;
   max-height: $nav-height;
-  transition: all .3s ease-in-out;
+  transition: all .2s ease-in-out;
 
   .nav-item {
     display: block;
     width: 100%;
   }
-  
+
   .nav-link {
     padding: 0 $base*1.5;
   }
 
-  &.open {
+  &.opened {
     background: rgba(0,0,0,0.1);
-    max-height: 480px;
   }
+}
+
+.language-changer.open {
+  max-height: 240px;
+}
+
+#profile.open {
+  max-height: 480px;
 }
 
 .nav-link.dropdown-toggle {
   @extend .centered;
   height: 60px;
+
+  .material-icon-label {
+    margin-left: 5px;
+  }
 }

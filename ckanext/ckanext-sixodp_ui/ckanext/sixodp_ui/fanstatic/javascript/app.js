@@ -86,7 +86,14 @@ $(function() {
   });
 
   $('body').on('click', '.dropdown-toggle', function() {
-    $('.dropdown-menu').toggleClass('open');
+    var $dd = $('#'+$(this).attr('data-toggle'));
+    var first = $dd.hasClass('opened') ? 'open' : 'opened';
+    var second = $dd.hasClass('opened') ? 'opened' : 'open';
+
+    $dd.toggleClass(first);
+    setTimeout(function() {
+      $dd.toggleClass(second);
+    }, 200);
   });
 });
 

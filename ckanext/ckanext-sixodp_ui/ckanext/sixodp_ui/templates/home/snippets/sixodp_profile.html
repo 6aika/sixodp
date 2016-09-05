@@ -2,12 +2,12 @@
 {% block header_account_container_content %}
   {% if c.userobj %}
     {% set new_activities = h.new_activities() %}
-    <li class="nav-item dropdown" id="profile">
+    <li class="nav-item dropdown">
 
-      <ul id="no-collapse" class="nav dropdown-menu dropdown-menu-right">
+      <ul id="profile" class="nav dropdown-menu dropdown-menu-right">
         <li class="nav-item">
-          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            <i class="material-icons" style="font-size: 36px;">account_circle</i>
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="profile" role="button" aria-haspopup="true" aria-expanded="false">
+            <i class="material-icons" style="font-size: 36px;">account_circle</i> <span class="material-icon-label">Tili</span>
           </a>
         </li>
         {% if c.userobj.sysadmin %}

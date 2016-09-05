@@ -27,12 +27,10 @@
               {{ _('Feedback') }}
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item dropdown" style="margin-left: auto;">
             {% snippet 'home/snippets/sixodp_language-changer.html' %}
           </li>
-          <li class="nav-item" style="margin-left: auto;">
-            {% snippet 'home/snippets/sixodp_profile.html' %}
-          </li>
+          {% snippet 'home/snippets/sixodp_profile.html' %}
         </ul>
       </nav>
       {% block header_debug %}
