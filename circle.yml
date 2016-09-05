@@ -7,3 +7,7 @@ checkout:
   post:
     - git submodule sync
     - git submodule update --init
+dependencies:
+  override:
+    npm install:
+      pwd: ckanext/ckanext-sixodp_ui
