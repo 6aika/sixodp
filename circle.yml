@@ -10,4 +10,4 @@ checkout:
 dependencies:
   override:
     - npm install:
-      pwd: ckanext
+        pwd: ckanext/ckanext-sixodp_ui
