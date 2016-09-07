@@ -21,7 +21,6 @@
     - nginx
     - apache
     - postfix
-    - node
     - ckan-extensions
     - ckan-install
     - ckan-config
