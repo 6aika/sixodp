@@ -1,0 +1,195 @@
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+@keyframes ripple-animation {
+  from {
+    transform: scale(1);
+    opacity: 0.3; }
+  to {
+    transform: scale(100);
+    opacity: 0; } }
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+body {
+  margin: 0;
+  background: url("/base/images/frontpage.jpg") no-repeat fixed;
+  background-size: cover; }
+  body:before {
+    content: '';
+    display: block;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 160px;
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, transparent 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, transparent 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, transparent 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ }
+
+.container {
+  width: 100%;
+  margin: 0 auto; }
+  @media (min-width: 480px) {
+    .container {
+      width: 80%; } }
+  @media (min-width: 1080px) {
+    .container {
+      width: 960px; } }
+
+.wrapper {
+  display: flex;
+  max-width: 720px;
+  margin: 0 auto; }
+
+body {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 16px; }
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.7; }
+
+p {
+  line-height: 1.5; }
+
+a {
+  color: #593FBA; }
+
+.navbar {
+  height: 60px;
+  line-height: 60px;
+  background: #fff; }
+
+.nav-wrapper {
+  height: 100%;
+  padding: 0 10px; }
+  @media (min-width: 960px) {
+    .nav-wrapper {
+      padding: 0 40px; } }
+
+.nav {
+  display: flex;
+  margin: 0;
+  padding: 0; }
+
+.nav-item {
+  display: flex; }
+  .nav-item.logo {
+    margin-right: 20px; }
+
+.nav-link {
+  display: block;
+  color: #333;
+  padding: 0 10px;
+  text-decoration: none; }
+  .nav-link:hover, .nav-link.active {
+    color: #593FBA; }
+
+.brand-logo {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 60px; }
+  .brand-logo img {
+    vertical-align: middle;
+    margin-top: -5px; }
+
+.dropdown {
+  display: block;
+  width: 120px;
+  overflow: visible;
+  position: absolute;
+  right: 40px; }
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; }
+
+.dropdown-menu {
+  display: block;
+  overflow: hidden;
+  background: #fff;
+  max-height: 60px;
+  position: absolute;
+  right: 0;
+  top: 60px; }
+  .dropdown-menu .nav-item {
+    display: none;
+    justify-content: flex-end; }
+  .dropdown-menu.opened .nav-item {
+    display: block;
+    width: 180px; }
+    .dropdown-menu.opened .nav-item .nav-link {
+      color: #333; }
+      .dropdown-menu.opened .nav-item .nav-link:hover {
+        color: #593FBA; }
+
+.opened {
+  overflow: visible;
+  max-height: 240px;
+  border-top: 1px solid #593FBA; }
+  .opened#profile {
+    max-height: 420px; }
+
+.nav-item--language {
+  right: 160px; }
+
+.hero-background-container {
+  margin-top: 120px;
+  margin-bottom: 120px;
+  padding: 120px 0; }
+  .hero-background-container .container {
+    padding: 60px 40px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 4px; }
+
+label {
+  display: block; }
+
+input {
+  font-size: 15px;
+  padding: 10px;
+  border: 1px solid #f5f5f5;
+  border-bottom: 2px solid #eee;
+  transition: border-color .2s ease-in-out; }
+  input:focus, input:active {
+    border-bottom-color: #593FBA;
+    outline: none; }
+
+.input--large {
+  font-size: 20px;
+  padding: 15px; }
+  .input--large.search {
+    width: 90%; }
+
+button {
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #593FBA;
+  border: 0;
+  font-size: 16px;
+  cursor: pointer;
+  overflow: hidden;
+  outline: 0;
+  position: relative;
+  transition: all .3s linear; }
+  button:hover {
+    background-color: #8875d0; }
+  button .ripplr {
+    position: absolute;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    animation: ripple-animation 2s; }
