@@ -3,13 +3,10 @@
   {% if c.userobj %}
     {% set new_activities = h.new_activities() %}
     <li class="nav-item dropdown">
-
+      <a href="#" class="nav-link dropdown-toggle" data-toggle="profile" role="button" aria-haspopup="true" aria-expanded="false">
+        <i class="material-icons" style="font-size: 36px;">account_circle</i> <span class="material-icon-label">Tili</span>
+      </a>
       <ul id="profile" class="nav dropdown-menu dropdown-menu-right">
-        <li class="nav-item">
-          <a href="#" class="nav-link dropdown-toggle" data-toggle="profile" role="button" aria-haspopup="true" aria-expanded="false">
-            <i class="material-icons" style="font-size: 36px;">account_circle</i> <span class="material-icon-label">Tili</span>
-          </a>
-        </li>
         {% if c.userobj.sysadmin %}
         <li class="nav-item">
           <a href="{{ h.url_for(controller='admin', action='index') }}" class="nav-link" title="{{ _('Sysadmin settings') }}">

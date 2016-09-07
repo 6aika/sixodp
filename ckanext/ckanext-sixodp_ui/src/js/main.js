@@ -9,12 +9,13 @@ $(function() {
 
   $('body').on('click', '.dropdown-toggle', function() {
     var $dd = $('#'+$(this).attr('data-toggle'));
-    var first = $dd.hasClass('opened') ? 'open' : 'opened';
-    var second = $dd.hasClass('opened') ? 'opened' : 'open';
+    var closed = !$dd.hasClass('opened');
 
-    $dd.toggleClass(first);
-    setTimeout(function() {
-      $dd.toggleClass(second);
-    }, 200);
+    $('.dropdown-menu').removeClass('opened');
+    $('.dropdown-toggle').removeClass('active');
+    if ( closed ) {
+      $dd.addClass('opened');
+      $(this).addClass('active');
+    }
   });
 });
