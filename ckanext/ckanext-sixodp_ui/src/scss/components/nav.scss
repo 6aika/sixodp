@@ -98,3 +98,30 @@
     margin-left: $base/2;
   }
 }
+
+
+
+.dropdown {
+  display: block;
+  width: 120px;
+  position: absolute;
+    right: 0;
+
+  &.nav-item--language {
+    right: 120px;
+  }
+
+  ul {
+    overflow-x: visible !important;
+
+    li {
+      float: right;
+      width: 200px !important;
+
+      &:first-child {
+        float: none;
+        width: 100% !important;
+      }
+    }
+  }
+}
