@@ -13,9 +13,11 @@ $(function() {
 
     $('.dropdown-menu').removeClass('opened');
     $('.dropdown-toggle').removeClass('active');
+    $('.dropdown-toggle').attr('aria-expanded', 'false');
     if ( closed ) {
       $dd.addClass('opened');
       $(this).addClass('active');
+      $(this).attr('aria-expanded', 'true');
     }
   });
 });
