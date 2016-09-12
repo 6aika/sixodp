@@ -3,6 +3,12 @@
   justify-content: center;
   align-items: center; }
 
+.site-title, .site-subtitle {
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #aaa; }
+
 @keyframes ripple-animation {
   from {
     transform: scale(1);
@@ -57,10 +63,7 @@ body {
   font-family: "Noto Sans", sans-serif;
   font-size: 16px; }
 
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1.7; }
-
-p {
+h1, h2, h3, h4, h5, h6, p {
   line-height: 1.5; }
 
 a {
@@ -150,14 +153,25 @@ a {
 .nav-item--language {
   right: 160px; }
 
-.hero-background-container {
+.hero {
   margin-top: 120px;
-  margin-bottom: 120px;
-  padding: 120px 0; }
-  .hero-background-container .container {
-    padding: 60px 40px;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 4px; }
+  margin-bottom: 120px; }
+
+.hero-background-container .container {
+  padding: 60px 40px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 4px;
+  margin-top: 120px; }
+
+.site-title {
+  font-size: 40px; }
+
+.site-subtitle {
+  line-height: 1;
+  /*text-shadow: none;*/
+  margin-top: -10px;
+  font-weight: normal;
+  /*color: $color--primary;*/ }
 
 label {
   display: block; }
