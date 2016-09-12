@@ -6,11 +6,15 @@ html {
   box-sizing: inherit;
 }
 
+html, body, .homepage {
+  height: 100%;
+}
 
 body {
   margin: 0;
-  background: url('/base/images/frontpage.jpg') no-repeat fixed;
+  background: url('/base/images/frontpage.jpg') no-repeat center center;
   background-size: cover;
+  padding-top: $nav-height;
 
   &:before {
     content: '';

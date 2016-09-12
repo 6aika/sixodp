@@ -20,4 +20,7 @@ $(function() {
       $(this).attr('aria-expanded', 'true');
     }
   });
+
+  var rellax = new Rellax('.rellax');
+
 });

@@ -1,5 +1,16 @@
-.centered {
+%centered {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+%title {
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #aaa;
+}
+
+.centered {
+  @extend %centered;
 }
