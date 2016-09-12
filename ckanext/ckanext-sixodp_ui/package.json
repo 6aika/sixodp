@@ -5,9 +5,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch-sass": "watch 'npm run build' ./src/scss",
+    "build-bs": "node-sass ./node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss ckanext/sixodp_ui/fanstatic/bootstrap.css",
     "watch-js": "watch 'npm run browserify' ./src/js",
     "browserify": "browserify src/js/main.js -o ckanext/sixodp_ui/fanstatic/javascript/app.js",
-    "build": "node-sass ./src/scss/main.scss ckanext/sixodp_ui/fanstatic/sixodp_ui.css",
+    "build": "npm-run-all --parallel build-bs build-sass",
+    "build-sass": "node-sass ./src/scss/main.scss ckanext/sixodp_ui/fanstatic/sixodp_ui.css",
     "dev": "npm-run-all --parallel watch-sass watch-js",
     "postinstall": "npm-run-all --parallel build browserify"
   },
@@ -19,6 +21,7 @@
     "watch": "^0.19.2"
   },
   "dependencies": {
+    "bootstrap-sass": "^3.3.7",
     "ripplr": "^1.2.0"
   }
 }
