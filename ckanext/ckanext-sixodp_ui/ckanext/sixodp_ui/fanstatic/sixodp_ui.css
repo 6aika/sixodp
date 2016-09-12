@@ -5870,9 +5870,8 @@ body {
       width: 960px; } }
 
 .wrapper {
-  display: flex;
-  max-width: 720px;
-  margin: 0 auto; }
+  position: relative;
+  height: 100%; }
 
 body {
   font-family: "Noto Sans", sans-serif;
