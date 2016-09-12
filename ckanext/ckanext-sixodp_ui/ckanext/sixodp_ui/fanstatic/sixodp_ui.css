@@ -73,6 +73,11 @@ h1, h2, h3, h4, h5, h6, p {
 a {
   color: #593FBA; }
 
+.material-icons {
+  float: left;
+  line-height: 18px !important;
+  margin-right: 4px; }
+
 .navbar {
   background: #fff;
   position: absolute;
