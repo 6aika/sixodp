@@ -82,6 +82,10 @@ a {
   display: flex;
   margin: 0;
   padding: 0; }
+  .nav li {
+    list-style: none; }
+    .nav li a {
+      text-decoration: none; }
 
 .nav-item {
   display: flex; }
@@ -92,7 +96,8 @@ a {
   display: block;
   color: #333;
   padding: 0 10px;
-  text-decoration: none; }
+  text-decoration: none;
+  cursor: pointer; }
   .nav-link:hover, .nav-link.active {
     color: #593FBA; }
 

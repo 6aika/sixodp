@@ -17,6 +17,14 @@
   display: flex;
   margin: 0;
   padding: 0;
+
+  li {
+    list-style: none;
+
+    a {
+      text-decoration: none;
+    }
+  }
 }
 
 .nav-item {
@@ -32,6 +40,7 @@
   color: $black;
   padding: 0 $base;
   text-decoration: none;
+  cursor: pointer;
 
   &:hover, &.active {
     color: $color--primary;
