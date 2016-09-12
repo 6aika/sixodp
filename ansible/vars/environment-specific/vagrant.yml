@@ -57,6 +57,7 @@ email:
 robots_allowed: true
 
 AWS:
+  enabled: false
   use_iam_role: false
   access_key: somekey
   secret_access_key: somesecret

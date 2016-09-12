@@ -50,7 +50,7 @@ ckan.site_description =
 
 ckan.featured_orgs = {{ ckan_featured_orgs }}
 
-ckan.plugins = {{ enabled_ckan_extensions }}
+ckan.plugins = {{ enabled_ckan_extensions }} {% if AWS.enabled  -%} {{ enabled_ckan_aws_extensions }} {%- endif %}
 
 ckan.preview.xml_formats = xml xsd xsd+xml soap soap+xml rdf rdf+xml owl+xml atom rss wsdl wsdl+xml
 ckan.views.default_views = text_view 
@@ -111,17 +111,18 @@ solr_url = http://{{ solr.host }}:{{ solr.port }}/solr/ckan
 
 ckanext.s3filestore.aws_bucket_name = {{ AWS.ckan_s3_bucket }}
 
-{% if AWS.use_iam_role -%}
-ckanext.s3filestore.aws_use_ami_role = true
-{%- endif %}
+{% if AWS.enabled -%}
+    {% if AWS.use_iam_role -%}
+    ckanext.s3filestore.aws_use_ami_role = true
+    {%- endif %}
 
-{% if not AWS.use_iam_role -%}
-ckanext.s3filestore.check_access_on_startup = {{ AWS.check_access }}
-ckanext.s3filestore.aws_access_key_id = {{ AWS.access_key }}
-ckanext.s3filestore.aws_secret_access_key = {{ AWS.secret_access_key }}
-ckanext.s3filestore.filesystem_download_fallback = {{ AWS.filesystem_download_fallback }}
+    {% if not AWS.use_iam_role -%}
+    ckanext.s3filestore.check_access_on_startup = {{ AWS.check_access }}
+    ckanext.s3filestore.aws_access_key_id = {{ AWS.access_key }}
+    ckanext.s3filestore.aws_secret_access_key = {{ AWS.secret_access_key }}
+    ckanext.s3filestore.filesystem_download_fallback = {{ AWS.filesystem_download_fallback }}
+    {%- endif %}
 {%- endif %}
-
 
 ckan.tracking_enabled = false
 
