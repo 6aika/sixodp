@@ -5933,7 +5933,7 @@ input {
   padding: 15px; }
 
 button {
-  padding: 10px 20px;
+  padding: 10px 0 !important;
   color: #fff;
   background-color: #593FBA;
   border: 0;
@@ -5945,3 +5945,8 @@ button {
   transition: all .3s linear; }
   button:hover {
     background-color: #8875d0; }
+  button.btn-primary {
+    border-bottom: 2px solid #2b1f5b; }
+
+.btn-search--main {
+  margin-left: -1px; }

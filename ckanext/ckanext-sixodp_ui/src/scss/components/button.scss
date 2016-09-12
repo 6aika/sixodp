@@ -1,5 +1,5 @@
 button {
-  padding: $base $base*2;
+  padding: $base 0 !important;
   color: #fff;
   background-color: $color--primary;
   border: 0;
@@ -13,4 +13,12 @@ button {
   &:hover {
     background-color: lighten($color--primary, 15%);
   }
+
+  &.btn-primary {
+    border-bottom: 2px solid darken($color--primary, 25%);
+  }
+}
+
+.btn-search--main {
+  margin-left: -1px;
 }
