@@ -1,13 +1,9 @@
-<div class="hero">
+<div class="hero rellax" data-rellax-speed="-7">
   <div class="hero-background-container">
     <h1 class="site-title">Avointa dataa vapaasti hyödynnettäväksesi</h1>
     <h3 class="site-subtitle">Löydä kaiken maailman data täältä</h3>
-    <div class="container">
-      <div class="row">
-        <div>
-          {% block search %} {% snippet 'home/snippets/sixodp_huge-search.html' %} {% endblock %}
-        </div>
-      </div>
+    <div class="searchbox">
+      {% block search %} {% snippet 'home/snippets/sixodp_huge-search.html' %} {% endblock %}
     </div>
   </div>
 </div>
@@ -16,22 +12,28 @@
     {% snippet 'snippets/service_alerts.html' %}
   {% endblock %}
   <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="row">
-          <div class="col-sm-6 col-md-6">
-            {% block promoted %} {% snippet 'home/snippets/promoted.html' %} {% endblock %}
-            <div class="module">
-              {% block twitter_feed %} {% snippet 'home/snippets/twitter.html' %} {% endblock %}
-            </div>
+    <div class="module">
+      <div class="module-wrapper">
+        <div class="module-header">
+          <h3 class="module-heading">Meillä tapahtuu</h3>
+        </div>
+        <div class="module-body">
+          <div class="module-image">
+            <img src="http://placehold.it/320x280" />
           </div>
-          <div class="col-sm-6 col-md-6">
-            <div class="module">
-              {# Note: this featured_group block is used as an example in the theming tutorial in the docs! If you change this code, be sure to check whether you need to update the docs. #} {# Start template block example. #} {% block featured_group %} {% snippet 'home/snippets/featured_group.html'
-              %} {% endblock %} {# End template block example. #}
+          <div class="module-content">
+            <div class="module-content-header">
+              <h4>
+                Helsinki Region Infoshare -palvelu lanseerattiin maaliskuussa 2011. Tänä keväänä HRI juhlii viisivuotista taivaltaan järjestämällä juhlaseminaarin to 19.5.2016 Helsingin kaupungintalon juhlasalissa.
+              </h4>
             </div>
-            <div class="module">
-              {% block featured_organization %} {% snippet 'home/snippets/featured_organization.html' %} {% endblock %}
+            <div class="module-content-desc">
+              <p>
+                Seminaarissa tutustutaan HRI-palvelun upeisiin menestystarinoihin ja pohditaan, miten digitaalista kaupunkia rakennetaan avoimen tiedon pohjalta. Seminaarin yhteistyökumppanina toimii Forum Virium Helsinki, jolla on ollut merkittävä rooli HRI-palvelun rakentamisessa ja kehittämisessä.
+              </p>
+            </div>
+            <div class="module-content-meta">
+              <span class="meta">20.6.2016</span>
             </div>
           </div>
         </div>

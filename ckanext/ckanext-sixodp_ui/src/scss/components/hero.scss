@@ -3,16 +3,6 @@
   margin-bottom: $base*12;
 }
 
-.hero-background-container {
-
-  .container {
-    padding: $base*6 $base*4;
-    background: rgba(255,255,255,0.8);
-    border-radius: 4px;
-    margin-top: $base*12;
-  }
-}
-
 .site-title {
   @extend %title;
   font-size: 40px;
@@ -21,8 +11,6 @@
 .site-subtitle {
   @extend %title;
   line-height: 1;
-  /*text-shadow: none;*/
   margin-top: -10px;
   font-weight: normal;
-  /*color: $color--primary;*/
 }

@@ -98,6 +98,9 @@ $(function() {
       $(this).attr('aria-expanded', 'true');
     }
   });
+
+  var rellax = new Rellax('.rellax');
+
 });
 
 },{"ripplr":1}]},{},[2]);
