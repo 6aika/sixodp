@@ -14,8 +14,4 @@ input {
 .input--large {
   font-size: $base*2;
   padding: $base*1.5;
-
-  &.search {
-    width: 90%;
-  }
 }

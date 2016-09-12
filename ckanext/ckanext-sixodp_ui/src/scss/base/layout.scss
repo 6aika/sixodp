@@ -45,7 +45,6 @@ body {
 }
 
 .wrapper {
-  display: flex;
-  max-width: 720px;
-  margin: 0 auto;
+  position: relative;
+  height: 100%;
 }

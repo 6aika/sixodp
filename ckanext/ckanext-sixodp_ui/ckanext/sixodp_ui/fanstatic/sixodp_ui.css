@@ -1493,24 +1493,24 @@ pre {
   max-height: 340px;
   overflow-y: scroll; }
 
-.container, .searchbox {
+.container {
   margin-right: auto;
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px; }
-  .container:before, .searchbox:before, .container:after, .searchbox:after {
+  .container:before, .container:after {
     content: " ";
     display: table; }
-  .container:after, .searchbox:after {
+  .container:after {
     clear: both; }
   @media (min-width: 768px) {
-    .container, .searchbox {
+    .container {
       width: 750px; } }
   @media (min-width: 992px) {
-    .container, .searchbox {
+    .container {
       width: 970px; } }
   @media (min-width: 1200px) {
-    .container, .searchbox {
+    .container {
       width: 1170px; } }
 
 .container-fluid {
@@ -3711,15 +3711,15 @@ tbody.collapse.in {
     .navbar-fixed-bottom .navbar-collapse {
       max-height: 200px; } }
 
-.container > .navbar-header, .searchbox > .navbar-header,
-.container > .navbar-collapse, .searchbox > .navbar-collapse,
+.container > .navbar-header,
+.container > .navbar-collapse,
 .container-fluid > .navbar-header,
 .container-fluid > .navbar-collapse {
   margin-right: -15px;
   margin-left: -15px; }
   @media (min-width: 768px) {
-    .container > .navbar-header, .searchbox > .navbar-header,
-    .container > .navbar-collapse, .searchbox > .navbar-collapse,
+    .container > .navbar-header,
+    .container > .navbar-collapse,
     .container-fluid > .navbar-header,
     .container-fluid > .navbar-collapse {
       margin-right: 0;
@@ -3763,7 +3763,7 @@ tbody.collapse.in {
   .navbar-brand > img {
     display: block; }
   @media (min-width: 768px) {
-    .navbar > .container .navbar-brand, .navbar > .searchbox .navbar-brand,
+    .navbar > .container .navbar-brand,
     .navbar > .container-fluid .navbar-brand {
       margin-left: -15px; } }
 
@@ -4290,18 +4290,18 @@ a.badge:hover, a.badge:focus {
     font-weight: 200; }
   .jumbotron > hr {
     border-top-color: #d5d5d5; }
-  .container .jumbotron, .searchbox .jumbotron,
+  .container .jumbotron,
   .container-fluid .jumbotron {
     border-radius: 6px;
     padding-left: 15px;
     padding-right: 15px; }
-  .jumbotron .container, .jumbotron .searchbox {
+  .jumbotron .container {
     max-width: 100%; }
   @media screen and (min-width: 768px) {
     .jumbotron {
       padding-top: 48px;
       padding-bottom: 48px; }
-      .container .jumbotron, .searchbox .jumbotron,
+      .container .jumbotron,
       .container-fluid .jumbotron {
         padding-left: 60px;
         padding-right: 60px; }
@@ -5859,23 +5859,22 @@ body {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, transparent 100%);
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ }
 
-.container, .searchbox {
+.container {
   width: 100%;
   margin: 0 auto; }
   @media (min-width: 480px) {
-    .container, .searchbox {
+    .container {
       width: 80%; } }
   @media (min-width: 1080px) {
-    .container, .searchbox {
+    .container {
       width: 960px; } }
 
 .wrapper {
-  display: flex;
-  max-width: 720px;
-  margin: 0 auto; }
+  position: relative;
+  height: 100%; }
 
 body {
-  font-family: "Noto Sans", sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 16px; }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -5909,10 +5908,12 @@ a {
   font-weight: normal; }
 
 .searchbox {
-  padding: 60px 40px;
+  width: 100%;
+  max-width: 720px;
+  padding: 60px 80px;
   background: rgba(255, 255, 255, 0.8);
   border-radius: 4px;
-  margin-top: 120px; }
+  margin: 120px auto; }
 
 label {
   display: block; }
@@ -5930,8 +5931,6 @@ input {
 .input--large {
   font-size: 20px;
   padding: 15px; }
-  .input--large.search {
-    width: 90%; }
 
 button {
   padding: 10px 20px;
