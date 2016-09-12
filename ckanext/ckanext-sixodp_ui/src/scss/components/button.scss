@@ -13,13 +13,4 @@ button {
   &:hover {
     background-color: lighten($color--primary, 15%);
   }
-
-  .ripplr {
-    position: absolute;
-    border-radius: 50%;
-    width: 10px;
-    height: 10px;
-    background: #fff;
-    animation: ripple-animation 2s;
-  }
 }
