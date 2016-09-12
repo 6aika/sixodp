@@ -1,7 +1,8 @@
 .searchbox {
-  @extend .container;
-  padding: $base*6 $base*4;
+  width: 100%;
+  max-width: $base*72;
+  padding: $base*6 $base*8;
   background: rgba(255,255,255,0.8);
   border-radius: 4px;
-  margin-top: $base*12;
+  margin: $base*12 auto;
 }
