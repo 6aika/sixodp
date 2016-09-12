@@ -16,3 +16,6 @@
 [submodule "ckanext/ckanext-s3filestore"]
 	path = ckanext/ckanext-s3filestore
 	url = https://github.com/6aika/ckanext-s3filestore.git
+[submodule "ckanext/ckanext-showcase"]
+	path = ckanext/ckanext-showcase
+	url = https://github.com/ckan/ckanext-showcase.git

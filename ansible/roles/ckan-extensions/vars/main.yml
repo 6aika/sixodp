@@ -8,6 +8,7 @@ ckan_extensions:
   - ckanext-sixodp_ui
   - ckanext-fluentall
   - ckanext-scheming
+  - ckanext-showcase
   - ckanext-fluent
   - ckanext-pages
   - ckanext-contact
