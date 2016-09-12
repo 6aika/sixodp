@@ -1,12 +1,5 @@
 $(function() {
 
-  var Ripplr = require('ripplr');
-
-  Ripplr({
-    selector: '.btn',
-    effectClass: 'ripplr'
-  });
-
   $('body').on('click', '.dropdown-toggle', function() {
     var $dd = $('#'+$(this).attr('data-toggle'));
     var closed = !$dd.hasClass('opened');
@@ -20,7 +13,4 @@ $(function() {
       $(this).attr('aria-expanded', 'true');
     }
   });
-
-  var rellax = new Rellax('.rellax');
-
 });
