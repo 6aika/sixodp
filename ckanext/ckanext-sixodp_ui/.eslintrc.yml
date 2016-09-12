@@ -8,7 +8,10 @@ rules:
   indent:
   - error
   - 2
-  - { "SwitchCase": 1 }
+  - SwitchCase: 1
+  no-trailing-spaces:
+  - error
+  - skipBlankLines: false
   linebreak-style:
   - error
   - unix
@@ -18,3 +21,41 @@ rules:
   semi:
   - error
   - always
+  console:
+  - error
+  no-alert:
+  - error
+  block-scoped-var:
+  - warn
+  no-redeclare:
+  - warn
+  no-param-reassign:
+  - warn
+  no-self-compare:
+  - warn
+  no-else-return:
+  - warn
+  consistent-return:
+  - warn
+  array-callback-return:
+  - warn
+  curly:
+  - warn
+  eqeqeq:
+  - warn
+  yoda:
+  - warn
+  no-multi-spaces:
+  - warn
+  radix:
+  - warn
+  - always
+  no-with:
+  - error
+  no-useless-call:
+  - warn
+  no-useless-concat:
+  - warn
+  no-undefined:
+  - warn
+  
