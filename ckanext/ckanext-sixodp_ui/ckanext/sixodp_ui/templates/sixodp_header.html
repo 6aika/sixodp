@@ -18,12 +18,12 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             {% block header_site_navigation_tabs %}
-              <li class="nav-item">
+              <li>
                 <a class="nav-link" href="{{ h.url_for(controller='package', action='search') }}">
                   {{ _('Datasets') }}
                 </a>
               </li>
-              <li class="nav-item">
+              <li class=" ">
                 <a class="nav-link" href="{{ h.url_for(controller='organization', action='index') }}">
                   {{ _('Organizations') }}
                 </a>
@@ -31,7 +31,7 @@
             {% endblock %}
             {{ h.build_nav_main() }}
 
-            <li class="nav-item">
+            <li>
               <a class="nav-link" href="{{ h.url_for(controller='ckanext.contact.controllers.contact:ContactController', action='form') }}">
                 {{ _('Feedback') }}
               </a>

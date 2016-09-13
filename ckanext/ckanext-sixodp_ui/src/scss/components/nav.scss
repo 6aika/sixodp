@@ -18,3 +18,12 @@
     background-color: lighten($color--primary, 30%);
   }
 }
+
+.nav > li > a {
+  color: $black;
+
+  &:hover {
+    color: $color--primary;
+    background: none;
+  }
+}

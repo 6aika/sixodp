@@ -5840,24 +5840,26 @@ html, body, .homepage {
 
 body {
   margin: 0;
-  background: url("/base/images/frontpage.jpg") no-repeat center center;
-  background-size: cover;
   padding-top: 50px; }
-  body:before {
-    content: '';
-    display: block;
-    z-index: -1;
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    height: 160px;
-    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, transparent 100%);
-    /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, transparent 100%);
-    /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, transparent 100%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ }
+  body .homepage {
+    background: url("/base/images/frontpage.jpg") no-repeat center center;
+    background-size: cover;
+    padding-top: 50px; }
+    body .homepage:before {
+      content: '';
+      display: block;
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 160px;
+      background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, transparent 100%);
+      /* FF3.6-15 */
+      background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, transparent 100%);
+      /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, transparent 100%);
+      /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ }
 
 .container {
   width: 100%;
@@ -5903,6 +5905,12 @@ a {
   background: none; }
   .navbar-toggle:hover .icon-bar {
     background-color: #baaee4; }
+
+.nav > li > a {
+  color: #333; }
+  .nav > li > a:hover {
+    color: #593FBA;
+    background: none; }
 
 .hero {
   margin-top: 120px;
