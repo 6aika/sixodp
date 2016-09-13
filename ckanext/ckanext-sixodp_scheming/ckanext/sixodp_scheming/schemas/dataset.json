@@ -105,6 +105,12 @@
       "label": "Maintainer phone number",
       "form_placeholder": "+358123456789",
       "display_property": "dc:contributor"
+    },
+    {
+      "field_name": "license_id",
+      "label": "License",
+      "form_snippet": "license.html",
+      "display_snippet": "license.html"
     }
   ],
   "resource_fields": [
@@ -135,25 +141,6 @@
       "form_languages": ["fi", "sv", "en"]
     },
     {
-      "field_name": "chargeability",
-      "label": "Chargeability",
-      "preset": "select",
-      "choices": [
-        { 
-          "value": "yes",
-          "label": "Yes"
-        },
-        { 
-          "value": "no",
-          "label": "No"
-        },
-        { 
-          "value": "maybe",
-          "label": "See description"
-        }
-      ]
-    },
-    {
       "field_name": "format",
       "label": "Format",
       "preset": "sixodp_resource_format_autocomplete"
@@ -167,44 +154,6 @@
       "field_name": "validUntil",
       "label": "Valid until",
       "preset": "date"
-    },
-    {
-      "field_name": "connection_information",
-      "label": "Connection information",
-      "preset": "fluent_text",
-      "form_languages": ["fi", "sv", "en"]
-    },
-    {
-      "field_name": "availability",
-      "label": "Availability",
-      "preset": "fluent_text",
-      "form_languages": ["fi", "sv", "en"]
-    },
-    {
-      "field_name": "sla",
-      "label": "SLA",
-      "preset": "fluent_text",
-      "form_languages": ["fi", "sv", "en"]
-    },
-    {
-      "field_name": "response_time",
-      "label": "Average response time",
-      "form_placeholder": {
-        "en": "eg. 100ms",
-        "fi": "esim. 100ms"
-      }
-    },
-    {
-      "field_name": "service_status",
-      "label": "Service status",
-      "preset": "fluent_text",
-      "form_languages": ["fi", "sv", "en"]
-    },
-    {
-      "field_name": "license_id",
-      "label": "License",
-      "form_snippet": "license.html",
-      "display_snippet": "license.html"
     }
   ]
 }
