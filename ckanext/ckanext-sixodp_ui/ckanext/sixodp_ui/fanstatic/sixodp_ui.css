@@ -5906,6 +5906,9 @@ a {
   .navbar-toggle:hover .icon-bar {
     background-color: #baaee4; }
 
+.nav > li {
+  margin: 0; }
+
 .nav > li > a {
   color: #333; }
   .nav > li > a:hover {
