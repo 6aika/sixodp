@@ -5895,6 +5895,15 @@ a {
   left: 0;
   right: 0; }
 
+.icon-bar {
+  background-color: #593FBA;
+  transition: background-color .2s ease-in-out; }
+
+.navbar-toggle:hover {
+  background: none; }
+  .navbar-toggle:hover .icon-bar {
+    background-color: #baaee4; }
+
 .hero {
   margin-top: 120px;
   margin-bottom: 120px; }
@@ -5933,7 +5942,7 @@ input {
   padding: 15px; }
 
 button {
-  padding: 10px 0 !important;
+  padding: 10px 20px;
   color: #fff;
   background-color: #593FBA;
   border: 0;
@@ -5949,4 +5958,5 @@ button {
     border-bottom: 2px solid #2b1f5b; }
 
 .btn-search--main {
-  margin-left: -1px; }
+  margin-left: -1px;
+  padding: 10px 0 !important; }

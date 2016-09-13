@@ -1,5 +1,5 @@
 button {
-  padding: $base 0 !important;
+  padding: $base $base*2;
   color: #fff;
   background-color: $color--primary;
   border: 0;
@@ -21,4 +21,5 @@ button {
 
 .btn-search--main {
   margin-left: -1px;
+  padding: $base 0 !important;
 }
