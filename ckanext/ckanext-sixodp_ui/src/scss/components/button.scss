@@ -23,3 +23,7 @@ button {
   margin-left: -1px;
   padding: $base 0 !important;
 }
+
+.btn {
+  border-radius: $border-radius-small;
+}

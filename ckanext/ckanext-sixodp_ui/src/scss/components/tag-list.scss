@@ -1,0 +1,15 @@
+.tag-list {
+  padding: 10px 0;
+
+  li {
+    background-color: $color--primary;
+    border: $border-base solid $color--primary;
+    border-radius: $border-radius-small;
+    font-size: $font-size*0.9;
+
+    &:hover {
+      background-color: lighten($color--primary, 15%);
+      border-color: lighten($color--primary, 15%);
+    }
+  }
+}

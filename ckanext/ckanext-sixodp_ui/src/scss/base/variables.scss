@@ -1,7 +1,6 @@
 // Base
 $base: 10px;
 
-
 // Colors
 $purple: #593FBA;
 $purple--light: #8a70ec;
@@ -9,11 +8,16 @@ $black: #333;
 $color--primary: $purple;
 $color--primary-highlighted: $purple--light;
 
-
 // Typography
 $font-size: $base*1.6;
 $font: 'Work Sans', sans-serif;
 
-
 // Navigation
 $nav-height: $base*5;
+
+// Components
+$border-radius-base: 0;
+$border-radius-large: 0;
+$border-radius-small: 0;
+
+$border-base: 2px;

@@ -1,0 +1,19 @@
+.resource-list {
+
+  .resource-item {
+    border-left: 2px solid $color--primary;
+
+    a {
+      &:hover {
+        text-decoration: none;
+      }
+      .caret {
+        zoom: 1.5;
+        color: $color--primary;
+      }
+      .description {
+        font-size: $font-size*0.9;
+      }
+    }
+  }
+}

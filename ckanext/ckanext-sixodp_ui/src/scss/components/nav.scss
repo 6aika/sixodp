@@ -31,3 +31,41 @@
     background: none;
   }
 }
+
+.nav {
+  &.nav-tabs {
+    border-bottom: 0;
+
+    li {
+      &.active,
+      &:hover {
+        border-width: 0 0 $border-base 0;
+        border-color: $color--primary;
+        border-style: solid;
+
+        a {
+          border: none;
+        }
+      }
+
+      a {
+        border: none;
+        margin-right: 0;
+      }
+    }
+  }
+
+  &.nav-facet {
+    li.nav-item {
+      &.active {
+        a {
+          background-color: $color--primary;
+        }
+      }
+      a:hover {
+        background-color: lighten($color--primary, 15%);
+      }
+    }
+  }
+  
+}

@@ -1,0 +1,14 @@
+.stages {
+  li {
+    &.active {
+      &:before {
+        span {
+          color: $color--primary;
+        }
+      }
+      .highlight {
+        background-color: $color--primary;
+      }
+    }
+  } 
+}

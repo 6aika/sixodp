@@ -5915,6 +5915,24 @@ a {
     color: #593FBA;
     background: none; }
 
+.nav.nav-tabs {
+  border-bottom: 0; }
+  .nav.nav-tabs li.active, .nav.nav-tabs li:hover {
+    border-width: 0 0 2px 0;
+    border-color: #593FBA;
+    border-style: solid; }
+    .nav.nav-tabs li.active a, .nav.nav-tabs li:hover a {
+      border: none; }
+  .nav.nav-tabs li a {
+    border: none;
+    margin-right: 0; }
+
+.nav.nav-facet li.nav-item.active a {
+  background-color: #593FBA; }
+
+.nav.nav-facet li.nav-item a:hover {
+  background-color: #8875d0; }
+
 .hero {
   margin-top: 120px;
   margin-bottom: 120px; }
@@ -5972,6 +5990,9 @@ button {
   margin-left: -1px;
   padding: 10px 0 !important; }
 
+.btn {
+  border-radius: 0; }
+
 .page-list-item.dataset-item {
   border-left: none;
   background-color: #fff; }
@@ -5980,4 +6001,45 @@ button {
   font-size: 20px; }
 
 .dataset-list .dataset-item {
-  border-left: none; }
+  border-left: 2px solid #593FBA;
+  background-color: #eeeeee;
+  font-size: 14.4px; }
+  .dataset-list .dataset-item .dataset-heading {
+    font-size: 16px; }
+
+.tag-list {
+  padding: 10px 0; }
+  .tag-list li {
+    background-color: #593FBA;
+    border: 2px solid #593FBA;
+    border-radius: 0;
+    font-size: 14.4px; }
+    .tag-list li:hover {
+      background-color: #8875d0;
+      border-color: #8875d0; }
+
+.resource-list .resource-item {
+  border-left: 2px solid #593FBA; }
+  .resource-list .resource-item a:hover {
+    text-decoration: none; }
+  .resource-list .resource-item a .caret {
+    zoom: 1.5;
+    color: #593FBA; }
+  .resource-list .resource-item a .description {
+    font-size: 14.4px; }
+
+.page-header {
+  padding-bottom: 0; }
+
+.stages li.active:before span {
+  color: #593FBA; }
+
+.stages li.active .highlight {
+  background-color: #593FBA; }
+
+.badge {
+  background-color: #593FBA; }
+
+.breadcrumb li a:hover {
+  text-decoration: none;
+  color: #593FBA; }

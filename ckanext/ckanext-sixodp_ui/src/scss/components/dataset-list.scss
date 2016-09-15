@@ -1,5 +1,11 @@
 .dataset-list {
-    .dataset-item {
-        border-left: none;
+  .dataset-item {
+    border-left: $border-base solid $color--primary;
+    background-color: $gray-lighter;
+    font-size: $font-size*0.9;
+
+    .dataset-heading {
+      font-size: $font-size;
     }
+  }
 }
