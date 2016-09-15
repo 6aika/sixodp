@@ -1,0 +1,10 @@
+.page-list-item {
+    &.dataset-item {
+        border-left: none;
+        background-color: $body-bg;
+    }
+
+    .dataset-heading {
+        font-size: 20px;
+    }
+}

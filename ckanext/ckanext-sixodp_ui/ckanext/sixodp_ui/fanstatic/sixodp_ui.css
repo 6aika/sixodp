@@ -5971,3 +5971,13 @@ button {
 .btn-search--main {
   margin-left: -1px;
   padding: 10px 0 !important; }
+
+.page-list-item.dataset-item {
+  border-left: none;
+  background-color: #fff; }
+
+.page-list-item .dataset-heading {
+  font-size: 20px; }
+
+.dataset-list .dataset-item {
+  border-left: none; }

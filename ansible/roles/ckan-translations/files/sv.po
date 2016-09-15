@@ -4572,3 +4572,7 @@ msgstr "Vi tar gärna emot respons och utvecklingsidéer i fråga om API-katalog
 msgid "Please send your feedback or development ideas regarding the API Catalogue using the feedback form. The feedback will be directed to Customer Services at the Service Architecture Unit of the Population Register Centre. If you wish to receive a reply to your feedback, please enclose your contact information."
 msgstr "Responsen skickas till kundtjänsten för enheten Servicearkitektur vid BRC. Om du vill ha ett svar på din respons, skicka också din kontaktinformation."
 #: ckanext-contact localizations end here
+
+#: Navigation extras
+msgid "Articles"
+msgstr "Artiklar"
