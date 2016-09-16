@@ -1,5 +1,6 @@
 .navbar {
   background: #fff;
+  border-bottom: $border-base solid $gray-lighter;
   position: absolute;
     top: 0;
     left: 0;
@@ -54,18 +55,4 @@
       }
     }
   }
-
-  &.nav-facet {
-    li.nav-item {
-      &.active {
-        a {
-          background-color: $color--primary;
-        }
-      }
-      a:hover {
-        background-color: lighten($color--primary, 15%);
-      }
-    }
-  }
-  
 }

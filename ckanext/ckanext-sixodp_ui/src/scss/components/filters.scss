@@ -1,0 +1,39 @@
+.filters {
+  .module {
+    margin: 20px 0;
+
+    .module-heading {
+      background-color: transparent;
+      border: none;
+      font-weight: bold;
+      font-size: $font-size;
+    }
+
+    .module-footer {
+      display: none;
+    }
+  }
+
+  .nav-facet {
+    li.nav-item {
+      border: none;
+
+      &.active {
+        a {
+          background-color: $color--primary;
+        }
+      }
+
+      a {
+        padding: 7px 25px 7px 40px;
+        font-size: $font-size*0.9;
+
+        &:hover {
+          background-color: lighten($color--primary, 15%);
+        }
+      }
+      
+      
+    }
+  }
+}

@@ -5,6 +5,7 @@ $base: 10px;
 $purple: #593FBA;
 $purple--light: #8a70ec;
 $black: #333;
+$white: #ffffff;
 $color--primary: $purple;
 $color--primary-highlighted: $purple--light;
 
@@ -17,7 +18,7 @@ $nav-height: $base*5;
 
 // Components
 $border-radius-base: 0;
-$border-radius-large: 0;
-$border-radius-small: 0;
+$border-radius-large: 0.25em;
+$border-radius-small: 2px;
 
 $border-base: 2px;

@@ -1,0 +1,26 @@
+.search-form {
+  border-width: 0 $border-base $border-base $border-base;
+  border-style: solid;
+  border-color: $gray-lighter $gray-lighter $gray-lighter $color--primary;
+  background-color: $white;
+  padding: 20px;
+
+  .search-input {
+    input {
+      border-radius: $border-radius-base;
+      border-width: 0 $border-base $border-base 0;
+      border-style: solid;
+      border-color: $gray-lighter;
+    }
+
+    button {
+      i {
+        color: $gray-lighter;
+
+        &:hover {
+          color: $color--primary;
+        }
+      }
+    }
+  }
+}
