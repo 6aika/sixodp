@@ -1,15 +1,7 @@
 .resource-list {
 
   .resource-item {
-    border-left: 2px solid $color--primary;
-    background-color: $white;
-    border-width: 0 $border-base $border-base $border-base;
-    border-style: solid;
-    border-color: $gray-lighter $gray-lighter $gray-lighter transparent;
-
-    &:hover {
-      border-left-color: $color--primary;
-    }
+    @extend .card-hover;
 
     a {
       &:hover {

@@ -1,11 +1,12 @@
 article {
   &.module {
     .module-content {
+      @extend .card;
       margin: 20px 25px;
-      background-color: $white;
-      border-width: 0 $border-base $border-base 0;
-      border-style: solid;
-      border-color: $gray-lighter;
+
+      img {
+        width: 100%;
+      }
     }
   }
 }

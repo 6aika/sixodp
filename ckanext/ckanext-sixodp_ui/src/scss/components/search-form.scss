@@ -7,10 +7,7 @@
 
   .search-input {
     input {
-      border-radius: $border-radius-base;
-      border-width: 0 $border-base $border-base 0;
-      border-style: solid;
-      border-color: $gray-lighter;
+      @extend .card;
     }
 
     button {

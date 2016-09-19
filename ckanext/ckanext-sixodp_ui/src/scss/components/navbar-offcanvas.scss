@@ -1,8 +1,6 @@
 .navbar-offcanvas {
   margin-top: 20px;
-  border-width: 0 $border-base $border-base $border-base;
-  border-style: solid;
-  border-color: $gray-lighter $gray-lighter $gray-lighter $color--primary;
+  @extend .card-theme;
 
   .module {
     margin: 20px 0;
@@ -54,17 +52,18 @@
   }
 
   .nav-simple {
+    li.nav-item,
     li.nav-item {
-      border-width: 0 0 $border-base 0;
       border-color: $white;
-
-      &:hover {
-        border-bottom-color: $color--primary;
-      }
 
       a {
         padding: 7px 25px 7px 40px;
         font-size: $font-size-small;
+
+        &:focus {
+          background-color: $white;
+          color: $gray-base;
+        }
       }
     }
   }

@@ -8,8 +8,12 @@
     font-size: $font-size*0.9;
 
     &:hover {
-      background-color: lighten($color--primary, 15%);
-      border-color: lighten($color--primary, 15%);
+      background-color: darken($color--primary, 15%);
+      border-color: darken($color--primary, 15%);
+
+      a {
+        color: $white;
+      }
     }
   }
 }

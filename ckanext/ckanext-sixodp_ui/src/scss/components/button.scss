@@ -26,4 +26,10 @@ button {
 
 .btn {
   border-radius: $border-radius-base;
+
+  // Replace btn-success styling with primary 
+  // This way the template update is not needed
+  &.btn-success {
+    @extend .btn-primary;
+  }
 }

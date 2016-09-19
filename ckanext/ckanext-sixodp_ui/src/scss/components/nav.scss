@@ -27,7 +27,8 @@
 .nav > li > a {
   color: $black;
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: $color--primary;
     background: none;
   }

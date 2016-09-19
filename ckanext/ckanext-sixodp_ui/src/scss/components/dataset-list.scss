@@ -1,9 +1,6 @@
 .dataset-list {
   .dataset-item {
-    border-width: 0 $border-base $border-base $border-base;
-    border-style: solid;
-    border-color: $gray-lighter $gray-lighter $gray-lighter $color--primary;
-    background-color: $white;
+    @extend .card-theme;
     font-size: $font-size*0.9;
 
     .dataset-heading {

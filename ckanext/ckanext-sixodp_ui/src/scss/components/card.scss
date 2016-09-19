@@ -1,0 +1,22 @@
+.card {
+  border-width: 0 $border-base $border-base 0;
+  border-style: solid;
+  border-color: $gray-lighter;
+  background-color: $white;
+}
+
+.card-theme {
+  @extend .card;
+  border-width: 0 $border-base $border-base $border-base;;
+  border-color: $gray-lighter $gray-lighter $gray-lighter $color--primary; 
+}
+
+.card-hover {
+  @extend .card;
+  border-color: $gray-lighter $gray-lighter $gray-lighter transparent;
+  border-width: 0 $border-base $border-base $border-base;
+
+  &:hover {  
+    border-color: $gray-lighter $gray-lighter $gray-lighter $color--primary; 
+  }
+}
