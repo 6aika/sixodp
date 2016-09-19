@@ -3,11 +3,20 @@
   border-style: solid;
   border-color: $gray-lighter $gray-lighter $gray-lighter $color--primary;
   background-color: $white;
-  padding: 20px;
+  padding: 40px 20px;
 
   .search-input {
     input {
-      @extend .card;
+      font-size: $base*1.5;
+      padding: $base;
+      border: 1px solid #f5f5f5;
+      border-bottom: 2px solid #eee;
+      transition: border-color .2s ease-in-out;
+
+      &:focus, &:active {
+        border-bottom-color: $color--primary;
+        outline: none;
+      }
     }
 
     button {

@@ -1,8 +1,16 @@
 .media-grid {
   .media-item {
+    @extend .card-hover;
+
     img {
       width: 100%;
       height: auto;
+    }
+
+    .media-view {
+      &:hover {
+        box-shadow: none;
+      }
     }
   }
 }

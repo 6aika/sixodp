@@ -2,9 +2,11 @@
   li {
     &.active {
       &:before {
-        span {
-          color: $color--primary;
-        }
+        color: $color--primary !important;
+      }
+      &:after {
+        border-top-color: $color--primary;
+        border-bottom-color: $color--primary;
       }
       .highlight {
         background-color: $color--primary;

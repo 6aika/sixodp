@@ -3,6 +3,7 @@
   border-style: solid;
   border-color: $gray-lighter;
   background-color: $white;
+  transition: border-color .2s ease-in-out;
 }
 
 .card-theme {
