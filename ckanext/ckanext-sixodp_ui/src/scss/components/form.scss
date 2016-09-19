@@ -1,0 +1,12 @@
+form {
+  &.form-horizontal {
+    .control-label {
+      text-align: left;
+
+      +span {
+        font-size: $font-size-small;
+        color: $gray-light;
+      }
+    }
+  }
+}
