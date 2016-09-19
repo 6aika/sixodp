@@ -2,7 +2,7 @@
 
 # To run:
 # ansible-playbook -v -i inventories/vagrant deploy-extensions.yml
-# ansible-playbook --ask-vault-pass -v -i inventories/qa deploy-extensions.yml
+# ansible-playbook -v -i inventories/demo deploy-extensions.yml
 
 - hosts: mainserver
   become: true
