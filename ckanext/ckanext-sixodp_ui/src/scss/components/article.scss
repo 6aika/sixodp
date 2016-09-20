@@ -1,7 +1,6 @@
 article {
   &.module {
     .module-content {
-      @extend .card;
       margin: 20px 25px;
 
       img {

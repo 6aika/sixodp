@@ -5898,14 +5898,14 @@ a {
   a:hover {
     text-decoration: none; }
 
-.card, .card-theme, .dataset-list .dataset-item, .navbar-offcanvas, .card-hover, .resource-list .resource-item, .media-grid .media-item, article.module .module-content {
+.card, .card-theme, .dataset-list .dataset-item, .navbar-offcanvas, .list-group .list-group-item, .card-hover, .resource-list .resource-item, .media-grid .media-item, .page-list-item.dataset-item {
   border-width: 0 2px 2px 0;
   border-style: solid;
   border-color: #eeeeee;
   background-color: #ffffff;
   transition: border-color .2s ease-in-out; }
 
-.card-theme, .dataset-list .dataset-item, .navbar-offcanvas {
+.card-theme, .dataset-list .dataset-item, .navbar-offcanvas, .list-group .list-group-item {
   border-width: 0 2px 2px 2px;
   border-color: #eeeeee #eeeeee #eeeeee #593FBA; }
 
@@ -6029,8 +6029,7 @@ button {
   border-radius: 0; }
 
 .page-list-item.dataset-item {
-  border-left: none;
-  background-color: #fff; }
+  padding: 20px; }
 
 .page-list-item .dataset-heading {
   font-size: 20px; }
@@ -6039,6 +6038,14 @@ button {
   font-size: 14.4px; }
   .dataset-list .dataset-item .dataset-heading {
     font-size: 30px; }
+    .dataset-list .dataset-item .dataset-heading .label {
+      position: relative;
+      top: -4px;
+      font-size: 14px; }
+      .dataset-list .dataset-item .dataset-heading .label.dataset-private {
+        text-transform: none; }
+      .dataset-list .dataset-item .dataset-heading .label i {
+        margin-left: 0.6em; }
 
 .tag-list {
   padding: 10px 0; }
@@ -6094,6 +6101,11 @@ select {
 .dataset-form select {
   background-color: white;
   border: 2px solid #eeeeee; }
+
+.form-select label {
+  margin-left: 8px;
+  font-size: 18px;
+  font-weight: normal; }
 
 .select2-container .select2-choices {
   font-size: 15px;
@@ -6178,11 +6190,17 @@ article.module .module-content {
 .media-grid .media-item .media-view:hover {
   box-shadow: none; }
 
+.media .media-view:hover {
+  box-shadow: none; }
+
 form.form-horizontal .control-label {
   text-align: left; }
   form.form-horizontal .control-label + span {
     font-size: 14px;
     color: #777777; }
+
+form .control-order-by {
+  margin-top: 8px; }
 
 .table {
   font-size: 14px; }

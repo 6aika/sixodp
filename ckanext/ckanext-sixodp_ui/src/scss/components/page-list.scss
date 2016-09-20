@@ -1,7 +1,7 @@
 .page-list-item {
   &.dataset-item {
-    border-left: none;
-    background-color: $body-bg;
+    @extend .card;
+    padding: $padding-base;
   }
 
   .dataset-heading {
