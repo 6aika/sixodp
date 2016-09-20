@@ -38,7 +38,7 @@
 
       &.active {
         a {
-          background-color: $color--primary;
+          background-color: $brand-primary;
         }
       }
 
@@ -47,7 +47,7 @@
         font-size: $font-size*0.9;
 
         &:hover {
-          background-color: lighten($color--primary, 15%);
+          background-color: lighten($brand-primary, 15%);
           color: $white;
         }
       }

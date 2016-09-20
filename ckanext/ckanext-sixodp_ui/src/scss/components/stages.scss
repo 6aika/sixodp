@@ -2,14 +2,14 @@
   li {
     &.active {
       &:before {
-        color: $color--primary !important;
+        color: $brand-primary !important;
       }
       &:after {
-        border-top-color: $color--primary;
-        border-bottom-color: $color--primary;
+        border-top-color: $brand-primary;
+        border-bottom-color: $brand-primary;
       }
       .highlight {
-        background-color: $color--primary;
+        background-color: $brand-primary;
       }
     }
   } 

@@ -1,7 +1,7 @@
 .search-form {
   border-width: 0 $border-base $border-base $border-base;
   border-style: solid;
-  border-color: $gray-lighter $gray-lighter $gray-lighter $color--primary;
+  border-color: $gray-lighter $gray-lighter $gray-lighter $brand-primary;
   background-color: $white;
   padding: 40px 20px;
 
@@ -14,7 +14,7 @@
       transition: border-color .2s ease-in-out;
 
       &:focus, &:active {
-        border-bottom-color: $color--primary;
+        border-bottom-color: $brand-primary;
         outline: none;
       }
     }
@@ -24,7 +24,7 @@
         color: $gray-lighter;
 
         &:hover {
-          color: $color--primary;
+          color: $brand-primary;
         }
       }
     }

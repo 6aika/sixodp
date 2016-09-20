@@ -2,12 +2,14 @@
 $base: 10px;
 
 // Colors
-$purple: #593FBA;
-$purple--light: #8a70ec;
 $black: #333;
 $white: #ffffff;
-$color--primary: $purple;
-$color--primary-highlighted: $purple--light;
+
+$brand-primary:         #534f97;
+$brand-success:         #97ba54;
+$brand-info:            #446eb5;
+$brand-warning:         #f0ad4e; // Bootstrap default color
+$brand-danger:          #d9534f; // Bootstrap default color
 
 // Typography
 $font-size: $base*1.6;

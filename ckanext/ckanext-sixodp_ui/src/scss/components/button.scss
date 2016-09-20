@@ -1,7 +1,7 @@
 button {
   padding: $base $base*2;
   color: #fff;
-  background-color: $color--primary;
+  background-color: $brand-primary;
   border: 0;
   font-size: $base*1.6;
   cursor: pointer;
@@ -11,11 +11,11 @@ button {
   transition: all .3s linear;
 
   &:hover {
-    background-color: lighten($color--primary, 15%);
+    background-color: lighten($brand-primary, 15%);
   }
 
   &.btn-primary {
-    border-bottom: 2px solid darken($color--primary, 25%);
+    border-bottom: 2px solid darken($brand-primary, 25%);
   }
 }
 

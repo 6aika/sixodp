@@ -6,7 +6,7 @@ textarea {
   transition: border-color .2s ease-in-out;
 
   &:focus, &:active {
-    border-bottom-color: $color--primary;
+    border-bottom-color: $brand-primary;
     outline: none;
   }
 }

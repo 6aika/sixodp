@@ -9,7 +9,7 @@
 }
 
 .icon-bar {
-  background-color: $color--primary;
+  background-color: $brand-primary;
   transition: background-color .2s ease-in-out;
 }
 
@@ -17,7 +17,7 @@
   background: none;
 
   .icon-bar {
-    background-color: lighten($color--primary, 30%);
+    background-color: lighten($brand-primary, 30%);
   }
 }
 
@@ -30,7 +30,7 @@
 
   &:hover,
   &:focus {
-    color: $color--primary;
+    color: $brand-primary;
     background: none;
   }
 }
@@ -41,11 +41,11 @@
 
     li {
       border-bottom: $border-base solid transparent;
-      
+
       &.active,
       &:hover {
         border-width: 0 0 $border-base 0;
-        border-color: $color--primary;
+        border-color: $brand-primary;
         border-style: solid;
 
         a {

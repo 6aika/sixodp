@@ -10,7 +10,7 @@
 .card-theme {
   @extend .card;
   border-width: 0 $border-base $border-base $border-base;;
-  border-color: $gray-lighter $gray-lighter $gray-lighter $color--primary; 
+  border-color: $gray-lighter $gray-lighter $gray-lighter $brand-success; 
 }
 
 .card-hover {
@@ -19,6 +19,6 @@
   border-width: 0 $border-base $border-base $border-base;
 
   &:hover {  
-    border-color: $gray-lighter $gray-lighter $gray-lighter $color--primary; 
+    border-color: $gray-lighter $gray-lighter $gray-lighter $brand-success; 
   }
 }
