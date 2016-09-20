@@ -2,8 +2,17 @@
   .module-content {
     padding-top: 0;
 
+    img {
+      width: 100%;
+      height: auto;
+    }
+
     .embedded-content {
       @extend .card;
+    }
+
+    .info {
+      border: none;
     }
   }
 }

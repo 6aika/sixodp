@@ -4307,10 +4307,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-bottom: 0;
   border-width: 1px 0 0;
 }
-.navbar-wrapper,
-.navbar {
-  height: 36px;
-}
 .affix {
   width: 100%;
   top: 0;
@@ -10056,7 +10052,6 @@ h4 small {
   z-index: 1000;
   float: none;
   margin: auto;
-  text-align: center;
 }
 .navbar-nav > li {
   border: none;
