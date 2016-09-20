@@ -1,0 +1,9 @@
+.module {
+  .module-content {
+    padding-top: 0;
+
+    .embedded-content {
+      @extend .card;
+    }
+  }
+}

@@ -1,6 +1,7 @@
 .dataset-list {
   .dataset-item {
     @extend .card-theme;
+    padding: 0;
     font-size: $font-size*0.9;
 
     .dataset-heading {

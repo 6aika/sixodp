@@ -2,6 +2,7 @@
 
   .resource-item {
     @extend .card-hover;
+    padding: 0;
 
     a {
       &:hover {
