@@ -40,6 +40,8 @@
     border-bottom: 0;
 
     li {
+      border-bottom: $border-base solid transparent;
+      
       &.active,
       &:hover {
         border-width: 0 0 $border-base 0;

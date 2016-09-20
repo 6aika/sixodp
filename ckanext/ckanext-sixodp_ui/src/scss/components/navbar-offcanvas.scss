@@ -1,6 +1,9 @@
 .navbar-offcanvas {
   @extend .card-theme;
-  position: fixed;
+  
+  @media screen and (max-width: $width-sm - 1) {
+    position: fixed;
+  }
 
   .module {
     margin: 20px 0;
