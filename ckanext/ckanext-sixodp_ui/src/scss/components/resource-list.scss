@@ -1,8 +1,12 @@
 .resource-list {
+  padding-left: 0;
+  list-style: none;
 
   .resource-item {
     @extend .card-hover;
     padding: 0;
+    margin-bottom: 20px;
+    position: relative;
 
     a {
       &:hover {

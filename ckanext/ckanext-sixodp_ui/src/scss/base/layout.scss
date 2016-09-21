@@ -49,11 +49,23 @@ body {
   }
 
   @media (min-width: $screen-lg-min) {
-    width: 1140px;
+    width: 1180px;
   }
 }
 
 .wrapper {
   position: relative;
   height: 100%;
+}
+
+[role=main] {
+  .primary {
+    float: right;
+    margin-left: 0;
+  }
+
+  .secondary {
+    padding: 0;
+    margin-left: 0;
+  }
 }

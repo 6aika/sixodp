@@ -6,11 +6,11 @@ $gray-base: #57575b;
 $black: $gray-base;
 $white: #ffffff;
 
-$brand-primary:         #534f97;
-$brand-success:         #97ba54;
-$brand-info:            #446eb5;
-$brand-warning:         #f0ad4e; // Bootstrap default color
-$brand-danger:          #d9534f; // Bootstrap default color
+$brand-primary: #534f97;
+$brand-success: #97ba54;
+$brand-info: #446eb5;
+$brand-warning: #f0ad4e; // Bootstrap default color
+$brand-danger: #d9534f; // Bootstrap default color
 
 $lighten-intensity: 15%;
 $darken-intensity: 15%;
@@ -42,7 +42,10 @@ $border-radius-small: 2px;
 
 $border-base: 2px;
 
-$padding-base: 20px;
+$padding-base-horizontal: 25px;
+$padding-base-vertical: 20px;
+$margin-base-horizontal: 25px;
+$margin-base-vertical: 20px;
 
 // Breakpoints
 $width-xs: 480px;

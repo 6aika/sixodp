@@ -1,4 +1,6 @@
-button {
+button,
+.btn {
+  border-radius: $border-radius-base;
   padding: $base $base*2;
   color: #fff;
   background-color: $brand-primary;
@@ -15,21 +17,18 @@ button {
   }
 
   &.btn-primary {
+    background-color: $brand-primary;
     border-bottom: 2px solid darken($brand-primary, 25%);
   }
-}
-
-.btn-search--main {
-  margin-left: -1px;
-  padding: $base 0 !important;
-}
-
-.btn {
-  border-radius: $border-radius-base;
 
   // Replace btn-success styling with primary 
   // This way the template update is not needed
   &.btn-success {
     @extend .btn-primary;
   }
+}
+
+.btn-search--main {
+  margin-left: -1px;
+  padding: $base 0 !important;
 }

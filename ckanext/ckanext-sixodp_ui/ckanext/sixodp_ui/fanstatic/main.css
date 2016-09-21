@@ -1070,13 +1070,6 @@ html {
   font-size: 10px;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-body {
-  font-family: 'SourceSans';
-  font-size: 16px;
-  line-height: 1.428571429;
-  color: #333333;
-  background-color: #ffffff;
-}
 input,
 button,
 select,
@@ -6940,21 +6933,6 @@ button.close {
 .module-heading:after {
   clear: both;
 }
-.module-content {
-  padding: 0 25px;
-  margin: 20px 0;
-}
-.module-content:first-child {
-  margin-top: 0;
-  padding-top: 20px;
-}
-.module-content:last-child {
-  margin-bottom: 0;
-  padding-bottom: 20px;
-}
-.module-content > :last-child {
-  margin-bottom: 0;
-}
 .module:first-child .module-heading {
   border-top-right-radius: 3px 0 0 0;
   border-bottom-right-radius: 3px 0 0 0;
@@ -7236,9 +7214,6 @@ button.close {
 .secondary .module,
 .primary .module {
   margin-top: 0;
-}
-.secondary {
-  background-color: #ffffff;
 }
 .no-nav .module:last-child {
   margin-top: 0;
@@ -8481,10 +8456,6 @@ fieldset[disabled] .control-custom.disabled .checkbox.btn.active {
   transition: 0.2s;
   background-color: #d9d9d9;
 }
-.dataset-item,
-.dataset-item a {
-  color: #000000;
-}
 .dataset-item .container-fluid {
   padding: 20px;
 }
@@ -8496,12 +8467,6 @@ fieldset[disabled] .control-custom.disabled .checkbox.btn.active {
 .dataset-item:last-of-type {
   border-bottom: none;
   margin-bottom: 0;
-}
-.dataset-heading {
-  font-size: 16px;
-  margin-top: 0;
-  margin-bottom: 8px;
-  line-height: 1.3;
 }
 .dataset-heading .label {
   position: relative;
@@ -8528,17 +8493,6 @@ fieldset[disabled] .control-custom.disabled .checkbox.btn.active {
 }
 .dataset-heading .popular {
   top: 0;
-}
-.resource-list {
-  padding-left: 0;
-  list-style: none;
-}
-.resource-item {
-  border-left: 10px solid #f25d0d;
-  background-color: #ececec;
-  margin-bottom: 20px;
-  position: relative;
-  margin-bottom: 0px;
 }
 .resource-item:hover {
   -webkit-transition: 0.2s;
@@ -8802,11 +8756,6 @@ fieldset[disabled] .control-custom.disabled .checkbox.btn.active {
 }
 :-ms-input-placeholder {
   font-style: italic;
-}
-.search-form {
-  margin-bottom: 20px;
-  padding-bottom: 25px;
-  border-bottom: 1px solid #dddddd;
 }
 .search-form .search-result-text {
   line-height: 42px;
@@ -9073,20 +9022,10 @@ fieldset[disabled] .control-custom.disabled .checkbox.btn.active {
   float: left;
   margin-bottom: -1px;
 }
-.page-header .nav-tabs li a {
-  color: #464a4d;
-}
-.page-header .nav-tabs li.active a {
-  color: #0f1317;
-  background-color: #fff;
-}
 .page-header .content_action {
   float: right;
   margin-top: -5px;
   margin-right: -7px;
-}
-.page-header .content_action a {
-  color: #0f1317;
 }
 .no-nav .page-header {
   border-top-right-radius: 3px 3px 0 0;
@@ -9606,14 +9545,6 @@ h4 small {
 [role=main]:after {
   bottom: 0;
   border-top-width: 1px;
-}
-[role=main] .primary {
-  float: right;
-  margin-left: 0;
-}
-[role=main] .secondary {
-  padding: 0;
-  margin-left: 0;
 }
 /* Filters modal */
 .no-text .text {
@@ -10212,34 +10143,6 @@ h4 small {
 .account .notifications.notifications-important a span.badge {
   color: #333333;
   background-color: #c9403a;
-}
-.site-footer {
-  background-color: #2c2c2c;
-  padding: 20px 0;
-  font-size: 13px;
-}
-.site-footer,
-.site-footer label,
-.site-footer small {
-  color: #ffffff;
-}
-.site-footer a {
-  color: #ececec;
-}
-.footer-links ul li {
-  margin-bottom: 5px;
-}
-.attribution small {
-  color: #ffffff;
-  font-size: 12px;
-}
-.attribution .ckan-footer-logo {
-  display: block;
-  width: 68px;
-  height: 21px;
-  margin-top: 2px;
-  background: url("../../../base/images/ckan-logo-footer.png") no-repeat top left;
-  text-indent: -900em;
 }
 .lang-select:before,
 .lang-select:after {
@@ -10913,9 +10816,6 @@ h4 small {
   height: 55px;
   padding-left: 80px;
   margin: 0;
-}
-body {
-  background: #2c2c2c;
 }
 [hidden] {
   display: none;

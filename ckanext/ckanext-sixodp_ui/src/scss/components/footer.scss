@@ -1,0 +1,31 @@
+footer {
+  &.site-footer {
+    background-color: $black;
+    padding: 20px 0;
+    font-size: 13px;
+
+    a,
+    label,
+    small {
+      color: $white;
+    }
+
+    .footer-links ul li {
+      margin-bottom: 5px;
+    }
+
+    .attribution {
+      color: $white;
+      font-size: 12px;
+           
+      .ckan-footer-logo {
+        display: block;
+        width: 68px;
+        height: 21px;
+        margin-top: 2px;
+        background: url("../../../base/images/ckan-logo-footer.png") no-repeat top left;
+        text-indent: -900em;
+      }
+    }
+  }
+}

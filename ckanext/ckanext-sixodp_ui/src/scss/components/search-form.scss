@@ -1,5 +1,6 @@
 .search-form {
   padding: 40px 20px;
+  margin-bottom: $margin-base-vertical;
 
   &#dataset-search-form {
     @extend .card-theme;

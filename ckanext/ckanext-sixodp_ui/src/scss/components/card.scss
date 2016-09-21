@@ -4,7 +4,7 @@
   border-color: $gray-lighter;
   background-color: $white;
   transition: border-color .2s ease-in-out;
-  padding: $padding-base;
+  padding: $padding-base-vertical $padding-base-horizontal;
   border-radius: $border-radius-base;
 }
 
