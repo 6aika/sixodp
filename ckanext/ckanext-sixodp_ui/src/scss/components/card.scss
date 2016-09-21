@@ -1,22 +1,23 @@
 .card {
-  border-width: 0 $border-base $border-base 0;
+  border-width: 0 $border-base $border-base+1 0;
   border-style: solid;
   border-color: $gray-lighter;
   background-color: $white;
   transition: border-color .2s ease-in-out;
   padding: $padding-base;
+  border-radius: $border-radius-base;
 }
 
 .card-theme {
   @extend .card;
-  border-width: 0 $border-base $border-base $border-base;;
+  border-width: 0 $border-base $border-base+1 $border-base+1;
   border-color: $gray-lighter $gray-lighter $gray-lighter $brand-success; 
 }
 
 .card-hover {
   @extend .card;
   border-color: $gray-lighter $gray-lighter $gray-lighter transparent;
-  border-width: 0 $border-base $border-base $border-base;
+  border-width: 0 $border-base $border-base+1 $border-base+1;
 
   &:hover {  
     border-color: $gray-lighter $gray-lighter $gray-lighter $brand-success; 

@@ -2,14 +2,14 @@
   padding: 10px 0;
 
   li {
-    background-color: $brand-primary;
-    border: $border-base solid $brand-primary;
+    background-color: $brand-success;
+    border: $border-base solid $brand-success;
     border-radius: $border-radius-large;
     font-size: $font-size*0.9;
 
     &:hover {
-      background-color: darken($brand-primary, 15%);
-      border-color: darken($brand-primary, 15%);
+      background-color: darken($brand-success, 15%);
+      border-color: darken($brand-success, 15%);
 
       a {
         color: $white;

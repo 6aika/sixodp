@@ -2,7 +2,8 @@
 $base: 10px;
 
 // Colors
-$black: #333;
+$gray-base: #57575b;
+$black: $gray-base;
 $white: #ffffff;
 
 $brand-primary:         #534f97;
@@ -10,6 +11,21 @@ $brand-success:         #97ba54;
 $brand-info:            #446eb5;
 $brand-warning:         #f0ad4e; // Bootstrap default color
 $brand-danger:          #d9534f; // Bootstrap default color
+
+$lighten-intensity: 15%;
+$darken-intensity: 15%;
+
+$brand-primary-light: lighten($brand-primary, $lighten-intensity);
+$brand-success-light: lighten($brand-success, $lighten-intensity);
+$brand-info-light: lighten($brand-info, $lighten-intensity);
+$brand-warning-light: lighten($brand-warning, $lighten-intensity);
+$brand-danger: lighten($brand-danger, $lighten-intensity);
+
+$brand-primary-dark: darken($brand-primary, $darken-intensity);
+$brand-success-dark: darken($brand-success, $darken-intensity);
+$brand-info-dark: darken($brand-info, $darken-intensity);
+$brand-warning-dark: darken($brand-warning, $darken-intensity);
+$brand-danger-dark: darken($brand-danger, $darken-intensity);
 
 // Typography
 $font-size: $base*1.6;
@@ -20,7 +36,7 @@ $font: 'Work Sans', sans-serif;
 $nav-height: $base*5;
 
 // Components
-$border-radius-base: 0;
+$border-radius-base: 2px;
 $border-radius-large: 0.25em;
 $border-radius-small: 2px;
 

@@ -1,9 +1,9 @@
 .search-form {
-  border-width: 0 $border-base $border-base $border-base;
-  border-style: solid;
-  border-color: $gray-lighter $gray-lighter $gray-lighter $brand-primary;
-  background-color: $white;
   padding: 40px 20px;
+
+  &#dataset-search-form {
+    @extend .card-theme;
+  }
 
   .search-input {
     input {

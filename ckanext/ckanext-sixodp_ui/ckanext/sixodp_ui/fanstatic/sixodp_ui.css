@@ -5848,7 +5848,8 @@ html, body, .homepage {
 
 body {
   margin: 0;
-  padding-top: 50px; }
+  padding-top: 50px;
+  color: #57575b; }
   body .homepage {
     background: url("/base/images/frontpage.jpg") no-repeat center center;
     background-size: cover;
@@ -5898,21 +5899,22 @@ a {
   a:hover {
     text-decoration: none; }
 
-.card, .card-theme, .dataset-list .dataset-item, .navbar-offcanvas, .list-group .list-group-item, .card-hover, .resource-list .resource-item, .media-grid .media-item, .page-list-item.dataset-item, .module .module-content .embedded-content {
-  border-width: 0 2px 2px 0;
+.card, .card-theme, .dataset-list .dataset-item, .search-form#dataset-search-form, .navbar-offcanvas, .list-group .list-group-item, .card-hover, .resource-list .resource-item, .media-grid .media-item, .page-list-item.dataset-item, .module .module-content .embedded-content {
+  border-width: 0 2px 3px 0;
   border-style: solid;
   border-color: #eeeeee;
   background-color: #ffffff;
   transition: border-color .2s ease-in-out;
-  padding: 20px; }
+  padding: 20px;
+  border-radius: 2px; }
 
-.card-theme, .dataset-list .dataset-item, .navbar-offcanvas, .list-group .list-group-item {
-  border-width: 0 2px 2px 2px;
+.card-theme, .dataset-list .dataset-item, .search-form#dataset-search-form, .navbar-offcanvas, .list-group .list-group-item {
+  border-width: 0 2px 3px 3px;
   border-color: #eeeeee #eeeeee #eeeeee #97ba54; }
 
 .card-hover, .resource-list .resource-item, .media-grid .media-item {
   border-color: #eeeeee #eeeeee #eeeeee transparent;
-  border-width: 0 2px 2px 2px; }
+  border-width: 0 2px 3px 3px; }
   .card-hover:hover, .resource-list .resource-item:hover, .media-grid .media-item:hover {
     border-color: #eeeeee #eeeeee #eeeeee #97ba54; }
 
@@ -5943,7 +5945,7 @@ a {
   margin: 0; }
 
 .nav > li > a {
-  color: #333; }
+  color: #57575b; }
   .nav > li > a:hover, .nav > li > a:focus {
     color: #534f97;
     background: none; }
@@ -5984,6 +5986,9 @@ a {
 
 label {
   display: block; }
+
+.label {
+  background-color: #97ba54; }
 
 input {
   font-size: 15px;
@@ -6030,7 +6035,7 @@ button {
   padding: 10px 0 !important; }
 
 .btn {
-  border-radius: 0; }
+  border-radius: 2px; }
 
 .page-list-item.dataset-item {
   padding: 20px; }
@@ -6055,13 +6060,13 @@ button {
 .tag-list {
   padding: 10px 0; }
   .tag-list li {
-    background-color: #534f97;
-    border: 2px solid #534f97;
+    background-color: #97ba54;
+    border: 2px solid #97ba54;
     border-radius: 0.25em;
     font-size: 14.4px; }
     .tag-list li:hover {
-      background-color: #373565;
-      border-color: #373565; }
+      background-color: #6e8a38;
+      border-color: #6e8a38; }
       .tag-list li:hover a {
         color: #ffffff; }
 
@@ -6123,10 +6128,6 @@ select {
     border-bottom-color: #534f97; }
 
 .search-form {
-  border-width: 0 2px 2px 2px;
-  border-style: solid;
-  border-color: #eeeeee #eeeeee #eeeeee #534f97;
-  background-color: #ffffff;
   padding: 40px 20px; }
   .search-form .search-input input {
     font-size: 15px;
@@ -6183,7 +6184,7 @@ select {
     .navbar-offcanvas .nav-simple li.nav-item a:focus,
     .navbar-offcanvas .nav-simple li.nav-item a:focus {
       background-color: #ffffff;
-      color: #000; }
+      color: #57575b; }
 
 .toolbar {
   margin-top: 10px; }
