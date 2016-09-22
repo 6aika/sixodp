@@ -8448,14 +8448,6 @@ fieldset[disabled] .control-custom.disabled .checkbox.btn.active {
   background-color: #ececec;
   margin-bottom: 20px;
 }
-.dataset-item:hover {
-  -webkit-transition: 0.2s;
-  -moz-transition: 0.2s;
-  -ms-transition: 0.2s;
-  -o-transition: 0.2s;
-  transition: 0.2s;
-  background-color: #d9d9d9;
-}
 .dataset-item .container-fluid {
   padding: 20px;
 }
@@ -8463,10 +8455,6 @@ fieldset[disabled] .control-custom.disabled .checkbox.btn.active {
   .dataset-item {
     word-wrap: break-word;
   }
-}
-.dataset-item:last-of-type {
-  border-bottom: none;
-  margin-bottom: 0;
 }
 .dataset-heading .label {
   position: relative;

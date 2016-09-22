@@ -1,9 +1,18 @@
 .dataset-item {
   @extend .card-theme;
+  @extend .card-hover;
   padding: 0;
+  margin-bottom: $margin-base-vertical;
+
+  >a {
+    color: $black;
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 
   .dataset-heading {
-    font-size: 18px;
     margin-top: 0;
     margin-bottom: 8px;
     line-height: 1.3;

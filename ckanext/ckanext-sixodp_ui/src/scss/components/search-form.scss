@@ -2,7 +2,8 @@
   padding: 40px 20px;
   margin-bottom: $margin-base-vertical;
 
-  &#dataset-search-form {
+  &#dataset-search-form,
+  &#organization-search-form  {
     @extend .card-theme;
   }
 

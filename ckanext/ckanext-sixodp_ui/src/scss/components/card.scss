@@ -1,7 +1,7 @@
 .card {
   border-width: 0 $border-base $border-base+1 0;
   border-style: solid;
-  border-color: $gray-lighter;
+  border-color: transparent $gray-lighter $gray-lighter transparent;
   background-color: $white;
   transition: border-color .2s ease-in-out;
   padding: $padding-base-vertical $padding-base-horizontal;
@@ -11,15 +11,18 @@
 .card-theme {
   @extend .card;
   border-width: 0 $border-base $border-base+1 $border-base+1;
-  border-color: $gray-lighter $gray-lighter $gray-lighter $brand-success; 
+  border-color: $gray-lighter $gray-lighter $gray-lighter $brand-primary; 
 }
 
 .card-hover {
   @extend .card;
-  border-color: $gray-lighter $gray-lighter $gray-lighter transparent;
-  border-width: 0 $border-base $border-base+1 $border-base+1;
+  border-left-width: $border-base+1;
 
-  &:hover {  
-    border-color: $gray-lighter $gray-lighter $gray-lighter $brand-success; 
+  &:hover {
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -ms-transition: 0.2s;
+    transition: 0.2s;
+    border-left-color: $brand-success; 
   }
 }
