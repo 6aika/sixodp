@@ -1,6 +1,10 @@
 .media-grid {
+  margin: 0 -15px 20px -15px;
+
   .media-item {
+    @extend .card-theme;
     @extend .card-hover;
+    padding: 15px;
 
     img {
       width: 100%;

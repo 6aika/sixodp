@@ -5910,9 +5910,9 @@ body {
 .container {
   width: 100%;
   margin: 0 auto; }
-  @media (min-width: 480px) {
+  @media (min-width: 768px) {
     .container {
-      width: 80%; } }
+      width: 90%; } }
   @media (min-width: 992px) {
     .container {
       width: 960px; } }
@@ -5924,13 +5924,14 @@ body {
   position: relative;
   height: 100%; }
 
-[role=main] .primary {
-  float: right;
-  margin-left: 0; }
-
-[role=main] .secondary {
-  padding: 0;
-  margin-left: 0; }
+[role=main] {
+  background: #f5f5f5; }
+  [role=main] .primary {
+    float: right;
+    margin-left: 0; }
+  [role=main] .secondary {
+    padding: 0;
+    margin-left: 0; }
 
 body {
   font-family: "Work Sans", sans-serif;
@@ -5944,7 +5945,7 @@ a {
   a:hover {
     text-decoration: none; }
 
-.card, .card-theme, .dataset-item, .search-form#dataset-search-form, .search-form#organization-search-form, .navbar-offcanvas, .list-group .list-group-item, .card-hover, .resource-list .resource-item, .media-grid .media-item, .page-list-item.dataset-item, .module .module-content .embedded-content {
+.card, .card-theme, .dataset-item, .search-form#dataset-search-form, .search-form#organization-search-form, .navbar-offcanvas, .media-grid .media-item, .list-group .list-group-item, .card-hover, .resource-list .resource-item, .page-list-item.dataset-item, .module .module-content .embedded-content {
   border-width: 0 2px 3px 0;
   border-style: solid;
   border-color: transparent #eeeeee #eeeeee transparent;
@@ -5953,7 +5954,7 @@ a {
   padding: 20px 25px;
   border-radius: 2px; }
 
-.card-theme, .dataset-item, .search-form#dataset-search-form, .search-form#organization-search-form, .navbar-offcanvas, .list-group .list-group-item {
+.card-theme, .dataset-item, .search-form#dataset-search-form, .search-form#organization-search-form, .navbar-offcanvas, .media-grid .media-item, .list-group .list-group-item {
   border-width: 0 2px 3px 3px;
   border-color: #eeeeee #eeeeee #eeeeee #534f97; }
 
@@ -6144,6 +6145,7 @@ button,
       font-size: 14.4px; }
 
 .page-header {
+  background-color: #f5f5f5;
   padding-bottom: 0;
   border: none; }
 
@@ -6253,12 +6255,15 @@ select {
 .toolbar {
   margin: 20px 0; }
 
-.media-grid .media-item img {
-  width: 100%;
-  height: auto; }
-
-.media-grid .media-item .media-view:hover {
-  box-shadow: none; }
+.media-grid {
+  margin: 0 -15px 20px -15px; }
+  .media-grid .media-item {
+    padding: 15px; }
+    .media-grid .media-item img {
+      width: 100%;
+      height: auto; }
+    .media-grid .media-item .media-view:hover {
+      box-shadow: none; }
 
 .media .media-view:hover {
   box-shadow: none; }
@@ -6296,6 +6301,11 @@ form .control-order-by {
     margin-top: 0; }
   .module .module-content:last-child {
     margin-bottom: 0; }
+  @media (max-width: 767px) {
+    .module .module-content {
+      padding: 0; }
+      .module .module-content.page-header:first-child {
+        margin-top: 20px; } }
 
 footer.site-footer {
   background-color: #534f97;
