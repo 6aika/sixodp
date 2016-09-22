@@ -7834,9 +7834,6 @@ form .control-order-by {
   margin-right: -15px;
   padding: 10px 15px 0;
 }
-.form-select label {
-  margin-right: 5px;
-}
 .simple-input label,
 .simple-input button {
   display: none;
@@ -8857,10 +8854,6 @@ fieldset[disabled] .control-custom.disabled .checkbox.btn.active {
   margin-bottom: 10px;
 }
 @media (min-width: 980px) {
-  .search-form .control-order-by {
-    float: right;
-    margin-left: 15px;
-  }
   .tertiary .search-form .control-order-by {
     float: none;
     margin: 0;

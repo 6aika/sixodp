@@ -31,4 +31,15 @@
       }
     }
   }
+
+  .search-result-text {
+    line-height: 42px;
+  }
+
+  @media (min-width: $width-md) {
+    .control-order-by {
+      float: right;
+      margin-left: 15px;
+    }
+  }
 }

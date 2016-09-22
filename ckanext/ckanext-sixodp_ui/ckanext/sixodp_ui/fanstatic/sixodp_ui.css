@@ -6179,9 +6179,7 @@ select {
   border: 2px solid #eeeeee; }
 
 .form-select label {
-  margin-left: 8px;
-  font-size: 18px;
-  font-weight: normal; }
+  display: inline; }
 
 .select2-container .select2-choices {
   font-size: 15px;
@@ -6208,6 +6206,12 @@ select {
     color: #eeeeee; }
     .search-form .search-input button i:hover {
       color: #534f97; }
+  .search-form .search-result-text {
+    line-height: 42px; }
+  @media (min-width: 992px) {
+    .search-form .control-order-by {
+      float: right;
+      margin-left: 15px; } }
 
 @media screen and (max-width: 767px) {
   .navbar-offcanvas {
@@ -6275,7 +6279,7 @@ form.form-horizontal .control-label {
     color: #777777; }
 
 form .control-order-by {
-  margin-top: 8px; }
+  margin-top: 6px; }
 
 .table {
   font-size: 14px; }

@@ -12,8 +12,6 @@ select {
 
 .form-select {
   label {
-    margin-left: 8px;
-    font-size: $base*1.8;
-    font-weight: normal;
+    display: inline;
   }
 }
