@@ -26,6 +26,13 @@
       }
     },
     {
+      "preset_name": "sixodp_update_frequency",
+      "values": {
+        "validators": "int_validator",
+        "form_placeholder": "eg. 2"
+      }
+    },
+    {
       "preset_name": "group_slug",
       "values": {
         "validators": "not_empty unicode name_validator group_name_validator",
@@ -72,6 +79,13 @@
         "upload_field": "upload",
         "upload_clear": "clear_upload",
         "upload_label": "File"
+      }
+    },
+    {
+      "preset_name": "resource_url_external_ex",
+      "values": {
+        "validators": "not_empty unicode remove_whitespace",
+        "form_placeholder": "http://example.com"
       }
     }
   ]

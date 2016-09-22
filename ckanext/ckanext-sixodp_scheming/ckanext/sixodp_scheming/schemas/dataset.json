@@ -33,20 +33,20 @@
       "form_placeholder":"eg. economy, mental health, government"
     },
     {
-      "field_name": "validSince",
-      "label": "Valid since",
-      "preset": "date"
-    },
-    {
-      "field_name": "validUntil",
-      "label": "Valid until",
-      "preset": "date"
-    },
-    {
       "field_name": "owner_org",
       "label": "Organization",
       "preset": "dataset_organization_ex",
       "final": true
+    },
+    {
+      "field_name": "update_frequency",
+      "label": "Update frequency",
+      "preset": "sixodp_update_frequency"
+    },
+    {
+      "field_name": "update_date",
+      "label": "Update date",
+      "preset": "date"
     },
     {
       "field_name": "environment",
@@ -101,9 +101,9 @@
       "display_email_name_field": "maintainer"
     },
     {
-      "field_name": "maintainer_phone",
-      "label": "Maintainer phone number",
-      "form_placeholder": "+358123456789",
+      "field_name": "maintainer_website",
+      "label": "Maintainer Website",
+      "form_placeholder": "http://www.example.com",
       "display_property": "dc:contributor"
     },
     {
@@ -119,6 +119,11 @@
       "label": "URL",
       "preset": "resource_url_upload_ex",
       "final": true
+    },
+    {
+      "field_name": "external_url",
+      "label": "External URL",
+      "preset": "resource_url_external_ex"
     },
     {
       "field_name": "name",
@@ -146,14 +151,9 @@
       "preset": "sixodp_resource_format_autocomplete"
     },
     {
-      "field_name": "validSince",
-      "label": "Valid since",
-      "preset": "date"
-    },
-    {
-      "field_name": "validUntil",
-      "label": "Valid until",
-      "preset": "date"
+      "field_name": "file_size",
+      "label": "Size",
+      "preset": "fluent_text"
     }
   ]
 }
