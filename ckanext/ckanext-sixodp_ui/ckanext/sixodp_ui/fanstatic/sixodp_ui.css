@@ -5865,6 +5865,14 @@ button.close {
   font-weight: bold;
   text-shadow: 1px 1px 1px #aaa; }
 
+.box-shadow, .card, .card-theme, .dataset-item, .search-form#dataset-search-form, .search-form#organization-search-form, .navbar-offcanvas, .media-grid .media-item, .list-group .list-group-item, .card-hover, .resource-list .resource-item, .page-list-item.dataset-item, .module .module-content .embedded-content, .navbar, .searchbox, .btn, .search-form .search-input input {
+  box-shadow: 0 4px 3px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08); }
+
+.box-shadow-highlight, .card-hover:hover, .dataset-item:hover, .resource-list .resource-item:hover, .media-grid .media-item:hover, button:hover,
+.btn:hover, .search-form .search-input input:focus, .search-form .search-input input:active {
+  box-shadow: 0 6px 10px rgba(50, 50, 93, 0.1), 0 4px 3px rgba(0, 0, 0, 0.08);
+  transition: all .3s linear; }
+
 @keyframes ripple-animation {
   from {
     transform: scale(1);
@@ -5946,17 +5954,17 @@ a {
     text-decoration: none; }
 
 .card, .card-theme, .dataset-item, .search-form#dataset-search-form, .search-form#organization-search-form, .navbar-offcanvas, .media-grid .media-item, .list-group .list-group-item, .card-hover, .resource-list .resource-item, .page-list-item.dataset-item, .module .module-content .embedded-content {
-  border-width: 0 2px 3px 0;
+  border-width: 0 0 0 3px;
   border-style: solid;
-  border-color: transparent #eeeeee #eeeeee transparent;
+  border-color: transparent;
   background-color: #ffffff;
   transition: border-color .2s ease-in-out;
   padding: 20px 25px;
   border-radius: 2px; }
 
 .card-theme, .dataset-item, .search-form#dataset-search-form, .search-form#organization-search-form, .navbar-offcanvas, .media-grid .media-item, .list-group .list-group-item {
-  border-width: 0 2px 3px 3px;
-  border-color: #eeeeee #eeeeee #eeeeee #534f97; }
+  border-left-width: 3px;
+  border-left-color: #534f97; }
 
 .card-hover, .dataset-item, .resource-list .resource-item, .media-grid .media-item {
   border-left-width: 3px; }
@@ -5973,8 +5981,8 @@ a {
   margin-right: 4px; }
 
 .navbar {
+  border-radius: 0;
   background: #fff;
-  border-bottom: 2px solid #eeeeee;
   position: absolute;
   top: 0;
   left: 0;
@@ -6032,6 +6040,8 @@ a {
   background: rgba(255, 255, 255, 0.8);
   border-radius: 0.25em;
   margin: 120px auto; }
+  .searchbox button {
+    border-bottom: 2px solid #534f97; }
 
 label {
   display: block; }
@@ -6075,7 +6085,8 @@ button,
   overflow: hidden;
   outline: 0;
   position: relative;
-  transition: all .3s linear; }
+  transition: all .3s linear;
+  text-transform: uppercase; }
   button:hover,
   .btn:hover {
     background-color: #7d79b9; }
@@ -6083,8 +6094,7 @@ button,
   button.btn.btn-success,
   .btn.btn-primary,
   .btn.btn-success {
-    background-color: #534f97;
-    border-bottom: 2px solid #252343; }
+    background-color: #534f97; }
 
 .btn-search--main {
   margin-left: -1px;
@@ -6194,18 +6204,38 @@ select {
   padding: 40px 20px;
   margin-bottom: 20px; }
   .search-form .search-input input {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 0;
+    margin: 0;
+    width: 100%;
+    height: auto;
     font-size: 15px;
     padding: 10px;
-    border: 1px solid #f5f5f5;
-    border-bottom: 2px solid #eee;
     transition: border-color .2s ease-in-out; }
     .search-form .search-input input:focus, .search-form .search-input input:active {
       border-bottom-color: #534f97;
       outline: none; }
-  .search-form .search-input button i {
-    color: #eeeeee; }
-    .search-form .search-input button i:hover {
-      color: #534f97; }
+  .search-form .search-input button {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    right: 10px;
+    height: 20px;
+    padding: 0;
+    border: none;
+    background: transparent; }
+    .search-form .search-input button i {
+      color: #eeeeee;
+      -webkit-transition: color 0.2s ease-in;
+      -moz-transition: color 0.2s ease-in;
+      -ms-transition: color 0.2s ease-in;
+      transition: color 0.2s ease-in; }
+      .search-form .search-input button i:hover {
+        color: #534f97; }
   .search-form .search-result-text {
     line-height: 42px; }
   @media (min-width: 992px) {

@@ -11,14 +11,15 @@ button,
   outline: 0;
   position: relative;
   transition: all .3s linear;
+  text-transform: uppercase;
 
   &:hover {
     background-color: lighten($brand-primary, 15%);
+    @extend .box-shadow-highlight;
   }
 
   &.btn-primary {
     background-color: $brand-primary;
-    border-bottom: 2px solid darken($brand-primary, 25%);
   }
 
   // Replace btn-success styling with primary 
@@ -31,4 +32,8 @@ button,
 .btn-search--main {
   margin-left: -1px;
   padding: $base 0 !important;
+}
+
+.btn {
+  @extend .box-shadow;
 }

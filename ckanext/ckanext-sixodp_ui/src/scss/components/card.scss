@@ -1,7 +1,8 @@
 .card {
-  border-width: 0 $border-base $border-base+1 0;
+  @extend .box-shadow;
+  border-width: 0 0 0 $border-base+1;
   border-style: solid;
-  border-color: transparent $gray-lighter $gray-lighter transparent;
+  border-color: transparent;
   background-color: $white;
   transition: border-color .2s ease-in-out;
   padding: $padding-base-vertical $padding-base-horizontal;
@@ -10,8 +11,8 @@
 
 .card-theme {
   @extend .card;
-  border-width: 0 $border-base $border-base+1 $border-base+1;
-  border-color: $gray-lighter $gray-lighter $gray-lighter $brand-primary; 
+  border-left-width: $border-base+1;
+  border-left-color: $brand-primary; 
 }
 
 .card-hover {
@@ -19,6 +20,7 @@
   border-left-width: $border-base+1;
 
   &:hover {
+    @extend .box-shadow-highlight;
     -webkit-transition: 0.2s;
     -moz-transition: 0.2s;
     -ms-transition: 0.2s;
