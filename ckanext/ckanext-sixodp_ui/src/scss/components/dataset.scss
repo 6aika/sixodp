@@ -32,3 +32,16 @@
     }
   }
 }
+
+.dataset-private {
+  margin-right: 10px;
+  text-transform: uppercase;
+
+  &.pull-right {
+    margin-right: 0;
+  }
+  
+  .glyphicon-lock {
+    width: 9px;
+  }
+}

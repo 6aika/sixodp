@@ -6126,6 +6126,14 @@ button.btn-success,
       .dataset-item .dataset-heading .label i {
         margin-left: 0.6em; }
 
+.dataset-private {
+  margin-right: 10px;
+  text-transform: uppercase; }
+  .dataset-private.pull-right {
+    margin-right: 0; }
+  .dataset-private .glyphicon-lock {
+    width: 9px; }
+
 .tag-list {
   padding: 10px 0; }
   .tag-list li {

@@ -49,6 +49,11 @@
       "preset": "date"
     },
     {
+      "field_name": "publish_date",
+      "label": "Publish date",
+      "preset": "date"
+    },
+    {
       "field_name": "environment",
       "label": "Environment",
       "preset": "select",

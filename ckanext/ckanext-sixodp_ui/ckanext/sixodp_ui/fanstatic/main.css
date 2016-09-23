@@ -8448,16 +8448,6 @@ fieldset[disabled] .control-custom.disabled .checkbox.btn.active {
   position: relative;
   top: -1px;
 }
-.dataset-private {
-  margin-right: 10px;
-  text-transform: uppercase;
-}
-.dataset-private .glyphicon-lock {
-  width: 9px;
-}
-.dataset-private.pull-right {
-  margin-right: 0;
-}
 .dataset-resources li {
   display: inline;
   float: right;
