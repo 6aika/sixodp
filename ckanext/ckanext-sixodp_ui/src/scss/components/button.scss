@@ -2,10 +2,10 @@ button,
 .btn {
   border-radius: $border-radius-base;
   padding: $base $base*2;
-  color: #fff;
+  color: $white;
   background-color: $brand-primary;
   border: 0;
-  font-size: $base*1.6;
+  font-size: $base*1.5;
   cursor: pointer;
   overflow: hidden;
   outline: 0;
@@ -14,18 +14,24 @@ button,
   text-transform: uppercase;
 
   &:hover {
-    background-color: lighten($brand-primary, 15%);
     @extend .box-shadow-highlight;
+    background-color: $brand-primary-light;
+    color: $white;  
   }
 
-  &.btn-primary {
-    background-color: $brand-primary;
+  &:focus {
+    color: $white;
+  }
+
+  &:active {
+    @extend .box-shadow-highlight;
+    transform: translateY(1px);
   }
 
   // Replace btn-success styling with primary 
   // This way the template update is not needed
   &.btn-success {
-    @extend .btn-primary;
+    @extend .btn;
   }
 }
 

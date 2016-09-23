@@ -1,6 +1,6 @@
 .card {
   @extend .box-shadow;
-  border-width: 0 0 0 $border-base+1;
+  border-width: 0 0 0 $border-base;
   border-style: solid;
   border-color: transparent;
   background-color: $white;
@@ -11,13 +11,13 @@
 
 .card-theme {
   @extend .card;
-  border-left-width: $border-base+1;
+  border-left-width: $border-base;
   border-left-color: $brand-primary; 
 }
 
 .card-hover {
   @extend .card;
-  border-left-width: $border-base+1;
+  border-left-width: $border-base;
 
   &:hover {
     @extend .box-shadow-highlight;

@@ -3,7 +3,8 @@
   margin-bottom: $margin-base-vertical;
 
   &#dataset-search-form,
-  &#organization-search-form  {
+  &#organization-search-form,
+  &#organization-datasets-search-form {
     @extend .card-theme;
   }
 

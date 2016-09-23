@@ -13,8 +13,8 @@ $brand-info: #446eb5;
 $brand-warning: #f0ad4e; // Bootstrap default color
 $brand-danger: #d9534f; // Bootstrap default color
 
-$lighten-intensity: 15%;
-$darken-intensity: 15%;
+$lighten-intensity: 10%;
+$darken-intensity: 10%;
 
 $brand-primary-light: lighten($brand-primary, $lighten-intensity);
 $brand-success-light: lighten($brand-success, $lighten-intensity);
@@ -53,3 +53,4 @@ $width-xs: 480px;
 $width-sm: 768px;
 $width-md: 992px;
 $width-lg: 1200px;
+$width-xl: 1400px;
