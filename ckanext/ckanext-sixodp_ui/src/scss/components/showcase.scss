@@ -1,0 +1,21 @@
+.ckanext-showcase {
+  &-image-container {
+
+    img {
+      max-height: 480px;
+      width: auto !important;
+    }
+  }
+
+  &-edit {
+    &.primary {
+      float: none;
+    }
+
+    .module-content {
+      @extend .card;
+      padding: $padding-base-vertical $padding-base-horizontal;
+    }
+  }
+}
+  

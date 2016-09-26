@@ -8,10 +8,6 @@
       height: auto;
     }
 
-    .embedded-content {
-      @extend .card;
-    }
-
     .info {
       border: none;
     }
@@ -22,6 +18,12 @@
 
     &:last-child {
       margin-bottom: 0;
+    }
+
+    &.main-content {
+      @extend .card;
+      margin-top: $margin-base-vertical;
+      margin-bottom: $margin-base-vertical;
     }
 
     @media (max-width: $width-sm - 1) {

@@ -1,8 +1,4 @@
 .page-list-item {
-  &.dataset-item {
-    @extend .card;
-    padding: $padding-base-vertical $padding-base-horizontal;
-  }
 
   .dataset-heading {
     font-size: 20px;

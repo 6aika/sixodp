@@ -8431,11 +8431,6 @@ fieldset[disabled] .control-custom.disabled .checkbox.btn.active {
 .dataset-list {
   padding: 0px;
 }
-.dataset-item {
-  border-left: 10px solid #f25d0d;
-  background-color: #ececec;
-  margin-bottom: 20px;
-}
 .dataset-item .container-fluid {
   padding: 20px;
 }

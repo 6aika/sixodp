@@ -5853,11 +5853,11 @@ button.close {
   font-weight: bold;
   text-shadow: 1px 1px 1px #aaa; }
 
-.box-shadow, .card, .card-theme, .dataset-item, .search-form#dataset-search-form, .search-form#organization-search-form, .search-form#organization-datasets-search-form, .navbar-offcanvas, .media-grid .media-item, .list-group .list-group-item, .card-hover, .resource-list .resource-item, .page-list-item.dataset-item, .module .module-content .embedded-content, .navbar, .searchbox, .btn, button.btn-success,
+.box-shadow, .card, .card-theme, .dataset-list .dataset-item, .search-form, .navbar-offcanvas, .media-grid .media-item, .list-group .list-group-item, .card-hover, .resource-list .resource-item, .module .module-content.main-content, .ckanext-showcase-edit .module-content, .navbar, .searchbox, .btn, button.btn-success,
 .btn.btn-success, .tag-list li, .search-form .search-input input {
   box-shadow: 0 4px 3px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08); }
 
-.box-shadow-highlight, .card-hover:hover, .dataset-item:hover, .resource-list .resource-item:hover, .media-grid .media-item:hover, button:hover,
+.box-shadow-highlight, .card-hover:hover, .dataset-list .dataset-item:hover, .resource-list .resource-item:hover, .media-grid .media-item:hover, button:hover,
 .btn:hover, button.btn-success:hover, button:active,
 .btn:active, button.btn-success:active, .tag-list li:hover, .search-form .search-input input:focus, .search-form .search-input input:active {
   box-shadow: 0 6px 10px rgba(50, 50, 93, 0.1), 0 4px 3px rgba(0, 0, 0, 0.08);
@@ -5946,7 +5946,7 @@ a {
   a:hover {
     text-decoration: none; }
 
-.card, .card-theme, .dataset-item, .search-form#dataset-search-form, .search-form#organization-search-form, .search-form#organization-datasets-search-form, .navbar-offcanvas, .media-grid .media-item, .list-group .list-group-item, .card-hover, .resource-list .resource-item, .page-list-item.dataset-item, .module .module-content .embedded-content {
+.card, .card-theme, .dataset-list .dataset-item, .search-form, .navbar-offcanvas, .media-grid .media-item, .list-group .list-group-item, .card-hover, .resource-list .resource-item, .module .module-content.main-content, .ckanext-showcase-edit .module-content {
   border-width: 0 0 0 2px;
   border-style: solid;
   border-color: transparent;
@@ -5955,13 +5955,13 @@ a {
   padding: 20px 25px;
   border-radius: 2px; }
 
-.card-theme, .dataset-item, .search-form#dataset-search-form, .search-form#organization-search-form, .search-form#organization-datasets-search-form, .navbar-offcanvas, .media-grid .media-item, .list-group .list-group-item {
+.card-theme, .dataset-list .dataset-item, .search-form, .navbar-offcanvas, .media-grid .media-item, .list-group .list-group-item {
   border-left-width: 2px;
   border-left-color: #534f97; }
 
-.card-hover, .dataset-item, .resource-list .resource-item, .media-grid .media-item {
+.card-hover, .dataset-list .dataset-item, .resource-list .resource-item, .media-grid .media-item {
   border-left-width: 2px; }
-  .card-hover:hover, .dataset-item:hover, .resource-list .resource-item:hover, .media-grid .media-item:hover {
+  .card-hover:hover, .dataset-list .dataset-item:hover, .resource-list .resource-item:hover, .media-grid .media-item:hover {
     -webkit-transition: 0.2s;
     -moz-transition: 0.2s;
     -ms-transition: 0.2s;
@@ -6100,30 +6100,27 @@ button.btn-success,
   margin-left: -1px;
   padding: 10px 0 !important; }
 
-.page-list-item.dataset-item {
-  padding: 20px 25px; }
-
 .page-list-item .dataset-heading {
   font-size: 20px; }
 
-.dataset-item {
+.dataset-list .dataset-item {
   padding: 0;
   margin-bottom: 20px; }
-  .dataset-item > a {
+  .dataset-list .dataset-item > a {
     color: #57575b; }
-  .dataset-item:last-of-type {
+  .dataset-list .dataset-item:last-of-type {
     margin-bottom: 0; }
-  .dataset-item .dataset-heading {
+  .dataset-list .dataset-item .dataset-heading {
     margin-top: 0;
     margin-bottom: 8px;
     line-height: 1.3; }
-    .dataset-item .dataset-heading .label {
+    .dataset-list .dataset-item .dataset-heading .label {
       position: relative;
       top: -4px;
       font-size: 14px; }
-      .dataset-item .dataset-heading .label.dataset-private {
+      .dataset-list .dataset-item .dataset-heading .label.dataset-private {
         text-transform: none; }
-      .dataset-item .dataset-heading .label i {
+      .dataset-list .dataset-item .dataset-heading .label i {
         margin-left: 0.6em; }
 
 .dataset-private {
@@ -6326,7 +6323,8 @@ form .control-order-by {
     font-weight: normal; }
 
 .actions {
-  position: relative; }
+  top: 0;
+  right: 0; }
 
 .list-group .list-group-item {
   margin-bottom: 20px; }
@@ -6343,6 +6341,9 @@ form .control-order-by {
     margin-top: 0; }
   .module .module-content:last-child {
     margin-bottom: 0; }
+  .module .module-content.main-content {
+    margin-top: 20px;
+    margin-bottom: 20px; }
   @media (max-width: 767px) {
     .module .module-content {
       padding: 0; }
@@ -6369,3 +6370,13 @@ footer.site-footer {
       margin-top: 2px;
       background: url("../../../base/images/ckan-logo-footer.png") no-repeat top left;
       text-indent: -900em; }
+
+.ckanext-showcase-image-container img {
+  max-height: 480px;
+  width: auto !important; }
+
+.ckanext-showcase-edit.primary {
+  float: none; }
+
+.ckanext-showcase-edit .module-content {
+  padding: 20px 25px; }

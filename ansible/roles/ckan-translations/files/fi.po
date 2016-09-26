@@ -4583,3 +4583,6 @@ msgstr "Lähetä Liityntäkatalogiin liittyvä palautteesi tai kehitysideasi pal
 #: Navigation extras
 msgid "Articles"
 msgstr "Artikkelit"
+
+msgid "Showcase"
+msgstr "Sovellukset"

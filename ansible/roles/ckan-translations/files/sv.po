@@ -4576,3 +4576,6 @@ msgstr "Responsen skickas till kundtjänsten för enheten Servicearkitektur vid 
 #: Navigation extras
 msgid "Articles"
 msgstr "Artiklar"
+
+msgid "Showcase"
+msgstr "Applicationer"

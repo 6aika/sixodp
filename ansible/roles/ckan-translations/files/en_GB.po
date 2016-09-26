@@ -4575,4 +4575,7 @@ msgstr "Please send your feedback or development ideas regarding the API Catalog
 
 #: Navigation extras
 msgid "Articles"
-msgstr "Articlar"
+msgstr "Articles"
+
+msgid "Showcase"
+msgstr "Applications"
