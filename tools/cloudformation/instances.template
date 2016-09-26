@@ -1,0 +1,91 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: sixodp docker infrastructure
+
+Parameters:
+  InstanceType:
+    Description: EC2 instance type for the application servers
+    Type: String
+    Default: t2.small
+    AllowedValues:
+      - t2.micro
+      - t2.small
+      - t2.medium
+    ConstraintDescription: "Must be one of the following EC2 instance types: t2.micro, t2.small, t2.medium"
+  DatabaseSecurityGroup:
+    Description: Security group of the RDS database
+    Type: AWS::EC2::SecurityGroup::Id
+    MinLength: 1
+  HostedZoneId:
+    Description: Zone ID for the DNS record
+    Type: String
+    Default: Z3MUEH1DAIWOFS
+    MinLength: 1
+
+Resources:
+  EC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: !Ref InstanceType
+      ImageId: ami-f9dd458a # Amazon Linux AMI 2016.03.3 (HVM), SSD Volume Type
+      KeyName: sixodp-omni
+      IamInstanceProfile: arn:aws:iam::290365872283:instance-profile/sixodp-docker-instance-role
+      SecurityGroups:
+        - !Ref InstanceSecurityGroup
+      BlockDeviceMappings: 
+        - DeviceName: /dev/xvda
+          Ebs:
+            VolumeType: gp2
+            VolumeSize: 20
+            DeleteOnTermination: true
+      UserData:
+        !Base64 |
+          #!/bin/bash -xe
+          echo "$(date) bootstrapping" >> /bootstrap.log
+          yum update -y
+          yum install -y docker
+          service docker start
+          usermod -a -G docker ec2-user
+
+  InstanceSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Enable SSH access via port 22
+      SecurityGroupIngress: 
+        - FromPort: 22
+          ToPort: 22
+          IpProtocol: tcp
+          CidrIp: 193.64.225.83/32
+
+  DatabaseIngressRule:
+    Type: AWS::EC2::SecurityGroupIngress
+    Properties: 
+      IpProtocol: tcp
+      FromPort: 5432
+      ToPort: 5432
+      GroupId: !Ref DatabaseSecurityGroup
+      SourceSecurityGroupName: !Ref InstanceSecurityGroup
+
+  ElasticAddress:
+    Type: AWS::EC2::EIP
+    Properties:
+      InstanceId: !Ref EC2Instance
+
+  DomainName:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      Name: generic-dev.dataportaali.com.
+      Type: A
+      TTL: 300
+      HostedZoneId: !Ref HostedZoneId
+      ResourceRecords:
+        - !Ref ElasticAddress
+
+Outputs:
+  InstanceId:
+    Value: !Ref EC2Instance
+  PublicDNS:
+    Value: !GetAtt EC2Instance.PublicDnsName
+  AZ:
+    Value: !GetAtt EC2Instance.AvailabilityZone
+  PublicIP:
+    Value: !GetAtt EC2Instance.PublicIp
