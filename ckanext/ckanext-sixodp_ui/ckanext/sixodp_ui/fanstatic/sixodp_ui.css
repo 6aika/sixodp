@@ -6400,3 +6400,8 @@ footer.site-footer {
 
 .ckanext-showcase-edit .module-content {
   padding: 20px 25px; }
+
+.debug {
+  position: fixed;
+  right: 0;
+  bottom: 0; }
