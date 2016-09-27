@@ -56,6 +56,8 @@ email:
 
 robots_allowed: false
 
+debug_enabled: false
+
 AWS:
   enabled: true
   use_iam_role: true
