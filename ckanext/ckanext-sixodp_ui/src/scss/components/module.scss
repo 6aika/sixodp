@@ -10,6 +10,10 @@
 
     .info {
       border: none;
+
+      .btn {
+        padding: 8px 12px;
+      }
     }
 
     &:first-child {

@@ -6080,8 +6080,7 @@ button.btn-success,
   overflow: hidden;
   outline: 0;
   position: relative;
-  transition: all .3s linear;
-  text-transform: uppercase; }
+  transition: all .3s linear; }
   button:hover,
   .btn:hover,
   button.btn-success:hover {
@@ -6349,6 +6348,8 @@ form .control-order-by {
     height: auto; }
   .module .module-content .info {
     border: none; }
+    .module .module-content .info .btn, .module .module-content .info button.btn-success {
+      padding: 8px 12px; }
   .module .module-content:first-child {
     margin-top: 0; }
   .module .module-content:last-child {
