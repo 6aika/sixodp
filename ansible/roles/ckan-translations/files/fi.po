@@ -1,7 +1,7 @@
 # Translations template for ckan.
 # Copyright (C) 2015 ORGANIZATION
 # This file is distributed under the same license as the ckan project.
-# 
+#
 # Translators:
 # apoikola <antti.poikola@gmail.com>, 2013,2015
 # floapps <jaakko.louhio@floapps.com>, 2012
@@ -4582,7 +4582,7 @@ msgstr "Lähetä Liityntäkatalogiin liittyvä palautteesi tai kehitysideasi pal
 
 #: Navigation extras
 msgid "Articles"
-msgstr "Artikkelit"
+msgstr "Yhteisö"
 
 msgid "Showcase"
 msgstr "Sovellukset"

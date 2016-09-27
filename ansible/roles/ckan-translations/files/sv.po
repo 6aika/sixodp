@@ -1,7 +1,7 @@
 # Translations template for ckan.
 # Copyright (C) 2015 ORGANIZATION
 # This file is distributed under the same license as the ckan project.
-# 
+#
 # Translators:
 # Börje Lewin <borjelewin@gmail.com>, 2015
 # endast <endast@gmail.com>, 2014
@@ -4575,7 +4575,7 @@ msgstr "Responsen skickas till kundtjänsten för enheten Servicearkitektur vid 
 
 #: Navigation extras
 msgid "Articles"
-msgstr "Artiklar"
+msgstr "Kommun"
 
 msgid "Showcase"
 msgstr "Applicationer"

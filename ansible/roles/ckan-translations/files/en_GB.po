@@ -1,7 +1,7 @@
 # Translations template for ckan.
 # Copyright (C) 2015 ORGANIZATION
 # This file is distributed under the same license as the ckan project.
-# 
+#
 # Translators:
 # Adrià Mercader <adria.mercader@okfn.org>, 2015
 # darwinp <darwinpeltan@gmail.com>, 2013
@@ -4575,7 +4575,7 @@ msgstr "Please send your feedback or development ideas regarding the API Catalog
 
 #: Navigation extras
 msgid "Articles"
-msgstr "Articles"
+msgstr "Community"
 
 msgid "Showcase"
 msgstr "Applications"
