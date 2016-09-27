@@ -46,7 +46,9 @@
             <li class="dropdown">
               {% snippet 'home/snippets/sixodp_language-changer.html' %}
             </li>
-            {# {% snippet 'home/snippets/sixodp_profile.html' %} #}
+            {% if c.userobj %}
+              {% snippet 'home/snippets/sixodp_profile.html' %}
+            {% endif %}
           </ul>
         </div>
       </div>

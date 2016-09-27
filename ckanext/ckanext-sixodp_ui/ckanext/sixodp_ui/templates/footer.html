@@ -16,6 +16,11 @@
         <ul class="list-unstyled">
           {% block footer_links %}
             <li><a href="https://github.com/6aika/sixodp">{{ _('6Aika source code on GitHub')}}</a></li>
+            <li>
+              {% if not c.userobj %}
+                {% snippet 'home/snippets/sixodp_profile.html' %}
+              {% endif %}
+            </li>
           {% endblock %}
         </ul>
         <ul class="list-unstyled">
@@ -31,15 +36,15 @@
     </div>
     <div class="col-sm-6 col-md-6">
       6Aika Twitter
-      <a class="twitter-timeline" 
-        data-width="320" 
-        data-height="240"  
-        data-link-color="#fff" 
+      <a class="twitter-timeline"
+        data-width="320"
+        data-height="240"
+        data-link-color="#fff"
         data-theme="dark"
         href="https://twitter.com/Kuutosaika"
         data-chrome="noheader nofooter noborders transparent">
         Tweets by Kuutosaika
-      </a> 
+      </a>
       <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div>
   </div>
