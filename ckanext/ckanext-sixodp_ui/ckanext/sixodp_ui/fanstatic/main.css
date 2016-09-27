@@ -6769,10 +6769,6 @@ button.close {
     display: none !important;
   }
 }
-.twitter-timeline {
-  width: 100% !important;
-  border: 2px solid #ececec !important;
-}
 @font-face {
   font-family: 'SourceSans';
   src: url('../../../base/vendor/fonts//SourceSansProRegular.eot');

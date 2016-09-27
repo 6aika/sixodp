@@ -1,13 +1,21 @@
 {% ckan_extends %}
 
 {% block footer_content %}
+  <div class="footer-follow">
+    <div class="footer-follow-links">
+      <span class="footer-follow-title">Seuraa meitä</span>
+      <a href="" class="footer-follow-link"><i class="icon-facebook-sign icon-2x"></i></a>
+      <a href="" class="footer-follow-link"><i class="icon-twitter-sign icon-2x"></i></a>
+      <a href="" class="footer-follow-link"><i class="icon-youtube-sign icon-2x"></i></a>
+    </div>
+  </div>
+  <hr>
   <div class="row">
-    <div class="footer-links col-sm-8 col-md-8">
+    <div class="footer-links col-sm-6 col-md-6">
       {% block footer_nav %}
         <ul class="list-unstyled">
           {% block footer_links %}
-            <li><a href="http://esuomi.fi">{{ _('eSuomi.fi, a channel of communication for the National Data Exchange Layer') }}</a></li>
-            <li><a href="https://github.com/vrk-kpa/api-catalog">{{ _('API Catalog source code on GitHub')}}</a></li>
+            <li><a href="https://github.com/6aika/sixodp">{{ _('6Aika source code on GitHub')}}</a></li>
           {% endblock %}
         </ul>
         <ul class="list-unstyled">
@@ -15,11 +23,28 @@
           {% endblock %}
         </ul>
       {% endblock %}
+      <div class="attribution">
+        {% block footer_attribution %}
+          <p>{% trans %}<strong>Powered by</strong> <a class="hide-text ckan-footer-logo" href="http://ckan.org">CKAN</a>{% endtrans %}</p>
+        {% endblock %}
+      </div>
     </div>
-    <div class="attribution col-sm-4 col-md-4">
-      {% block footer_attribution %}
-        <p>{% trans %}<strong>Powered by</strong> <a class="hide-text ckan-footer-logo" href="http://ckan.org">CKAN</a>{% endtrans %}</p>
-      {% endblock %}
+    <div class="col-sm-6 col-md-6">
+      6Aika Twitter
+      <a class="twitter-timeline" 
+        data-width="320" 
+        data-height="240"  
+        data-link-color="#fff" 
+        data-theme="dark"
+        href="https://twitter.com/Kuutosaika"
+        data-chrome="noheader nofooter noborders transparent">
+        Tweets by Kuutosaika
+      </a> 
+      <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div>
+  </div>
+  <hr>
+  <div class="text-center">
+    &copy; 6Aika
   </div>
 {% endblock %}

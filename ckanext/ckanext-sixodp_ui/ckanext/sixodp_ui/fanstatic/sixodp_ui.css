@@ -6368,16 +6368,24 @@ form .control-order-by {
 footer.site-footer {
   background-color: #534f97;
   padding: 40px 0;
-  font-size: 13px; }
+  font-size: 14px;
+  color: #ffffff; }
   footer.site-footer a,
   footer.site-footer label,
   footer.site-footer small {
     color: #ffffff; }
+    footer.site-footer a:hover,
+    footer.site-footer label:hover,
+    footer.site-footer small:hover {
+      color: #eeeeee; }
   footer.site-footer .footer-links ul li {
     margin-bottom: 5px; }
+  footer.site-footer .footer-follow-links .footer-follow-title {
+    margin-right: 5px; }
+  footer.site-footer .footer-follow-links i {
+    vertical-align: middle; }
   footer.site-footer .attribution {
-    color: #ffffff;
-    font-size: 12px; }
+    color: #ffffff; }
     footer.site-footer .attribution .ckan-footer-logo {
       display: block;
       width: 68px;
@@ -6405,3 +6413,7 @@ footer.site-footer {
   position: fixed;
   right: 0;
   bottom: 0; }
+
+.twitter-timeline {
+  border: 0;
+  width: 100% !important; }
