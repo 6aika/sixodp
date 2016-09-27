@@ -5,6 +5,13 @@
       max-height: 480px;
       width: auto !important;
     }
+
+    @media (max-width: $width-md+1) {
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
   }
 
   &-edit {

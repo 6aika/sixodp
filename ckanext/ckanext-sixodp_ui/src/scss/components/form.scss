@@ -8,6 +8,20 @@ form {
         color: $gray-light;
       }
     }
+
+    .form-actions {
+      margin-top: $margin-base-vertical;
+      padding-left: $padding-base-horizontal;
+      padding-right: $padding-base-horizontal;
+    }
+  }
+
+  .form-actions {
+    background: none;
+    margin-left: -25px;
+    margin-right: -25px;
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
 
   .control-order-by {

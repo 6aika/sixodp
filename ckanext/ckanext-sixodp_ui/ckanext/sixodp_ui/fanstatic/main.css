@@ -7718,13 +7718,6 @@ form .control-order-by {
 .form-actions .control-required-message:first-child {
   margin-left: 0;
 }
-.form-actions {
-  background: none;
-  margin-left: -25px;
-  margin-right: -25px;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
 @media (min-width: 768px) {
   .form-actions {
     text-align: right;
@@ -7800,10 +7793,6 @@ form .control-order-by {
 .form-horizontal .info-block a {
   color: #aaaaaa;
   text-decoration: underline;
-}
-.form-horizontal .form-actions {
-  padding-left: 25px;
-  padding-right: 25px;
 }
 .form-inline input {
   padding-bottom: 9px;

@@ -22,8 +22,12 @@
 
     &.main-content {
       @extend .card;
-      margin-top: $margin-base-vertical;
       margin-bottom: $margin-base-vertical;
+
+      .actions {
+        top: 25px;
+        right: 40px;
+      }
     }
 
     @media (max-width: $width-sm - 1) {

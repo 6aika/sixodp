@@ -6313,6 +6313,18 @@ form.form-horizontal .control-label {
     font-size: 14px;
     color: #777777; }
 
+form.form-horizontal .form-actions {
+  margin-top: 20px;
+  padding-left: 25px;
+  padding-right: 25px; }
+
+form .form-actions {
+  background: none;
+  margin-left: -25px;
+  margin-right: -25px;
+  margin-bottom: 0;
+  padding-bottom: 0; }
+
 form .control-order-by {
   margin-top: 6px; }
 
@@ -6342,8 +6354,10 @@ form .control-order-by {
   .module .module-content:last-child {
     margin-bottom: 0; }
   .module .module-content.main-content {
-    margin-top: 20px;
     margin-bottom: 20px; }
+    .module .module-content.main-content .actions {
+      top: 25px;
+      right: 40px; }
   @media (max-width: 767px) {
     .module .module-content {
       padding: 0; }
@@ -6374,6 +6388,11 @@ footer.site-footer {
 .ckanext-showcase-image-container img {
   max-height: 480px;
   width: auto !important; }
+
+@media (max-width: 993px) {
+  .ckanext-showcase-image-container img {
+    max-width: 100%;
+    height: auto; } }
 
 .ckanext-showcase-edit.primary {
   float: none; }
