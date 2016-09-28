@@ -26,9 +26,9 @@ Resources:
     Type: AWS::EC2::Instance
     Properties:
       InstanceType: !Ref InstanceType
-      ImageId: ami-f9dd458a # Amazon Linux AMI 2016.03.3 (HVM), SSD Volume Type
+      ImageId: ami-d41d58a7 # Amazon Linux AMI 2016.09.0 (HVM), SSD Volume Type
       KeyName: sixodp-omni
-      IamInstanceProfile: arn:aws:iam::290365872283:instance-profile/sixodp-docker-instance-role
+      IamInstanceProfile: sixodp-docker-instance-role
       SecurityGroups:
         - !Ref InstanceSecurityGroup
       BlockDeviceMappings: 
