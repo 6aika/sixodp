@@ -55,10 +55,6 @@ body {
   @media (min-width: $width-xl) {
     width: 1380px;
   }
-
-  &.container-padded {
-    padding: $padding-base-vertical $padding-base-horizontal;
-  }
 }
 
 .wrapper {

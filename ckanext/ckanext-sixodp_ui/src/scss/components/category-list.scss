@@ -4,6 +4,18 @@
     text-align: center;
     height: 300px;
 
+    img {
+      @extend .box-shadow;
+      height: 100px;
+      width: auto;
+      padding: 10px;
+      border-radius: 10%;
+
+      &:hover {
+        @extend .box-shadow-highlight;
+      }
+    }
+
     .item-description {
       font-size: 14px;
       color: $gray-light;

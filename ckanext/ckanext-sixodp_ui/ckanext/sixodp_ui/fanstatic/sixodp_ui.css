@@ -5854,12 +5854,12 @@ button.close {
   text-shadow: 1px 1px 1px #aaa; }
 
 .box-shadow, .card, .card-theme, .dataset-list .dataset-item, .search-form, .navbar-offcanvas, .media-grid .media-item, .list-group .list-group-item, .topic-list .topic-list-item, .card-hover, .resource-list .resource-item, .module .module-content.main-content, .ckanext-showcase-edit .module-content, .navbar, .searchbox, .btn, button.btn-success,
-.btn.btn-success, .tag-list li, .search-form .search-input input {
+.btn.btn-success, .tag-list li, .search-form .search-input input, .category-list-item img {
   box-shadow: 0 4px 3px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08); }
 
 .box-shadow-highlight, .card-hover:hover, .dataset-list .dataset-item:hover, .resource-list .resource-item:hover, .media-grid .media-item:hover, .topic-list .topic-list-item:hover, button:hover,
 .btn:hover, button.btn-success:hover, button:active,
-.btn:active, button.btn-success:active, .tag-list li:hover, .search-form .search-input input:focus, .search-form .search-input input:active {
+.btn:active, button.btn-success:active, .tag-list li:hover, .search-form .search-input input:focus, .search-form .search-input input:active, .category-list-item img:hover {
   box-shadow: 0 6px 10px rgba(50, 50, 93, 0.1), 0 4px 3px rgba(0, 0, 0, 0.08);
   transition: all .3s linear; }
 
@@ -5920,8 +5920,6 @@ body {
   @media (min-width: 1400px) {
     .container {
       width: 1380px; } }
-  .container.container-padded {
-    padding: 20px 25px; }
 
 .wrapper {
   position: relative;
@@ -6425,6 +6423,11 @@ footer.site-footer {
   padding-top: 20px;
   text-align: center;
   height: 300px; }
+  .category-list-item img {
+    height: 100px;
+    width: auto;
+    padding: 10px;
+    border-radius: 10%; }
   .category-list-item .item-description {
     font-size: 14px;
     color: #777777; }
@@ -6456,3 +6459,8 @@ footer.site-footer {
     font-weight: bold; }
   .stats-list .stats-list-item .item-description {
     font-size: 18px; }
+
+.home-highlight {
+  padding: 20px 25px; }
+  .home-highlight .highlight-header {
+    margin-left: 15px; }
