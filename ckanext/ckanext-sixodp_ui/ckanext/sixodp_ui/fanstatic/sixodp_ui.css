@@ -5853,11 +5853,11 @@ button.close {
   font-weight: bold;
   text-shadow: 1px 1px 1px #aaa; }
 
-.box-shadow, .card, .card-theme, .dataset-list .dataset-item, .search-form, .navbar-offcanvas, .media-grid .media-item, .list-group .list-group-item, .card-hover, .resource-list .resource-item, .module .module-content.main-content, .ckanext-showcase-edit .module-content, .navbar, .searchbox, .btn, button.btn-success,
+.box-shadow, .card, .card-theme, .dataset-list .dataset-item, .search-form, .navbar-offcanvas, .media-grid .media-item, .list-group .list-group-item, .topic-list .topic-list-item, .card-hover, .resource-list .resource-item, .module .module-content.main-content, .ckanext-showcase-edit .module-content, .navbar, .searchbox, .btn, button.btn-success,
 .btn.btn-success, .tag-list li, .search-form .search-input input {
   box-shadow: 0 4px 3px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08); }
 
-.box-shadow-highlight, .card-hover:hover, .dataset-list .dataset-item:hover, .resource-list .resource-item:hover, .media-grid .media-item:hover, button:hover,
+.box-shadow-highlight, .card-hover:hover, .dataset-list .dataset-item:hover, .resource-list .resource-item:hover, .media-grid .media-item:hover, .topic-list .topic-list-item:hover, button:hover,
 .btn:hover, button.btn-success:hover, button:active,
 .btn:active, button.btn-success:active, .tag-list li:hover, .search-form .search-input input:focus, .search-form .search-input input:active {
   box-shadow: 0 6px 10px rgba(50, 50, 93, 0.1), 0 4px 3px rgba(0, 0, 0, 0.08);
@@ -5878,7 +5878,7 @@ html {
 *, *:before, *:after {
   box-sizing: inherit; }
 
-html, body, .homepage {
+html, body {
   height: 100%; }
 
 body {
@@ -5920,6 +5920,8 @@ body {
   @media (min-width: 1400px) {
     .container {
       width: 1380px; } }
+  .container.container-padded {
+    padding: 20px 25px; }
 
 .wrapper {
   position: relative;
@@ -5946,7 +5948,7 @@ a {
   a:hover {
     text-decoration: none; }
 
-.card, .card-theme, .dataset-list .dataset-item, .search-form, .navbar-offcanvas, .media-grid .media-item, .list-group .list-group-item, .card-hover, .resource-list .resource-item, .module .module-content.main-content, .ckanext-showcase-edit .module-content {
+.card, .card-theme, .dataset-list .dataset-item, .search-form, .navbar-offcanvas, .media-grid .media-item, .list-group .list-group-item, .topic-list .topic-list-item, .card-hover, .resource-list .resource-item, .module .module-content.main-content, .ckanext-showcase-edit .module-content {
   border-width: 0 0 0 2px;
   border-style: solid;
   border-color: transparent;
@@ -5955,13 +5957,13 @@ a {
   padding: 20px 25px;
   border-radius: 2px; }
 
-.card-theme, .dataset-list .dataset-item, .search-form, .navbar-offcanvas, .media-grid .media-item, .list-group .list-group-item {
+.card-theme, .dataset-list .dataset-item, .search-form, .navbar-offcanvas, .media-grid .media-item, .list-group .list-group-item, .topic-list .topic-list-item {
   border-left-width: 2px;
   border-left-color: #534f97; }
 
-.card-hover, .dataset-list .dataset-item, .resource-list .resource-item, .media-grid .media-item {
+.card-hover, .dataset-list .dataset-item, .resource-list .resource-item, .media-grid .media-item, .topic-list .topic-list-item {
   border-left-width: 2px; }
-  .card-hover:hover, .dataset-list .dataset-item:hover, .resource-list .resource-item:hover, .media-grid .media-item:hover {
+  .card-hover:hover, .dataset-list .dataset-item:hover, .resource-list .resource-item:hover, .media-grid .media-item:hover, .topic-list .topic-list-item:hover {
     -webkit-transition: 0.2s;
     -moz-transition: 0.2s;
     -ms-transition: 0.2s;
@@ -6015,8 +6017,9 @@ a {
       margin-right: 0; }
 
 .hero {
-  margin-top: 120px;
-  margin-bottom: 120px; }
+  margin: 0;
+  min-height: 400px;
+  background: transparent; }
 
 .site-title {
   font-size: 40px; }
@@ -6417,3 +6420,26 @@ footer.site-footer {
 .twitter-timeline {
   border: 0;
   width: 100% !important; }
+
+.category-list-item {
+  padding-top: 20px;
+  text-align: center;
+  height: 300px; }
+  .category-list-item .item-description {
+    font-size: 14px;
+    color: #777777; }
+
+.topic-list {
+  padding: 0;
+  list-style: none; }
+  .topic-list .topic-list-item {
+    margin: 20px 25px; }
+    .topic-list .topic-list-item .topic-header,
+    .topic-list .topic-list-item .topic-timestamp,
+    .topic-list .topic-list-item .topic-info {
+      margin: 0 0 2px; }
+    .topic-list .topic-list-item .topic-header {
+      font-weight: bold; }
+    .topic-list .topic-list-item .topic-timestamp {
+      font-size: 14px;
+      color: #777777; }

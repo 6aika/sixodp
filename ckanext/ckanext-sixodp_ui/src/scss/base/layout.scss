@@ -6,7 +6,7 @@ html {
   box-sizing: inherit;
 }
 
-html, body, .homepage {
+html, body {
   height: 100%;
 }
 
@@ -54,6 +54,10 @@ body {
 
   @media (min-width: $width-xl) {
     width: 1380px;
+  }
+
+  &.container-padded {
+    padding: $padding-base-vertical $padding-base-horizontal;
   }
 }
 

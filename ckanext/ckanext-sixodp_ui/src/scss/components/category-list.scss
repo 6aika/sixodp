@@ -1,0 +1,12 @@
+.category-list {
+  &-item {
+    padding-top: $padding-base-vertical;
+    text-align: center;
+    height: 300px;
+
+    .item-description {
+      font-size: 14px;
+      color: $gray-light;
+    }
+  }
+}

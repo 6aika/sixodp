@@ -1,0 +1,25 @@
+.topic-list {
+  padding: 0;
+  list-style: none;
+
+  .topic-list-item {
+    @extend .card-theme;
+    @extend .card-hover;
+    margin: $margin-base-vertical $margin-base-horizontal;
+
+    .topic-header,
+    .topic-timestamp,
+    .topic-info {
+      margin: 0 0 2px;
+    }
+
+    .topic-header {
+      font-weight: bold;
+    }
+
+    .topic-timestamp {
+      font-size: 14px;
+      color: $gray-light;
+    }
+  }
+}
