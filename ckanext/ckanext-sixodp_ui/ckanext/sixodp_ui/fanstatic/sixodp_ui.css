@@ -5928,7 +5928,7 @@ body {
   height: 100%; }
 
 [role=main] {
-  background: #f5f5f5; }
+  background: #ffffff; }
   [role=main] .primary {
     float: right;
     margin-left: 0; }
@@ -6433,6 +6433,7 @@ footer.site-footer {
   padding: 0;
   list-style: none; }
   .topic-list .topic-list-item {
+    background: #eeeeee;
     margin: 20px 25px; }
     .topic-list .topic-list-item .topic-header,
     .topic-list .topic-list-item .topic-timestamp,
@@ -6443,3 +6444,15 @@ footer.site-footer {
     .topic-list .topic-list-item .topic-timestamp {
       font-size: 14px;
       color: #777777; }
+
+.stats-list .stats-list-item {
+  text-align: center; }
+  @media (min-width: 480px) {
+    .stats-list .stats-list-item {
+      padding-top: 20px;
+      padding-bottom: 20px; } }
+  .stats-list .stats-list-item .item-value {
+    font-size: 38px;
+    font-weight: bold; }
+  .stats-list .stats-list-item .item-description {
+    font-size: 18px; }

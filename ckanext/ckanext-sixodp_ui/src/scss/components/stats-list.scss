@@ -1,0 +1,19 @@
+.stats-list {
+  .stats-list-item {
+    text-align: center;
+
+    @media (min-width: $width-xs) {
+      padding-top: $padding-base-vertical;
+      padding-bottom: $padding-base-vertical;
+    }
+
+    .item-value {
+      font-size: 38px;
+      font-weight: bold;
+    }
+
+    .item-description {
+      font-size: 18px;
+    }
+  }
+}

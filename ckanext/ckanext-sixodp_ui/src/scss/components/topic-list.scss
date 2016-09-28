@@ -5,6 +5,7 @@
   .topic-list-item {
     @extend .card-theme;
     @extend .card-hover;
+    background: $gray-lighter;
     margin: $margin-base-vertical $margin-base-horizontal;
 
     .topic-header,
