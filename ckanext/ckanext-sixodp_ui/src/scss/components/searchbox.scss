@@ -1,8 +1,12 @@
 .searchbox {
   width: 100%;
   max-width: $base*72;
-  padding: $base*5 $base*8;
-  margin: $base*12 auto 0 auto;
+  padding: $padding-base-vertical*3 $padding-base-horizontal*2;
+  margin: $margin-base-vertical*3 auto 0 auto;
+
+  @media (min-width: $width-sm) {
+    padding: $padding-base-vertical*3 $padding-base-horizontal*4;
+  }
 
   .module-content.search-form {
     margin: 0;

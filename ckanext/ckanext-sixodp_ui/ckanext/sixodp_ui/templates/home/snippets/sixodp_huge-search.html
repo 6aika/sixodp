@@ -6,8 +6,8 @@
 
   <form class="module-content search-form" method="get" action="{% url_for controller='package', action='search' %}">
     <div class="row">
-      <input type="text" id="search" placeholder="{% block search_placeholder %}{{ placeholder }}{% endblock %}" class="col-xs-10" name="q" value="" autocomplete="off" />
-      <button type="button" class="btn btn-primary btn-search--main col-xs-2">Etsi</button>
+      <input type="text" id="search" placeholder="{% block search_placeholder %}{{ placeholder }}{% endblock %}" class="col-sm-10 col-xs-9" name="q" value="" autocomplete="off" />
+      <button type="button" class="btn btn-primary btn-search--main col-sm-2 col-xs-3">Etsi</button>
     </div>
   </form>
 </div>
