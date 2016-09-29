@@ -16,24 +16,30 @@ body {
   color: $black;
 
   .homepage {
-    background: url('/base/images/frontpage.jpg') no-repeat center center;
-    background-size: cover;
-    padding-top: $nav-height;
-
-    &:before {
-      content: '';
-      display: block;
-      z-index: -1;
-      position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-      height: $base*16;
-      background: -moz-linear-gradient(top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
-      background: -webkit-linear-gradient(top, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
-      background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      background: 
+        -webkit-linear-gradient(rgba(83, 79, 151, 0.3), rgba(83, 79, 151, 0.1)), url('/base/images/frontpage.jpg') no-repeat center center;
+      background: 
+        -o-linear-gradient(rgba(83, 79, 151, 0.3), rgba(83, 79, 151, 0.1)), url('/base/images/frontpage.jpg') no-repeat center center;
+      background: 
+        linear-gradient(rgba(83, 79, 151, 0.3), rgba(83, 79, 151, 0.1)), url('/base/images/frontpage.jpg') no-repeat center center;
+      background-size: cover;
+      padding-top: $nav-height;
+  
+  
+      &:before {
+        content: '';
+        display: block;
+        z-index: -1;
+        position: absolute;
+          top: 0;
+          right: 0;
+          left: 0;
+        height: $base*16;
+        background: -moz-linear-gradient(top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      }
     }
-  }
 }
 
 .container {

@@ -5886,7 +5886,9 @@ body {
   padding-top: 50px;
   color: #57575b; }
   body .homepage {
-    background: url("/base/images/frontpage.jpg") no-repeat center center;
+    background: -webkit-linear-gradient(rgba(83, 79, 151, 0.3), rgba(83, 79, 151, 0.1)), url("/base/images/frontpage.jpg") no-repeat center center;
+    background: -o-linear-gradient(rgba(83, 79, 151, 0.3), rgba(83, 79, 151, 0.1)), url("/base/images/frontpage.jpg") no-repeat center center;
+    background: linear-gradient(rgba(83, 79, 151, 0.3), rgba(83, 79, 151, 0.1)), url("/base/images/frontpage.jpg") no-repeat center center;
     background-size: cover;
     padding-top: 50px; }
     body .homepage:before {
@@ -6032,7 +6034,7 @@ a {
   width: 100%;
   max-width: 720px;
   padding: 50px 80px;
-  margin: 120px auto; }
+  margin: 120px auto 0 auto; }
   .searchbox .module-content.search-form {
     margin: 0;
     padding: 0;
@@ -6147,17 +6149,25 @@ button.btn-success,
     width: 9px; }
 
 .tag-list {
-  padding: 10px 0; }
+  padding: 10px 0;
+  list-style: none; }
   .tag-list li {
-    background-color: #97ba54;
-    border: 2px solid #97ba54;
+    background-color: #534f97;
+    border: 2px solid #534f97;
     border-radius: 0.25em;
-    font-size: 14.4px; }
+    font-size: 14.4px;
+    display: inline-block;
+    padding: 0px 10px 2px 10px;
+    margin-right: 5px;
+    margin-bottom: 8px; }
     .tag-list li:hover {
-      background-color: #adc978;
-      border-color: #adc978; }
-      .tag-list li:hover a {
-        color: #ffffff; }
+      background-color: #6d69b0;
+      border-color: #6d69b0; }
+    .tag-list li:last-child {
+      margin-right: 0; }
+    .tag-list li a {
+      color: #ffffff;
+      text-decoration: none; }
 
 .resource-list {
   padding-left: 0;
@@ -6479,3 +6489,17 @@ footer.site-footer {
   padding: 20px 25px; }
   .home-highlight .highlight-header {
     margin-left: 15px; }
+
+.tagbox {
+  text-align: center;
+  margin-bottom: 120px; }
+  .tagbox .tagbox-header {
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 8px;
+    color: #ffffff;
+    text-shadow: 1px 1px 1px #aaa; }
+  .tagbox .tag-list {
+    display: inline-block; }
+    .tagbox .tag-list .tag {
+      font-size: 18px; }
