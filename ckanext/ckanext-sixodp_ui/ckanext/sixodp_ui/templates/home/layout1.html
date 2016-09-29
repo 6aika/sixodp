@@ -7,11 +7,9 @@
   <div class="tagbox">
     <h4 class="tagbox-header">Suositut avainsanat</h4>
     <ul class="tag-list">
-      <li><a class="tag">kulttuuritapahtumat</a></li>
-      <li><a class="tag">matkailu</a></li>
-      <li><a class="tag">tapahtumat</a></li>
-      <li><a class="tag">urheilutapahtumat</a></li>
-      <li><a class="tag">seminaarit</a></li>
+      {% for tag in h.get_popular_tags() %}
+        <li><a class="tag" href="/dataset?tags={{tag}}">{{ tag }}</a></li>
+      {% endfor %}
     </ul>
   </div>
 </div>

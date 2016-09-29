@@ -38,6 +38,28 @@ def service_alerts():
         return []
 
 
+def get_recent_content():
+
+    search_dict = {
+        'sort': 'metadata_created desc'
+    }
+
+    items = logic.get_action('package_search')({}, search_dict)
+    return items
+
+
+def get_popular_tags():
+
+    search_dict = {
+        'facet.field': ['tags'],
+        'facet.limit': 10,
+        'rows': 0
+    }
+
+    items = logic.get_action('package_search')({}, search_dict)
+    return items['facets']['tags']
+
+
 def get_homepage_organizations(count=1):
     def get_group(id):
         context = {'ignore_auth': True,
@@ -136,6 +158,8 @@ class Sixodp_UiPlugin(plugins.SingletonPlugin):
 
     def get_helpers(self):
         return {'piwik_url': piwik_url,
+                'get_recent_content': get_recent_content,
+                'get_popular_tags': get_popular_tags,
                 'get_homepage_organizations': get_homepage_organizations,
                 'piwik_site_id': piwik_site_id,
                 'service_alerts': service_alerts,
