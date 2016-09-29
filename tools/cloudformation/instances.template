@@ -2,6 +2,17 @@ AWSTemplateFormatVersion: "2010-09-09"
 Description: sixodp docker infrastructure
 
 Parameters:
+  CustomerName:
+    Type: String
+    Default: generic
+  EnvironmentName:
+    Type: String
+    Default: dev
+    AllowedValues:
+      - dev
+      - qa
+      - test
+      - prod
   InstanceType:
     Description: EC2 instance type for the application servers
     Type: String
@@ -45,6 +56,10 @@ Resources:
           yum install -y docker
           service docker start
           usermod -a -G docker ec2-user
+          eval "$(aws ecr get-login --region eu-west-1)"
+          export ECR_REPO_BASE=290365872283.dkr.ecr.eu-west-1.amazonaws.com
+          docker pull $ECR_REPO_BASE/sixodp-solr:latest
+          docker run -d -p 8983:8983 --restart=always $ECR_REPO_BASE/sixodp-solr:latest
 
   InstanceSecurityGroup:
     Type: AWS::EC2::SecurityGroup
@@ -53,6 +68,10 @@ Resources:
       SecurityGroupIngress: 
         - FromPort: 22
           ToPort: 22
+          IpProtocol: tcp
+          CidrIp: 193.64.225.83/32
+        - FromPort: 8983
+          ToPort: 8983
           IpProtocol: tcp
           CidrIp: 193.64.225.83/32
 
@@ -73,7 +92,7 @@ Resources:
   DomainName:
     Type: AWS::Route53::RecordSet
     Properties:
-      Name: generic-dev.dataportaali.com.
+      Name: !Sub ${CustomerName}-${EnvironmentName}.dataportaali.com.
       Type: A
       TTL: 300
       HostedZoneId: !Ref HostedZoneId
