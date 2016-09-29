@@ -1,13 +1,35 @@
 .searchbox {
-  @extend .box-shadow;
   width: 100%;
   max-width: $base*72;
-  padding: $base*6 $base*8;
-  background: rgba(255,255,255,0.8);
-  border-radius: $border-radius-large;
+  padding: $base*5 $base*8;
   margin: $base*12 auto;
 
-  button {
-    border-bottom: $border-base solid $brand-primary;
+  .module-content.search-form {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+
+    input {
+      @extend .box-shadow;
+      color: $gray-light;
+      font-size: 24px;
+      height: 80px;
+      border: $border-base solid transparent;
+      border-radius: $border-radius-small;
+
+      &:focus,
+      &:active {
+        @extend .box-shadow-highlight;
+        border-bottom-color: $brand-primary;
+      }
+    }
+
+    button {
+      font-size: 22px;
+      height: 80px;
+      border-radius: 0 $border-radius-small $border-radius-small 0;
+      border: $border-base solid $brand-primary;
+    }
   }
 }

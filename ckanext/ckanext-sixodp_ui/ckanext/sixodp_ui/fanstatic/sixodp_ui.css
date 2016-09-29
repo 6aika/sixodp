@@ -5853,11 +5853,11 @@ button.close {
   font-weight: bold;
   text-shadow: 1px 1px 1px #aaa; }
 
-.box-shadow, .card, .card-theme, .dataset-list .dataset-item, .search-form, .navbar-offcanvas, .media-grid .media-item, .list-group .list-group-item, .topic-list .topic-list-item, .card-hover, .resource-list .resource-item, .module .module-content.main-content, .ckanext-showcase-edit .module-content, .navbar, .searchbox, .btn, button.btn-success,
+.box-shadow, .card, .card-theme, .dataset-list .dataset-item, .search-form, .navbar-offcanvas, .media-grid .media-item, .list-group .list-group-item, .topic-list .topic-list-item, .card-hover, .resource-list .resource-item, .module .module-content.main-content, .ckanext-showcase-edit .module-content, .navbar, .searchbox .module-content.search-form input, .btn, button.btn-success,
 .btn.btn-success, .tag-list li, .search-form .search-input input, .category-list-item img {
   box-shadow: 0 4px 3px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08); }
 
-.box-shadow-highlight, .card-hover:hover, .dataset-list .dataset-item:hover, .resource-list .resource-item:hover, .media-grid .media-item:hover, .topic-list .topic-list-item:hover, button:hover,
+.box-shadow-highlight, .card-hover:hover, .dataset-list .dataset-item:hover, .resource-list .resource-item:hover, .media-grid .media-item:hover, .topic-list .topic-list-item:hover, .searchbox .module-content.search-form input:focus, .searchbox .module-content.search-form input:active, button:hover,
 .btn:hover, button.btn-success:hover, button:active,
 .btn:active, button.btn-success:active, .tag-list li:hover, .search-form .search-input input:focus, .search-form .search-input input:active, .category-list-item img:hover {
   box-shadow: 0 6px 10px rgba(50, 50, 93, 0.1), 0 4px 3px rgba(0, 0, 0, 0.08);
@@ -6016,6 +6016,7 @@ a {
 
 .hero {
   margin: 0;
+  padding-top: 50px;
   min-height: 400px;
   background: transparent; }
 
@@ -6030,12 +6031,26 @@ a {
 .searchbox {
   width: 100%;
   max-width: 720px;
-  padding: 60px 80px;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 0.25em;
+  padding: 50px 80px;
   margin: 120px auto; }
-  .searchbox button {
-    border-bottom: 2px solid #534f97; }
+  .searchbox .module-content.search-form {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none; }
+    .searchbox .module-content.search-form input {
+      color: #777777;
+      font-size: 24px;
+      height: 80px;
+      border: 2px solid transparent;
+      border-radius: 2px; }
+      .searchbox .module-content.search-form input:focus, .searchbox .module-content.search-form input:active {
+        border-bottom-color: #534f97; }
+    .searchbox .module-content.search-form button {
+      font-size: 22px;
+      height: 80px;
+      border-radius: 0 2px 2px 0;
+      border: 2px solid #534f97; }
 
 label {
   display: block; }
