@@ -1,12 +1,16 @@
 .topic-list {
-  padding: 0;
+  padding: 0 0 $padding-base-vertical 0;
   list-style: none;
 
   .topic-list-item {
     @extend .card-theme;
     @extend .card-hover;
     background: $gray-lighter;
-    margin: $margin-base-vertical $margin-base-horizontal;
+    margin: $margin-base-vertical*2 $margin-base-horizontal;
+
+    &:first-child {
+      margin-top: $margin-base-vertical;
+    }
 
     .topic-header,
     .topic-timestamp,

@@ -5854,12 +5854,12 @@ button.close {
   text-shadow: 1px 1px 1px #aaa; }
 
 .box-shadow, .card, .card-theme, .dataset-list .dataset-item, .search-form, .navbar-offcanvas, .media-grid .media-item, .list-group .list-group-item, .topic-list .topic-list-item, .card-hover, .resource-list .resource-item, .module .module-content.main-content, .ckanext-showcase-edit .module-content, .navbar, .searchbox .module-content.search-form input, .btn, button.btn-success,
-.btn.btn-success, .tag-list li, .search-form .search-input input, .category-list-item img {
+.btn.btn-success, .tag-list li, .search-form .search-input input, .category-list .category-list-item img {
   box-shadow: 0 4px 3px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08); }
 
 .box-shadow-highlight, .card-hover:hover, .dataset-list .dataset-item:hover, .resource-list .resource-item:hover, .media-grid .media-item:hover, .topic-list .topic-list-item:hover, .searchbox .module-content.search-form input:focus, .searchbox .module-content.search-form input:active, button:hover,
 .btn:hover, button.btn-success:hover, button:active,
-.btn:active, button.btn-success:active, .tag-list li:hover, .search-form .search-input input:focus, .search-form .search-input input:active, .category-list-item img:hover {
+.btn:active, button.btn-success:active, .tag-list li:hover, .search-form .search-input input:focus, .search-form .search-input input:active, .category-list .category-list-item img:hover {
   box-shadow: 0 6px 10px rgba(50, 50, 93, 0.1), 0 4px 3px rgba(0, 0, 0, 0.08);
   transition: all .3s linear; }
 
@@ -6454,25 +6454,27 @@ footer.site-footer {
   border: 0;
   width: 100% !important; }
 
-.category-list-item {
-  padding-top: 20px;
+.category-list .category-list-item {
+  padding-top: 40px;
   text-align: center;
   height: 300px; }
-  .category-list-item img {
+  .category-list .category-list-item img {
     height: 100px;
     width: auto;
-    padding: 10px;
+    padding: 25px;
     border-radius: 10%; }
-  .category-list-item .item-description {
+  .category-list .category-list-item .item-description {
     font-size: 14px;
     color: #777777; }
 
 .topic-list {
-  padding: 0;
+  padding: 0 0 20px 0;
   list-style: none; }
   .topic-list .topic-list-item {
     background: #eeeeee;
-    margin: 20px 25px; }
+    margin: 40px 25px; }
+    .topic-list .topic-list-item:first-child {
+      margin-top: 20px; }
     .topic-list .topic-list-item .topic-header,
     .topic-list .topic-list-item .topic-timestamp,
     .topic-list .topic-list-item .topic-info {
@@ -6484,11 +6486,13 @@ footer.site-footer {
       color: #777777; }
 
 .stats-list .stats-list-item {
-  text-align: center; }
-  @media (min-width: 480px) {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px; }
+  @media (min-width: 992px) {
     .stats-list .stats-list-item {
-      padding-top: 20px;
-      padding-bottom: 20px; } }
+      padding-top: 40px;
+      padding-bottom: 40px; } }
   .stats-list .stats-list-item .item-value {
     font-size: 38px;
     font-weight: bold; }
@@ -6496,7 +6500,7 @@ footer.site-footer {
     font-size: 18px; }
 
 .home-highlight {
-  padding: 20px 25px; }
+  padding: 40px 25px; }
   .home-highlight .highlight-header {
     margin-left: 15px; }
 

@@ -1,6 +1,6 @@
 .category-list {
-  &-item {
-    padding-top: $padding-base-vertical;
+  .category-list-item {
+    padding-top: $padding-base-vertical*2;
     text-align: center;
     height: 300px;
 
@@ -8,7 +8,7 @@
       @extend .box-shadow;
       height: 100px;
       width: auto;
-      padding: 10px;
+      padding: $padding-base-horizontal;
       border-radius: 10%;
 
       &:hover {
