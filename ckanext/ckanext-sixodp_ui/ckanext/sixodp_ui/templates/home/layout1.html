@@ -126,32 +126,15 @@
     <div class="row">
       <div class="col-md-6">
         <h3 class="text-center">Uusin sisältö</h3>
+        
         <ul class="topic-list">
-          <li class="topic-list-item">
-            <h4 class="topic-header">Espoon luontokohteet</h4>
-            <p class="topic-timestamp">12.8.2016</p>
-            <p class="topic-info">Sovellukset - Ympäristö ja liikunta</p>
-          </li>
-          <li class="topic-list-item">
-            <h4 class="topic-header">Espoon liikenneväylien keskilinjat</h4>
-            <p class="topic-timestamp">12.8.2016</p>
-            <p class="topic-info">Tietoaineistot - Kartat ja paikkatieto</p>
-          </li>
-          <li class="topic-list-item">
-            <h4 class="topic-header">Espoon luontokohteet</h4>
-            <p class="topic-timestamp">12.8.2016</p>
-            <p class="topic-info">Sovellukset - Ympäristö ja liikunta</p>
-          </li>
-          <li class="topic-list-item">
-            <h4 class="topic-header">Espoon liikenneväylien keskilinjat</h4>
-            <p class="topic-timestamp">12.8.2016</p>
-            <p class="topic-info">Tietoaineistot - Kartat ja paikkatieto</p>
-          </li>
-          <li class="topic-list-item">
-            <h4 class="topic-header">Espoon liikenneväylien keskilinjat</h4>
-            <p class="topic-timestamp">12.8.2016</p>
-            <p class="topic-info">Tietoaineistot - Kartat ja paikkatieto</p>
-          </li>
+          {% for item in h.get_recent_content() %}
+            <li class="topic-list-item">
+              <h4 class="topic-header">{{ item['title'] }}</h4>
+              <p class="topic-timestamp">{{ item['metadata_created'] }}</p>
+              <p class="topic-info">Sovellukset - Ympäristö ja liikunta</p>
+            </li>
+          {% endfor %}
         </ul>
       </div>
       <div class="col-md-6">

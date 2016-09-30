@@ -41,22 +41,32 @@ def service_alerts():
 def get_recent_content():
 
     search_dict = {
-        'sort': 'metadata_created desc'
+        'sort': 'metadata_created desc',
+        'rows': 5
     }
 
     items = logic.get_action('package_search')({}, search_dict)
-    return items
+
+    result = []
+    for item in items['results']:
+        result.append({
+            'title': item['title'],
+            'metadata_created': item['metadata_created']
+        })
+
+    return result
 
 
 def get_popular_tags():
 
     search_dict = {
         'facet.field': ['tags'],
-        'facet.limit': 10,
+        'facet.limit': 5,
         'rows': 0
     }
 
     items = logic.get_action('package_search')({}, search_dict)
+
     return items['facets']['tags']
 
 
