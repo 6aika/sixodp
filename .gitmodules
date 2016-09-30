@@ -19,6 +19,6 @@
 [submodule "ckanext/ckanext-showcase"]
 	path = ckanext/ckanext-showcase
 	url = https://github.com/ckan/ckanext-showcase.git
-[submodule "ckanext-report"]
-	path = ckanext-report
+[submodule "ckanext/ckanext-report"]
+	path = ckanext/ckanext-report
 	url = https://github.com/datagovuk/ckanext-report
