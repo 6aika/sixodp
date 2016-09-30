@@ -1,7 +1,7 @@
 ---
 
 # List of enabled CKAN extensions in load order. Order matters, when templates call super()
-enabled_ckan_extensions: text_view sixodp_scheming scheming_datasets fluent sixodp_ui pages sixodp_routes contact sixodp_feed showcase
+enabled_ckan_extensions: text_view sixodp_scheming scheming_datasets fluent sixodp_ui pages sixodp_routes contact sixodp_feed showcase report
 enabled_ckan_aws_extensions: s3filestore
 
 redis_harvest_database: 0

@@ -14,3 +14,4 @@ ckan_extensions:
   - ckanext-contact
   - ckanext-harvest
   - ckanext-s3filestore
+  - ckanext-report
