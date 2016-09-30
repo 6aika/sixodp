@@ -22,6 +22,9 @@
 [submodule "ckanext/ckanext-report"]
 	path = ckanext/ckanext-report
 	url = https://github.com/datagovuk/ckanext-report
+[submodule "ckanext/ckanext-archiver"]
+	path = ckanext/ckanext-archiver
+	url = https://github.com/ckan/ckanext-archiver
 [submodule "ckanext/ckanext-qa"]
 	path = ckanext/ckanext-qa
 	url = https://github.com/ckan/ckanext-qa
