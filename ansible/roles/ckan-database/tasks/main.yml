@@ -33,10 +33,9 @@
 
 - name: Initialize archiver database
   shell: ./bin/paster --plugin=ckanext-archiver archiver init "--config={{ ckan_ini }}" chdir={{ virtualenv }}
-  tags:
-    - ckan
+
+- name: Initialize report database
+  shell: ./bin/paster --plugin=ckanext-report report initdb "--config={{ ckan_ini }}" chdir={{ virtualenv }}
 
 - name: Initialize QA database
   shell: ./bin/paster --plugin=ckanext-qa qa init "--config={{ ckan_ini }}" chdir={{ virtualenv }}
-  tags:
-    - ckan
