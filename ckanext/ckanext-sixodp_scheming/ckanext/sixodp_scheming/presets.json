@@ -28,7 +28,7 @@
     {
       "preset_name": "sixodp_update_frequency",
       "values": {
-        "validators": "int_validator",
+        "validators": "ignore_missing int_validator",
         "form_placeholder": "eg. 2"
       }
     },

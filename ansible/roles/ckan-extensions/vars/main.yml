@@ -15,5 +15,5 @@ ckan_extensions:
   - ckanext-harvest
   - ckanext-s3filestore
   - ckanext-report
-  #- ckanext-archiver
-  #- ckanext-qa
+  - ckanext-qa
+  - ckanext-archiver
