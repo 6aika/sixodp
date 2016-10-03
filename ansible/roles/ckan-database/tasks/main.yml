@@ -30,3 +30,13 @@
 
 - name: Initialize Harvest database
   shell: ./bin/paster --plugin=ckanext-harvest harvester initdb "--config={{ ckan_ini }}" chdir={{ virtualenv }}
+
+- name: Initialize archiver database
+  shell: ./bin/paster --plugin=ckanext-archiver archiver init "--config={{ ckan_ini }}" chdir={{ virtualenv }}
+  tags:
+    - ckan
+
+- name: Initialize QA database
+  shell: ./bin/paster --plugin=ckanext-qa qa init "--config={{ ckan_ini }}" chdir={{ virtualenv }}
+  tags:
+    - ckan
