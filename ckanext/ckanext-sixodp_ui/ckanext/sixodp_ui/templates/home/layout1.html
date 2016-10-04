@@ -5,12 +5,14 @@
     {% block search %} {% snippet 'home/snippets/sixodp_huge-search.html' %} {% endblock %}
   </div>
   <div class="tagbox">
-    <h4 class="tagbox-header">Suositut avainsanat</h4>
+    {% if h.get_popular_tags() %}
+    <h4 class="tagbox-header">{{ _('Popular tags') }}</h4>
     <ul class="tag-list">
       {% for tag in h.get_popular_tags() %}
         <li><a class="tag" href="/dataset?tags={{tag}}">{{ tag }}</a></li>
       {% endfor %}
     </ul>
+    {% endif %}
   </div>
 </div>
 <div role="main">
@@ -125,9 +127,9 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <h3 class="text-center">Uusin sisältö</h3>
-        
-        <ul class="topic-list">
+        <h3 class="text-center">Uusin sisältö</h3>  
+        {% if h.get_recent_content() %}
+        <ul class="topic-list"> 
           {% for item in h.get_recent_content() %}
             <li class="topic-list-item">
               <h4 class="topic-header">{{ item['title'] }}</h4>
@@ -136,6 +138,9 @@
             </li>
           {% endfor %}
         </ul>
+        {% else %}
+        <h4 class="text-center">Yhtään uutta sisältöä ei löytynyt</h4>
+        {% endif %}
       </div>
       <div class="col-md-6">
         <h3 class="text-center">Kuukauden katsotuimmat</h3>
