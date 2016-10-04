@@ -9,6 +9,28 @@
   z-index: 1000;
 }
 
+.navbar-header {
+  text-align: center;
+  height: 50px;
+}
+
+.navbar-brand {
+  float: none;
+  display: inline-block;
+  height: 50px;
+
+  img {
+    height: 100%;
+    width: auto;
+  }
+}
+
+// .navbar-collapse {
+//   &.in {
+//     float: left;
+//   }
+// }
+
 .icon-bar {
   background-color: $brand-primary;
   transition: background-color .2s ease-in-out;
@@ -20,6 +42,14 @@
   .icon-bar {
     background-color: lighten($brand-primary, 30%);
   }
+}
+
+.navbar-collapse {
+  float: left;
+}
+
+.navbar-fixed-top {
+  position: fixed;
 }
 
 .nav > li {
@@ -59,5 +89,34 @@
         margin-right: 0;
       }
     }
+  }
+}
+
+@media (min-width: $width-sm) {
+  .navbar-fixed-top {
+    display: none !important;
+    position: fixed;
+  }
+
+  .navbar-header {
+    width: 100%;
+    height: 100%;
+    float: left;
+  }
+
+  .navbar-brand {
+    float: none;
+    display: inline-block;
+    padding: 15px 15px;
+    height: auto;
+
+    img {
+      height: 74px;
+      width: auto;
+    }
+  }
+
+  .navbar-collapse {
+    float: none;
   }
 }

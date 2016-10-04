@@ -5883,14 +5883,14 @@ html, body {
 
 body {
   margin: 0;
-  padding-top: 50px;
+  padding-top: 52px;
   color: #57575b; }
   body .homepage {
     background: -webkit-linear-gradient(rgba(83, 79, 151, 0.3), rgba(83, 79, 151, 0.1)), url("/base/images/frontpage.jpg") no-repeat center center;
     background: -o-linear-gradient(rgba(83, 79, 151, 0.3), rgba(83, 79, 151, 0.1)), url("/base/images/frontpage.jpg") no-repeat center center;
     background: linear-gradient(rgba(83, 79, 151, 0.3), rgba(83, 79, 151, 0.1)), url("/base/images/frontpage.jpg") no-repeat center center;
     background-size: cover;
-    padding-top: 50px; }
+    padding-top: 162px; }
     body .homepage:before {
       content: '';
       display: block;
@@ -5906,6 +5906,9 @@ body {
       /* Chrome10-25,Safari5.1-6 */
       background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, transparent 100%);
       /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ }
+  @media (min-width: 768px) {
+    body {
+      padding-top: 162px; } }
 
 .container {
   width: 100%;
@@ -5984,6 +5987,18 @@ a {
   right: 0;
   z-index: 1000; }
 
+.navbar-header {
+  text-align: center;
+  height: 50px; }
+
+.navbar-brand {
+  float: none;
+  display: inline-block;
+  height: 50px; }
+  .navbar-brand img {
+    height: 100%;
+    width: auto; }
+
 .icon-bar {
   background-color: #534f97;
   transition: background-color .2s ease-in-out; }
@@ -5992,6 +6007,12 @@ a {
   background: none; }
   .navbar-toggle:hover .icon-bar {
     background-color: #aeacd3; }
+
+.navbar-collapse {
+  float: left; }
+
+.navbar-fixed-top {
+  position: fixed; }
 
 .nav > li {
   margin: 0; }
@@ -6015,6 +6036,25 @@ a {
     .nav.nav-tabs li a {
       border: none;
       margin-right: 0; }
+
+@media (min-width: 768px) {
+  .navbar-fixed-top {
+    display: none !important;
+    position: fixed; }
+  .navbar-header {
+    width: 100%;
+    height: 100%;
+    float: left; }
+  .navbar-brand {
+    float: none;
+    display: inline-block;
+    padding: 15px 15px;
+    height: auto; }
+    .navbar-brand img {
+      height: 74px;
+      width: auto; }
+  .navbar-collapse {
+    float: none; } }
 
 .hero {
   margin: 0;
