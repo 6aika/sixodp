@@ -5890,7 +5890,7 @@ body {
     background: -o-linear-gradient(rgba(83, 79, 151, 0.3), rgba(83, 79, 151, 0.1)), url("/base/images/frontpage.jpg") no-repeat center center;
     background: linear-gradient(rgba(83, 79, 151, 0.3), rgba(83, 79, 151, 0.1)), url("/base/images/frontpage.jpg") no-repeat center center;
     background-size: cover;
-    padding-top: 266px; }
+    padding-top: 236px; }
     body .homepage:before {
       content: '';
       display: block;
@@ -5908,7 +5908,7 @@ body {
       /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ }
   @media (min-width: 768px) {
     body {
-      padding-top: 266px; } }
+      padding-top: 236px; } }
 
 .container {
   width: 100%;
@@ -6035,16 +6035,8 @@ a {
   float: left; }
 
 .navbar-fixed-top {
+  display: none;
   position: fixed; }
-
-.navbar-nav > li {
-  margin: 0;
-  display: inline-block; }
-  .navbar-nav > li:first-of-type:before {
-    content: ""; }
-  .navbar-nav > li:before {
-    content: "/";
-    display: inline-block; }
 
 .nav > li > a {
   color: #57575b;
@@ -6079,15 +6071,34 @@ a {
   .navbar-brand {
     float: none;
     display: inline-block;
-    padding: 60px 25px;
+    padding: 40px 25px;
     height: auto; }
     .navbar-brand img {
-      height: 90px;
+      height: 100px;
       width: auto; }
   .navbar-collapse {
     float: none; }
   .navbar-right {
-    margin-right: 0; } }
+    margin-right: 0; }
+  .navbar-nav > li {
+    margin: 0;
+    display: inline-block;
+    padding: 0; }
+    .navbar-nav > li:first-of-type:before {
+      content: ""; }
+    .navbar-nav > li:before {
+      content: "/";
+      display: inline-block;
+      margin: 0 15px; }
+    .navbar-nav > li:hover a {
+      border-bottom: 2px solid #534f97; }
+    .navbar-nav > li a {
+      border-bottom: 2px solid transparent;
+      padding: 15px 0; }
+    .navbar-nav > li.dropdown:hover a {
+      border: 0; }
+    .navbar-nav > li.dropdown a {
+      border-bottom: 0; } }
 
 @media (min-width: 992px) {
   .navbar.navbar-fixed {
@@ -6100,7 +6111,7 @@ a {
     right: 100px;
     width: auto;
     height: auto;
-    padding: 20px;
+    padding: 15px;
     background: #eeeeee; }
     .header-logos .logo {
       width: 75px;

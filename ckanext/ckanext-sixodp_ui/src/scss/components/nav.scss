@@ -74,23 +74,8 @@
 }
 
 .navbar-fixed-top {
+  display: none;
   position: fixed;
-}
-
-.navbar-nav > li {
-  margin: 0;
-  display: inline-block;
-
-  &:first-of-type {
-    &:before {
-      content: "";
-    }
-  }
-
-  &:before {
-    content: "/";
-    display: inline-block;
-  }
 }
 
 .nav > li > a {
@@ -148,11 +133,11 @@
   .navbar-brand {
     float: none;
     display: inline-block;
-    padding: $padding-base-vertical*3 $padding-base-horizontal;
+    padding: $padding-base-vertical*2 $padding-base-horizontal;
     height: auto;
 
     img {
-      height: 90px;
+      height: 100px;
       width: auto;
     }
   }
@@ -163,6 +148,47 @@
 
   .navbar-right {
     margin-right: 0;
+  }
+
+  .navbar-nav > li {
+    margin: 0;
+    display: inline-block;
+    padding: 0;
+
+    &:first-of-type {
+      &:before {
+        content: "";
+      }
+    }
+
+    &:before {
+      content: "/";
+      display: inline-block;
+      margin: 0 15px;
+    }
+
+    &:hover {
+      a {
+        border-bottom: $border-base solid $brand-primary;
+      }
+    }
+
+    a {
+      border-bottom: $border-base solid transparent;
+      padding: 15px 0;
+    }
+
+    &.dropdown {
+      &:hover {
+        a {
+          border: 0
+        }
+      }
+
+      a {
+        border-bottom: 0;
+      }
+    }
   }
 }
 
@@ -181,7 +207,7 @@
     right: 100px;
     width: auto;
     height: auto;
-    padding: $padding-base-vertical;
+    padding: 15px;
     background: $gray-lighter;
 
     .logo {
