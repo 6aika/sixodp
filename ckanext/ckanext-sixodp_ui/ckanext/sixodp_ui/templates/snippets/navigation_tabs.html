@@ -1,0 +1,36 @@
+{% block header_site_navigation_tabs %}
+<ul class="nav navbar-nav">
+    <li>
+    <a class="nav-link" href="{{ h.url_for(controller='package', action='search') }}">
+        {{ _('Datasets') }}
+    </a>
+    </li>
+    <li>
+    <a href="{{ h.url_for(controller='ckanext.showcase.controller:ShowcaseController', action='search') }}">
+        {{ _('Showcase') }}
+    </a>
+    </li>
+    <li>
+    <a class="nav-link" href="{{ h.url_for('blog_index') }}">
+        {{ _('Articles') }}
+    </a>
+    </li>
+
+
+    {{ h.build_nav_main() }}
+
+    <!-- <li>
+        <a class="nav-link" href="{{ h.url_for(controller='ckanext.contact.controllers.contact:ContactController', action='form') }}">
+        {{ _('Feedback') }}
+        </a>
+    </li> -->
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+    <li class="dropdown">
+        {% snippet 'home/snippets/sixodp_language-changer.html' %}
+    </li>
+    {% if c.userobj %}
+        {% snippet 'home/snippets/sixodp_profile.html' %}
+    {% endif %}
+</ul>
+{% endblock %}
