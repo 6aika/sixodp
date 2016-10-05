@@ -5853,7 +5853,7 @@ button.close {
   font-weight: bold;
   text-shadow: 1px 1px 1px #aaa; }
 
-.box-shadow, .card, .card-theme, .dataset-list .dataset-item, .search-form, .navbar-offcanvas, .media-grid .media-item, .list-group .list-group-item, .topic-list .topic-list-item, .card-hover, .resource-list .resource-item, .module .module-content.main-content, .ckanext-showcase-edit .module-content, .navbar, .searchbox .module-content.search-form input, .btn, button.btn-success,
+.box-shadow, .card, .card-theme, .dataset-list .dataset-item, .search-form, .navbar-offcanvas, .media-grid .media-item, .list-group .list-group-item, .topic-list .topic-list-item, .card-hover, .resource-list .resource-item, .module .module-content.main-content, .ckanext-showcase-edit .module-content, .searchbox .module-content.search-form input, .btn, button.btn-success,
 .btn.btn-success, .tag-list li, .search-form .search-input input, .category-list .category-list-item img {
   box-shadow: 0 4px 3px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08); }
 
@@ -5979,6 +5979,7 @@ a {
   margin-right: 4px; }
 
 .navbar {
+  box-shadow: 0px 4px 3px rgba(50, 50, 93, 0.11), 0 2px 3px rgba(0, 0, 0, 0.08);
   border: 0;
   border-radius: 0;
   background: #fff;
@@ -6022,10 +6023,13 @@ a {
   background-color: #534f97;
   transition: background-color .2s ease-in-out; }
 
-.navbar-toggle:hover {
-  background: none; }
-  .navbar-toggle:hover .icon-bar {
-    background-color: #aeacd3; }
+.navbar-toggle {
+  position: absolute;
+  right: 0; }
+  .navbar-toggle:hover {
+    background: none; }
+    .navbar-toggle:hover .icon-bar {
+      background-color: #aeacd3; }
 
 .navbar-collapse {
   float: left; }
