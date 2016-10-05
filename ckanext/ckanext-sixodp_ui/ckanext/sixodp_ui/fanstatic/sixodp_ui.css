@@ -5890,7 +5890,7 @@ body {
     background: -o-linear-gradient(rgba(83, 79, 151, 0.3), rgba(83, 79, 151, 0.1)), url("/base/images/frontpage.jpg") no-repeat center center;
     background: linear-gradient(rgba(83, 79, 151, 0.3), rgba(83, 79, 151, 0.1)), url("/base/images/frontpage.jpg") no-repeat center center;
     background-size: cover;
-    padding-top: 160px; }
+    padding-top: 266px; }
     body .homepage:before {
       content: '';
       display: block;
@@ -5908,7 +5908,7 @@ body {
       /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ }
   @media (min-width: 768px) {
     body {
-      padding-top: 160px; } }
+      padding-top: 266px; } }
 
 .container {
   width: 100%;
@@ -6037,11 +6037,18 @@ a {
 .navbar-fixed-top {
   position: fixed; }
 
-.nav > li {
-  margin: 0; }
+.navbar-nav > li {
+  margin: 0;
+  display: inline-block; }
+  .navbar-nav > li:first-of-type:before {
+    content: ""; }
+  .navbar-nav > li:before {
+    content: "/";
+    display: inline-block; }
 
 .nav > li > a {
-  color: #57575b; }
+  color: #57575b;
+  display: inline-block; }
   .nav > li > a:hover, .nav > li > a:focus {
     color: #534f97;
     background: none; }
@@ -6072,13 +6079,15 @@ a {
   .navbar-brand {
     float: none;
     display: inline-block;
-    padding: 15px 15px;
+    padding: 60px 25px;
     height: auto; }
     .navbar-brand img {
-      height: 74px;
+      height: 90px;
       width: auto; }
   .navbar-collapse {
-    float: none; } }
+    float: none; }
+  .navbar-right {
+    margin-right: 0; } }
 
 @media (min-width: 992px) {
   .navbar.navbar-fixed {
@@ -6091,15 +6100,39 @@ a {
     right: 100px;
     width: auto;
     height: auto;
-    padding-top: 10px; }
+    padding: 20px;
+    background: #eeeeee; }
     .header-logos .logo {
-      width: 100px;
+      width: 75px;
       height: auto;
-      display: inline-block;
-      position: relative; }
+      display: block;
+      position: relative;
+      padding: 0; }
       .header-logos .logo img {
         width: 100%;
-        height: auto; } }
+        height: auto; }
+    .header-logos .flag-ends {
+      position: absolute;
+      bottom: -14px;
+      left: 0;
+      width: 100%;
+      height: 14px;
+      font-size: 0.00000001%;
+      overflow: hidden; }
+      .header-logos .flag-ends:after, .header-logos .flag-ends:before {
+        position: absolute;
+        top: 0;
+        display: inline-block;
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 14px 70px 0 70px;
+        border-color: #eeeeee transparent transparent transparent; }
+      .header-logos .flag-ends:before {
+        left: -70px; }
+      .header-logos .flag-ends:after {
+        right: -70px; } }
 
 .hero {
   margin: 0;

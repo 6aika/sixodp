@@ -77,12 +77,25 @@
   position: fixed;
 }
 
-.nav > li {
+.navbar-nav > li {
   margin: 0;
+  display: inline-block;
+
+  &:first-of-type {
+    &:before {
+      content: "";
+    }
+  }
+
+  &:before {
+    content: "/";
+    display: inline-block;
+  }
 }
 
 .nav > li > a {
   color: $black;
+  display: inline-block;
 
   &:hover,
   &:focus {
@@ -92,6 +105,7 @@
 }
 
 .nav {
+
   &.nav-tabs {
     border-bottom: 0;
 
@@ -134,17 +148,21 @@
   .navbar-brand {
     float: none;
     display: inline-block;
-    padding: 15px 15px;
+    padding: $padding-base-vertical*3 $padding-base-horizontal;
     height: auto;
 
     img {
-      height: 74px;
+      height: 90px;
       width: auto;
     }
   }
 
   .navbar-collapse {
     float: none;
+  }
+
+  .navbar-right {
+    margin-right: 0;
   }
 }
 
@@ -163,18 +181,51 @@
     right: 100px;
     width: auto;
     height: auto;
-    padding-top: 10px;
+    padding: $padding-base-vertical;
+    background: $gray-lighter;
 
     .logo {
-      width: 100px;
+      width: 75px;
       height: auto;
-      display: inline-block;
+      display: block;
       position: relative;
+      padding: 0;
 
       img {
         width: 100%;
         height: auto;
       }
     }
+
+    .flag-ends {
+      position: absolute;
+      bottom: -14px;
+      left: 0;
+      width: 100%;
+      height: 14px;
+      font-size: 0.00000001%;
+      overflow: hidden;
+
+      &:after,
+      &:before {
+        position: absolute;
+        top: 0;
+        display: inline-block;
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 14px 70px 0 70px;
+        border-color: $gray-lighter transparent transparent transparent;
+      }
+      
+      &:before {
+        left: -70px;
+      }
+
+      &:after {
+        right: -70px;
+      }
+    } 
   }
 }
