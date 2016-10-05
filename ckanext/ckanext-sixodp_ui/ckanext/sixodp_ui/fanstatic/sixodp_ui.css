@@ -6486,6 +6486,13 @@ form .control-order-by {
       .module .module-content.page-header:first-child {
         margin-top: 20px; } }
 
+footer hr {
+  margin: 0; }
+
+footer .footer-section {
+  padding-top: 20px;
+  padding-bottom: 20px; }
+
 footer.site-footer {
   background-color: #534f97;
   padding: 40px 0;
@@ -6499,12 +6506,41 @@ footer.site-footer {
     footer.site-footer label:hover,
     footer.site-footer small:hover {
       color: #eeeeee; }
-  footer.site-footer .footer-links ul li {
-    margin-bottom: 5px; }
-  footer.site-footer .footer-follow-links .footer-follow-title {
-    margin-right: 5px; }
-  footer.site-footer .footer-follow-links i {
-    vertical-align: middle; }
+  footer.site-footer .footer-logo {
+    height: 264px;
+    text-align: center; }
+    footer.site-footer .footer-logo img {
+      max-width: 300px;
+      height: auto;
+      position: relative;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%); }
+  footer.site-footer .footer-links {
+    height: 264px; }
+    footer.site-footer .footer-links table {
+      position: relative;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      font-size: 16px;
+      list-style: none; }
+      footer.site-footer .footer-links table td {
+        padding: 10px 15px; }
+        footer.site-footer .footer-links table td a {
+          cursor: pointer; }
+  footer.site-footer .footer-follow-links {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%); }
+    footer.site-footer .footer-follow-links .footer-follow-title {
+      margin-right: 5px; }
+    footer.site-footer .footer-follow-links i {
+      vertical-align: middle; }
   footer.site-footer .attribution {
     color: #ffffff; }
     footer.site-footer .attribution .ckan-footer-logo {

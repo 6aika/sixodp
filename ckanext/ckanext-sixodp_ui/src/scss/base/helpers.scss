@@ -23,3 +23,11 @@
   box-shadow: 0 6px 10px rgba(50,50,93,.1),0 4px 3px rgba(0,0,0,.08);
   transition: all .3s linear;
 }
+
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
