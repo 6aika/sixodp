@@ -5890,7 +5890,7 @@ body {
     background: -o-linear-gradient(rgba(83, 79, 151, 0.3), rgba(83, 79, 151, 0.1)), url("/base/images/frontpage.jpg") no-repeat center center;
     background: linear-gradient(rgba(83, 79, 151, 0.3), rgba(83, 79, 151, 0.1)), url("/base/images/frontpage.jpg") no-repeat center center;
     background-size: cover;
-    padding-top: 162px; }
+    padding-top: 160px; }
     body .homepage:before {
       content: '';
       display: block;
@@ -5908,7 +5908,7 @@ body {
       /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ }
   @media (min-width: 768px) {
     body {
-      padding-top: 162px; } }
+      padding-top: 160px; } }
 
 .container {
   width: 100%;
@@ -5979,13 +5979,32 @@ a {
   margin-right: 4px; }
 
 .navbar {
+  border: 0;
   border-radius: 0;
   background: #fff;
+  z-index: 1000; }
+  .navbar.navbar-fixed {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0; }
+
+.header-logos {
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000; }
+  width: 100%;
+  display: block;
+  height: 60px;
+  background: #ffffff;
+  text-align: center; }
+  .header-logos .logo {
+    width: auto;
+    height: 50px;
+    padding: 5px 0;
+    display: inline-block; }
+    .header-logos .logo img {
+      width: auto;
+      height: 50px; }
 
 .navbar-header {
   text-align: center;
@@ -6039,6 +6058,7 @@ a {
 
 @media (min-width: 768px) {
   .navbar-fixed-top {
+    top: 0;
     display: none !important;
     position: fixed; }
   .navbar-header {
@@ -6055,6 +6075,27 @@ a {
       width: auto; }
   .navbar-collapse {
     float: none; } }
+
+@media (min-width: 992px) {
+  .navbar.navbar-fixed {
+    top: 0; }
+  .header-logos {
+    z-index: 1001;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 100px;
+    width: auto;
+    height: auto;
+    padding-top: 10px; }
+    .header-logos .logo {
+      width: 100px;
+      height: auto;
+      display: inline-block;
+      position: relative; }
+      .header-logos .logo img {
+        width: 100%;
+        height: auto; } }
 
 .hero {
   margin: 0;

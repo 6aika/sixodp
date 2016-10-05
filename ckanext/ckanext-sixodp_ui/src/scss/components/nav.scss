@@ -1,12 +1,38 @@
 .navbar {
   @extend .box-shadow;
+  border: 0;
   border-radius: 0;
   background: #fff;
-  position: absolute;
-    top: 0;
+  z-index: 1000;
+
+  &.navbar-fixed {
+    position: absolute;
+    top: 60px;
     left: 0;
     right: 0;
-  z-index: 1000;
+  }
+}
+
+.header-logos {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: block;
+  height: 60px;
+  background: $white;
+  text-align: center;
+
+  .logo {
+    width: auto;
+    height: 50px;
+    padding: 5px 0;
+    display: inline-block;
+
+    img {
+      width: auto;
+      height: 50px;
+    }
+  }
 }
 
 .navbar-header {
@@ -87,7 +113,9 @@
 }
 
 @media (min-width: $width-sm) {
+
   .navbar-fixed-top {
+    top: 0;
     display: none !important;
     position: fixed;
   }
@@ -112,5 +140,36 @@
 
   .navbar-collapse {
     float: none;
+  }
+}
+
+@media (min-width: $width-md) {
+  .navbar {
+    &.navbar-fixed {
+      top: 0;
+    }
+  }
+
+  .header-logos {
+    z-index: 1001;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 100px;
+    width: auto;
+    height: auto;
+    padding-top: 10px;
+
+    .logo {
+      width: 100px;
+      height: auto;
+      display: inline-block;
+      position: relative;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
   }
 }
