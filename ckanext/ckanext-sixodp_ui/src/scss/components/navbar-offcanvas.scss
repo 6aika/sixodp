@@ -1,5 +1,7 @@
 .navbar-offcanvas {
   @extend .card-theme;
+  z-index: 1002;
+  padding: 10px;
   
   @media screen and (max-width: $width-sm - 1) {
     position: fixed;
@@ -20,6 +22,7 @@
       .empty {
         font-size: $font-size-small;
         color: $gray-light;
+        padding-left: 34px;
       }
 
       .nums {
@@ -35,6 +38,8 @@
   .nav-facet {
     li.nav-item {
       border: none;
+      margin: 0;
+      padding: 0;
 
       &.active {
         a {
@@ -45,6 +50,8 @@
       a {
         padding: 7px 25px 7px 35px;
         font-size: $font-size*0.9;
+        width: 100%;
+        margin: 0;
 
         &:hover {
           background-color: $brand-primary-light;
@@ -71,4 +78,8 @@
     }
   }
 
+}
+
+.offcanvas-button-wrapper-left {
+  position: absolute;
 }

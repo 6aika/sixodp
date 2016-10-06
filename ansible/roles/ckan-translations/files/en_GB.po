@@ -4678,3 +4678,18 @@ msgstr "Popular content was not found"
 #: Footer
 msgid "Follow us"
 msgstr "Follow us"
+
+#: Showcase
+msgid "Add Showcase"
+msgstr "Add application"
+
+msgid "Search showcases..."
+msgstr "Etsi sovelluksista..."
+
+msgid "{number} showcase found"
+msgid_plural "{number} showcases found"
+msgstr[0] "{number} application found"
+msgstr[1] "{number} applications found"
+
+msgid "No showcases found"
+msgstr "No applications found"

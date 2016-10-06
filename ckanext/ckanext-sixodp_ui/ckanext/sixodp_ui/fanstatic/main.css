@@ -10620,11 +10620,6 @@ h4 small {
     height: 32px;
   }
 }
-.offcanvas-button-wrapper-left {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
 .offcanvas-button-wrapper-left .offcanvas-label {
   margin-left: 10px;
 }

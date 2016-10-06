@@ -4684,4 +4684,19 @@ msgstr "Yhtään suosittua sisältöä ei löytynyt"
 
 #: Footer
 msgid "Follow us"
-msgstr "Seuraa meitä
+msgstr "Seuraa meitä"
+
+#: Showcase
+msgid "Add Showcase"
+msgstr "Lisää sovellus"
+
+msgid "Search showcases..."
+msgstr "Etsi sovelluksista..."
+
+msgid "{number} showcase found"
+msgid_plural "{number} showcases found"
+msgstr[0] "Löytyi {number} sovellus"
+msgstr[1] "Löytyi {number} sovellusta"
+
+msgid "No showcases found"
+msgstr "Yhtään sovellusta ei löytynyt"
