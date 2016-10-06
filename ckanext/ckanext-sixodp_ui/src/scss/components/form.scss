@@ -14,6 +14,31 @@ form {
     }
   }
 
+  label {
+    display: block;
+    cursor: pointer;
+  }
+
+  fieldset {
+    margin-bottom: $margin-base-vertical*2;
+
+    legend {
+      margin: 0;
+    }
+  }
+
+  .control {
+    &-medium {
+      input {
+        width: 320px;
+      }
+    }
+  }
+  
+  .control-group {
+    margin-top: $margin-base-vertical;
+  }
+
   .form-actions {
     background: none;
     width: 100%;
@@ -30,5 +55,16 @@ form {
 
   .control-order-by {
     margin-top: 6px;
+  }
+
+  .editor {
+    .editor-info-block {
+      font-size: 14px;
+      background: $gray-lighter;
+      border: $border-base -1 solid $gray-light;
+      display: block;
+      width: auto;
+      float: none;
+    }
   }
 }

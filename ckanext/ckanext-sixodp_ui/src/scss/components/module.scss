@@ -1,6 +1,11 @@
 .module {
   margin-bottom: $margin-base-vertical;
 
+  .module-heading {
+    margin: 0;
+    padding: 7px 25px;
+  }
+
   .module-content {
     padding: 0 $padding-base-horizontal;
     margin: 0;

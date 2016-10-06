@@ -6199,9 +6199,6 @@ a {
       border-radius: 0 2px 2px 0;
       border: 2px solid #534f97; }
 
-label {
-  display: block; }
-
 .label {
   background-color: #97ba54; }
 
@@ -6471,7 +6468,18 @@ select {
   position: absolute; }
 
 .toolbar {
-  margin: 20px 0; }
+  position: relative;
+  margin: 20px 0;
+  padding: 5px 0; }
+  .toolbar .breadcrumb {
+    margin: 0;
+    background: none; }
+    .toolbar .breadcrumb li + li:before {
+      content: "/ ";
+      padding: 0 5px;
+      color: #777777; }
+    .toolbar .breadcrumb a {
+      color: #57575b; }
 
 .media-grid {
   margin: 0 -15px 20px -15px; }
@@ -6495,6 +6503,21 @@ form.form-horizontal .control-label {
 form.form-horizontal .form-actions {
   margin-top: 20px; }
 
+form label {
+  display: block;
+  cursor: pointer; }
+
+form fieldset {
+  margin-bottom: 40px; }
+  form fieldset legend {
+    margin: 0; }
+
+form .control-medium input {
+  width: 320px; }
+
+form .control-group {
+  margin-top: 20px; }
+
 form .form-actions {
   background: none;
   width: 100%;
@@ -6508,6 +6531,14 @@ form .form-actions {
 
 form .control-order-by {
   margin-top: 6px; }
+
+form .editor .editor-info-block {
+  font-size: 14px;
+  background: #eeeeee;
+  border: 2px -1 solid #777777;
+  display: block;
+  width: auto;
+  float: none; }
 
 .table {
   font-size: 14px; }
@@ -6528,6 +6559,9 @@ form .control-order-by {
 
 .module {
   margin-bottom: 20px; }
+  .module .module-heading {
+    margin: 0;
+    padding: 7px 25px; }
   .module .module-content {
     padding: 0 25px;
     margin: 0; }
@@ -6715,3 +6749,6 @@ footer.site-footer {
     display: inline-block; }
     .tagbox .tag-list .tag {
       font-size: 18px; }
+
+legend {
+  border: 0; }
