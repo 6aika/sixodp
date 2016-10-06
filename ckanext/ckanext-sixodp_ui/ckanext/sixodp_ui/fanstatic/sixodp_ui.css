@@ -5853,7 +5853,7 @@ button.close {
   font-weight: bold;
   text-shadow: 1px 1px 1px #aaa; }
 
-.box-shadow, .card, .card-theme, .dataset-list .dataset-item, .search-form, .navbar-offcanvas, .media-grid .media-item, .list-group .list-group-item, .topic-list .topic-list-item, .card-hover, .resource-list .resource-item, .module .module-content.main-content, .ckanext-showcase-edit .module-content, .searchbox .module-content.search-form input, .btn, button.btn-success,
+.box-shadow, .card, .card-theme, .dataset-list .dataset-item, .search-form, .navbar-offcanvas, .media-grid .media-item, .list-group .list-group-item, .topic-list .topic-list-item, .card-hover, .resource-list .resource-item, .module .module-content.main-content, .searchbox .module-content.search-form input, .btn, button.btn-success,
 .btn.btn-success, .tag-list li, .search-form .search-input input, .category-list .category-list-item img {
   box-shadow: 0 4px 3px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08); }
 
@@ -5883,14 +5883,14 @@ html, body {
 
 body {
   margin: 0;
-  padding-top: 52px;
+  padding-top: 110px;
   color: #57575b; }
   body .homepage {
     background: -webkit-linear-gradient(rgba(83, 79, 151, 0.3), rgba(83, 79, 151, 0.1)), url("/base/images/frontpage.jpg") no-repeat center center;
     background: -o-linear-gradient(rgba(83, 79, 151, 0.3), rgba(83, 79, 151, 0.1)), url("/base/images/frontpage.jpg") no-repeat center center;
     background: linear-gradient(rgba(83, 79, 151, 0.3), rgba(83, 79, 151, 0.1)), url("/base/images/frontpage.jpg") no-repeat center center;
     background-size: cover;
-    padding-top: 236px; }
+    padding-top: 110px; }
     body .homepage:before {
       content: '';
       display: block;
@@ -5907,6 +5907,9 @@ body {
       background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, transparent 100%);
       /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ }
   @media (min-width: 768px) {
+    body {
+      padding-top: 298px; } }
+  @media (min-width: 992px) {
     body {
       padding-top: 236px; } }
 
@@ -5951,7 +5954,7 @@ a {
   a:hover {
     text-decoration: none; }
 
-.card, .card-theme, .dataset-list .dataset-item, .search-form, .navbar-offcanvas, .media-grid .media-item, .list-group .list-group-item, .topic-list .topic-list-item, .card-hover, .resource-list .resource-item, .module .module-content.main-content, .ckanext-showcase-edit .module-content {
+.card, .card-theme, .dataset-list .dataset-item, .search-form, .navbar-offcanvas, .media-grid .media-item, .list-group .list-group-item, .topic-list .topic-list-item, .card-hover, .resource-list .resource-item, .module .module-content.main-content {
   border-width: 0 0 0 2px;
   border-style: solid;
   border-color: transparent;
@@ -6048,7 +6051,8 @@ a {
 .nav.nav-tabs {
   border-bottom: 0; }
   .nav.nav-tabs li {
-    border-bottom: 2px solid transparent; }
+    border-bottom: 2px solid transparent;
+    margin: 0; }
     .nav.nav-tabs li.active, .nav.nav-tabs li:hover {
       border-width: 0 0 2px 0;
       border-color: #534f97;
@@ -6324,11 +6328,6 @@ button.btn-success,
     .resource-list .resource-item a .description {
       font-size: 14.4px; }
 
-.page-header {
-  background-color: #f5f5f5;
-  padding-bottom: 0;
-  border: none; }
-
 .stages li.active:before {
   color: #534f97 !important; }
 
@@ -6479,16 +6478,18 @@ form.form-horizontal .control-label {
     color: #777777; }
 
 form.form-horizontal .form-actions {
-  margin-top: 20px;
-  padding-left: 25px;
-  padding-right: 25px; }
+  margin-top: 20px; }
 
 form .form-actions {
   background: none;
-  margin-left: -25px;
-  margin-right: -25px;
+  width: 100%;
+  display: block;
   margin-bottom: 0;
   padding-bottom: 0; }
+  form .form-actions .control-required-message {
+    display: block;
+    width: 100%;
+    margin-top: 20px; }
 
 form .control-order-by {
   margin-top: 6px; }
@@ -6508,7 +6509,15 @@ form .control-order-by {
 
 .module .module-content {
   padding: 0 25px;
-  margin: 20px 0; }
+  margin: 0; }
+  .module .module-content.page-header {
+    background-color: #ffffff;
+    padding: 0;
+    border: none; }
+    .module .module-content.page-header .content_action {
+      width: 100%;
+      display: block;
+      padding-bottom: 20px; }
   .module .module-content img {
     width: 100%;
     height: auto; }
@@ -6609,7 +6618,8 @@ footer.site-footer {
   float: none; }
 
 .ckanext-showcase-edit .module-content {
-  padding: 20px 25px; }
+  padding: 20px 25px;
+  background: #ffffff; }
 
 .debug {
   position: fixed;

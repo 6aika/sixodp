@@ -7705,12 +7705,6 @@ form .control-order-by {
 .control-required {
   color: #c6898b;
 }
-.form-actions .control-required-message {
-  float: left;
-  margin-left: 20px;
-  margin-bottom: 0;
-  line-height: 30px;
-}
 .form-actions .control-required-message:first-child {
   margin-left: 0;
 }
@@ -8908,11 +8902,6 @@ fieldset[disabled] .control-custom.disabled .checkbox.btn.active {
 .page-header .nav-tabs {
   float: left;
   margin-bottom: -1px;
-}
-.page-header .content_action {
-  float: right;
-  margin-top: -5px;
-  margin-right: -7px;
 }
 .no-nav .page-header {
   border-top-right-radius: 3px 3px 0 0;

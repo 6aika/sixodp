@@ -11,17 +11,21 @@ form {
 
     .form-actions {
       margin-top: $margin-base-vertical;
-      padding-left: $padding-base-horizontal;
-      padding-right: $padding-base-horizontal;
     }
   }
 
   .form-actions {
     background: none;
-    margin-left: -25px;
-    margin-right: -25px;
+    width: 100%;
+    display: block;
     margin-bottom: 0;
     padding-bottom: 0;
+
+    .control-required-message {
+      display: block;
+      width: 100%;
+      margin-top: $margin-base-vertical;
+    }
   }
 
   .control-order-by {

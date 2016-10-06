@@ -12,7 +12,7 @@ html, body {
 
 body {
   margin: 0;
-  padding-top: 52px;
+  padding-top: $nav-height;
   color: $black;
 
   .homepage {
@@ -42,7 +42,11 @@ body {
   }
 
   @media (min-width: $width-sm) {
-    padding-top: $nav-height;
+    padding-top: 298px;
+  }
+
+  @media (min-width: $width-md) {
+    padding-top: 236px;
   }
 }
 

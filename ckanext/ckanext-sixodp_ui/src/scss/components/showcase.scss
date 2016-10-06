@@ -20,8 +20,8 @@
     }
 
     .module-content {
-      @extend .card;
       padding: $padding-base-vertical $padding-base-horizontal;
+      background: $white;
     }
   }
 }
