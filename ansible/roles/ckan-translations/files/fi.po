@@ -4587,6 +4587,13 @@ msgstr "Yhteisö"
 msgid "Showcase"
 msgstr "Sovellukset"
 
+#: Site titles
+msgid "Site title"
+msgstr "Avointa dataa vapaasti hyödynnettäväksesi"
+
+msgid "Site subtitle"
+msgstr "Löydä kaiken maailman data täältä"
+
 #: Statistics
 msgid "Datasets statistics"
 msgstr "Tietoaineistoa"
@@ -4674,3 +4681,7 @@ msgstr "Kuukauden katsotuimmat"
 
 msgid "Popular content was not found"
 msgstr "Yhtään suosittua sisältöä ei löytynyt"
+
+#: Footer
+msgid "Follow us"
+msgstr "Seuraa meitä

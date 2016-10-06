@@ -6098,6 +6098,7 @@ a {
     .navbar-nav > li.dropdown:hover a {
       border: 0; }
     .navbar-nav > li.dropdown a {
+      padding: 15px;
       border-bottom: 0; } }
 
 @media (min-width: 992px) {

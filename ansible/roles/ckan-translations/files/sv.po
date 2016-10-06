@@ -4580,6 +4580,13 @@ msgstr "Kommun"
 msgid "Showcase"
 msgstr "Applicationer"
 
+#: Site titles
+msgid "Site title"
+msgstr "Open data for you to utilize"
+
+msgid "Site subtitle"
+msgstr "Find all sorts of data here"
+
 #: Statistics
 msgid "Datasets statistics"
 msgstr "Datasets"
@@ -4667,3 +4674,7 @@ msgstr "Popular this month"
 
 msgid "Popular content was not found"
 msgstr "Popular content was not found"
+
+#: Footer
+msgid "Follow us"
+msgstr "Follow us"
