@@ -6895,9 +6895,6 @@ button.close {
   border: 1px solid #d9d9d9;
   border-radius: 3px;
 }
-.module {
-  margin: 40px 0;
-}
 .module-heading {
   margin: 0;
   padding: 7px 25px;
@@ -7201,8 +7198,7 @@ button.close {
 .module .module-tags {
   padding-bottom: 8px;
 }
-.secondary .module,
-.primary .module {
+.secondary .module {
   margin-top: 0;
 }
 .no-nav .module:last-child {
@@ -8059,7 +8055,6 @@ fieldset[disabled] .control-custom.disabled .checkbox.btn.active {
   list-style: none;
   color: #aeaeae;
   counter-reset: stage;
-  margin: -20px -40px 20px -40px;
   overflow: hidden;
   padding: 0px;
 }

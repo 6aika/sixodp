@@ -1,5 +1,7 @@
 .stages {
   li {
+    background-color: $gray-lighter;
+    
     &.active {
       &:before {
         color: $brand-primary !important;
@@ -10,6 +12,17 @@
       }
       .highlight {
         background-color: $brand-primary;
+      }
+    }
+    &.complete {
+      .highlight {
+        background-color: $gray-lighter;
+        color: $gray-base;
+      }
+
+      &:before {
+        background: $gray-light;
+        color: $white;
       }
     }
   } 
