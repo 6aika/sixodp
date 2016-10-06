@@ -5884,7 +5884,8 @@ html, body {
 body {
   margin: 0;
   padding-top: 110px;
-  color: #57575b; }
+  color: #57575b;
+  background: #534f97; }
   body .homepage {
     background: -webkit-linear-gradient(rgba(83, 79, 151, 0.3), rgba(83, 79, 151, 0.1)), url("/base/images/frontpage.jpg") no-repeat center center;
     background: -o-linear-gradient(rgba(83, 79, 151, 0.3), rgba(83, 79, 151, 0.1)), url("/base/images/frontpage.jpg") no-repeat center center;
@@ -5934,7 +5935,7 @@ body {
   height: 100%; }
 
 [role=main] {
-  background: #ffffff; }
+  background: #eeeeee; }
   [role=main] .primary {
     float: right;
     margin-left: 0; }
@@ -6501,8 +6502,12 @@ form .control-order-by {
     font-weight: normal; }
 
 .actions {
-  top: 0;
-  right: 0; }
+  top: 0 !important;
+  right: 0 !important;
+  width: 100%;
+  display: block;
+  position: relative;
+  margin-bottom: 20px; }
 
 .list-group .list-group-item {
   margin-bottom: 20px; }
@@ -6513,11 +6518,12 @@ form .control-order-by {
   .module .module-content.page-header {
     background-color: #ffffff;
     padding: 0;
-    border: none; }
+    border: none;
+    padding-left: 25px; }
     .module .module-content.page-header .content_action {
       width: 100%;
       display: block;
-      padding-bottom: 20px; }
+      padding: 20px 0; }
   .module .module-content img {
     width: 100%;
     height: auto; }
@@ -6531,9 +6537,6 @@ form .control-order-by {
     margin-bottom: 0; }
   .module .module-content.main-content {
     margin-bottom: 20px; }
-    .module .module-content.main-content .actions {
-      top: 25px;
-      right: 40px; }
   @media (max-width: 767px) {
     .module .module-content {
       padding: 0; }
@@ -6675,10 +6678,12 @@ footer.site-footer {
   .stats-list .stats-list-item .item-description {
     font-size: 18px; }
 
-.home-highlight {
-  padding: 40px 25px; }
-  .home-highlight .highlight-header {
-    margin-left: 15px; }
+.home-main {
+  background: #ffffff; }
+  .home-main .home-highlight {
+    padding: 40px 25px; }
+    .home-main .home-highlight .highlight-header {
+      margin-left: 15px; }
 
 .tagbox {
   text-align: center;

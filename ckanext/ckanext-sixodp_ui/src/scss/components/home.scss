@@ -1,0 +1,11 @@
+.home-main {
+  background: $white;
+
+  .home-highlight {
+    padding: $padding-base-vertical*2 $padding-base-horizontal;
+
+    .highlight-header {
+      margin-left: 15px;
+    }
+  }
+}
