@@ -4586,3 +4586,91 @@ msgstr "Yhteisö"
 
 msgid "Showcase"
 msgstr "Sovellukset"
+
+#: Statistics
+msgid "Datasets statistics"
+msgstr "Tietoaineistoa"
+
+msgid "Applications statistics"
+msgstr "Sovellusta"
+
+msgid "Interfaces statistics"
+msgstr "Rajapintaa"
+
+msgid "Users statistics"
+msgstr "Käyttäjää"
+
+msgid "Shares statistics"
+msgstr "Jakoa"
+
+#: Categories
+msgid "Topics"
+msgstr "Aihepiirit"
+
+msgid "Government"
+msgstr "Hallinto"
+
+msgid "Transportation and maps"
+msgstr "Liikenne ja kartat"
+
+msgid "Tourism"
+msgstr "Matkailu"
+
+msgid "Education"
+msgstr "Opetus"
+
+msgid "Construction"
+msgstr "Rakennukset"
+
+msgid "Economy"
+msgstr "Talous"
+
+msgid "Health"
+msgstr "Terveys"
+
+msgid "Population"
+msgstr "Väestö"
+
+msgid "Outdoors and recreation"
+msgstr "Ympäristö ja liikunta"
+
+#: Category descriptions
+msgid "Government description"
+msgstr "Hallinto, laki ja oikeusturva, turvallisuus, tietotekniikka"
+
+msgid "Transportation and maps description"
+msgstr "Liikenne ja kartat"
+
+msgid "Tourism description"
+msgstr "Kulttuuri, matkailu, neuvonta"
+
+msgid "Education description"
+msgstr "Opetus ja koulutus"
+
+msgid "Construction description"
+msgstr "Asuminen, rakentaminen, kaavat ja kiinteistöt"
+
+msgid "Economy description"
+msgstr "Talous, työ ja elinkeinot"
+
+msgid "Health description"
+msgstr "Terveys, sosiaalipalvelut"
+
+msgid "Population description"
+msgstr "Väestö"
+
+msgid "Outdoors and recreation description"
+msgstr "Ympäristö ja luonto, liikunta ja ulkoilu"
+
+#: Popular and recent content
+msgid "Most recent content"
+msgstr "Uusin sisältö"
+
+msgid "Recent content was not found"
+msgstr "Yhtään uutta sisältöä ei löytynyt"
+
+msgid "Popular this month"
+msgstr "Kuukauden katsotuimmat"
+
+msgid "Popular content was not found"
+msgstr "Yhtään suosittua sisältöä ei löytynyt"

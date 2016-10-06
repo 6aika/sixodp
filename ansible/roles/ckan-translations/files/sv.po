@@ -4579,3 +4579,91 @@ msgstr "Kommun"
 
 msgid "Showcase"
 msgstr "Applicationer"
+
+#: Statistics
+msgid "Datasets statistics"
+msgstr "Datasets"
+
+msgid "Applications statistics"
+msgstr "Applications"
+
+msgid "Interfaces statistics"
+msgstr "Interfaces"
+
+msgid "Users statistics"
+msgstr "Users"
+
+msgid "Shares statistics"
+msgstr "Shares"
+
+#: Categories
+msgid "Topics"
+msgstr "Topics"
+
+msgid "Government"
+msgstr "Government"
+
+msgid "Transportation and maps"
+msgstr "Transportation and maps"
+
+msgid "Tourism"
+msgstr "Tourism"
+
+msgid "Education"
+msgstr "Education"
+
+msgid "Construction"
+msgstr "Construction"
+
+msgid "Economy"
+msgstr "Economy"
+
+msgid "Health"
+msgstr "Health"
+
+msgid "Population"
+msgstr "Population"
+
+msgid "Outdoors and recreation"
+msgstr "Outdoors and recreation"
+
+#: Category descriptions
+msgid "Government description"
+msgstr "Government, law and legal protection, safety, information technology"
+
+msgid "Transportation and maps description"
+msgstr "Transportation and maps"
+
+msgid "Tourism description"
+msgstr "Culture, tourism and information"
+
+msgid "Education description"
+msgstr "Education and teaching"
+
+msgid "Construction description"
+msgstr "Housing, construction, zoning and real estates"
+
+msgid "Economy description"
+msgstr "Economy, employment and livelihood"
+
+msgid "Health description"
+msgstr "Health and social services"
+
+msgid "Population description"
+msgstr "Population"
+
+msgid "Outdoors and recreation description"
+msgstr "Environment and nature, exercise and recreation"
+
+#: Popular and recent content
+msgid "Most recent content"
+msgstr "Most recent content"
+
+msgid "Recent content was not found"
+msgstr "Recent content was not found"
+
+msgid "Popular this month"
+msgstr "Popular this month"
+
+msgid "Popular content was not found"
+msgstr "Popular content was not found"

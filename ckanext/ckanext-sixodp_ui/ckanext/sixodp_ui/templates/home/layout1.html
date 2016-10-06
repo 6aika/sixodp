@@ -49,23 +49,23 @@
       <div class="stats-list">
         <div class="col-md-2 col-md-offset-1 col-sm-12 stats-list-item">
           <div class="item-value">345</div>
-          <div class="item-description">Tietoaineistoa</div>
+          <div class="item-description">{{ _('Datasets statistics') }}</div>
         </div>
         <div class="col-md-2 col-sm-12 stats-list-item">
           <div class="item-value">224</div>
-          <div class="item-description">Sovellusta</div>
+          <div class="item-description">{{ _('Applications statistics') }}</div>
         </div>
         <div class="col-md-2 col-sm-12 stats-list-item">
           <div class="item-value">198</div>
-          <div class="item-description">Rajapintaa</div>
+          <div class="item-description">{{ _('Interfaces statistics') }}</div>
         </div>
         <div class="col-md-2 col-sm-12 stats-list-item">
           <div class="item-value">1234</div>
-          <div class="item-description">Käyttäjää</div>
+          <div class="item-description">{{ _('Users statistics') }}</div>
         </div>
         <div class="col-md-2 col-sm-12 stats-list-item">
           <div class="item-value">9876</div>
-          <div class="item-description">Jakoa</div>
+          <div class="item-description">{{ _('Shares statistics') }}</div>
         </div>
       </div>
     </div>
@@ -73,52 +73,52 @@
   <hr>
   <div class="container">
     <div class="row">
-      <h3 class="text-center">Aihepiirit</h3>
+      <h3 class="text-center">{{ _('Topics') }}</h3>
       <div class="category-list">
         <div class="col-lg-2 col-lg-offset-1 col-md-4 col-xs-6 text-center category-list-item">
           <img src="/fanstatic/sixodp_ui/icons/hallinto.svg" />
-          <h4>Hallinto</h4>
-          <p class="item-description">Hallinto, Laki ja oikeusturva, Turvallisuus, Tietotekniikka</p>
+          <h4>{{ _('Government') }}</h4>
+          <p class="item-description">{{ _('Government') }}</p>
         </div>
         <div class="col-lg-2 col-md-4 col-xs-6 text-center category-list-item">
           <img src="/fanstatic/sixodp_ui/icons/liikenne.svg" />
-          <h4>Liikenne ja kartat</h4>
-          <p class="item-description">Liikenne ja Kartat</p>
+          <h4>{{ _('Transportation and maps') }}</h4>
+          <p class="item-description">{{ _('Transportation and maps description') }}</p>
         </div>
         <div class="col-lg-2 col-md-4 col-xs-6 text-center category-list-item">
           <img src="/fanstatic/sixodp_ui/icons/matkailu.svg" />
-          <h4>Matkailu</h4>
-          <p class="item-description">Kulttuuri, Matkailu, Neuvonta</p>
+          <h4>{{ _('Tourism') }}</h4>
+          <p class="item-description">{{ _('Tourism description') }}</p>
         </div>
         <div class="col-lg-2 col-md-4 col-xs-6 text-center category-list-item">
           <img src="/fanstatic/sixodp_ui/icons/sosiaalipalvelut.svg" />
-          <h4>Opetus</h4>
-          <p class="item-description">Opetus ja koulutus</p>
+          <h4>{{ _('Education') }}</h4>
+          <p class="item-description">{{ _('Education description') }}</p>
         </div>
         <div class="col-lg-2 col-md-4 col-xs-6 text-center category-list-item">
           <img src="/fanstatic/sixodp_ui/icons/rakentaminen.svg" />
-          <h4>Rakennukset</h4>
-          <p class="item-description">Asuminen, Rakentaminen, Kaavat ja kiinteistöt</p>
+          <h4>{{ _('Construction') }}</h4>
+          <p class="item-description">{{ _('Construction description') }}</p>
         </div>
         <div class="col-lg-2 col-lg-offset-1 col-md-4 col-xs-6 text-center category-list-item">
           <img src="/fanstatic/sixodp_ui/icons/talousjaverotus.svg" />
-          <h4>Talous</h4>
-          <p class="item-description">Talous, Työ ja elinkeinot</p>
+          <h4>{{ _('Economy') }}</h4>
+          <p class="item-description">{{ _('Economy description') }}</p>
         </div>
         <div class="col-lg-2 col-md-4 col-xs-6 text-center category-list-item">
           <img src="/fanstatic/sixodp_ui/icons/terveys.svg" />
-          <h4>Terveys</h4>
-          <p class="item-description">Terveys, Sosiaalipalvelut</p>
+          <h4>{{ _('Health') }}</h4>
+          <p class="item-description">{{ _('Health description') }}</p>
         </div>
         <div class="col-lg-2 col-md-4 col-xs-6 text-center category-list-item">
           <img src="/fanstatic/sixodp_ui/icons/vaesto.svg" />
-          <h4>Väestö</h4>
-          <p class="item-description">Väestö</p>
+          <h4>{{ _('Population') }}</h4>
+          <p class="item-description">{{ _('Population description') }}</p>
         </div>
         <div class="col-lg-2 col-md-4 col-xs-6 text-center category-list-item">
           <img src="/fanstatic/sixodp_ui/icons/ymparistojaluonto.svg" />
-          <h4>Ympäristö ja liikunta</h4>
-          <p class="item-description">Ympäristö ja luonto, Liikunta ja ulkoilu</p>
+          <h4>{{ _('Outdoors and recreation') }}</h4>
+          <p class="item-description">{{ _('Outdoors and recreation description') }}</p>
         </div>
       </div>
     </div>
@@ -127,7 +127,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <h3 class="text-center">Uusin sisältö</h3>  
+        <h3 class="text-center">{{ _('Most recent content') }}</h3>  
         {% if h.get_recent_content() %}
         <ul class="topic-list"> 
           {% for item in h.get_recent_content() %}
@@ -139,11 +139,11 @@
           {% endfor %}
         </ul>
         {% else %}
-        <h4 class="text-center">Yhtään uutta sisältöä ei löytynyt</h4>
+        <h4 class="text-center">{{ _('Recent content was not found') }}</h4>
         {% endif %}
       </div>
       <div class="col-md-6">
-        <h3 class="text-center">Kuukauden katsotuimmat</h3>
+        <h3 class="text-center">{{ _('Popular this month') }}</h3>
         <ul class="topic-list">
           <li class="topic-list-item">
             <h4 class="topic-header">Espoon luontokohteet</h4>
