@@ -5912,7 +5912,7 @@ body {
       padding-top: 298px; } }
   @media (min-width: 992px) {
     body {
-      padding-top: 236px; } }
+      padding-top: 238px; } }
 
 .container {
   width: 100%;
@@ -6205,8 +6205,8 @@ a {
 input {
   font-size: 15px;
   padding: 10px;
-  border: 1px solid #f5f5f5;
-  border-bottom: 2px solid #eee;
+  border: 1px solid #eeeeee;
+  border-bottom: 2px solid #eeeeee;
   transition: border-color .2s ease-in-out; }
   input:focus, input:active {
     border-bottom-color: #534f97;
@@ -6254,6 +6254,13 @@ button.btn-success,
   .btn:active,
   button.btn-success:active {
     transform: translateY(1px); }
+  button .caret,
+  .btn .caret, button.btn-success .caret {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%); }
 
 .btn-search--main {
   margin-left: -1px;
@@ -6524,10 +6531,11 @@ form .form-actions {
   display: block;
   margin-bottom: 0;
   padding-bottom: 0; }
-  form .form-actions .control-required-message {
-    display: block;
-    width: 100%;
-    margin-top: 20px; }
+
+form .control-required-message {
+  display: block;
+  width: 100%;
+  margin: 20px 0; }
 
 form .control-order-by {
   margin-top: 6px; }
@@ -6752,3 +6760,7 @@ footer.site-footer {
 
 legend {
   border: 0; }
+
+.alert {
+  border: 2px solid #e27c79;
+  border-radius: 2px; }

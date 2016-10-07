@@ -32,6 +32,10 @@ button,
   &.btn-success {
     @extend .btn;
   }
+
+  .caret {
+    @include vertical-align();
+  }
 }
 
 .btn-search--main {

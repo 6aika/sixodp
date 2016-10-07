@@ -45,12 +45,12 @@ form {
     display: block;
     margin-bottom: 0;
     padding-bottom: 0;
+  }
 
-    .control-required-message {
-      display: block;
-      width: 100%;
-      margin-top: $margin-base-vertical;
-    }
+  .control-required-message {
+    display: block;
+    width: 100%;
+    margin: $margin-base-vertical 0;
   }
 
   .control-order-by {

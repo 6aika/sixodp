@@ -10257,12 +10257,6 @@ h4 small {
 #followee-filter .btn:after {
   clear: both;
 }
-#followee-filter .btn span,
-#followee-filter .btn strong {
-  display: block;
-  float: left;
-  line-height: 1.5;
-}
 #followee-filter .btn span {
   font-weight: normal;
 }
