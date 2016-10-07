@@ -6458,13 +6458,14 @@ select {
       border: none;
       font-weight: bold;
       font-size: 16px; }
-    .navbar-offcanvas .module .module-content.empty,
-    .navbar-offcanvas .module .module-content .empty {
-      font-size: 14px;
-      color: #777777;
-      padding-left: 34px; }
-    .navbar-offcanvas .module .module-content .nums {
-      border: none; }
+    .navbar-offcanvas .module .module-content {
+      padding: 0 25px; }
+      .navbar-offcanvas .module .module-content.empty,
+      .navbar-offcanvas .module .module-content .empty {
+        font-size: 14px;
+        color: #777777; }
+      .navbar-offcanvas .module .module-content .nums {
+        border: none; }
     .navbar-offcanvas .module .module-footer {
       display: none; }
   .navbar-offcanvas .nav-facet li.nav-item {
@@ -6697,14 +6698,16 @@ footer.site-footer {
       background: url("../../../base/images/ckan-logo-footer.png") no-repeat top left;
       text-indent: -900em; }
 
-.ckanext-showcase-image-container img {
-  max-height: 480px;
-  width: auto !important; }
-
-@media (max-width: 993px) {
+.ckanext-showcase-image-container {
+  background: #eeeeee; }
   .ckanext-showcase-image-container img {
-    max-width: 100%;
-    height: auto; } }
+    max-height: 100%;
+    width: auto;
+    margin: 0; }
+  @media (min-width: 992px) {
+    .ckanext-showcase-image-container img {
+      max-width: 480px;
+      height: auto; } }
 
 .ckanext-showcase-edit.primary {
   float: none; }

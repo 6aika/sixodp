@@ -1,14 +1,16 @@
 .ckanext-showcase {
   &-image-container {
+    background: $gray-lighter;
 
     img {
-      max-height: 480px;
-      width: auto !important;
+      max-height: 100%;
+      width: auto;
+      margin: 0;
     }
 
-    @media (max-width: $width-md+1) {
+    @media (min-width: $width-md) {
       img {
-        max-width: 100%;
+        max-width: 480px;
         height: auto;
       }
     }

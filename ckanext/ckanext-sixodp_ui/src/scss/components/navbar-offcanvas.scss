@@ -18,11 +18,12 @@
     }
 
     .module-content {
+      padding: 0 $padding-base-horizontal;
+
       &.empty,
       .empty {
         font-size: $font-size-small;
         color: $gray-light;
-        padding-left: 34px;
       }
 
       .nums {
