@@ -20,6 +20,7 @@
         &:first-of-type {
           &:before {
             content: "";
+            margin: 0;
           }
         }
 
@@ -183,13 +184,14 @@
     &:first-of-type {
       &:before {
         content: "";
+        margin: 0;
       }
     }
 
     &:before {
       content: "/";
       display: inline-block;
-      margin: 0 15px;
+      margin: 0 10px;
     }
 
     &:hover {
@@ -214,6 +216,13 @@
         padding: 15px;
         border-bottom: 0;
       }
+
+      li {
+        &:before {
+          content: "";
+          margin: 0;
+        }
+      }
     }
   }
 }
@@ -230,7 +239,7 @@
     display: inline-block;
     position: absolute;
     top: 0;
-    right: 100px;
+    right: 120px;
     width: auto;
     height: auto;
     padding: 15px;
