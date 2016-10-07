@@ -90,3 +90,9 @@ body {
     margin-left: 0;
   }
 }
+
+// Fix width issue with BS3 in mobile.
+.row {
+  margin-left: 0px;
+  margin-right: 0px;
+}

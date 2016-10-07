@@ -5943,6 +5943,10 @@ body {
     padding: 0;
     margin-left: 0; }
 
+.row {
+  margin-left: 0px;
+  margin-right: 0px; }
+
 body {
   font-family: "Work Sans", sans-serif;
   font-size: 16px; }
@@ -6034,6 +6038,8 @@ a {
     background: none; }
     .navbar-toggle:hover .icon-bar {
       background-color: #aeacd3; }
+  .navbar-toggle .icon-bar {
+    width: 24px; }
 
 .navbar-collapse {
   float: left; }
@@ -6270,9 +6276,12 @@ button.btn-success,
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%); }
+  button.navbar-toggle,
+  .btn.navbar-toggle,
+  button.navbar-toggle.btn-success {
+    box-shadow: none; }
 
 .btn-search--main {
-  margin-left: -1px;
   padding: 10px 0 !important; }
 
 .page-list-item .dataset-heading {

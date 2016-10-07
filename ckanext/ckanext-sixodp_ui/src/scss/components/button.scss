@@ -36,10 +36,13 @@ button,
   .caret {
     @include vertical-align();
   }
+
+  &.navbar-toggle {
+    box-shadow: none;
+  }
 }
 
 .btn-search--main {
-  margin-left: -1px;
   padding: $base 0 !important;
 }
 
