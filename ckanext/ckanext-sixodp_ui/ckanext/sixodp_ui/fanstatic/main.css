@@ -8246,16 +8246,6 @@ fieldset[disabled] .control-custom.disabled .checkbox.btn.active {
   top: 0;
   margin-right: 10px;
 }
-.js .image-upload .btn.hover {
-  color: #333333;
-  text-decoration: none;
-  background-position: 0 -15px;
-  -webkit-transition: background-position 0.1s linear;
-  -moz-transition: background-position 0.1s linear;
-  -ms-transition: background-position 0.1s linear;
-  -o-transition: background-position 0.1s linear;
-  transition: background-position 0.1s linear;
-}
 .js .image-upload .btn-remove-url {
   color: #2c2c2c;
   background-color: transparent;
@@ -8276,15 +8266,6 @@ fieldset[disabled] .control-custom.disabled .checkbox.btn.active {
 }
 .add-member-form .controls {
   margin-left: auto;
-}
-.add-member-or {
-  float: left;
-  margin-top: 75px;
-  width: 7%;
-  text-align: center;
-  text-transform: uppercase;
-  color: #999999;
-  font-weight: bold;
 }
 .add-member-form .row .form-group {
   float: left;

@@ -67,4 +67,14 @@ form {
       float: none;
     }
   }
+
+  .add-member-or {
+    margin: $margin-base-vertical 0;
+    width: 100%;
+    display: block;
+    color: $gray-light;
+    text-transform: uppercase;
+    text-align: left;
+    font-weight: bold;
+  }
 }

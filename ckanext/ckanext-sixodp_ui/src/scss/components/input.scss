@@ -9,9 +9,25 @@ input {
     border-bottom-color: $brand-primary;
     outline: none;
   }
+
+  &#field-image-upload {
+    cursor: pointer;
+    position: absolute;
+    opacity: 0;
+  } 
 }
 
 .input--large {
   font-size: $base*2;
   padding: $base*1.5;
 }
+
+.js {
+  .image-upload {
+    .btn.hover {
+      color: $white;
+      background: $brand-primary-light;
+      text-decoration: none;
+    }
+  } 
+} 

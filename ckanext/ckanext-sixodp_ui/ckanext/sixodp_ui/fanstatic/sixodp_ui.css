@@ -6211,10 +6211,19 @@ input {
   input:focus, input:active {
     border-bottom-color: #534f97;
     outline: none; }
+  input#field-image-upload {
+    cursor: pointer;
+    position: absolute;
+    opacity: 0; }
 
 .input--large {
   font-size: 20px;
   padding: 15px; }
+
+.js .image-upload .btn.hover, .js .image-upload button.hover.btn-success {
+  color: #ffffff;
+  background: #6d69b0;
+  text-decoration: none; }
 
 textarea {
   font-size: 15px;
@@ -6371,13 +6380,26 @@ select {
 .form-select label {
   display: inline; }
 
-.select2-container .select2-choices {
+.select2-container .select2-choices,
+.select2-container .select2-choice {
   font-size: 15px;
   padding: 10px;
   border: 1px solid #f5f5f5;
   border-bottom: 2px solid #eee;
-  transition: border-color .2s ease-in-out; }
-  .select2-container .select2-choices:focus, .select2-container .select2-choices:active {
+  transition: border-color .2s ease-in-out;
+  height: 40px;
+  line-height: 20px;
+  background: none; }
+  .select2-container .select2-choices .select2-arrow,
+  .select2-container .select2-choice .select2-arrow {
+    background: none; }
+    .select2-container .select2-choices .select2-arrow b,
+    .select2-container .select2-choice .select2-arrow b {
+      position: absolute;
+      top: 4px; }
+  .select2-container .select2-choices:focus, .select2-container .select2-choices:active,
+  .select2-container .select2-choice:focus,
+  .select2-container .select2-choice:active {
     border-bottom-color: #534f97; }
 
 .search-form {
@@ -6547,6 +6569,15 @@ form .editor .editor-info-block {
   display: block;
   width: auto;
   float: none; }
+
+form .add-member-or {
+  margin: 20px 0;
+  width: 100%;
+  display: block;
+  color: #777777;
+  text-transform: uppercase;
+  text-align: left;
+  font-weight: bold; }
 
 .table {
   font-size: 14px; }
