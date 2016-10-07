@@ -1,26 +1,23 @@
 {% set current_url = request.environ.CKAN_CURRENT_URL %}
 {% set current_lang = request.environ.CKAN_LANG %}
-<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-  <i class="material-icons">language</i> <span class="material-icon-label">Kieli</span>
-</a>
-<ul class="nav list-inline language-changer dropdown-menu" id="language-changer">
-  <li>
-    <a href="{% url_for h.unquote_url(current_url), locale='fi' %}"
-       class="nav-link{% if current_lang == 'fi' %} active{% endif %}">
-      <span class="hidden-xs">Suomeksi</span>
-      <span class="visible-xs">FI<span>
-    </a>
-  </li><li>
-    <a href="{% url_for h.unquote_url(current_url), locale='sv' %}"
-       class="nav-link{% if current_lang == 'sv' %} active{% endif %}">
-      <span class="hidden-xs">På Svenska</span>
-      <span class="visible-xs">SV<span>
-    </a>
-  </li><li>
-    <a href="{% url_for h.unquote_url(current_url), locale='en_GB' %}"
-       class="nav-link{% if current_lang == 'en_GB' %} active{% endif %}">
-      <span class="hidden-xs">In English</span>
-      <span class="visible-xs">EN<span>
-    </a>
-  </li>
-</ul>
+<li>
+  <a href="{% url_for h.unquote_url(current_url), locale='fi' %}"
+      class="nav-link{% if current_lang == 'fi' %} active{% endif %}">
+    <span class="hidden-xs">Suomeksi</span>
+    <span class="visible-xs">FI<span>
+  </a>
+</li><li>
+  <a href="{% url_for h.unquote_url(current_url), locale='sv' %}"
+      class="nav-link{% if current_lang == 'sv' %} active{% endif %}">
+    <span class="hidden-xs">På Svenska</span>
+    <span class="visible-xs">SV<span>
+  </a>
+</li><li>
+  <a href="{% url_for h.unquote_url(current_url), locale='en_GB' %}"
+      class="nav-link{% if current_lang == 'en_GB' %} active{% endif %}">
+    <span class="hidden-xs">In English</span>
+    <span class="visible-xs">EN<span>
+  </a>
+</li>
+
+

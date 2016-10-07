@@ -11,6 +11,26 @@
     left: 0;
     right: 0;
   }
+
+  &-nav {
+    &.navbar-right {
+      li {
+        display: inline-block;
+
+        &:first-of-type {
+          &:before {
+            content: "";
+          }
+        }
+
+        &:before {
+          content: "|";
+          display: inline-block;
+          margin: 0 5px;
+        }
+      }
+    }
+  }
 }
 
 .header-logos {

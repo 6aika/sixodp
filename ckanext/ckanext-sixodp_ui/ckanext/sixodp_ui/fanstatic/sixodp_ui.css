@@ -5997,6 +5997,14 @@ a {
     top: 60px;
     left: 0;
     right: 0; }
+  .navbar-nav.navbar-right li {
+    display: inline-block; }
+    .navbar-nav.navbar-right li:first-of-type:before {
+      content: ""; }
+    .navbar-nav.navbar-right li:before {
+      content: "|";
+      display: inline-block;
+      margin: 0 5px; }
 
 .header-logos {
   position: absolute;

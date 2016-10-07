@@ -25,11 +25,10 @@
     </li> -->
     </ul>
     <ul class="nav navbar-nav navbar-right">
-    <li class="dropdown">
-        {% snippet 'home/snippets/sixodp_language-changer.html' %}
-    </li>
     {% if c.userobj %}
         {% snippet 'home/snippets/sixodp_profile.html' %}
     {% endif %}
+    {% snippet 'home/snippets/sixodp_language-changer.html' %}
+    
 </ul>
 {% endblock %}
