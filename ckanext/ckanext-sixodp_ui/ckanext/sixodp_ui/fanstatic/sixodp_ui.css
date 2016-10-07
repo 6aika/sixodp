@@ -6051,7 +6051,8 @@ a {
     width: 24px; }
 
 .navbar-collapse {
-  float: left; }
+  float: left;
+  box-shadow: none; }
 
 .navbar-fixed-top {
   display: none;
@@ -6184,7 +6185,6 @@ a {
 
 .site-subtitle {
   line-height: 1;
-  margin-top: -10px;
   font-weight: normal;
   font-size: 18px; }
   @media (min-width: 768px) {
@@ -6217,6 +6217,8 @@ a {
       height: 80px;
       border-radius: 0 2px 2px 0;
       border: 2px solid #534f97; }
+      .searchbox .module-content.search-form button:hover {
+        border-color: #6d69b0; }
 
 .label {
   background-color: #97ba54; }

@@ -34,6 +34,10 @@
       height: 80px;
       border-radius: 0 $border-radius-small $border-radius-small 0;
       border: $border-base solid $brand-primary;
+
+      &:hover {
+        border-color: $brand-primary-light;
+      }
     }
   }
 }

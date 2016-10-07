@@ -15,7 +15,7 @@ button,
   &:hover {
     @extend .box-shadow-highlight;
     background-color: $brand-primary-light;
-    color: $white;  
+    color: $white;
   }
 
   &:focus {
