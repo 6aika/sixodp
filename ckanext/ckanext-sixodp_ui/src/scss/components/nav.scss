@@ -132,13 +132,20 @@
         width: auto;
       }
 
-      &.active,
       &:hover {
+        background-color: $brand-primary-light;
+        a {
+          background-color: transparent;
+          color: $white;
+        }
+      }
+      &.active {
         border-width: 0 0 $border-base 0;
         border-color: $brand-primary;
         border-style: solid;
 
         a {
+          background-color: transparent;
           border: none;
         }
       }

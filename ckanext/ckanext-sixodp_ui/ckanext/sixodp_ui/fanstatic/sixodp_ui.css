@@ -5958,7 +5958,8 @@ h1, h2, h3, h4, h5, h6, p {
   line-height: 1.5; }
 
 a {
-  color: #534f97; }
+  color: #534f97;
+  word-break: break-word; }
   a:hover {
     text-decoration: none; }
 
@@ -6080,11 +6081,17 @@ a {
       .nav.nav-tabs li {
         display: inline-block;
         width: auto; } }
-    .nav.nav-tabs li.active, .nav.nav-tabs li:hover {
+    .nav.nav-tabs li:hover {
+      background-color: #6d69b0; }
+      .nav.nav-tabs li:hover a {
+        background-color: transparent;
+        color: #ffffff; }
+    .nav.nav-tabs li.active {
       border-width: 0 0 2px 0;
       border-color: #534f97;
       border-style: solid; }
-      .nav.nav-tabs li.active a, .nav.nav-tabs li:hover a {
+      .nav.nav-tabs li.active a {
+        background-color: transparent;
         border: none; }
     .nav.nav-tabs li a {
       border: none;
