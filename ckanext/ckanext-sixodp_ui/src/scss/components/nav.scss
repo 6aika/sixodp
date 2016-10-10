@@ -118,11 +118,19 @@
 .nav {
 
   &.nav-tabs {
+    width: 100%;
     border-bottom: 0;
     
     li {
+      display: block;
+      width: 100%;
       border-bottom: $border-base solid transparent;
       margin: 0;
+
+      @media (min-width: $width-md) {
+        display: inline-block;
+        width: auto;
+      }
 
       &.active,
       &:hover {
@@ -138,6 +146,10 @@
       a {
         border: none;
         margin-right: 0;
+
+        i {
+          display: none;
+        }
       }
     }
   }

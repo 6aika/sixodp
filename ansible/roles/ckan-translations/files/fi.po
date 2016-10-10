@@ -4687,6 +4687,9 @@ msgid "Follow us"
 msgstr "Seuraa meitä"
 
 #: Showcase
+msgid "Showcases"
+msgstr "Sovellukset"
+
 msgid "Add Showcase"
 msgstr "Lisää sovellus"
 

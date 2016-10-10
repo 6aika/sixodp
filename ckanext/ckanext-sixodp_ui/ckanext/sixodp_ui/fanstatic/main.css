@@ -8821,12 +8821,6 @@ fieldset[disabled] .control-custom.disabled .checkbox.btn.active {
   .page-header {
     padding: 0px 10px;
   }
-  .page-header .nav-tabs > li > a {
-    padding: 5px 8px;
-  }
-  .page-header .nav-tabs > li > a i {
-    display: none;
-  }
   .page-header .nav-tabs > a,
   .page-header .nav-tabs > a:hover,
   .page-header .nav-tabs > a:focus {
