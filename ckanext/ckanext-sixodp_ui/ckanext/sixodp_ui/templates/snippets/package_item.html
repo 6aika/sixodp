@@ -24,7 +24,7 @@ Example:
       <div class="container-fluid">
         <div class="row">
           {% block content %}
-            <div class="col-xs-8">
+            <div class="col-md-8 col-sm-12">
               <div class="dataset-content">
                 {% block heading %}
                   <h3 class="dataset-heading">
@@ -61,7 +61,7 @@ Example:
                 {% endblock %}
               </div>
             </div>
-            <div class="col-xs-4">
+            <div class="col-md-4 col-sm-12">
               {% block resources %}
                 {% if package.resources and not hide_resources %}
                   {% block resources_outer %}

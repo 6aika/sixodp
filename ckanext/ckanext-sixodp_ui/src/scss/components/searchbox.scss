@@ -1,7 +1,7 @@
 .searchbox {
   width: 100%;
   max-width: $base*72;
-  padding: $padding-base-vertical*3 $padding-base-horizontal*2;
+  padding: $padding-base-vertical*3 $padding-base-horizontal*0.5;
   margin: $margin-base-vertical*3 auto 0 auto;
 
   @media (min-width: $width-sm) {

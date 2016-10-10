@@ -5917,9 +5917,6 @@ body {
 .container {
   width: 100%;
   margin: 0 auto; }
-  @media (min-width: 768px) {
-    .container {
-      width: 90%; } }
   @media (min-width: 992px) {
     .container {
       width: 960px; } }
@@ -6194,7 +6191,7 @@ a {
 .searchbox {
   width: 100%;
   max-width: 720px;
-  padding: 60px 50px;
+  padding: 60px 12.5px;
   margin: 60px auto 0 auto; }
   @media (min-width: 768px) {
     .searchbox {
@@ -6307,6 +6304,8 @@ button.btn-success,
   margin-bottom: 20px; }
   .dataset-list .dataset-item > a {
     color: #57575b; }
+  .dataset-list .dataset-item .col-* {
+    padding: 0; }
   .dataset-list .dataset-item:last-of-type {
     margin-bottom: 0; }
   .dataset-list .dataset-item .dataset-heading {
@@ -6627,7 +6626,7 @@ form .add-member-or {
     margin: 0;
     padding: 7px 25px; }
   .module .module-content {
-    padding: 0 25px;
+    padding: 0;
     margin: 0; }
     .module .module-content.page-header {
       background-color: #ffffff;
@@ -6767,7 +6766,7 @@ footer.site-footer {
   list-style: none; }
   .topic-list .topic-list-item {
     background: #eeeeee;
-    margin: 40px 25px;
+    margin: 40px 0;
     padding: 0; }
     .topic-list .topic-list-item:first-child {
       margin-top: 20px; }

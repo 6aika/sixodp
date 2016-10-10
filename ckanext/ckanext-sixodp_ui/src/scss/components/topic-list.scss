@@ -6,7 +6,7 @@
     @extend .card-theme;
     @extend .card-hover;
     background: $gray-lighter;
-    margin: $margin-base-vertical*2 $margin-base-horizontal;
+    margin: $margin-base-vertical*2 0;
     padding: 0;
 
     &:first-child {
