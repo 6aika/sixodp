@@ -51,7 +51,8 @@ def get_recent_content():
     for item in items['results']:
         result.append({
             'title': item['title'],
-            'metadata_created': item['metadata_created']
+            'metadata_created': item['metadata_created'],
+            'href': '/dataset/' + item['name']
         })
 
     return result

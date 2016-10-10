@@ -132,9 +132,11 @@
         <ul class="topic-list"> 
           {% for item in h.get_recent_content() %}
             <li class="topic-list-item">
-              <h4 class="topic-header">{{ item['title'] }}</h4>
-              <p class="topic-timestamp">{{  h.render_datetime(item['metadata_created'], '%-d.%-m.%Y') }}</p>
-              <p class="topic-info">Sovellukset - Ympäristö ja liikunta</p>
+              <a href="{{item.href}}">
+                <h4 class="topic-header">{{ item['title'] }}</h4>
+                <p class="topic-timestamp">{{  h.render_datetime(item['metadata_created'], '%-d.%-m.%Y') }}</p>
+                <p class="topic-info">Sovellukset - Ympäristö ja liikunta</p>
+              </a>
             </li>
           {% endfor %}
         </ul>
@@ -146,29 +148,39 @@
         <h3 class="text-center">{{ _('Popular this month') }}</h3>
         <ul class="topic-list">
           <li class="topic-list-item">
-            <h4 class="topic-header">Espoon luontokohteet</h4>
-            <p class="topic-timestamp">12.8.2016</p>
-            <p class="topic-info">Sovellukset - Ympäristö ja liikunta</p>
+            <a>
+              <h4 class="topic-header">Espoon luontokohteet</h4>
+              <p class="topic-timestamp">12.8.2016</p>
+              <p class="topic-info">Sovellukset - Ympäristö ja liikunta</p>
+            </a>
           </li>
           <li class="topic-list-item">
-            <h4 class="topic-header">Espoon liikenneväylien keskilinjat</h4>
-            <p class="topic-timestamp">12.8.2016</p>
-            <p class="topic-info">Tietoaineistot - Kartat ja paikkatieto</p>
+            <a>
+              <h4 class="topic-header">Espoon liikenneväylien keskilinjat</h4>
+              <p class="topic-timestamp">12.8.2016</p>
+              <p class="topic-info">Tietoaineistot - Kartat ja paikkatieto</p>
+            </a>
           </li>
           <li class="topic-list-item">
-            <h4 class="topic-header">Espoon luontokohteet</h4>
-            <p class="topic-timestamp">12.8.2016</p>
-            <p class="topic-info">Sovellukset - Ympäristö ja liikunta</p>
+            <a>
+              <h4 class="topic-header">Espoon luontokohteet</h4>
+              <p class="topic-timestamp">12.8.2016</p>
+              <p class="topic-info">Sovellukset - Ympäristö ja liikunta</p>
+            </a>
           </li>
           <li class="topic-list-item">
-            <h4 class="topic-header">Espoon liikenneväylien keskilinjat</h4>
-            <p class="topic-timestamp">12.8.2016</p>
-            <p class="topic-info">Tietoaineistot - Kartat ja paikkatieto</p>
+            <a>
+              <h4 class="topic-header">Espoon liikenneväylien keskilinjat</h4>
+              <p class="topic-timestamp">12.8.2016</p>
+              <p class="topic-info">Tietoaineistot - Kartat ja paikkatieto</p>
+            </a>
           </li>
           <li class="topic-list-item">
-            <h4 class="topic-header">Espoon liikenneväylien keskilinjat</h4>
-            <p class="topic-timestamp">12.8.2016</p>
-            <p class="topic-info">Tietoaineistot - Kartat ja paikkatieto</p>
+            <a>
+              <h4 class="topic-header">Espoon liikenneväylien keskilinjat</h4>
+              <p class="topic-timestamp">12.8.2016</p>
+              <p class="topic-info">Tietoaineistot - Kartat ja paikkatieto</p>
+            </a>
           </li>
         </ul>
       </div>

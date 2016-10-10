@@ -7,9 +7,22 @@
     @extend .card-hover;
     background: $gray-lighter;
     margin: $margin-base-vertical*2 $margin-base-horizontal;
+    padding: 0;
 
     &:first-child {
       margin-top: $margin-base-vertical;
+    }
+
+    a {
+      display: block;
+      padding: $padding-base-horizontal $padding-base-vertical;
+      color: $gray-base;
+
+      &:hover {
+        color: $gray-base;
+        text-decoration: none;
+        cursor: pointer;
+      }
     }
 
     .topic-header,

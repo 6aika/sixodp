@@ -6767,9 +6767,18 @@ footer.site-footer {
   list-style: none; }
   .topic-list .topic-list-item {
     background: #eeeeee;
-    margin: 40px 25px; }
+    margin: 40px 25px;
+    padding: 0; }
     .topic-list .topic-list-item:first-child {
       margin-top: 20px; }
+    .topic-list .topic-list-item a {
+      display: block;
+      padding: 25px 20px;
+      color: #57575b; }
+      .topic-list .topic-list-item a:hover {
+        color: #57575b;
+        text-decoration: none;
+        cursor: pointer; }
     .topic-list .topic-list-item .topic-header,
     .topic-list .topic-list-item .topic-timestamp,
     .topic-list .topic-list-item .topic-info {
