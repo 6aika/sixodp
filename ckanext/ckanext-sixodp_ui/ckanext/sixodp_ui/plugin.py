@@ -52,7 +52,7 @@ def get_recent_content():
         result.append({
             'title': item['title'],
             'metadata_created': item['metadata_created'],
-            'href': '/dataset/' + item['name']
+            'href': '/' + item['type'] + '/' + item['name']
         })
 
     return result
