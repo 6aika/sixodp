@@ -5853,7 +5853,7 @@ button.close {
   font-weight: bold;
   text-shadow: 1px 1px 1px #aaa; }
 
-.box-shadow, .card, .card-theme, .dataset-list .dataset-item, .search-form, .navbar-offcanvas, .media-grid .media-item, .list-group .list-group-item, .topic-list .topic-list-item, .card-hover, .resource-list .resource-item, .module .module-content.main-content, .searchbox .module-content.search-form input, .btn, button.btn-success,
+.box-shadow, .card, .card-theme, .dataset-list .dataset-item, .search-form, .navbar-offcanvas, .media-grid .media-item, .list-group .list-group-item, .topic-list .topic-list-item, .card-hover, .resource-list .resource-item, .module .module-content.main-content, .module-resource, .searchbox .module-content.search-form input, .btn, button.btn-success,
 .btn.btn-success, .tag-list li, .search-form .search-input input, .category-list .category-list-item img {
   box-shadow: 0 4px 3px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08); }
 
@@ -5962,7 +5962,7 @@ a {
   a:hover {
     text-decoration: none; }
 
-.card, .card-theme, .dataset-list .dataset-item, .search-form, .navbar-offcanvas, .media-grid .media-item, .list-group .list-group-item, .topic-list .topic-list-item, .card-hover, .resource-list .resource-item, .module .module-content.main-content {
+.card, .card-theme, .dataset-list .dataset-item, .search-form, .navbar-offcanvas, .media-grid .media-item, .list-group .list-group-item, .topic-list .topic-list-item, .card-hover, .resource-list .resource-item, .module .module-content.main-content, .module-resource {
   border-width: 0 0 0 2px;
   border-style: solid;
   border-color: transparent;
@@ -6511,14 +6511,20 @@ select {
       .navbar-offcanvas .nav-facet li.nav-item a:hover {
         background-color: #6d69b0;
         color: #ffffff; }
-  .navbar-offcanvas .nav-simple li.nav-item,
   .navbar-offcanvas .nav-simple li.nav-item {
-    border-color: #ffffff; }
-    .navbar-offcanvas .nav-simple li.nav-item a,
+    border-color: #ffffff;
+    margin: 0;
+    padding: 0; }
+    .navbar-offcanvas .nav-simple li.nav-item.active a {
+      background-color: #534f97; }
     .navbar-offcanvas .nav-simple li.nav-item a {
       padding: 7px 25px 7px 35px;
-      font-size: 14px; }
-      .navbar-offcanvas .nav-simple li.nav-item a:focus,
+      font-size: 14px;
+      margin: 0;
+      width: 100%; }
+      .navbar-offcanvas .nav-simple li.nav-item a:hover {
+        background-color: #6d69b0;
+        color: #ffffff; }
       .navbar-offcanvas .nav-simple li.nav-item a:focus {
         background-color: #ffffff;
         color: #57575b; }
@@ -6841,3 +6847,14 @@ legend {
 img {
   max-width: 100%;
   max-height: 480px; }
+
+.module-resource {
+  margin-left: 15px;
+  margin-right: 15px; }
+  .module-resource .actions {
+    float: none; }
+    .module-resource .actions ul {
+      padding-left: 0; }
+  @media (min-width: 768px) {
+    .module-resource {
+      margin-left: 0; } }

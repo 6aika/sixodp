@@ -63,13 +63,27 @@
   }
 
   .nav-simple {
-    li.nav-item,
     li.nav-item {
       border-color: $white;
+      margin: 0;
+      padding: 0;
+
+      &.active {
+        a {
+          background-color: $brand-primary;
+        }
+      }
 
       a {
         padding: 7px 25px 7px 35px;
         font-size: $font-size-small;
+        margin: 0;
+        width: 100%;
+
+        &:hover {
+          background-color: $brand-primary-light;
+          color: $white;
+        }
 
         &:focus {
           background-color: $white;
