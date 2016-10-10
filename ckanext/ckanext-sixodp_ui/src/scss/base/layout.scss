@@ -54,6 +54,13 @@ body {
 .container {
   width: 100%;
   margin: 0 auto;
+  padding-left: 0;
+  padding-right: 0;
+
+  @media (min-width: $width-sm) {
+    padding-left: $padding-base-horizontal*0.5;
+    padding-right: $padding-base-horizontal*0.5;
+  }
 
   @media (min-width: $width-md) {
     width: 960px;
