@@ -1,0 +1,17 @@
+{% ckan_extends %}
+
+{% block primary_content %}
+  <section class="module">
+    {% block page_header %}{% endblock %}
+    <div class="module-content main-content">
+      {% block primary_content_inner %}
+        {% block form %}
+          {#- passing c to a snippet is bad but is required here
+              for backwards compatibility with old templates and
+              plugins using setup_template_variables() -#}
+          {{- h.snippet(form_snippet, c=c, **form_vars) -}}
+        {% endblock %}
+      {% endblock %}
+    </div>
+  </section>
+{% endblock %}
