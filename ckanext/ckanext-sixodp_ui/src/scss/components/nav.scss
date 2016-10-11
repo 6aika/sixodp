@@ -164,8 +164,7 @@
   }
 }
 
-@media (min-width: $width-sm) {
-
+@media (min-width: $width-md) {
   .navbar-fixed-top {
     top: 0;
     display: none !important;
@@ -247,9 +246,7 @@
       }
     }
   }
-}
 
-@media (min-width: $width-md) {
   .navbar {
     &.navbar-fixed {
       top: 0;
