@@ -45,6 +45,14 @@ form {
     display: block;
     margin-bottom: 0;
     padding-bottom: 0;
+
+    .btn {
+      margin-right: $margin-base-horizontal*0.5;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
   }
 
   .control-required-message {

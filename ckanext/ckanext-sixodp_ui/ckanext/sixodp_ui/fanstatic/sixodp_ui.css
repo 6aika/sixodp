@@ -6606,6 +6606,10 @@ form .form-actions {
   display: block;
   margin-bottom: 0;
   padding-bottom: 0; }
+  form .form-actions .btn, form .form-actions button.btn-success {
+    margin-right: 12.5px; }
+    form .form-actions .btn:last-child, form .form-actions button.btn-success:last-child {
+      margin-right: 0; }
 
 form .control-required-message {
   display: block;
