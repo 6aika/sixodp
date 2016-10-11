@@ -7653,11 +7653,6 @@ form .control-order-by {
 .form-actions .control-required-message:first-child {
   margin-left: 0;
 }
-@media (min-width: 768px) {
-  .form-actions {
-    text-align: right;
-  }
-}
 .form-actions .action-info {
   line-height: 2;
   text-align: left;
