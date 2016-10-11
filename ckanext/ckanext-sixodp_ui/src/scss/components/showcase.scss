@@ -19,6 +19,18 @@
   &-edit {
     &.primary {
       float: none;
+
+      .container {
+        padding: 0;
+        width: 100%;
+      }
+    }
+
+    .table-selected {
+      td {
+        background-color: $brand-primary;
+        color: $white;
+      }
     }
 
     .module-content {

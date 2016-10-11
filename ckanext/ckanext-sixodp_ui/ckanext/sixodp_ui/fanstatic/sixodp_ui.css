@@ -6565,7 +6565,8 @@ select {
 .media-grid {
   margin: 0 -15px 20px -15px; }
   .media-grid .media-item {
-    padding: 15px; }
+    padding: 15px;
+    width: 290px; }
     .media-grid .media-item img {
       width: 100%;
       height: auto; }
@@ -6763,6 +6764,13 @@ footer.site-footer {
 
 .ckanext-showcase-edit.primary {
   float: none; }
+  .ckanext-showcase-edit.primary .container {
+    padding: 0;
+    width: 100%; }
+
+.ckanext-showcase-edit .table-selected td {
+  background-color: #534f97;
+  color: #ffffff; }
 
 .ckanext-showcase-edit .module-content {
   padding: 20px 25px;
