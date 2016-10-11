@@ -64,9 +64,9 @@
 
   .nav-simple {
     li.nav-item {
-      border-color: $white;
       margin: 0;
       padding: 0;
+      border: 0;
 
       &.active {
         a {

@@ -6081,18 +6081,19 @@ a {
       .nav.nav-tabs li {
         display: inline-block;
         width: auto; } }
-    .nav.nav-tabs li:hover {
-      background-color: #6d69b0; }
-      .nav.nav-tabs li:hover a {
-        background-color: transparent;
-        color: #ffffff; }
     .nav.nav-tabs li.active {
       border-width: 0 0 2px 0;
       border-color: #534f97;
       border-style: solid; }
       .nav.nav-tabs li.active a {
         background-color: transparent;
-        border: none; }
+        border: none;
+        color: #57575b; }
+    .nav.nav-tabs li:hover {
+      background-color: #6d69b0; }
+      .nav.nav-tabs li:hover a {
+        background-color: transparent;
+        color: #ffffff; }
     .nav.nav-tabs li a {
       border: none;
       margin-right: 0; }
@@ -6528,9 +6529,9 @@ select {
         background-color: #6d69b0;
         color: #ffffff; }
   .navbar-offcanvas .nav-simple li.nav-item {
-    border-color: #ffffff;
     margin: 0;
-    padding: 0; }
+    padding: 0;
+    border: 0; }
     .navbar-offcanvas .nav-simple li.nav-item.active a {
       background-color: #534f97; }
     .navbar-offcanvas .nav-simple li.nav-item a {

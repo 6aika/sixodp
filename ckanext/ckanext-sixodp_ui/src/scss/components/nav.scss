@@ -132,13 +132,6 @@
         width: auto;
       }
 
-      &:hover {
-        background-color: $brand-primary-light;
-        a {
-          background-color: transparent;
-          color: $white;
-        }
-      }
       &.active {
         border-width: 0 0 $border-base 0;
         border-color: $brand-primary;
@@ -147,6 +140,15 @@
         a {
           background-color: transparent;
           border: none;
+          color: $gray-base;
+        }
+      }
+
+      &:hover {
+        background-color: $brand-primary-light;
+        a {
+          background-color: transparent;
+          color: $white;
         }
       }
 
