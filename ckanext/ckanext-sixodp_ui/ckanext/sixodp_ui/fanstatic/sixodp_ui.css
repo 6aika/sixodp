@@ -6885,6 +6885,13 @@ img {
     float: none; }
     .module-resource .actions ul {
       padding-left: 0; }
+  .module-resource .resource-view .ckanext-datapreview {
+    background: #f2f2f2;
+    padding: 0; }
+    .module-resource .resource-view .ckanext-datapreview img {
+      max-height: 100%;
+      width: auto;
+      margin: 0; }
   @media (min-width: 768px) {
     .module-resource {
       margin-left: 0; } }

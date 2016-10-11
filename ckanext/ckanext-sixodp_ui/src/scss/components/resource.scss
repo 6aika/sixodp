@@ -11,6 +11,19 @@
       }
     }
 
+    .resource-view {
+      .ckanext-datapreview {
+        background: $gray-lighter;
+        padding: 0;
+
+        img {
+          max-height: 100%;
+          width: auto;
+          margin: 0;
+        }
+      }
+    }
+
     @media (min-width: $width-sm) {
       margin-left: 0;
     }
