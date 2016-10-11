@@ -50,7 +50,7 @@ ckan.site_description =
 
 ckan.featured_orgs = {{ ckan_featured_orgs }}
 
-ckan.plugins = {{ enabled_ckan_extensions }} {% if AWS.enabled  -%} {{ enabled_ckan_aws_extensions }} {%- endif %}
+ckan.plugins = {{ enabled_ckan_extensions | join(" ") }} {% if AWS.enabled  -%} {{ enabled_ckan_aws_extensions }} {%- endif %}
 
 ckan.preview.xml_formats = xml xsd xsd+xml soap soap+xml rdf rdf+xml owl+xml atom rss wsdl wsdl+xml
 ckan.views.default_views = text_view 
