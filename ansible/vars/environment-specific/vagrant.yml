@@ -14,6 +14,14 @@ database_ckan:
   username: ckan_default
   password: "{{ secret.database_ckan_password }}"
 
+database_ckan_datastore:
+  host: 127.0.0.1
+  port: 5432
+  allowed_ip_range: 10.0.0.0/8
+  name: datastore_default
+  username: datastore_default
+  password: "{{ secret.database_ckan_datastore_password }}"
+
 nginx:
   use_ssl_certificate: true
   use_selfsigned_certificate: true

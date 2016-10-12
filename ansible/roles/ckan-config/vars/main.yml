@@ -2,9 +2,11 @@
 
 # List of enabled CKAN extensions in load order. Order matters, when templates call super()
 enabled_ckan_extensions: 
+    - datastore
     - text_view 
     - image_view 
     - recline_graph_view
+    - recline_grid_view
     - recline_map_view
     - sixodp_ui 
     - sixodp_scheming 

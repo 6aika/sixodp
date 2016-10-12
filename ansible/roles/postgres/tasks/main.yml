@@ -10,6 +10,7 @@
   with_items:
   - { file: pg_hba.conf.j2, dest: /etc/postgresql/9.5/main/pg_hba.conf }
   - { file: postgresql.conf.j2, dest: /etc/postgresql/9.5/main/postgresql.conf }
+  - { file: datastore_permissions.sql, dest: /tmp/datastore_permissions.sql }
 
 - name: Generate self-signed SSL certificate
   command: openssl req -new -nodes -x509 -subj "/C=FI/ST=Helsinki/L=Helsinki/O=IT/CN={{ public_facing_hostname }}" -days 3650 -keyout "/var/lib/postgresql/9.5/main/server.key" -out "/var/lib/postgresql/9.5/main/server.crt" -extensions v3_ca creates="/var/lib/postgresql/9.5/main/server.crt"
@@ -25,10 +26,16 @@
   postgresql_user: user={{ item.user }} password={{ item.password }}
   with_items:
   - { user: "{{ database_ckan.username }}", password: "{{ database_ckan.password }}" }
+  - { user: "{{ database_ckan_datastore.username }}", password: "{{ database_ckan_datastore.password }}" }
 
 - name: Setup postgres databases
   become_user: postgres
   postgresql_db: name={{ item.name }} owner={{ item.owner }} encoding={{ item.encoding }} lc_collate={{ item.collate }} lc_ctype={{ item.ctype }} template={{ item.template }}
   with_items:
   - { name: "{{ database_ckan.name }}", owner: "{{ database_ckan.username }}", encoding: 'UTF-8', collate: 'en_US.UTF-8', ctype: 'en_US.UTF-8', template: 'template0' }
+  - { name: "{{ database_ckan_datastore.name }}", owner: "{{ database_ckan.username }}", encoding: 'UTF-8', collate: 'en_US.UTF-8', ctype: 'en_US.UTF-8', template: 'template0' }
   ignore_errors: True
+
+- name: Setup datastore database permissions
+  become_user: postgres
+  shell: cat /tmp/datastore_permissions.sql | psql --set ON_ERROR_STOP=1
