@@ -23,17 +23,13 @@
 
 - name: Setup postgres users
   become_user: postgres
-  postgresql_user: user={{ item.user }} password={{ item.password }}
-  with_items:
-  - { user: "{{ database_ckan.username }}", password: "{{ database_ckan.password }}" }
-  - { user: "{{ database_ckan_datastore.username }}", password: "{{ database_ckan_datastore.password }}" }
+  postgresql_user: user={{ item.value.username }} password={{ item.value.password }}
+  with_dict: "{{ postgresql_users }}"
 
 - name: Setup postgres databases
   become_user: postgres
-  postgresql_db: name={{ item.name }} owner={{ item.owner }} encoding={{ item.encoding }} lc_collate={{ item.collate }} lc_ctype={{ item.ctype }} template={{ item.template }}
-  with_items:
-  - { name: "{{ database_ckan.name }}", owner: "{{ database_ckan.username }}", encoding: 'UTF-8', collate: 'en_US.UTF-8', ctype: 'en_US.UTF-8', template: 'template0' }
-  - { name: "{{ database_ckan_datastore.name }}", owner: "{{ database_ckan.username }}", encoding: 'UTF-8', collate: 'en_US.UTF-8', ctype: 'en_US.UTF-8', template: 'template0' }
+  postgresql_db: name={{ item.value.name }} owner={{ item.value.owner }} encoding={{ item.value.encoding }} lc_collate={{ item.value.collate }} lc_ctype={{ item.value.ctype }} template={{ item.value.template }}
+  with_dict: "{{ postgresql_databases }}"
   ignore_errors: True
 
 - name: Setup datastore database permissions

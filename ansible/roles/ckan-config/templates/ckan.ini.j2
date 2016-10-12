@@ -27,10 +27,10 @@ who.log_file = %(cache_dir)s/who_log.ini
 who.secure = True
 who.timeout = 14400
 
-sqlalchemy.url = postgres://{{ database_ckan.username }}:{{ database_ckan.password }}@{{ database_ckan.host }}/{{ database_ckan.name }}
+sqlalchemy.url = postgres://{{ postgresql_users.ckan.username }}:{{ postgresql_users.ckan.password }}@{{ postgresql_databases.ckan.host }}/{{ postgresql_databases.ckan.name }}
 
-ckan.datastore.write_url = postgres://{{ database_ckan.username }}:{{ database_ckan.password }}@{{ database_ckan_datastore.host }}/{{ database_ckan_datastore.name }}
-ckan.datastore.read_url = postgres://{{ database_ckan_datastore.username }}:{{ database_ckan_datastore.password }}@{{ database_ckan_datastore.host }}/{{ database_ckan_datastore.name }}
+ckan.datastore.write_url = postgres://{{ postgresql_users.ckan.username }}:{{ postgresql_users.ckan.password }}@{{ postgresql_databases.ckan_datastore.host }}/{{ postgresql_databases.ckan_datastore.name }}
+ckan.datastore.read_url = postgres://{{ postgresql_users.ckan_datastore.username }}:{{ postgresql_users.ckan_datastore.password }}@{{ postgresql_databases.ckan_datastore.host }}/{{ postgresql_databases.ckan_datastore.name }}
 
 ckan.site_url = https://{{ public_facing_hostname }}
 ckan.site_url_internally = https://{{ public_facing_hostname }}/data/

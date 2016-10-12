@@ -1,7 +1,7 @@
 local all postgres peer
-host {{ database_ckan.name }} {{ database_ckan.username }} {{ database_ckan.allowed_ip_range }} md5
-host {{ database_ckan.name }} {{ database_ckan.username }} 127.0.0.0/8 md5
-host {{ database_ckan_datastore.name }} {{ database_ckan.username }} {{ database_ckan.allowed_ip_range }} md5
-host {{ database_ckan_datastore.name }} {{ database_ckan.username }} 127.0.0.0/8 md5
-host {{ database_ckan_datastore.name }} {{ database_ckan_datastore.username }} {{ database_ckan_datastore.allowed_ip_range }} md5
-host {{ database_ckan_datastore.name }} {{ database_ckan_datastore.username }} 127.0.0.0/8 md5
+host {{ postgresql_databases.ckan.name }} {{ postgresql_users.ckan.username }} {{ postgresql_databases.ckan.allowed_ip_range }} md5
+host {{ postgresql_databases.ckan.name }} {{ postgresql_users.ckan.username }} 127.0.0.0/8 md5
+host {{ postgresql_databases.ckan_datastore.name }} {{ postgresql_users.ckan.username }} {{ postgresql_databases.ckan_datastore.allowed_ip_range }} md5
+host {{ postgresql_databases.ckan_datastore.name }} {{ postgresql_users.ckan.username }} 127.0.0.0/8 md5
+host {{ postgresql_databases.ckan_datastore.name }} {{ postgresql_users.ckan_datastore.username }} {{ postgresql_databases.ckan_datastore.allowed_ip_range }} md5
+host {{ postgresql_databases.ckan_datastore.name }} {{ postgresql_users.ckan_datastore.username }} 127.0.0.0/8 md5
