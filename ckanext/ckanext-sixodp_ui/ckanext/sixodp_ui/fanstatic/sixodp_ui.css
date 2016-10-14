@@ -5992,7 +5992,7 @@ a {
   border: 0;
   border-radius: 0;
   background: #fff;
-  z-index: 1000; }
+  z-index: 1002; }
   .navbar.navbar-fixed {
     position: absolute;
     top: 60px;
@@ -6096,6 +6096,10 @@ a {
       margin-right: 0; }
       .nav.nav-tabs li a i {
         display: none; }
+
+@media (min-width: 768px) {
+  .navbar {
+    z-index: 1003; } }
 
 @media (min-width: 992px) {
   .navbar-fixed-top {
@@ -6492,6 +6496,8 @@ select {
   @media screen and (max-width: 767px) {
     .navbar-offcanvas {
       position: fixed; } }
+  .navbar-offcanvas .offcanvas-toggle {
+    display: none; }
   .navbar-offcanvas .module {
     margin: 20px 0; }
     .navbar-offcanvas .module .module-heading {
