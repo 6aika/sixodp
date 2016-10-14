@@ -17,6 +17,8 @@ server {
     proxy_set_header Host $host;
   }
 
+  # file upload size in megabytes
+  client_max_body_size {{ ckan_max_resource_size }}m;
 }
 
 {% if nginx.alternative_hostnames %}
