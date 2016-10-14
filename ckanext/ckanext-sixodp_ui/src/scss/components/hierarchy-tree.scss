@@ -1,0 +1,21 @@
+ul.hierarchy-tree-top {
+  list-style-type: none;
+  padding-left: $padding-base-horizontal;
+
+  > .hierarchy-tree-node {
+    margin-top: $margin-base-vertical;
+    
+    a {
+      color: $brand-primary;
+
+      &.active {
+        color: $brand-primary;
+        text-shadow: none;
+      }
+
+      &:hover {
+        color: $brand-primary-light;
+      }
+    }
+  }
+}

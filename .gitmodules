@@ -28,3 +28,6 @@
 [submodule "ckanext/ckanext-qa"]
 	path = ckanext/ckanext-qa
 	url = https://github.com/yhteentoimivuuspalvelut/ckanext-qa
+[submodule "ckanext/ckanext-hierarchy"]
+	path = ckanext/ckanext-hierarchy
+	url = https://github.com/datagovuk/ckanext-hierarchy

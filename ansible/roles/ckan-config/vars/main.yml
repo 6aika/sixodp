@@ -21,6 +21,7 @@ enabled_ckan_extensions:
     - showcase 
     - qa 
     - archiver
+    - hierarchy_display
 enabled_ckan_aws_extensions: s3filestore
 
 redis_harvest_database: 0

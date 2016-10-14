@@ -17,3 +17,4 @@ ckan_extensions:
   - ckanext-report
   - ckanext-qa
   - ckanext-archiver
+  - ckanext-hierarchy

@@ -6871,7 +6871,7 @@ legend {
 
 img {
   max-width: 100%;
-  max-height: 480px; }
+  max-height: auto; }
 
 .module-resource {
   margin-left: 15px;
@@ -6890,3 +6890,16 @@ img {
   @media (min-width: 768px) {
     .module-resource {
       margin-left: 0; } }
+
+ul.hierarchy-tree-top {
+  list-style-type: none;
+  padding-left: 25px; }
+  ul.hierarchy-tree-top > .hierarchy-tree-node {
+    margin-top: 20px; }
+    ul.hierarchy-tree-top > .hierarchy-tree-node a {
+      color: #534f97; }
+      ul.hierarchy-tree-top > .hierarchy-tree-node a.active {
+        color: #534f97;
+        text-shadow: none; }
+      ul.hierarchy-tree-top > .hierarchy-tree-node a:hover {
+        color: #6d69b0; }
