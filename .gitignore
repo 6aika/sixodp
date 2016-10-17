@@ -6,3 +6,4 @@ server.pass.key
 .DS_Store
 .idea
 .vscode
+*.retry
