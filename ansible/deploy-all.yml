@@ -14,8 +14,9 @@
     - os-base
     - java8
     - ssh
-    - postgres
+    - postgres-install
     - postgres-backup
+    - postgres-data
     - solr6
     - redis
     - nginx
