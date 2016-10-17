@@ -2,5 +2,5 @@
 demo.dataportaali.com ansible_ssh_user=ubuntu
 
 [mainserver:vars]
-deployment_environment_id=qa
-secrets_file_path="vars/sixodp-secrets/qa.yml"
+deployment_environment_id=demo
+secrets_file_path="vars/sixodp-secrets/demo.yml"
