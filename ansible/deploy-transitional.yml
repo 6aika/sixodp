@@ -1,0 +1,39 @@
+---
+
+# This playbook is used to install the service on a transitional cloudformation
+# infrastructure until the rest of the components are dockerized
+
+- hosts: mainserver
+  connection: local
+  become: true
+  vars_files:
+    - "vars/common.yml"
+    - "vars/environment-specific/{{ deployment_environment_id }}.yml"
+    - "{{ secrets_file_path }}"
+  roles:
+    - os-base
+    - postgres-install
+    - postgres-data
+    - redis
+    - nginx
+    - apache
+    - postfix
+    - ckan-extensions
+    - ckan-install
+    - ckan-config
+    - ckan-install-patches
+    - ckan-database
+    - ckan-cron
+    - ckan-translations
+    - ckan-restart
+    - solr-reindex
+
+    # Done in cloudformation bootstrapping
+    #- ssh
+    # Moved into a docker container
+    #- java8
+    #- solr6
+    # To be replaced with RDS
+    #- postgres-backup
+    # Not in use
+    #- supervisor
