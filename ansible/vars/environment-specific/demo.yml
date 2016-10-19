@@ -19,7 +19,7 @@ postgresql_databases:
     port: 5432
     allowed_ip_range: 127.0.0.1/32
     name: ckan_default
-    encoding: UTT-8
+    encoding: UTF-8
     collate: en_US.UTF-8
     ctype: en_US.UTF-8
     template: template0
