@@ -18,3 +18,4 @@ ckan_extensions:
   - ckanext-qa
   - ckanext-archiver
   - ckanext-hierarchy
+  - ckanext-disqus
