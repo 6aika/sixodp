@@ -6686,11 +6686,6 @@ form .add-member-or {
       margin-bottom: 0; }
     .module .module-content.main-content {
       margin-bottom: 20px; }
-    @media (max-width: 767px) {
-      .module .module-content {
-        padding: 0; }
-        .module .module-content.page-header:first-child {
-          margin-top: 20px; } }
 
 footer hr {
   margin: 0; }

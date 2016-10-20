@@ -49,13 +49,5 @@
       @extend .card;
       margin-bottom: $margin-base-vertical;
     }
-
-    @media (max-width: $width-sm - 1) {
-      padding: 0;
-
-      &.page-header:first-child {
-        margin-top: $margin-base-vertical;
-      }
-    }
   }
 }
