@@ -23,7 +23,7 @@ enabled_ckan_extensions:
     - qa 
     - archiver
     - hierarchy_display
-enabled_ckan_aws_extensions: s3filestore
+enabled_ckan_aws_extensions: cloudstorage
 
 redis_harvest_database: 0
 redis_celery_database: 1

@@ -13,7 +13,7 @@ ckan_extensions:
   - ckanext-pages
   - ckanext-contact
   - ckanext-harvest
-  - ckanext-s3filestore
+  - ckanext-cloudstorage
   - ckanext-report
   - ckanext-qa
   - ckanext-archiver
