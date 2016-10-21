@@ -7,3 +7,4 @@ server.pass.key
 .idea
 .vscode
 *.retry
+transifexrc
