@@ -1,0 +1,9 @@
+---
+
+- block:
+    - name: Install Transifex client
+      pip: name="transifex-client"
+    - name: Copy CKAN configuration
+      template: src=transifexrc dest=/home/vagrant/.transifexrc mode='0600' owner=vagrant group=vagrant
+      ignore_errors: true
+  when: deployment_environment_id == 'vagrant'

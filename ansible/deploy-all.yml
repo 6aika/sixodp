@@ -28,7 +28,8 @@
     - ckan-install-patches
     - ckan-database
     - ckan-cron
+    - transifex-install
     - ckan-translations
     - ckan-restart
-    #- supervisor
+    - supervisor
     - solr-reindex

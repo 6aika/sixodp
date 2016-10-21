@@ -1,21 +1,34 @@
-[program:ckan_gather_consumer]
+;[program:ckan_gather_consumer]
 
-command=nice -n 20 {{ virtualenv }}/bin/paster --plugin=ckanext-harvest harvester gather_consumer --config={{ ckan_ini }}
-user={{ harvester_user }}
+;command=nice -n 20 {{ virtualenv }}/bin/paster --plugin=ckanext-harvest harvester gather_consumer --config={{ ckan_ini }}
+;user={{ www_user }}
+;numprocs=1
+;stdout_logfile={{ supervisor_log_path }}/gather_consumer.log
+;stderr_logfile={{ supervisor_log_path }}/gather_consumer.log
+;autostart=true
+;autorestart=true
+;startsecs=10
+
+;[program:ckan_fetch_consumer]
+
+;command=nice -n 20 {{ virtualenv }}/bin/paster --plugin=ckanext-harvest harvester fetch_consumer --config={{ ckan_ini }}
+;user={{ www_user }}
+;numprocs=1
+;stdout_logfile={{ supervisor_log_path }}/fetch_consumer.log
+;stderr_logfile={{ supervisor_log_path }}/fetch_consumer.log
+;autostart=true
+;autorestart=true
+;startsecs=10
+
+[program:celery]
+
+command={{ virtualenv }}/bin/paster --plugin=ckanext-archiver celeryd2 run all --config={{ ckan_ini }}
+user={{ www_user }}
 numprocs=1
-stdout_logfile={{ supervisor_log_path }}/gather_consumer.log
-stderr_logfile={{ supervisor_log_path }}/gather_consumer.log
+stdout_logfile={{ supervisor_log_path }}/celeryd.log
+stderr_logfile={{ supervisor_log_path }}/celeryd.log
 autostart=true
 autorestart=true
 startsecs=10
-
-[program:ckan_fetch_consumer]
-
-command=nice -n 20 {{ virtualenv }}/bin/paster --plugin=ckanext-harvest harvester fetch_consumer --config={{ ckan_ini }}
-user={{ harvester_user }}
-numprocs=1
-stdout_logfile={{ supervisor_log_path }}/fetch_consumer.log
-stderr_logfile={{ supervisor_log_path }}/fetch_consumer.log
-autostart=true
-autorestart=true
-startsecs=10
+stopwaitsecs = 600
+priority=998
