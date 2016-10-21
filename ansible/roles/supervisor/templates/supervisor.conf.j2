@@ -22,7 +22,7 @@
 
 [program:celery]
 
-command={{ virtualenv }}/bin/paster --plugin=ckan celeryd --config={{ ckan_ini }}
+command={{ virtualenv }}/bin/paster --plugin=ckanext-archiver celeryd2 run all --config={{ ckan_ini }}
 user={{ www_user }}
 numprocs=1
 stdout_logfile={{ supervisor_log_path }}/celeryd.log
