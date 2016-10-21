@@ -1,0 +1,8 @@
+[main]
+host = https://www.transifex.com
+
+[sixodp.ckanpot]
+file_filter = ansible/roles/ckan-translations/files/<lang>.po
+source_file = ansible/roles/ckan/files/i18n/ckan.pot 
+source_lang = en
+type = PO
