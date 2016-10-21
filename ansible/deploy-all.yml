@@ -31,5 +31,5 @@
     - transifex-install
     - ckan-translations
     - ckan-restart
-    #- supervisor
+    - supervisor
     - solr-reindex

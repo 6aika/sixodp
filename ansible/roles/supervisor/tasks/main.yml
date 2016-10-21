@@ -1,5 +1,8 @@
 ---
 
+- name: Enable supervisor
+  service: name=supervisor enabled=yes state=started
+
 #TODO: fix supervisor for ubuntu xenial https://bugs.launchpad.net/ubuntu/+source/supervisor/+bug/1594740
 - name: Create log path for supervisor
   file: path={{ supervisor_log_path }} state=directory
@@ -8,15 +11,15 @@
   template: src="supervisor.conf.j2" dest="/etc/supervisor/conf.d/catalog.conf" mode=0644 owner=root group=root
   register: supervisor_configuration
   notify:
-  - Restart Gather
-  - Restart Fetch
+  # - Restart Gather
+  # - Restart Fetch
 
 - name: Reread supervisor
-  shell: supervisorctl reread
+  command: supervisorctl reread
   when: supervisor_configuration|changed
 
 - name: Ensure supervisor services
-  shell: supervisorctl add {{ item }}
+  command: supervisorctl add {{ item }}
   when: supervisor_configuration|changed
   with_items: "{{ supervisor_services }}"
 
