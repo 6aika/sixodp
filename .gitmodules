@@ -34,9 +34,6 @@
 [submodule "ckanext/ckanext-disqus"]
 	path = ckanext/ckanext-disqus
 	url = https://github.com/ckan/ckanext-disqus
-[submodule "ckanext-cloudstorage"]
-	path = ckanext-cloudstorage
-	url = git@github.com:open-data/ckanext-cloudstorage.git
 [submodule "ckanext/ckanext-cloudstorage"]
 	path = ckanext/ckanext-cloudstorage
-	url = git@github.com:open-data/ckanext-cloudstorage.git
+	url = https://github.com:open-data/ckanext-cloudstorage.git
