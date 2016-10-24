@@ -19,3 +19,4 @@ ckan_extensions:
   - ckanext-archiver
   - ckanext-hierarchy
   - ckanext-disqus
+  - ckanext-repeating

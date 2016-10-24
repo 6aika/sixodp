@@ -13,6 +13,7 @@ enabled_ckan_extensions:
     - sixodp_ui 
     - sixodp_scheming 
     - scheming_datasets 
+    - repeating
     - fluent
     - report 
     - tagless_report 
