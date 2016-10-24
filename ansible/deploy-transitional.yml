@@ -12,6 +12,8 @@
     - "{{ secrets_file_path }}"
   roles:
     - os-base
+    - java8
+    - solr6
     - postgres-install
     - postgres-data
     - redis
@@ -30,9 +32,6 @@
 
     # Done in cloudformation bootstrapping
     #- ssh
-    # Moved into a docker container
-    #- java8
-    #- solr6
     # To be replaced with RDS
     #- postgres-backup
     # Not in use
