@@ -95,9 +95,10 @@
       "final": true
     },
     {
-      "field_name": "external_url",
+      "field_name": "external_urls",
+      "preset": "repeating_text",
       "label": "External URL",
-      "preset": "resource_url_external_ex"
+      "form_blanks": 1
     },
     {
       "field_name": "name",
