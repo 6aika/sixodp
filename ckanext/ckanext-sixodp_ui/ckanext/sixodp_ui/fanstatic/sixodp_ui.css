@@ -6643,6 +6643,10 @@ form .add-member-or {
   .table thead th,
   .table tbody th {
     font-weight: normal; }
+  .table ol {
+    list-style: none;
+    padding: 0;
+    margin: 0; }
 
 .actions {
   top: 0 !important;
