@@ -112,6 +112,9 @@ ckan.storage_path = {{ ckan_storage_path }}
 solr_url = http://{{ solr.host }}:{{ solr.port }}/solr/ckan
 
 ckanext.s3filestore.aws_bucket_name = {{ AWS.ckan_s3_bucket }}
+ckanext.cloudstorage.driver = S3_EU_WEST
+ckanext.cloudstorage.container_name = {{ AWS.ckan_s3_bucket }}
+ckanext.cloudstorage.driver_options = {}
 
 {% if AWS.enabled -%}
 {% if AWS.use_iam_role -%}
@@ -124,9 +127,6 @@ ckanext.s3filestore.aws_access_key_id = {{ AWS.access_key }}
 ckanext.s3filestore.aws_secret_access_key = {{ AWS.secret_access_key }}
 ckanext.s3filestore.filesystem_download_fallback = {{ AWS.filesystem_download_fallback }}
 
-ckanext.cloudstorage.driver = S3_EU_WEST
-ckanext.cloudstorage.container_name = {{ AWS.ckan_s3_bucket }}
-ckanext.cloudstorage.driver_options = {}
 {%- endif %}
 {%- endif %}
 
