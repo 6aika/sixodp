@@ -121,6 +121,22 @@
     {
       "field_name": "file_size",
       "label": "Size"
+    },
+    {
+      "field_name": "position_info",
+      "label": "Position coordinates"
+    },
+    {
+      "field_name": "time_series_start",
+      "label": "Time series start",
+      "preset": "date",
+      "display_snippet": "date.html"
+    },
+    {
+      "field_name": "time_series_end",
+      "label": "Time series end",
+      "preset": "date",
+      "display_snippet": "date.html"
     }
   ]
 }
