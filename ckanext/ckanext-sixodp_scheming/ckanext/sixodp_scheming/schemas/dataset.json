@@ -120,8 +120,7 @@
     },
     {
       "field_name": "file_size",
-      "label": "Size",
-      "preset": "fluent_text"
+      "label": "Size"
     }
   ]
 }
