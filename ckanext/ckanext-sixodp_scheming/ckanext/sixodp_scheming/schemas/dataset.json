@@ -85,6 +85,10 @@
       "label": "License",
       "form_snippet": "license.html",
       "display_snippet": "license.html"
+    },
+    {
+      "field_name": "agency",
+      "label": "Agency"
     }
   ],
   "resource_fields": [
