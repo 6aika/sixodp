@@ -78,7 +78,8 @@
       "field_name": "maintainer_website",
       "label": "Maintainer Website",
       "form_placeholder": "http://www.example.com",
-      "display_property": "dc:contributor"
+      "display_property": "dc:contributor",
+      "display_snippet": "link.html"
     },
     {
       "field_name": "license_id",
