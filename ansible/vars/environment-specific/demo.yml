@@ -83,6 +83,5 @@ debug_enabled: false
 AWS:
   enabled: true
   use_iam_role: true
-  check_access: true
   ckan_s3_bucket: sixodp-testi-ampari
-  filesystem_download_fallback: false
+  region: S3_EU_WEST
