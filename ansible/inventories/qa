@@ -3,4 +3,4 @@ localhost ansible_ssh_user=ubuntu
 
 [mainserver:vars]
 deployment_environment_id=qa
-secrets_file_path="vars/secrets-defaults.yml"
+secrets_file_path="vars/sixodp-secrets/generic/qa/secrets.yml"
