@@ -12,7 +12,7 @@
 
 - name: Copy apt sources.list
   template: src=sources.list.j2 dest=/etc/apt/sources.list mode="0644" owner=root group=root
-  when: apt_source_url != false
+  when: deployment_environment_id == "vagrant"
 
 - name: Upgrade packages
   apt: upgrade=dist update_cache=yes
