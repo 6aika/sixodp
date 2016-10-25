@@ -97,8 +97,9 @@
     {
       "field_name": "external_urls",
       "preset": "repeating_text",
-      "label": "External URL",
-      "form_blanks": 1
+      "label": "External links",
+      "form_blanks": 1,
+      "display_snippet": "repeating_link.html"
     },
     {
       "field_name": "name",
