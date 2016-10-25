@@ -90,6 +90,12 @@
     {
       "field_name": "agency",
       "label": "Agency"
+    },
+    {
+      "field_name": "reminder",
+      "label": "Next reminder date",
+      "preset": "date",
+      "display_snippet": null
     }
   ],
   "resource_fields": [
