@@ -87,4 +87,4 @@ AWS:
   access_key: somekey
   secret_access_key: somesecret
   ckan_s3_bucket: sixodp-testi-ampari
-  S3_EU_WEST
+  region: S3_EU_WEST
