@@ -130,6 +130,11 @@ ckan.tracking_enabled = false
 
 ckan.max_resource_size = {{ ckan_max_resource_size }}
 
+# Reminder configuration
+ckanext.reminder.site_url = https://{{ public_facing_hostname }}
+ckanext.reminder.recipient_email: {{ ckan_users.admin.email }}
+ckanext.reminder.recipient_display_name: {{ ckan_users.admin.username }}
+
 # Disqus configuration
 disqus.name = sixodp-{{ customer_name }}-{{ deployment_environment_id }}
 

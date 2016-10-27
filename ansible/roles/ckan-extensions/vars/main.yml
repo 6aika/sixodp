@@ -20,3 +20,4 @@ ckan_extensions:
   - ckanext-hierarchy
   - ckanext-disqus
   - ckanext-repeating
+  - ckanext-reminder
