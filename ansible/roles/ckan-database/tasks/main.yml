@@ -4,38 +4,38 @@
 # stopped here before database upgrade
 
 - name: Stop supervisor services
-  shell: supervisorctl stop all
+  command: supervisorctl stop all
 
 - name: Initialize CKAN database
-  shell: ckan db init
+  command: ckan db init
   ignore_errors: True
 
 - name: Upgrade CKAN database
-  shell: ckan db upgrade
+  command: ckan db upgrade
   ignore_errors: True
 
 - name: Upgrade CKAN filestore
-  shell: ./bin/paster --plugin=ckan db migrate-filestore "--config={{ ckan_ini }}" chdir={{ virtualenv }}
+  command: ./bin/paster --plugin=ckan db migrate-filestore "--config={{ ckan_ini }}" chdir={{ virtualenv }}
   ignore_errors: True
 
 - name: Create initial CKAN users
-  shell: ./bin/paster --plugin=ckan user add "{{ item.value.username }}" "password={{ item.value.password }}" "email={{ item.value.email }}" "--config={{ ckan_ini }}" chdir={{ virtualenv }}
+  command: ./bin/paster --plugin=ckan user add "{{ item.value.username }}" "password={{ item.value.password }}" "email={{ item.value.email }}" "--config={{ ckan_ini }}" chdir={{ virtualenv }}
   ignore_errors: True
   with_dict: "{{ ckan_users }}"
 
 - name: Set CKAN sysadmins
-  shell: ./bin/paster --plugin=ckan sysadmin add {{ item }} --config={{ ckan_ini }} chdir={{ virtualenv }}
+  command: ./bin/paster --plugin=ckan sysadmin add {{ item }} --config={{ ckan_ini }} chdir={{ virtualenv }}
   ignore_errors: True
   with_items: "{{ ckan_admins }}"
 
 - name: Initialize Harvest database
-  shell: ./bin/paster --plugin=ckanext-harvest harvester initdb "--config={{ ckan_ini }}" chdir={{ virtualenv }}
+  command: ./bin/paster --plugin=ckanext-harvest harvester initdb "--config={{ ckan_ini }}" chdir={{ virtualenv }}
 
 - name: Initialize archiver database
-  shell: ./bin/paster --plugin=ckanext-archiver archiver init "--config={{ ckan_ini }}" chdir={{ virtualenv }}
+  command: ./bin/paster --plugin=ckanext-archiver archiver init "--config={{ ckan_ini }}" chdir={{ virtualenv }}
 
 - name: Initialize report database
-  shell: ./bin/paster --plugin=ckanext-report report initdb "--config={{ ckan_ini }}" chdir={{ virtualenv }}
+  command: ./bin/paster --plugin=ckanext-report report initdb "--config={{ ckan_ini }}" chdir={{ virtualenv }}
 
 - name: Initialize QA database
-  shell: ./bin/paster --plugin=ckanext-qa qa init "--config={{ ckan_ini }}" chdir={{ virtualenv }}
+  command: ./bin/paster --plugin=ckanext-qa qa init "--config={{ ckan_ini }}" chdir={{ virtualenv }}
