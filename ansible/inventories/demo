@@ -3,4 +3,4 @@ demo.dataportaali.com ansible_ssh_user=ubuntu
 
 [mainserver:vars]
 deployment_environment_id=demo
-secrets_file_path="vars/sixodp-secrets/demo.yml"
+secrets_file_path="../../sixodp-secrets/demo.yml"
