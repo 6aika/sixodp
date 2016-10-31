@@ -1,7 +1,7 @@
-from ckan.lib.cli import CkanCommand
+import ckan.plugins as p
 import plugin
 
-class ReminderCommand(CkanCommand):
+class ReminderCommand(p.toolkit.CkanCommand):
     '''
     Send notification emails of datasets which have a reminder date set
 
@@ -16,15 +16,12 @@ class ReminderCommand(CkanCommand):
     min_args = 0
     max_args = 1
 
-    def __init__(self, name):
-        super(ReminderCommand, self).__init__(name)
-
     def command(self):
         """
         Parse command line arguments and call appropriate method.
         """
         if not self.args or self.args[0] in ['--help', '-h', 'help']:
-            print Report.__doc__
+            print ReminderCommand.__doc__
             return
 
         cmd = self.args[0]
