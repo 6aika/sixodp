@@ -48,4 +48,3 @@ GRANT SELECT ON ALL TABLES IN SCHEMA public TO "datastore_default";
 -- grant access to new tables and views by default
 ALTER DEFAULT PRIVILEGES FOR USER "ckan_default" IN SCHEMA public
    GRANT SELECT ON TABLES TO "datastore_default";
-   

@@ -1,0 +1,29 @@
+---
+
+- name: Setup postgres users
+  become_user: postgres
+  postgresql_user:
+    user: "{{ item.value.username }}"
+    password: "{{ item.value.password }}"
+  with_dict: "{{ postgres.users }}"
+
+- name: Setup postgres databases
+  become_user: postgres
+  postgresql_db:
+    name: "{{ item.value.name }}"
+    owner: "{{ item.value.owner }}"
+    encoding: UTF-8
+    lc_collate: en_US.UTF-8
+    lc_ctype: en_US.UTF-8
+    template: template0
+  with_dict: "{{ postgres.databases }}"
+  ignore_errors: True
+
+- name: Copy SQL files
+  template: src={{ item }} dest=/tmp/{{ item }} owner=postgres group=postgres mode="0640"
+  with_items: "{{ sql_files_to_execute }}"
+
+- name: Execute SQL files
+  become_user: postgres
+  shell: cat /tmp/{{ item }} | psql --set ON_ERROR_STOP=1
+  with_items: "{{ sql_files_to_execute }}"

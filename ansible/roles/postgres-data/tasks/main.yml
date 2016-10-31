@@ -1,21 +1,7 @@
 ---
 
-- name: Copy SQL files
-  template: src={{ item }} dest=/tmp/{{ item }} owner=postgres group=postgres mode="0640"
-  with_items:
-    - datastore_permissions.sql
+- include: local_database.yml
+  when: postgres.server.installed_locally
 
-- name: Setup postgres users
-  become_user: postgres
-  postgresql_user: user={{ item.value.username }} password={{ item.value.password }}
-  with_dict: "{{ postgresql_users }}"
-
-- name: Setup postgres databases
-  become_user: postgres
-  postgresql_db: name={{ item.value.name }} owner={{ item.value.owner }} encoding={{ item.value.encoding }} lc_collate={{ item.value.collate }} lc_ctype={{ item.value.ctype }} template={{ item.value.template }}
-  with_dict: "{{ postgresql_databases }}"
-  ignore_errors: True
-
-- name: Setup datastore database permissions
-  become_user: postgres
-  shell: cat /tmp/datastore_permissions.sql | psql --set ON_ERROR_STOP=1
+- include: rds.yml
+  when: not postgres.server.installed_locally
