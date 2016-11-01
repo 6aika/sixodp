@@ -1,14 +1,11 @@
 import ckan.plugins as plugins
-from pylons import config
-import ckan.logic as logic
 import ckan.plugins.toolkit as toolkit
-from ckan.lib.mailer import mail_user
-import datetime
+from ckanext.reminder.logic import action
 
 class ReminderPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IConfigurable)
-    plugins.implements(plugins.ITemplateHelpers)
+    plugins.implements(plugins.IActions)
 
     # IConfigurer
 
@@ -35,30 +32,9 @@ class ReminderPlugin(plugins.SingletonPlugin):
                     )
                 )
 
-    def get_datasets_with_reminders(self):
-        now = datetime.datetime.now()
-        search_dict = {
-            'fq': 'reminder:' + now.strftime("%Y-%m-%d")
-        }
+    # IActions
 
-        return logic.get_action('package_search')({}, search_dict)
-
-    def send_reminders(self):
-
-        items = self.get_datasets_with_reminders()
-
-        class Recipient:
-            email = config.get('ckanext.reminder.recipient_email')
-            display_name = config.get('ckanext.reminder.recipient_display_name')
-
-        for item in items['results']:
-
-            # Todo add localization
-            message_body = 'This is a reminder of a dataset expiration: ' + config.get('ckanext.reminder.site_url') + '/dataset/' + item['name']
-            mail_user(Recipient, "CKAN reminder", message_body)
-
-    # ITemplateHelpers
-    def get_helpers(self):
-        return {'send_reminders': self.send_reminders}
+    def get_actions(self):
+        return { 'send_email_reminders': action.send_email_reminders }
 
     
