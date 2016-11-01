@@ -26,7 +26,7 @@ def send_reminders():
     items = get_datasets_with_reminders()
 
     try:
-        username = config.get('ckanext.reminder.recipient_display_name')
+        username = config.get('ckanext.reminder.recipient_username')
         recipient = model.User.get(username)
 
         for item in items['results']:

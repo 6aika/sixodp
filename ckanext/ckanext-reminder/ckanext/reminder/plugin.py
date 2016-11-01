@@ -20,8 +20,7 @@ class ReminderPlugin(plugins.SingletonPlugin):
         # Raise an exception if required configs are missing
         required_keys = (
             'ckanext.reminder.site_url',
-            'ckanext.reminder.recipient_email',
-            'ckanext.reminder.recipient_display_name'
+            'ckanext.reminder.recipient_username'
         )
 
         for key in required_keys:
