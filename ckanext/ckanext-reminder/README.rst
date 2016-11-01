@@ -1,65 +1,30 @@
-.. You should enable this project on travis-ci.org and coveralls.io to make
-   these badges work. The necessary Travis and Coverage config files have been
-   generated for you.
-
-.. image:: https://travis-ci.org/6aika/ckanext-reminder.svg?branch=master
-    :target: https://travis-ci.org/6aika/ckanext-reminder
-
-.. image:: https://coveralls.io/repos/6aika/ckanext-reminder/badge.svg
-  :target: https://coveralls.io/r/6aika/ckanext-reminder
-
-.. image:: https://pypip.in/download/ckanext-reminder/badge.svg
-    :target: https://pypi.python.org/pypi//ckanext-reminder/
-    :alt: Downloads
-
-.. image:: https://pypip.in/version/ckanext-reminder/badge.svg
-    :target: https://pypi.python.org/pypi/ckanext-reminder/
-    :alt: Latest Version
-
-.. image:: https://pypip.in/py_versions/ckanext-reminder/badge.svg
-    :target: https://pypi.python.org/pypi/ckanext-reminder/
-    :alt: Supported Python versions
-
-.. image:: https://pypip.in/status/ckanext-reminder/badge.svg
-    :target: https://pypi.python.org/pypi/ckanext-reminder/
-    :alt: Development Status
-
-.. image:: https://pypip.in/license/ckanext-reminder/badge.svg
-    :target: https://pypi.python.org/pypi/ckanext-reminder/
-    :alt: License
-
 =============
 ckanext-reminder
 =============
 
-.. Put a description of your extension here:
-   What does it do? What features does it have?
-   Consider including some screenshots or embedding a video!
+This extension provides simple email notifications for datasets which have a set data-expiry date. The extension relies on a
+daily cronjob during which datasets are checked if the reminder-data is set to current date. The email sending process is not
+retried in any way and the emails will not be sent if the cronjob fails to run for some reason. 
 
 
 ------------
 Requirements
 ------------
 
-For example, you might want to mention here which versions of CKAN this
-extension works with.
+This extension is developed and tested with CKAN version 2.5.2 but versions starting from 2.2 should work fine.
 
 
 ------------
 Installation
 ------------
 
-.. Add any additional install steps to the list below.
-   For example installing any non-Python dependencies or adding any required
-   config settings.
-
 To install ckanext-reminder:
 
-1. Activate your CKAN virtual environment, for example::
+1. Activate your CKAN virtual environment, for example
 
      . /usr/lib/ckan/default/bin/activate
 
-2. Install the ckanext-reminder Python package into your virtual environment::
+2. Install the ckanext-reminder Python package into your virtual environment
 
      pip install ckanext-reminder
 
@@ -67,20 +32,29 @@ To install ckanext-reminder:
    config file (by default the config file is located at
    ``/etc/ckan/default/production.ini``).
 
-4. Restart CKAN. For example if you've deployed CKAN with Apache on Ubuntu::
+4. Restart CKAN. For example if you've deployed CKAN with Apache on Ubuntu
 
      sudo service apache2 reload
 
+5. Add the following field to your dataset. E.g. with ckanext-scheming
+
+```
+    {
+        "field_name": "reminder",
+        "label": "Next reminder date",
+        "preset": "date",
+        "display_snippet": null
+    }
+```
 
 ---------------
 Config Settings
 ---------------
 
-Document any optional config settings here. For example::
+The extension supports one recipient for reminder emails. Required configs are
 
-    # The minimum number of hours to wait before re-checking a resource
-    # (optional, default: 24).
-    ckanext.reminder.some_setting = some_default_value
+    ckanext.reminder.site_url = https://<YOUR_SITE_URL>
+    ckanext.reminder.recipient_username = <YOUR_ADMIN_USERNAME>
 
 
 ------------------------
@@ -88,79 +62,9 @@ Development Installation
 ------------------------
 
 To install ckanext-reminder for development, activate your CKAN virtualenv and
-do::
+do
 
     git clone https://github.com/6aika/ckanext-reminder.git
     cd ckanext-reminder
     python setup.py develop
     pip install -r dev-requirements.txt
-
-
------------------
-Running the Tests
------------------
-
-To run the tests, do::
-
-    nosetests --nologcapture --with-pylons=test.ini
-
-To run the tests and produce a coverage report, first make sure you have
-coverage installed in your virtualenv (``pip install coverage``) then run::
-
-    nosetests --nologcapture --with-pylons=test.ini --with-coverage --cover-package=ckanext.reminder --cover-inclusive --cover-erase --cover-tests
-
-
----------------------------------
-Registering ckanext-reminder on PyPI
----------------------------------
-
-ckanext-reminder should be availabe on PyPI as
-https://pypi.python.org/pypi/ckanext-reminder. If that link doesn't work, then
-you can register the project on PyPI for the first time by following these
-steps:
-
-1. Create a source distribution of the project::
-
-     python setup.py sdist
-
-2. Register the project::
-
-     python setup.py register
-
-3. Upload the source distribution to PyPI::
-
-     python setup.py sdist upload
-
-4. Tag the first release of the project on GitHub with the version number from
-   the ``setup.py`` file. For example if the version number in ``setup.py`` is
-   0.0.1 then do::
-
-       git tag 0.0.1
-       git push --tags
-
-
-----------------------------------------
-Releasing a New Version of ckanext-reminder
-----------------------------------------
-
-ckanext-reminder is availabe on PyPI as https://pypi.python.org/pypi/ckanext-reminder.
-To publish a new version to PyPI follow these steps:
-
-1. Update the version number in the ``setup.py`` file.
-   See `PEP 440 <http://legacy.python.org/dev/peps/pep-0440/#public-version-identifiers>`_
-   for how to choose version numbers.
-
-2. Create a source distribution of the new version::
-
-     python setup.py sdist
-
-3. Upload the source distribution to PyPI::
-
-     python setup.py sdist upload
-
-4. Tag the new release of the project on GitHub with the version number from
-   the ``setup.py`` file. For example if the version number in ``setup.py`` is
-   0.0.2 then do::
-
-       git tag 0.0.2
-       git push --tags
