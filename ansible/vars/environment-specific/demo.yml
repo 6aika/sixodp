@@ -8,7 +8,7 @@ ckan_featured_orgs:
 postgres:
   server:
     installed_locally: true
-    host: localhost
+    host: 127.0.0.1
     admin_user: postgres
     admin_password:
     trusted_ip_range: 127.0.0.1/32
