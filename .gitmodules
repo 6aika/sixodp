@@ -43,3 +43,6 @@
 [submodule "ckanext/ckanext-rating"]
 	path = ckanext/ckanext-rating
 	url = https://github.com/6aika/ckanext-rating
+[submodule "ckanext/ckanext-reminder"]
+	path = ckanext/ckanext-reminder
+	url = https://github.com/6aika/ckanext-reminder
