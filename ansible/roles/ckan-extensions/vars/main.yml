@@ -21,3 +21,4 @@ ckan_extensions:
   - ckanext-disqus
   - ckanext-repeating
   - ckanext-reminder
+  - ckanext-rating

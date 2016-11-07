@@ -21,6 +21,7 @@ enabled_ckan_extensions:
     - sixodp_routes 
     - contact 
     - sixodp_feed 
+    - rating
     - showcase 
     - qa 
     - archiver

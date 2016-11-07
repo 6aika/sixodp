@@ -39,3 +39,6 @@
 
 - name: Initialize QA database
   command: ./bin/paster --plugin=ckanext-qa qa init "--config={{ ckan_ini }}" chdir={{ virtualenv }}
+
+- name: Initialize Rating database
+  command: ./bin/paster --plugin=ckanext-rating rating init "--config={{ ckan_ini }}" chdir={{ virtualenv }}

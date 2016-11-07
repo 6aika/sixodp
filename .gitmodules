@@ -40,3 +40,6 @@
 [submodule "ckanext/ckanext-cloudstorage"]
 	path = ckanext/ckanext-cloudstorage
 	url = https://github.com/6aika/ckanext-cloudstorage.git
+[submodule "ckanext/ckanext-rating"]
+	path = ckanext/ckanext-rating
+	url = https://github.com/6aika/ckanext-rating
