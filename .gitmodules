@@ -46,3 +46,6 @@
 [submodule "ckanext/ckanext-reminder"]
 	path = ckanext/ckanext-reminder
 	url = https://github.com/6aika/ckanext-reminder
+[submodule "ckanext/ckanext-multiedit"]
+	path = ckanext/ckanext-multiedit
+	url = https://github.com/6aika/ckanext-multiedit

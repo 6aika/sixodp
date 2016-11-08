@@ -134,6 +134,9 @@ ckan.max_resource_size = {{ ckan_max_resource_size }}
 ckanext.reminder.site_url = https://{{ public_facing_hostname }}
 ckanext.reminder.recipient_username = {{ ckan_users.admin.username }}
 
+multiedit.package_type = "package"
+multiedit.limit = 100
+
 # Disqus configuration
 disqus.name = sixodp-{{ customer_name }}-{{ deployment_environment_id }}
 
