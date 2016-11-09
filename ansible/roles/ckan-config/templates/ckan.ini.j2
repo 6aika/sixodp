@@ -163,7 +163,7 @@ propagate = 0
 
 [logger_ckanext]
 
-{% if vagrant is defined %}
+{% if deployment_environment_id == "vagrant" %}
 level = DEBUG
 {% else %}
 level = INFO
