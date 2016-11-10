@@ -8,8 +8,8 @@ Live demo at https://demo.dataportaali.com
 
 Prerequisites:
 
-- [Vagrant](https://www.vagrantup.com/) (tested on 1.8.5)
-- [VirtualBox](https://www.virtualbox.org/) (tested on 5.1.2)
+- [Vagrant](https://www.vagrantup.com/) (tested on 1.8.7)
+- [VirtualBox](https://www.virtualbox.org/) (tested on 5.1.8)
 
 Clone the repository and its submodules, and start Vagrant:
 
@@ -52,7 +52,6 @@ With Vagrant, the host machine shares the working directory into the virtual mac
     │   ├── inventories                     Target server lists
     │   ├── roles                           Main configuration
     │   └── vars                            Variables common for all roles
-    │       ├── sixodp-secrets              Passwords and other secrets (not included here)
     │       ├── common.yml                  Variables common for all roles and environments
     │       ├── environment-specific        Configuration specific for each deployment env
     │       └── secrets-defaults.yml        Default passwords, used in Vagrant
