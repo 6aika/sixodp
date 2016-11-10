@@ -102,20 +102,14 @@ ckan.harvest.mq.redis_db = {{ redis_harvest_database }}
 ckanext-archiver.archive_dir = /tmp/archive
 ckanext-archiver.max_content_length = 50000000
 
-ofs.impl = pairtree
-
-# 2.1 filestore:
-ofs.storage_dir = {{ ckan_storage_path }}
-
 # 2.2 filestore:
 ckan.storage_path = {{ ckan_storage_path }}
 
 solr_url = http://{{ solr.host }}:{{ solr.port }}/solr/ckan
 
+{% if AWS.enabled -%}
 ckanext.cloudstorage.driver = {{ AWS.region }}
 ckanext.cloudstorage.container_name = {{ AWS.ckan_s3_bucket }}
-
-{% if AWS.enabled -%}
 {% if AWS.use_iam_role -%}
 ckanext.cloudstorage.driver_options = {}
 {%- endif %}
