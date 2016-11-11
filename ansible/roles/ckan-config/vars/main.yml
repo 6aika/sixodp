@@ -28,6 +28,7 @@ enabled_ckan_extensions:
     - hierarchy_display
     - reminder
     - multiedit
+    - editor
 enabled_ckan_aws_extensions: cloudstorage
 
 redis_harvest_database: 0

@@ -1,0 +1,10 @@
+<div class="control-group">
+  <label for="package-select" class="control-label">{{ _('Select dataset') }}</label>
+  <div class="controls">
+    <select id="package-select" class="form-control" name="package-select">
+      {% for option in c.fields %}
+      <option value="option">{{ option }}</option>
+      {% endfor %}
+    </select>
+  </div>
+</div>

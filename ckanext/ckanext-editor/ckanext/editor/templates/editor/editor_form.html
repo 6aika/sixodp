@@ -1,0 +1,18 @@
+{% extends 'page.html' %}
+
+{% block primary_content_inner %}
+    {% block package_select %}
+        {%- snippet 'editor/snippets/package_select.html' -%}
+    {% endblock  %}
+{% endblock  %}
+
+{% block secondary_content %}
+<div class="filters">
+  <div>
+    {% for facet in c.facet_titles %}
+      {{ h.snippet('snippets/facet_list.html', title=c.facet_titles[facet], name=facet) }}
+    {% endfor %}
+  </div>
+  <a class="close no-text hide-filters"><i class="icon-remove-sign"></i><span class="text">close</span></a>
+</div>
+{% endblock %}
