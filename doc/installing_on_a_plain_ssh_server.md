@@ -3,6 +3,7 @@
 
 Prerequisites:
 
+- Ansible 2.x (tested on 2.2)
 - 64-bit Ubuntu 16.04 virtual machine (4GB RAM, equivalent to EC2 t2.medium)
 - Python2 installed on the server. Note that Ubuntu 16.04 does not have it anymore by default. You need to install it with `sudo apt-get install python-minimal`
 - Ports 80 and 443 accessible from everywhere, port 22 accessible from your IP address
