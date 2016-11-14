@@ -18,7 +18,7 @@ class EditorPlugin(plugins.SingletonPlugin):
     def before_map(self, map):
         map.connect('/editor',
                     controller='ckanext.editor.controller:EditorController',
-                    action='get_editor_form')
+                    action='package_search')
 
         map.connect('/editor/dataset/:package_id',
                     controller='ckanext.editor.controller:EditorController',

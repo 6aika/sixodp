@@ -1,8 +1,8 @@
 <div class="control-group">
-  <label for="package-select" class="control-label">{{ _('Select dataset') }}</label>
+  <label for="package-select" class="control-label">{{ _('Select dataset field') }}</label>
   <div class="controls">
     <select id="package-select" class="form-control" name="package-select">
-      {% for option in c.fields %}
+      {% for option in c.editable_fields %}
       <option value="option">{{ option }}</option>
       {% endfor %}
     </select>
