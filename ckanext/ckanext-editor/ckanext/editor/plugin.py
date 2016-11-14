@@ -10,8 +10,9 @@ class EditorPlugin(plugins.SingletonPlugin):
 
     def update_config(self, config_):
         toolkit.add_template_directory(config_, 'templates')
-        toolkit.add_public_directory(config_, 'public')
+        # toolkit.add_public_directory(config_, 'public')
         toolkit.add_resource('fanstatic', 'editor')
+        toolkit.add_resource('public/js/', 'editor_js')
 
     # IRoutes
 
@@ -20,7 +21,7 @@ class EditorPlugin(plugins.SingletonPlugin):
                     controller='ckanext.editor.controller:EditorController',
                     action='package_search')
 
-        map.connect('/editor/dataset/:package_id',
+        map.connect('/editor/package_update',
                     controller='ckanext.editor.controller:EditorController',
                     action='package_update')
 

@@ -1,0 +1,10 @@
+<div class="form-group">
+  <label for="field-select" class="control-label">{{ _('Select field to edit') }}</label>
+  <div class="controls">
+    <select id="field-select" class="form-control" name="field">
+      {% for option in c.editable_fields %}
+      <option value="{{option}}">{{ option }}</option>
+      {% endfor %}
+    </select>
+  </div>
+</div>

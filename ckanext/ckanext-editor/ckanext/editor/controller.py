@@ -41,7 +41,7 @@ class EditorController(p.toolkit.BaseController):
 
     # Returns the search template path
     def _search_template(self, package_type):
-        return 'editor/editor_form.html'
+        return 'editor/editor_base.html'
 
     def get_dataset_fields(self):
         fields = model.Package.get_fields(core_only=True)
@@ -250,7 +250,8 @@ class EditorController(p.toolkit.BaseController):
 
 
     def package_update(self):
-        package_id = request.params['id']
+        field = request.params['field']
+        package_id = request.body['package_id']
         context = {'model': model, 'user': c.user, 'auth_user_obj': c.userobj}
 
         package = toolkit.get_action('package_show')(context, { 'id': package_id })
@@ -262,7 +263,8 @@ class EditorController(p.toolkit.BaseController):
 
         try:
             toolkit.get_action('package_update')(context, package)
-            return json.dumps({ "Success" : True })
+            h.redirect_to('/editor')
+            return render('editor/editor_base.html')
         except NotAuthorized:
             return '{"status":"Not Authorized", "message":"' + _("Access denied.") + '"}'
         except NotFound:

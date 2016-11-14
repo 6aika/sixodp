@@ -1,19 +1,28 @@
 {% extends 'page.html' %}
 
 {% block primary_content_inner %}
+
+  {% resource "editor_js/editor.js" %}
+
   <section class="module">
     <div class="module-content">
       {% snippet 'snippets/search_form.html', form_id='dataset-search-form', type='dataset', query=c.q, sorting=sorting, sorting_selected=c.sort_by_selected, count=c.page.item_count, facets=facets, show_empty=request.params, error=c.query_error, fields=c.fields %}
 
-      {% block package_select %}
-          {%- snippet 'editor/snippets/package_select.html' -%}
-      {% endblock  %}
+      <form action="/editor/package_update" method="get">
 
-      <hr>
+        {% block field_select %}
+            {%- snippet 'editor/snippets/field_select.html' -%}
+        {% endblock  %}
 
-      {% block editor_search_results_list %}
-        {{ h.snippet('editor/snippets/package_list.html', packages=c.page.items) }}
-      {% endblock %}
+        <button type="submit" class="btn btn-primary">{{_('Save')}}</button>
+
+        <hr>
+
+        {% block editor_search_results_list %}
+          {{ h.snippet('editor/snippets/package_list.html', packages=c.page.items) }}
+        {% endblock %}
+
+      </form>
     </div>
 
       {% block page_pagination %}
