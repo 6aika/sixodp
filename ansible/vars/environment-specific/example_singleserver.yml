@@ -1,7 +1,7 @@
 ---
 
-public_facing_hostname: 10.106.10.10
-internal_hostname: sixodp-vagrant
+public_facing_hostname: yourserver.example.com
+internal_hostname: yourserver
 ckan_site_name: Dataportaali
 ckan_featured_orgs:
 
@@ -11,7 +11,7 @@ postgres:
     host: 127.0.0.1
     admin_user: postgres
     admin_password:
-    trusted_ip_range: 10.0.0.0/8
+    trusted_ip_range: 127.0.0.1/32
   users:
     ckan:
       username: ckan_default
@@ -30,13 +30,13 @@ postgres:
 nginx:
   use_ssl_certificate: true
   use_selfsigned_certificate: true
-  fqdn_common_part: goforecrew.com
+  fqdn_common_part: dataportaali.com
   alternative_hostnames: www.{{ public_facing_hostname }}
 
 solr:
   host: 127.0.0.1
   port: 8983
-  listen_address: 0.0.0.0
+  listen_address: 127.0.0.1
 
 redis:
   host: 127.0.0.1
@@ -46,7 +46,7 @@ ckan_users:
   admin:
     username: admin
     password: "{{ secret.ckan_admin_password }}"
-    email: vagrant@localhost
+    email: admin@localhost
   harvest:
     username: harvest
     password: "{{ secret.ckan_harvest_password }}"
@@ -60,22 +60,20 @@ ckan_admins:
   - "{{ ckan_users.admin.username }}"
   - "{{ ckan_users.harvest.username }}"
 
-email_domain: vagrant
+email_domain: "{{ public_facing_hostname }}"
 email:
   smtp_server: localhost
   from: no-reply@{{ email_domain }}
-  error_recipient: vagrant@localhost
+  error_recipient: admin@localhost
   error_from: error@{{ email_domain }}
-  contact: vagrant@localhost
+  contact: not-implemented@localhost
 
-robots_allowed: true
+robots_allowed: false
 
-debug_enabled: true
+debug_enabled: false
 
 AWS:
   enabled: false
   use_iam_role: false
-  access_key: somekey
-  secret_access_key: somesecret
-  ckan_s3_bucket: sixodp-testi-ampari
-  region: S3_EU_WEST
+  ckan_s3_bucket: not_in_use
+  region: not_in_use
