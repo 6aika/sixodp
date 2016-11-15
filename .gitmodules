@@ -49,3 +49,6 @@
 [submodule "ckanext/ckanext-multiedit"]
 	path = ckanext/ckanext-multiedit
 	url = https://github.com/6aika/ckanext-multiedit
+[submodule "ckanext/ckanext-editor"]
+	path = ckanext/ckanext-editor
+	url = https://github.com/6aika/ckanext-editor
