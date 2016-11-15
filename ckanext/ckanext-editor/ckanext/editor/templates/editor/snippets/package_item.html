@@ -21,5 +21,6 @@ Example:
     <tr class="{{ item_class or "dataset-item" }}">
         <td><input type="checkbox" value="{{package.id}}" name="package_id" /></td>
         <td>{{ h.link_to(h.truncate(title, truncate_title), h.url_for(controller='package', action='read', id=package.name)) }}</td>
+        <td>{{ package[c.selected_field.field_name] }}
     </tr>
 {% endblock %}

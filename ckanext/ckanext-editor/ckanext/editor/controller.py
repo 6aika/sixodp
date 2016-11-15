@@ -53,7 +53,7 @@ class EditorController(p.toolkit.BaseController):
             scheming_fields.append({
                 'field_name': field['field_name'].encode('utf8'),
                 'label': field['label'].encode('utf8'),
-                'form_snippet': field.get('form_snippet').encode('utf8') if field.get('form_snippet') else 'default_input.html'
+                'form_snippet': field.get('form_snippet').encode('utf8') if field.get('form_snippet') else 'text.html'
             })
 
         # Todo modify to remove duplicate dictionaries
