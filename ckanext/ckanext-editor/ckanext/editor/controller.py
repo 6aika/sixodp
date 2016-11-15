@@ -50,18 +50,31 @@ class EditorController(p.toolkit.BaseController):
 
         scheming_fields = []
         for field in scheming_schema:
-            scheming_fields.append(field['field_name'].encode('utf8'))
+            scheming_fields.append({
+                'field_name': field['field_name'].encode('utf8'),
+                'label': field['label'].encode('utf8'),
+                'form_snippet': field.get('form_snippet').encode('utf8') if field.get('form_snippet') else 'default_input.html'
+            })
 
+        # Todo modify to remove duplicate dictionaries
         # Remove duplicate fields, since scheming can contain fields named similarly to CKAN core fields
-        for field in scheming_fields:
-            if field not in fields:
-                fields.append(field)
+        # for field in scheming_fields:
+        #     if field not in fields:
+        #         fields.append(field)
 
-        return fields
+        log.info(scheming_fields)
+        return scheming_fields
 
     def package_search(self):
         # Gather extension specific search parameters etc.
         c.editable_fields = self.get_dataset_fields()
+
+        # Set default field to selection
+        default_field = request.params.get('_field') if request.params.get('_field') else 'title'
+        c.selected_field = {}
+        for field in c.editable_fields:
+            if(field.get('field_name') == default_field):
+                c.selected_field = field
 
         # The search functionality is similar to CKAN package search in ckan/controllers/package.py
         # This might need updating if the core package search functionality is changed after v2.5
