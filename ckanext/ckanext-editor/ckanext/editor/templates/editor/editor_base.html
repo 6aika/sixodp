@@ -8,7 +8,7 @@
     <div class="module-content">
       {% snippet 'snippets/search_form.html', form_id='dataset-search-form', type='dataset', query=c.q, sorting=sorting, sorting_selected=c.sort_by_selected, count=c.page.item_count, facets=facets, show_empty=request.params, error=c.query_error, fields=c.fields %}
 
-      <form action="/editor/package_update" method="get">
+      <form action="/editor/package_update" method="post" enctype="application/x-www-form-urlencoded">
 
         {% block field_select %}
             {%- snippet 'editor/snippets/field_select.html' -%}

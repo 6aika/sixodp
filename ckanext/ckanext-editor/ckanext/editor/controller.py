@@ -14,13 +14,13 @@ import ckan.model as model
 import ckan.lib.maintain as maintain
 import ckan.lib.render
 import ckan
-import json
 
 _ = toolkit._
 c = toolkit.c
 
 NotFound = logic.NotFound
 NotAuthorized = logic.NotAuthorized
+ValidationError = logic.ValidationError
 check_access = logic.check_access
 get_action = logic.get_action
 abort = base.abort
@@ -62,7 +62,6 @@ class EditorController(p.toolkit.BaseController):
         #     if field not in fields:
         #         fields.append(field)
 
-        log.info(scheming_fields)
         return scheming_fields
 
     def package_search(self):
@@ -263,24 +262,25 @@ class EditorController(p.toolkit.BaseController):
 
 
     def package_update(self):
-        field = request.params['field']
-        package_id = request.body['package_id']
+        package_ids = request.POST.getall('package_id')
+        field = request.POST['field']
+        value = request.POST[field]
+        
         context = {'model': model, 'user': c.user, 'auth_user_obj': c.userobj}
 
-        package = toolkit.get_action('package_show')(context, { 'id': package_id })
+        for id in package_ids:
 
-        body_dict = json.loads(request.body)
-        
-        for key, value in body_dict.iteritems():
-            package[key] = value
+            package = toolkit.get_action('package_show')(context, { 'id': id })
+            package[field] = value
 
-        try:
-            toolkit.get_action('package_update')(context, package)
-            h.redirect_to('/editor')
-            return render('editor/editor_base.html')
-        except NotAuthorized:
-            return '{"status":"Not Authorized", "message":"' + _("Access denied.") + '"}'
-        except NotFound:
-            return '{"status":"Not Found", "message":"' + _("Package not found.") + '"}'
-        except ValidationError:
-            return '{"status":"Conflict", "message":"' + _("Validation error.") + '"}'
+            try:
+                toolkit.get_action('package_update')(context, package) 
+            except NotAuthorized:
+                return '{"status":"Not Authorized", "message":"' + _("Access denied.") + '"}'
+            except NotFound:
+                return '{"status":"Not Found", "message":"' + _("Package not found.") + '"}'
+            except ValidationError:
+                return '{"status":"Conflict", "message":"' + _("Validation error.") + '"}'
+
+        h.redirect_to('/editor')
+        return render('editor/editor_base.html')

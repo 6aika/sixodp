@@ -1,11 +1,10 @@
 <div class="form-group">
   <label for="field-select" class="control-label">{{ _('Select field to edit') }}</label>
   <div class="controls">
-    <select id="field-select" class="form-control" name="field" onchange="if (this.value) window.location.href=this.value">
+    <select id="field-select" class="form-control" name="field" onchange="if (this.value) window.location.href='/editor?_field=' + this.value">
       {% for option in c.editable_fields %}
-      {% set option_href = '/editor?_field=' + option.field_name %}
       {% set selected =  c.selected_field.field_name == option.field_name %}
-      <option value="{{option_href}}" {% if selected %} selected="selected"{% endif %}>
+      <option value="{{option.field_name}}" {% if selected %} selected="selected"{% endif %}>
         {{ _(option.label) }}
       </option>
       {% endfor %}
