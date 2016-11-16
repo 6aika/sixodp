@@ -1,11 +1,15 @@
 
 # Installing the service on a plain Virtual Server
 
-Prerequisites:
+Prerequisites for the control host:
 
 - Ansible 2.x (tested on 2.2)
+- zip command available
+
+Prerequisites for the target host:
+
 - 64-bit Ubuntu 16.04 virtual machine (4GB RAM, equivalent to EC2 t2.medium)
-- Python2 installed on the server. Note that Ubuntu 16.04 does not have it anymore by default. You need to install it with `sudo apt-get install python-minimal`
+- Python 2. Note that Ubuntu 16.04 does not have it anymore by default. You need to install it with `sudo apt-get install python-minimal`
 - Ports 80 and 443 accessible from everywhere, port 22 accessible from your IP address
 - SSH access with key-based authentication
 - Linux user with sudo rights without password prompt
@@ -23,7 +27,7 @@ Create copies of the following configuration files and modify them to suit your 
 
 **ansible/vars/environment-specific/example_singleserver.yml**
 
-- Update public-facing hostname
+- Update `public_facing_hostname`
 - Update `fqdn_common_part` if using self-signed certificates
 
 **ansible/vars/secrets-defaults.yml**
