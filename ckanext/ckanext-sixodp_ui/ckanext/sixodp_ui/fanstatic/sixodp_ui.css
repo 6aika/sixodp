@@ -6639,6 +6639,7 @@ form .add-member-or {
   font-weight: bold; }
 
 .table {
+  width: auto;
   font-size: 14px; }
   .table thead th,
   .table tbody th {
