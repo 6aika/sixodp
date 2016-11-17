@@ -1,27 +1,15 @@
-[submodule "ckanext/ckanext-scheming"]
-	path = ckanext/ckanext-scheming
-	url = https://github.com/open-data/ckanext-scheming.git
 [submodule "ckanext/ckanext-fluent"]
 	path = ckanext/ckanext-fluent
 	url = https://github.com/open-data/ckanext-fluent.git
-[submodule "ckanext/ckanext-pages"]
-	path = ckanext/ckanext-pages
-	url = https://github.com/vrk-kpa/ckanext-pages.git
 [submodule "ckanext/ckanext-contact"]
 	path = ckanext/ckanext-contact
 	url = https://github.com/vrk-kpa/ckanext-contact.git
-[submodule "ckanext/ckanext-harvest"]
-	path = ckanext/ckanext-harvest
-	url = https://github.com/ckan/ckanext-harvest.git
 [submodule "ckanext/ckanext-s3filestore"]
 	path = ckanext/ckanext-s3filestore
 	url = https://github.com/6aika/ckanext-s3filestore.git
 [submodule "ckanext/ckanext-showcase"]
 	path = ckanext/ckanext-showcase
 	url = https://github.com/ckan/ckanext-showcase.git
-[submodule "ckanext/ckanext-report"]
-	path = ckanext/ckanext-report
-	url = https://github.com/datagovuk/ckanext-report
 [submodule "ckanext/ckanext-archiver"]
 	path = ckanext/ckanext-archiver
 	url = https://github.com/yhteentoimivuuspalvelut/ckanext-archiver
@@ -46,3 +34,15 @@
 [submodule "ckanext/ckanext-reminder"]
 	path = ckanext/ckanext-reminder
 	url = https://github.com/6aika/ckanext-reminder
+[submodule "ckanext/ckanext-harvest"]
+	path = ckanext/ckanext-harvest
+	url = https://github.com/6aika/ckanext-harvest.git
+[submodule "ckanext/ckanext-pages"]
+	path = ckanext/ckanext-pages
+	url = https://github.com/6aika/ckanext-pages.git
+[submodule "ckanext/ckanext-scheming"]
+	path = ckanext/ckanext-scheming
+	url = https://github.com/6aika/ckanext-scheming.git
+[submodule "ckanext/ckanext-report"]
+	path = ckanext/ckanext-report
+	url = https://github.com/6aika/ckanext-report.git

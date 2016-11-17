@@ -3,6 +3,6 @@
 {% import 'macros/form.html' as form %}
 
 {% block extra_config %}
-{{ form.hidden('csrf-token', h.generate_csrf_token()) }}
+{# {{ form.hidden('csrf-token', h.generate_csrf_token()) }} #}
 {{ super() }}
 {% endblock %}

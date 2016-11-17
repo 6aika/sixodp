@@ -21,6 +21,19 @@ def ensure_translated(s):
         return ensure_translated(s.get(language, u""))
 
 
+_LOCALE_ALIASES = {'en_GB': 'en'}
+
+def get_translated(data_dict, field):
+    language = i18n.get_lang()
+    if language in _LOCALE_ALIASES:
+        language = _LOCALE_ALIASES[language]
+
+    try:
+        return data_dict[field+'_translated'][language]
+    except KeyError:
+        return data_dict.get(field, '')
+
+
 def piwik_url():
     return config.get('piwik.site_url', '')
 
@@ -175,5 +188,6 @@ class Sixodp_UiPlugin(plugins.SingletonPlugin):
                 'piwik_site_id': piwik_site_id,
                 'service_alerts': service_alerts,
                 'unquote_url': unquote_url,
-                'ensure_translated': ensure_translated
+                'ensure_translated': ensure_translated,
+                'get_translated': get_translated
                 }
