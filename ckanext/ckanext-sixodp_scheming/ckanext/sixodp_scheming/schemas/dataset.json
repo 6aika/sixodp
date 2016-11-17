@@ -96,6 +96,11 @@
       "label": "Next reminder date",
       "preset": "date",
       "display_snippet": null
+    },
+    {
+      "field_name": "private",
+      "label": "Visibility",
+      "form_snippet": "private.html"
     }
   ],
   "resource_fields": [
