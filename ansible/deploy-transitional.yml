@@ -13,9 +13,11 @@
   roles:
     - os-base
     - java8
-    - solr6
+    #- ssh # Done in cloudformation bootstrapping
     - postgres-install
+    #- postgres-backup # Replaced by RDS
     - postgres-data
+    - solr6
     - redis
     - nginx
     - apache
@@ -26,13 +28,8 @@
     - ckan-install-patches
     - ckan-database
     - ckan-cron
+    #- transifex-install Only used on Vagrant
     - ckan-translations
     - ckan-restart
+    #- supervisor Not in use
     - solr-reindex
-
-    # Done in cloudformation bootstrapping
-    #- ssh
-    # To be replaced with RDS
-    #- postgres-backup
-    # Not in use
-    #- supervisor
