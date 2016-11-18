@@ -4,3 +4,7 @@ ckan_languages:
   - fi
   - sv
   - en_GB
+
+translation_projects:
+  - "ckanext-qa"
+  - "ckanext-editor"

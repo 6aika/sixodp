@@ -1,12 +1,19 @@
 ---
 
 - name: Ensure CKAN translation directories
-  file: path=/usr/lib/ckan/default/src/ckan/ckan/i18n/{{ item }}/LC_MESSAGES state=directory mode="0755"
+  file: path="{{ virtualenv }}/src/ckan/ckan/i18n/{{ item }}/LC_MESSAGES" state=directory mode="0755"
   with_items: "{{ ckan_languages }}"
 
 - name: Copy CKAN translations
-  copy: src="{{ item }}.po" dest="/usr/lib/ckan/default/src/ckan/ckan/i18n/{{ item }}/LC_MESSAGES/ckan.po"
+  copy: src="{{ item }}.po" dest="{{ virtualenv }}/src/ckan/ckan/i18n/{{ item }}/LC_MESSAGES/ckan.po"
   with_items: "{{ ckan_languages }}"
+
+- name: Join translation source files
+  command: msgcat "{{ ckanext_sync_path }}/{{ item[0] }}/i18n/{{ item[1] }}/LC_MESSAGES/{{ item[0] }}.po" "{{ virtualenv }}/src/ckan/ckan/i18n/{{ item[1] }}/LC_MESSAGES/ckan.po" --use-first -o "{{ virtualenv }}/src/ckan/ckan/i18n/{{ item[1] }}/LC_MESSAGES/ckan.po"
+  with_nested:
+    - "{{ translation_projects }}"
+    - "{{ ckan_languages }}"
+  ignore_errors: true
 
 - name: Compile translation files
   command: msgfmt "{{ virtualenv }}/src/ckan/ckan/i18n/{{ item }}/LC_MESSAGES/ckan.po" -o "{{ virtualenv }}/src/ckan/ckan/i18n/{{ item }}/LC_MESSAGES/ckan.mo"
