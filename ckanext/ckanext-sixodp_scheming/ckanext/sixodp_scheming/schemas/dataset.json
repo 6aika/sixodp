@@ -100,7 +100,8 @@
     {
       "field_name": "private",
       "label": "Visibility",
-      "form_snippet": "private.html"
+      "form_snippet": "private.html",
+      "display_snippet": null
     }
   ],
   "resource_fields": [
