@@ -10,5 +10,3 @@ ckan_storage_path: "{{ data_path }}/ckan"
 
 ckan_ini: /etc/ckan/default/production.ini
 virtualenv: /usr/lib/ckan/default
-
-customer_name: generic
