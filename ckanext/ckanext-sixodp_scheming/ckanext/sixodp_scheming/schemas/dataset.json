@@ -20,11 +20,11 @@
       "final": true
     },
     {
-      "field_name": "notes",
-      "label": "Description",
-      "preset": "fluent_markdown",
+      "field_name": "notes_translated",
+      "preset": "fluent_core_markdown_translated",
       "form_placeholder": "eg. A detailed description",
-      "form_languages": ["fi", "sv", "en"]
+      "form_languages": ["fi", "en", "sv"],
+      "label": "Description"
     },
     {
       "field_name": "tag_string",
@@ -125,9 +125,9 @@
       "final": true
     },
     {
-      "field_name": "description",
+      "field_name": "description_translated",
       "label": "Description",
-      "preset": "fluent_markdown",
+      "preset": "fluent_core_markdown_translated",
       "form_placeholder": "eg. A detailed description",
       "form_languages": ["fi", "sv", "en"]
     },

@@ -10,7 +10,7 @@ import ckan.logic as logic
 import ckan.lib.helpers as h
 import ckan.lib.authenticator as authenticator
 import ckan.lib.base as base
-import ckan.lib.csrf_token as csrf_token
+#import ckan.lib.csrf_token as csrf_token
 import ckan.lib.mailer as mailer
 
 abort = base.abort
@@ -156,7 +156,7 @@ class Sixodp_UserController(UserController):
             context['message'] = data_dict.get('log_message', '')
             data_dict['id'] = id
 
-            csrf_token.validate(data_dict.get('csrf-token', ''))
+            #csrf_token.validate(data_dict.get('csrf-token', ''))
 
             # ONLY DIFFERENCE IS HERE
             if (data_dict['password1'] and data_dict['password2']) or data_dict['email']:
@@ -188,9 +188,9 @@ class Sixodp_UserController(UserController):
             errors = {'oldpassword': [_('Password entered was incorrect')]}
             error_summary = {_('Old Password'): _('incorrect password')}
             return self.edit(id, data_dict, errors, error_summary)
-        except csrf_token.CsrfTokenValidationError:
-            h.flash_error(_('Security token error, please try again'))
-            return self.edit(id, data_dict, {}, {})
+        #except csrf_token.CsrfTokenValidationError:
+        #    h.flash_error(_('Security token error, please try again'))
+        #    return self.edit(id, data_dict, {}, {})
 
     # Copied from ckan 2.5.2
     # removed searching user names
