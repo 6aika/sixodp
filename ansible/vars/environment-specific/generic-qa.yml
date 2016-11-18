@@ -1,7 +1,7 @@
 ---
 
 public_facing_hostname: generic-qa.dataportaali.com
-internal_hostname: sixodp-qa
+internal_hostname: sixodp-{{ deployment_environment_id }}
 ckan_site_name: Dataportaali
 ckan_featured_orgs:
 
@@ -75,5 +75,5 @@ debug_enabled: false
 AWS:
   enabled: true
   use_iam_role: true
-  ckan_s3_bucket: sixodp-generic-qa-filestore
+  ckan_s3_bucket: sixodp-{{ deployment_environment_id }}-datasets
   region: S3_EU_WEST
