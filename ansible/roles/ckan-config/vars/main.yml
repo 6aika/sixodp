@@ -27,7 +27,6 @@ enabled_ckan_extensions:
     - archiver
     - hierarchy_display
     - reminder
-    - multiedit
     - editor
 enabled_ckan_aws_extensions: cloudstorage
 
