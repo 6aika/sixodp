@@ -6639,7 +6639,7 @@ form .add-member-or {
   font-weight: bold; }
 
 .table {
-  width: auto;
+  width: 100%;
   font-size: 14px; }
   .table thead th,
   .table tbody th {
