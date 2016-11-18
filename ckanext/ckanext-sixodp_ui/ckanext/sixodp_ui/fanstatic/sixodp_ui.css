@@ -6639,6 +6639,7 @@ form .add-member-or {
   font-weight: bold; }
 
 .table {
+  width: 100%;
   font-size: 14px; }
   .table thead th,
   .table tbody th {
@@ -6911,3 +6912,35 @@ ul.hierarchy-tree-top {
 
 #publisher-tree ul.hierarchy-tree-top {
   padding-left: 25px; }
+
+.module.pagination,
+.pagination {
+  height: 36px;
+  margin-bottom: 0; }
+  .module.pagination ul li a,
+  .module.pagination ul li a:focus,
+  .pagination ul li a,
+  .pagination ul li a:focus {
+    background-color: #ffffff;
+    color: #534f97; }
+    .module.pagination ul li a:hover,
+    .module.pagination ul li a:focus:hover,
+    .pagination ul li a:hover,
+    .pagination ul li a:focus:hover {
+      background-color: #6d69b0;
+      border-color: #534f97;
+      color: #ffffff; }
+  .module.pagination ul li.active a,
+  .module.pagination ul li.active a:focus,
+  .pagination ul li.active a,
+  .pagination ul li.active a:focus {
+    background-color: #534f97;
+    border-color: #534f97;
+    color: #ffffff; }
+    .module.pagination ul li.active a:hover,
+    .module.pagination ul li.active a:focus:hover,
+    .pagination ul li.active a:hover,
+    .pagination ul li.active a:focus:hover {
+      background-color: #6d69b0;
+      border-color: #534f97;
+      color: #ffffff; }

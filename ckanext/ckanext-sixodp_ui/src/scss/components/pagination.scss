@@ -1,0 +1,36 @@
+.module.pagination,
+.pagination {
+    height: 36px;
+    margin-bottom: 0;
+
+    ul {
+        li {
+            a,
+            a:focus {
+                background-color: $white;
+                color: $brand-primary;
+
+                &:hover {
+                    background-color: $brand-primary-light;
+                    border-color: $brand-primary;
+                    color: $white;
+                }
+            }
+
+            &.active {
+                a,
+                a:focus {
+                    background-color: $brand-primary;
+                    border-color: $brand-primary;
+                    color: $white;
+
+                    &:hover {
+                        background-color: $brand-primary-light;
+                        border-color: $brand-primary;
+                        color: $white;
+                    }
+                }    
+            }
+        }
+    }
+}

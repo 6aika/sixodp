@@ -22,3 +22,4 @@ ckan_extensions:
   - ckanext-repeating
   - ckanext-reminder
   - ckanext-rating
+  - ckanext-editor

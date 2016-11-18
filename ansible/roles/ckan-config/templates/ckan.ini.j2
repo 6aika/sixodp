@@ -128,6 +128,9 @@ ckan.max_resource_size = {{ ckan_max_resource_size }}
 ckanext.reminder.site_url = https://{{ public_facing_hostname }}
 ckanext.reminder.recipient_username = {{ ckan_users.admin.username }}
 
+# Editor configuration
+ckanext.editor.editable_fields = title notes_translated tag_string owner_org update_frequency update_date publish_date url maintainer maintainer_email maintainer_website licence_id agency reminder private
+
 # Disqus configuration
 disqus.name = sixodp-generic-{{ deployment_environment_id }}
 
