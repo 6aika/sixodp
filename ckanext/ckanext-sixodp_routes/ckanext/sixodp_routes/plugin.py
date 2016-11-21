@@ -26,6 +26,7 @@ DataError = dictization_functions.DataError
 
 UsernamePasswordError = logic.UsernamePasswordError
 ValidationError = logic.ValidationError
+from paste.deploy.converters import asbool
 
 import logging
 
@@ -87,7 +88,7 @@ class Sixodp_RevisionController(RevisionController):
 
 class Sixodp_UserController(UserController):
 
-    # Copy paste from ckan 2.5.1 to get to the _save_edit function
+    # Copy paste from ckan 2.6.0 to get to the _save_edit function
     def edit(self, id=None, data=None, errors=None, error_summary=None):
         context = {'save': 'save' in request.params,
                    'schema': self._edit_form_to_db_schema(),
@@ -104,7 +105,7 @@ class Sixodp_UserController(UserController):
         try:
             check_access('user_update', context, data_dict)
         except NotAuthorized:
-            abort(401, _('Unauthorized to edit a user.'))
+            abort(403, _('Unauthorized to edit a user.'))
 
         if (context['save']) and not data:
             return self._save_edit(id, context)
@@ -123,7 +124,7 @@ class Sixodp_UserController(UserController):
             data = data or old_data
 
         except NotAuthorized:
-            abort(401, _('Unauthorized to edit user %s') % '')
+            abort(403, _('Unauthorized to edit user %s') % '')
         except NotFound:
             abort(404, _('User not found'))
 
@@ -131,7 +132,7 @@ class Sixodp_UserController(UserController):
 
         if not (authz.is_sysadmin(c.user)
                 or c.user == user_obj.name):
-            abort(401, _('User %s not authorized to edit %s') %
+            abort(403, _('User %s not authorized to edit %s') %
                   (str(c.user), id))
 
         errors = errors or {}
@@ -139,28 +140,37 @@ class Sixodp_UserController(UserController):
 
         self._setup_template_variables({'model': model,
                                         'session': model.Session,
-                                        'user': c.user or c.author},
+                                        'user': c.user},
                                        data_dict)
 
         c.is_myself = True
-        c.show_email_notifications = toolkit.asbool(
-                config.get('ckan.activity_streams_email_notifications'))
+        c.show_email_notifications = asbool(
+            config.get('ckan.activity_streams_email_notifications'))
         c.form = render(self.edit_user_form, extra_vars=vars)
 
         return render('user/edit.html')
 
-    # copy paste from ckan 2.5.1 with modification requiring password to change the email
+    # copy paste from ckan 2.6.0 with csrf implementation
     def _save_edit(self, id, context):
         try:
+            if id in (c.userobj.id, c.userobj.name):
+                current_user = True
+            else:
+                current_user = False
+            old_username = c.userobj.name
+
             data_dict = logic.clean_dict(unflatten(
-                    logic.tuplize_dict(logic.parse_params(request.params))))
+                logic.tuplize_dict(logic.parse_params(request.params))))
             context['message'] = data_dict.get('log_message', '')
             data_dict['id'] = id
 
+            # Todo: port csrf from api catalog
             #csrf_token.validate(data_dict.get('csrf-token', ''))
 
-            # ONLY DIFFERENCE IS HERE
-            if (data_dict['password1'] and data_dict['password2']) or data_dict['email']:
+            email_changed = data_dict['email'] != c.userobj.email
+
+            if (data_dict['password1'] and data_dict['password2']) \
+                    or email_changed:
                 identity = {'login': c.user,
                             'password': data_dict['old_password']}
                 auth = authenticator.UsernamePasswordAuthenticator()
@@ -174,9 +184,14 @@ class Sixodp_UserController(UserController):
 
             user = get_action('user_update')(context, data_dict)
             h.flash_success(_('Profile updated'))
+
+            if current_user and data_dict['name'] != old_username:
+                # Changing currently logged in user's name.
+                # Update repoze.who cookie to match
+                set_repoze_user(data_dict['name'])
             h.redirect_to(controller='user', action='read', id=user['name'])
         except NotAuthorized:
-            abort(401, _('Unauthorized to edit user %s') % id)
+            abort(403, _('Unauthorized to edit user %s') % id)
         except NotFound, e:
             abort(404, _('User not found'))
         except DataError:
@@ -189,6 +204,7 @@ class Sixodp_UserController(UserController):
             errors = {'oldpassword': [_('Password entered was incorrect')]}
             error_summary = {_('Old Password'): _('incorrect password')}
             return self.edit(id, data_dict, errors, error_summary)
+        # Todo: port csrf from api catalog
         #except csrf_token.CsrfTokenValidationError:
         #    h.flash_error(_('Security token error, please try again'))
         #    return self.edit(id, data_dict, {}, {})
@@ -202,7 +218,7 @@ class Sixodp_UserController(UserController):
         try:
             check_access('request_reset', context)
         except NotAuthorized:
-            abort(401, _('Unauthorized to request reset password.'))
+            abort(403, _('Unauthorized to request reset password.'))
 
         if request.method == 'POST':
             id = request.params.get('user')
