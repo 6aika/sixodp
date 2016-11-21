@@ -12,6 +12,7 @@ import ckan.lib.authenticator as authenticator
 import ckan.lib.base as base
 #import ckan.lib.csrf_token as csrf_token
 import ckan.lib.mailer as mailer
+from ckan.plugins import toolkit
 
 abort = base.abort
 render = base.render
@@ -142,7 +143,7 @@ class Sixodp_UserController(UserController):
                                        data_dict)
 
         c.is_myself = True
-        c.show_email_notifications = h.asbool(
+        c.show_email_notifications = toolkit.asbool(
                 config.get('ckan.activity_streams_email_notifications'))
         c.form = render(self.edit_user_form, extra_vars=vars)
 
