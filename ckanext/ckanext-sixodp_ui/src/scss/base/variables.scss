@@ -8,8 +8,8 @@ $darken-intensity: 20%;
 $gray-base: #57575b;
 $gray-darker:            darken($gray-base, $darken-intensity*2);
 $gray-dark:              darken($gray-base, $darken-intensity);
-$gray:                   lighten($gray-base, $lighten-intensity*3);
-$gray-light:             lighten($gray-base, $lighten-intensity*4);
+$gray:                   lighten($gray-base, $lighten-intensity*1.5);
+$gray-light:             lighten($gray-base, $lighten-intensity*3);
 $gray-lighter:           lighten($gray-base, $lighten-intensity*6);
 
 $black: $gray-base;

@@ -26,9 +26,8 @@
 
       &.empty,
       .empty {
+        @extend .empty;
         font-size: $font-size-small;
-        color: $gray-light;
-        font-style: normal;
       }
 
       .nums {
