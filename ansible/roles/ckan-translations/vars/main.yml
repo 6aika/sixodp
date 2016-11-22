@@ -8,3 +8,5 @@ ckan_languages:
 translation_projects:
   - "ckanext-qa"
   - "ckanext-editor"
+  - "ckanext-rating"
+  - "ckanext-reminder"
