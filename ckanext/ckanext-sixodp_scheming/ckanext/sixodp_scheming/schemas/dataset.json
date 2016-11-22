@@ -24,7 +24,8 @@
       "preset": "fluent_core_markdown_translated",
       "form_placeholder": "eg. A detailed description",
       "form_languages": ["fi", "en", "sv"],
-      "label": "Description"
+      "label": "Description",
+      "display_snippet": null
     },
     {
       "field_name": "tag_string",

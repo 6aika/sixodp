@@ -6510,7 +6510,8 @@ select {
       .navbar-offcanvas .module .module-content.empty,
       .navbar-offcanvas .module .module-content .empty {
         font-size: 14px;
-        color: #bebec0; }
+        color: #bebec0;
+        font-style: normal; }
       .navbar-offcanvas .module .module-content .nums {
         border: none; }
     .navbar-offcanvas .module .module-footer {
@@ -6536,7 +6537,7 @@ select {
     .navbar-offcanvas .nav-simple li.nav-item.active a {
       background-color: #534f97; }
     .navbar-offcanvas .nav-simple li.nav-item a {
-      padding: 7px 25px 7px 35px;
+      padding: 7px 25px 7px 25px;
       font-size: 14px;
       margin: 0;
       width: 100%; }

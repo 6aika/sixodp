@@ -28,6 +28,7 @@
       .empty {
         font-size: $font-size-small;
         color: $gray-light;
+        font-style: normal;
       }
 
       .nums {
@@ -79,7 +80,7 @@
       }
 
       a {
-        padding: 7px 25px 7px 35px;
+        padding: 7px 25px 7px 25px;
         font-size: $font-size-small;
         margin: 0;
         width: 100%;
