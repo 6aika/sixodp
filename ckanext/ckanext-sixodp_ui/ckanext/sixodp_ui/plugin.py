@@ -77,6 +77,17 @@ def get_popular_tags():
     return items['facets']['tags']
 
 
+def get_categories():
+
+    search_dict = {
+        'all_fields': True
+    }
+
+    items = logic.get_action('group_list')({}, search_dict)
+
+    return items
+
+
 def get_homepage_organizations(count=1):
     def get_group(id):
         context = {'ignore_auth': True,
@@ -176,6 +187,7 @@ class Sixodp_UiPlugin(plugins.SingletonPlugin):
     def get_helpers(self):
         return {'get_recent_content': get_recent_content,
                 'get_popular_tags': get_popular_tags,
+                'get_categories': get_categories,
                 'get_homepage_organizations': get_homepage_organizations,
                 'service_alerts': service_alerts,
                 'unquote_url': unquote_url,

@@ -75,51 +75,16 @@
     <div class="row">
       <h3 class="text-center">{{ _('Topics') }}</h3>
       <div class="category-list">
-        <div class="col-lg-2 col-lg-offset-1 col-md-4 col-xs-6 text-center category-list-item">
-          <img src="/fanstatic/sixodp_ui/icons/hallinto.svg" />
-          <h4>{{ _('Government') }}</h4>
-          <p class="item-description">{{ _('Government') }}</p>
-        </div>
-        <div class="col-lg-2 col-md-4 col-xs-6 text-center category-list-item">
-          <img src="/fanstatic/sixodp_ui/icons/liikenne.svg" />
-          <h4>{{ _('Transportation and maps') }}</h4>
-          <p class="item-description">{{ _('Transportation and maps description') }}</p>
-        </div>
-        <div class="col-lg-2 col-md-4 col-xs-6 text-center category-list-item">
-          <img src="/fanstatic/sixodp_ui/icons/matkailu.svg" />
-          <h4>{{ _('Tourism') }}</h4>
-          <p class="item-description">{{ _('Tourism description') }}</p>
-        </div>
-        <div class="col-lg-2 col-md-4 col-xs-6 text-center category-list-item">
-          <img src="/fanstatic/sixodp_ui/icons/sosiaalipalvelut.svg" />
-          <h4>{{ _('Education') }}</h4>
-          <p class="item-description">{{ _('Education description') }}</p>
-        </div>
-        <div class="col-lg-2 col-md-4 col-xs-6 text-center category-list-item">
-          <img src="/fanstatic/sixodp_ui/icons/rakentaminen.svg" />
-          <h4>{{ _('Construction') }}</h4>
-          <p class="item-description">{{ _('Construction description') }}</p>
-        </div>
-        <div class="col-lg-2 col-lg-offset-1 col-md-4 col-xs-6 text-center category-list-item">
-          <img src="/fanstatic/sixodp_ui/icons/talousjaverotus.svg" />
-          <h4>{{ _('Economy') }}</h4>
-          <p class="item-description">{{ _('Economy description') }}</p>
-        </div>
-        <div class="col-lg-2 col-md-4 col-xs-6 text-center category-list-item">
-          <img src="/fanstatic/sixodp_ui/icons/terveys.svg" />
-          <h4>{{ _('Health') }}</h4>
-          <p class="item-description">{{ _('Health description') }}</p>
-        </div>
-        <div class="col-lg-2 col-md-4 col-xs-6 text-center category-list-item">
-          <img src="/fanstatic/sixodp_ui/icons/vaesto.svg" />
-          <h4>{{ _('Population') }}</h4>
-          <p class="item-description">{{ _('Population description') }}</p>
-        </div>
-        <div class="col-lg-2 col-md-4 col-xs-6 text-center category-list-item">
-          <img src="/fanstatic/sixodp_ui/icons/ymparistojaluonto.svg" />
-          <h4>{{ _('Outdoors and recreation') }}</h4>
-          <p class="item-description">{{ _('Outdoors and recreation description') }}</p>
-        </div>
+        {% for category in h.get_categories() %}
+          <a class="col-lg-2 col-lg-offset-1 col-md-4 col-xs-6 text-center category-list-item"
+            href="/group/{{ category.id }}">
+            <img src="{{ category.image_display_url }}" />
+            <h4>{{ _(category.display_name) }}</h4>
+            {% if category.description|length > 0 %}
+              <p class="item-description">{{ category.description }}</p>
+            {% endif %}
+          </a>
+        {% endfor %}
       </div>
     </div>
   </div>
