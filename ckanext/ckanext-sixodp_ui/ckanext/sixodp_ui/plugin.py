@@ -34,13 +34,6 @@ def get_translated(data_dict, field):
         return data_dict.get(field, '')
 
 
-def piwik_url():
-    return config.get('piwik.site_url', '')
-
-
-def piwik_site_id():
-    return config.get('piwik.site_id', 0)
-
 
 def service_alerts():
     message = config.get('ckanext.sixodp_ui.service_alert.message')
@@ -181,11 +174,9 @@ class Sixodp_UiPlugin(plugins.SingletonPlugin):
         return schema
 
     def get_helpers(self):
-        return {'piwik_url': piwik_url,
-                'get_recent_content': get_recent_content,
+        return {'get_recent_content': get_recent_content,
                 'get_popular_tags': get_popular_tags,
                 'get_homepage_organizations': get_homepage_organizations,
-                'piwik_site_id': piwik_site_id,
                 'service_alerts': service_alerts,
                 'unquote_url': unquote_url,
                 'ensure_translated': ensure_translated,
