@@ -1,32 +1,21 @@
 # Translations template for ckan.
-# Copyright (C) 2015 ORGANIZATION
+# Copyright (C) 2016 ORGANIZATION
 # This file is distributed under the same license as the ckan project.
-#
-# Translators:
-# apoikola <antti.poikola@gmail.com>, 2013,2015
-# floapps <jaakko.louhio@floapps.com>, 2012
-# Hami Kekkonen <hami.kekkonen@hel.fi>, 2013,2015
-# <internet@davidread.org>, 2011
-# jaakkokorhonen <jaakko.korhonen@outlook.com>, 2014
-# JuhoL <juho.lehtonen@gmail.com>, 2015
-# Kari Salovaara <kari.salovaara@pp1.inet.fi>, 2015
-# kyyberi <jarkko.moilanen@want3d.fi>, 2013
-# Mikko Koho <mikko.koho@csc.fi>, 2013,2015
-# Open Knowledge Foundation <translations@okfn.org>, 2011
-# Tarmo Toikkanen <tarmo@iki.fi>, 2014
-# Zharktas <jari-pekka.voutilainen@gofore.com>, 2015
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+# 
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: CKAN\n"
+"Project-Id-Version: ckan 2.5.2\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-26 13:42+0000\n"
-"PO-Revision-Date: 2015-12-15 08:41+0000\n"
-"Last-Translator: Mikko Koho <mikko.koho@csc.fi>\n"
-"Language-Team: Finnish (http://www.transifex.com/okfn/ckan/language/fi/)\n"
+"POT-Creation-Date: 2016-10-10 06:41+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Mikko Nieminen <mikko.nieminen@gofore.com>, 2016\n"
+"Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.1.1\n"
+"Generated-By: Babel 0.9.6\n"
 "Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
@@ -47,93 +36,106 @@ msgstr "Muokkaaja - Editor"
 msgid "Member"
 msgstr "Jäsen"
 
-#: ckan/controllers/admin.py:31
+#: ckan/controllers/admin.py:32
 msgid "Need to be system administrator to administer"
 msgstr "Hallinnointia varten pitää olla järjestelmän ylläpitäjä "
 
-#: ckan/controllers/admin.py:47
+#: ckan/controllers/admin.py:48
 msgid "Site Title"
 msgstr "Sivuston otsikko"
 
-#: ckan/controllers/admin.py:48
+#: ckan/controllers/admin.py:49
 msgid "Style"
 msgstr "Tyyli"
 
-#: ckan/controllers/admin.py:49
+#: ckan/controllers/admin.py:50
 msgid "Site Tag Line"
 msgstr "Sivun slogan"
 
-#: ckan/controllers/admin.py:50
+#: ckan/controllers/admin.py:51
 msgid "Site Tag Logo"
 msgstr "Sivun logo"
 
-#: ckan/controllers/admin.py:51 ckan/templates/header.html:106
+#: ckan/controllers/admin.py:52 ckan/templates/header.html:106
 #: ckan/templates/group/about.html:3 ckan/templates/group/read_base.html:19
 #: ckan/templates/home/about.html:3 ckan/templates/home/about.html:6
 #: ckan/templates/home/about.html:16 ckan/templates/organization/about.html:3
 #: ckan/templates/organization/read_base.html:19
-#: ckan/templates/user/edit_user_form.html:14
+#: ckan/templates/user/edit_user_form.html:16
 msgid "About"
 msgstr "Tietoja"
 
-#: ckan/controllers/admin.py:51
+#: ckan/controllers/admin.py:52
 msgid "About page text"
 msgstr "Tietoja-sivun teksti"
 
-#: ckan/controllers/admin.py:52
+#: ckan/controllers/admin.py:53
 msgid "Intro Text"
 msgstr "Johdantoteksti"
 
-#: ckan/controllers/admin.py:52
+#: ckan/controllers/admin.py:53
 msgid "Text on home page"
 msgstr "Teksti kotisivulla"
 
-#: ckan/controllers/admin.py:53
+#: ckan/controllers/admin.py:54
 msgid "Custom CSS"
 msgstr "Muokattu CSS"
 
-#: ckan/controllers/admin.py:53
+#: ckan/controllers/admin.py:54
 msgid "Customisable css inserted into the page header"
 msgstr "Muokattava CSS lisätty sivun header-osioon"
 
-#: ckan/controllers/admin.py:54
+#: ckan/controllers/admin.py:55
 msgid "Homepage"
 msgstr "Kotisivu"
 
-#: ckan/controllers/admin.py:157
+#: ckan/controllers/admin.py:76 ckan/controllers/admin.py:109
+#: ckan/controllers/admin.py:148 ckan/controllers/group.py:565
+#: ckan/controllers/group.py:599 ckan/controllers/group.py:662
+#: ckan/controllers/group.py:737 ckan/controllers/group.py:770
+#: ckan/controllers/package.py:578 ckan/controllers/package.py:702
+#: ckan/controllers/package.py:974 ckan/controllers/package.py:1020
+#: ckan/controllers/package.py:1064 ckan/controllers/package.py:1096
+#: ckan/controllers/package.py:1521 ckan/controllers/user.py:360
+msgid "Security token error, please try again"
+msgstr ""
+
+#: ckan/controllers/admin.py:174
 #, python-format
 msgid ""
 "Cannot purge package %s as associated revision %s includes non-deleted "
 "packages %s"
-msgstr "Ei voida poistaa tietoaineistoa %s, koska tähän liitetty revisio %s sisältää poistamattomia tietoaineistoja %s"
+msgstr ""
+"Ei voida poistaa tietoaineistoa %s, koska tähän liitetty revisio %s sisältää"
+" poistamattomia tietoaineistoja %s"
 
-#: ckan/controllers/admin.py:179
+#: ckan/controllers/admin.py:196
 #, python-format
 msgid "Problem purging revision %s: %s"
 msgstr "Ongelma näiden revisioiden poistamisessa %s: %s"
 
-#: ckan/controllers/admin.py:181
+#: ckan/controllers/admin.py:198
 msgid "Purge complete"
 msgstr "Poistaminen suoritettu"
 
-#: ckan/controllers/admin.py:183
+#: ckan/controllers/admin.py:200
 msgid "Action not implemented."
 msgstr "Toimintoa ei ole toteutettu."
 
-#: ckan/controllers/api.py:60 ckan/controllers/group.py:163
-#: ckan/controllers/home.py:26 ckan/controllers/package.py:142
+#: ckan/controllers/api.py:60 ckan/controllers/group.py:164
+#: ckan/controllers/home.py:26 ckan/controllers/package.py:143
 #: ckan/controllers/revision.py:31 ckan/controllers/tag.py:23
 #: ckan/controllers/user.py:46 ckan/controllers/user.py:73
-#: ckan/controllers/user.py:102 ckan/controllers/user.py:563
-#: ckanext/datapusher/plugin.py:68
+#: ckan/controllers/user.py:102 ckan/controllers/user.py:569
+#: ckanext/datapusher/plugin.py:66
 msgid "Not authorized to see this page"
 msgstr "Tämän sivun näyttäminen ei ole sallittu"
 
-#: ckan/controllers/api.py:120 ckan/controllers/api.py:214
+#: ckan/controllers/api.py:120 ckan/controllers/api.py:218
 msgid "Access denied"
 msgstr "Pääsy evätty"
 
-#: ckan/controllers/api.py:126 ckan/controllers/api.py:223
+#: ckan/controllers/api.py:126 ckan/controllers/api.py:227
 #: ckan/logic/converters.py:119 ckan/logic/converters.py:144
 #: ckan/logic/converters.py:169 ckan/logic/validators.py:146
 #: ckan/logic/validators.py:167 ckan/logic/validators.py:188
@@ -154,8 +156,8 @@ msgstr "Virheellinen pyyntö"
 msgid "Action name not known: %s"
 msgstr "Toiminnon nimi tuntematon: %s"
 
-#: ckan/controllers/api.py:188 ckan/controllers/api.py:358
-#: ckan/controllers/api.py:421
+#: ckan/controllers/api.py:188 ckan/controllers/api.py:362
+#: ckan/controllers/api.py:425
 #, python-format
 msgid "JSON Error: %s"
 msgstr "JSON-virhe: %s"
@@ -165,105 +167,98 @@ msgstr "JSON-virhe: %s"
 msgid "Bad request data: %s"
 msgstr "Huono datapyyntö: %s"
 
-#: ckan/controllers/api.py:294
+#: ckan/controllers/api.py:298
 #, python-format
 msgid "Cannot list entity of this type: %s"
 msgstr "Ei pystytä listaamaan entiteettiä, joka on tyyppiä %s"
 
-#: ckan/controllers/api.py:324
+#: ckan/controllers/api.py:328
 #, python-format
 msgid "Cannot read entity of this type: %s"
 msgstr "Ei pystytä lukemaan entiteettiä, joka on tyyppiä %s"
 
-#: ckan/controllers/api.py:363
+#: ckan/controllers/api.py:367
 #, python-format
 msgid "Cannot create new entity of this type: %s %s"
 msgstr "Ei pystytä luomaan entiteettiä, joka on tyyppiä %s %s"
 
-#: ckan/controllers/api.py:396
+#: ckan/controllers/api.py:400
 msgid "Unable to add package to search index"
 msgstr "Ei voitu lisätä tietoaineistoa hakuindeksiin"
 
-#: ckan/controllers/api.py:426
+#: ckan/controllers/api.py:430
 #, python-format
 msgid "Cannot update entity of this type: %s"
 msgstr "Ei pystytä muokkaamaan entiteettiä, joka on tyyppiä %s"
 
-#: ckan/controllers/api.py:450
+#: ckan/controllers/api.py:454
 msgid "Unable to update search index"
 msgstr "Hakuindeksiä ei voitu päivittää"
 
-#: ckan/controllers/api.py:474
+#: ckan/controllers/api.py:478
 #, python-format
 msgid "Cannot delete entity of this type: %s %s"
 msgstr "Ei pystytä poistamaan entiteettiä, joka on tyyppiä %s %s"
 
-#: ckan/controllers/api.py:497
+#: ckan/controllers/api.py:501
 msgid "No revision specified"
 msgstr "Revisiota ei annettu"
 
-#: ckan/controllers/api.py:501
+#: ckan/controllers/api.py:505
 #, python-format
 msgid "There is no revision with id: %s"
 msgstr "Revisiota tällä tunnisteella ei löydy: %s"
 
-#: ckan/controllers/api.py:511
+#: ckan/controllers/api.py:515
 msgid "Missing search term ('since_id=UUID' or  'since_time=TIMESTAMP')"
 msgstr "Hakutermi puuttuu ('since_id=UUID' or  'since_time=TIMESTAMP')"
 
-#: ckan/controllers/api.py:523
+#: ckan/controllers/api.py:527
 #, python-format
 msgid "Could not read parameters: %r"
 msgstr "Parametreja ei voitu lukea: %r"
 
-#: ckan/controllers/api.py:584
+#: ckan/controllers/api.py:588
 #, python-format
 msgid "Bad search option: %s"
 msgstr "Huono hakuvaihtoehto: %s"
 
-#: ckan/controllers/api.py:587
+#: ckan/controllers/api.py:591
 #, python-format
 msgid "Unknown register: %s"
 msgstr "Tuntematon rekisteri: %s"
 
-#: ckan/controllers/api.py:596
+#: ckan/controllers/api.py:600
 #, python-format
 msgid "Malformed qjson value: %r"
 msgstr "Väärässä muodossa oleva qjson-arvo: %r"
 
-#: ckan/controllers/api.py:606
+#: ckan/controllers/api.py:610
 msgid "Request params must be in form of a json encoded dictionary."
 msgstr "Kyselyparametrit täytyy olla json-enkoodatussa muodossa"
 
-#: ckan/controllers/feed.py:223 ckan/controllers/group.py:136
-#: ckan/controllers/group.py:222 ckan/controllers/group.py:408
-#: ckan/controllers/group.py:516 ckan/controllers/group.py:563
-#: ckan/controllers/group.py:595 ckan/controllers/group.py:606
-#: ckan/controllers/group.py:660 ckan/controllers/group.py:679
-#: ckan/controllers/group.py:731 ckan/controllers/group.py:763
-#: ckan/controllers/group.py:796 ckan/controllers/group.py:855
-#: ckan/controllers/group.py:951 ckan/controllers/package.py:1270
-#: ckan/controllers/package.py:1285
+#: ckan/controllers/feed.py:223 ckan/controllers/group.py:137
+#: ckan/controllers/group.py:223 ckan/controllers/group.py:407
+#: ckan/controllers/group.py:513 ckan/controllers/group.py:557
+#: ckan/controllers/group.py:591 ckan/controllers/group.py:605
+#: ckan/controllers/group.py:660 ckan/controllers/group.py:680
+#: ckan/controllers/group.py:733 ckan/controllers/group.py:768
+#: ckan/controllers/group.py:804 ckan/controllers/group.py:861
+#: ckan/controllers/group.py:953 ckan/controllers/package.py:1289
+#: ckan/controllers/package.py:1304
 msgid "Group not found"
-msgstr "Ryhmää ei löydy"
+msgstr "Kategoriaa ei löydy"
 
 #: ckan/controllers/feed.py:234
 msgid "Organization not found"
 msgstr "Organisaatioita ei löytynyt"
 
-#: ckan/controllers/group.py:138 ckan/controllers/group.py:609
+#: ckan/controllers/group.py:139 ckan/controllers/group.py:608
 msgid "Incorrect group type"
-msgstr "Väärä ryhmän tyyppi"
+msgstr "Väärä kategorian tyyppi"
 
-#: ckan/controllers/group.py:224 ckan/controllers/group.py:410
-#: ckan/controllers/group.py:518 ckan/controllers/group.py:561
-#: ckan/controllers/group.py:593 ckan/controllers/group.py:953
-#, python-format
-msgid "Unauthorized to read group %s"
-msgstr "Ryhmän lukeminen ei sallittu %s"
-
-#: ckan/controllers/group.py:310 ckan/controllers/home.py:67
-#: ckan/controllers/package.py:239 ckan/lib/helpers.py:755
+#: ckan/controllers/group.py:309 ckan/controllers/home.py:67
+#: ckan/controllers/package.py:240 ckan/lib/helpers.py:757
 #: ckan/templates/header.html:104 ckan/templates/organization/edit_base.html:5
 #: ckan/templates/organization/edit_base.html:8
 #: ckan/templates/organization/index.html:3
@@ -275,8 +270,8 @@ msgstr "Ryhmän lukeminen ei sallittu %s"
 msgid "Organizations"
 msgstr "Organisaatiot"
 
-#: ckan/controllers/group.py:311 ckan/controllers/home.py:68
-#: ckan/controllers/package.py:240 ckan/lib/helpers.py:756
+#: ckan/controllers/group.py:310 ckan/controllers/home.py:68
+#: ckan/controllers/package.py:241 ckan/lib/helpers.py:758
 #: ckan/templates/header.html:105 ckan/templates/group/base_form_page.html:6
 #: ckan/templates/group/edit.html:4 ckan/templates/group/edit_base.html:3
 #: ckan/templates/group/edit_base.html:8 ckan/templates/group/index.html:3
@@ -287,10 +282,10 @@ msgstr "Organisaatiot"
 #: ckan/templates/package/read_base.html:20
 #: ckan/templates/revision/diff.html:16 ckan/templates/revision/read.html:84
 msgid "Groups"
-msgstr "Ryhmät"
+msgstr "Kategoriat"
 
-#: ckan/controllers/group.py:312 ckan/controllers/home.py:69
-#: ckan/controllers/package.py:241 ckan/lib/helpers.py:757
+#: ckan/controllers/group.py:311 ckan/controllers/home.py:69
+#: ckan/controllers/package.py:242 ckan/lib/helpers.py:759
 #: ckan/logic/__init__.py:100
 #: ckan/templates/package/snippets/package_basic_fields.html:24
 #: ckan/templates/snippets/context/dataset.html:17
@@ -299,48 +294,47 @@ msgstr "Ryhmät"
 msgid "Tags"
 msgstr "Avainsanat"
 
-#: ckan/controllers/group.py:313 ckan/controllers/home.py:70
-#: ckan/controllers/package.py:242 ckan/lib/helpers.py:758
+#: ckan/controllers/group.py:312 ckan/controllers/home.py:70
+#: ckan/controllers/package.py:243 ckan/lib/helpers.py:760
 msgid "Formats"
 msgstr "Muodot"
 
-#: ckan/controllers/group.py:314 ckan/controllers/home.py:71
-#: ckan/controllers/package.py:243 ckan/lib/helpers.py:759
+#: ckan/controllers/group.py:313 ckan/controllers/home.py:71
+#: ckan/controllers/package.py:244 ckan/lib/helpers.py:761
 msgid "Licenses"
 msgstr "Lisenssit"
 
-#: ckan/controllers/group.py:453
+#: ckan/controllers/group.py:450
 msgid "Not authorized to perform bulk update"
 msgstr "Ei oikeutta tehdä massapäivityksiä (bulk update)"
 
-#: ckan/controllers/group.py:473
+#: ckan/controllers/group.py:470
 msgid "Unauthorized to create a group"
-msgstr "Ei oikeuksia luoda ryhmää"
+msgstr "Ei oikeuksia luoda kategoriaa"
 
-#: ckan/controllers/group.py:527 ckan/controllers/package.py:319
-#: ckan/controllers/package.py:779 ckan/controllers/package.py:1418
-#: ckan/controllers/package.py:1454
+#: ckan/controllers/group.py:522 ckan/controllers/package.py:320
+#: ckan/controllers/package.py:789 ckan/controllers/package.py:1435
+#: ckan/controllers/package.py:1469
 #, python-format
 msgid "User %r not authorized to edit %s"
 msgstr "Käyttäjällä %r ei oikeutta muokata %s"
 
-#: ckan/controllers/group.py:565 ckan/controllers/group.py:597
-#: ckan/controllers/package.py:945 ckan/controllers/package.py:993
-#: ckan/controllers/user.py:236 ckan/controllers/user.py:348
-#: ckan/controllers/user.py:517
+#: ckan/controllers/group.py:559 ckan/controllers/group.py:593
+#: ckan/controllers/package.py:954 ckan/controllers/package.py:1008
+#: ckan/controllers/user.py:236 ckan/controllers/user.py:350
+#: ckan/controllers/user.py:523
 msgid "Integrity Error"
 msgstr "Eheysvirhe"
 
-#: ckan/controllers/group.py:623
+#: ckan/controllers/group.py:622
 #, python-format
 msgid "User %r not authorized to edit %s authorizations"
 msgstr "Käyttäjällä %r ei oikeutta muokata %s oikeuksia"
 
-#: ckan/controllers/group.py:643 ckan/controllers/group.py:658
-#: ckan/controllers/group.py:677 ckan/controllers/group.py:761
+#: ckan/controllers/group.py:642 ckan/controllers/group.py:658
 #, python-format
 msgid "Unauthorized to delete group %s"
-msgstr "Ei oikeuksia poistaa ryhmää %s"
+msgstr "Ei oikeuksia poistaa kategoriaa %s"
 
 #: ckan/controllers/group.py:649
 msgid "Organization has been deleted."
@@ -348,251 +342,231 @@ msgstr "Organisaatio on poistettu"
 
 #: ckan/controllers/group.py:651
 msgid "Group has been deleted."
-msgstr "Ryhmä on poistettu."
+msgstr "Kategoria on poistettu."
 
 #: ckan/controllers/group.py:653
 #, python-format
 msgid "%s has been deleted."
 msgstr "%s on poistettu."
 
-#: ckan/controllers/group.py:729
+#: ckan/controllers/group.py:731
 #, python-format
 msgid "Unauthorized to add member to group %s"
-msgstr "Ei oikeuksia lisätä käyttäjää ryhmään %s"
+msgstr "Ei oikeuksia lisätä käyttäjää kategoriaan %s"
 
-#: ckan/controllers/group.py:748
+#: ckan/controllers/group.py:752 ckan/controllers/group.py:766
 #, python-format
 msgid "Unauthorized to delete group %s members"
-msgstr "Ei oikeuksia poistaa ryhmän %s jäseniä"
+msgstr "Ei oikeuksia poistaa kategorian %s jäseniä"
 
-#: ckan/controllers/group.py:755
+#: ckan/controllers/group.py:760
 msgid "Group member has been deleted."
-msgstr "Ryhmän jäsen on poistettu."
+msgstr "Kategorian jäsen on poistettu."
 
-#: ckan/controllers/group.py:779 ckan/controllers/package.py:412
+#: ckan/controllers/group.py:787 ckan/controllers/package.py:411
 msgid "Select two revisions before doing the comparison."
 msgstr "Valitse kaksi revisiota vertailuun."
 
-#: ckan/controllers/group.py:798
-#, python-format
-msgid "User %r not authorized to edit %r"
-msgstr "Käyttäjä %r ei voi muokata %r"
-
-#: ckan/controllers/group.py:805
+#: ckan/controllers/group.py:811
 msgid "CKAN Group Revision History"
-msgstr "CKAN-ryhmän revisioiden muutoshistoria"
+msgstr "CKAN-kategorian revisioiden muutoshistoria"
 
-#: ckan/controllers/group.py:809
+#: ckan/controllers/group.py:815
 msgid "Recent changes to CKAN Group: "
-msgstr "Viimeaikaiset muutokset CKAN-ryhmään:"
+msgstr "Viimeaikaiset muutokset CKAN-kategoriaan:"
 
-#: ckan/controllers/group.py:830 ckan/controllers/package.py:462
+#: ckan/controllers/group.py:836 ckan/controllers/package.py:461
 msgid "Log message: "
 msgstr "Lokiviesti:"
 
-#: ckan/controllers/group.py:858
-msgid "Unauthorized to read group {group_id}"
-msgstr "Ei oikeuksia lukea ryhmää {group_id}"
-
-#: ckan/controllers/group.py:879 ckan/controllers/package.py:1195
-#: ckan/controllers/user.py:684
+#: ckan/controllers/group.py:881 ckan/controllers/package.py:1216
+#: ckan/controllers/user.py:687
 msgid "You are now following {0}"
 msgstr "Seuraat nyt tätä: {0}"
 
-#: ckan/controllers/group.py:899 ckan/controllers/package.py:1214
-#: ckan/controllers/user.py:704
+#: ckan/controllers/group.py:901 ckan/controllers/package.py:1235
+#: ckan/controllers/user.py:707
 msgid "You are no longer following {0}"
 msgstr "Et seuraa enää tätä: {0}"
 
-#: ckan/controllers/group.py:919 ckan/controllers/user.py:549
+#: ckan/controllers/group.py:921 ckan/controllers/user.py:555
 #, python-format
 msgid "Unauthorized to view followers %s"
 msgstr "Ei oikeuksia nähdä seuraajia %s"
 
 #: ckan/controllers/home.py:34
 msgid "This site is currently off-line. Database is not initialised."
-msgstr "Sivusto on tällä hetkellä pois käytöstä. Tietokantaa ei ole alustettu."
+msgstr ""
+"Sivusto on tällä hetkellä pois käytöstä. Tietokantaa ei ole alustettu."
 
 #: ckan/controllers/home.py:79
 #, python-format
 msgid "Please <a href=\"%s\">update your profile</a> and add your email address. "
-msgstr "Ole hyvä ja <a href=\"%s\">päivitä profiilisi</a> ja lisää sähköpostiosoitteesi."
+msgstr ""
+"Ole hyvä ja <a href=\"%s\">päivitä profiilisi</a> ja lisää "
+"sähköpostiosoitteesi."
 
 #: ckan/controllers/home.py:81
 #, python-format
 msgid "%s uses your email address if you need to reset your password."
 msgstr "%s käyttää sähköpostiosoitettasi, jos sinun täytyy uusia salasanasi."
 
-#: ckan/controllers/package.py:293
+#: ckan/controllers/package.py:294
 msgid "Parameter \"{parameter_name}\" is not an integer"
 msgstr "Parametri \"{parameter_name}\" ei ole kokonaisluku"
 
-#: ckan/controllers/package.py:317 ckan/controllers/package.py:325
-#: ckan/controllers/package.py:365 ckan/controllers/package.py:431
-#: ckan/controllers/package.py:765 ckan/controllers/package.py:824
-#: ckan/controllers/package.py:842 ckan/controllers/package.py:943
-#: ckan/controllers/package.py:991 ckan/controllers/package.py:1043
-#: ckan/controllers/package.py:1085 ckan/controllers/package.py:1240
-#: ckan/controllers/package.py:1256 ckan/controllers/package.py:1323
-#: ckan/controllers/package.py:1424 ckan/controllers/package.py:1461
-#: ckan/controllers/package.py:1574
+#: ckan/controllers/package.py:318 ckan/controllers/package.py:326
+#: ckan/controllers/package.py:364 ckan/controllers/package.py:430
+#: ckan/controllers/package.py:775 ckan/controllers/package.py:832
+#: ckan/controllers/package.py:850 ckan/controllers/package.py:952
+#: ckan/controllers/package.py:1006 ckan/controllers/package.py:1062
+#: ckan/controllers/package.py:1110 ckan/controllers/package.py:1261
+#: ckan/controllers/package.py:1277 ckan/controllers/package.py:1342
+#: ckan/controllers/package.py:1441 ckan/controllers/package.py:1476
+#: ckan/controllers/package.py:1591
 msgid "Dataset not found"
 msgstr "Tietoaineistoa ei löydy"
 
-#: ckan/controllers/package.py:327 ckan/controllers/package.py:367
-#: ckan/controllers/package.py:429 ckan/controllers/package.py:763
-#: ckan/controllers/package.py:822 ckan/controllers/package.py:840
-#: ckan/controllers/package.py:941 ckan/controllers/package.py:989
-#: ckan/controllers/package.py:1242
-#, python-format
-msgid "Unauthorized to read package %s"
-msgstr "Ei oikeuksia lukea tietoaineistoa %s"
-
-#: ckan/controllers/package.py:353 ckan/controllers/package.py:355
-#: ckan/controllers/package.py:357
+#: ckan/controllers/package.py:352 ckan/controllers/package.py:354
+#: ckan/controllers/package.py:356
 #, python-format
 msgid "Invalid revision format: %r"
 msgstr "Väärä revision muoto: %r"
 
-#: ckan/controllers/package.py:393
+#: ckan/controllers/package.py:366 ckan/controllers/package.py:428
+#: ckan/controllers/package.py:848 ckan/controllers/package.py:950
+#: ckan/controllers/package.py:1004 ckan/controllers/package.py:1263
+#, python-format
+msgid "Unauthorized to read package %s"
+msgstr "Ei oikeuksia lukea tietoaineistoa %s"
+
+#: ckan/controllers/package.py:392
 msgid ""
 "Viewing {package_type} datasets in {format} format is not supported "
 "(template file {file} not found)."
-msgstr "{package_type}-tietoaineistojen katselu {format}-muodossa ei ole mahdollista  (mallitiedostoa {file} ei löydy)."
+msgstr ""
+"{package_type}-tietoaineistojen katselu {format}-muodossa ei ole mahdollista"
+"  (mallitiedostoa {file} ei löydy)."
 
-#: ckan/controllers/package.py:438
+#: ckan/controllers/package.py:437
 msgid "CKAN Dataset Revision History"
 msgstr "CKAN-tietoaineiston muutoshistoria"
 
-#: ckan/controllers/package.py:441
+#: ckan/controllers/package.py:440
 msgid "Recent changes to CKAN Dataset: "
 msgstr "Viimeisimmät muutokset CKAN-tietoaineistoon:"
 
-#: ckan/controllers/package.py:498
+#: ckan/controllers/package.py:497
 msgid "Unauthorized to create a package"
 msgstr "Ei oikeuksia luoda tietoaineistoa"
 
-#: ckan/controllers/package.py:576 ckanext/datapusher/plugin.py:59
+#: ckan/controllers/package.py:576
 msgid "Unauthorized to edit this resource"
 msgstr "Ei oikeuksia muokata tätä resurssia "
 
-#: ckan/controllers/package.py:599 ckan/controllers/package.py:1072
-#: ckan/controllers/package.py:1094 ckan/controllers/package.py:1163
-#: ckan/controllers/package.py:1353 ckan/controllers/package.py:1435
-#: ckan/controllers/package.py:1468 ckan/controllers/package.py:1582
-#: ckan/controllers/package.py:1638 ckanext/datapusher/plugin.py:57
+#: ckan/controllers/package.py:604 ckan/controllers/package.py:1094
+#: ckan/controllers/package.py:1117 ckan/controllers/package.py:1186
+#: ckan/controllers/package.py:1372 ckan/controllers/package.py:1450
+#: ckan/controllers/package.py:1481 ckan/controllers/package.py:1597
+#: ckan/controllers/package.py:1648 ckanext/datapusher/plugin.py:57
 #: ckanext/resourceproxy/controller.py:31
 msgid "Resource not found"
 msgstr "Resurssia ei löydy"
 
-#: ckan/controllers/package.py:653
+#: ckan/controllers/package.py:658
 msgid "Unauthorized to update dataset"
 msgstr "Ei oikeuksia päivittää tietoaineistoa"
 
-#: ckan/controllers/package.py:655 ckan/controllers/package.py:692
-#: ckan/controllers/package.py:721
+#: ckan/controllers/package.py:660 ckan/controllers/package.py:699
+#: ckan/controllers/package.py:733
 msgid "The dataset {id} could not be found."
 msgstr "Tietoaineistoa {id} ei löydy."
 
-#: ckan/controllers/package.py:659
+#: ckan/controllers/package.py:665
 msgid "You must add at least one data resource"
 msgstr "Sinun täytyy lisätä vähintään yksi dataresurssi"
 
-#: ckan/controllers/package.py:667 ckanext/datapusher/helpers.py:22
+#: ckan/controllers/package.py:673 ckanext/datapusher/helpers.py:22
 msgid "Error"
 msgstr "Virhe"
 
-#: ckan/controllers/package.py:690
+#: ckan/controllers/package.py:697
 msgid "Unauthorized to create a resource"
 msgstr "Ei oikeutta luoda resurssia"
 
-#: ckan/controllers/package.py:726
+#: ckan/controllers/package.py:738
 msgid "Unauthorized to create a resource for this package"
 msgstr "Käyttäjällä ei ole oikeutta luoda uutta resurssia tähän pakettiin."
 
-#: ckan/controllers/package.py:951
+#: ckan/controllers/package.py:960
 msgid "Unable to add package to search index."
 msgstr "Ei voitu lisätä pakettia hakuindeksiin"
 
-#: ckan/controllers/package.py:999
+#: ckan/controllers/package.py:1014
 msgid "Unable to update search index."
 msgstr "Ei voitu päivittää hakuindeksiä"
 
-#: ckan/controllers/package.py:1036
+#: ckan/controllers/package.py:1055
 msgid "Dataset has been deleted."
 msgstr "Tietoaineisto on poistettu."
 
-#: ckan/controllers/package.py:1041 ckan/controllers/package.py:1059
+#: ckan/controllers/package.py:1060 ckan/controllers/package.py:1080
 #, python-format
 msgid "Unauthorized to delete package %s"
 msgstr "Ei oikeutta poistaa tietoaineistoa %s"
 
-#: ckan/controllers/package.py:1064
+#: ckan/controllers/package.py:1086
 msgid "Resource has been deleted."
 msgstr "Resurssi on poistettu."
 
-#: ckan/controllers/package.py:1070
+#: ckan/controllers/package.py:1092
 #, python-format
 msgid "Unauthorized to delete resource %s"
 msgstr "Ei oikeuksia poistaa resurssia %s"
 
-#: ckan/controllers/package.py:1087 ckan/controllers/package.py:1258
-#: ckan/controllers/package.py:1325 ckan/controllers/package.py:1426
-#: ckan/controllers/package.py:1463 ckan/controllers/package.py:1576
+#: ckan/controllers/package.py:1156 ckan/controllers/package.py:1610
+msgid "Resource view not found"
+msgstr "Resurssinäkymää ei löytynyt"
+
+#: ckan/controllers/package.py:1195
+msgid "Resource data not found"
+msgstr "Resurssin dataa ei löydy"
+
+#: ckan/controllers/package.py:1204
+msgid "No download is available"
+msgstr "Ei ladattavaa saatavilla"
+
+#: ckan/controllers/package.py:1344
 #, python-format
 msgid "Unauthorized to read dataset %s"
 msgstr "Ei oikeuksia lukea tietoaineistoa %s"
 
-#: ckan/controllers/package.py:1133 ckan/controllers/package.py:1597
-msgid "Resource view not found"
-msgstr "Resurssinäkymää ei löytynyt"
-
-#: ckan/controllers/package.py:1165 ckan/controllers/package.py:1355
-#: ckan/controllers/package.py:1437 ckan/controllers/package.py:1470
-#: ckan/controllers/package.py:1584 ckan/controllers/package.py:1640
+#: ckan/controllers/package.py:1452
 #, python-format
 msgid "Unauthorized to read resource %s"
 msgstr "Ei oikeuksia lukea resurssia %s"
 
-#: ckan/controllers/package.py:1174
-msgid "Resource data not found"
-msgstr "Resurssin dataa ei löydy"
-
-#: ckan/controllers/package.py:1183
-msgid "No download is available"
-msgstr "Ei ladattavaa saatavilla"
-
-#: ckan/controllers/package.py:1505
+#: ckan/controllers/package.py:1519
 msgid "Unauthorized to edit resource"
 msgstr "Ei oikeuksia muokata resursseja"
 
-#: ckan/controllers/package.py:1523
+#: ckan/controllers/package.py:1542
 msgid "View not found"
 msgstr "Näkymää ei löydy"
 
-#: ckan/controllers/package.py:1525
-#, python-format
-msgid "Unauthorized to view View %s"
-msgstr "Ei oikeuksia katsoa näkymää %s"
-
-#: ckan/controllers/package.py:1531
+#: ckan/controllers/package.py:1548
 msgid "View Type Not found"
 msgstr "Näkymätyyppiä ei löytynyt"
 
-#: ckan/controllers/package.py:1591
+#: ckan/controllers/package.py:1604
 msgid "Bad resource view data"
 msgstr "Virheelliset resurssinäkymän tiedot"
 
-#: ckan/controllers/package.py:1600
-#, python-format
-msgid "Unauthorized to read resource view %s"
-msgstr "Ei oikeuksia lukea resurssinäkymää %s"
-
-#: ckan/controllers/package.py:1603
+#: ckan/controllers/package.py:1613
 msgid "Resource view not supplied"
 msgstr "Resurssinäkymää ei saatavilla"
 
-#: ckan/controllers/package.py:1632
+#: ckan/controllers/package.py:1642
 msgid "No preview has been defined."
 msgstr "Esikatselua ei ole määritelty."
 
@@ -623,8 +597,8 @@ msgstr "Avainsanaa ei löydy"
 
 #: ckan/controllers/user.py:71 ckan/controllers/user.py:219
 #: ckan/controllers/user.py:234 ckan/controllers/user.py:297
-#: ckan/controllers/user.py:346 ckan/controllers/user.py:493
-#: ckan/controllers/user.py:515 ckan/logic/auth/update.py:198
+#: ckan/controllers/user.py:348 ckan/controllers/user.py:499
+#: ckan/controllers/user.py:521 ckan/logic/auth/update.py:198
 msgid "User not found"
 msgstr "Käyttäjää ei löydy"
 
@@ -645,12 +619,12 @@ msgid "No user specified"
 msgstr "Käyttäjää ei määritelty"
 
 #: ckan/controllers/user.py:217 ckan/controllers/user.py:295
-#: ckan/controllers/user.py:344 ckan/controllers/user.py:513
+#: ckan/controllers/user.py:346 ckan/controllers/user.py:519
 #, python-format
 msgid "Unauthorized to edit user %s"
 msgstr "Käyttäjän %s muokkaus ei sallittu"
 
-#: ckan/controllers/user.py:221 ckan/controllers/user.py:341
+#: ckan/controllers/user.py:221 ckan/controllers/user.py:343
 msgid "Profile updated"
 msgstr "Profiili päivitetty"
 
@@ -668,7 +642,9 @@ msgstr "Väärä Captcha sana. Yritä uudelleen."
 msgid ""
 "User \"%s\" is now registered but you are still logged in as \"%s\" from "
 "before"
-msgstr "Käyttäjä %s on nyt rekisteröity, mutta olet edelleen kirjautunut sisään käyttäjänä %s"
+msgstr ""
+"Käyttäjä %s on nyt rekisteröity, mutta olet edelleen kirjautunut sisään "
+"käyttäjänä %s"
 
 #: ckan/controllers/user.py:276
 msgid "Unauthorized to edit a user."
@@ -679,82 +655,78 @@ msgstr "Ei oikeuksia muokata käyttäjää."
 msgid "User %s not authorized to edit %s"
 msgstr "Käyttäjällä %s ei oikeutta muokata %s"
 
-#: ckan/controllers/user.py:354
+#: ckan/controllers/user.py:356
 msgid "Password entered was incorrect"
 msgstr "Annettu salasana oli väärin"
 
-#: ckan/controllers/user.py:355 ckan/templates/user/edit_user_form.html:27
+#: ckan/controllers/user.py:357 ckan/templates/user/edit_user_form.html:29
 msgid "Old Password"
 msgstr "Vanha salasana"
 
-#: ckan/controllers/user.py:355
+#: ckan/controllers/user.py:357
 msgid "incorrect password"
 msgstr "väärä salasana"
 
-#: ckan/controllers/user.py:396
+#: ckan/controllers/user.py:402
 msgid "Login failed. Bad username or password."
 msgstr "Kirjautuminen epäonnistui. Väärä käyttäjätunnus tai salasana."
 
-#: ckan/controllers/user.py:430
+#: ckan/controllers/user.py:436
 msgid "Unauthorized to request reset password."
 msgstr "Ei oikeutta pyytää salasanan resetoimista."
 
-#: ckan/controllers/user.py:459
+#: ckan/controllers/user.py:465
 #, python-format
 msgid "\"%s\" matched several users"
 msgstr "\"%s\" kohdistui moneen käyttäjään"
 
-#: ckan/controllers/user.py:461 ckan/controllers/user.py:463
+#: ckan/controllers/user.py:467 ckan/controllers/user.py:469
 #, python-format
 msgid "No such user: %s"
 msgstr "Ei käyttäjää: %s"
 
-#: ckan/controllers/user.py:468
+#: ckan/controllers/user.py:474
 msgid "Please check your inbox for a reset code."
 msgstr "Ole hyvä ja tarkista sähköpostisi resetointikoodia varten"
 
-#: ckan/controllers/user.py:472
+#: ckan/controllers/user.py:478
 #, python-format
 msgid "Could not send reset link: %s"
 msgstr "Resetointilinkkiä ei voitu lähettää: %s"
 
-#: ckan/controllers/user.py:485
+#: ckan/controllers/user.py:491
 msgid "Unauthorized to reset password."
 msgstr "Ei oikeutta salasanan resetoimiseen."
 
-#: ckan/controllers/user.py:497
+#: ckan/controllers/user.py:503
 msgid "Invalid reset key. Please try again."
 msgstr "Epäkelpo resetointiavain. Yritä uudelleen."
 
-#: ckan/controllers/user.py:510
+#: ckan/controllers/user.py:516
 msgid "Your password has been reset."
 msgstr "Salasanasi on resetoitu"
 
-#: ckan/controllers/user.py:531
+#: ckan/controllers/user.py:537
 msgid "Your password must be 4 characters or longer."
 msgstr "Salasanasi pitää olla 4 merkkiä tai pidempi"
 
-#: ckan/controllers/user.py:534
+#: ckan/controllers/user.py:540
 msgid "The passwords you entered do not match."
 msgstr "Syötetyt salasanat eivät ole samoja"
 
-#: ckan/controllers/user.py:537
+#: ckan/controllers/user.py:543
 msgid "You must provide a password"
 msgstr "Sinun täytyy antaa salasanasi"
 
-#: ckan/controllers/user.py:602
+#: ckan/controllers/user.py:608
 msgid "Follow item not found"
 msgstr "Seurattavaa kohdetta ei löytynyt"
 
-#: ckan/controllers/user.py:606
+#: ckan/controllers/user.py:612
 msgid "{0} not found"
 msgstr "{0} ei löytynyt"
 
-#: ckan/controllers/user.py:608
-msgid "Unauthorized to read {0} {1}"
-msgstr "Ei oikeutta lukea {0} {1}"
-
-#: ckan/controllers/user.py:623
+#: ckan/controllers/user.py:626
 msgid "Everything"
 msgstr "Kaikki"
 
@@ -772,7 +744,7 @@ msgstr "{actor} lisäsi avainsanan {tag} tietoaineistoon {dataset}"
 
 #: ckan/lib/activity_streams.py:67
 msgid "{actor} updated the group {group}"
-msgstr "{actor} päivitti ryhmää {group}"
+msgstr "{actor} päivitti kategoriaa {group}"
 
 #: ckan/lib/activity_streams.py:70
 msgid "{actor} updated the organization {organization}"
@@ -797,7 +769,8 @@ msgstr "{actor} päivitti profiiliaan"
 #: ckan/lib/activity_streams.py:86
 msgid ""
 "{actor} updated the {related_type} {related_item} of the dataset {dataset}"
-msgstr "{actor} päivitti {related_type} {related_item} tietoaineistossa {dataset}"
+msgstr ""
+"{actor} päivitti {related_type} {related_item} tietoaineistossa {dataset}"
 
 #: ckan/lib/activity_streams.py:89
 msgid "{actor} updated the {related_type} {related_item}"
@@ -805,7 +778,7 @@ msgstr "{actor} päivitti {related_type} {related_item}"
 
 #: ckan/lib/activity_streams.py:92
 msgid "{actor} deleted the group {group}"
-msgstr "{actor} poisti ryhmän {group}"
+msgstr "{actor} poisti kategorian {group}"
 
 #: ckan/lib/activity_streams.py:95
 msgid "{actor} deleted the organization {organization}"
@@ -825,7 +798,7 @@ msgstr "{actor} poisti resurssin {resource} tietoaineistosta {dataset}"
 
 #: ckan/lib/activity_streams.py:108
 msgid "{actor} created the group {group}"
-msgstr "{actor} loi ryhmän {group}"
+msgstr "{actor} loi kategorian {group}"
 
 #: ckan/lib/activity_streams.py:111
 msgid "{actor} created the organization {organization}"
@@ -865,12 +838,13 @@ msgstr "{actor} alkoi seurata käyttäjää {user}"
 
 #: ckan/lib/activity_streams.py:138
 msgid "{actor} started following {group}"
-msgstr "{actor} alkoi seurata ryhmää {group}"
+msgstr "{actor} alkoi seurata kategoriaa {group}"
 
 #: ckan/lib/activity_streams.py:142
 msgid ""
 "{actor} added the {related_type} {related_item} to the dataset {dataset}"
-msgstr "{actor} lisäsi {related_type} {related_item} tietoaineistoon {dataset}"
+msgstr ""
+"{actor} lisäsi {related_type} {related_item} tietoaineistoon {dataset}"
 
 #: ckan/lib/activity_streams.py:145
 msgid "{actor} added the {related_type} {related_item}"
@@ -1035,37 +1009,33 @@ msgstr "{z}Z"
 msgid "{y}Y"
 msgstr "{y}Y"
 
-#: ckan/lib/helpers.py:939
-msgid "Update your avatar at gravatar.com"
-msgstr "Päivitä avatarisi osoitteessa gravatar.com"
-
-#: ckan/lib/helpers.py:1145 ckan/lib/helpers.py:1157
+#: ckan/lib/helpers.py:1128 ckan/lib/helpers.py:1140
 msgid "Unknown"
 msgstr "Tuntematon"
 
-#: ckan/lib/helpers.py:1202
+#: ckan/lib/helpers.py:1185
 msgid "Unnamed resource"
 msgstr "Nimetön resurssi"
 
-#: ckan/lib/helpers.py:1250
+#: ckan/lib/helpers.py:1233
 msgid "Created new dataset."
 msgstr "Uusi tietoaineisto luotu."
 
-#: ckan/lib/helpers.py:1252
+#: ckan/lib/helpers.py:1235
 msgid "Edited resources."
 msgstr "Tietoaineistolinkkejä muokattu."
 
-#: ckan/lib/helpers.py:1254
+#: ckan/lib/helpers.py:1237
 msgid "Edited settings."
 msgstr "Asetuksia muokattu."
 
-#: ckan/lib/helpers.py:1518
+#: ckan/lib/helpers.py:1501
 msgid "{number} view"
 msgid_plural "{number} views"
 msgstr[0] "{number} katselukerta"
 msgstr[1] "{number} katselukertaa"
 
-#: ckan/lib/helpers.py:1520
+#: ckan/lib/helpers.py:1503
 msgid "{number} recent view"
 msgid_plural "{number} recent views"
 msgstr[0] "{number} viimeaikainen katselukerta"
@@ -1092,7 +1062,12 @@ msgid ""
 "Please click the following link to confirm this request:\n"
 "\n"
 "   {reset_link}\n"
-msgstr "Olet pyytänyt salasanaasi sivustolle {site_title} palautettavaksi.\n\nOle hyvä ja klikkaa seuraavaa linkkiä vahvistaaksesi tämän pyynnön:\n\n   {reset_link}\n"
+msgstr ""
+"Olet pyytänyt salasanaasi sivustolle {site_title} palautettavaksi.\n"
+"\n"
+"Ole hyvä ja klikkaa seuraavaa linkkiä vahvistaaksesi tämän pyynnön:\n"
+"\n"
+"   {reset_link}\n"
 
 #: ckan/lib/mailer.py:119
 msgid ""
@@ -1101,10 +1076,15 @@ msgid ""
 "To accept this invite, please reset your password at:\n"
 "\n"
 "   {reset_link}\n"
-msgstr "Sinut on kutsuttu {site_title}. Sinulle on jo luotu käyttäjä käyttäjänimellä {user_name}. Voit muuttaa sen myöhemmin.\n\nHyväksyyksesi tämän kutsun, ole ystävällinen ja resetoi salasanasi linkissä:\n\n   {reset_link}\n"
+msgstr ""
+"Sinut on kutsuttu {site_title}. Sinulle on jo luotu käyttäjä käyttäjänimellä {user_name}. Voit muuttaa sen myöhemmin.\n"
+"\n"
+"Hyväksyyksesi tämän kutsun, ole ystävällinen ja resetoi salasanasi linkissä:\n"
+"\n"
+"   {reset_link}\n"
 
-#: ckan/lib/mailer.py:145 ckan/templates/user/request_reset.html:3
-#: ckan/templates/user/request_reset.html:13
+#: ckan/lib/mailer.py:145 ckan/templates/user/request_reset.html:4
+#: ckan/templates/user/request_reset.html:14
 msgid "Reset your password"
 msgstr "Resetoi salasanasi"
 
@@ -1121,7 +1101,7 @@ msgstr "Kutsu sivustolle {site_title}"
 #: ckan/lib/navl/dictization_functions.py:23
 #: ckan/lib/navl/dictization_functions.py:25 ckan/lib/navl/validators.py:23
 #: ckan/lib/navl/validators.py:30 ckan/lib/navl/validators.py:50
-#: ckan/logic/validators.py:630 ckan/logic/action/get.py:2107
+#: ckan/logic/validators.py:630 ckan/logic/action/get.py:2112
 msgid "Missing value"
 msgstr "Puuttuva arvo"
 
@@ -1175,7 +1155,7 @@ msgstr "Tietoaineisto"
 #: ckan/logic/converters.py:169 ckan/logic/validators.py:241
 #: ckanext/stats/templates/ckanext/stats/index.html:113
 msgid "Group"
-msgstr "Ryhmä"
+msgstr "Kategoria"
 
 #: ckan/logic/converters.py:178
 msgid "Could not parse as valid JSON"
@@ -1228,7 +1208,7 @@ msgstr "Liittyvä"
 
 #: ckan/logic/validators.py:265
 msgid "That group name or ID does not exist."
-msgstr "Ryhmän nimeä tai tunnistetta ei ole olemassa."
+msgstr "Kategorian nimeä tai tunnistetta ei ole olemassa."
 
 #: ckan/logic/validators.py:279
 msgid "Activity type"
@@ -1256,7 +1236,9 @@ msgstr "Nimi voi olla korkeintaan of %i merkkiä pitkä"
 msgid ""
 "Must be purely lowercase alphanumeric (ascii) characters and these symbols: "
 "-_"
-msgstr "Tulee olla kokonaisuudessaan pienin alfanumeerisin (ascii) merkein ja näillä symbooleilla: -_"
+msgstr ""
+"Tulee olla kokonaisuudessaan pienin alfanumeerisin (ascii) merkein ja näillä"
+" symbooleilla: -_"
 
 #: ckan/logic/validators.py:384
 msgid "That URL is already in use."
@@ -1284,7 +1266,7 @@ msgstr "Duplikaatti avain \"%s\""
 
 #: ckan/logic/validators.py:433
 msgid "Group name already exists in database"
-msgstr "Ryhmän nimi löytyy jo tietokannasta"
+msgstr "Kategorian nimi löytyy jo tietokannasta"
 
 #: ckan/logic/validators.py:439
 #, python-format
@@ -1299,7 +1281,9 @@ msgstr "Avainsana \"%s\" on pidempi kuin maksimi %i"
 #: ckan/logic/validators.py:451
 #, python-format
 msgid "Tag \"%s\" must be alphanumeric characters or symbols: -_."
-msgstr "Avainsanan \"%s\" pitää koostua alfanumeerisita merkeistä (ascii) ja näistä erikoismerkeistä: -_."
+msgstr ""
+"Avainsanan \"%s\" pitää koostua alfanumeerisita merkeistä (ascii) ja näistä "
+"erikoismerkeistä: -_."
 
 #: ckan/logic/validators.py:459
 #, python-format
@@ -1334,7 +1318,9 @@ msgstr "Syötetyt salasanat eivät samat"
 msgid ""
 "Edit not allowed as it looks like spam. Please avoid links in your "
 "description."
-msgstr "Muokkaus ei sallittu, koska se vaikuttaa roskapostaukselta. Ole hyvä ja vältä linkkejä kuvauksessa."
+msgstr ""
+"Muokkaus ei sallittu, koska se vaikuttaa roskapostaukselta. Ole hyvä ja "
+"vältä linkkejä kuvauksessa."
 
 #: ckan/logic/validators.py:643
 #, python-format
@@ -1348,7 +1334,9 @@ msgstr "Sanaston nimi on jo käytössä"
 #: ckan/logic/validators.py:657
 #, python-format
 msgid "Cannot change value of key from %s to %s. This key is read-only"
-msgstr "Ei voi vaihtaa avaimen %s arvoa arvoon %s. Tähän avaimeen on vain lukuoikeudet"
+msgstr ""
+"Ei voi vaihtaa avaimen %s arvoa arvoon %s. Tähän avaimeen on vain "
+"lukuoikeudet"
 
 #: ckan/logic/validators.py:666
 msgid "Tag vocabulary was not found."
@@ -1425,7 +1413,7 @@ msgstr "REST API: Luo jäsenobjekti %s"
 
 #: ckan/logic/action/create.py:862
 msgid "Trying to create an organization as a group"
-msgstr "Yrittää luoda organisaatiota ryhmäksi"
+msgstr "Yrittää luoda organisaatiota kategoriaksi"
 
 #: ckan/logic/action/create.py:951
 msgid "You must supply a package id or name (parameter \"package\")."
@@ -1467,7 +1455,7 @@ msgstr "Käyttäjää {username} ei ole."
 
 #: ckan/logic/action/create.py:1506 ckan/logic/action/create.py:1514
 msgid "You must be logged in to follow a group."
-msgstr "Sinun tulee olla kirjautunut seurataksesi ryhmää."
+msgstr "Sinun tulee olla kirjautunut seurataksesi kategoriaa."
 
 #: ckan/logic/action/delete.py:72
 #, python-format
@@ -1485,11 +1473,11 @@ msgid "REST API: Delete Member: %s"
 msgstr "REST API: Poista käyttäjä %s"
 
 #: ckan/logic/action/delete.py:556 ckan/logic/action/delete.py:582
-#: ckan/logic/action/get.py:2506 ckan/logic/action/update.py:993
+#: ckan/logic/action/get.py:2511 ckan/logic/action/update.py:993
 msgid "id not in data"
 msgstr "id ei ole datassa"
 
-#: ckan/logic/action/delete.py:560 ckan/logic/action/get.py:2509
+#: ckan/logic/action/delete.py:560 ckan/logic/action/get.py:2514
 #: ckan/logic/action/update.py:997
 #, python-format
 msgid "Could not find vocabulary \"%s\""
@@ -1513,15 +1501,15 @@ msgstr "Et seuraa tätä: {0}"
 msgid "Resource was not found."
 msgstr "Tietoaineistolinkkiä ei löytynyt"
 
-#: ckan/logic/action/get.py:2111
+#: ckan/logic/action/get.py:2116
 msgid "Do not specify if using \"query\" parameter"
 msgstr "Älä määrittele, jos käytät \"query\"-parametria"
 
-#: ckan/logic/action/get.py:2120
+#: ckan/logic/action/get.py:2125
 msgid "Must be <field>:<value> pair(s)"
 msgstr "Täytyy olla <field>:<value> pari(eja)"
 
-#: ckan/logic/action/get.py:2152
+#: ckan/logic/action/get.py:2157
 msgid "Field \"{field}\" not recognised in resource_search."
 msgstr "Kentää \"{field}\" ei tunnistettu toiminnossa resource_search."
 
@@ -1559,12 +1547,13 @@ msgstr "Käyttäjällä %s ei ole oikeutta luoda tietoaineistoja"
 #: ckan/logic/auth/create.py:29 ckan/logic/auth/update.py:43
 #, python-format
 msgid "User %s not authorized to edit these groups"
-msgstr "Käyttäjällä %s ei ole oikeutta muokata näitä ryhmiä"
+msgstr "Käyttäjällä %s ei ole oikeutta muokata näitä kategorioita"
 
 #: ckan/logic/auth/create.py:36
 #, python-format
 msgid "User %s not authorized to add dataset to this organization"
-msgstr "Käyttäjällä %s ei ole oikeutta luoda tietoaineistoa tähän organisaatioon"
+msgstr ""
+"Käyttäjällä %s ei ole oikeutta luoda tietoaineistoa tähän organisaatioon"
 
 #: ckan/logic/auth/create.py:58
 msgid "You must be a sysadmin to create a featured related item"
@@ -1581,7 +1570,9 @@ msgstr "Tietojoukon id ei ole annettu, tekijää ei voida tarkistaa."
 #: ckan/logic/auth/create.py:84 ckan/logic/auth/delete.py:32
 #: ckan/logic/auth/get.py:135 ckan/logic/auth/update.py:61
 msgid "No package found for this resource, cannot check auth."
-msgstr "Tietoaineistoa ei löytynyt tälle aineistolinkille, ei voida tarkistaa valtuutusta"
+msgstr ""
+"Tietoaineistoa ei löytynyt tälle aineistolinkille, ei voida tarkistaa "
+"valtuutusta"
 
 #: ckan/logic/auth/create.py:92
 #, python-format
@@ -1596,42 +1587,43 @@ msgstr "Käyttäjällä %s ei ole oikeuksia muokata näitä paketteja"
 #: ckan/logic/auth/create.py:135
 #, python-format
 msgid "User %s not authorized to create groups"
-msgstr "Käyttäjällä %s ei ole oikeuksia luoda ryhmiä"
+msgstr "Käyttäjällä %s ei ole oikeuksia luoda kategorioita"
 
 #: ckan/logic/auth/create.py:145
 #, python-format
 msgid "User %s not authorized to create organizations"
 msgstr "Käyttäjällä %s ei ole oikeuksia luoda organisaatioita"
 
-#: ckan/logic/auth/create.py:161
+#: ckan/logic/auth/create.py:163
 msgid "User {user} not authorized to create users via the API"
-msgstr "Käyttäjällä {user} ei ole oikeutta luoda käyttäjiä API-rajapinnan kautta."
+msgstr ""
+"Käyttäjällä {user} ei ole oikeutta luoda käyttäjiä API-rajapinnan kautta."
 
-#: ckan/logic/auth/create.py:164
+#: ckan/logic/auth/create.py:166
 msgid "Not authorized to create users"
 msgstr "Ei oikeutta luoda käyttäjiä"
 
-#: ckan/logic/auth/create.py:207
+#: ckan/logic/auth/create.py:209
 msgid "Group was not found."
-msgstr "Ryhmiä ei löytynyt."
+msgstr "Kategorioita ei löytynyt."
 
-#: ckan/logic/auth/create.py:227
+#: ckan/logic/auth/create.py:229
 msgid "Valid API key needed to create a package"
 msgstr "Tietoaineiston luomiseen tarvitaan voimassa oleva API-avain"
 
-#: ckan/logic/auth/create.py:235
+#: ckan/logic/auth/create.py:237
 msgid "Valid API key needed to create a group"
-msgstr "Ryhmän luomiseen tarvitaan voimassa oleva API-avain"
+msgstr "Kategorian luomiseen tarvitaan voimassa oleva API-avain"
 
-#: ckan/logic/auth/create.py:255
+#: ckan/logic/auth/create.py:257
 #, python-format
 msgid "User %s not authorized to add members"
 msgstr "Käyttäjällä %s ei ole oikeuksia lisätä jäseniä"
 
-#: ckan/logic/auth/create.py:279 ckan/logic/auth/update.py:113
+#: ckan/logic/auth/create.py:281 ckan/logic/auth/update.py:113
 #, python-format
 msgid "User %s not authorized to edit group %s"
-msgstr "Käyttäjällä %s ei ole oikeuksia muokata ryhmää %s"
+msgstr "Käyttäjällä %s ei ole oikeuksia muokata kategoriaa %s"
 
 #: ckan/logic/auth/delete.py:38
 #, python-format
@@ -1654,12 +1646,12 @@ msgstr "Käyttäjällä %s ei ole oikeuksia poistaa relaatiota %s"
 #: ckan/logic/auth/delete.py:104
 #, python-format
 msgid "User %s not authorized to delete groups"
-msgstr "Käyttäjällä %s ei ole oikeuksia poistaa ryhmiä"
+msgstr "Käyttäjällä %s ei ole oikeuksia poistaa kategorioita"
 
 #: ckan/logic/auth/delete.py:108
 #, python-format
 msgid "User %s not authorized to delete group %s"
-msgstr "Käyttäjällä %s ei ole oikeuksia poistaa ryhmää %s"
+msgstr "Käyttäjällä %s ei ole oikeuksia poistaa kategoriaa %s"
 
 #: ckan/logic/auth/delete.py:125
 #, python-format
@@ -1735,12 +1727,12 @@ msgstr "Sinun täytyy olla sysadmin muuttaaksesi tämän kenttää"
 #: ckan/logic/auth/update.py:165
 #, python-format
 msgid "User %s not authorized to change state of group %s"
-msgstr "Käyttäjällä %s ei ole oikeuksia muokata ryhmän tilaa %s"
+msgstr "Käyttäjällä %s ei ole oikeuksia muokata kategorian tilaa %s"
 
 #: ckan/logic/auth/update.py:182
 #, python-format
 msgid "User %s not authorized to edit permissions of group %s"
-msgstr "Käyttäjällä %s ei ole oikeuksia muokata ryhmän oikeuksia %s"
+msgstr "Käyttäjällä %s ei ole oikeuksia muokata kategorian oikeuksia %s"
 
 #: ckan/logic/auth/update.py:209
 msgid "Have to be logged in to edit user"
@@ -1776,7 +1768,7 @@ msgstr "Tietoaineiston muokkaukseen tarvitaan voimassa oleva API-avain"
 
 #: ckan/logic/auth/update.py:291
 msgid "Valid API key needed to edit a group"
-msgstr "Ryhmän muokkaukseen tarvitaan voimassa oleva API-avain"
+msgstr "Kategorian muokkaukseen tarvitaan voimassa oleva API-avain"
 
 #: ckan/model/license.py:220
 msgid "License not specified"
@@ -1884,7 +1876,9 @@ msgid "has sibling %s"
 msgstr "on sisarus %s"
 
 #: ckan/public/base/javascript/modules/activity-stream.js:20
+#: ckan/public/base/javascript/modules/activity-stream.min.js:1
 #: ckan/public/base/javascript/modules/popover-context.js:45
+#: ckan/public/base/javascript/modules/popover-context.min.js:1
 #: ckan/templates/package/snippets/data_api_button.html:8
 #: ckan/templates/tests/mock_json_resource_preview_template.html:7
 #: ckan/templates/tests/mock_resource_preview_template.html:7
@@ -1894,75 +1888,92 @@ msgid "Loading..."
 msgstr "Ladataan..."
 
 #: ckan/public/base/javascript/modules/api-info.js:20
+#: ckan/public/base/javascript/modules/api-info.min.js:1
 msgid "There is no API data to load for this resource"
 msgstr "API:n kautta ei ole ladattavissa dataa tälle resurssille"
 
 #: ckan/public/base/javascript/modules/api-info.js:21
+#: ckan/public/base/javascript/modules/api-info.min.js:1
 msgid "Failed to load data API information"
 msgstr "Data API:n tietojen lataaminen epäonnistui"
 
 #: ckan/public/base/javascript/modules/autocomplete.js:31
+#: ckan/public/base/javascript/modules/autocomplete.min.js:1
 msgid "No matches found"
 msgstr "Ei yhtään osumaa"
 
 #: ckan/public/base/javascript/modules/autocomplete.js:32
+#: ckan/public/base/javascript/modules/autocomplete.min.js:1
 msgid "Start typing…"
 msgstr "Ala kirjoittaa..."
 
 #: ckan/public/base/javascript/modules/autocomplete.js:34
+#: ckan/public/base/javascript/modules/autocomplete.min.js:1
 msgid "Input is too short, must be at least one character"
 msgstr "Liian lyhyt, pitää olla vähintään yksi merkki"
 
 #: ckan/public/base/javascript/modules/basic-form.js:4
+#: ckan/public/base/javascript/modules/basic-form.min.js:1
 msgid "There are unsaved modifications to this form"
 msgstr "Lomakkeella on tallentamattomia tietoja"
 
 #: ckan/public/base/javascript/modules/confirm-action.js:7
+#: ckan/public/base/javascript/modules/confirm-action.min.js:1
 msgid "Please Confirm Action"
 msgstr "Vahvista toimenpide"
 
 #: ckan/public/base/javascript/modules/confirm-action.js:8
+#: ckan/public/base/javascript/modules/confirm-action.min.js:1
 msgid "Are you sure you want to perform this action?"
 msgstr "Oletko varma, että haluat tehdä tämän?"
 
 #: ckan/public/base/javascript/modules/confirm-action.js:9
+#: ckan/public/base/javascript/modules/confirm-action.min.js:1
 #: ckan/templates/user/new_user_form.html:9
 #: ckan/templates/user/perform_reset.html:21
 msgid "Confirm"
 msgstr "Vahvista"
 
 #: ckan/public/base/javascript/modules/confirm-action.js:10
+#: ckan/public/base/javascript/modules/confirm-action.min.js:1
 #: ckan/public/base/javascript/modules/resource-reorder.js:11
+#: ckan/public/base/javascript/modules/resource-reorder.min.js:1
 #: ckan/public/base/javascript/modules/resource-view-reorder.js:11
-#: ckan/templates/admin/confirm_reset.html:9
-#: ckan/templates/group/confirm_delete.html:14
-#: ckan/templates/group/confirm_delete_member.html:15
-#: ckan/templates/organization/confirm_delete.html:14
-#: ckan/templates/organization/confirm_delete_member.html:15
-#: ckan/templates/package/confirm_delete.html:14
-#: ckan/templates/package/confirm_delete_resource.html:14
+#: ckan/public/base/javascript/modules/resource-view-reorder.min.js:1
+#: ckan/templates/admin/confirm_reset.html:11
+#: ckan/templates/group/confirm_delete.html:16
+#: ckan/templates/group/confirm_delete_member.html:17
+#: ckan/templates/organization/confirm_delete.html:16
+#: ckan/templates/organization/confirm_delete_member.html:17
+#: ckan/templates/package/confirm_delete.html:16
+#: ckan/templates/package/confirm_delete_resource.html:16
 msgid "Cancel"
 msgstr "Peruuta"
 
 #: ckan/public/base/javascript/modules/follow.js:23
+#: ckan/public/base/javascript/modules/follow.min.js:1
 #: ckan/templates/snippets/follow_button.html:14
 msgid "Follow"
 msgstr "Seuraa"
 
 #: ckan/public/base/javascript/modules/follow.js:24
+#: ckan/public/base/javascript/modules/follow.min.js:1
 #: ckan/templates/snippets/follow_button.html:9
 msgid "Unfollow"
 msgstr "Lopeta seuraaminen"
 
 #: ckan/public/base/javascript/modules/image-upload.js:15
+#: ckan/public/base/javascript/modules/image-upload.min.js:1
 msgid "Upload"
 msgstr "Lataa"
 
 #: ckan/public/base/javascript/modules/image-upload.js:16
+#: ckan/public/base/javascript/modules/image-upload.min.js:1
 msgid "Link"
 msgstr "Linkki"
 
 #: ckan/public/base/javascript/modules/image-upload.js:17
+#: ckan/public/base/javascript/modules/image-upload.min.js:1
 #: ckan/templates/group/snippets/group_item.html:43
 #: ckan/templates/macros/form.html:235
 #: ckan/templates/snippets/search_form.html:66
@@ -1970,86 +1981,108 @@ msgid "Remove"
 msgstr "Poista"
 
 #: ckan/public/base/javascript/modules/image-upload.js:18
+#: ckan/public/base/javascript/modules/image-upload.min.js:1
 #: ckan/templates/macros/form.html:412 ckanext/imageview/plugin.py:21
 #: ckanext/imageview/plugin.py:26
 msgid "Image"
 msgstr "Kuva"
 
 #: ckan/public/base/javascript/modules/image-upload.js:19
+#: ckan/public/base/javascript/modules/image-upload.min.js:1
 msgid "Upload a file on your computer"
 msgstr "Lataa tiedosto työasemalta"
 
 #: ckan/public/base/javascript/modules/image-upload.js:20
+#: ckan/public/base/javascript/modules/image-upload.min.js:1
 msgid "Link to a URL on the internet (you can also link to an API)"
 msgstr "Linkki URL-osoitteeseen internetissä (voit myös linkittää API:in)"
 
 #: ckan/public/base/javascript/modules/related-item.js:25
+#: ckan/public/base/javascript/modules/related-item.min.js:1
 msgid "show more"
 msgstr "näytä lisää"
 
 #: ckan/public/base/javascript/modules/related-item.js:26
+#: ckan/public/base/javascript/modules/related-item.min.js:1
 msgid "show less"
 msgstr "näytä vähemmän"
 
 #: ckan/public/base/javascript/modules/resource-reorder.js:8
+#: ckan/public/base/javascript/modules/resource-reorder.min.js:1
 msgid "Reorder resources"
 msgstr "Uudelleenjärjestä resurssit"
 
 #: ckan/public/base/javascript/modules/resource-reorder.js:9
+#: ckan/public/base/javascript/modules/resource-reorder.min.js:1
 #: ckan/public/base/javascript/modules/resource-view-reorder.js:9
+#: ckan/public/base/javascript/modules/resource-view-reorder.min.js:1
 msgid "Save order"
 msgstr "Tallenna tilaus"
 
 #: ckan/public/base/javascript/modules/resource-reorder.js:10
+#: ckan/public/base/javascript/modules/resource-reorder.min.js:1
 #: ckan/public/base/javascript/modules/resource-view-reorder.js:10
+#: ckan/public/base/javascript/modules/resource-view-reorder.min.js:1
 msgid "Saving..."
 msgstr "Tallentaa..."
 
 #: ckan/public/base/javascript/modules/resource-upload-field.js:25
+#: ckan/public/base/javascript/modules/resource-upload-field.min.js:1
 msgid "Upload a file"
 msgstr "Tallenna tiedosto"
 
 #: ckan/public/base/javascript/modules/resource-upload-field.js:26
+#: ckan/public/base/javascript/modules/resource-upload-field.min.js:1
 msgid "An Error Occurred"
 msgstr "Tapahtui virhe"
 
 #: ckan/public/base/javascript/modules/resource-upload-field.js:27
+#: ckan/public/base/javascript/modules/resource-upload-field.min.js:1
 msgid "Resource uploaded"
 msgstr "Resurssi on ladattu"
 
 #: ckan/public/base/javascript/modules/resource-upload-field.js:28
+#: ckan/public/base/javascript/modules/resource-upload-field.min.js:1
 msgid "Unable to upload file"
 msgstr "Tiedoston lataaminen epäonnistui"
 
 #: ckan/public/base/javascript/modules/resource-upload-field.js:29
+#: ckan/public/base/javascript/modules/resource-upload-field.min.js:1
 msgid "Unable to authenticate upload"
 msgstr "Lataamisen autentikointi epäonnistui"
 
 #: ckan/public/base/javascript/modules/resource-upload-field.js:30
+#: ckan/public/base/javascript/modules/resource-upload-field.min.js:1
 msgid "Unable to get data for uploaded file"
 msgstr "Datan saaminen ladattavaan tiedostoon epäonnistui"
 
 #: ckan/public/base/javascript/modules/resource-upload-field.js:31
+#: ckan/public/base/javascript/modules/resource-upload-field.min.js:1
 msgid ""
 "You are uploading a file. Are you sure you want to navigate away and stop "
 "this upload?"
-msgstr "Olet parhaillaan lataamassa tiedostoa palvelimelle. Oletko varma, että haluat poistua sivulta ja keskeyttää lataamisen?"
+msgstr ""
+"Olet parhaillaan lataamassa tiedostoa palvelimelle. Oletko varma, että "
+"haluat poistua sivulta ja keskeyttää lataamisen?"
 
 #: ckan/public/base/javascript/modules/resource-view-reorder.js:8
+#: ckan/public/base/javascript/modules/resource-view-reorder.min.js:1
 msgid "Reorder resource view"
 msgstr "Uudelleenjärjestä resurssinäyttö"
 
 #: ckan/public/base/javascript/modules/slug-preview.js:35
-#: ckan/templates/group/snippets/group_form.html:18
-#: ckan/templates/organization/snippets/organization_form.html:18
+#: ckan/public/base/javascript/modules/slug-preview.min.js:1
+#: ckan/templates/group/snippets/group_form.html:19
+#: ckan/templates/organization/snippets/organization_form.html:19
 #: ckan/templates/package/snippets/package_basic_fields.html:13
-#: ckan/templates/package/snippets/resource_form.html:24
+#: ckan/templates/package/snippets/resource_form.html:25
 msgid "URL"
 msgstr "URL"
 
 #: ckan/public/base/javascript/modules/slug-preview.js:36
+#: ckan/public/base/javascript/modules/slug-preview.min.js:1
 #: ckan/templates/group/edit_base.html:20 ckan/templates/group/members.html:32
-#: ckan/templates/organization/bulk_process.html:65
+#: ckan/templates/organization/bulk_process.html:67
 #: ckan/templates/organization/edit.html:3
 #: ckan/templates/organization/edit_base.html:22
 #: ckan/templates/organization/members.html:32
@@ -2061,10 +2094,12 @@ msgid "Edit"
 msgstr "Muokkaa"
 
 #: ckan/public/base/javascript/modules/table-toggle-more.js:9
+#: ckan/public/base/javascript/modules/table-toggle-more.min.js:1
 msgid "Show more"
 msgstr "Näytä enemmän"
 
 #: ckan/public/base/javascript/modules/table-toggle-more.js:10
+#: ckan/public/base/javascript/modules/table-toggle-more.min.js:1
 msgid "Hide"
 msgstr "Piilota"
 
@@ -2089,7 +2124,9 @@ msgstr "Open Knowledge Foundation"
 msgid ""
 "<strong>Powered by</strong> <a class=\"hide-text ckan-footer-logo\" "
 "href=\"http://ckan.org\">CKAN</a>"
-msgstr "<strong>Toteutettu</strong> <a class=\"hide-text ckan-footer-logo\" href=\"http://ckan.org\">CKAN-ohjelmistolla</a>"
+msgstr ""
+"<strong>Toteutettu</strong> <a class=\"hide-text ckan-footer-logo\" "
+"href=\"http://ckan.org\">CKAN-ohjelmistolla</a>"
 
 #: ckan/templates/header.html:12
 msgid "Sysadmin settings"
@@ -2132,7 +2169,7 @@ msgstr "Rekisteröidy"
 
 #: ckan/templates/header.html:103 ckan/templates/group/read_base.html:17
 #: ckan/templates/group/snippets/info.html:36
-#: ckan/templates/organization/bulk_process.html:20
+#: ckan/templates/organization/bulk_process.html:21
 #: ckan/templates/organization/edit_base.html:23
 #: ckan/templates/organization/read_base.html:17
 #: ckan/templates/package/base.html:7 ckan/templates/package/base.html:17
@@ -2186,28 +2223,28 @@ msgstr "Järjestelmän ylläpitäjät"
 msgid "Config"
 msgstr "Asetus"
 
-#: ckan/templates/admin/base.html:10 ckan/templates/admin/trash.html:29
+#: ckan/templates/admin/base.html:10 ckan/templates/admin/trash.html:31
 msgid "Trash"
 msgstr "Roskakori"
 
-#: ckan/templates/admin/config.html:16
-#: ckan/templates/admin/confirm_reset.html:7
+#: ckan/templates/admin/config.html:17
+#: ckan/templates/admin/confirm_reset.html:9
 msgid "Are you sure you want to reset the config?"
 msgstr "Haluatko varmasti palauttaa konfiguroinnin oletusasetukset?"
 
-#: ckan/templates/admin/config.html:17
+#: ckan/templates/admin/config.html:18
 msgid "Reset"
 msgstr "Oletusasetukset"
 
-#: ckan/templates/admin/config.html:18
+#: ckan/templates/admin/config.html:19
 msgid "Update Config"
 msgstr "Päivitä asetukset"
 
-#: ckan/templates/admin/config.html:27
+#: ckan/templates/admin/config.html:28
 msgid "CKAN config options"
 msgstr "CKAN konfigurointi"
 
-#: ckan/templates/admin/config.html:34
+#: ckan/templates/admin/config.html:35
 #, python-format
 msgid ""
 " <p><strong>Site Title:</strong> This is the title of this CKAN instance It "
@@ -2225,10 +2262,25 @@ msgid ""
 "target=\"_blank\">reading the documentation</a>.</p> "
 "<p><strong>Homepage:</strong> This is for choosing a predefined layout for "
 "the modules that appear on your homepage.</p> "
-msgstr "<p><strong>Sivun nimike:</strong> Tämä on CKAN -asennuksen nimike, joka näkyy useissa paikoissa sivustolla.</p> <p><strong>Tyyli:</strong> Saadaksesi nopeasti hieman muokatun teeman käyttöön voit valita tyylilistalta päävärityksen yksinkertaisia muunnelmia.</p> <p><strong>Sivun logo:</strong> Tämä on logo, joka näkyy kaikkien sivupohjien header-osiossa.</p> <p><strong>Tietoa:</strong> Teksti näkyy tämän CKAN-sivuston <a href=\"%(about_url)s\">tietoa sivusta</a> -sivulla.</p> <p><strong>Esittelyteksti:</strong> Teksti näkyy <a href=\"%(home_url)s\">etusivulla</a> tervetuliaistekstinä kävijöille.</p> <p><strong>Muokattu CSS:</strong> Tämä on CSS tyylimuotoilu, joka näkyy kaikkien sivujen <code>&lt;head&gt;</code> tagissa. Jos haluat muokata sivupohjia enemmän suosittelemme, että luet<a href=\"%(docs_url)s\" target=\"_blank\">dokumentaation</a>.</p></p> <p><strong>Kotisivu:</strong> Täältä voit valita ennalta määritellyn asettelun niille moduuleille, jotka näkyvät kotisivulla.</p>"
+msgstr ""
+"<p><strong>Sivun nimike:</strong> Tämä on CKAN -asennuksen nimike, joka "
+"näkyy useissa paikoissa sivustolla.</p> <p><strong>Tyyli:</strong> "
+"Saadaksesi nopeasti hieman muokatun teeman käyttöön voit valita "
+"tyylilistalta päävärityksen yksinkertaisia muunnelmia.</p> <p><strong>Sivun "
+"logo:</strong> Tämä on logo, joka näkyy kaikkien sivupohjien header-"
+"osiossa.</p> <p><strong>Tietoa:</strong> Teksti näkyy tämän CKAN-sivuston <a"
+" href=\"%(about_url)s\">tietoa sivusta</a> -sivulla.</p> "
+"<p><strong>Esittelyteksti:</strong> Teksti näkyy <a "
+"href=\"%(home_url)s\">etusivulla</a> tervetuliaistekstinä kävijöille.</p> "
+"<p><strong>Muokattu CSS:</strong> Tämä on CSS tyylimuotoilu, joka näkyy "
+"kaikkien sivujen <code>&lt;head&gt;</code> tagissa. Jos haluat muokata "
+"sivupohjia enemmän suosittelemme, että luet<a href=\"%(docs_url)s\" "
+"target=\"_blank\">dokumentaation</a>.</p></p> <p><strong>Kotisivu:</strong> "
+"Täältä voit valita ennalta määritellyn asettelun niille moduuleille, jotka "
+"näkyvät kotisivulla.</p>"
 
-#: ckan/templates/admin/confirm_reset.html:3
-#: ckan/templates/admin/confirm_reset.html:10
+#: ckan/templates/admin/confirm_reset.html:4
+#: ckan/templates/admin/confirm_reset.html:12
 msgid "Confirm Reset"
 msgstr "Vahvista resetointi"
 
@@ -2242,15 +2294,21 @@ msgid ""
 " <p>As a sysadmin user you have full control over this CKAN instance. "
 "Proceed with care!</p> <p>For guidance on using sysadmin features, see the "
 "CKAN <a href=\"%(docs_url)s\" target=\"_blank\">sysadmin guide</a></p> "
-msgstr " <p>Järjestelmänhoitajana Sinulla on täydet oikeudet tähän CKAN asennukseen. Jatka varovaisuutta noudattaen!</p> <p>Ohjeistukseksi järjestelmähoitamisen ominaisuuksista, katso CKAN <a href=\"%(docs_url)s\" target=\"_blank\">järjestelmänhoitajan ohjetta</a></p> "
+msgstr ""
+" <p>Järjestelmänhoitajana Sinulla on täydet oikeudet tähän CKAN asennukseen."
+" Jatka varovaisuutta noudattaen!</p> <p>Ohjeistukseksi järjestelmähoitamisen"
+" ominaisuuksista, katso CKAN <a href=\"%(docs_url)s\" "
+"target=\"_blank\">järjestelmänhoitajan ohjetta</a></p> "
 
-#: ckan/templates/admin/trash.html:20
+#: ckan/templates/admin/trash.html:22
 msgid "Purge"
 msgstr "Tyhjennä"
 
-#: ckan/templates/admin/trash.html:32
+#: ckan/templates/admin/trash.html:34
 msgid " <p>Purge deleted datasets forever and irreversibly.</p> "
-msgstr " <p>Tyhjennä poistetut tietojoukot lopullisesti ja ilman palautusmahdollisuutta.</p> "
+msgstr ""
+" <p>Tyhjennä poistetut tietojoukot lopullisesti ja ilman "
+"palautusmahdollisuutta.</p> "
 
 #: ckan/templates/ajax_snippets/api_info.html:19
 msgid "CKAN Data API"
@@ -2265,7 +2323,10 @@ msgid ""
 " Further information in the <a       "
 "href=\"http://docs.ckan.org/en/latest/maintaining/datastore.html\" "
 "target=\"_blank\">main CKAN Data API and DataStore documentation</a>.</p> "
-msgstr "Lisäinformaatiota löydät <a href=\"http://docs.ckan.org/en/latest/maintaining/datastore.html\" target=\"_blank\">main CKAN Data API and DataStore documentation</a>.</p> "
+msgstr ""
+"Lisäinformaatiota löydät <a "
+"href=\"http://docs.ckan.org/en/latest/maintaining/datastore.html\" "
+"target=\"_blank\">main CKAN Data API and DataStore documentation</a>.</p> "
 
 #: ckan/templates/ajax_snippets/api_info.html:33
 msgid "Endpoints"
@@ -2275,7 +2336,8 @@ msgstr "Päätepisteet"
 msgid ""
 "The Data API can be accessed via the following actions of the CKAN action "
 "API."
-msgstr "Data API:a voidaan käyttää seuraavilla CKAN action API:n toiminnoilla."
+msgstr ""
+"Data API:a voidaan käyttää seuraavilla CKAN action API:n toiminnoilla."
 
 #: ckan/templates/ajax_snippets/api_info.html:42
 msgid "Create"
@@ -2400,10 +2462,10 @@ msgid "Custom Field (empty)"
 msgstr "Muokattu kenttä (tyhjä)"
 
 #: ckan/templates/development/snippets/form.html:19
-#: ckan/templates/group/snippets/group_form.html:35
-#: ckan/templates/group/snippets/group_form.html:48
-#: ckan/templates/organization/snippets/organization_form.html:35
-#: ckan/templates/organization/snippets/organization_form.html:48
+#: ckan/templates/group/snippets/group_form.html:36
+#: ckan/templates/group/snippets/group_form.html:49
+#: ckan/templates/organization/snippets/organization_form.html:36
+#: ckan/templates/organization/snippets/organization_form.html:49
 #: ckan/templates/snippets/custom_form_fields.html:20
 #: ckan/templates/snippets/custom_form_fields.html:37
 msgid "Custom Field"
@@ -2444,33 +2506,33 @@ msgstr "Pääkäyttäjät"
 
 #: ckan/templates/group/base_form_page.html:7
 msgid "Add a Group"
-msgstr "Lisää ryhmä"
+msgstr "Lisää kategoria"
 
 #: ckan/templates/group/base_form_page.html:11
 msgid "Group Form"
-msgstr "Ryhmälomake"
+msgstr "Kategorialomake"
 
-#: ckan/templates/group/confirm_delete.html:3
-#: ckan/templates/group/confirm_delete.html:15
-#: ckan/templates/group/confirm_delete_member.html:3
-#: ckan/templates/group/confirm_delete_member.html:16
-#: ckan/templates/organization/confirm_delete.html:3
-#: ckan/templates/organization/confirm_delete.html:15
-#: ckan/templates/organization/confirm_delete_member.html:3
-#: ckan/templates/organization/confirm_delete_member.html:16
-#: ckan/templates/package/confirm_delete.html:3
-#: ckan/templates/package/confirm_delete.html:15
-#: ckan/templates/package/confirm_delete_resource.html:3
-#: ckan/templates/package/confirm_delete_resource.html:15
+#: ckan/templates/group/confirm_delete.html:4
+#: ckan/templates/group/confirm_delete.html:17
+#: ckan/templates/group/confirm_delete_member.html:4
+#: ckan/templates/group/confirm_delete_member.html:18
+#: ckan/templates/organization/confirm_delete.html:4
+#: ckan/templates/organization/confirm_delete.html:17
+#: ckan/templates/organization/confirm_delete_member.html:4
+#: ckan/templates/organization/confirm_delete_member.html:18
+#: ckan/templates/package/confirm_delete.html:4
+#: ckan/templates/package/confirm_delete.html:17
+#: ckan/templates/package/confirm_delete_resource.html:4
+#: ckan/templates/package/confirm_delete_resource.html:17
 msgid "Confirm Delete"
 msgstr "Vahvista poisto"
 
-#: ckan/templates/group/confirm_delete.html:11
+#: ckan/templates/group/confirm_delete.html:12
 msgid "Are you sure you want to delete group - {name}?"
-msgstr "Haluatko varmasti poistaa ryhmän - {name}?"
+msgstr "Haluatko varmasti poistaa kategorian - {name}?"
 
-#: ckan/templates/group/confirm_delete_member.html:11
-#: ckan/templates/organization/confirm_delete_member.html:11
+#: ckan/templates/group/confirm_delete_member.html:12
+#: ckan/templates/organization/confirm_delete_member.html:12
 msgid "Are you sure you want to delete member - {name}?"
 msgstr "Haluatko varmasti poistaa jäsenen - {name}?"
 
@@ -2488,7 +2550,7 @@ msgstr "Hallinnoi"
 
 #: ckan/templates/group/edit.html:12
 msgid "Edit Group"
-msgstr "Muokkaa ryhmää"
+msgstr "Muokkaa kategoriaa"
 
 #: ckan/templates/group/edit_base.html:21 ckan/templates/group/members.html:3
 #: ckan/templates/organization/edit_base.html:24
@@ -2518,14 +2580,14 @@ msgstr "Historia"
 #: ckan/templates/group/index.html:13
 #: ckan/templates/user/dashboard_groups.html:7
 msgid "Add Group"
-msgstr "Lisää ryhmä"
+msgstr "Lisää kategoria"
 
 #: ckan/templates/group/index.html:20
 msgid "Search groups..."
-msgstr "Etsi ryhmiä..."
+msgstr "Etsi kategorioita..."
 
 #: ckan/templates/group/index.html:20 ckan/templates/group/read.html:16
-#: ckan/templates/organization/bulk_process.html:97
+#: ckan/templates/organization/bulk_process.html:99
 #: ckan/templates/organization/read.html:20
 #: ckan/templates/package/search.html:30
 #: ckan/templates/snippets/search_form.html:4
@@ -2536,7 +2598,7 @@ msgid "Name Ascending"
 msgstr "Nimen mukaan nousevasti"
 
 #: ckan/templates/group/index.html:20 ckan/templates/group/read.html:17
-#: ckan/templates/organization/bulk_process.html:98
+#: ckan/templates/organization/bulk_process.html:100
 #: ckan/templates/organization/read.html:21
 #: ckan/templates/package/search.html:31
 #: ckan/templates/snippets/search_form.html:4
@@ -2548,7 +2610,7 @@ msgstr "Nimen mukaan laskevasti"
 
 #: ckan/templates/group/index.html:29
 msgid "There are currently no groups for this site"
-msgstr "Sivulla ei ole tällä hetkellä ryhmiä."
+msgstr "Sivulla ei ole tällä hetkellä kategorioita."
 
 #: ckan/templates/group/index.html:31
 #: ckan/templates/organization/index.html:31
@@ -2567,96 +2629,102 @@ msgid "Edit Member"
 msgstr "Muokkaa jäsentä"
 
 #: ckan/templates/group/member_new.html:10
-#: ckan/templates/group/member_new.html:65 ckan/templates/group/members.html:6
+#: ckan/templates/group/member_new.html:66 ckan/templates/group/members.html:6
 #: ckan/templates/organization/member_new.html:7
 #: ckan/templates/organization/member_new.html:12
-#: ckan/templates/organization/member_new.html:66
+#: ckan/templates/organization/member_new.html:67
 #: ckan/templates/organization/members.html:6
 msgid "Add Member"
 msgstr "Lisää jäsen"
 
-#: ckan/templates/group/member_new.html:18
-#: ckan/templates/organization/member_new.html:20
+#: ckan/templates/group/member_new.html:19
+#: ckan/templates/organization/member_new.html:21
 msgid "Existing User"
 msgstr "Olemassa oleva käyttäjä"
 
-#: ckan/templates/group/member_new.html:21
-#: ckan/templates/organization/member_new.html:23
+#: ckan/templates/group/member_new.html:22
+#: ckan/templates/organization/member_new.html:24
 msgid "If you wish to add an existing user, search for their username below."
-msgstr "Jos haluat lisätä olemassa olevan käyttäjän, etsi häntä käyttäjänimellä."
+msgstr ""
+"Jos haluat lisätä olemassa olevan käyttäjän, etsi häntä käyttäjänimellä."
 
-#: ckan/templates/group/member_new.html:38
-#: ckan/templates/organization/member_new.html:40
+#: ckan/templates/group/member_new.html:39
+#: ckan/templates/organization/member_new.html:41
 msgid "or"
 msgstr "tai"
 
-#: ckan/templates/group/member_new.html:42
-#: ckan/templates/organization/member_new.html:44
+#: ckan/templates/group/member_new.html:43
+#: ckan/templates/organization/member_new.html:45
 msgid "New User"
 msgstr "Uusi käyttäjä"
 
-#: ckan/templates/group/member_new.html:45
-#: ckan/templates/organization/member_new.html:47
+#: ckan/templates/group/member_new.html:46
+#: ckan/templates/organization/member_new.html:48
 msgid "If you wish to invite a new user, enter their email address."
-msgstr "Jos haluat kutsua uuden käyttäjän, niin kirjoita kutsuttavan sähköpostiosoite alle."
+msgstr ""
+"Jos haluat kutsua uuden käyttäjän, niin kirjoita kutsuttavan "
+"sähköpostiosoite alle."
 
-#: ckan/templates/group/member_new.html:55
+#: ckan/templates/group/member_new.html:56
 #: ckan/templates/group/members.html:18
-#: ckan/templates/organization/member_new.html:56
+#: ckan/templates/organization/member_new.html:57
 #: ckan/templates/organization/members.html:18
 msgid "Role"
 msgstr "Rooli"
 
-#: ckan/templates/group/member_new.html:58
+#: ckan/templates/group/member_new.html:59
 #: ckan/templates/group/members.html:30
-#: ckan/templates/organization/member_new.html:59
+#: ckan/templates/organization/member_new.html:60
 #: ckan/templates/organization/members.html:30
 msgid "Are you sure you want to delete this member?"
 msgstr "Haluatko varmasti poistaa tämän jäsenen?"
 
-#: ckan/templates/group/member_new.html:59
+#: ckan/templates/group/member_new.html:60
 #: ckan/templates/group/members.html:35
-#: ckan/templates/group/snippets/group_form.html:61
-#: ckan/templates/organization/bulk_process.html:47
-#: ckan/templates/organization/member_new.html:60
+#: ckan/templates/group/snippets/group_form.html:62
+#: ckan/templates/organization/bulk_process.html:49
+#: ckan/templates/organization/member_new.html:61
 #: ckan/templates/organization/members.html:35
-#: ckan/templates/organization/snippets/organization_form.html:61
-#: ckan/templates/package/edit_view.html:19
-#: ckan/templates/package/snippets/package_form.html:40
-#: ckan/templates/package/snippets/resource_form.html:66
+#: ckan/templates/organization/snippets/organization_form.html:62
+#: ckan/templates/package/edit_view.html:21
+#: ckan/templates/package/snippets/package_form.html:41
+#: ckan/templates/package/snippets/resource_form.html:67
 #: ckan/templates/revision/read.html:24
-#: ckan/templates/user/edit_user_form.html:38
+#: ckan/templates/user/edit_user_form.html:40
 msgid "Delete"
 msgstr "Poista"
 
-#: ckan/templates/group/member_new.html:61
+#: ckan/templates/group/member_new.html:62
 msgid "Save"
 msgstr "Tallenna"
 
-#: ckan/templates/group/member_new.html:78
-#: ckan/templates/organization/member_new.html:79
+#: ckan/templates/group/member_new.html:79
+#: ckan/templates/organization/member_new.html:80
 msgid "What are roles?"
 msgstr "Mitä roolit ovat?"
 
-#: ckan/templates/group/member_new.html:81
+#: ckan/templates/group/member_new.html:82
 msgid ""
 " <p><strong>Admin:</strong> Can edit group information, as well as manage "
 "organization members.</p> <p><strong>Member:</strong> Can add/remove "
 "datasets from groups</p> "
-msgstr " <p><strong>Ylläpitäjä:</strong> Voi muokata ryhmän tietoja ja hallinnoida jäseniä.</p> <p><strong>Jäsen:</strong> Voi lisätä/poistaa tietoaineistoja ryhmästä</p> "
+msgstr ""
+" <p><strong>Ylläpitäjä:</strong> Voi muokata kategorian tietoja ja "
+"hallinnoida jäseniä.</p> <p><strong>Jäsen:</strong> Voi lisätä/poistaa "
+"tietoaineistoja kategoriasta</p> "
 
 #: ckan/templates/group/new.html:3 ckan/templates/group/new.html:5
 #: ckan/templates/group/new.html:7
 msgid "Create a Group"
-msgstr "Luo uusi ryhmä"
+msgstr "Luo uusi kategoria"
 
 #: ckan/templates/group/new_group_form.html:17
 msgid "Update Group"
-msgstr "Päivitä ryhmä"
+msgstr "Päivitä kategoria"
 
 #: ckan/templates/group/new_group_form.html:19
 msgid "Create Group"
-msgstr "Luo uusi ryhmä"
+msgstr "Luo uusi kategoria"
 
 #: ckan/templates/group/read.html:15 ckan/templates/organization/read.html:19
 #: ckan/templates/package/search.html:29
@@ -2666,10 +2734,10 @@ msgid "Relevance"
 msgstr "Relevanssi"
 
 #: ckan/templates/group/read.html:18
-#: ckan/templates/organization/bulk_process.html:99
+#: ckan/templates/organization/bulk_process.html:101
 #: ckan/templates/organization/read.html:22
 #: ckan/templates/package/search.html:32
-#: ckan/templates/package/snippets/resource_form.html:51
+#: ckan/templates/package/snippets/resource_form.html:52
 #: ckan/templates/snippets/sort_by.html:17
 #: ckanext/example_idatasetform/templates/package/search.html:15
 msgid "Last Modified"
@@ -2691,46 +2759,46 @@ msgstr "Etsi tietoaineistoista..."
 
 #: ckan/templates/group/snippets/feeds.html:3
 msgid "Datasets in group: {group}"
-msgstr "Ryhmän: {group} tietoaineistot"
+msgstr "Kategorian: {group} tietoaineistot"
 
 #: ckan/templates/group/snippets/feeds.html:4
 #: ckan/templates/organization/snippets/feeds.html:4
 msgid "Recent Revision History"
 msgstr "Viimeaikaisin revisiohistoria"
 
-#: ckan/templates/group/snippets/group_form.html:10
-#: ckan/templates/organization/snippets/organization_form.html:10
-#: ckan/templates/package/snippets/resource_form.html:28
+#: ckan/templates/group/snippets/group_form.html:11
+#: ckan/templates/organization/snippets/organization_form.html:11
+#: ckan/templates/package/snippets/resource_form.html:29
 msgid "Name"
 msgstr "Nimi"
 
-#: ckan/templates/group/snippets/group_form.html:10
+#: ckan/templates/group/snippets/group_form.html:11
 msgid "My Group"
-msgstr "Minun ryhmäni"
+msgstr "Minun kategoriani"
 
-#: ckan/templates/group/snippets/group_form.html:18
+#: ckan/templates/group/snippets/group_form.html:19
 msgid "my-group"
-msgstr "Minun ryhmäni"
+msgstr "Minun kategoriani"
 
-#: ckan/templates/group/snippets/group_form.html:20
-#: ckan/templates/organization/snippets/organization_form.html:20
+#: ckan/templates/group/snippets/group_form.html:21
+#: ckan/templates/organization/snippets/organization_form.html:21
 #: ckan/templates/package/snippets/package_basic_fields.html:19
-#: ckan/templates/package/snippets/resource_form.html:32
+#: ckan/templates/package/snippets/resource_form.html:33
 #: ckan/templates/package/snippets/view_form.html:9
 msgid "Description"
 msgstr "Kuvaus"
 
-#: ckan/templates/group/snippets/group_form.html:20
+#: ckan/templates/group/snippets/group_form.html:21
 msgid "A little information about my group..."
-msgstr "Hieman listätietoa ryhmästäni..."
+msgstr "Hieman lisätietoa kategoriastani..."
 
-#: ckan/templates/group/snippets/group_form.html:60
+#: ckan/templates/group/snippets/group_form.html:61
 msgid "Are you sure you want to delete this Group?"
-msgstr "Haluatko varmasti poistaa tämän ryhmän?"
+msgstr "Haluatko varmasti poistaa tämän kategorian?"
 
-#: ckan/templates/group/snippets/group_form.html:64
+#: ckan/templates/group/snippets/group_form.html:65
 msgid "Save Group"
-msgstr "Tallenna ryhmä"
+msgstr "Tallenna kategoria"
 
 #: ckan/templates/group/snippets/group_item.html:32
 #: ckan/templates/organization/snippets/organization_item.html:31
@@ -2755,11 +2823,11 @@ msgstr "Näkymä {name}"
 
 #: ckan/templates/group/snippets/group_item.html:43
 msgid "Remove dataset from this group"
-msgstr "Poista tietoaineisto tästä ryhmästä"
+msgstr "Poista tietoaineisto tästä kategoriasta"
 
 #: ckan/templates/group/snippets/helper.html:4
 msgid "What are Groups?"
-msgstr "Mitä ryhmät ovat?"
+msgstr "Mitä kategoriat ovat?"
 
 #: ckan/templates/group/snippets/helper.html:8
 msgid ""
@@ -2767,7 +2835,11 @@ msgid ""
 "could be to catalogue datasets for a particular project or team, or on a "
 "particular theme, or as a very simple way to help people find and search "
 "your own published datasets. "
-msgstr "Voit luoda ja hallinnoida tietoaineistokokonaisuuksia käyttämällä CKAN:in ryhmiä. Voit koota yhteen ryhmään tietoaineistoja esimerkiksi projektin, käyttäjäryhmän tai teeman mukaisesti ja siten helpottaa aineistojen löytymistä."
+msgstr ""
+"Voit luoda ja hallinnoida tietoaineistokokonaisuuksia käyttämällä CKAN:in "
+"kategorioita. Voit koota yhteen kategoriaan tietoaineistoja esimerkiksi "
+"projektin, käyttäjäryhmän tai teeman mukaisesti ja siten helpottaa "
+"aineistojen löytymistä."
 
 #: ckan/templates/group/snippets/history_revisions.html:10
 #: ckan/templates/package/snippets/history_revisions.html:10
@@ -2775,7 +2847,7 @@ msgid "Compare"
 msgstr "Vertaa"
 
 #: ckan/templates/group/snippets/info.html:16
-#: ckan/templates/organization/bulk_process.html:72
+#: ckan/templates/organization/bulk_process.html:74
 #: ckan/templates/package/read.html:21
 #: ckan/templates/package/snippets/package_basic_fields.html:112
 #: ckan/templates/snippets/organization.html:37
@@ -2845,7 +2917,26 @@ msgid ""
 "href=\"http://ckan.org/tour/\">http://ckan.org/tour/</a><br /> Features "
 "overview: <a "
 "href=\"http://ckan.org/features/\">http://ckan.org/features/</a></p> "
-msgstr " <p>CKAN on maailman johtava avoimen lähdekoodin dataportaaliratkaisu.</p> <p>CKAN on täydellinen out-of-the-box sovellusratkaisu, joka mahdollistaa helpon pääsyn dataan, korkean käytettävyyden ja sujuvan käyttökokemuksen. CKAN tarjoaa työkalut julkaisuun, jakamiseen, etsimiseen ja datan käyttöön - mukaanlukien datan varastoinnin ja provisioinnin. CKAN on tarkoitettu datan julkaisijoille - kansalliselle ja alueelliselle hallinnolle, yrityksille ja organisaatioille, jotka haluavat avata ja julkaista datansa.</p> <p>Hallitukset ja käyttäjäryhmät ympäri maailmaa käyttävät CKAN:ia. Sen varassa pyörii useita virallisia ja yhteisöllisiä dataportaaleja paikallisille, kansallisille ja kansainvälisille toimijoille, kuten Britannian <a href=\"http://data.gov.uk\">data.gov.uk</a>, Euroopan unionin <a href=\"http://publicdata.eu/\">publicdata.eu</a>, Brasilian <a href=\"http://dados.gov.br/\">dados.gov.br</a>, Saksan ja Alankomaiden portaalit sekä kaupunkien ja kuntien palveluja Yhdysvalloissa, Britanniassa, Argentinassa ja muualla.</p> <p>CKAN: <a href=\"http://ckan.org/\">http://ckan.org/</a><br /> CKAN Tour: <a href=\"http://ckan.org/tour/\">http://ckan.org/tour/</a><br /> Features overview: <a href=\"http://ckan.org/features/\">http://ckan.org/features/</a></p> "
+msgstr ""
+" <p>CKAN on maailman johtava avoimen lähdekoodin dataportaaliratkaisu.</p> "
+"<p>CKAN on täydellinen out-of-the-box sovellusratkaisu, joka mahdollistaa "
+"helpon pääsyn dataan, korkean käytettävyyden ja sujuvan käyttökokemuksen. "
+"CKAN tarjoaa työkalut julkaisuun, jakamiseen, etsimiseen ja datan käyttöön -"
+" mukaanlukien datan varastoinnin ja provisioinnin. CKAN on tarkoitettu datan"
+" julkaisijoille - kansalliselle ja alueelliselle hallinnolle, yrityksille ja"
+" organisaatioille, jotka haluavat avata ja julkaista datansa.</p> "
+"<p>Hallitukset ja käyttäjäryhmät ympäri maailmaa käyttävät CKAN:ia. Sen "
+"varassa pyörii useita virallisia ja yhteisöllisiä dataportaaleja "
+"paikallisille, kansallisille ja kansainvälisille toimijoille, kuten "
+"Britannian <a href=\"http://data.gov.uk\">data.gov.uk</a>, Euroopan unionin "
+"<a href=\"http://publicdata.eu/\">publicdata.eu</a>, Brasilian <a "
+"href=\"http://dados.gov.br/\">dados.gov.br</a>, Saksan ja Alankomaiden "
+"portaalit sekä kaupunkien ja kuntien palveluja Yhdysvalloissa, Britanniassa,"
+" Argentinassa ja muualla.</p> <p>CKAN: <a "
+"href=\"http://ckan.org/\">http://ckan.org/</a><br /> CKAN Tour: <a "
+"href=\"http://ckan.org/tour/\">http://ckan.org/tour/</a><br /> Features "
+"overview: <a "
+"href=\"http://ckan.org/features/\">http://ckan.org/features/</a></p> "
 
 #: ckan/templates/home/snippets/promoted.html:8
 msgid "Welcome to CKAN"
@@ -2895,11 +2986,11 @@ msgstr "organisaatiot"
 
 #: ckan/templates/home/snippets/stats.html:23
 msgid "group"
-msgstr "ryhmä"
+msgstr "kategoria"
 
 #: ckan/templates/home/snippets/stats.html:23
 msgid "groups"
-msgstr "ryhmät"
+msgstr "kategoriat"
 
 #: ckan/templates/macros/form.html:126
 #, python-format
@@ -2907,7 +2998,10 @@ msgid ""
 "You can use <a href=\"#markdown\" title=\"Markdown quick reference\" data-"
 "target=\"popover\" data-content=\"%(markdown_tooltip)s\" data-"
 "html=\"true\">Markdown formatting</a> here"
-msgstr "Voit käyttää tässä <a href=\"#markdown\" title=\"Markdown quick reference\" data-target=\"popover\" data-content=\"%(markdown_tooltip)s\" data-html=\"true\">Markdown-muotoiluja</a>"
+msgstr ""
+"Voit käyttää tässä <a href=\"#markdown\" title=\"Markdown quick reference\" "
+"data-target=\"popover\" data-content=\"%(markdown_tooltip)s\" data-"
+"html=\"true\">Markdown-muotoiluja</a>"
 
 #: ckan/templates/macros/form.html:265
 msgid "This field is required"
@@ -2941,38 +3035,38 @@ msgstr "Tyhjennä lataus"
 msgid "Organization Form"
 msgstr "Organisaatiolomake"
 
-#: ckan/templates/organization/bulk_process.html:3
-#: ckan/templates/organization/bulk_process.html:11
+#: ckan/templates/organization/bulk_process.html:4
+#: ckan/templates/organization/bulk_process.html:12
 msgid "Edit datasets"
 msgstr "Muokkaa tietoaineistoja"
 
-#: ckan/templates/organization/bulk_process.html:6
+#: ckan/templates/organization/bulk_process.html:7
 msgid "Add dataset"
 msgstr "Lisää tietoaineisto"
 
-#: ckan/templates/organization/bulk_process.html:16
+#: ckan/templates/organization/bulk_process.html:17
 msgid " found for \"{query}\""
 msgstr "löytyi haulla \"{query}\""
 
-#: ckan/templates/organization/bulk_process.html:18
+#: ckan/templates/organization/bulk_process.html:19
 msgid "Sorry no datasets found for \"{query}\""
 msgstr "Haulla \"{query}\" ei löytynyt tietoaineistoja"
 
-#: ckan/templates/organization/bulk_process.html:37
+#: ckan/templates/organization/bulk_process.html:39
 msgid "Make public"
 msgstr "Muuta julkiseksi"
 
-#: ckan/templates/organization/bulk_process.html:41
+#: ckan/templates/organization/bulk_process.html:43
 msgid "Make private"
 msgstr "Muuta yksityiseksi"
 
-#: ckan/templates/organization/bulk_process.html:70
+#: ckan/templates/organization/bulk_process.html:72
 #: ckan/templates/package/read.html:18
 #: ckan/templates/snippets/package_item.html:40
 msgid "Draft"
 msgstr "Luonnos"
 
-#: ckan/templates/organization/bulk_process.html:75
+#: ckan/templates/organization/bulk_process.html:77
 #: ckan/templates/package/read.html:11
 #: ckan/templates/package/snippets/package_basic_fields.html:92
 #: ckan/templates/snippets/package_item.html:31
@@ -2981,11 +3075,11 @@ msgstr "Luonnos"
 msgid "Private"
 msgstr "Yksityinen"
 
-#: ckan/templates/organization/bulk_process.html:88
+#: ckan/templates/organization/bulk_process.html:90
 msgid "This organization has no datasets associated to it"
 msgstr "Tällä organisaatiolla ei ole tietoaineistoja"
 
-#: ckan/templates/organization/confirm_delete.html:11
+#: ckan/templates/organization/confirm_delete.html:12
 msgid "Are you sure you want to delete organization - {name}?"
 msgstr "Haluatko varmasti poistaa organisaation - {name}?"
 
@@ -3008,32 +3102,37 @@ msgstr "Etsi organisaatioita.."
 msgid "There are currently no organizations for this site"
 msgstr "Sivustolla ei ole tällä hetkellä organisaatioita"
 
-#: ckan/templates/organization/member_new.html:32
-#: ckan/templates/user/edit_user_form.html:8
+#: ckan/templates/organization/member_new.html:33
+#: ckan/templates/user/edit_user_form.html:10
 #: ckan/templates/user/logout_first.html:11
 #: ckan/templates/user/new_user_form.html:5
 #: ckan/templates/user/read_base.html:76
-#: ckan/templates/user/request_reset.html:16
+#: ckan/templates/user/request_reset.html:17
 #: ckan/templates/user/snippets/login_form.html:20
 msgid "Username"
 msgstr "Käyttäjätunnus"
 
-#: ckan/templates/organization/member_new.html:50
+#: ckan/templates/organization/member_new.html:51
 msgid "Email address"
 msgstr "Sähköpostiosoite"
 
-#: ckan/templates/organization/member_new.html:62
+#: ckan/templates/organization/member_new.html:63
 msgid "Update Member"
 msgstr "Päivitä jäsen"
 
-#: ckan/templates/organization/member_new.html:82
+#: ckan/templates/organization/member_new.html:83
 msgid ""
 " <p><strong>Admin:</strong> Can add/edit and delete datasets, as well as "
 "manage organization members.</p> <p><strong>Editor:</strong> Can add and "
 "edit datasets, but not manage organization members.</p> "
 "<p><strong>Member:</strong> Can view the organization's private datasets, "
 "but not add new datasets.</p> "
-msgstr " <p><strong>Ylläpitäjä:</strong> Voi lisätä, muokata ja poistaa tietoaineistoja sekä hallinnoida organisaation jäseniä.</p> <p><strong>Muokkaaja:</strong> Voi lisätä ja muokata tietoaineistoja.</p> <p><strong>Jäsen:</strong> Voi katsella oman organisaationsa yksityisiä tietoaineistoja, mutta ei muokata niitä.</p> "
+msgstr ""
+" <p><strong>Ylläpitäjä:</strong> Voi lisätä, muokata ja poistaa "
+"tietoaineistoja sekä hallinnoida organisaation jäseniä.</p> "
+"<p><strong>Muokkaaja:</strong> Voi lisätä ja muokata tietoaineistoja.</p> "
+"<p><strong>Jäsen:</strong> Voi katsella oman organisaationsa yksityisiä "
+"tietoaineistoja, mutta ei muokata niitä.</p> "
 
 #: ckan/templates/organization/new.html:3
 #: ckan/templates/organization/new.html:5
@@ -3073,34 +3172,46 @@ msgid ""
 "organizations, admins can assign roles and authorise its members, giving "
 "individual users the right to publish datasets from that particular "
 "organisation (e.g. Office of National Statistics).</p> "
-msgstr " <p>Organisaatiot ovat tietoaineistoja julkaisevia tahoja (esimerkiksi Tilastokeskus). Organisaatiossa julkaistut tietoaineistot kuuluvat yksittäisten käyttäjien sijaan ko. organisaatiolle.</p> <p> Organisaation ylläpitäjä voi antaa sen jäsenille rooleja ja oikeuksia, jotta yksittäiset käyttäjät voivat julkaista datasettejä organisaation (esimerkiksi Tilastokeskuksen) nimissä.</p> "
+msgstr ""
+" <p>Organisaatiot ovat tietoaineistoja julkaisevia tahoja (esimerkiksi "
+"Tilastokeskus). Organisaatiossa julkaistut tietoaineistot kuuluvat "
+"yksittäisten käyttäjien sijaan ko. organisaatiolle.</p> <p> Organisaation "
+"ylläpitäjä voi antaa sen jäsenille rooleja ja oikeuksia, jotta yksittäiset "
+"käyttäjät voivat julkaista datasettejä organisaation (esimerkiksi "
+"Tilastokeskuksen) nimissä.</p> "
 
 #: ckan/templates/organization/snippets/helper.html:8
 msgid ""
 " CKAN Organizations are used to create, manage and publish collections of "
 "datasets. Users can have different roles within an Organization, depending "
 "on their level of authorisation to create, edit and publish. "
-msgstr "CKAN:in organisaatioita käytetään tietoaineistojen ja aineistokokonaisuuksien luomiseen, hallinnointiin ja julkaisemiseen. Käyttäjillä voi olla organisaatioissa eri rooleja ja eri tasoisia käyttöoikeuksia tietoaineistojen luomiseen, muokkaamiseen ja julkaisemiseen."
+msgstr ""
+"CKAN:in organisaatioita käytetään tietoaineistojen ja "
+"aineistokokonaisuuksien luomiseen, hallinnointiin ja julkaisemiseen. "
+"Käyttäjillä voi olla organisaatioissa eri rooleja ja eri tasoisia "
+"käyttöoikeuksia tietoaineistojen luomiseen, muokkaamiseen ja julkaisemiseen."
 
-#: ckan/templates/organization/snippets/organization_form.html:10
+#: ckan/templates/organization/snippets/organization_form.html:11
 msgid "My Organization"
 msgstr "Minun organisaationi"
 
-#: ckan/templates/organization/snippets/organization_form.html:18
+#: ckan/templates/organization/snippets/organization_form.html:19
 msgid "my-organization"
 msgstr "Organisaationi"
 
-#: ckan/templates/organization/snippets/organization_form.html:20
+#: ckan/templates/organization/snippets/organization_form.html:21
 msgid "A little information about my organization..."
 msgstr "Hieman lisätietoa organisaatiostani..."
 
-#: ckan/templates/organization/snippets/organization_form.html:60
+#: ckan/templates/organization/snippets/organization_form.html:61
 msgid ""
 "Are you sure you want to delete this Organization? This will delete all the "
 "public and private datasets belonging to this organization."
-msgstr "Haluatko varmasti poistaa tämän organisaation? Tämä poistaa kaikki julkiset ja yksityiset tietoaineistot, jotka kuuluvat tälle organisaatiolle."
+msgstr ""
+"Haluatko varmasti poistaa tämän organisaation? Tämä poistaa kaikki julkiset "
+"ja yksityiset tietoaineistot, jotka kuuluvat tälle organisaatiolle."
 
-#: ckan/templates/organization/snippets/organization_form.html:64
+#: ckan/templates/organization/snippets/organization_form.html:65
 msgid "Save Organization"
 msgstr "Tallenna organisaatio"
 
@@ -3123,13 +3234,16 @@ msgid ""
 " A CKAN Dataset is a collection of data resources (such as files), together "
 "with a description and other information, at a fixed URL. Datasets are what "
 "users see when searching for data. "
-msgstr "Tietoaineisto tarkoittaa CKAN:issa kokoelmaa resursseja (esim. tiedostoja) sekä niihin liittyvää kuvausta ja muuta metatietoa, kuten pysyvää URL-osoitetta."
+msgstr ""
+"Tietoaineisto tarkoittaa CKAN:issa kokoelmaa resursseja (esim. tiedostoja) "
+"sekä niihin liittyvää kuvausta ja muuta metatietoa, kuten pysyvää URL-"
+"osoitetta."
 
-#: ckan/templates/package/confirm_delete.html:11
+#: ckan/templates/package/confirm_delete.html:12
 msgid "Are you sure you want to delete dataset - {name}?"
 msgstr "Haluatko varmasti poistaa tietoaineiston - {name}?"
 
-#: ckan/templates/package/confirm_delete_resource.html:11
+#: ckan/templates/package/confirm_delete_resource.html:12
 msgid "Are you sure you want to delete resource - {name}?"
 msgstr "Haluatko varmasti poistaa resurssin - {name}?"
 
@@ -3141,35 +3255,35 @@ msgstr "Tarkastele tietoaineistoa"
 msgid "Edit metadata"
 msgstr "Muokkaa metadataa"
 
-#: ckan/templates/package/edit_view.html:3
 #: ckan/templates/package/edit_view.html:4
-#: ckan/templates/package/edit_view.html:8
-#: ckan/templates/package/edit_view.html:12
+#: ckan/templates/package/edit_view.html:5
+#: ckan/templates/package/edit_view.html:9
+#: ckan/templates/package/edit_view.html:13
 msgid "Edit view"
 msgstr "Muokkaa näyttöä"
 
-#: ckan/templates/package/edit_view.html:20
-#: ckan/templates/package/new_view.html:28
+#: ckan/templates/package/edit_view.html:22
+#: ckan/templates/package/new_view.html:30
 #: ckan/templates/package/snippets/resource_item.html:33
 #: ckan/templates/snippets/datapreview_embed_dialog.html:16
 msgid "Preview"
 msgstr "Esikatselu"
 
-#: ckan/templates/package/edit_view.html:21
+#: ckan/templates/package/edit_view.html:23
 msgid "Update"
 msgstr "Päivitä"
 
-#: ckan/templates/package/group_list.html:14
+#: ckan/templates/package/group_list.html:15
 msgid "Associate this group with this dataset"
-msgstr "Liitä ryhmä tähän aineistoon"
+msgstr "Liitä kategoria tähän aineistoon"
 
-#: ckan/templates/package/group_list.html:14
+#: ckan/templates/package/group_list.html:15
 msgid "Add to group"
-msgstr "Lisää ryhmään"
+msgstr "Lisää kategoriaan"
 
-#: ckan/templates/package/group_list.html:23
+#: ckan/templates/package/group_list.html:24
 msgid "There are no groups associated with this dataset"
-msgstr "Aineistoon ei ole liitetty ryhmiä"
+msgstr "Aineistoon ei ole liitetty kategorioita"
 
 #: ckan/templates/package/new_package_form.html:15
 msgid "Update Dataset"
@@ -3193,24 +3307,29 @@ msgstr "Lisää resurssi"
 msgid "New resource"
 msgstr "Uusi resurssi"
 
-#: ckan/templates/package/new_view.html:3
 #: ckan/templates/package/new_view.html:4
-#: ckan/templates/package/new_view.html:8
-#: ckan/templates/package/new_view.html:12
+#: ckan/templates/package/new_view.html:5
+#: ckan/templates/package/new_view.html:9
+#: ckan/templates/package/new_view.html:13
 msgid "Add view"
 msgstr "Lisää näyttö"
 
-#: ckan/templates/package/new_view.html:19
+#: ckan/templates/package/new_view.html:20
 msgid ""
 " Data Explorer views may be slow and unreliable unless the DataStore "
 "extension is enabled. For more information, please see the <a "
 "href='http://docs.ckan.org/en/latest/maintaining/data-viewer.html#viewing-"
 "structured-data-the-data-explorer' target='_blank'>Data Explorer "
 "documentation</a>. "
-msgstr "Data Explorer -näkymät voivat olla hitaita ja epäluotettavia, jos DataStore-laajennus ei ole käytössä. Lisätietojen saamiseksi katso <a href='http://docs.ckan.org/en/latest/maintaining/data-viewer.html#viewing-structured-data-the-data-explorer' target='_blank'>Data Explorer -dokumentaatio</a>. "
+msgstr ""
+"Data Explorer -näkymät voivat olla hitaita ja epäluotettavia, jos DataStore-"
+"laajennus ei ole käytössä. Lisätietojen saamiseksi katso <a "
+"href='http://docs.ckan.org/en/latest/maintaining/data-viewer.html#viewing-"
+"structured-data-the-data-explorer' target='_blank'>Data Explorer "
+"-dokumentaatio</a>. "
 
-#: ckan/templates/package/new_view.html:29
-#: ckan/templates/package/snippets/resource_form.html:82
+#: ckan/templates/package/new_view.html:31
+#: ckan/templates/package/snippets/resource_form.html:83
 msgid "Add"
 msgstr "Lisää"
 
@@ -3219,7 +3338,9 @@ msgstr "Lisää"
 msgid ""
 "This is an old revision of this dataset, as edited at %(timestamp)s. It may "
 "differ significantly from the <a href=\"%(url)s\">current revision</a>."
-msgstr "Tämä on tietoaineiston vanha revisio, jota on muokattu %(timestamp)s. Se voi poiketa merkittävästi <a href=\"%(url)s\">nykyisestä revisiosta</a>."
+msgstr ""
+"Tämä on tietoaineiston vanha revisio, jota on muokattu %(timestamp)s. Se voi"
+" poiketa merkittävästi <a href=\"%(url)s\">nykyisestä revisiosta</a>."
 
 #: ckan/templates/package/related_list.html:7
 msgid "Related Media for {dataset}"
@@ -3342,14 +3463,19 @@ msgstr "Tälle resurssille ei ole luotu yhtään sopivaa näkymää"
 
 #: ckan/templates/package/resource_read.html:124
 msgid "The site administrators may not have enabled the relevant view plugins"
-msgstr "Voi olla, ettei järjestelmänhoitaja ole ottanut käyttöön asiaan liittyviä liitännäisiä"
+msgstr ""
+"Voi olla, ettei järjestelmänhoitaja ole ottanut käyttöön asiaan liittyviä "
+"liitännäisiä"
 
 #: ckan/templates/package/resource_read.html:125
 msgid ""
 "If a view requires the DataStore, the DataStore plugin may not be enabled, "
 "or the data may not have been pushed to the DataStore, or the DataStore "
 "hasn't finished processing the data yet"
-msgstr "Jos näkymä vaatii DataStoren, voi olla, ettei DataStore-liitännäistä ole otettu käyttöön, tai ettei tietoja ole tallennettu DataStoreen, tai ettei DataStore ole vielä saanut prosessointia valmiiksi"
+msgstr ""
+"Jos näkymä vaatii DataStoren, voi olla, ettei DataStore-liitännäistä ole "
+"otettu käyttöön, tai ettei tietoja ole tallennettu DataStoreen, tai ettei "
+"DataStore ole vielä saanut prosessointia valmiiksi"
 
 #: ckan/templates/package/resource_read.html:147
 msgid "Additional Information"
@@ -3380,7 +3506,7 @@ msgid "Created"
 msgstr "Luotu"
 
 #: ckan/templates/package/resource_read.html:165
-#: ckan/templates/package/snippets/resource_form.html:37
+#: ckan/templates/package/snippets/resource_form.html:38
 #: ckan/templates/package/snippets/resource_info.html:16
 msgid "Format"
 msgstr "Muoto"
@@ -3409,7 +3535,9 @@ msgstr "Lisää uusi resurssi"
 msgid ""
 " <p class=\"empty\">This dataset has no data, <a href=\"%(url)s\">why not "
 "add some?</a></p> "
-msgstr " <p class=\"empty\">Tässä tietoaineistossa ei ole dataa, <a href=\"%(url)s\">mikset lisäisi sitä?</a> "
+msgstr ""
+" <p class=\"empty\">Tässä tietoaineistossa ei ole dataa, <a "
+"href=\"%(url)s\">mikset lisäisi sitä?</a> "
 
 #: ckan/templates/package/search.html:52
 msgid "API"
@@ -3428,14 +3556,18 @@ msgstr "täysi {format} dumppi"
 msgid ""
 " You can also access this registry using the %(api_link)s (see "
 "%(api_doc_link)s) or download a %(dump_link)s. "
-msgstr " Voit käyttää rekisteriä myös %(api_link)s avulla (katso myös %(api_doc_link)s) tai ladata tiedostoina %(dump_link)s. "
+msgstr ""
+" Voit käyttää rekisteriä myös %(api_link)s avulla (katso myös "
+"%(api_doc_link)s) tai ladata tiedostoina %(dump_link)s. "
 
 #: ckan/templates/package/search.html:60
 #, python-format
 msgid ""
 " You can also access this registry using the %(api_link)s (see "
 "%(api_doc_link)s). "
-msgstr " Voit käyttää rekisteriä myös %(api_link)s avulla (katso myös %(api_doc_link)s). "
+msgstr ""
+" Voit käyttää rekisteriä myös %(api_link)s avulla (katso myös "
+"%(api_doc_link)s). "
 
 #: ckan/templates/package/view_edit_base.html:9
 msgid "All views"
@@ -3509,7 +3641,9 @@ msgstr "esim. talous, mielenterveys, hallinto"
 msgid ""
 " License definitions and additional information can be found at <a "
 "href=\"http://opendefinition.org/licenses/\">opendefinition.org</a> "
-msgstr " Lisenssien määritykset ja lisätiedot löydät osoitteesta <a href=\"http://opendefinition.org/licenses/\">opendefinition.org</a> "
+msgstr ""
+" Lisenssien määritykset ja lisätiedot löydät osoitteesta <a "
+"href=\"http://opendefinition.org/licenses/\">opendefinition.org</a> "
 
 #: ckan/templates/package/snippets/package_basic_fields.html:70
 #: ckan/templates/snippets/organization.html:23
@@ -3532,20 +3666,25 @@ msgstr "Julkinen"
 msgid "Active"
 msgstr "Aktiivinen"
 
-#: ckan/templates/package/snippets/package_form.html:28
+#: ckan/templates/package/snippets/package_form.html:29
 msgid ""
 "The <i>data license</i> you select above only applies to the contents of any"
 " resource files that you add to this dataset. By submitting this form, you "
 "agree to release the <i>metadata</i> values that you enter into the form "
 "under the <a href=\"http://opendatacommons.org/licenses/odbl/1-0/\">Open "
 "Database License</a>."
-msgstr "<i>Lisenssi</i>, jonka valitset yllä olevasta valikosta, koskee ainoastaan tähän tietoaineistoon liittämiäsi tiedostoja. Lähettämällä tämän lomakkeen suostut julkaisemaan täyttämäsi <i>metatiedot</i> <a href=\"http://opendatacommons.org/licenses/odbl/1-0/\">Open Database Lisenssin</a> mukaisesti."
+msgstr ""
+"<i>Lisenssi</i>, jonka valitset yllä olevasta valikosta, koskee ainoastaan "
+"tähän tietoaineistoon liittämiäsi tiedostoja. Lähettämällä tämän lomakkeen "
+"suostut julkaisemaan täyttämäsi <i>metatiedot</i> <a "
+"href=\"http://opendatacommons.org/licenses/odbl/1-0/\">Open Database "
+"Lisenssin</a> mukaisesti."
 
-#: ckan/templates/package/snippets/package_form.html:39
+#: ckan/templates/package/snippets/package_form.html:40
 msgid "Are you sure you want to delete this dataset?"
 msgstr "Haluatko varmasti poistaa tietoaineiston?"
 
-#: ckan/templates/package/snippets/package_form.html:44
+#: ckan/templates/package/snippets/package_form.html:45
 msgid "Next: Add Data"
 msgstr "Seuraavaksi: Lisää dataa"
 
@@ -3581,61 +3720,61 @@ msgstr "Ylläpitäjän sähköposti"
 msgid "Update Resource"
 msgstr "Päivitä resurssi"
 
-#: ckan/templates/package/snippets/resource_form.html:24
+#: ckan/templates/package/snippets/resource_form.html:25
 msgid "File"
 msgstr "Tiedosto"
 
-#: ckan/templates/package/snippets/resource_form.html:28
+#: ckan/templates/package/snippets/resource_form.html:29
 msgid "eg. January 2011 Gold Prices"
 msgstr "esim. Kullan hinta tammikuussa 2011"
 
-#: ckan/templates/package/snippets/resource_form.html:32
+#: ckan/templates/package/snippets/resource_form.html:33
 msgid "Some useful notes about the data"
 msgstr "Datan sanallinen kuvaus"
 
-#: ckan/templates/package/snippets/resource_form.html:37
+#: ckan/templates/package/snippets/resource_form.html:38
 msgid "eg. CSV, XML or JSON"
 msgstr "esim. CSV, XML tai JSON"
 
-#: ckan/templates/package/snippets/resource_form.html:40
+#: ckan/templates/package/snippets/resource_form.html:41
 msgid "This will be guessed automatically. Leave blank if you wish"
 msgstr "Tämä päätellään automaattisesti. Jätä tyhjäksi jos haluat"
 
-#: ckan/templates/package/snippets/resource_form.html:51
+#: ckan/templates/package/snippets/resource_form.html:52
 msgid "eg. 2012-06-05"
 msgstr "esim. 2012-06-05"
 
-#: ckan/templates/package/snippets/resource_form.html:53
+#: ckan/templates/package/snippets/resource_form.html:54
 msgid "File Size"
 msgstr "Tiedoston koko"
 
-#: ckan/templates/package/snippets/resource_form.html:53
+#: ckan/templates/package/snippets/resource_form.html:54
 msgid "eg. 1024"
 msgstr "esim. 1024"
 
-#: ckan/templates/package/snippets/resource_form.html:55
-#: ckan/templates/package/snippets/resource_form.html:57
+#: ckan/templates/package/snippets/resource_form.html:56
+#: ckan/templates/package/snippets/resource_form.html:58
 msgid "MIME Type"
 msgstr "MIME-tyyppi"
 
-#: ckan/templates/package/snippets/resource_form.html:55
-#: ckan/templates/package/snippets/resource_form.html:57
+#: ckan/templates/package/snippets/resource_form.html:56
+#: ckan/templates/package/snippets/resource_form.html:58
 msgid "eg. application/json"
 msgstr "esim. application/json"
 
-#: ckan/templates/package/snippets/resource_form.html:65
+#: ckan/templates/package/snippets/resource_form.html:66
 msgid "Are you sure you want to delete this resource?"
 msgstr "Haluatko varmasti poistaa tämän resurssin?"
 
-#: ckan/templates/package/snippets/resource_form.html:72
+#: ckan/templates/package/snippets/resource_form.html:73
 msgid "Previous"
 msgstr "Edellinen"
 
-#: ckan/templates/package/snippets/resource_form.html:75
+#: ckan/templates/package/snippets/resource_form.html:76
 msgid "Save & add another"
 msgstr "Tallenna ja lisää toinen"
 
-#: ckan/templates/package/snippets/resource_form.html:78
+#: ckan/templates/package/snippets/resource_form.html:79
 msgid "Finish"
 msgstr "Valmis"
 
@@ -3645,7 +3784,9 @@ msgstr "Mikä on resurssi?"
 
 #: ckan/templates/package/snippets/resource_help.html:4
 msgid "A resource can be any file or link to a file containing useful data."
-msgstr "Resurssi on mikä tahansa tiedosto tai linkki tiedostoon, jossa on hyödyllistä dataa."
+msgstr ""
+"Resurssi on mikä tahansa tiedosto tai linkki tiedostoon, jossa on "
+"hyödyllistä dataa."
 
 #: ckan/templates/package/snippets/resource_item.html:24
 msgid "Explore"
@@ -3671,7 +3812,9 @@ msgstr "Upota resurssinäyttö"
 msgid ""
 "You can copy and paste the embed code into a CMS or blog software that "
 "supports raw HTML"
-msgstr "Voit leikata ja liimata upotuskoodin sisällönhallintajärjestelmään tai blogiin, joka sallii raakaa HTML-koodia"
+msgstr ""
+"Voit leikata ja liimata upotuskoodin sisällönhallintajärjestelmään tai "
+"blogiin, joka sallii raakaa HTML-koodia"
 
 #: ckan/templates/package/snippets/resource_view.html:69
 msgid "Width"
@@ -3862,7 +4005,9 @@ msgstr "Tietoaineistolla ei ole kuvausta"
 msgid ""
 "No apps, ideas, news stories or images have been related to this dataset "
 "yet."
-msgstr "Tähän tietoaineistoon ei ole vielä liitetty sovelluksia, ideoita, uutisia tai kuvia."
+msgstr ""
+"Tähän tietoaineistoon ei ole vielä liitetty sovelluksia, ideoita, uutisia "
+"tai kuvia."
 
 #: ckan/templates/snippets/related.html:18
 msgid "Add Item"
@@ -3916,21 +4061,21 @@ msgstr "Tietoaineistoja ei löytynyt"
 msgid "{number} group found for \"{query}\""
 msgid_plural "{number} groups found for \"{query}\""
 msgstr[0] "Haulla \"{query}\" löytyi {number} ryhmää"
-msgstr[1] "Haulla \"{query}\" löytyi {number} ryhmää"
+msgstr[1] "Haulla \"{query}\" löytyi {number} kategoriaa"
 
 #: ckan/templates/snippets/search_result_text.html:22
 msgid "No groups found for \"{query}\""
-msgstr "Haulla \"{query}\" ei löytynyt ryhmiä"
+msgstr "Haulla \"{query}\" ei löytynyt kategorioita"
 
 #: ckan/templates/snippets/search_result_text.html:23
 msgid "{number} group found"
 msgid_plural "{number} groups found"
 msgstr[0] "Löytyi {number} ryhmää"
-msgstr[1] "Löytyi {number} ryhmää "
+msgstr[1] "Löytyi {number} kategoriaa "
 
 #: ckan/templates/snippets/search_result_text.html:24
 msgid "No groups found"
-msgstr "Ryhmiä ei löytynyt"
+msgstr "Kategorioita ei löytynyt"
 
 #: ckan/templates/snippets/search_result_text.html:27
 msgid "{number} organization found for \"{query}\""
@@ -3961,7 +4106,7 @@ msgid "Subscribe"
 msgstr "Tilaa"
 
 #: ckan/templates/snippets/subscribe.html:4
-#: ckan/templates/user/edit_user_form.html:12
+#: ckan/templates/user/edit_user_form.html:14
 #: ckan/templates/user/new_user_form.html:7
 #: ckan/templates/user/read_base.html:82
 msgid "Email"
@@ -3997,7 +4142,7 @@ msgstr "Minun organisaationi"
 #: ckan/templates/user/dashboard.html:22
 #: ckan/templates/user/dashboard_groups.html:12
 msgid "My Groups"
-msgstr "Minun ryhmäni"
+msgstr "Minun kategoriani"
 
 #: ckan/templates/user/dashboard.html:39
 msgid "Activity from items that I'm following"
@@ -4017,7 +4162,7 @@ msgstr "Luo uusi nyt?"
 
 #: ckan/templates/user/dashboard_groups.html:20
 msgid "You are not a member of any groups."
-msgstr "Et ole minkään ryhmän jäsen."
+msgstr "Et ole minkään kategorian jäsen."
 
 #: ckan/templates/user/dashboard_organizations.html:20
 msgid "You are not a member of any organizations."
@@ -4037,37 +4182,38 @@ msgstr "Käyttäjätilin tiedot"
 #: ckan/templates/user/edit.html:19
 msgid ""
 " Your profile lets other CKAN users know about who you are and what you do. "
-msgstr "Profiilin avulla muut CKAN:in käyttäjät tietävät kuka olet ja mitä teet. "
+msgstr ""
+"Profiilin avulla muut CKAN:in käyttäjät tietävät kuka olet ja mitä teet. "
 
-#: ckan/templates/user/edit_user_form.html:7
+#: ckan/templates/user/edit_user_form.html:9
 msgid "Change details"
 msgstr "Muuta tietoja"
 
-#: ckan/templates/user/edit_user_form.html:10
+#: ckan/templates/user/edit_user_form.html:12
 msgid "Full name"
 msgstr "Koko nimi"
 
-#: ckan/templates/user/edit_user_form.html:10
+#: ckan/templates/user/edit_user_form.html:12
 msgid "eg. Joe Bloggs"
 msgstr "esim. Joe Bloggs"
 
-#: ckan/templates/user/edit_user_form.html:12
+#: ckan/templates/user/edit_user_form.html:14
 msgid "eg. joe@example.com"
 msgstr "joe@example.com"
 
-#: ckan/templates/user/edit_user_form.html:14
+#: ckan/templates/user/edit_user_form.html:16
 msgid "A little information about yourself"
 msgstr "Hieman tietoa itsestäsi"
 
-#: ckan/templates/user/edit_user_form.html:17
+#: ckan/templates/user/edit_user_form.html:19
 msgid "Subscribe to notification emails"
 msgstr "Tilaa ilmoitukset sähköpostiisi"
 
-#: ckan/templates/user/edit_user_form.html:26
+#: ckan/templates/user/edit_user_form.html:28
 msgid "Change password"
 msgstr "Vaihda salasana"
 
-#: ckan/templates/user/edit_user_form.html:29
+#: ckan/templates/user/edit_user_form.html:31
 #: ckan/templates/user/logout_first.html:12
 #: ckan/templates/user/new_user_form.html:8
 #: ckan/templates/user/perform_reset.html:20
@@ -4075,23 +4221,23 @@ msgstr "Vaihda salasana"
 msgid "Password"
 msgstr "Salasana"
 
-#: ckan/templates/user/edit_user_form.html:31
+#: ckan/templates/user/edit_user_form.html:33
 msgid "Confirm Password"
 msgstr "Salasana uudelleen"
 
-#: ckan/templates/user/edit_user_form.html:37
+#: ckan/templates/user/edit_user_form.html:39
 msgid "Are you sure you want to delete this User?"
 msgstr "Haluatko varmasti poistaa tämän käyttäjän?"
 
-#: ckan/templates/user/edit_user_form.html:43
+#: ckan/templates/user/edit_user_form.html:45
 msgid "Are you sure you want to regenerate the API key?"
 msgstr "Oletko varma että haluat uudistaa API-avaimen?"
 
-#: ckan/templates/user/edit_user_form.html:44
+#: ckan/templates/user/edit_user_form.html:46
 msgid "Regenerate API Key"
 msgstr "Uudista API-avain"
 
-#: ckan/templates/user/edit_user_form.html:48
+#: ckan/templates/user/edit_user_form.html:50
 msgid "Update Profile"
 msgstr "Päivitä profiili"
 
@@ -4157,7 +4303,9 @@ msgstr "Olet jo kirjautunut sisään"
 
 #: ckan/templates/user/logout_first.html:24
 msgid "You need to log out before you can log in with another account."
-msgstr "Sinun tulee kirjautua ulos ennen kuin voit kirjautua sisään toisella tilillä."
+msgstr ""
+"Sinun tulee kirjautua ulos ennen kuin voit kirjautua sisään toisella "
+"tilillä."
 
 #: ckan/templates/user/logout_first.html:25
 msgid "Log out now"
@@ -4177,7 +4325,7 @@ msgstr "Miksi rekisteröityä?"
 
 #: ckan/templates/user/new.html:28
 msgid "Create datasets, groups and other exciting things"
-msgstr "Luo uusia tietoaineistoja, ryhmiä ja muita kiinnostavia asioita"
+msgstr "Luo uusia tietoaineistoja, kategorioita ja muita kiinnostavia asioita"
 
 #: ckan/templates/user/new_user_form.html:5
 msgid "username"
@@ -4205,7 +4353,7 @@ msgid "Update Password"
 msgstr "Päivitä salasana"
 
 #: ckan/templates/user/perform_reset.html:38
-#: ckan/templates/user/request_reset.html:32
+#: ckan/templates/user/request_reset.html:33
 msgid "How does this work?"
 msgstr "Miten tämä toimii?"
 
@@ -4241,19 +4389,21 @@ msgstr "Jäsenyys alkanut"
 msgid "API Key"
 msgstr "API-avain"
 
-#: ckan/templates/user/request_reset.html:6
+#: ckan/templates/user/request_reset.html:7
 msgid "Password reset"
 msgstr "Salasanan uudelleenasetus"
 
-#: ckan/templates/user/request_reset.html:19
+#: ckan/templates/user/request_reset.html:20
 msgid "Request reset"
 msgstr "Pyydä uudelleenasettamista"
 
-#: ckan/templates/user/request_reset.html:34
+#: ckan/templates/user/request_reset.html:35
 msgid ""
 "Enter your username into the box and we will send you an email with a link "
 "to enter a new password."
-msgstr "Syötä käyttäjänimesi laatikkoon, niin lähetämme sinulle sähköpostin, jossa on linkki uuden salasanan syöttämislomakkeeseen."
+msgstr ""
+"Syötä käyttäjänimesi laatikkoon, niin lähetämme sinulle sähköpostin, jossa "
+"on linkki uuden salasanan syöttämislomakkeeseen."
 
 #: ckan/templates/user/snippets/followee_dropdown.html:14
 #: ckan/templates/user/snippets/followee_dropdown.html:15
@@ -4300,11 +4450,13 @@ msgstr "DataStore-resurssia ei löytynyt"
 msgid ""
 "The data was invalid (for example: a numeric value is out of range or was "
 "inserted into a text field)."
-msgstr "Tieto oli virheellistä (esimerkiksi: numeerinen arvo on rajojen ulkopuolella ta oli lisätty tekstitietoon)."
+msgstr ""
+"Tieto oli virheellistä (esimerkiksi: numeerinen arvo on rajojen ulkopuolella"
+" ta oli lisätty tekstitietoon)."
 
-#: ckanext/datastore/logic/action.py:215 ckanext/datastore/logic/action.py:255
-#: ckanext/datastore/logic/action.py:332 ckanext/datastore/logic/action.py:422
-#: ckanext/datastore/logic/action.py:504 ckanext/datastore/logic/action.py:530
+#: ckanext/datastore/logic/action.py:220 ckanext/datastore/logic/action.py:260
+#: ckanext/datastore/logic/action.py:347 ckanext/datastore/logic/action.py:445
+#: ckanext/datastore/logic/action.py:527 ckanext/datastore/logic/action.py:553
 msgid "Resource \"{0}\" was not found."
 msgstr "Resurssia \"{0}\" ei löytynyt."
 
@@ -4353,11 +4505,12 @@ msgstr "Tämä on kääntämätön teksti"
 #: ckanext/example_theme/v10_custom_snippet/templates/snippets/example_theme_most_popular_groups.html:20
 #: ckanext/example_theme/v11_HTML_and_CSS/templates/snippets/example_theme_most_popular_groups.html:19
 msgid "This group has no description"
-msgstr "Tällä ryhmällä ei ole kuvausta"
+msgstr "Tällä kategorialla ei ole kuvausta"
 
 #: ckanext/example_theme/v12_extra_public_dir/templates/home/snippets/promoted.html:4
 msgid "CKAN's data previewing tool has many powerful features"
-msgstr "CKAN:n tietojen esikatselun työkalussa on monta tehokasta ominaisuutta"
+msgstr ""
+"CKAN:n tietojen esikatselun työkalussa on monta tehokasta ominaisuutta"
 
 #: ckanext/imageview/theme/templates/image_form.html:3
 msgid "Image url"
@@ -4365,7 +4518,8 @@ msgstr "Kuvan url"
 
 #: ckanext/imageview/theme/templates/image_form.html:3
 msgid "eg. http://example.com/image.jpg (if blank uses resource url)"
-msgstr "esim. http://esimerkki.com/kuva.jpg (jos tyhjä ,käyttää resurssien url:ia)"
+msgstr ""
+"esim. http://esimerkki.com/kuva.jpg (jos tyhjä ,käyttää resurssien url:ia)"
 
 #: ckanext/reclineview/plugin.py:84
 msgid "Data Explorer"
@@ -4384,6 +4538,7 @@ msgid "Map"
 msgstr "Kartta"
 
 #: ckanext/reclineview/theme/public/recline_view.js:34
+#: ckanext/reclineview/theme/public/recline_view.min.js:1
 msgid "error loading view"
 msgstr "virhe ladattaessa näkymää"
 
@@ -4544,6 +4699,7 @@ msgid "Text"
 msgstr "Teksti"
 
 #: ckanext/textview/theme/public/text_view.js:5
+#: ckanext/textview/theme/public/text_view.min.js:1
 #, python-format
 msgid "An error occurred: %(text)s %(error)s"
 msgstr "Virhe tapahtui: %(text)s %(error)s"
@@ -4559,147 +4715,3 @@ msgstr "Verkkosivuston url"
 #: ckanext/webpageview/theme/templates/webpage_form.html:3
 msgid "eg. http://example.com (if blank uses resource url)"
 msgstr "esim. http://esimerkki.com (jos tyhjä, käyttää resurssien url:iä)"
-
-#: ckanext-contact localizations start here
-msgid "Feedback"
-msgstr "Palaute"
-
-msgid "Send feedback"
-msgstr "Anna palautetta"
-
-msgid "Feedback message"
-msgstr "Palauteviesti"
-
-msgid "Thank you!"
-msgstr "Kiitos!"
-
-msgid "We would like to receive feedback and development ideas regarding the API Catalogue. You cannot submit feedback on individual APIs at this time. More information on specific APIs is available through the contact channels stated in the API."
-msgstr "Otamme vastaan palautetta ja kehittämisideoita Liityntäkatalogiin liittyen. Yksittäisistä liitynnöistä ei tässä vaiheessa voi antaa palautetta. Liityntäkohtaisia lisätietoja saa liityntään kirjattujen yhteystietojen kautta."
-
-msgid "Please send your feedback or development ideas regarding the API Catalogue using the feedback form. The feedback will be directed to Customer Services at the Service Architecture Unit of the Population Register Centre. If you wish to receive a reply to your feedback, please enclose your contact information."
-msgstr "Lähetä Liityntäkatalogiin liittyvä palautteesi tai kehitysideasi palautelomakkeella. Palaute ohjautuu Väestörekisterikeskuksen Palveluarkkitehtuuri-yksikön Asiakaspalveluun. Jos toivot palautteeseesi vastauksen, liitä mukaan yhteystietosi."
-#: ckanext-contact localizations end here
-
-#: Navigation extras
-msgid "Articles"
-msgstr "Yhteisö"
-
-msgid "Showcase"
-msgstr "Sovellukset"
-
-#: Site titles
-msgid "Site title"
-msgstr "Avointa dataa vapaasti hyödynnettäväksesi"
-
-msgid "Site subtitle"
-msgstr "Löydä kaiken maailman data täältä"
-
-#: Statistics
-msgid "Datasets statistics"
-msgstr "Tietoaineistoa"
-
-msgid "Applications statistics"
-msgstr "Sovellusta"
-
-msgid "Interfaces statistics"
-msgstr "Rajapintaa"
-
-msgid "Users statistics"
-msgstr "Käyttäjää"
-
-msgid "Shares statistics"
-msgstr "Jakoa"
-
-#: Categories
-msgid "Topics"
-msgstr "Aihepiirit"
-
-msgid "Government"
-msgstr "Hallinto"
-
-msgid "Transportation and maps"
-msgstr "Liikenne ja kartat"
-
-msgid "Tourism"
-msgstr "Matkailu"
-
-msgid "Education"
-msgstr "Opetus"
-
-msgid "Construction"
-msgstr "Rakennukset"
-
-msgid "Economy"
-msgstr "Talous"
-
-msgid "Health"
-msgstr "Terveys"
-
-msgid "Population"
-msgstr "Väestö"
-
-msgid "Outdoors and recreation"
-msgstr "Ympäristö ja liikunta"
-
-#: Category descriptions
-msgid "Government description"
-msgstr "Hallinto, laki ja oikeusturva, turvallisuus, tietotekniikka"
-
-msgid "Transportation and maps description"
-msgstr "Liikenne ja kartat"
-
-msgid "Tourism description"
-msgstr "Kulttuuri, matkailu, neuvonta"
-
-msgid "Education description"
-msgstr "Opetus ja koulutus"
-
-msgid "Construction description"
-msgstr "Asuminen, rakentaminen, kaavat ja kiinteistöt"
-
-msgid "Economy description"
-msgstr "Talous, työ ja elinkeinot"
-
-msgid "Health description"
-msgstr "Terveys, sosiaalipalvelut"
-
-msgid "Population description"
-msgstr "Väestö"
-
-msgid "Outdoors and recreation description"
-msgstr "Ympäristö ja luonto, liikunta ja ulkoilu"
-
-#: Popular and recent content
-msgid "Most recent content"
-msgstr "Uusin sisältö"
-
-msgid "Recent content was not found"
-msgstr "Yhtään uutta sisältöä ei löytynyt"
-
-msgid "Popular this month"
-msgstr "Kuukauden katsotuimmat"
-
-msgid "Popular content was not found"
-msgstr "Yhtään suosittua sisältöä ei löytynyt"
-
-#: Footer
-msgid "Follow us"
-msgstr "Seuraa meitä"
-
-#: Showcase
-msgid "Showcases"
-msgstr "Sovellukset"
-
-msgid "Add Showcase"
-msgstr "Lisää sovellus"
-
-msgid "Search showcases..."
-msgstr "Etsi sovelluksista..."
-
-msgid "{number} showcase found"
-msgid_plural "{number} showcases found"
-msgstr[0] "Löytyi {number} sovellus"
-msgstr[1] "Löytyi {number} sovellusta"
-
-msgid "No showcases found"
-msgstr "Yhtään sovellusta ei löytynyt"

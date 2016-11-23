@@ -4514,3 +4514,69 @@ msgstr ""
 msgid "eg. http://example.com (if blank uses resource url)"
 msgstr ""
 
+#: Popular and recent content
+msgid "Most recent content"
+msgstr ""
+
+msgid "Recent content was not found"
+msgstr ""
+
+msgid "Popular this month"
+msgstr ""
+
+msgid "Popular content was not found"
+msgstr ""
+
+#: Footer
+msgid "Follow us"
+msgstr ""
+
+#: ckanext-contact localizations start here
+msgid "Feedback"
+msgstr ""
+
+msgid "Send feedback"
+msgstr ""
+
+msgid "Feedback message"
+msgstr ""
+
+msgid "Thank you!"
+msgstr ""
+
+msgid "We would like to receive feedback and development ideas regarding the API Catalogue. You cannot submit feedback on individual APIs at this time. More information on specific APIs is available through the contact channels stated in the API."
+msgstr ""
+
+msgid "Please send your feedback or development ideas regarding the API Catalogue using the feedback form. The feedback will be directed to Customer Services at the Service Architecture Unit of the Population Register Centre. If you wish to receive a reply to your feedback, please enclose your contact information."
+msgstr ""
+#: ckanext-contact localizations end here
+
+#: Navigation extras
+msgid "Articles"
+msgstr ""
+
+msgid "Showcase"
+msgstr ""
+
+#: Site titles
+msgid "Site title"
+msgstr ""
+
+msgid "Site subtitle"
+msgstr ""
+
+#: Statistics
+msgid "Datasets statistics"
+msgstr ""
+
+msgid "Applications statistics"
+msgstr ""
+
+msgid "Interfaces statistics"
+msgstr ""
+
+msgid "Users statistics"
+msgstr ""
+
+msgid "Shares statistics"
+msgstr ""
