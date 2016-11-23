@@ -4,6 +4,7 @@
 enabled_ckan_extensions: 
     - disqus
     - datastore
+    - datapusher
     - text_view 
     - image_view
     - recline_view
