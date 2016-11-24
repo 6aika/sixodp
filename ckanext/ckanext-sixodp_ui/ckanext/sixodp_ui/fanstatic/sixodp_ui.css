@@ -6951,3 +6951,15 @@ ul.hierarchy-tree-top {
 
 .star-rating-stars > .icon {
   font-size: 1.5em; }
+
+.secondary .main-heading {
+  font-size: 18px;
+  padding: 0 25px;
+  margin-top: 20px;
+  margin-bottom: 10px; }
+
+.secondary .module-heading {
+  font-size: 18px; }
+
+.secondary h1.heading, .secondary h2.heading, .secondary h3.heading, .secondary h4.heading, .secondary h5.heading, .secondary h6.heading {
+  font-size: 16px; }
