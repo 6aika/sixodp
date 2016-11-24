@@ -15,23 +15,7 @@ Example:
         <div class="module-content">
             {% block package_info_inner %}
                 {% block rating %}
-                <div class="rating">
-                    {% block general_rating %}
-                      <h2 class="heading">{{ _('Rating') }}</h2>
-                    <div class="rating-container">
-                        {% snippet "rating/stars_inactive.html", package=pkg %}
-                    </div>
-                    {% endblock %}
-                    {% block user_rating %}
-                    <h2 class="heading">{{ _('Your rating') }}</h2>
-                    <div class="rating-container">
-                        {%- snippet "rating/stars.html", package=pkg -%}
-                        <span class="rating-details">
-                          {%- snippet "rating/rating_description.html", rating=h.get_user_rating(pkg.id) -%}
-                        </span>
-                    </div>
-                    {% endblock %}
-                </div>
+                  {% snippet "rating/snippets/rating.html", package=pkg %}
                 {% endblock %}
 
                 {% block follow_button %}

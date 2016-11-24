@@ -1,0 +1,9 @@
+{% ckan_extends %}
+
+{% block item_inner %}
+  {{ super() }}
+  {% block rating %}
+    <p>{% snippet "rating/snippets/stars_inactive.html", package=package %}</p>
+  {% endblock %}
+{% endblock %}
+
