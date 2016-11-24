@@ -4,5 +4,43 @@
   <meta property="og:description" content="{{ h.get_translated(pkg ,'description')|forceescape|trim }}">
 {% endblock -%}
 
-{% block package_license %}
+{% block secondary_content %}
+
+  {% block secondary_help_content %}{% endblock %}
+
+  {% block heading %}
+    <div class="module">
+      <h4 class="module-heading">{{ h.dataset_display_name(pkg) }}</h4>
+    </div>
+  {% endblock %}
+
+  {% block package_organization %}
+    {% if pkg.organization %}
+      {% set org = h.get_organization(pkg.organization.name) %}
+      {% snippet "snippets/organization.html", organization=org, has_context_title=true %}
+    {% endif %}
+  {% endblock %}
+
+  {% block package_info %}
+    {% snippet 'package/snippets/info.html', pkg=pkg %}
+  {% endblock %}
+
+{#  Todo uncomment this when ckanext-qa issue 38 is fixed  #}
+{#  {% block package_openness %}#}
+{#    {% if c.pkg_dict %}#}
+{#      <div class="module module-narrow module-shallow context-info">#}
+{#        <h2 class="module-heading">{{ _('Openness') }}</h2>#}
+{#        <section class="module-content">#}
+{#          {{ h.qa_openness_stars_dataset_html(c.pkg_dict) }}<br>#}
+{#        </section>#}
+{#      </div>#}
+{#    {% endif %}#}
+{#  {% endblock %}#}
+
+  {% block package_social %}
+    {% snippet "snippets/social.html" %}
+  {% endblock %}
+
+  {% block package_license %}
+  {% endblock %}
 {% endblock %}
