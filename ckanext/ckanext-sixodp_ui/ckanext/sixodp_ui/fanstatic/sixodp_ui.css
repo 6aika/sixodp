@@ -6963,3 +6963,7 @@ ul.hierarchy-tree-top {
 
 .secondary h1.heading, .secondary h2.heading, .secondary h3.heading, .secondary h4.heading, .secondary h5.heading, .secondary h6.heading {
   font-size: 16px; }
+
+.qa.openness-None {
+  color: #7c7c82;
+  font-size: 14px; }

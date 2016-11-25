@@ -4783,3 +4783,10 @@ msgstr ""
 
 msgid "Shares statistics"
 msgstr ""
+
+#: Ckanext-qa
+msgid "Openness"
+msgstr ""
+
+msgid "No openness information yet"
+msgstr ""

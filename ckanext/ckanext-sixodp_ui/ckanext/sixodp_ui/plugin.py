@@ -164,6 +164,19 @@ def unquote_url(url):
     return urllib.unquote(url)
 
 
+def get_qa_openness(dataset):
+    qa = dataset.get('qa')
+    if not qa or not isinstance(qa, dict):
+        extra_vars = {
+            'openness_score': None
+        }
+    else:
+        extra_vars = copy.deepcopy(qa)
+    return toolkit.literal(
+        toolkit.render('qa/openness_stars_brief.html',
+                  extra_vars=extra_vars))
+
+
 class Sixodp_UiPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.ITemplateHelpers)
@@ -192,5 +205,6 @@ class Sixodp_UiPlugin(plugins.SingletonPlugin):
                 'service_alerts': service_alerts,
                 'unquote_url': unquote_url,
                 'ensure_translated': ensure_translated,
-                'get_translated': get_translated
+                'get_translated': get_translated,
+                'get_qa_openness': get_qa_openness
                 }

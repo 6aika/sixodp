@@ -23,17 +23,16 @@
     {% snippet 'package/snippets/info.html', pkg=pkg %}
   {% endblock %}
 
-{#  Todo uncomment this when ckanext-qa issue 38 is fixed  #}
-{#  {% block package_openness %}#}
-{#    {% if c.pkg_dict %}#}
-{#      <div class="module module-narrow module-shallow context-info">#}
-{#        <h2 class="module-heading">{{ _('Openness') }}</h2>#}
-{#        <section class="module-content">#}
-{#          {{ h.qa_openness_stars_dataset_html(c.pkg_dict) }}<br>#}
-{#        </section>#}
-{#      </div>#}
-{#    {% endif %}#}
-{#  {% endblock %}#}
+  {% block package_openness %}
+    {% if c.pkg_dict %}
+      <div class="module module-narrow module-shallow context-info">
+        <h2 class="module-heading">{{ _('Openness') }}</h2>
+        <section class="module-content">
+          {{ h.get_qa_openness(c.pkg_dict) }}<br>
+        </section>
+      </div>
+    {% endif %}
+  {% endblock %}
 
   {% block package_social %}
     {% snippet "snippets/social.html" %}

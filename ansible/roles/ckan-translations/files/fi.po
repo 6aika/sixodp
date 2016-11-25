@@ -4794,3 +4794,10 @@ msgstr "Käyttäjää"
 
 msgid "Shares statistics"
 msgstr "Jakoa"
+
+#: Ckanext-qa
+msgid "Openness"
+msgstr "Datan avoimuusaste"
+
+msgid "No openness information yet"
+msgstr "Aineistolle ei ole määritetty avoimuusastetta"
