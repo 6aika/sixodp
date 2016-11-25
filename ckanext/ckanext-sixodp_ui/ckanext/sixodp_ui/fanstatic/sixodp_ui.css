@@ -6506,6 +6506,8 @@ select {
       border: none;
       font-weight: bold;
       font-size: 16px; }
+      .navbar-offcanvas .module .module-heading > i {
+        display: none; }
     .navbar-offcanvas .module .module-content {
       padding: 0 25px; }
       .navbar-offcanvas .module .module-content.empty, .navbar-offcanvas .module .module-content .empty {
