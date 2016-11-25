@@ -7,6 +7,7 @@ import random
 import urllib
 import ckan.lib.i18n as i18n
 import logging
+import copy
 
 log = logging.getLogger(__name__)
 
