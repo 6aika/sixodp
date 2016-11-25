@@ -10,12 +10,6 @@
 [submodule "ckanext/ckanext-showcase"]
 	path = ckanext/ckanext-showcase
 	url = https://github.com/ckan/ckanext-showcase.git
-[submodule "ckanext/ckanext-archiver"]
-	path = ckanext/ckanext-archiver
-	url = https://github.com/yhteentoimivuuspalvelut/ckanext-archiver
-[submodule "ckanext/ckanext-qa"]
-	path = ckanext/ckanext-qa
-	url = https://github.com/yhteentoimivuuspalvelut/ckanext-qa
 [submodule "ckanext/ckanext-hierarchy"]
 	path = ckanext/ckanext-hierarchy
 	url = https://github.com/datagovuk/ckanext-hierarchy
