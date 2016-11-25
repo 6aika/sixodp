@@ -43,3 +43,9 @@
 [submodule "ckanext/ckanext-editor"]
 	path = ckanext/ckanext-editor
 	url = https://github.com/6aika/ckanext-editor
+[submodule "ckanext/ckanext-qa"]
+	path = ckanext/ckanext-qa
+	url = https://github.com/6aika/ckanext-qa
+[submodule "ckanext/ckanext-archiver"]
+	path = ckanext/ckanext-archiver
+	url = https://github.com/6aika/ckanext-archiver
