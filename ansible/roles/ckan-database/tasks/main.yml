@@ -34,6 +34,10 @@
 - name: Initialize archiver database
   command: ./bin/paster --plugin=ckanext-archiver archiver init "--config={{ ckan_ini }}" chdir={{ virtualenv }}
 
+# This can be removed after run in all environments
+- name: Migrate archiver database
+  command: ./bin/paster --plugin=ckanext-archiver archiver migrate "--config={{ ckan_ini }}" chdir={{ virtualenv }}
+
 - name: Initialize report database
   command: ./bin/paster --plugin=ckanext-report report initdb "--config={{ ckan_ini }}" chdir={{ virtualenv }}
 
