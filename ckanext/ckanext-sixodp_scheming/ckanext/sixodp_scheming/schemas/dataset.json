@@ -4,13 +4,16 @@
   "about": "API catalog service/interface schema",
   "about_url": "http://github.com/vrk-kpa/api-catalog",
   "dataset_fields": [
+
     {
-      "field_name": "title",
+      "field_name": "title_translated",
       "label": "Title",
-      "preset": "title_ex",
+      "preset": "fluent_core_title_translated",
+      "form_languages": ["fi", "en", "sv"],
       "form_placeholder":"eg. A descriptive title",
       "required": true
     },
+
     {
       "field_name": "name",
       "label": "URL",
@@ -40,16 +43,6 @@
       "field_name": "update_frequency",
       "label": "Update frequency",
       "preset": "sixodp_update_frequency"
-    },
-    {
-      "field_name": "update_date",
-      "label": "Update date",
-      "preset": "date"
-    },
-    {
-      "field_name": "publish_date",
-      "label": "Publish date",
-      "preset": "date"
     },
     {
       "field_name": "url",
