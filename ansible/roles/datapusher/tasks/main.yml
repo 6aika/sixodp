@@ -1,5 +1,5 @@
 - name: Install Datapusher
-  pip: name="git+https://github.com/6aika/datapusher.git@master#egg=datapusher" virtualenv={{ datapusherenv }}
+  pip: name="git+https://github.com/6aika/datapusher.git@master#egg=datapusher" virtualenv={{ datapusherenv }} extra_args=--exists-action=s
 
 - name: Install Datapusher requirements
   pip: requirements={{ datapusherenv }}/src/datapusher/requirements.txt virtualenv={{ datapusherenv }} state=latest
