@@ -8,6 +8,12 @@ import urllib
 import ckan.lib.i18n as i18n
 import logging
 import copy
+from ckan.common import _
+
+try:
+    from collections import OrderedDict  # 2.7
+except ImportError:
+    from sqlalchemy.util import OrderedDict
 
 log = logging.getLogger(__name__)
 
@@ -180,6 +186,7 @@ def get_qa_openness(dataset):
 
 class Sixodp_UiPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
+    plugins.implements(plugins.interfaces.IFacets, inherit=True)
     plugins.implements(plugins.ITemplateHelpers)
 
     # IConfigurer
@@ -197,6 +204,17 @@ class Sixodp_UiPlugin(plugins.SingletonPlugin):
         })
 
         return schema
+
+    # IFacets #
+
+    def dataset_facets(self, facets_dict, package_type):
+        facets_dict = OrderedDict()
+        facets_dict.update({'res_format': _('Formats')})
+        facets_dict.update({'organization': _('Organization')})
+        facets_dict.update({'groups': _('Groups')})
+        facets_dict.update({'maintainer': _('Maintainer')})
+
+        return facets_dict
 
     def get_helpers(self):
         return {'get_recent_content': get_recent_content,
