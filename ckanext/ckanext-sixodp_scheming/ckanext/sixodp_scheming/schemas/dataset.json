@@ -31,8 +31,9 @@
     {
       "field_name": "tag_string",
       "label": "Tags",
-      "preset": "tag_string_autocomplete",
-      "form_placeholder":"eg. economy, mental health, government"
+      "preset": "sixodp_tag_string_autocomplete",
+      "form_placeholder":"eg. economy, mental health, government",
+      "required": true
     },
     {
       "field_name": "owner_org",
@@ -75,8 +76,10 @@
     {
       "field_name": "license_id",
       "label": "License",
+      "preset": "sixodp_licence",
       "form_snippet": "license.html",
-      "display_snippet": "license.html"
+      "display_snippet": "license.html",
+      "required": true
     },
     {
       "field_name": "agency",

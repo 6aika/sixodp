@@ -6,7 +6,7 @@
     {
       "preset_name": "sixodp_tag_string_autocomplete",
       "values": {
-        "validators": "ignore_missing lower_if_exists tag_string_convert",
+        "validators": "not_empty lower_if_exists tag_string_convert",
         "form_attrs": {
           "data-module": "autocomplete",
           "data-module-tags": "",
@@ -30,6 +30,12 @@
       "values": {
         "validators": "ignore_missing int_validator",
         "form_placeholder": "eg. 2"
+      }
+    },
+    {
+      "preset_name": "sixodp_licence",
+      "values": {
+        "validators": "not_empty"
       }
     },
     {
