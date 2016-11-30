@@ -1,0 +1,13 @@
+{% extends "collection/base_form_page.html" %}
+
+{% block subtitle %}{{ _('Create a Collection') }}{% endblock %}
+
+{% block breadcrumb_link %}{{ h.nav_link(_('Create a Collection'), controller='collection', action='edit', id=c.collection.name) }}{% endblock %}
+
+{% block page_heading %}{{ _('Create a Collection') }}{% endblock %}
+
+{% block page_header %}{% endblock %}
+
+{% block secondary_content %}
+  {% snippet "collection/snippets/helper.html" %}
+{% endblock %}

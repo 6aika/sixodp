@@ -30,4 +30,8 @@ class CollectionPlugin(plugins.SingletonPlugin):
                     controller='ckanext.collection.controller:CollectionController',
                     action='search_collection')
 
+        map.connect('/collection/new',
+                    controller='ckanext.collection.controller:CollectionController',
+                    action='new')
+
         return map

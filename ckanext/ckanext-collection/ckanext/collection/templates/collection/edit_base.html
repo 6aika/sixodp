@@ -1,0 +1,26 @@
+{% extends "page.html" %}
+
+{% block subtitle %}{{ _('Manage') }} - {{ c.group_dict.display_name }} - {{ _('Collections') }}{% endblock %}
+
+{% set collection = c.group_dict %}
+
+{% block breadcrumb_content %}
+  <li>{% link_for _('Collections'), controller='collection', action='index' %}</li>
+  {% block breadcrumb_content_inner %}
+    <li>{% link_for collection.display_name|truncate(35), controller='collection', action='read', id=collection.name %}</li>
+    <li class="active">{% link_for _('Manage'), controller='collection', action='edit', id=collection.name %}</li>
+  {% endblock %}
+{% endblock %}
+
+{% block content_action %}
+  {% link_for _('View'), controller='collection', action='read', id=c.group_dict.name, class_='btn', icon='eye-open' %}
+{% endblock %}
+
+{% block content_primary_nav %}
+  {{ h.build_nav_icon('group_edit', _('Edit'), id=c.group_dict.name) }}
+  {{ h.build_nav_icon('group_members', _('Members'), id=c.group_dict.name) }}
+{% endblock %}
+
+{% block secondary_content %}
+  {% snippet "collection/snippets/info.html", collection=c.group_dict, show_nums=false %}
+{% endblock %}
