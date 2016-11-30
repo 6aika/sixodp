@@ -1,0 +1,19 @@
+{#
+Display a grid of collection items.
+
+collections - A list of collections.
+
+Example:
+
+    {% snippet "collection/snippets/collection_list.html" %}
+
+#}
+{% block collection_list %}
+  <ul class="media-grid" data-module="media-grid">
+    {% block collection_list_inner %}
+      {% for collection in collections %}
+        {% snippet "collection/snippets/collection_item.html", collection=collection, position=loop.index %}
+      {% endfor %}
+    {% endblock %}
+  </ul>
+{% endblock %}
