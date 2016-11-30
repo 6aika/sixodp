@@ -5,8 +5,13 @@ import ckan.lib.navl.dictization_functions as dict_fns
 import ckan.logic as logic
 import ckan.model as model
 import ckan.lib.plugins
+import ckan.plugins as plugins
 import logging
-from ckan.common import c, request, _
+import ckan.lib.maintain as maintain
+import ckan.lib.search as search
+
+from ckan.common import c, OrderedDict, g, request, _
+from urllib import urlencode
 
 h = base.h
 c = p.toolkit.c
@@ -31,8 +36,15 @@ log = logging.getLogger(__name__)
 
 class CollectionController(p.toolkit.BaseController):
 
+    group_types = ['collection']
+
     def _group_form(self, group_type=None):
         return 'collection/new_collection_form.html'
+
+    def _db_to_form_schema(self, group_type=None):
+        '''This is an interface to manipulate data from the database
+        into a format suitable for the form (optional)'''
+        return lookup_group_plugin(group_type).db_to_form_schema()
 
     def _replace_group_org(self, string):
         ''' substitute organization for group if this is an org'''
@@ -55,6 +67,17 @@ class CollectionController(p.toolkit.BaseController):
 
     def _index_template(self, group_type):
         return 'collection/index.html'
+
+    def _read_template(self, group_type):
+        return 'collection/read.html'
+
+    def _ensure_controller_matches_group_type(self, id):
+        group = model.Group.get(id)
+        if group is None:
+            abort(404, _('Group not found'))
+        if group.type not in self.group_types:
+            abort(404, _('Incorrect group type'))
+        return group.type
 
     def search_collection(self):
 
@@ -113,6 +136,183 @@ class CollectionController(p.toolkit.BaseController):
                       extra_vars={'group_type': group_type})
 
 
+    def read(self, id, limit=20):
+        group_type = self._ensure_controller_matches_group_type(
+            id.split('@')[0])
+
+        context = {'model': model, 'session': model.Session,
+                   'user': c.user,
+                   'schema': self._db_to_form_schema(group_type=group_type),
+                   'for_view': True}
+        data_dict = {'id': id, 'type': group_type}
+
+        # unicode format (decoded from utf8)
+        c.q = request.params.get('q', '')
+
+        try:
+            # Do not query for the group datasets when dictizing, as they will
+            # be ignored and get requested on the controller anyway
+            data_dict['include_datasets'] = False
+            c.group_dict = self._action('group_show')(context, data_dict)
+            c.group = context['group']
+        except (NotFound, NotAuthorized):
+            abort(404, _('Group not found'))
+
+        self._read(id, limit, group_type)
+        return render(self._read_template(c.group_dict['type']),
+                      extra_vars={'group_type': group_type})
+
+
+    def _read(self, id, limit, group_type):
+        ''' This is common code used by both read and bulk_process'''
+        context = {'model': model, 'session': model.Session,
+                   'user': c.user,
+                   'schema': self._db_to_form_schema(group_type=group_type),
+                   'for_view': True, 'extras_as_string': True}
+
+        q = c.q = request.params.get('q', '')
+        # Search within group
+        if c.group_dict.get('is_organization'):
+            q += ' owner_org:"%s"' % c.group_dict.get('id')
+        else:
+            q += ' groups:"%s"' % c.group_dict.get('name')
+
+        c.description_formatted = \
+            h.render_markdown(c.group_dict.get('description'))
+
+        context['return_query'] = True
+
+        page = h.get_page_number(request.params)
+
+        # most search operations should reset the page counter:
+        params_nopage = [(k, v) for k, v in request.params.items()
+                         if k != 'page']
+        sort_by = request.params.get('sort', None)
+
+        def search_url(params):
+            controller = lookup_group_controller(group_type)
+            action = 'bulk_process' if c.action == 'bulk_process' else 'read'
+            url = h.url_for(controller=controller, action=action, id=id)
+            params = [(k, v.encode('utf-8') if isinstance(v, basestring)
+            else str(v)) for k, v in params]
+            return url + u'?' + urlencode(params)
+
+        def drill_down_url(**by):
+            return h.add_url_param(alternative_url=None,
+                                   controller='group', action='read',
+                                   extras=dict(id=c.group_dict.get('name')),
+                                   new_params=by)
+
+        c.drill_down_url = drill_down_url
+
+        def remove_field(key, value=None, replace=None):
+            return h.remove_url_param(key, value=value, replace=replace,
+                                      controller='group', action='read',
+                                      extras=dict(id=c.group_dict.get('name')))
+
+        c.remove_field = remove_field
+
+        def pager_url(q=None, page=None):
+            params = list(params_nopage)
+            params.append(('page', page))
+            return search_url(params)
+
+        try:
+            c.fields = []
+            search_extras = {}
+            for (param, value) in request.params.items():
+                if param not in ['q', 'page', 'sort'] \
+                        and len(value) and not param.startswith('_'):
+                    if not param.startswith('ext_'):
+                        c.fields.append((param, value))
+                        q += ' %s: "%s"' % (param, value)
+                    else:
+                        search_extras[param] = value
+
+            include_private = False
+            user_member_of_orgs = [org['id'] for org
+                                   in h.organizations_available('read')]
+
+            if (c.group and c.group.id in user_member_of_orgs):
+                include_private = True
+
+            facets = OrderedDict()
+
+            default_facet_titles = {'organization': _('Organizations'),
+                                    'groups': _('Groups'),
+                                    'tags': _('Tags'),
+                                    'res_format': _('Formats'),
+                                    'license_id': _('Licenses')}
+
+            for facet in g.facets:
+                if facet in default_facet_titles:
+                    facets[facet] = default_facet_titles[facet]
+                else:
+                    facets[facet] = facet
+
+            # Facet titles
+            self._update_facet_titles(facets, group_type)
+
+            if 'capacity' in facets and (group_type != 'organization' or
+                                             not user_member_of_orgs):
+                del facets['capacity']
+
+            c.facet_titles = facets
+
+            data_dict = {
+                'q': q,
+                'fq': '',
+                'include_private': include_private,
+                'facet.field': facets.keys(),
+                'rows': limit,
+                'sort': sort_by,
+                'start': (page - 1) * limit,
+                'extras': search_extras
+            }
+
+            context_ = dict((k, v) for (k, v) in context.items()
+                            if k != 'schema')
+            query = get_action('package_search')(context_, data_dict)
+
+            c.page = h.Page(
+                collection=query['results'],
+                page=page,
+                url=pager_url,
+                item_count=query['count'],
+                items_per_page=limit
+            )
+
+            c.group_dict['package_count'] = query['count']
+            c.facets = query['facets']
+            maintain.deprecate_context_item('facets',
+                                            'Use `c.search_facets` instead.')
+
+            c.search_facets = query['search_facets']
+            c.search_facets_limits = {}
+            for facet in c.facets.keys():
+                limit = int(request.params.get('_%s_limit' % facet,
+                                               g.facets_default_number))
+                c.search_facets_limits[facet] = limit
+            c.page.items = query['results']
+
+            c.sort_by_selected = sort_by
+
+        except search.SearchError, se:
+            log.error('Group search error: %r', se.args)
+            c.query_error = True
+            c.facets = {}
+            c.page = h.Page(collection=[])
+
+        self._setup_template_variables(context, {'id': id},
+                                       group_type=group_type)
+
+
+    def _update_facet_titles(self, facets, group_type):
+        for plugin in plugins.PluginImplementations(plugins.IFacets):
+            facets = plugin.group_facets(
+                facets, group_type, None)
+
+
     def new(self, data=None, errors=None, error_summary=None):
         if data and 'type' in data:
                 group_type = data['type']
@@ -159,7 +359,7 @@ class CollectionController(p.toolkit.BaseController):
             group = self._action('group_create')(context, data_dict)
 
             # Redirect to the appropriate _read route for the type of group
-            h.redirect_to(group['type'] + '_read', id=group['name'])
+            h.redirect_to(str('/collection/' + group['name']))
         except (NotFound, NotAuthorized), e:
             abort(404, _('Group not found'))
         except dict_fns.DataError:
