@@ -1,5 +1,6 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
+from routes.mapper import SubMapper
 
 class CollectionPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
@@ -15,16 +16,16 @@ class CollectionPlugin(plugins.SingletonPlugin):
     # IRoutes
 
     def before_map(self, map):
-        map.connect('/collection',
-                    controller='ckanext.collection.controller:CollectionController',
-                    action='search_collection')
+        with SubMapper(map, controller='ckanext.collection.controller:CollectionController') as m:
+            m.connect('/collection', action='search_collection')
 
-        map.connect('/collection/new',
-                    controller='ckanext.collection.controller:CollectionController',
-                    action='new')
+            m.connect('/collection/new', action='new')
 
-        map.connect('/collection/:id',
-                    controller='ckanext.collection.controller:CollectionController',
-                    action='read')
+            m.connect('/collection/:id', action='read')
+
+            m.connect('dataset_collection_list', '/dataset/collections/{id}',
+                      action='dataset_collection_list', ckan_icon='picture')
+
+        map.redirect('/collections', '/collection')
 
         return map

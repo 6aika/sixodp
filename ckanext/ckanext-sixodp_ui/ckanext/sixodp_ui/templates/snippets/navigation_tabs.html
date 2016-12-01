@@ -10,6 +10,11 @@
         {{ _('Showcase') }}
     </a>
     </li>
+    <li>
+      <a href="{{ h.url_for(controller='ckanext.collection.controller:CollectionController', action='search_collection') }}">
+        {{ _('Collections') }}
+      </a>
+    </li>
 
     {{ h.build_nav_main() }}
 

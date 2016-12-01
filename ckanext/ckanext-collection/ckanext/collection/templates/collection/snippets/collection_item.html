@@ -12,7 +12,6 @@ Example:
     </ul>
 #}
 {% set type = collection.type or 'collection' %}
-{% set url = h.url_for('collection_read', action='read', id=collection.name) %}
 {% block item %}
   <li class="media-item">
     {% block item_inner %}
@@ -35,7 +34,7 @@ Example:
         {% endif %}
       {% endblock %}
       {% block link %}
-        <a href="{{ url }}" title="{{ _('View {name}').format(name=collection.display_name) }}" class="media-view">
+        <a href="/collection/{{ collection.name }}" title="{{ _('View {name}').format(name=collection.display_name) }}" class="media-view">
           <span>{{ _('View {name}').format(name=collection.display_name) }}</span>
         </a>
       {% endblock %}
