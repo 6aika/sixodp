@@ -95,7 +95,8 @@
       "field_name": "private",
       "label": "Visibility",
       "form_snippet": "private.html",
-      "display_snippet": null
+      "display_snippet": null,
+      "validators": "boolean_validator"
     }
   ],
   "resource_fields": [
