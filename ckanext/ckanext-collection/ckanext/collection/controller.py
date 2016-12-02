@@ -386,16 +386,18 @@ class CollectionController(p.toolkit.BaseController):
             abort(404, _('Dataset not found'))
 
         if request.method == 'POST':
-            new_group = request.POST.get('group_added')
-            if new_group:
-                data_dict = {"id": new_group,
+            # Adding package to collection
+            new_collection = request.POST.get('group_added')
+            log.info(new_collection)
+            if new_collection:
+                data_dict = {"id": new_collection,
                              "object": id,
                              "object_type": 'package',
                              "capacity": 'public'}
                 try:
                     get_action('member_create')(context, data_dict)
                 except NotFound:
-                    abort(404, _('Group not found'))
+                    abort(404, _('Collection not found'))
 
             removed_group = None
             for param in request.POST:
@@ -410,8 +412,8 @@ class CollectionController(p.toolkit.BaseController):
                 try:
                     get_action('member_delete')(context, data_dict)
                 except NotFound:
-                    abort(404, _('Group not found'))
-            h.redirect_to(controller='package', action='groups', id=id)
+                    abort(404, _('Collection not found'))
+            h.redirect_to(controller='ckanext.collection.controller:CollectionController', action='dataset_collection_list', id=id)
 
         context['is_member'] = True
         users_groups = get_action('group_list_authz')(context, data_dict)
@@ -421,9 +423,10 @@ class CollectionController(p.toolkit.BaseController):
         user_group_ids = set(group['id'] for group
                              in users_groups)
 
-        c.group_dropdown = [[group['id'], group['display_name']]
+        c.collection_dropdown = [[group['id'], group['display_name']]
                             for group in users_groups if
-                            group['id'] not in pkg_group_ids]
+                            group['id'] not in pkg_group_ids and group['type'] == 'collection']
+
 
         for group in c.pkg_dict.get('groups', []):
             group['user_member'] = (group['id'] in user_group_ids)
