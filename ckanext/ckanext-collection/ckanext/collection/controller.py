@@ -380,7 +380,7 @@ class CollectionController(p.toolkit.BaseController):
                    'auth_user_obj': c.userobj, 'use_cache': False}
         data_dict = {'id': id}
         try:
-            c.pkg_dict = get_action('package_show')(context, data_dict)
+            c.pkg_dict = get_action('ckanext_collection_package_collections_list')(context, data_dict)
             dataset_type = c.pkg_dict['type'] or 'dataset'
         except (NotFound, NotAuthorized):
             abort(404, _('Dataset not found'))
