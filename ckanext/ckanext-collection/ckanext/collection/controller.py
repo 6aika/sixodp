@@ -306,7 +306,7 @@ class CollectionController(p.toolkit.BaseController):
             c.sort_by_selected = sort_by
 
         except search.SearchError, se:
-            log.error('Group search error: %r', se.args)
+            log.error('Collection search error: %r', se.args)
             c.query_error = True
             c.facets = {}
             c.page = h.Page(collection=[])
@@ -336,7 +336,7 @@ class CollectionController(p.toolkit.BaseController):
         try:
             self._check_access('group_create', context)
         except NotAuthorized:
-            abort(403, _('Unauthorized to create a group'))
+            abort(403, _('Unauthorized to create a collection'))
 
         if context['save'] and not data:
             return self._save_new(context, group_type)

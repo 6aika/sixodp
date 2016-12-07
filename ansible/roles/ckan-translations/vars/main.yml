@@ -10,3 +10,4 @@ translation_projects:
   - "ckanext-editor"
   - "ckanext-rating"
   - "ckanext-reminder"
+  - "ckanext-collection"
