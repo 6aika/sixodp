@@ -1,0 +1,12 @@
+{% extends "collection/base_form_page.html" %}
+
+{% block breadcrumb_content %}
+  <li>{% link_for _('Collection'), controller='ckanext.collection.controller:CollectionController', action='search_collection' %}</li>
+  {% block breadcrumb_content_inner %}
+    <li>{% link_for collection.display_name|truncate(35), controller='ckanext.collection.controller:CollectionController', action='read', id=collection.name %}</li>
+    <li class="active">{% link_for _('Manage'), controller='ckanext.collection.controller:CollectionController', action='edit', id=collection.name %}</li>
+  {% endblock %}
+{% endblock %}
+
+{% block page_heading_class %}hide-heading{% endblock %}
+{% block page_heading %}{{ _('Edit Group') }}{% endblock %}

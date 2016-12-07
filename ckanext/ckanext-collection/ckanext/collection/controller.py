@@ -76,6 +76,9 @@ class CollectionController(p.toolkit.BaseController):
     def _read_template(self, group_type):
         return 'collection/read.html'
 
+    def _edit_template(self):
+        return 'collection/edit.html'
+
     def _ensure_controller_matches_group_type(self, id):
         group = model.Group.get(id)
         if group is None:
@@ -354,6 +357,51 @@ class CollectionController(p.toolkit.BaseController):
         return render(self._new_template(group_type),
                       extra_vars={'group_type': group_type})
 
+
+    def edit(self, id, data=None, errors=None, error_summary=None):
+        group_type = self._ensure_controller_matches_group_type(
+            id.split('@')[0])
+
+        context = {'model': model, 'session': model.Session,
+                   'user': c.user,
+                   'save': 'save' in request.params,
+                   'for_edit': True,
+                   'parent': request.params.get('parent', None)
+                   }
+        data_dict = {'id': id, 'include_datasets': False}
+
+        if context['save'] and not data:
+            return self._save_edit(id, context)
+
+        try:
+            data_dict['include_datasets'] = False
+            old_data = self._action('group_show')(context, data_dict)
+            c.grouptitle = old_data.get('title')
+            c.groupname = old_data.get('name')
+            data = data or old_data
+        except (NotFound, NotAuthorized):
+            abort(404, _('Group not found'))
+
+        group = context.get("group")
+        c.group = group
+        c.group_dict = self._action('group_show')(context, data_dict)
+
+        try:
+            self._check_access('group_update', context)
+        except NotAuthorized:
+            abort(403, _('User %r not authorized to edit %s') % (c.user, id))
+
+        errors = errors or {}
+        vars = {'data': data, 'errors': errors,
+                'error_summary': error_summary, 'action': 'edit',
+                'group_type': group_type}
+
+        self._setup_template_variables(context, data, group_type=group_type)
+        c.form = render(self._group_form(group_type), extra_vars=vars)
+        return render(self._edit_template(),
+                      extra_vars={'group_type': group_type})
+
+
     def _save_new(self, context, group_type=None):
         try:
             data_dict = clean_dict(dict_fns.unflatten(
@@ -373,6 +421,28 @@ class CollectionController(p.toolkit.BaseController):
             errors = e.error_dict
             error_summary = e.error_summary
             return self.new(data_dict, errors, error_summary)
+
+
+    def _save_edit(self, id, context):
+        try:
+            data_dict = clean_dict(dict_fns.unflatten(
+                tuplize_dict(parse_params(request.params))))
+            context['message'] = data_dict.get('log_message', '')
+            data_dict['id'] = id
+            context['allow_partial_update'] = True
+            group = self._action('group_update')(context, data_dict)
+            if id != group['name']:
+                self._force_reindex(group)
+
+            h.redirect_to(controller='ckanext.collection.controller:CollectionController', action='read', id=id)
+        except (NotFound, NotAuthorized), e:
+            abort(404, _('Group not found'))
+        except dict_fns.DataError:
+            abort(400, _(u'Integrity Error'))
+        except ValidationError, e:
+            errors = e.error_dict
+            error_summary = e.error_summary
+            return self.edit(id, data_dict, errors, error_summary)
 
 
     def dataset_collection_list(self, id):
