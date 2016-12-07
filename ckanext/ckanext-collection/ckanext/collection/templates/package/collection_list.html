@@ -15,9 +15,9 @@
     </form>
   {% endif %}
 
-  {% if c.pkg_dict.groups %}
+  {% if c.collection_list %}
     <form method="post">
-      {% snippet 'collection/snippets/collection_list.html', collections=c.pkg_dict.groups %}
+      {% snippet 'collection/snippets/collection_list.html', collections=c.collection_list %}
     </form>
   {% else %}
     <p class="empty">{{ _('There are no collections associated with this dataset') }}</p>

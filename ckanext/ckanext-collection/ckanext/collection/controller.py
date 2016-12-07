@@ -9,6 +9,8 @@ import ckan.plugins as plugins
 import logging
 import ckan.lib.maintain as maintain
 import ckan.lib.search as search
+from ckan.model.package import Package
+from ckan.lib.dictization.model_dictize import group_list_dictize
 
 from ckan.common import c, OrderedDict, g, request, _
 from urllib import urlencode
@@ -380,15 +382,16 @@ class CollectionController(p.toolkit.BaseController):
                    'auth_user_obj': c.userobj, 'use_cache': False}
         data_dict = {'id': id}
         try:
-            c.pkg_dict = get_action('ckanext_collection_package_collections_list')(context, data_dict)
+            c.pkg_dict = get_action('package_show')(context, data_dict)
+            pkg_obj = Package.get(data_dict['id'])
+            c.collection_list = group_list_dictize(pkg_obj.get_groups('collection', None), context)
             dataset_type = c.pkg_dict['type'] or 'dataset'
         except (NotFound, NotAuthorized):
             abort(404, _('Dataset not found'))
 
         if request.method == 'POST':
             # Adding package to collection
-            new_collection = request.POST.get('group_added')
-            log.info(new_collection)
+            new_collection = request.POST.get('collection_added')
             if new_collection:
                 data_dict = {"id": new_collection,
                              "object": id,
