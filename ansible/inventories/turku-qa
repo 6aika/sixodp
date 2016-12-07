@@ -1,0 +1,6 @@
+[mainserver]
+localhost ansible_ssh_user=ubuntu
+
+[mainserver:vars]
+deployment_environment_id=turku-qa
+secrets_file_path="../../sixodp-secrets/turku-qa/secrets.yml"

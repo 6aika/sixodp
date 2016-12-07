@@ -1,6 +1,6 @@
 ---
 
-public_facing_hostname: generic-qa.dataportaali.com
+public_facing_hostname: turku-qa.dataportaali.com
 internal_hostname: sixodp-{{ deployment_environment_id }}
 ckan_site_name: Dataportaali
 ckan_featured_orgs:
