@@ -2,12 +2,9 @@ import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 from routes.mapper import SubMapper
 
-from ckanext.collection.logic import action
-
 class CollectionPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IRoutes, inherit=True)
-    plugins.implements(plugins.IActions)
 
     # IConfigurer
 
@@ -32,12 +29,3 @@ class CollectionPlugin(plugins.SingletonPlugin):
         map.redirect('/collections', '/collection')
 
         return map
-
-    # IActions
-
-    def get_actions(self):
-        action_functions = {
-            'ckanext_collection_package_collections_list':
-                action.package_collections_list
-        }
-        return action_functions
