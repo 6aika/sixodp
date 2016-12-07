@@ -70,6 +70,9 @@ class CollectionController(p.toolkit.BaseController):
     def _index_template(self, group_type):
         return 'collection/index.html'
 
+    def _about_template(self):
+        return 'collection/about.html'
+
     def _read_template(self, group_type):
         return 'collection/read.html'
 
@@ -436,3 +439,26 @@ class CollectionController(p.toolkit.BaseController):
 
         return render('package/collection_list.html',
                       {'dataset_type': dataset_type})
+
+    def about(self, id):
+        group_type = self._ensure_controller_matches_group_type(id)
+        context = {'model': model, 'session': model.Session,
+                   'user': c.user}
+        c.group_dict = self._get_group_dict(id)
+        group_type = c.group_dict['type']
+        self._setup_template_variables(context, {'id': id},
+                                       group_type=group_type)
+        return render(self._about_template(),
+                      extra_vars={'group_type': group_type})
+
+    def _get_group_dict(self, id):
+        ''' returns the result of group_show action or aborts if there is a
+        problem '''
+        context = {'model': model, 'session': model.Session,
+                   'user': c.user,
+                   'for_view': True}
+        try:
+            return self._action('group_show')(
+                context, {'id': id, 'include_datasets': False})
+        except (NotFound, NotAuthorized):
+            abort(404, _('Group not found'))

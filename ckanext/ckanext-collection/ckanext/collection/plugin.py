@@ -23,6 +23,8 @@ class CollectionPlugin(plugins.SingletonPlugin):
 
             m.connect('/collection/:id', action='read')
 
+            m.connect('/collection/about/:id', action='about')
+
             m.connect('dataset_collection_list', '/dataset/collections/{id}',
                       action='dataset_collection_list', ckan_icon='picture')
 
