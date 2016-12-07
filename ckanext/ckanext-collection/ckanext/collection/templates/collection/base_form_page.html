@@ -4,11 +4,11 @@
 
 {% block breadcrumb_content %}
   <li>{{ h.nav_link(_('Collections'), controller='ckanext.collection.controller:CollectionController', action='search_collection') }}</li>
-  <li class="active">{% block breadcrumb_link %}{{ h.nav_link(_('Add a Group'), controller='ckanext.collection.controller:CollectionController', action='new') }}{% endblock %}</li>
+  <li class="active">{% block breadcrumb_link %}{{ h.nav_link(_('Add a Collection'), controller='ckanext.collection.controller:CollectionController', action='new') }}{% endblock %}</li>
 {% endblock %}
 
 {% block primary_content_inner %}
-  <h1 class="{% block page_heading_class %}page-heading{% endblock %}">{% block page_heading %}{{ _('Group Form') }}{% endblock %}</h1>
+  <h1 class="{% block page_heading_class %}page-heading{% endblock %}">{% block page_heading %}{{ _('Collection Form') }}{% endblock %}</h1>
   {% block form %}
     {{ c.form | safe }}
   {% endblock %}

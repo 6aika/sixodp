@@ -82,7 +82,7 @@ class CollectionController(p.toolkit.BaseController):
     def _ensure_controller_matches_group_type(self, id):
         group = model.Group.get(id)
         if group is None:
-            abort(404, _('Group not found'))
+            abort(404, _('Collection not found'))
         if group.type not in self.group_types:
             abort(404, _('Incorrect group type'))
         return group.type
@@ -164,7 +164,7 @@ class CollectionController(p.toolkit.BaseController):
             c.group_dict = self._action('group_show')(context, data_dict)
             c.group = context['group']
         except (NotFound, NotAuthorized):
-            abort(404, _('Group not found'))
+            abort(404, _('Collection not found'))
 
         self._read(id, limit, group_type)
         return render(self._read_template(c.group_dict['type']),
@@ -247,7 +247,7 @@ class CollectionController(p.toolkit.BaseController):
             facets = OrderedDict()
 
             default_facet_titles = {'organization': _('Organizations'),
-                                    'groups': _('Groups'),
+                                    'groups': _('Collections'),
                                     'tags': _('Tags'),
                                     'res_format': _('Formats'),
                                     'license_id': _('Licenses')}
@@ -380,7 +380,7 @@ class CollectionController(p.toolkit.BaseController):
             c.groupname = old_data.get('name')
             data = data or old_data
         except (NotFound, NotAuthorized):
-            abort(404, _('Group not found'))
+            abort(404, _('Collection not found'))
 
         group = context.get("group")
         c.group = group
@@ -414,7 +414,7 @@ class CollectionController(p.toolkit.BaseController):
             # Redirect to the appropriate _read route for the type of group
             h.redirect_to(str('/collection/' + group['name']))
         except (NotFound, NotAuthorized), e:
-            abort(404, _('Group not found'))
+            abort(404, _('Collection not found'))
         except dict_fns.DataError:
             abort(400, _(u'Integrity Error'))
         except ValidationError, e:
@@ -436,7 +436,7 @@ class CollectionController(p.toolkit.BaseController):
 
             h.redirect_to(controller='ckanext.collection.controller:CollectionController', action='read', id=id)
         except (NotFound, NotAuthorized), e:
-            abort(404, _('Group not found'))
+            abort(404, _('Collection not found'))
         except dict_fns.DataError:
             abort(400, _(u'Integrity Error'))
         except ValidationError, e:
@@ -531,4 +531,4 @@ class CollectionController(p.toolkit.BaseController):
             return self._action('group_show')(
                 context, {'id': id, 'include_datasets': False})
         except (NotFound, NotAuthorized):
-            abort(404, _('Group not found'))
+            abort(404, _('Collection not found'))
