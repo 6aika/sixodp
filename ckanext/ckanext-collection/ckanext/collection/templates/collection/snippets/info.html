@@ -17,14 +17,6 @@
             {% endif %}
           </h1>
         {% endblock %}
-        {% block description %}
-          {% if collection.description %}
-            <p>
-              {{ h.markdown_extract(collection.description, 180) }}
-              {% link_for _('read more'), controller='collection', action='about', id=collection.name %}
-            </p>
-          {% endif %}
-        {% endblock %}
         {% if show_nums %}
           {% block nums %}
             <div class="nums">
