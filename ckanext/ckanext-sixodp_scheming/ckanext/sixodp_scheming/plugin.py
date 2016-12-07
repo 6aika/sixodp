@@ -17,5 +17,6 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin):
     def get_validators(self):
         return {
             'lower_if_exists': validators.lower_if_exists,
-            'upper_if_exists': validators.upper_if_exists
+            'upper_if_exists': validators.upper_if_exists,
+            'tag_string_or_tags_required': validators.tag_string_or_tags_required
             }
