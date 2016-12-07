@@ -4,12 +4,12 @@
 
 {% block breadcrumb_content %}
   <li>{% link_for _('Collections'), controller='collection', action='index' %}</li>
-  <li class="active">{% link_for c.group_dict.display_name|truncate(35), controller='collection', action='read', id=c.group_dict.name %}</li>
+  <li class="active">{% link_for c.group_dict.display_name|truncate(35), controller='ckanext.collection.controller:CollectionController', action='read', id=c.group_dict.name %}</li>
 {% endblock %}
 
 {% block content_action %}
   {% if h.check_access('group_update', {'id': c.group_dict.id}) %}
-    {% link_for _('Manage'), controller='collection', action='edit', id=c.group_dict.name, class_='btn', icon='wrench' %}
+    {% link_for _('Manage'), controller='ckanext.collection.controller:CollectionController', action='edit', id=c.group_dict.name, class_='btn', icon='wrench' %}
   {% endif %}
 {% endblock %}
 

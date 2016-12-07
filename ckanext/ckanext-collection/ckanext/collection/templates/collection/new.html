@@ -2,7 +2,7 @@
 
 {% block subtitle %}{{ _('Create a Collection') }}{% endblock %}
 
-{% block breadcrumb_link %}{{ h.nav_link(_('Create a Collection'), controller='collection', action='edit', id=c.collection.name) }}{% endblock %}
+{% block breadcrumb_link %}{{ h.nav_link(_('Create a Collection'), controller='ckanext.collection.controller:CollectionController', action='edit', id=c.collection.name) }}{% endblock %}
 
 {% block page_heading %}{{ _('Create a Collection') }}{% endblock %}
 
