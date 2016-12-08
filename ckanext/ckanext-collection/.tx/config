@@ -1,8 +1,0 @@
-[main]
-host = https://www.transifex.com
-
-[sixodp.ckanext-collection]
-file_filter = i18n/<lang>/LC_MESSAGES/ckanext-collection.po
-source_file = i18n/ckanext-collection.pot
-source_lang = en
-type = PO
