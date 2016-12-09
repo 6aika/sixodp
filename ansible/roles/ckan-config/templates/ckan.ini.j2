@@ -126,6 +126,9 @@ ckan.tracking_enabled = false
 
 ckan.max_resource_size = {{ ckan_max_resource_size }}
 
+# Rating configuration
+ckanext.rating.enabled_dataset_types = showcase
+
 # Reminder configuration
 ckanext.reminder.site_url = https://{{ public_facing_hostname }}
 ckanext.reminder.recipient_username = {{ ckan_users.admin.username }}
