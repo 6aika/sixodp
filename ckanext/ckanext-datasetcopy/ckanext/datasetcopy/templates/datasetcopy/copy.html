@@ -1,0 +1,22 @@
+{% extends 'package/edit.html' %}
+
+{% set pkg = c.pkg_dict %}
+
+{% block breadcrumb_content_selected %}{% endblock %}
+
+{% block breadcrumb_content %}
+  {{ super() }}
+  <li class="active">{% link_for _('Copy'), controller='package', action='copy', id=pkg.name %}</li>
+{% endblock %}
+
+{% block resources_module %}{% endblock %}
+
+{% block content_action %}{% endblock %}
+
+{% block secondary_content %}
+  {% snippet 'datasetcopy/snippets/info.html' %}
+{% endblock %}
+
+{% block primary_content %}
+  {{ super() }}
+{% endblock %}

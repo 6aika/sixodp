@@ -1,0 +1,20 @@
+{#
+Displays a sidebard module with information for given package
+
+pkg    - The package dict that owns the resources.
+
+Example:
+
+  {% snippet "datasetcopy/snippets/info.html" %}
+
+#}
+{% block package_info %}
+  <section class="module module-narrow">
+    <div class="module context-info">
+      <div class="module-content">
+        <h1 class="heading">{{ _('Copy dataset') }}</h1>
+        {{ _('Use this function to copy an existing dataset as a template for a new dataset') }}
+      </div>
+    </div>
+  </section>
+{% endblock %}

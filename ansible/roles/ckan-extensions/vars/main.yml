@@ -24,3 +24,4 @@ ckan_extensions:
   - ckanext-rating
   - ckanext-editor
   - ckanext-collection
+  - ckanext-datasetcopy

@@ -4,6 +4,7 @@ import ckan.plugins.toolkit as toolkit
 
 class DatasetcopyPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
+    plugins.implements(plugins.IRoutes, inherit=True)
 
     # IConfigurer
 
@@ -11,3 +12,12 @@ class DatasetcopyPlugin(plugins.SingletonPlugin):
         toolkit.add_template_directory(config_, 'templates')
         toolkit.add_public_directory(config_, 'public')
         toolkit.add_resource('fanstatic', 'datasetcopy')
+
+    # IRoutes
+
+    def before_map(self, map):
+        map.connect('/dataset/copy/:id',
+                    controller='ckanext.datasetcopy.controller:DatasetcopyController',
+                    action='copy_package')
+
+        return map
