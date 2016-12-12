@@ -1,5 +1,7 @@
 import logging
 
+from ckan.common import config
+
 import ckan.logic as logic
 import ckan.lib.base as base
 import ckan.lib.navl.dictization_functions as dict_fns
@@ -48,50 +50,15 @@ class DatasetcopyController(p.toolkit.BaseController):
             return pkg.type or 'dataset'
         return None
 
-    # def copy_package(self, id, data=None, errors=None, error_summary=None):
-    #
-    #     context = {'model': model, 'session': model.Session,
-    #                'user': c.user or c.author, 'extras_as_string': True,
-    #                'save': 'save' in request.params,}
-    #
-    #     if context['save'] and not data:
-    #         return self._save_copy(id, context)
-    #     try:
-    #         check_access('package_create',context)
-    #         c.pkg_dict = get_action('package_show')(context, {'id':id})
-    #         old_data = get_action('package_show')(context, {'id':id})
-    #         # old data is from the database and data is passed from the
-    #         # user if there is a validation error. Use users data if there.
-    #
-    #         data = data or old_data
-    #         if 'resources' in data.keys():
-    #             del data['resources']
-    #
-    #         # Unwrap notes from a dictionary list format.
-    #         tags = []
-    #         for tag_dict in data['tags']:
-    #             tags.append(tag_dict['name'])
-    #
-    #         data['tag_string'] = c.pkg_dict['tag_string'] = ','.join(tags)
-    #
-    #     except NotAuthorized:
-    #         abort(401, _('Unauthorized to read or create package %s') % '')
-    #     except NotFound:
-    #         abort(404, _('Dataset not found'))
-    #
-    #     c.pkg = context.get("package")
-    #
-    #     errors = errors or {}
-    #     error_summary = error_summary or {}
-    #     vars = {'data': data, 'errors': errors, 'error_summary': error_summary, 'stage': ['active'], 'action': 'edit'}
-    #     c.errors_json = json.dumps(errors)
-    #
-    #     # self._setup_template_variables(context, {})
-    #
-    #     c.form = render('datasetcopy/snippets/package_copy_form.html', extra_vars=vars)
-    #
-    #     return render('datasetcopy/copy.html')
-
+    def _tag_string_to_list(self, tag_string):
+        ''' This is used to change tags from a sting to a list of dicts '''
+        out = []
+        for tag in tag_string.split(','):
+            tag = tag.strip()
+            if tag:
+                out.append({'name': tag,
+                            'state': 'active'})
+        return out
 
     def copy_package(self, id, data=None, errors=None, error_summary=None):
         package_type = self._get_package_type(id)
@@ -100,7 +67,7 @@ class DatasetcopyController(p.toolkit.BaseController):
                    'save': 'save' in request.params}
 
         if context['save'] and not data:
-            return self._save_edit(id, context, package_type=package_type)
+            return self._save_copy(context, package_type=package_type)
         try:
             c.pkg_dict = get_action('package_show')(dict(context,
                                                          for_view=True),
@@ -112,6 +79,15 @@ class DatasetcopyController(p.toolkit.BaseController):
             if data:
                 old_data.update(data)
             data = old_data
+
+            # Remove fields which can not be copied
+            if 'id' in data.keys():
+                del data['id']
+            if 'resources' in data.keys():
+                del data['resources']
+            if 'name' in data.keys():
+                del data['name']
+
         except (NotFound, NotAuthorized):
             abort(404, _('Dataset not found'))
         # are we doing a multiphase add?
@@ -154,9 +130,90 @@ class DatasetcopyController(p.toolkit.BaseController):
                                   'form_snippet': form_snippet,
                                   'dataset_type': package_type})
 
+    def _save_copy(self, context, package_type=None):
+        # The staged add dataset used the new functionality when the dataset is
+        # partially created so we need to know if we actually are updating or
+        # this is a real new.
+        is_an_update = False
+        ckan_phase = request.params.get('_ckan_phase')
+        from ckan.lib.search import SearchIndexError
+        try:
+            data_dict = clean_dict(dict_fns.unflatten(
+                tuplize_dict(parse_params(request.POST))))
+            if ckan_phase:
+                # prevent clearing of groups etc
+                context['allow_partial_update'] = True
+                # sort the tags
+                if 'tag_string' in data_dict:
+                    data_dict['tags'] = self._tag_string_to_list(
+                        data_dict['tag_string'])
+                if data_dict.get('pkg_name'):
+                    is_an_update = True
+                    # This is actually an update not a save
+                    data_dict['id'] = data_dict['pkg_name']
+                    del data_dict['pkg_name']
+                    # don't change the dataset state
+                    data_dict['state'] = 'draft'
+                    # this is actually an edit not a save
+                    pkg_dict = get_action('package_update')(context, data_dict)
 
+                    if request.params['save'] == 'go-metadata':
+                        # redirect to add metadata
+                        url = h.url_for(controller='package',
+                                        action='new_metadata',
+                                        id=pkg_dict['name'])
+                    else:
+                        # redirect to add dataset resources
+                        url = h.url_for(controller='package',
+                                        action='new_resource',
+                                        id=pkg_dict['name'])
+                    h.redirect_to(url)
+                # Make sure we don't index this dataset
+                if request.params['save'] not in ['go-resource',
+                                                  'go-metadata']:
+                    data_dict['state'] = 'draft'
+                # allow the state to be changed
+                context['allow_state_change'] = True
 
-    def copy_package_save(self, name_or_id, context, package_type=None):
+            data_dict['type'] = package_type
+            context['message'] = data_dict.get('log_message', '')
+            pkg_dict = get_action('package_create')(context, data_dict)
+
+            if ckan_phase:
+                # redirect to add dataset resources
+                url = h.url_for(controller='package',
+                                action='new_resource',
+                                id=pkg_dict['name'])
+                h.redirect_to(url)
+
+            self._form_save_redirect(pkg_dict['name'], 'new',
+                                     package_type=package_type)
+        except NotAuthorized:
+            abort(403, _('Unauthorized to read package %s') % '')
+        except NotFound, e:
+            abort(404, _('Dataset not found'))
+        except dict_fns.DataError:
+            abort(400, _(u'Integrity Error'))
+        except SearchIndexError, e:
+            try:
+                exc_str = unicode(repr(e.args))
+            except Exception:  # We don't like bare excepts
+                exc_str = unicode(str(e))
+            abort(500, _(u'Unable to add package to search index.') + exc_str)
+        except ValidationError, e:
+            errors = e.error_dict
+            error_summary = e.error_summary
+            if is_an_update:
+                # we need to get the state of the dataset to show the stage we
+                # are on.
+                pkg_dict = get_action('package_show')(context, data_dict)
+                data_dict['state'] = pkg_dict['state']
+                return self.edit(data_dict['id'], data_dict,
+                                 errors, error_summary)
+            data_dict['state'] = 'none'
+            return self.new(data_dict, errors, error_summary)
+
+    def _save_edit(self, name_or_id, context, package_type=None):
         from ckan.lib.search import SearchIndexError
         log.debug('Package save request name: %s POST: %r',
                   name_or_id, request.POST)
@@ -194,4 +251,24 @@ class DatasetcopyController(p.toolkit.BaseController):
         except ValidationError, e:
             errors = e.error_dict
             error_summary = e.error_summary
-            return self.edit(name_or_id, data_dict, errors, error_summary)
+            return self.copy_package(name_or_id, data_dict, errors, error_summary)
+
+    def _form_save_redirect(self, pkgname, action, package_type=None):
+        '''This redirects the user to the CKAN package/read page,
+        unless there is request parameter giving an alternate location,
+        perhaps an external website.
+        @param pkgname - Name of the package just edited
+        @param action - What the action of the edit was
+        '''
+        assert action in ('new', 'edit')
+        url = request.params.get('return_to') or \
+              config.get('package_%s_return_url' % action)
+        if url:
+            url = url.replace('<NAME>', pkgname)
+        else:
+            if package_type is None or package_type == 'dataset':
+                url = h.url_for(controller='package', action='read',
+                                id=pkgname)
+            else:
+                url = h.url_for('{0}_read'.format(package_type), id=pkgname)
+        h.redirect_to(url)
