@@ -33,6 +33,9 @@ nginx:
   fqdn_common_part: dataportaali.com
   alternative_hostnames: www.{{ public_facing_hostname }}
 
+acmetool_hostnames:
+  - demo.dataportaali.com
+
 solr:
   host: 127.0.0.1
   port: 8983
