@@ -17,6 +17,10 @@ server {
     proxy_set_header Host $host;
   }
 
+  location /.well-known/acme-challenge/ {
+    alias /var/run/acme/acme-challenge/;
+  }
+
   # file upload size in megabytes
   client_max_body_size {{ ckan_max_resource_size }}m;
 }
@@ -26,7 +30,14 @@ server {
 server {
   listen 443 ssl;
   server_name {{ nginx.alternative_hostnames }};
-  return 301 https://{{ public_facing_hostname }}$request_uri;
+
+  location / {
+    return 301 https://{{ public_facing_hostname }}$request_uri;
+  }
+
+  location /.well-known/acme-challenge/ {
+    alias /var/run/acme/acme-challenge/;
+  }
 }
 {% endif %}
 
@@ -34,5 +45,12 @@ server {
 server {
   listen 80;
   server_name {{ public_facing_hostname }};
-  return 301 https://$server_name$request_uri;
+
+  location / {
+    return 301 https://$server_name$request_uri;
+  }
+
+  location /.well-known/acme-challenge/ {
+    alias /var/run/acme/acme-challenge/;
+  }
 }

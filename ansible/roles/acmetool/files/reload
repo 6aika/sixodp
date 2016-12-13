@@ -1,0 +1,50 @@
+#!/bin/sh
+## This file was installed by acmetool. Any updates to this script will
+## overwrite changes you make. If you don't want acmetool to manage
+## this file, remove the following line.
+##!acmetool-managed!##
+
+# This file reloads services when the preferred certificate for a hostname
+# changes. A list of commonly used daemons is preconfigured. You can override
+# this list by setting $SERVICES in /etc/{default,conf.d}/acme-reload.
+#
+# Configuration options:
+#   /etc/{default,conf.d}/acme-reload
+#     Sourced if they exist. Specify variables here.
+#     Please note that most of the time, you don't need to specify anything.
+#
+#   $SERVICES
+#     Space-separated list of daemons to reload.
+#     Append with SERVICES="$SERVICES mydaemon".
+
+###############################################################################
+set -e
+EVENT_NAME="$1"
+[ "$EVENT_NAME" = "live-updated" ] || exit 42
+
+SERVICES="httpd apache2 apache nginx tengine lighttpd postfix dovecot exim exim4 haproxy hitch quassel quasselcore"
+[ -e "/etc/default/acme-reload" ] && . /etc/default/acme-reload
+[ -e "/etc/conf.d/acme-reload" ] && . /etc/conf.d/acme-reload
+[ -z "$ACME_STATE_DIR" ] && ACME_STATE_DIR="/var/lib/acme"
+
+# Restart services.
+if which service >/dev/null 2>/dev/null; then
+  for x in $SERVICES; do
+    service "$x" reload >/dev/null 2>/dev/null || true
+  done
+  exit 0
+fi
+
+if which systemctl >/dev/null 2>/dev/null; then
+  for x in $SERVICES; do
+    [ -e "/lib/systemd/system/$x.service" -o -e "/etc/systemd/system/$x.service" ] && systemctl reload "$x.service" >/dev/null 2>/dev/null || true
+  done
+  exit 0
+fi
+
+if [ -e "/etc/init.d" ]; then
+  for x in $SERVICES; do
+    /etc/init.d/$x >/dev/null 2>/dev/null || true
+  done
+  exit 0
+fi

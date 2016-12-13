@@ -1,0 +1,107 @@
+#!/bin/sh
+## This file was installed by acmetool. Any updates to this script will
+## overwrite changes you make. If you don't want acmetool to manage
+## this file, remove the following line.
+##!acmetool-managed!##
+
+# This file generates combined certificate+private key files for daemons which
+# require them. It is called haproxy for legacy reasons, HAProxy being a common
+# example of such a daemon, but can also be used with other daemons taking the
+# same input format such as Hitch and Quasselcore.
+#
+# This is done outside of acmetool, because it is desired to avoid making
+# unnecessary copies of private keys except in environments where it is
+# necessary. This also demonstrates the power and flexibility of the hooks
+# system.
+#
+# The files consist of the private key, followed by the certificate and
+# certificate chain, followed by any data placed in conf/dhparams.
+#
+# This script is a no-op unless a daemon known to require combined files is
+# found. You can override this by setting $HAPROXY_ALWAYS_GENERATE or
+# $HAPROXY_DAEMONS in /etc/{default,conf.d}/acme-reload.
+#
+# (This file should be executed before 'reload'. So long as it is named
+# 'haproxy' and reload is named 'reload', that is assured.)
+#
+# DEBUGGING NOTE: If you make changes to the configuration this will not
+# be reflected simply by rerunning 'acmetool', because this script is only
+# called when a symlink in 'live' is updated. You can force this script to
+# be rerun by deleting all symlinks in 'live' and running 'acmetool'.
+#
+# Output:
+#   $ACME_STATE_DIR/live/$HOSTNAME/haproxy
+#     The combined certificate file for a hostname.
+#
+#   $ACME_STATE_DIR/haproxy/$HOSTNAME
+#     Symlinked to the combined certificate file. Daemons such as HAProxy
+#     can prefer directories such as these, where each file is a hostname
+#     containing combined data.
+#
+# Configuration options:
+#   /etc/{default,conf.d}/acme-reload
+#     Sourced if they exist. Specify variables here.
+#     Please note that most of the time, you don't need to specify anything.
+#
+#   $HAPROXY_ALWAYS_GENERATE
+#     If non-empty, always generate combined files.
+#
+#   $HAPROXY_DAEMONS
+#     Space-separated list of binaries to search for in path. If any are found
+#     (or $HAPROXY_ALWAYS_GENERATE is set), generate combined files.
+#     Append with HAPROXY_DAEMONS="$HAPROXY_DAEMONS mydaemon".
+#     Defaults: see below.
+#
+#   $HAPROXY_DH_PATH
+#     Defaults to "$ACME_STATE_DIR/conf/dhparams". If the file exists, it is
+#     appended verbatim to combined certificate files. Commonly used to attach
+#     custom Diffie-Hellman parameters.
+#
+#   $HAPROXY_UMASK
+#     Don't change this unless you know what you're doing.
+#     If you change this, you must create a conf/perm file to reconfigure
+#     acmetool's permissions enforcement. See _doc directory in repository.
+#     Override path "certs/*/haproxy".
+
+###############################################################################
+set -e
+EVENT_NAME="$1"
+[ "$EVENT_NAME" = "live-updated" ] || exit 42
+
+# List of services. If any of these are in PATH (or HAPROXY_ALWAYS_GENERATE is
+# set), assume we need to generate combined files.
+HAPROXY_DAEMONS="haproxy hitch quasselcore quassel lighttpd"
+HAPROXY_UMASK="0077"
+
+[ -e "/etc/default/acme-reload" ] && . /etc/default/acme-reload
+[ -e "/etc/conf.d/acme-reload" ] && . /etc/conf.d/acme-reload
+[ -z "$ACME_STATE_DIR" ] && ACME_STATE_DIR="/var/lib/acme"
+[ -z "$HAPROXY_DH_PATH" ] && HAPROXY_DH_PATH="$ACME_STATE_DIR/conf/dhparams"
+
+# Don't do anything if no daemon requiring combined files is found.
+[ -n "$HAPROXY_ALWAYS_GENERATE" ] || {
+  ok=
+  for exe in $HAPROXY_DAEMONS; do
+    which "$exe" >/dev/null 2>/dev/null && ok=1 && break
+  done
+  [ -z "$ok" ] && exit 0
+}
+
+# Create coalesced files and a haproxy repository.
+umask 0022
+mkdir -p "$ACME_STATE_DIR/haproxy"
+umask $HAPROXY_UMASK
+while read name; do
+  certdir="$ACME_STATE_DIR/live/$name"
+  if [ -z "$name" -o ! -e "$certdir" ]; then
+    continue
+  fi
+
+  if [ -n "$HAPROXY_DH_PATH" -a -e "$HAPROXY_DH_PATH" ]; then
+    cat "$certdir/privkey" "$certdir/fullchain" "$HAPROXY_DH_PATH" > "$certdir/haproxy"
+  else
+    cat "$certdir/privkey" "$certdir/fullchain" > "$certdir/haproxy"
+  fi
+
+  [ -h "$ACME_STATE_DIR/haproxy/$name" ] || ln -fs "../live/$name/haproxy" "$ACME_STATE_DIR/haproxy/$name"
+done

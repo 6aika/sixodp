@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# This file creates a symbolic link from acmetool certificates to a custom
+# location.
+
+###############################################################################
+set -e
+EVENT_NAME="$1"
+[ "$EVENT_NAME" = "live-updated" ] || exit 42
+
+[ -z "$ACME_STATE_DIR" ] && ACME_STATE_DIR="/var/lib/acme"
+
+while read name; do
+  certdir="$ACME_STATE_DIR/live/$name"
+  if [ -z "$name" -o ! -e "$certdir" ]; then
+    continue
+  fi
+
+  ln -fs "$certdir/fullchain" {{ ssl_certificate_path }}/{{ ssl_cert_filename }}
+  ln -fs "$certdir/privkey" {{ ssl_certificate_path }}/{{ ssl_key_filename }}
+done

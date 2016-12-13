@@ -1,0 +1,1 @@
+acme ALL=(root) NOPASSWD: /usr/lib/acme/hooks/

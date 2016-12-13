@@ -1,0 +1,74 @@
+---
+- name: Add acmetool APT repository
+  apt_repository:
+    repo: ppa:hlandau/rhea
+
+- name: Install acmetool
+  apt:
+    name: acmetool
+
+- name: Add acme user
+  user:
+    name: acme
+    shell: /bin/bash
+    createhome: no
+    system: yes
+
+- name: Create hook directory
+  file:
+    path: /usr/lib/acme/hooks
+    state: directory
+
+- name: Copy default hook scripts
+  copy:
+    src: "{{ item }}"
+    dest: /usr/lib/acme/hooks/{{ item }}
+    mode: u=rwxs,g=rx,o=rx
+  with_items:
+    - haproxy
+    - reload
+
+- name: Copy custom hook scripts
+  template:
+    src: "{{ item }}.j2"
+    dest: /usr/lib/acme/hooks/{{ item }}
+    mode: u=rwxs,g=rx,o=rx
+  with_items:
+    - link
+
+- name: Create directories
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: acme
+    group: acme
+  with_items:
+    - /var/lib/acme
+    - /var/lib/acme/conf
+    - /var/run/acme
+
+- block:
+    - name: Copy response file
+      copy:
+        src: responses
+        dest: /var/lib/acme/conf/responses
+
+    - name: Run quickstart
+      command:
+        acmetool quickstart --batch --response-file=/var/lib/acme/conf/responses
+      args:
+        creates: /var/lib/acme/conf/target
+  become: yes
+  become_user: acme
+
+- name: Copy sudoers
+  copy:
+    src: sudoers
+    dest: /etc/sudoers.d/acmetool
+    mode: 0400
+
+- name: Request certificates
+  command: acmetool want {{ acmetool_hostnames | join(' ') }}
+  become: yes
+  become_user: acme
+  when: acmetool_hostnames is defined

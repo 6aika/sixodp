@@ -20,6 +20,7 @@
     - solr6
     - redis
     - nginx
+    - acmetool
     - apache
     - postfix
     - ckan-extensions
