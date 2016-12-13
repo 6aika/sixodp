@@ -52,3 +52,6 @@
 [submodule "ckanext/ckanext-collection"]
 	path = ckanext/ckanext-collection
 	url = https://github.com/6aika/ckanext-collection
+[submodule "ckanext/ckanext-datasetcopy"]
+	path = ckanext/ckanext-datasetcopy
+	url = https://github.com/6aika/ckanext-datasetcopy
