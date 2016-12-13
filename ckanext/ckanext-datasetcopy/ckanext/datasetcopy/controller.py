@@ -1,16 +1,14 @@
 import logging
 
-from ckan.common import config
-
 import ckan.logic as logic
 import ckan.lib.base as base
 import ckan.lib.navl.dictization_functions as dict_fns
 import ckan.lib.helpers as h
 import ckan.model as model
 import ckan.lib.plugins
-import ckan.plugins as p
 
-from ckan.common import OrderedDict, _, json, request, c, g, response
+from ckan.common import _, request, c
+from ckan.controllers.package import PackageController
 
 log = logging.getLogger(__name__)
 
@@ -28,37 +26,10 @@ parse_params = logic.parse_params
 
 lookup_package_plugin = ckan.lib.plugins.lookup_package_plugin
 
-class DatasetcopyController(p.toolkit.BaseController):
+class DatasetcopyController(PackageController):
 
-    def _package_form(self, package_type=None):
-        return lookup_package_plugin(package_type).package_form()
-
-    def _setup_template_variables(self, context, data_dict, package_type=None):
-        return lookup_package_plugin(package_type). \
-            setup_template_variables(context, data_dict)
-
-    def _copy_template(self, package_type):
+    def _copy_template(self):
         return 'datasetcopy/copy.html'
-
-    def _get_package_type(self, id):
-        """
-        Given the id of a package this method will return the type of the
-        package, or 'dataset' if no type is currently set
-        """
-        pkg = model.Package.get(id)
-        if pkg:
-            return pkg.type or 'dataset'
-        return None
-
-    def _tag_string_to_list(self, tag_string):
-        ''' This is used to change tags from a sting to a list of dicts '''
-        out = []
-        for tag in tag_string.split(','):
-            tag = tag.strip()
-            if tag:
-                out.append({'name': tag,
-                            'state': 'active'})
-        return out
 
     def copy_package(self, id, data=None, errors=None, error_summary=None):
         package_type = self._get_package_type(id)
@@ -124,7 +95,7 @@ class DatasetcopyController(p.toolkit.BaseController):
         if data.get('state', '').startswith('draft'):
             form_vars['stage'] = ['active', 'complete']
 
-        copy_template = self._copy_template(package_type)
+        copy_template = self._copy_template()
         return render(copy_template,
                       extra_vars={'form_vars': form_vars,
                                   'form_snippet': form_snippet,
@@ -212,63 +183,3 @@ class DatasetcopyController(p.toolkit.BaseController):
                                  errors, error_summary)
             data_dict['state'] = 'none'
             return self.new(data_dict, errors, error_summary)
-
-    def _save_edit(self, name_or_id, context, package_type=None):
-        from ckan.lib.search import SearchIndexError
-        log.debug('Package save request name: %s POST: %r',
-                  name_or_id, request.POST)
-        try:
-            data_dict = clean_dict(dict_fns.unflatten(
-                tuplize_dict(parse_params(request.POST))))
-            if '_ckan_phase' in data_dict:
-                # we allow partial updates to not destroy existing resources
-                context['allow_partial_update'] = True
-                if 'tag_string' in data_dict:
-                    data_dict['tags'] = self._tag_string_to_list(
-                        data_dict['tag_string'])
-                del data_dict['_ckan_phase']
-                del data_dict['save']
-            context['message'] = data_dict.get('log_message', '')
-            data_dict['id'] = name_or_id
-            pkg = get_action('package_update')(context, data_dict)
-            c.pkg = context['package']
-            c.pkg_dict = pkg
-
-            self._form_save_redirect(pkg['name'], 'edit',
-                                     package_type=package_type)
-        except NotAuthorized:
-            abort(403, _('Unauthorized to read package %s') % id)
-        except NotFound, e:
-            abort(404, _('Dataset not found'))
-        except dict_fns.DataError:
-            abort(400, _(u'Integrity Error'))
-        except SearchIndexError, e:
-            try:
-                exc_str = unicode(repr(e.args))
-            except Exception:  # We don't like bare excepts
-                exc_str = unicode(str(e))
-            abort(500, _(u'Unable to update search index.') + exc_str)
-        except ValidationError, e:
-            errors = e.error_dict
-            error_summary = e.error_summary
-            return self.copy_package(name_or_id, data_dict, errors, error_summary)
-
-    def _form_save_redirect(self, pkgname, action, package_type=None):
-        '''This redirects the user to the CKAN package/read page,
-        unless there is request parameter giving an alternate location,
-        perhaps an external website.
-        @param pkgname - Name of the package just edited
-        @param action - What the action of the edit was
-        '''
-        assert action in ('new', 'edit')
-        url = request.params.get('return_to') or \
-              config.get('package_%s_return_url' % action)
-        if url:
-            url = url.replace('<NAME>', pkgname)
-        else:
-            if package_type is None or package_type == 'dataset':
-                url = h.url_for(controller='package', action='read',
-                                id=pkgname)
-            else:
-                url = h.url_for('{0}_read'.format(package_type), id=pkgname)
-        h.redirect_to(url)
