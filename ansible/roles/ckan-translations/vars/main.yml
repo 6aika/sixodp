@@ -11,3 +11,4 @@ translation_projects:
   - "ckanext-rating"
   - "ckanext-reminder"
   - "ckanext-collection"
+  - "ckanext-datasetcopy"
