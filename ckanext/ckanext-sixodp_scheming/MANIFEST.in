@@ -1,2 +1,3 @@
 include README.rst
 recursive-include ckanext/sixodp_scheming/schemas *.json
+recursive-include ckanext/sixodp_scheming/licenses *.json
