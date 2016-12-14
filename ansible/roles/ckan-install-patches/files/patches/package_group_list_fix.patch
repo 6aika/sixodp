@@ -1,28 +1,31 @@
-diff --git a/ckan/lib/dictization/model_dictize.py b/ckan/lib/dictization/model_dictize.py
-index f3914cb..b2750f8 100644
---- a/ckan/lib/dictization/model_dictize.py
-+++ b/ckan/lib/dictization/model_dictize.py
-@@ -244,7 +244,8 @@ def package_dictize(pkg, context):
-                from_obj=member.join(group, group.c.id == member.c.group_id)
-                ).where(member.c.table_id == pkg.id)\
-                 .where(member.c.state == 'active') \
--                .where(group.c.is_organization == False)
-+                .where(group.c.is_organization == False) \
-+                .where(group.c.type == 'group')
-     result = execute(q, member, context)
-     context['with_capacity'] = False
-     ## no package counts as cannot fetch from search index at the same
-diff --git a/ckan/logic/action/get.py b/ckan/logic/action/get.py
-index e2e0a60..5a7b72e 100644
---- a/ckan/logic/action/get.py
-+++ b/ckan/logic/action/get.py
-@@ -573,7 +573,8 @@ def group_list_authz(context, data_dict):
+diff --git a/ckan/controllers/package.py b/ckan/controllers/package.py
+index c8e7dbf..5bd8793 100644
+--- a/ckan/controllers/package.py
++++ b/ckan/controllers/package.py
+@@ -25,6 +25,8 @@ import ckan.lib.render
 
-     q = model.Session.query(model.Group) \
-         .filter(model.Group.is_organization == False) \
--        .filter(model.Group.state == 'active')
-+        .filter(model.Group.state == 'active') \
-+        .filter(model.Group.type == data_dict.get('type', 'group'))
+ from ckan.common import OrderedDict, _, json, request, c, g, response
+ from home import CACHE_PARAMETERS
++from ckan.model.package import Package
++from ckan.lib.dictization.model_dictize import group_list_dictize
 
-     if not sysadmin or am_member:
-         q = q.filter(model.Group.id.in_(group_ids))
+ log = logging.getLogger(__name__)
+
+@@ -1228,6 +1230,8 @@ class PackageController(base.BaseController):
+         data_dict = {'id': id}
+         try:
+             c.pkg_dict = get_action('package_show')(context, data_dict)
++            pkg_obj = Package.get(data_dict['id'])
++            c.pkg_dict['groups'] = group_list_dictize(pkg_obj.get_groups('group', None), context)
+             dataset_type = c.pkg_dict['type'] or 'dataset'
+         except (NotFound, NotAuthorized):
+             abort(404, _('Dataset not found'))
+@@ -1270,7 +1274,7 @@ class PackageController(base.BaseController):
+
+         c.group_dropdown = [[group['id'], group['display_name']]
+                             for group in users_groups if
+-                            group['id'] not in pkg_group_ids]
++                            group['id'] not in pkg_group_ids and group['type'] == 'group']
+
+         for group in c.pkg_dict.get('groups', []):
+             group['user_member'] = (group['id'] in user_group_ids)
