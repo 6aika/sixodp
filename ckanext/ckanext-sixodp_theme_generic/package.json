@@ -1,0 +1,25 @@
+{
+  "name": "ckanext-sixodp_theme_generic",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch-sass": "watch 'npm run build' ./src/scss",
+    "watch-js": "watch 'npm run browserify' ./src/js",
+    "browserify": "browserify src/js/main.js -o ckanext/sixodp_theme_generic/fanstatic/javascript/app.js",
+    "build": "npm-run-all --parallel build-sass",
+    "build-sass": "node-sass ./src/scss/main.scss ckanext/sixodp_theme_generic/fanstatic/sixodp_theme_generic.css",
+    "dev": "npm-run-all --parallel watch-sass watch-js",
+    "postinstall": "npm-run-all --parallel build"
+  },
+  "author": "Mikko Nieminen",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^3.8.0",
+    "npm-run-all": "^3.0.0",
+    "watch": "^0.19.2"
+  },
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7"
+  }
+}
