@@ -1,0 +1,17 @@
+select {
+  background-color: transparent;
+  border: none;
+}
+
+.dataset-form {
+  select {
+    background-color: white;
+    border: $border-base solid $gray-lighter;
+  } 
+}
+
+.form-select {
+  label {
+    display: inline;
+  }
+}

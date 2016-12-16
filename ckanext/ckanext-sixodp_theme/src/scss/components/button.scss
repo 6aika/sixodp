@@ -1,0 +1,51 @@
+button,
+.btn {
+  border-radius: $border-radius-base;
+  padding: $base $base*2;
+  color: $white;
+  background-color: $brand-primary;
+  border: 0;
+  font-size: $base*1.5;
+  cursor: pointer;
+  overflow: hidden;
+  outline: 0;
+  position: relative;
+  transition: all .3s linear;
+
+  &:hover {
+    @extend .box-shadow-highlight;
+    background-color: $brand-primary-light;
+    color: $white;
+  }
+
+  &:focus {
+    color: $white;
+  }
+
+  &:active {
+    @extend .box-shadow-highlight;
+    transform: translateY(1px);
+  }
+
+  // Replace btn-success styling with primary 
+  // This way the template update is not needed
+  &.btn-success {
+    @extend .btn;
+  }
+
+  .caret {
+    @include vertical-align();
+  }
+
+  &.navbar-toggle {
+    box-shadow: none;
+  }
+}
+
+.btn-search--main {
+  padding: $base 0 !important;
+}
+
+.btn {
+  @extend .box-shadow;
+}

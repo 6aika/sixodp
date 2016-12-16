@@ -1,0 +1,317 @@
+.navbar {
+  box-shadow: 0px 4px 3px rgba(50, 50, 93, 0.11), 0 2px 3px rgba(0, 0, 0, 0.08);
+  border: 0;
+  border-radius: 0;
+  background: #fff;
+  z-index: 1002;
+
+  &.navbar-fixed {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+  }
+
+  &-nav {
+    &.navbar-right {
+      li {
+        display: inline-block;
+
+        &:first-of-type {
+          &:before {
+            content: "";
+            margin: 0;
+          }
+        }
+
+        &:before {
+          content: "|";
+          display: inline-block;
+          margin: 0 5px;
+        }
+      }
+    }
+  }
+}
+
+.header-logos {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: block;
+  height: 60px;
+  background: $white;
+  text-align: center;
+
+  .logo {
+    width: auto;
+    height: 50px;
+    padding: 5px 0;
+    display: inline-block;
+
+    img {
+      width: auto;
+      height: 50px;
+    }
+  }
+}
+
+.navbar-header {
+  text-align: center;
+  height: 50px;
+}
+
+.navbar-brand {
+  float: none;
+  display: inline-block;
+  height: 50px;
+
+  img {
+    height: 100%;
+    width: auto;
+  }
+}
+
+.icon-bar {
+  background-color: $brand-primary;
+  transition: background-color .2s ease-in-out;
+}
+
+.navbar-toggle {
+  position: absolute;
+  right: 0;
+
+  &:hover {
+    background: none;
+
+    .icon-bar {
+      background-color: lighten($brand-primary, 30%);
+    }
+  }
+
+  .icon-bar {
+    width: 24px;
+  }
+}
+
+.navbar-collapse {
+  float: left;
+  box-shadow: none;
+}
+
+.navbar-fixed-top {
+  display: none;
+  position: fixed;
+}
+
+.nav > li > a {
+  color: $black;
+  display: inline-block;
+
+  &:hover,
+  &:focus {
+    color: $brand-primary;
+    background: none;
+  }
+}
+
+.nav {
+
+  &.nav-tabs {
+    width: 100%;
+    border-bottom: 0;
+    
+    li {
+      display: block;
+      width: 100%;
+      border-bottom: $border-base solid transparent;
+      margin: 0;
+
+      @media (min-width: $width-md) {
+        display: inline-block;
+        width: auto;
+      }
+
+      &.active {
+        border-width: 0 0 $border-base 0;
+        border-color: $brand-primary;
+        border-style: solid;
+
+        a {
+          background-color: transparent;
+          border: none;
+          color: $gray-base;
+        }
+      }
+
+      &:hover {
+        background-color: $brand-primary-light;
+        a {
+          background-color: transparent;
+          color: $white;
+        }
+      }
+
+      a {
+        border: none;
+        margin-right: 0;
+
+        i {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $width-sm) {
+  .navbar {
+    z-index: 1003;
+  }
+}
+
+@media (min-width: $width-md) {
+  .navbar-fixed-top {
+    top: 0;
+    display: none !important;
+    position: fixed;
+  }
+
+  .navbar-header {
+    width: 100%;
+    height: 100%;
+    float: left;
+  }
+
+  .navbar-brand {
+    float: none;
+    display: inline-block;
+    padding: $padding-base-vertical*2 $padding-base-horizontal;
+    height: auto;
+
+    img {
+      height: 100px;
+      width: auto;
+    }
+  }
+
+  .navbar-collapse {
+    float: none;
+  }
+
+  .navbar-right {
+    margin-right: 0;
+  }
+
+  .navbar-nav > li {
+    margin: 0;
+    display: inline-block;
+    padding: 0;
+
+    &:first-of-type {
+      &:before {
+        content: "";
+        margin: 0;
+      }
+    }
+
+    &:before {
+      content: "/";
+      display: inline-block;
+      margin: 0 10px;
+    }
+
+    &:hover {
+      a {
+        border-bottom: $border-base solid $brand-primary;
+      }
+    }
+
+    a {
+      border-bottom: $border-base solid transparent;
+      padding: 15px 0;
+    }
+
+    &.dropdown {
+      &:hover {
+        a {
+          border: 0
+        }
+      }
+
+      a {
+        padding: 15px;
+        border-bottom: 0;
+      }
+
+      li {
+        &:before {
+          content: "";
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .navbar {
+    &.navbar-fixed {
+      top: 0;
+    }
+  }
+
+  .header-logos {
+    z-index: 1004;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 120px;
+    width: auto;
+    height: auto;
+    padding: 15px;
+    background: $gray-lighter;
+
+    .logo {
+      width: 75px;
+      height: auto;
+      display: block;
+      position: relative;
+      padding: 0;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .flag-ends {
+      position: absolute;
+      bottom: -14px;
+      left: 0;
+      width: 100%;
+      height: 14px;
+      font-size: 0.00000001%;
+      overflow: hidden;
+
+      &:after,
+      &:before {
+        position: absolute;
+        top: 0;
+        display: inline-block;
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 14px 62px 0 62px;
+        border-color: $gray-lighter transparent transparent transparent;
+      }
+      
+      &:before {
+        left: -70px;
+      }
+
+      &:after {
+        right: -70px;
+      }
+    } 
+  }
+}

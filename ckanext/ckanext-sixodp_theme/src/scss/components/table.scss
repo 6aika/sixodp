@@ -1,0 +1,17 @@
+.table {
+  width: 100%;
+  font-size: $font-size-small;
+
+  thead,
+  tbody {
+    th {
+      font-weight: normal;
+    }
+  }
+
+  ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+}
