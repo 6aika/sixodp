@@ -23,6 +23,8 @@ $brand-danger: #d9534f; // Bootstrap default color
 
 $brand-background: #eeeeee;
 $body-background: $gray-base;
+$homepage-gradient-start: rgba(83, 79, 151, 0.3);
+$homepage-grandient-end: rgba(83, 79, 151, 0.1);
 
 $brand-primary-light: lighten($brand-primary, $lighten-intensity);
 $brand-success-light: lighten($brand-success, $lighten-intensity);

@@ -17,14 +17,13 @@ body {
 
   .homepage {
     background: 
-      -webkit-linear-gradient(rgba(83, 79, 151, 0.3), rgba(83, 79, 151, 0.1)), url('/base/images/frontpage.jpg') no-repeat center center;
+      -webkit-linear-gradient($homepage-gradient-start, $homepage-grandient-end), url('/base/images/frontpage.jpg') no-repeat center center;
     background: 
-      -o-linear-gradient(rgba(83, 79, 151, 0.3), rgba(83, 79, 151, 0.1)), url('/base/images/frontpage.jpg') no-repeat center center;
+      -o-linear-gradient($homepage-gradient-start, $homepage-grandient-end), url('/base/images/frontpage.jpg') no-repeat center center;
     background: 
-      linear-gradient(rgba(83, 79, 151, 0.3), rgba(83, 79, 151, 0.1)), url('/base/images/frontpage.jpg') no-repeat center center;
+      linear-gradient($homepage-gradient-start, $homepage-grandient-end), url('/base/images/frontpage.jpg') no-repeat center center;
     background-size: cover;
     padding-top: $navbar-height;
-
 
     &:before {
       content: '';
