@@ -3,7 +3,8 @@
   border-width: 0 0 0 $border-base;
   border-style: solid;
   border-color: transparent;
-  background-color: $white;
+  background-color: $card-background-color;
+  color: $card-text-color;
   transition: border-color .2s ease-in-out;
   padding: $padding-base-vertical $padding-base-horizontal;
   border-radius: $border-radius-base;
@@ -12,7 +13,7 @@
 .card-theme {
   @extend .card;
   border-left-width: $border-base;
-  border-left-color: $brand-primary; 
+  border-left-color: $card-border-highlight-color;
 }
 
 .card-hover {
@@ -25,6 +26,6 @@
     -moz-transition: 0.2s;
     -ms-transition: 0.2s;
     transition: 0.2s;
-    border-left-color: $brand-success; 
+    border-left-color: $card-border-highlight-color-active;
   }
 }

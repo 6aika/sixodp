@@ -1,3 +1,8 @@
 .badge {
-    background-color: $brand-primary;
+    background-color: $badge-background-color;
+
+    &:hover,
+    &:focus {
+        background-color: $badge-background-color-active;
+    }
 }

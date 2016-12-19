@@ -15,12 +15,14 @@ $gray-lighter:           lighten($gray-base, $lighten-intensity*6);
 $black: $gray-base;
 $white: #ffffff;
 
-$brand-background: #eeeeee;
 $brand-primary: #534f97;
 $brand-success: #97ba54;
 $brand-info: #446eb5;
 $brand-warning: #f0ad4e; // Bootstrap default color
 $brand-danger: #d9534f; // Bootstrap default color
+
+$brand-background: #eeeeee;
+$body-background: $brand-primary;
 
 $brand-primary-light: lighten($brand-primary, $lighten-intensity);
 $brand-success-light: lighten($brand-success, $lighten-intensity);
@@ -54,9 +56,44 @@ $state-danger-border: darken(adjust-hue($state-danger-bg, -10), 5%);
 $font-size: $base*1.6;
 $font-size-small: $base*1.4;
 $font: 'Work Sans', sans-serif;
+$text-color: $black;
 
 // Navigation
-$nav-height: 110px;
+$navbar-height: 110px;
+$navbar-background: $white;
+$navbar-link-color: $gray-base;
+$navbar-link-color-active: $brand-primary;
+$navbar-toggle-color: $brand-primary;
+$navbar-toggle-color-active: lighten($navbar-toggle-color, 30%);
+
+$nav-tabs-color: $white;
+$nav-tabs-active: $brand-primary;
+
+// Button
+$button-background-color: $brand-primary;
+$button-background-color-active: lighten($button-background-color, 20%);
+$button-text-color: $white;
+$button-text-color-active: $white;
+
+// Card
+$card-background-color: $brand-primary;
+$card-background-color-active: $white;
+$card-text-color: $text-color;
+$card-text-color-active: $text-color;
+$card-border-highlight-color: $brand-primary;
+$card-border-highlight-color-active: $brand-success;
+
+// Footer
+$footer-background: transparent;
+$footer-text-color: $white;
+$footer-link-color: $white;
+$footer-link-color-active: $gray-lighter;
+
+// Other
+$link-color: $brand-primary;
+$link-color-active: lighten($link-color, 20%);
+$badge-background-color: $brand-primary;
+$badge-background-color-active: $brand-primary;
 
 // Components
 $border-radius-base: 2px;

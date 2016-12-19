@@ -52,7 +52,7 @@
 
       &.active {
         a {
-          background-color: $brand-primary;
+          background-color: $link-color;
         }
       }
 
@@ -63,8 +63,8 @@
         margin: 0;
 
         &:hover {
-          background-color: $brand-primary-light;
-          color: $white;
+          background-color: $link-color-active;
+          color: $button-text-color-active;
         }
       }
     }
@@ -78,7 +78,7 @@
 
       &.active {
         a {
-          background-color: $brand-primary;
+          background-color: $link-color;
         }
       }
 
@@ -89,13 +89,13 @@
         width: 100%;
 
         &:hover {
-          background-color: $brand-primary-light;
-          color: $white;
+          background-color: $link-color-active;
+          color: $button-text-color-active;
         }
 
         &:focus {
           background-color: $white;
-          color: $gray-base;
+          color: $text-color;
         }
       }
     }

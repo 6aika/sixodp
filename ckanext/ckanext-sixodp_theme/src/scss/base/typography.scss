@@ -1,6 +1,7 @@
 body {
   font-family: $font;
   font-size: $font-size;
+  color: $text-color;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -8,10 +9,11 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 a {
-  color: $brand-primary;
+  color: $link-color;
   word-break: break-word;
 
   &:hover {
+    color: $link-color-active;
     text-decoration: none;
   }
 }

@@ -12,9 +12,8 @@ html, body {
 
 body {
   margin: 0;
-  padding-top: $nav-height;
-  color: $black;
-  background: $brand-primary;
+  padding-top: $navbar-height;
+  background: $body-background;
 
   .homepage {
     background: 
@@ -24,7 +23,7 @@ body {
     background: 
       linear-gradient(rgba(83, 79, 151, 0.3), rgba(83, 79, 151, 0.1)), url('/base/images/frontpage.jpg') no-repeat center center;
     background-size: cover;
-    padding-top: $nav-height;
+    padding-top: $navbar-height;
 
 
     &:before {

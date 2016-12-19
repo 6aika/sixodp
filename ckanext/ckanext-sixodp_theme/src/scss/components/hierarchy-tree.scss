@@ -6,11 +6,11 @@ ul.hierarchy-tree-top {
     margin-top: $margin-base-vertical;
 
     a {
-      color: $brand-primary;
+      color: $link-color;
 
       &.active,
       &:focus {
-        color: $brand-primary;
+        color: $link-color-active;
         text-decoration: none;
       }
 

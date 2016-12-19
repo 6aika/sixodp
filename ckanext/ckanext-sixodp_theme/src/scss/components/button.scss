@@ -2,8 +2,8 @@ button,
 .btn {
   border-radius: $border-radius-base;
   padding: $base $base*2;
-  color: $white;
-  background-color: $brand-primary;
+  background-color: $button-background-color;
+  color: $button-text-color;
   border: 0;
   font-size: $base*1.5;
   cursor: pointer;
@@ -14,12 +14,12 @@ button,
 
   &:hover {
     @extend .box-shadow-highlight;
-    background-color: $brand-primary-light;
-    color: $white;
+    background-color: $button-background-color-active;
+    color: $button-text-color-active;
   }
 
   &:focus {
-    color: $white;
+    color: $button-text-color-active;
   }
 
   &:active {
