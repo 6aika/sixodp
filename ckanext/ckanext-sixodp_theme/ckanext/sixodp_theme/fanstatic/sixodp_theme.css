@@ -5886,9 +5886,9 @@ body {
   padding-top: 110px;
   background: #333333; }
   body .homepage {
-    background: -webkit-linear-gradient(rgba(83, 79, 151, 0.3), rgba(83, 79, 151, 0.1)), url("/base/images/frontpage.jpg") no-repeat center center;
-    background: -o-linear-gradient(rgba(83, 79, 151, 0.3), rgba(83, 79, 151, 0.1)), url("/base/images/frontpage.jpg") no-repeat center center;
-    background: linear-gradient(rgba(83, 79, 151, 0.3), rgba(83, 79, 151, 0.1)), url("/base/images/frontpage.jpg") no-repeat center center;
+    background: -webkit-linear-gradient(rgba(98, 127, 154, 0.3), rgba(98, 127, 154, 0.1)), url("/base/images/frontpage.jpg") no-repeat center center;
+    background: -o-linear-gradient(rgba(98, 127, 154, 0.3), rgba(98, 127, 154, 0.1)), url("/base/images/frontpage.jpg") no-repeat center center;
+    background: linear-gradient(rgba(98, 127, 154, 0.3), rgba(98, 127, 154, 0.1)), url("/base/images/frontpage.jpg") no-repeat center center;
     background-size: cover;
     padding-top: 110px; }
     body .homepage:before {
