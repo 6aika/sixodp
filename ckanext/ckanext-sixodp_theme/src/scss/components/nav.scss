@@ -40,7 +40,7 @@
   width: 100%;
   display: block;
   height: 60px;
-  background: $white;
+  background: $navbar-background;
   text-align: center;
 
   .logo {
@@ -134,21 +134,21 @@
 
       &.active {
         border-width: 0 0 $border-base 0;
-        border-color: $brand-primary;
+        border-color: $nav-tabs-background-active;
         border-style: solid;
 
         a {
           background-color: transparent;
           border: none;
-          color: $gray-base;
+          color: $text-color;
         }
       }
 
       &:hover {
-        background-color: $brand-primary-light;
+        background-color: $nav-tabs-background-active;
         a {
           background-color: transparent;
-          color: $white;
+          color: $nav-tabs-text-color-active;
         }
       }
 
@@ -223,7 +223,7 @@
 
     &:hover {
       a {
-        border-bottom: $border-base solid $brand-primary;
+        border-bottom: $border-base solid $navbar-link-color-active;
       }
     }
 
@@ -302,7 +302,7 @@
         height: 0;
         border-style: solid;
         border-width: 14px 62px 0 62px;
-        border-color: $gray-lighter transparent transparent transparent;
+        border-color: $navbar-logos-background-color transparent transparent transparent;
       }
       
       &:before {

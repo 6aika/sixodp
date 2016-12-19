@@ -6016,7 +6016,7 @@ a {
   width: 100%;
   display: block;
   height: 60px;
-  background: #ffffff;
+  background: #f4f4f4;
   text-align: center; }
   .header-logos .logo {
     width: auto;
@@ -6089,7 +6089,7 @@ a {
         border: none;
         color: #333333; }
     .nav.nav-tabs li:hover {
-      background-color: #a0b2c2; }
+      background-color: #627F9A; }
       .nav.nav-tabs li:hover a {
         background-color: transparent;
         color: #ffffff; }
@@ -6186,7 +6186,7 @@ a {
         height: 0;
         border-style: solid;
         border-width: 14px 62px 0 62px;
-        border-color: #f4f4f4 transparent transparent transparent; }
+        border-color: #dbdbdb transparent transparent transparent; }
       .header-logos .flag-ends:before {
         left: -70px; }
       .header-logos .flag-ends:after {
