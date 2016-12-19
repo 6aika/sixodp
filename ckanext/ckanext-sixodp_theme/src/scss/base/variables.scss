@@ -2,15 +2,15 @@
 $base: 10px;
 
 // Colors
-$lighten-intensity: 10%;
+$lighten-intensity: 20%;
 $darken-intensity: 20%;
 
 $gray-base: #333333;
 $gray-darker:            darken($gray-base, $darken-intensity*2);
 $gray-dark:              darken($gray-base, $darken-intensity);
 $gray:                   lighten($gray-base, $lighten-intensity*1.5);
-$gray-light:             lighten($gray-base, $lighten-intensity*3);
-$gray-lighter:           lighten($gray-base, $lighten-intensity*6);
+$gray-light:             lighten($gray-base, $lighten-intensity*2);
+$gray-lighter: #f4f4f4;
 
 $black: $gray-base;
 $white: #ffffff;
@@ -62,8 +62,8 @@ $text-color: $black;
 
 // Navigation
 $navbar-height: 110px;
-$navbar-background: $white;
-$navbar-logos-background-color: $gray-lighter;
+$navbar-background: #f4f4f4;
+$navbar-logos-background-color: darken($navbar-background, 10%);
 $navbar-link-color: $gray-base;
 $navbar-link-color-active: $brand-primary;
 $navbar-toggle-color: $brand-primary;
@@ -84,7 +84,7 @@ $card-background-color-active: $white;
 $card-text-color: $text-color;
 $card-text-color-active: $text-color;
 $card-border-highlight-color: $brand-primary;
-$card-border-highlight-color-active: $brand-success;
+$card-border-highlight-color-active: $brand-info;
 
 // Footer
 $footer-background: transparent;
