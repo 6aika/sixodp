@@ -63,6 +63,7 @@ $text-color: $black;
 // Navigation
 $navbar-height: 110px;
 $navbar-background: $white;
+$navbar-logos-background-color: $gray-lighter;
 $navbar-link-color: $gray-base;
 $navbar-link-color-active: $brand-primary;
 $navbar-toggle-color: $brand-primary;
@@ -105,11 +106,12 @@ $stages-text-color: $text-color;
 $stages-text-color-active: $white;
 $stages-text-color-filled: $white;
 
-// Other
+// Other component colors
 $link-color: $brand-primary;
 $link-color-active: lighten($link-color, 20%);
 $badge-background-color: $brand-primary;
 $badge-background-color-active: $brand-primary;
+$topic-list-background-color: $gray-lighter;
 
 // Components
 $border-radius-base: 2px;
