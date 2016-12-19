@@ -1,28 +1,33 @@
 .stages {
   li {
-    background-color: $gray-lighter;
+    background-color: $stages-background-color;
     
     &.active {
       &:before {
-        color: $brand-primary !important;
+        color: $stages-background-color-active !important;
       }
       &:after {
-        border-top-color: $brand-primary;
-        border-bottom-color: $brand-primary;
+        border-top-color: $stages-background-color-active;
+        border-bottom-color: $stages-background-color-active;
       }
       .highlight {
-        background-color: $brand-primary;
+        background-color: $stages-background-color-active;
       }
     }
     &.complete {
       .highlight {
-        background-color: $gray-lighter;
-        color: $gray-base;
+        background-color: $stages-background-color;
+        color: $stages-text-color;
       }
 
       &:before {
-        background: $gray-light;
-        color: $white;
+        background: $stages-background-color-filled;
+        color: $stages-text-color-filled;
+      }
+
+      &:after {
+        border-top-color: $stages-background-color;
+        border-bottom-color: $stages-background-color;
       }
     }
   } 

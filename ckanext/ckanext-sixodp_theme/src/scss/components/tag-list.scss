@@ -4,7 +4,8 @@
 
   li {
     @extend .box-shadow;
-    background-color: $brand-primary;
+    background-color: $tag-background-color;
+    color: $tag-text-color;
     border: $border-base solid $brand-primary;
     border-radius: $border-radius-large;
     font-size: $font-size*0.9;
@@ -15,8 +16,9 @@
 
     &:hover {
       @extend .box-shadow-highlight;
-      background-color: $brand-primary-light;
-      border-color: $brand-primary-light;
+      background-color: $tag-background-color-active;
+      border-color: $tag-background-color-active;
+      color: $tag-text-color-active;
     }
 
     &:last-child {
@@ -24,7 +26,7 @@
     }
 
     a {
-      color: $white;
+      color: $tag-text-color;
       text-decoration: none;
     }
   }

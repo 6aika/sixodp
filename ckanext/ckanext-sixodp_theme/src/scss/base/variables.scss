@@ -76,7 +76,7 @@ $button-text-color: $white;
 $button-text-color-active: $white;
 
 // Card
-$card-background-color: $brand-primary;
+$card-background-color: $white;
 $card-background-color-active: $white;
 $card-text-color: $text-color;
 $card-text-color-active: $text-color;
@@ -88,6 +88,20 @@ $footer-background: transparent;
 $footer-text-color: $white;
 $footer-link-color: $white;
 $footer-link-color-active: $gray-lighter;
+
+// Tag-list
+$tag-background-color: $brand-primary;
+$tag-background-color-active: lighten($tag-background-color, 20%);
+$tag-text-color: $white;
+$tag-text-color-active: $white;
+
+// Stages
+$stages-background-color: $gray-lighter;
+$stages-background-color-active: $brand-primary;
+$stages-background-color-filled: $gray-light;
+$stages-text-color: $text-color;
+$stages-text-color-active: $white;
+$stages-text-color-filled: $white;
 
 // Other
 $link-color: $brand-primary;

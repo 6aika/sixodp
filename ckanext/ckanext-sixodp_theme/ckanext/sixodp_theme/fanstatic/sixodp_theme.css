@@ -5965,7 +5965,7 @@ a {
   border-width: 0 0 0 2px;
   border-style: solid;
   border-color: transparent;
-  background-color: #534f97;
+  background-color: #ffffff;
   color: #57575b;
   transition: border-color .2s ease-in-out;
   padding: 20px 25px;
@@ -6358,6 +6358,7 @@ button.btn-success,
   list-style: none; }
   .tag-list li {
     background-color: #534f97;
+    color: #ffffff;
     border: 2px solid #534f97;
     border-radius: 0.25em;
     font-size: 14.4px;
@@ -6366,8 +6367,9 @@ button.btn-success,
     margin-right: 5px;
     margin-bottom: 8px; }
     .tag-list li:hover {
-      background-color: #6d69b0;
-      border-color: #6d69b0; }
+      background-color: #8d8ac2;
+      border-color: #8d8ac2;
+      color: #ffffff; }
     .tag-list li:last-child {
       margin-right: 0; }
     .tag-list li a {
@@ -6405,6 +6407,9 @@ button.btn-success,
   .stages li.complete:before {
     background: #a3a3a8;
     color: #ffffff; }
+  .stages li.complete:after {
+    border-top-color: #f2f2f2;
+    border-bottom-color: #f2f2f2; }
 
 .badge {
   background-color: #534f97; }
