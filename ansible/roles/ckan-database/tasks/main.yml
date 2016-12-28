@@ -46,3 +46,6 @@
 
 - name: Initialize Rating database
   command: ./bin/paster --plugin=ckanext-rating rating init "--config={{ ckan_ini }}" chdir={{ virtualenv }}
+
+- name: Initialize Reminder database
+  command: ./bin/paster --plugin=ckanext-reminder reminder init "--config={{ ckan_ini }}" chdir={{ virtualenv }}
