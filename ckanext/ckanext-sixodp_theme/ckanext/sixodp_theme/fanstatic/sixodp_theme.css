@@ -6980,3 +6980,13 @@ ul.hierarchy-tree-top {
 .qa.openness-None {
   color: #7c7c82;
   font-size: 14px; }
+
+.datepicker .table-condensed tbody tr td {
+  padding: 10px 10px; }
+  .datepicker .table-condensed tbody tr td.active,
+  .datepicker .table-condensed tbody tr td span.active {
+    background: #5940BA;
+    background-color: #5940BA; }
+
+input::-webkit-calendar-picker-indicator {
+  display: none; }
