@@ -18,8 +18,12 @@ $(function() {
 $(function ($) {
   $(document).ready(function(){
 
+    // Attempt to get the user language, datepicker will default to en-US if not successful
+    var language = window.navigator.userLanguage || window.navigator.language;
     jQuery('input[type=date]').datepicker({
-      format: 'yyyy-mm-dd'
+      format: 'yyyy-mm-dd',
+      weekStart: 1,
+      language: language
     });
 
     // hide .navbar first
