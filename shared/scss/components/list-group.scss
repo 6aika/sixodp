@@ -1,0 +1,6 @@
+.list-group {
+  .list-group-item {
+    @extend .card-theme;
+    margin-bottom: $margin-base-vertical;
+  }
+}

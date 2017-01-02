@@ -1,0 +1,26 @@
+.hero {
+  margin: 0;
+  padding-top: $base*5;
+  min-height: 400px;
+  background: transparent;
+}
+
+.site-title {
+  @extend %title;
+  font-size: 26px;
+
+  @media (min-width: $width-sm) {
+    font-size: 40px;
+  }
+}
+
+.site-subtitle {
+  @extend %title;
+  line-height: 1;
+  font-weight: normal;
+  font-size: 18px;
+
+  @media (min-width: $width-sm) {
+    font-size: 24px;
+  }
+}

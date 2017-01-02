@@ -3,6 +3,7 @@
 sixodp-secrets
 server.csr
 server.pass.key
+node_modules
 .DS_Store
 .idea
 .vscode

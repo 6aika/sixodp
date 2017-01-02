@@ -1,0 +1,12 @@
+.breadcrumb {
+  li {
+    a {
+      color: $text-color;
+
+      &:hover {
+        text-decoration: none;
+        color: $link-color-active;
+      }
+    }
+  }
+}

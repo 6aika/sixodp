@@ -1,0 +1,24 @@
+{
+  "name": "ckanext-sixodp_theme",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch-sass": "watch 'npm run build' ./shared/scss",
+    "build": "run-p build:*",
+    "build:ckan": "node-sass ./shared/scss/main.scss ckanext/ckanext-sixodp_theme/ckanext/sixodp_theme/fanstatic/sixodp_theme.css",
+    "build:cms": "node-sass ./shared/scss/main.scss wordpress/wp-content/themes/sixodp/app.css",
+    "dev": "npm-run-all --parallel watch-sass",
+    "postinstall": "npm-run-all --parallel build"
+  },
+  "author": "Mikko Nieminen",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^3.8.0",
+    "npm-run-all": "^3.0.0",
+    "watch": "^0.19.2"
+  },
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7"
+  }
+}
