@@ -1,0 +1,16 @@
+{
+  "uploadOnSave": true,
+  "useAtomicWrites": false,
+  "deleteLocal": false,
+  "hostname": "dataportaali.demo.site",
+  "port": "22",
+  "target": "/site",
+  "ignore": [
+    ".remote-sync.json",
+    ".git/**"
+  ],
+  "username": "dataportaali",
+  "password": "cBA2Hv0v2Ame",
+  "watch": [],
+  "transport": "scp"
+}

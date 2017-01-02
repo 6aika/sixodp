@@ -1,0 +1,328 @@
+# Translation of Themes - Twenty Seventeen in Finnish
+# This file is distributed under the same license as the Themes - Twenty Seventeen package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2016-12-06 06:08:39+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/2.3.0-alpha\n"
+"Language: fi\n"
+"Project-Id-Version: Themes - Twenty Seventeen\n"
+
+#. Description of the plugin/theme
+msgid "Twenty Seventeen brings your site to life with header video and immersive featured images. With a focus on business sites, it features multiple sections on the front page as well as widgets, navigation and social menus, a logo, and more. Personalize its asymmetrical grid with a custom color scheme and showcase your multimedia content with post formats. Our default theme for 2017 works great in many languages, for any abilities, and on any device."
+msgstr "Twenty Seventeen herättää sivustosi eloon otsakevideoilla ja suurilla artikkelikuvilla. Se keskittyy yrityssivustoihin ja sisältää mukautettavan etusivun useilla osioilla. Tee siitä persoonallinen esimerkiksi vimpaimilla, valikolla, sosiaalisilla valikoilla, logolla ja valitsemillasi väreillä. Oletusteemamme vuodelle 2017 toimii loistavasti useilla kielillä, millä tahansa laitteella sekä laajalle joukolle käyttäjiä."
+
+#. Theme Name of the plugin/theme
+msgid "Twenty Seventeen"
+msgstr "Twenty Seventeen"
+
+#: template-parts/header/site-branding.php:31
+#: template-parts/navigation/navigation-top.php:20
+msgid "Scroll down to content"
+msgstr "Vieritä alas sisältöön"
+
+#: functions.php:150
+msgctxt "Theme starter content"
+msgid "Coffee"
+msgstr "Kahvi"
+
+#: functions.php:146
+msgctxt "Theme starter content"
+msgid "Sandwich"
+msgstr "Voileipä"
+
+#: functions.php:142
+msgctxt "Theme starter content"
+msgid "Espresso"
+msgstr "Espresso"
+
+#: inc/custom-header.php:117
+msgid "Pause background video"
+msgstr "Keskeytä taustavideo"
+
+#: inc/custom-header.php:116
+msgid "Play background video"
+msgstr "Näytä taustavideo"
+
+#: inc/template-tags.php:154
+msgid "Front Page Section %1$s Placeholder"
+msgstr "Etusivuosion %1$s paikka"
+
+#: inc/customizer.php:80
+msgid "When the two column layout is assigned, the page title is in one column and content is in the other."
+msgstr "Kun kahden sarakkeen asettelu on valittu, sivun otsikko on yhdessä sarakkeessa ja sisältö on toisessa."
+
+#: single.php:32
+msgid "Next Post"
+msgstr "Seuraava artikkeli"
+
+#: index.php:27
+msgid "Posts"
+msgstr "Artikkelit"
+
+#: inc/template-tags.php:88
+msgid "Tags"
+msgstr "Avainsanat"
+
+#: inc/template-tags.php:84
+msgid "Categories"
+msgstr "Kategoriat"
+
+#. translators: used between list items, there is a space after the comma
+#: inc/template-tags.php:65
+msgid ", "
+msgstr ", "
+
+#. translators: %s: post date
+#: inc/template-tags.php:51
+msgid "<span class=\"screen-reader-text\">Posted on</span> %s"
+msgstr "<span class=\"screen-reader-text\">Julkaistu</span> %s"
+
+#. translators: %s: post author
+#: inc/template-tags.php:21
+msgid "by %s"
+msgstr "kirjoittanut %s"
+
+#: inc/icon-functions.php:44
+msgid "Please define an SVG icon filename."
+msgstr "Määrittele SVG-ikonin tiedostonimi."
+
+#: inc/icon-functions.php:39
+msgid "Please define default parameters in the form of an array."
+msgstr "Määrittele oletusparametrit array-muodossa."
+
+#: inc/customizer.php:108
+msgid "Select pages to feature in each area from the dropdowns. Add an image to a section by setting a featured image in the page editor. Empty sections will not be displayed."
+msgstr "Valitse sivut, jotka haluat näyttää kullakin alueella pudotusvalikoista. Lisää kuva osioon asettamalla valitsemallesi sivulle artikkelikuva. Tyhjiä osioita ei näytetä."
+
+#. translators: %d is the front page section number
+#: inc/customizer.php:107
+msgid "Front Page Section %d Content"
+msgstr "Etusivuosion %d sisältö"
+
+#: inc/customizer.php:83 inc/customizer.php:130
+msgid "Two Column"
+msgstr "Kaksi saraketta"
+
+#: inc/customizer.php:82 inc/customizer.php:129
+msgid "One Column"
+msgstr "Yksi sarake"
+
+#: inc/customizer.php:77
+msgid "Page Layout"
+msgstr "Sivun asettelu"
+
+#: inc/customizer.php:66
+msgid "Theme Options"
+msgstr "Teeman asetukset"
+
+#: inc/customizer.php:50
+msgid "Custom"
+msgstr "Oma"
+
+#: inc/customizer.php:48
+msgid "Light"
+msgstr "Vaalea"
+
+#: inc/customizer.php:46
+msgid "Color Scheme"
+msgstr "Väriskaala"
+
+#: inc/custom-header.php:49
+msgid "Default Header Image"
+msgstr "Oletusotsakekuva"
+
+#: functions.php:296
+msgid "Footer 2"
+msgstr "Alatunniste 2"
+
+#: functions.php:288 functions.php:298
+msgid "Add widgets here to appear in your footer."
+msgstr "Lisää tähän vimpaimia, jotka haluat näkyviin alatunnisteeseen."
+
+#: functions.php:286
+msgid "Footer 1"
+msgstr "Alatunniste 1"
+
+#: functions.php:230
+msgctxt "Libre Franklin font: on or off"
+msgid "on"
+msgstr "on"
+
+#: functions.php:60 functions.php:170
+#: template-parts/navigation/navigation-top.php:12
+msgid "Top Menu"
+msgstr "Ylävalikko"
+
+#: comments.php:60
+msgid "Reply"
+msgstr "Vastaa"
+
+#: template-parts/post/content-none.php:27
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr "Emme valitettavasti löytäneet etsimääsi. Ehkä hakutoiminnosta on apua."
+
+#: search.php:50
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr "Pahoittelut mutta mitään ei löytynyt hakuehdoillasi. Kokeile uudelleen joillakin toisilla hakusanoilla."
+
+#: template-parts/post/content-none.php:23
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "Oletko valmis julkaisemaan ensimmäisen kirjoituksesi? <a href=\"%1$s\">Aloita tästä</a>."
+
+#: search.php:21 template-parts/post/content-none.php:17
+msgid "Nothing Found"
+msgstr "Mitään ei löytynyt"
+
+#: single.php:31
+msgid "Previous Post"
+msgstr "Edellinen artikkeli"
+
+#: comments.php:66 single.php:31
+msgid "Previous"
+msgstr "Edellinen"
+
+#: comments.php:67 single.php:32
+msgid "Next"
+msgstr "Seuraava"
+
+#: searchform.php:19
+msgctxt "submit button"
+msgid "Search"
+msgstr "Haku"
+
+#: searchform.php:18
+msgctxt "placeholder"
+msgid "Search &hellip;"
+msgstr "Haku &hellip;"
+
+#: searchform.php:16
+msgctxt "label"
+msgid "Search for:"
+msgstr "Etsi:"
+
+#: search.php:19
+msgid "Search Results for: %s"
+msgstr "Hakutulokset: %s"
+
+#. translators: %s: Name of current post
+#: functions.php:323 template-parts/page/content-front-page-panels.php:43
+#: template-parts/page/content-front-page.php:44
+#: template-parts/post/content-audio.php:80
+#: template-parts/post/content-gallery.php:66
+#: template-parts/post/content-image.php:56
+#: template-parts/post/content-video.php:78 template-parts/post/content.php:54
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr "Jatka lukemista<span class=\"screen-reader-text\"> \"%s\"</span>"
+
+#: inc/customizer.php:49
+msgid "Dark"
+msgstr "Tumma"
+
+#: inc/back-compat.php:39 inc/back-compat.php:51 inc/back-compat.php:66
+msgid "Twenty Seventeen requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again."
+msgstr "Twenty Seventeen vaatii vähintään WordPressin version 4.7. Sinulla on käytössä versio %s. Päivitä ja yritä uudelleen."
+
+#. translators: %s: Name of current post
+#: inc/template-tags.php:117
+msgid "Edit<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr "Muokkaa<span class=\"screen-reader-text\"> \"%s\"</span>"
+
+#: template-parts/page/content-page.php:25
+#: template-parts/post/content-audio.php:85
+#: template-parts/post/content-gallery.php:71
+#: template-parts/post/content-image.php:61
+#: template-parts/post/content-video.php:83 template-parts/post/content.php:59
+msgid "Pages:"
+msgstr "Sivut:"
+
+#: template-parts/navigation/navigation-top.php:13
+msgid "Menu"
+msgstr "Valikko"
+
+#: header.php:27
+msgid "Skip to content"
+msgstr "Siirry sisältöön"
+
+#: functions.php:406
+msgid "Collapse child menu"
+msgstr "Piilota alavalikko"
+
+#: functions.php:405
+msgid "Expand child menu"
+msgstr "Näytä alavalikko"
+
+#: functions.php:278
+msgid "Add widgets here to appear in your sidebar."
+msgstr "Lisää vimpaimia sivupalkkiin."
+
+#: functions.php:276
+msgid "Sidebar"
+msgstr "Sivupalkki"
+
+#: functions.php:61 functions.php:179
+msgid "Social Links Menu"
+msgstr "Some-valikko"
+
+#: template-parts/footer/site-info.php:13
+msgid "Proudly powered by %s"
+msgstr "Palvelun tarjoaa %s"
+
+#. #-#-#-#-#  twentyseventeen.pot (Twenty Seventeen 1.0)  #-#-#-#-#
+#. Author URI of the plugin/theme
+#: template-parts/footer/site-info.php:13
+msgid "https://wordpress.org/"
+msgstr "https://wordpress.org/"
+
+#: footer.php:25
+msgid "Footer Social Links Menu"
+msgstr "Alatunnisteen sosiaaliset linkit -valikko"
+
+#: comments.php:75
+msgid "Comments are closed."
+msgstr "Kommentit on suljettu."
+
+#. translators: 1: number of comments, 2: post title
+#: comments.php:40
+msgctxt "comments title"
+msgid "%1$s Reply to &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s Replies to &ldquo;%2$s&rdquo;"
+msgstr[0] "%1$s vastaus artikkeliin &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s vastausta artikkeliin &ldquo;%2$s&rdquo;"
+
+#. translators: %s: post title
+#: comments.php:36
+msgctxt "comments title"
+msgid "One Reply to &ldquo;%s&rdquo;"
+msgstr "Yksi vastaus artikkeliin &ldquo;%s&rdquo;"
+
+#: archive.php:47 index.php:52 search.php:45
+msgid "Page"
+msgstr "Sivu"
+
+#: 404.php:21
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "Hups! Etsimääsi sivua ei löytynyt."
+
+#: 404.php:24
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr "Näyttää siltä että täällä ei ole mitään. Kokeilepa hakua?"
+
+#: archive.php:45 index.php:50 search.php:43
+msgid "Previous page"
+msgstr "Edellinen sivu"
+
+#: archive.php:46 index.php:51 search.php:44
+msgid "Next page"
+msgstr "Seuraava sivu"
+
+#. Author of the plugin/theme
+msgid "the WordPress team"
+msgstr "WordPress-tiimi"
+
+#. Theme URI of the plugin/theme
+msgid "https://wordpress.org/themes/twentyseventeen/"
+msgstr "https://wordpress.org/themes/twentyseventeen/"

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WordPress &#8250; ReadMe</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ 	<link rel="stylesheet" href="wp-admin/css/install.css?ver=20100228" type="text/css" />
+</head>
+<body>
+<h1 id="logo">
+	<a href="https://wordpress.org/"><img alt="WordPress" src="wp-admin/images/wordpress-logo.png" /></a>
+	<br /> Versio 4.7
+</h1>
+<p style="text-align: center">Moderni henkilökohtainen julkaisualusta</p>
+
+
+<h2>Aivan ensimmäiseksi...</h2>
+<p>Tervetuloa! WordPress on minulle hyvin tärkeä projekti. Jokainen
+kehittäjä ja avustaja antaa ainutkertaisen lisän
+lopputulokseen. Olemme kaikki yhdessä luomassa jotain kaunista, mihin
+osallistumisesta olen ylpeä. WordPressin kehittämiseen on mennyt
+tuhansia tunteja, ja olemme omistautuneet parantamaan sitä joka
+päivä. Kiitos, että sisällytit sen omaan maailmaasi.</p>
+<p style="text-align: right;">&#8212; Matt Mullenweg</p>
+
+
+<h2>Asennus: Kuuluisa 5 minuutin asennus</h2>
+
+<ol>
+	<li>Pura tiedostot tyhjään kansioon ja siirrä kaikki palvelimelle.</li>
+	<li>Avaa <span class="file"><a href="wp-admin/install.php">wp-admin/install.php</a></span> selaimeesi. Se käy sinun kanssasi läpi <code>wp-config.php</code>-tiedoston luontiprosessin.
+	<ol>
+		<li>Avaa <code>wp-config-sample.php</code> -tiedosto
+		    tekstieditorissa (esimerkiksi WordPad) ja täydennä
+		    tietokantayhteyden asetukset.</li>
+		<li>Talleta tiedostoksi <code>wp-config.php</code></li>
+		<li>Siirrä kaikki tiedostot palvelimelle.</li>
+		<li>Avaa <span class="file"><a
+		    href="wp-admin/install.php">/wp-admin/install.php</a></span>
+		    selaimessa.</li> 
+	</ol>
+	</li>
+	<li>Kun konfigurointitiedosto on luotu, asennusohjelman tulisi alustaa blogisi tarvitsemat
+	    taulut tietokantaan. Jos asennuksen aikana tapahtuu virhe,
+	    tarkista <span class="file">wp-config.php</span> -tiedosto
+	    ja yritä uudelleen. Jos virhe toistuu, kirjoita <a
+	    href="http://fi.forums.wordpress.org/">tukifoorumille</a>
+	    mahdollisimman yksityiskohtainen kuvaus ongelmasta.</li>
+	<li><strong>Muista ohjelman antama salasana, jos et asennuksen yhteydessä valinnut omaa salasanaa.</strong> Jos et asennuksen yhteydessä syöttänyt käyttäjätunnusta, tunnuksesi on <code>admin</code></li>
+	<li>Asennusohjelmasta siirryt <a
+	    href="wp-login.php">kirjautumissivulle</a>. Kirjaudu
+	    tunnukselle <code>admin</code> käyttämällä salasanaa,
+	    joka generoitiin asennuksen lopussa. Voit vaihtaa salasanan
+	    <em>Käyttäjät</em>-valikossa.</li>
+</ol>
+
+
+<h2>Päivitys</h2>
+
+<h2>Automaattisen päivitystyökalun käyttö</h2>
+<p>Jos päivität versiosta 2.7 tai sitä uudemmasta, voit käyttää automaattista päivitystä:</p>
+<ol>
+	<li>Avaa <span class="file"><a href="wp-admin/update-core.php">wp-admin/update-core.php</a></span> selaimeesi ja seuraa ohjeita.</li>
+	<li>Siinä kaikki!</li>
+</ol>
+
+<h3>Päivitys manuaalisesti</h3>
+
+<ol>
+	<li>Ennenkuin päivität mitään, varmista, että sinulla on
+	varmuuskopio kaikista muokkaamistasi tiedostoista (esimerkiksi
+	<code>index.php</code>).</li>
+	<li>Poista vanhat WordPress-tiedosto. Talleta kuitenkin ne
+	    tiedostot, joita olet muokannut.</li>
+	<li>Siirrä uuden version tiedostot palvelimelle.</li>
+	<li>Avaa <span class="file"><a
+	    href="wp-admin/upgrade.php">/wp-admin/upgrade.php</a></span>
+	    selaimessa.</li>
+	<li>Odotitko ehkä lisävaiheita? Tässä kaikki!</li>
+</ol>
+
+<h2>Muista järjestelmistä päivittäminen</h2>
+<p>Wordpress voi tuoda sisältöä <a href="http://codex.wordpress.org/Importing_Content">useista eri järjestelmistä</a>. Asenna ensin WordPress ylläolevien ohjeiden mukaan, ja käytä sitten <a href="wp-admin/import.php" title="Import to WordPress">tuontityökaluja</a>.</p>
+
+<h2>Järjestelmävaatimukset</h2>
+
+<ul>
+	<li><a href="http://php.net/">PHP</a> versio <strong>5.2.4</strong> tai uudempi</li>
+	<li><a href="http://www.mysql.com/">MySQL</a> versio <strong>5.0</strong> tai uudempi</li>
+</ul>
+
+<h3>Suositukset</h3>
+<ul>
+	<li><a href="http://php.net/">PHP</a> versio <strong>7</strong> tai uudempi</li>
+	<li><a href="http://www.mysql.com/">MySQL</a> versio <strong>5.6</strong> tai uudempi</li>
+	<li><a href="http://httpd.apache.org/docs/2.2/mod/mod_rewrite.html">mod_rewrite</a> Apache-moduuli.</li>
+	<li><a href="https://wordpress.org/news/2016/12/moving-toward-ssl/">HTTPS</a>-tuki.</li>
+	<li>Linkki osoitteeseen <a href="http://wordpress.org/">http://wordpress.org</a> sivustollasi.</li>
+</ul>
+
+
+<h2>Verkon resursseja</h2>
+
+<p>Jos sinulla on kysymyksiä, joita ei ole käsitelty tässä
+dokumentissa, käytä hyväksesi verkossa olevia lukuisia
+WordPress-resursseja:</p>
+
+<dl>
+	<dt><a href="http://codex.wordpress.org/">WordPress Codex</a></dt>
+	<dd>Codex on WordPress-tietosanakirja. Se on perusteellisin
+	    tietolähde kaikista WordPressiin liittyvistä asioista.</dd>
+	<dt><a href="http://wordpress.org/development/">Kehittäjien
+	    blogi</a></dt>
+	<dd>Täältä löydät viimeisimmät päivitykset ja muita
+	    WordPress-uutisia. Lisää suosikkeihisi ja vieraile usein.</dd>
+	<dt><a href="http://planet.wordpress.org/">WordPress Planet</a></dt>
+	<dd>WordPress Planet on uutiskeskitin, joka kerää yhteen
+	    artikkeleita WordPress-blogeista kaikkialta webistä.</dd>
+	<dt><a href="http://wordpress.org/support/">WordPress
+	    tukifoorumit</a></dt>
+		<dt><a href="http://fi.forums.wordpress.org/">Suomenkieliset WordPress
+		    tukifoorumit</a></dt>
+	<dd>Jos olet etsinyt vastausta kaikkialta tuloksetta,
+	    tukikeskustelupalstat ovat hyvin aktiivisia. Siellä koko
+	    iso yhteisö on valmiina auttamaan. Auttaaksesi palstan
+	    käyttäjiä auttamaan sinua, varmista, että viestisi otsikko
+	    kuvaa ongelmaasi hyvin, ja että olet kertonut ongelmasta
+	    mahdollisimman tarkasti ja yksityiskohtaisesti.</dd>
+	<dt><a href="http://codex.wordpress.org/IRC">WordPress
+	    IRC-kanava</a></dt>
+	<dd>Lisäksi on vielä keskustelukanava, jossa WordPressin
+	    käyttäjät juttelevat, joskus myös tukiasioista. Ylläoleva
+	    wiki-sivu ohjannee oikeaan suuntaan.
+	    (<a href="irc://irc.freenode.net/wordpress"
+	    >irc.freenode.net #wordpress</a>)</dd>
+</dl>
+
+<p>WordPress on Michel V:n kirjoittaman <a href="http://cafelog.com/">b2/caf&eacute;login</a> virallinen seuraaja.
+<a href="http://wordpress.org/about/">WordPressin kehittäjät</a> ovat
+jatkaneet tätä työtä. Jos haluat tukea WordPressiä, ole hyvä ja harkitse
+<a href="http://wordpress.org/donate/">lahjoitusta</a>.</p>
+
+<h2>Lopuksi...</h2>
+
+<ul>
+	<li>Jos sinulla on ehdotuksia, ideoita, kommentteja, tai jos (hui!)
+	    olet löytänyt bugin, liity joukkoomme 
+	    <a href="http://wordpress.org/support/">tukifoorumilla</a>.
+	</li>
+	<li>WordPressissä on vahva lisäosien ohjelmointirajapinta
+	    (API), jonka ansiosta järjestelmän laajentaminen
+	    on helppoa. Jos olet kiinnostunut asiasta, lue lisää
+	    <a href="https://developer.wordpress.org/plugins/">Plugin Developer Handbookista</a>.
+	    WordPressin ytimen koodia ei pidä muokata.
+	</li>
+</ul>
+
+<h2>Jaa rakkautta</h2>
+
+<p>WordPressillä ei ole miljoonaluokan markkinointikampanjaa eikä
+kuuluisia tukijoita. Meillä on jotain vieläkin parempaa &#8212;
+sinut. Jos nautit WordPressistä, voisit kertoa ystävillesi,
+auttaa itseäsi kokemattomampia sen asennuksessa, tai kirjoittaa
+mediajulkaisuille, jotka jättävät meidät huomiotta.</p>
+
+<h2>Tekijänoikeudet</h2>
+
+<p>WordPress on julkaistu <abbr title="GNU Public License">GPL</abbr>:n
+alaisena (ks. <a href="lisenssi.html">lisenssi.html</a> ja <a
+href="license.txt">license.txt</a>).</p>
+
+</body>
+</html>
