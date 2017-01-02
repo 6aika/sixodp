@@ -1,0 +1,68 @@
+---
+- name: Install python-mysqldb
+  apt:
+    name: python-mysqldb
+
+- name: Download WP-CLI
+  get_url:
+    url: https://github.com/wp-cli/wp-cli/releases/download/v{{ wp_cli_version }}/wp-cli-{{ wp_cli_version }}.phar
+    dest: /usr/local/bin/wp
+    mode: 0755
+    checksum: "{{ wp_cli_checksum }}"
+
+- name: Create database
+  mysql_db:
+    name: wordpress
+    encoding: utf8
+
+- name: Create database user
+  mysql_user:
+    name: wordpress
+    host: "%"
+    password: "{{ secret.wordpress_database_password }}"
+    priv: "wordpress.*:ALL"
+
+- name: Create WordPress directory
+  file:
+    state: directory
+    path: /opt/wordpress
+    owner: www-data
+    group: www-data
+
+- block:
+
+  - name: Download WordPress
+    command:
+      wp core download --path=/opt/wordpress
+    args:
+      creates: /opt/wordpress/index.php
+
+  - name: Configure WordPress
+    command: >
+      wp core config
+        --path=/opt/wordpress
+        --dbhost={{ wordpress_database_host }}
+        --dbname={{ wordpress_database_name }}
+        --dbuser={{ wordpress_database_user }}
+        --dbpass={{ secret.wordpress_database_password }}
+    args:
+      creates: /opt/wordpress/wp-config.php
+
+  - name: Install WordPress
+    command: >
+      wp core install
+        --path=/opt/wordpress
+        --url=https://{{ public_facing_hostname }}/wp/
+        --title=6aika
+        --admin_user={{ wordpress_admin_user }}
+        --admin_password={{ secret.wordpress_admin_password }}
+        --admin_email={{ wordpress_admin_email }}
+
+  - name: Change permalink structure
+    command: >
+      wp option set
+        --path=/opt/wordpress
+        permalink_structure /%postname%/
+
+  become: yes
+  become_user: www-data
