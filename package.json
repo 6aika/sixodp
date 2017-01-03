@@ -8,8 +8,8 @@
     "build": "run-p build:*",
     "build:ckan": "node-sass ./shared/scss/main.scss ckanext/ckanext-sixodp_theme/ckanext/sixodp_theme/fanstatic/sixodp_theme.css",
     "build:cms": "node-sass ./shared/scss/main.scss sixodp/app.css",
-    "dev": "npm-run-all --parallel watch-sass",
-    "postinstall": "npm-run-all --parallel build"
+    "dev": "run-p watch-sass",
+    "postinstall": "run-p build"
   },
   "author": "Mikko Nieminen",
   "license": "ISC",
