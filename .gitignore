@@ -9,3 +9,4 @@ node_modules
 .vscode
 *.retry
 transifexrc
+ckanext/ckanext-sixodp_theme/ckanext/sixodp_theme/fanstatic/sixodp_theme.css
