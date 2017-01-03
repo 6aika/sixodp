@@ -11,55 +11,55 @@
         <div class="category-list flex">
           <div class="category-list-item">
             <p>
-              <img src="/wp-content/themes/sixodp/images/icons/hallinto.svg">
+              <img src="<?php echo site_url(); ?>/wp-content/themes/sixodp/images/icons/hallinto.svg">
               Hallinto
             </p>
           </div>
           <div class="category-list-item">
             <p>
-              <img src="/wp-content/themes/sixodp/images/icons/liikenne.svg">
+              <img src="<?php echo site_url(); ?>/wp-content/themes/sixodp/images/icons/liikenne.svg">
               Liikenne ja kartat
             </p>
           </div>
           <div class="category-list-item">
             <p>
-              <img src="/wp-content/themes/sixodp/images/icons/matkailu.svg">
+              <img src="<?php echo site_url(); ?>/wp-content/themes/sixodp/images/icons/matkailu.svg">
               Matkailu
             </p>
           </div>
           <div class="category-list-item">
             <p>
-              <img src="/wp-content/themes/sixodp/images/icons/sosiaalipalvelut.svg">
+              <img src="<?php echo site_url(); ?>/wp-content/themes/sixodp/images/icons/sosiaalipalvelut.svg">
               Opetus
             </p>
           </div>
           <div class="category-list-item">
             <p>
-              <img src="/wp-content/themes/sixodp/images/icons/rakentaminen.svg">
+              <img src="<?php echo site_url(); ?>/wp-content/themes/sixodp/images/icons/rakentaminen.svg">
               Asuminen/rakentaminen
             </p>
           </div>
           <div class="category-list-item">
             <p>
-              <img src="/wp-content/themes/sixodp/images/icons/talousjaverotus.svg">
+              <img src="<?php echo site_url(); ?>/wp-content/themes/sixodp/images/icons/talousjaverotus.svg">
               Talous
             </p>
           </div>
           <div class="category-list-item">
             <p>
-              <img src="/wp-content/themes/sixodp/images/icons/terveys.svg">
+              <img src="<?php echo site_url(); ?>/wp-content/themes/sixodp/images/icons/terveys.svg">
               Terveys
             </p>
           </div>
           <div class="category-list-item">
             <p>
-              <img src="/wp-content/themes/sixodp/images/icons/vaesto.svg">
+              <img src="<?php echo site_url(); ?>/wp-content/themes/sixodp/images/icons/vaesto.svg">
               Väestö
             </p>
           </div>
           <div class="category-list-item">
             <p>
-              <img src="/wp-content/themes/sixodp/images/icons/ymparistojaluonto.svg">
+              <img src="<?php echo site_url(); ?>/wp-content/themes/sixodp/images/icons/ymparistojaluonto.svg">
               Ympäristö ja liikunta
             </p>
           </div>

@@ -10,7 +10,8 @@
   <div class="flex--cards">
     <?php
       $i = 0;
-      while($i < get_field("ajankohtaista_count")) { ?>
+      //while($i < get_field("ajankohtaista_count")) {
+      while($i < 4) { ?>
         <div class="featured-content__item">
           <img src="http://placehold.it/320x280">
           <div class="wrapper">

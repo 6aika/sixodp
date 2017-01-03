@@ -23,7 +23,7 @@
 				<div class="row">
 			    <div class="col-md-12 col-lg-4 footer-section">
 			      <div class="footer-logo">
-			        <img class="footer-logo" src="/wp-content/themes/sixodp/images/6aika_logo_w.png" alt="6Aika logo">
+			        <img class="footer-logo" src="<?php echo site_url(); ?>/wp-content/themes/sixodp/images/6aika_logo_w.png" alt="6Aika logo">
 			      </div>
 			    </div>
 			    <div class="col-sm-6 col-md-6 col-lg-4 footer-section">
