@@ -223,8 +223,9 @@ class Sixodp_UiPlugin(plugins.SingletonPlugin):
     def configure(self, config):
         # Raise an exception if required configs are missing
         required_keys = [
-            'ckanext.sixodp_ui.display_wp_main_navigation',
-            'ckanext.sixodp_ui.display_wp_footer_navigation'
+            'ckanext.sixodp_ui.cms_site_url',
+            'ckanext.sixodp_ui.wp_main_menu_location',
+            'ckanext.sixodp_ui.wp_footer_menu_location'
         ]
 
         for key in required_keys:
@@ -257,5 +258,7 @@ class Sixodp_UiPlugin(plugins.SingletonPlugin):
                 'get_translated': get_translated,
                 'get_qa_openness': get_qa_openness,
                 'dataset_display_name': dataset_display_name,
-                'get_main_navigation_items': helpers.get_main_navigation_items
+                'get_navigation_items_by_menu_location': helpers.get_navigation_items_by_menu_location,
+                'get_main_navigation_items': helpers.get_main_navigation_items,
+                'get_footer_navigation_items': helpers.get_footer_navigation_items
                 }
