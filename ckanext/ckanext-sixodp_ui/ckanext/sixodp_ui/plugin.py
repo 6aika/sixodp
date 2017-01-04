@@ -9,6 +9,7 @@ import ckan.lib.i18n as i18n
 import logging
 import copy
 from ckan.common import _
+from ckanext.sixodp_ui import helpers
 
 try:
     from collections import OrderedDict  # 2.7
@@ -237,5 +238,6 @@ class Sixodp_UiPlugin(plugins.SingletonPlugin):
                 'ensure_translated': ensure_translated,
                 'get_translated': get_translated,
                 'get_qa_openness': get_qa_openness,
-                'dataset_display_name': dataset_display_name
+                'dataset_display_name': dataset_display_name,
+                'get_main_navigation_items': helpers.get_main_navigation_items
                 }
