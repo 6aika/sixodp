@@ -198,6 +198,7 @@ def get_qa_openness(dataset):
 
 class Sixodp_UiPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
+    plugins.implements(plugins.IConfigurable)
     plugins.implements(plugins.interfaces.IFacets, inherit=True)
     plugins.implements(plugins.ITemplateHelpers)
 
@@ -216,6 +217,23 @@ class Sixodp_UiPlugin(plugins.SingletonPlugin):
         })
 
         return schema
+
+    # IConfigurable
+
+    def configure(self, config):
+        # Raise an exception if required configs are missing
+        required_keys = [
+            'ckanext.sixodp_ui.display_wp_main_navigation',
+            'ckanext.sixodp_ui.display_wp_footer_navigation'
+        ]
+
+        for key in required_keys:
+            if config.get(key) is None:
+                raise RuntimeError(
+                    'Required configuration option {0} not found.'.format(
+                        key
+                    )
+                )
 
     # IFacets #
 
