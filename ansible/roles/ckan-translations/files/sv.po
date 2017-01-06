@@ -2735,6 +2735,9 @@ msgstr "Relevans"
 msgid "Last Modified"
 msgstr "Senast ändrad"
 
+msgid "Last Created"
+msgstr ""
+
 #: ckan/templates/group/read.html:19 ckan/templates/organization/read.html:23
 #: ckan/templates/package/search.html:33
 #: ckan/templates/snippets/package_item.html:50
