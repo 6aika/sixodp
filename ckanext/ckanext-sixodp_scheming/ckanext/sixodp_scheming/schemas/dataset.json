@@ -97,6 +97,14 @@
       "form_snippet": "private.html",
       "display_snippet": null,
       "validators": "boolean_validator"
+    },
+    {
+      "field_name": "external_urls",
+      "preset": "repeating_text",
+      "label": "External links",
+      "form_blanks": 1,
+      "display_snippet": "repeating_link.html",
+      "form_snippet": "repeating.html"
     }
   ],
   "resource_fields": [
@@ -105,13 +113,6 @@
       "label": "URL",
       "preset": "resource_url_upload_ex",
       "final": true
-    },
-    {
-      "field_name": "external_urls",
-      "preset": "repeating_text",
-      "label": "External links",
-      "form_blanks": 1,
-      "display_snippet": "repeating_link.html"
     },
     {
       "field_name": "name",
@@ -133,7 +134,10 @@
     },
     {
       "field_name": "file_size",
-      "label": "Size"
+      "label": {
+        "en_GB": "Size",
+        "fi": "Koko"
+      }
     },
     {
       "field_name": "position_info",
