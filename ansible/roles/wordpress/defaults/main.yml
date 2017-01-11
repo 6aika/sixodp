@@ -1,4 +1,6 @@
 ---
+wordpress_database_admin_user: root
+wordpress_database_admin_password:
 wordpress_database_name: wordpress
 wordpress_database_user: wordpress
 wordpress_database_host: localhost
