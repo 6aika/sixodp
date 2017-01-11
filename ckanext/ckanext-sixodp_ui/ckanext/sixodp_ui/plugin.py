@@ -9,6 +9,7 @@ import ckan.lib.i18n as i18n
 import logging
 import copy
 from ckan.common import _
+from ckanext.sixodp_ui import helpers
 
 try:
     from collections import OrderedDict  # 2.7
@@ -197,6 +198,7 @@ def get_qa_openness(dataset):
 
 class Sixodp_UiPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
+    plugins.implements(plugins.IConfigurable)
     plugins.implements(plugins.interfaces.IFacets, inherit=True)
     plugins.implements(plugins.ITemplateHelpers)
 
@@ -215,6 +217,24 @@ class Sixodp_UiPlugin(plugins.SingletonPlugin):
         })
 
         return schema
+
+    # IConfigurable
+
+    def configure(self, config):
+        # Raise an exception if required configs are missing
+        required_keys = [
+            'ckanext.sixodp_ui.cms_site_url',
+            'ckanext.sixodp_ui.wp_main_menu_location',
+            'ckanext.sixodp_ui.wp_footer_menu_location'
+        ]
+
+        for key in required_keys:
+            if config.get(key) is None:
+                raise RuntimeError(
+                    'Required configuration option {0} not found.'.format(
+                        key
+                    )
+                )
 
     # IFacets #
 
@@ -237,5 +257,8 @@ class Sixodp_UiPlugin(plugins.SingletonPlugin):
                 'ensure_translated': ensure_translated,
                 'get_translated': get_translated,
                 'get_qa_openness': get_qa_openness,
-                'dataset_display_name': dataset_display_name
+                'dataset_display_name': dataset_display_name,
+                'get_navigation_items_by_menu_location': helpers.get_navigation_items_by_menu_location,
+                'get_main_navigation_items': helpers.get_main_navigation_items,
+                'get_footer_navigation_items': helpers.get_footer_navigation_items
                 }

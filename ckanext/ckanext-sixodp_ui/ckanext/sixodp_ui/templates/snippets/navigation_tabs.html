@@ -1,34 +1,19 @@
 {% block header_site_navigation_tabs %}
 <ul class="nav navbar-nav">
+    {% for item in h.get_main_navigation_items() %}
     <li>
-    <a class="nav-link" href="{{ h.url_for(controller='package', action='search') }}">
-        {{ _('Datasets') }}
-    </a>
+        <a class="nav-link" href="{{item.path}}">
+            {{ _(item.title) }}
+        </a>
     </li>
-    <li>
-    <a href="{{ h.url_for(controller='ckanext.showcase.controller:ShowcaseController', action='search') }}">
-        {{ _('Showcase') }}
-    </a>
-    </li>
-    <li>
-      <a href="{{ h.url_for(controller='ckanext.collection.controller:CollectionController', action='search_collection') }}">
-        {{ _('Collections') }}
-      </a>
-    </li>
+    {% endfor %}
 
     {{ h.build_nav_main() }}
-
-    <!-- <li>
-        <a class="nav-link" href="{{ h.url_for(controller='ckanext.contact.controllers.contact:ContactController', action='form') }}">
-        {{ _('Feedback') }}
-        </a>
-    </li> -->
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
+</ul>
+<ul class="nav navbar-nav navbar-right">
     {% if c.userobj %}
         {% snippet 'home/snippets/sixodp_profile.html' %}
     {% endif %}
     {% snippet 'home/snippets/sixodp_language-changer.html' %}
-    
 </ul>
 {% endblock %}
