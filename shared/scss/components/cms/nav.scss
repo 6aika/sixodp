@@ -1,0 +1,86 @@
+.site-header-menu {
+  @extend %wrapper-padding;
+}
+
+.navbar {
+  min-height: 0;
+  max-height: 0;
+  overflow: hidden;
+
+  &.opened {
+    max-height: 100%;
+  }
+
+  @media (min-width: $width-xs) {
+    max-height: $navbar-height;
+  }
+}
+
+.navbar-nav {
+  margin: 0;
+
+  @media (min-width: $width-xs) {
+    float: left;
+    margin-left: $base*2;
+  }
+}
+
+.navbar-right {
+
+  @media (min-width: $width-xs) {
+    float: right !important;
+    margin: 0;
+    margin-right: -15px;
+  }
+}
+
+.navbar-nav > li {
+
+  @media (min-width: $width-xs) {
+    float: left;
+  }
+}
+
+.navbar-nav > li > a {
+
+  @media (min-width: $width-xs) {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+
+
+
+
+
+// Nav toggle
+.navbar-toggle {
+
+  @media (min-width: $width-xs) {
+    display: none;
+  }
+}
+
+.icon-bar {
+  background: $brand-primary;
+}
+
+
+
+
+
+
+// Logo
+.logo-wrapper {
+  width: $base*8;
+  line-height: $navbar-height;
+
+  @media (min-width: $width-xs) {
+    float: left;
+  }
+}
+
+.logo {
+  width: $base*8;
+  height: auto;
+}

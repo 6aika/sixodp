@@ -1,0 +1,21 @@
+.stats {
+  margin-top: $base*2;
+}
+
+.stat__wrapper {
+  text-align: center;
+  margin-top: $base*2;
+
+  @media (min-width: $width-md) {
+    text-align: left;
+  }
+}
+
+.stat {
+  display: inline-block;
+  text-align: center;
+}
+
+.stat__value {
+  font-size: 3rem;
+}

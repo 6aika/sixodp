@@ -1,0 +1,70 @@
+.site-footer {
+  padding-top: $base*6;
+  background: $brand-primary;
+  color: #fff;
+
+  a {
+    color: currentColor;
+  }
+}
+
+.footer-follow-links {
+  padding: $base*2 0;
+}
+
+.footer-follow-title {
+  margin-right: $base;
+}
+
+.footer-follow-link:hover {
+  text-decoration: none;
+}
+
+hr {
+  margin: 0;
+}
+
+.footer-section {
+  padding-top: $base*2;
+  padding-bottom: $base*2;
+  height: $base*30;
+
+  &.footer-section--links > div {
+    height: 100%;
+  }
+}
+
+.footer-logo-wrapper {
+  @extend %vertically-centered;
+
+  width: 25%;
+  margin: auto;
+
+  @media (min-width: $width-lg) {
+    width: 100%;
+  }
+}
+
+.footer-logo {
+  width: 100%;
+}
+
+.footer-links {
+  @extend %vertically-centered;
+
+  padding: 0;
+  li {
+    list-style: none;
+    display: inline-block;
+    width: 49%;
+
+    a {
+      display: block;
+      padding: $base;
+    }
+  }
+}
+
+.copyrights {
+  padding: $base*2 0 $base*8;
+}

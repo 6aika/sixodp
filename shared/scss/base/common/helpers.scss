@@ -1,0 +1,78 @@
+%wrapper-padding {
+  padding-left: $base*2;
+  padding-right: $base*2;
+
+  @media (min-width: $width-md) {
+    padding-left: $base*4;
+    padding-right: $base*4;
+  }
+}
+
+%content-padding {
+  padding-top: $base*2;
+  padding-bottom: $base*2;
+
+  @media (min-width: $width-md) {
+    padding-top: $base*4;
+    padding-bottom: $base*4;
+  }
+}
+
+%box-shadow {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+%border-radius {
+  border-radius: $border-radius-base;
+}
+
+%box {
+  @extend %box-shadow;
+  @extend %border-radius;
+  background: #fff;
+}
+
+%heading {
+  margin-bottom: $base*4;
+  padding-bottom: $base*2;
+  border-bottom: 1px solid $brand-primary;
+}
+
+%input-field {
+  border-radius: $border-radius-base;
+  color: $text-color;
+  background-color: #fff;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid #f2f2f2;
+  border-bottom: $border-base solid #f2f2f2;
+  box-shadow: none;
+  -webkit-transition: border-color .2s ease-in-out;
+  -moz-transition: border-color .2s ease-in-out;
+  transition: border-color .2s ease-in-out;
+
+  &:active, &:focus {
+    outline: 0;
+    border: 1px solid #f2f2f2;
+    border-bottom: $border-base solid $brand-primary;
+    box-shadow: none;
+  }
+}
+
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+%vertically-centered {
+  @include vertical-align();
+}
+
+.js .js-hide, .hide-heading {
+  display: none;
+}
+.js .js-hide.active {
+  display: block;
+}

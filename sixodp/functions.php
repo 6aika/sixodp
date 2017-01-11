@@ -38,8 +38,9 @@ if ( !function_exists('sixodp_theme_setup') ) :
 
     // This theme uses wp_nav_menu() in two locations.
     register_nav_menus( array(
-      'primary' => __( 'Primary Menu', 'twentysixteen' ),
-      'social'  => __( 'Social Links Menu', 'twentysixteen' ),
+      'primary' => __( 'Primary Menu', 'sixodp' ),
+      'social'  => __( 'Social Links Menu', 'sixodp' ),
+      'footer'  => __( 'Footer Menu', 'sixodp' ),
     ) );
 
     /*
@@ -70,88 +71,41 @@ if ( !function_exists('sixodp_theme_setup') ) :
       'audio',
       'chat',
     ) );
+
+    // Check if the menu exists
+    $menu_name = 'primary';
+    $menu_exists = wp_get_nav_menu_object( $menu_name );
+
+    // If it doesn't exist, let's create it.
+    if( !$menu_exists){
+        $menu_id = wp_create_nav_menu($menu_name);
+
+    	// Set up default menu items
+        wp_update_nav_menu_item($menu_id, 0, array(
+            'menu-item-title' =>  __('Datasets'),
+            'menu-item-url' => home_url( '/dataset' ),
+            'menu-item-status' => 'publish'));
+
+        wp_update_nav_menu_item($menu_id, 0, array(
+            'menu-item-title' =>  __('Showcase'),
+            'menu-item-url' => home_url( '/showcase' ),
+            'menu-item-status' => 'publish'));
+
+        wp_update_nav_menu_item($menu_id, 0, array(
+            'menu-item-title' =>  __('Collections'),
+            'menu-item-url' => home_url( '/collection' ),
+            'menu-item-status' => 'publish'));
+
+    }
+
+    //then you set the wanted theme  location
+    $menu = get_term_by( 'name', $menu_name, 'nav_menu' );
+    $locations = get_theme_mod('nav_menu_locations');
+    $locations['primary'] = $menu->term_id;
+    set_theme_mod( 'nav_menu_locations', $locations );
   }
 endif; // twentysixteen_setup
 add_action( 'after_setup_theme', 'sixodp_theme_setup' );
-
-
-add_action( 'customize_register' , 'sixodp_theme_options' );
-function sixodp_theme_options( $wp_customize ) {
-  // Sections, settings and controls will be added here
-
-  $wp_customize->add_section("colors", array(
-    "title" => __("Colors", "customizer_colors_sections"),
-    'priority'    => 100,
-		'capability'  => 'edit_theme_options',
-  ));
-
-  $wp_customize->add_setting( 'primary_color', array(
-    'default' => 'rebeccapurple',
-    'transport' => 'postMessage'
-  ));
-  $wp_customize->add_setting( 'complementary_color', array(
-    'default' => 'hotpink',
-    'transport' => 'postMessage'
-  ));
-
-  $wp_customize->add_control( new WP_Customize_Color_Control(
-    $wp_customize,
-    'primary_color_control',
-    array(
-      'label'    => __( 'Primary Color', 'primary_color_text' ),
-      'section'  => 'colors',
-      'settings' => 'primary_color',
-      'priority' => 40,
-    )
-  ));
-
-  $wp_customize->add_control( new WP_Customize_Color_Control(
-    $wp_customize,
-    'complementary_color_control',
-    array(
-      'label'    => __( 'Complementary Color', 'complementary_color_text' ),
-      'section'  => 'colors',
-      'settings' => 'complementary_color',
-      'priority' => 50,
-    )
-  ));
-}
-
-add_action( 'wp_head' , 'my_dynamic_css' );
-function my_dynamic_css() {
-	?>
-  <style type='text/css'>
-    .color-primary {
-      color: <?php echo get_theme_mod('primary_color', 'rebeccapurple'); ?> !important;
-    }
-    .bgcolor-primary {
-      background-color: <?php echo get_theme_mod('primary_color', 'rebeccapurple'); ?> !important;
-    }
-    .border-primary {
-      border-color: <?php echo get_theme_mod('primary_color', 'rebeccapurple'); ?> !important;
-    }
-
-    .color-complementary {
-      color: <?php echo get_theme_mod('complementary_color', 'hotpink'); ?> !important;
-    }
-    .bgcolor-complementary {
-      background-color: <?php echo get_theme_mod('complementary_color', 'hotpink'); ?> !important;
-    }
-    .border-complementary {
-      border-color: <?php echo get_theme_mod('complementary_color', 'hotpink'); ?> !important;
-    }
-
-    a {
-      color: <?php echo get_theme_mod('primary_color', 'rebeccapurple'); ?> !important;
-    }
-
-    a:hover {
-      color: <?php echo get_theme_mod('primary_color', 'rebeccapurple'); ?> !important;
-      opacity: 0.7;
-    }
-  </style>
-	<?php
-}
 
 function sixodp_scripts() {
     wp_enqueue_script( 'app', get_template_directory_uri() . '/app.js', array( 'jquery' ), '1.0.0', true );

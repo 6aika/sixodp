@@ -1,0 +1,7 @@
+#main > .wrapper {
+  padding: $base*10 $base*2 $base*16;
+
+  &:nth-child(even) {
+    background: #f7f7f7;
+  }
+}

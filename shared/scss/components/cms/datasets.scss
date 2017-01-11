@@ -1,0 +1,23 @@
+.datasets {
+  padding: 0;
+  margin: 0;
+}
+
+.dataset {
+  @extend %box;
+  padding: $base*2;
+  list-style: none;
+  margin: $base auto;
+}
+
+.dataset__title {
+  margin: 0;
+}
+
+.dataset__meta {
+  margin-top: $base/2;
+}
+
+.dataset__body {
+  margin-top: $base;
+}

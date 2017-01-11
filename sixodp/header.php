@@ -35,43 +35,35 @@
   </button>
 
   <div id="site-header-menu" class="site-header-menu">
+		<a href="<?php echo site_url(); ?>" class="logo-wrapper">
+			<img src="https://demo.dataportaali.com/base/images/main_logo.png" class="logo" />
+		</a>
     <?php if ( has_nav_menu( 'primary' ) ) : ?>
       <nav id="site-navigation" class="main-navigation navbar" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'twentysixteen' ); ?>">
 				<?php
-					the_custom_logo();
           wp_nav_menu( array(
             'theme_location' => 'primary',
             'menu_class'     => 'primary-menu nav navbar-nav',
            ) );
         ?>
 				<ul class="nav navbar-nav navbar-right">
-
-
-<!-- Snippet home/snippets/sixodp_language-changer.html start -->
-
-
-<li>
-  <a href="/fi/" class="nav-link active">
-    <span class="hidden-xs">FI</span>
-    <span class="visible-xs">FI<span>
-  </span></span></a>
-</li><li>
-  <a href="/sv/" class="nav-link">
-    <span class="hidden-xs">SV</span>
-    <span class="visible-xs">SV<span>
-  </span></span></a>
-</li><li>
-  <a href="/en_GB/" class="nav-link">
-    <span class="hidden-xs">EN</span>
-    <span class="visible-xs">EN<span>
-  </span></span></a>
-</li>
-
-
-<!-- Snippet home/snippets/sixodp_language-changer.html end -->
-
-
-</ul>
+					<li>
+					  <a href="/fi/" class="nav-link active">
+					    <span class="hidden-xs">FI</span>
+					    <span class="visible-xs">FI<span>
+					  </span></span></a>
+					</li><li>
+					  <a href="/sv/" class="nav-link">
+					    <span class="hidden-xs">SV</span>
+					    <span class="visible-xs">SV<span>
+					  </span></span></a>
+					</li><li>
+					  <a href="/en_GB/" class="nav-link">
+					    <span class="hidden-xs">EN</span>
+					    <span class="visible-xs">EN<span>
+					  </span></span></a>
+					</li>
+				</ul>
       </nav><!-- .main-navigation -->
     <?php endif; ?>
   </div><!-- .site-header-menu -->

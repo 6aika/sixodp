@@ -1,0 +1,26 @@
+.searchbar {
+  padding: $base*4;
+  background: $brand-primary;
+  color: #fff;
+}
+
+.searchbar .input-group {
+  display: block;
+
+  .form-control {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  @media (min-width: $width-xs) {
+    display: table;
+  }
+
+  @media (min-width: $width-md) {
+
+    .form-control {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+}

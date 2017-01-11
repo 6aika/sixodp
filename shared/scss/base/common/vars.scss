@@ -1,0 +1,146 @@
+// Base
+$base: 10px;
+
+// Typography
+$font: 'Work Sans', sans-serif;
+
+// Colors
+
+$lighten-intensity: 10%;
+$darken-intensity: 20%;
+
+$brand-primary: #5940BA;
+$brand-primary-light: lighten($brand-primary, 10%);
+$brand-primary-dark: darken($brand-primary, 10%);
+
+$brand-secondary: #a55efa;
+$brand-secondary-light: lighten($brand-secondary, 10%);
+$brand-secondary-dark: darken($brand-secondary, 10%);
+
+$brand-success: #97ba54;
+$brand-info: #446eb5;
+$brand-warning: #f0ad4e; // Bootstrap default color
+$brand-danger: #d9534f; // Bootstrap default color
+
+$brand-background: #fff;
+$body-background: #fff;
+
+$gray-base: #57575b;
+$gray-darker:            darken($gray-base, $darken-intensity*2);
+$gray-dark:              darken($gray-base, $darken-intensity);
+$gray:                   lighten($gray-base, $lighten-intensity*1.5);
+$gray-light:             lighten($gray-base, $lighten-intensity*3);
+$gray-lighter:           lighten($gray-base, $lighten-intensity*6);
+
+$black: $gray-base;
+$text-color: #000;
+$white: #ffffff;
+
+// New input heights based on BS defaults
+$line-height-computed: 20px;
+$padding-base-vertical: 6px;
+
+$font-size-base: 14px !default;
+$font-size: $font-size-base;
+$font-size-large: ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-small: ceil(($font-size-base * 0.85)) !default; // ~12px
+
+$padding-large-vertical: 10px !default;
+
+$line-height-base:  1.428571429 !default; // 20/14
+$line-height-large: 1.3333333 !default; // extra decimals for Win 8.1 Chrome
+$line-height-small: 1.5 !default;
+
+$padding-small-vertical: 5px !default;
+
+$input-height-base: ($line-height-computed + ($padding-base-vertical * 2) - 1);
+$input-height-large: (ceil($font-size-large * $line-height-large) + ($padding-large-vertical * 2) - 1);
+$input-height-small: (floor($font-size-small * $line-height-small) + ($padding-small-vertical * 2) - 3);
+
+// Borders
+$border-radius-base: 2px;
+$border-radius-large: 2px;
+$border-radius-small: 2px;
+$border-base: $border-radius-base;
+
+// Navigation
+$navbar-height: 80px;
+$navbar-margin-bottom: 0;
+$nav-link-hover-bg: transparent;
+
+$navbar-height: 110px;
+$navbar-background: white;
+$navbar-logos-background-color: $gray-lighter;
+$navbar-link-color: $gray-base;
+$navbar-link-color-active: $brand-primary;
+$navbar-toggle-color: $brand-primary;
+$navbar-toggle-color-active: lighten($navbar-toggle-color, 30%);
+
+$nav-tabs-background: transparent;
+$nav-tabs-background-active: $brand-primary;
+$nav-tabs-text-color: $text-color;
+$nav-tabs-text-color-active: white;
+
+$nav-tabs-border-color:                     transparent !default;
+$nav-tabs-link-hover-border-color:          transparent !default;
+$nav-tabs-active-link-hover-bg:             $brand-primary !default;
+$nav-tabs-active-link-hover-color:          #fff !default;
+$nav-tabs-active-link-hover-border-color:   $brand-primary !default;
+
+
+// Breakpoints
+$width-xs: 480px;
+$width-xs-sm: 600px;
+$width-sm: 768px;
+$width-md: 992px;
+$width-lg: 1248px;
+$width-xl: 1400px;
+
+$grid-float-breakpoint: 992px; // Navbar collapse point
+
+$transition: all .2s ease-in-out;
+
+
+
+
+
+// Button
+$button-background-color: $brand-primary;
+$button-background-color-active: lighten($button-background-color, 20%);
+$button-text-color: $white;
+$button-text-color-active: $white;
+
+// Card
+$card-background-color: white;
+$card-background-color-active: white;
+$card-text-color: $text-color;
+$card-text-color-active: $text-color;
+$card-border-highlight-color: $brand-primary;
+$card-border-highlight-color-active: $brand-success;
+
+// Footer
+$footer-background: transparent;
+$footer-text-color: white;
+$footer-link-color: white;
+$footer-link-color-active: $gray-lighter;
+
+// Tag-list
+$tag-background-color: $brand-primary;
+$tag-background-color-active: lighten($tag-background-color, 20%);
+$tag-text-color: #fff;
+$tag-text-color-active: #fff;
+
+// Stages
+$stages-background-color: $gray-lighter;
+$stages-background-color-active: $brand-primary;
+$stages-background-color-filled: $gray-light;
+$stages-text-color: $text-color;
+$stages-text-color-active: white;
+$stages-text-color-filled: white;
+
+// Other component colors
+$link-color: $brand-primary;
+$link-color-active: lighten($link-color, 20%);
+$badge-background-color: $brand-primary;
+$badge-background-color-active: $brand-primary;
+$topic-list-background-color: $gray-lighter;

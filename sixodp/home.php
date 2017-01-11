@@ -12,6 +12,7 @@
  * @subpackage Sixodp
  */
 
+
 get_header(); ?>
 
 <div id="primary" class="content-area">
@@ -20,10 +21,10 @@ get_header(); ?>
 		// Start the loop.
 		while ( have_posts() ) : the_post();
 
-      get_template_part( 'partials/search' );
-			get_template_part( 'partials/category-list' );
-			get_template_part( 'partials/featured-content' );
+      get_template_part( 'partials/searchbar' );
+			get_template_part( 'partials/categories' );
 			get_template_part( 'partials/featured-posts' );
+			get_template_part( 'partials/featured-datasets' );
 			get_template_part( 'partials/featured-apps' );
 
 			// End of the loop.

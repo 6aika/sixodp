@@ -1,0 +1,18 @@
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.category {
+  @extend %box;
+
+  margin: $base;
+  margin-left: 0;
+  padding: $base*1.5 $base*2.5;
+}
+
+.category__icon {
+  margin-right: $base;
+  height: 24px;
+  width: auto;
+}

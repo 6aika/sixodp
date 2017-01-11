@@ -19,42 +19,22 @@
 					get_template_part( 'partials/social_links' );
 				?>
 
-				<hr class="border-complementary"/>
+				<hr />
 				<div class="row">
 			    <div class="col-md-12 col-lg-4 footer-section">
-			      <div class="footer-logo">
+			      <div class="footer-logo-wrapper">
 			        <img class="footer-logo" src="<?php echo site_url(); ?>/wp-content/themes/sixodp/images/6aika_logo_w.png" alt="6Aika logo">
 			      </div>
 			    </div>
-			    <div class="col-sm-6 col-md-6 col-lg-4 footer-section">
-			      <div class="footer-links">
-			        <table>
-			          <tbody>
-									<tr>
-				            <td><a>Yhteystiedot</a></td>
-				            <td><a>Organisaatio</a></td>
-				          </tr>
-									<tr>
-				            <td><a>Käyttöehdot</a></td>
-				            <td><a>Tapahtumat</a></td>
-				          </tr>
-									<tr>
-				            <td><a>Rekisteriseloste</a></td>
-				            <td><a>Palaute</a></td>
-				          </tr>
-									<tr>
-				            <td><a>Tietoa palvelusta</a></td>
-				            <td>
-				      				<li>
-												<a class="nav-link" href="/user/login">
-													<i class="icon-signin"></i> Kirjaudu sisään
-												</a>
-											</li>
-				            </td>
-				          </tr>
-								</tbody>
-							</table>
-			      </div>
+			    <div class="col-sm-6 col-md-6 col-lg-4 footer-section footer-section--links">
+						<?php
+							if ( has_nav_menu( 'footer' ) ) :
+			          wp_nav_menu( array(
+			            'theme_location' => 'footer',
+			            'menu_class'     => 'footer-links',
+			           ) );
+							endif;
+						?>
 			    </div>
 
 					<div class="col-sm-6 col-md-6 col-lg-4 footer-section">
@@ -71,11 +51,11 @@
 			      <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 			    </div>
 			  </div>
-				<hr  class="border-complementary"/>
-				<div class="text-center footer-section">
+				<hr />
+				<div class="text-center copyrights">
     			© 6Aika
   			</div>
-				<div class="header-logos">
+				<div class="header-logos" style="display:none;">
 			    <div class="logo">
 			      <img src="https://demo.dataportaali.com//base/images/EU_ERDF_FI.png" alt="European Regional Development Fund logo">
 			    </div>
