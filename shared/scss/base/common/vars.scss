@@ -23,7 +23,7 @@ $brand-warning: #f0ad4e; // Bootstrap default color
 $brand-danger: #d9534f; // Bootstrap default color
 
 $brand-background: #fff;
-$body-background: #fff;
+$body-background: #f5f5f5;
 
 $gray-base: #57575b;
 $gray-darker:            darken($gray-base, $darken-intensity*2);
@@ -68,9 +68,9 @@ $navbar-height: 80px;
 $navbar-margin-bottom: 0;
 $nav-link-hover-bg: transparent;
 
-$navbar-height: 110px;
+$navbar-height: 70px;
 $navbar-background: white;
-$navbar-logos-background-color: $gray-lighter;
+$navbar-logos-background-color: white;
 $navbar-link-color: $gray-base;
 $navbar-link-color-active: $brand-primary;
 $navbar-toggle-color: $brand-primary;

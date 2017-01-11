@@ -1,27 +1,18 @@
 {% block header_wrapper %}
   {% block header_account %}
-    <div class="header-logos">
-      <div class="logo">
-        <img src="/base/images/EU_ERDF_FI.png" alt="European Regional Development Fund logo">
-      </div>
-      <div class="logo">
-        <img src="/base/images/LeverageEU_FI.png" alt="Leverage with EU logo">
-      </div>
-      <div class="flag-ends"></div>
-    </div>
-    <nav class="navbar navbar-fixed">
+    <nav class="navbar navbar-default">
       <div class="container-fluid">
 
         <div class="navbar-header">
-          <a href="{{ h.url('home') }}" class="navbar-brand">
-            <img src="/base/images/main_logo.png" alt="Site logo" />
-          </a>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-nav-collapse" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
+          <a href="{{ h.url('home') }}" class="navbar-brand">
+            <img src="/base/images/main_logo.png" alt="Site logo" />
+          </a>
         </div>
 
         <div class="collapse navbar-collapse" id="top-nav-collapse">
@@ -33,27 +24,6 @@
           <div class="debug">Controller : {{ c.controller }}<br>Action : {{ c.action }}</div>
         {% endif %}
       {% endblock %}
-    </nav>
-
-    <nav class="navbar navbar-fixed-top">
-      <div class="container-fluid">
-
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#fixed-nav-collapse" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a href="{{ h.url('home') }}" class="navbar-brand">
-            <img src="/base/images/main_logo.png" alt="Site logo" />
-          </a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="fixed-nav-collapse">
-          {% snippet 'snippets/navigation_tabs.html' %}
-        </div>
-      </div>
     </nav>
   {% endblock %}
 

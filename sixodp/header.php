@@ -26,26 +26,34 @@
 
 <body <?php body_class(); ?>>
 
-<?php if ( has_nav_menu( 'primary' ) || has_nav_menu( 'social' ) ) : ?>
-	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-nav-collapse" aria-expanded="false">
-    <span class="sr-only">Toggle navigation</span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-  </button>
+<?php if ( has_nav_menu( 'primary' ) ) : ?>
+  <nav class="navbar navbar-default" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'twentysixteen' ); ?>">
+		<div class="container-fluid">
 
-  <div id="site-header-menu" class="site-header-menu">
-		<a href="<?php echo site_url(); ?>" class="logo-wrapper">
-			<img src="https://demo.dataportaali.com/base/images/main_logo.png" class="logo" />
-		</a>
-    <?php if ( has_nav_menu( 'primary' ) ) : ?>
-      <nav id="site-navigation" class="main-navigation navbar" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'twentysixteen' ); ?>">
-				<?php
-          wp_nav_menu( array(
-            'theme_location' => 'primary',
-            'menu_class'     => 'primary-menu nav navbar-nav',
-           ) );
-        ?>
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-nav-collapse" aria-expanded="false">
+			    <span class="sr-only">Toggle navigation</span>
+			    <span class="icon-bar"></span>
+			    <span class="icon-bar"></span>
+			    <span class="icon-bar"></span>
+			  </button>
+				<a href="<?php echo site_url(); ?>" class="navbar-brand">
+					<img src="https://demo.dataportaali.com/base/images/main_logo.png" />
+				</a>
+      </div>
+
+			<div class="collapse navbar-collapse" id="top-nav-collapse">
+				<ul class="nav navbar-nav">
+					<?php
+						$menuLocations = get_nav_menu_locations();
+						$menuID = $menuLocations['primary'];
+						$primaryNav = wp_get_nav_menu_items($menuID);
+
+						foreach ( $primaryNav as $navItem ) {
+							echo '<li><a href="'.$navItem->url.'" title="'.$navItem->title.'">'.$navItem->title.'</a></li>';
+						}
+	        ?>
+				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li>
 					  <a href="/fi/" class="nav-link active">
@@ -64,7 +72,7 @@
 					  </span></span></a>
 					</li>
 				</ul>
-      </nav><!-- .main-navigation -->
-    <?php endif; ?>
-  </div><!-- .site-header-menu -->
+			</div>
+		</div>
+  </nav><!-- .main-navigation -->
 <?php endif; ?>
