@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-xs-12 footer-section">
+  <div class="col-xs-12">
     <div class="footer-follow-links">
       <span class="footer-follow-title">Seuraa meitä</span>
       <a href="" class="footer-follow-link"><i class="icon-facebook-sign icon-2x"></i></a>

@@ -4,27 +4,28 @@
   */
 ?>
 
-<div class="container container--home">
+<div class="container stats">
   <div class="row">
-    <div class="stats-list">
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          <div class="row">
-            <div class="col-md-4 col-sm-12 stats-list-item">
-              <div class="item-value"><?php echo get_dataset_count(); ?></div>
-              <div class="item-description">Tietoaineistoa</div>
-            </div>
-            <div class="col-md-4 col-sm-12 stats-list-item">
-              <div class="item-value"><?php echo get_showcases_count(); ?></div>
-              <div class="item-description">Sovellusta</div>
-            </div>
-            <div class="col-md-4 col-sm-12 stats-list-item">
-              <div class="item-value">1234</div>
-              <div class="item-description">Julkaisijaa</div>
-            </div>
-          </div>
-        </div>
+    <div class="col-sm-3 stat__wrapper">
+      <div class="stat">
+        <div class="stat__value"><?php echo get_dataset_count(); ?></div>
+        <div class="stat__description">Tietoaineistoa</div>
       </div>
+    </div>
+    <div class="col-sm-3 stat__wrapper">
+      <div class="stat">
+        <div class="stat__value"><?php echo get_showcases_count(); ?></div>
+        <div class="stat__description">Sovellusta</div>
+      </div>
+    </div>
+    <div class="col-sm-3 stat__wrapper">
+      <div class="stat">
+        <div class="stat__value">1234</div>
+        <div class="stat__description">Julkaisijaa</div>
+      </div>
+    </div>
+    <div class="col-sm-3 stat__wrapper btn-wrapper--right">
+      <button type="button" class="btn btn-lg btn-secondary">Kaikki aineistot</button>
     </div>
   </div>
 </div>
