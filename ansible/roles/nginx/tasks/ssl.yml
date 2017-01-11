@@ -6,8 +6,8 @@
 - include: ssl_self-signed.yml
   when: nginx.use_selfsigned_certificate
 
-- name: Generate strong Diffie-Hellman key exchange parameters
-  command: "openssl dhparam -out {{ ssl_dh_parameters_path }} 2048 creates={{ ssl_dh_parameters_path }}"
+- name: Copy strong Diffie-Hellman key exchange parameters
+  copy: src=dhparams.pem dest="{{ ssl_dh_parameters_path }}"
 
 - name: Ensure certificate file permissions
   file: path="{{ ssl_certificate_path }}" state=directory mode="0600" recurse=yes owner=root group=root
