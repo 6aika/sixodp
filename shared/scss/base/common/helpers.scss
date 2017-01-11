@@ -22,6 +22,18 @@
   box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
+.box-shadow {
+  @extend %box-shadow;
+}
+
+%box-shadow-highlight {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.box-shadow-highlight {
+  @extend %box-shadow-highlight;
+}
+
 %border-radius {
   border-radius: $border-radius-base;
 }

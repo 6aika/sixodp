@@ -1,7 +1,7 @@
 @import "base/variables";
+@import "base/common/vars";
 @import "vendor/bootstrap/bootstrap";
-@import "base/helpers";
-@import "base/animations";
+@import "base/common/helpers";
 @import "base/layout";
 @import "base/typography";
 
@@ -9,13 +9,10 @@
 @import "components/card";
 @import "components/icons";
 @import "components/nav";
-@import "components/hero";
-@import "components/searchbox";
 @import "components/label";
 @import "components/input";
 @import "components/textarea";
 @import "components/button";
-@import "components/page-list";
 @import "components/dataset";
 @import "components/tag-list";
 @import "components/resource-list";
@@ -24,7 +21,6 @@
 @import "components/breadcrumb";
 @import "components/wrapper";
 @import "components/select";
-@import "components/select2";
 @import "components/search-form";
 @import "components/navbar-offcanvas";
 @import "components/toolbar";
@@ -39,7 +35,6 @@
 @import "components/showcase";
 @import "components/debug";
 @import "components/twitter-timeline";
-@import "components/category-list";
 @import "components/topic-list";
 @import "components/stats-list";
 @import "components/home";
