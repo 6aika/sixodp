@@ -21,34 +21,23 @@
 
 				<hr />
 				<div class="row">
-			    <div class="col-md-12 col-lg-4 footer-section">
+			    <div class="col-md-1 footer-section">
 			      <div class="footer-logo-wrapper">
 			        <img class="footer-logo" src="<?php echo site_url(); ?>/wp-content/themes/sixodp/images/6aika_logo_w.png" alt="6Aika logo">
 			      </div>
 			    </div>
-			    <div class="col-sm-6 col-md-6 col-lg-4 footer-section footer-section--links">
-						<?php
-							if ( has_nav_menu( 'footer' ) ) :
-			          wp_nav_menu( array(
-			            'theme_location' => 'footer',
-			            'menu_class'     => 'footer-links',
-			           ) );
-							endif;
-						?>
-			    </div>
+			    <div class="col-md-11 footer-section footer-section--links">
+						<ul class="footer-links">
+							<?php
+								$menuLocations = get_nav_menu_locations();
+								$menuID = $menuLocations['footer'];
+								$primaryNav = wp_get_nav_menu_items($menuID);
 
-					<div class="col-sm-6 col-md-6 col-lg-4 footer-section">
-			      6Aika Twitter
-			      <a class="twitter-timeline"
-			        data-width="320"
-			        data-height="240"
-			        data-link-color="#fff"
-			        data-theme="dark"
-			        href="https://twitter.com/Kuutosaika"
-			        data-chrome="noheader nofooter noborders transparent">
-			        Tweets by Kuutosaika
-			      </a>
-			      <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+								foreach ( $primaryNav as $navItem ) {
+									echo '<li class="footer__item"><a class="footer__link" href="'.$navItem->url.'" title="'.$navItem->title.'">'.$navItem->title.'</a></li>';
+								}
+			        ?>
+						</ul>
 			    </div>
 			  </div>
 				<hr />

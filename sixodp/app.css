@@ -6020,57 +6020,6 @@ textarea {
   .btn-primary:focus, .btn-primary:active, .btn-primary:hover {
     color: #fff; }
 
-/*button,
-.btn {
-  border-radius: $border-radius-base;
-  padding: $base $base*2;
-  background-color: $button-background-color;
-  color: $button-text-color;
-  border: 0;
-  font-size: $base*1.5;
-  cursor: pointer;
-  overflow: hidden;
-  outline: 0;
-  position: relative;
-  transition: all .3s linear;
-
-  &:hover {
-    @extend .box-shadow-highlight;
-    background-color: $button-background-color-active;
-    color: $button-text-color-active;
-  }
-
-  &:focus {
-    color: $button-text-color-active;
-  }
-
-  &:active {
-    @extend .box-shadow-highlight;
-    transform: translateY(1px);
-  }
-
-  // Replace btn-success styling with primary
-  // This way the template update is not needed
-  &.btn-success {
-    @extend .btn;
-  }
-
-  .caret {
-    @include vertical-align();
-  }
-
-  &.navbar-toggle {
-    box-shadow: none;
-  }
-}
-
-.btn-search--main {
-  padding: $base 0 !important;
-}
-
-.btn {
-  @extend .box-shadow;
-}*/
 .dataset-list .dataset-item {
   padding: 0;
   margin-bottom: 20px; }
@@ -6430,70 +6379,48 @@ form .add-member-or {
     .module .module-content.main-content {
       margin-bottom: 20px; }
 
-footer hr {
-  margin: 0; }
+.site-footer {
+  background: #1F1A40;
+  padding: 60px 0; }
+  .site-footer hr {
+    border-color: #473394; }
 
-footer .footer-section {
-  padding-top: 6px;
-  padding-bottom: 6px; }
+.footer-section:nth-child(1) {
+  padding: 0; }
 
-footer.site-footer {
-  background: transparent;
-  padding: 12px 0;
-  font-size: 14px;
-  color: white; }
-  footer.site-footer a,
-  footer.site-footer label,
-  footer.site-footer small {
-    color: white; }
-    footer.site-footer a:hover,
-    footer.site-footer label:hover,
-    footer.site-footer small:hover {
-      color: #f2f2f2; }
-  footer.site-footer .footer-logo {
-    height: 264px;
-    text-align: center; }
-    footer.site-footer .footer-logo img {
-      max-width: 300px;
-      height: auto;
-      position: relative;
-      top: 50%;
-      -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-      transform: translateY(-50%); }
-  footer.site-footer .footer-links {
-    height: 264px; }
-    footer.site-footer .footer-links table {
-      position: relative;
-      top: 50%;
-      -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-      transform: translateY(-50%);
-      font-size: 16px;
-      list-style: none; }
-      footer.site-footer .footer-links table td {
-        padding: 10px 15px; }
-        footer.site-footer .footer-links table td a {
-          cursor: pointer; }
-  footer.site-footer .footer-follow-links {
-    position: relative;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%); }
-    footer.site-footer .footer-follow-links .footer-follow-title {
-      margin-right: 5px; }
-    footer.site-footer .footer-follow-links i {
-      vertical-align: middle; }
-  footer.site-footer .attribution {
-    color: white; }
-    footer.site-footer .attribution .ckan-footer-logo {
-      display: block;
-      width: 68px;
-      height: 21px;
-      margin-top: 2px;
-      background: url("../../../base/images/ckan-logo-footer.png") no-repeat top left;
-      text-indent: -900em; }
+.footer-follow-links > * {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  color: #fff; }
+
+.footer-follow-link {
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out; }
+
+.footer-links {
+  padding: 0;
+  margin: 0;
+  text-align: center; }
+
+.footer__item {
+  list-style: none;
+  display: inline-block;
+  margin: 0 10px; }
+
+.footer__link {
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: block;
+  padding: 10px 15px;
+  color: #fff; }
+  .footer__link:hover {
+    color: #7864c9; }
+
+.copyrights {
+  color: #fff; }
 
 .ckanext-showcase-image-container {
   background: #f2f2f2; }

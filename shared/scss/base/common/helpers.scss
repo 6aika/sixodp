@@ -78,6 +78,12 @@
   transform: translateY(-50%);
 }
 
+@mixin transition($target: all, $time: .2s, $type: ease-in-out) {
+  -webkit-transition: $target $time $type;
+  -moz-transition: $target $time $type;
+  transition: $target $time $type;
+}
+
 %vertically-centered {
   @include vertical-align();
 }

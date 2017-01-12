@@ -1,0 +1,50 @@
+.site-footer {
+  background: #1F1A40;
+  padding: $base*6 0;
+
+  hr {
+    border-color: $brand-primary-dark;
+  }
+}
+
+.footer-section:nth-child(1) {
+  padding: 0;
+}
+
+.footer-follow-links > * {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: $base;
+  color: #fff;
+}
+
+.footer-follow-link {
+  @include transition();
+}
+
+.footer-links {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.footer__item {
+  list-style: none;
+  display: inline-block;
+  margin: 0 $base;
+}
+
+.footer__link {
+  @include transition();
+  display: block;
+  padding: $base $base*1.5;
+  color: #fff;
+
+  &:hover {
+    color: $brand-primary-light;
+  }
+}
+
+.copyrights {
+  color: #fff;
+}

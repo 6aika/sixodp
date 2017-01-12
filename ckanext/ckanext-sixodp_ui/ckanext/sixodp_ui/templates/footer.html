@@ -13,55 +13,38 @@
   </div>
   <hr>
   <div class="row">
-    <div class="col-md-12 col-lg-4 footer-section">
+    <div class="col-md-1 footer-section">
       <div class="footer-logo">
         <img class="footer-logo" src="/base/images/main_logo_w.png" alt="Site logo" />
       </div>
     </div>
-    <div class="col-sm-6 col-md-6 col-lg-4 footer-section">
-      <div class="footer-links">
+    <div class="col-md-11 footer-section">
+      <ul class="footer-links">
         {% block footer_nav %}
-        <table>
-          <tr>
-            <td><a>Yhteystiedot</a></td>
-            <td><a>Organisaatio</a></td>
-          <tr>
-          <tr>
-            <td><a>Käyttöehdot</a></td>
-            <td><a>Tapahtumat</a></td>
-          <tr>
-          <tr>
-            <td><a>Rekisteriseloste</a></td>
-            <td><a>Palaute</a></td>
-          <tr>
-          <tr>
-            <td><a>Tietoa palvelusta</a></td>
-            <td>
-              {% if not c.userobj %}
-                {% snippet 'home/snippets/sixodp_profile.html' %}
-              {% endif %}
-            </td>
-          <tr>
-        </table>
+        <li class="footer__item">
+          <a class="footer__link" href="/">Yhteystiedot</a>
+        </li>
+        <li class="footer__item">
+          <a class="footer__link" href="/">Organisaatio</a>
+        </li>
+        <li class="footer__item">
+          <a class="footer__link" href="/">Käyttöehdot</a>
+        </li>
+        <li class="footer__item">
+          <a class="footer__link" href="/">Tapahtumat</a>
+        </li>
+        <li class="footer__item">
+          <a class="footer__link" href="/">Rekisteriseloste</a>
+        </li>
+        <li class="footer__item">
+          <a class="footer__link" href="/">Palaute</a>
+        </li>
         {% endblock %}
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-6 col-lg-4 footer-section">
-      6Aika Twitter
-      <a class="twitter-timeline"
-        data-width="320"
-        data-height="240"
-        data-link-color="#fff"
-        data-theme="dark"
-        href="https://twitter.com/Kuutosaika"
-        data-chrome="noheader nofooter noborders transparent">
-        Tweets by Kuutosaika
-      </a>
-      <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </ul>
     </div>
   </div>
   <hr />
-  <div class="row">
+  <div class="row" style="display:none;">
     <div class="header-logos">
       <div class="logo">
         <img src="/base/images/EU_ERDF_FI.png" alt="European Regional Development Fund logo">
@@ -72,8 +55,8 @@
       <div class="flag-ends"></div>
     </div>
   </div>
-  <hr>
-  <div class="text-center footer-section">
-    &copy; 6Aika
+  <hr style="display:none;">
+  <div class="row text-center footer-section">
+    <span class="copyrights">&copy; 6Aika</span>
   </div>
 {% endblock %}
