@@ -169,7 +169,7 @@ function get_popular_tags() {
 }
 
 function get_recent_content() {
-  $data = get_ckan_data(CKAN_API_URL.'/package_search?sort=metadata_created%20desc&rows=5');
+  $data = get_ckan_data(CKAN_API_URL.'/package_search?sort=date_released%20desc&rows=5');
   return $data['result']['results'];
 }
 

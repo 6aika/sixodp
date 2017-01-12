@@ -41,6 +41,18 @@
       "preset": "dataset_organization_ex"
     },
     {
+      "field_name": "date_released",
+      "label": "Created",
+      "preset": "date",
+      "required": true
+    },
+    {
+      "field_name": "date_updated",
+      "label": "Updated",
+      "preset": "date",
+      "required": true
+    },
+    {
       "field_name": "update_frequency",
       "label": "Update frequency",
       "preset": "sixodp_update_frequency"
