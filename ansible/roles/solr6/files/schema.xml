@@ -131,6 +131,9 @@
     <field name="metadata_created" type="date" indexed="true" stored="true" multiValued="false"/>
     <field name="metadata_modified" type="date" indexed="true" stored="true" multiValued="false"/>
 
+    <field name="date_released" type="date" indexed="true" stored="true" multiValued="false"/>
+    <field name="date_updated" type="date" indexed="true" stored="true" multiValued="false"/>
+
     <field name="indexed_ts" type="date" indexed="true" stored="true" default="NOW" multiValued="false"/>
 
     <!-- Copy the title field into titleString, and treat as a string

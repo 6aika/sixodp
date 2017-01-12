@@ -213,7 +213,7 @@ class Sixodp_OrganizationController(OrganizationController):
             # Set the custom default sort parameter here
             # Might need a rewrite when ckan is updated
             if not sort_by:
-                sort_by = 'metadata_created desc'
+                sort_by = 'date_released desc'
 
             data_dict = {
                 'q': q,
