@@ -5975,28 +5975,9 @@ a {
 .label {
   background-color: #97ba54; }
 
-input {
-  font-size: 15px;
-  padding: 10px;
-  border: 1px solid #f2f2f2;
-  border-bottom: 2px solid #f2f2f2;
-  transition: border-color .2s ease-in-out; }
-  input:focus, input:active {
-    border-bottom-color: #5940BA;
-    outline: none; }
-  input#field-image-upload {
-    cursor: pointer;
-    position: absolute;
-    opacity: 0; }
-
-.input--large {
-  font-size: 20px;
-  padding: 15px; }
-
-.js .image-upload .btn.hover {
-  color: #ffffff;
-  background: #7864c9;
-  text-decoration: none; }
+.control-label[for="field-order-by"] {
+  line-height: 30px;
+  padding-right: 0; }
 
 textarea {
   font-size: 15px;
@@ -6306,7 +6287,7 @@ form .control-required-message {
   margin: 20px 0; }
 
 form .control-order-by {
-  margin-top: 6px; }
+  margin-top: 15px; }
 
 form .editor .editor-info-block {
   font-size: 14px;

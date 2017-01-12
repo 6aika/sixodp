@@ -34,7 +34,7 @@ form {
       }
     }
   }
-  
+
   .control-group {
     margin-top: $margin-base-vertical;
   }
@@ -62,7 +62,7 @@ form {
   }
 
   .control-order-by {
-    margin-top: 6px;
+    margin-top: $base*1.5;
   }
 
   .editor {
