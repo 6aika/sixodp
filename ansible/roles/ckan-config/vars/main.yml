@@ -21,14 +21,13 @@ enabled_ckan_extensions:
     - report 
     - tagless_report 
     - pages 
-    - sixodp_routes 
-    - contact 
+    - sixodp_routes
     - sixodp_feed 
     - rating
     - showcase 
     - qa 
     - archiver
-    - hierarchy_display
+#    - hierarchy_display
     - reminder
     - editor
     - collection

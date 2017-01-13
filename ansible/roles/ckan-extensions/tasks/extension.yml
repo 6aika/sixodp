@@ -43,5 +43,5 @@
   pip: requirements="{{ ckanext_sync_path }}/{{ item }}/pip-requirements.txt" virtualenv={{ virtualenv }}
   when: piprequirements.stat.exists
 
-- name: "Link extension sources {{ item }}"
-  command: "{{ virtualenv }}/bin/python setup.py develop chdir={{ ckanext_sync_path }}/{{ item }}"
+- name: Install extensions
+  pip: name={{ ckanext_sync_path }}/{{ item }} virtualenv={{ virtualenv }}

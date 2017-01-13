@@ -12,13 +12,12 @@ ckan_extensions:
   - ckanext-showcase
   - ckanext-fluent
   - ckanext-pages
-  - ckanext-contact
   - ckanext-harvest
   - ckanext-cloudstorage
   - ckanext-report
   - ckanext-qa
   - ckanext-archiver
-  - ckanext-hierarchy
+#  - ckanext-hierarchy
   - ckanext-disqus
   - ckanext-repeating
   - ckanext-reminder
