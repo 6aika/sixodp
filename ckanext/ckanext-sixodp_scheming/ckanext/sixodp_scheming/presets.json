@@ -116,6 +116,15 @@
           "data-module": "slug-preview-target"
         }
       }
+    },
+    {
+      "preset_name": "repeating_text",
+      "values": {
+        "form_snippet": "repeating_text.html",
+        "display_snippet": "repeating_text.html",
+        "validators": "repeating_text",
+        "output_validators": "repeating_text_output"
+      }
     }
   ]
 }

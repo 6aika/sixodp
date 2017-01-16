@@ -11,12 +11,12 @@ enabled_ckan_extensions:
     - recline_graph_view
     - recline_grid_view
     - recline_map_view
-    - sixodp_scheming
     - sixodp_ui
     - sixodp_theme
     - datasetcopy
+    - sixodp_scheming
     - scheming_datasets 
-    - repeating
+#    - repeating
     - fluent
     - report 
     - tagless_report 
