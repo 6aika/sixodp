@@ -20,7 +20,7 @@
     file: path="{{ ckanext_sync_path }}/{{ item }}" state=absent
 
   - name: "Symlink extension {{ item }} sources from host machine (Vagrant)"
-    file: src="/src/ckanext/{{ item }}" path="{{ ckanext_sync_path }}/{{ item }}" state=link
+    file: src="/vagrant/ckanext/{{ item }}" path="{{ ckanext_sync_path }}/{{ item }}" state=link
 
   when: deployment_environment_id == "vagrant"
 

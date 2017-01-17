@@ -72,7 +72,7 @@
 
   - name: Create symbolic link to sixodp theme
     file:
-      src: /src/sixodp
+      src: /vagrant/sixodp
       dest: /opt/wordpress/wp-content/themes/sixodp
       state: link
 
