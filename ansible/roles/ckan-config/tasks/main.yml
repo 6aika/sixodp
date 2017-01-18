@@ -1,7 +1,10 @@
 ---
 
 - name: Ensure CKAN directory structure for test configs
-  file: path=/src/ckanext/ckan state=directory
+  file: path={{ item }} state=directory
+  with_items:
+    - "/src/ckanext/ckan"
+    - "{{ server_path }}/ckan"
 
 - name: Copy CKAN configuration
   template: src={{ item.src }} dest={{ item.dest }} mode={{ item.mode }} owner={{ item.owner }} group={{ item.group }}
