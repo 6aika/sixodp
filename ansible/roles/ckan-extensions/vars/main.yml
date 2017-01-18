@@ -1,6 +1,6 @@
 ---
 
-ckanext_sync_path: "{{ server_path }}/ckanext"
+ckanext_sync_path: "{{ server_path }}"
 
 ckan_extensions:
   - ckanext-sixodp_routes

@@ -43,5 +43,5 @@
   pip: requirements="{{ ckanext_sync_path }}/{{ item }}/pip-requirements.txt" virtualenv={{ virtualenv }}
   when: piprequirements.stat.exists
 
-- name: Install extensions
-  pip: name={{ ckanext_sync_path }}/{{ item }} virtualenv={{ virtualenv }} state=forcereinstall
+- name: Install extension {{item}}
+  pip: name={{ ckanext_sync_path }}/{{ item }} virtualenv={{ virtualenv }} extra_args=-e state=latest
