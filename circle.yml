@@ -16,6 +16,10 @@ dependencies:
 general:
   artifacts:
     - "~/ckanext-sixodp_ui.tar.gz"
+test:
+  override:
+    - nosetests --ckan --with-pylons=test.ini ckanext/collection/tests:
+        pwd: ckanext/ckanext-collection
 deployment:
   master:
     branch: master
