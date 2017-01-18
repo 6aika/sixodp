@@ -8,3 +8,4 @@ ssl_key_filename: server.key
 ssl_dh_parameters_path: "{{ ssl_certificate_path }}/dhparams.pem"
 
 static_path: /var/www/static
+assets_path: /var/www/assets
