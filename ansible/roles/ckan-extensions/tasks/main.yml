@@ -1,5 +1,8 @@
 ---
 
+- name: Install virtualenv
+  apt: name=python-virtualenv
+
 - name: Ensure temp directory for extensions
   file: path={{ ckanext_sync_path }} state=directory
 
