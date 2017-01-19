@@ -11,6 +11,8 @@
     - "{{ secrets_file_path }}"
   roles:
     - java8
+    - postgres-install
+    - postgres-data
     - solr6
     - apache
     - ckan-install

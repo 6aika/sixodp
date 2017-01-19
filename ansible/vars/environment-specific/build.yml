@@ -7,7 +7,7 @@ ckan_featured_orgs:
 
 postgres:
   server:
-    installed_locally: true
+    installed_locally: false
     host: localhost
     admin_user: ckan_admin
     admin_password: "{{ secret.database_ckan_admin_password }}"
