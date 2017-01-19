@@ -13,8 +13,8 @@
     - java8
     - solr6
     - apache
-    - ckan-extensions
     - ckan-install
+    - ckan-extensions
     - ckan-config
     - ckan-install-patches
     - ckan-database

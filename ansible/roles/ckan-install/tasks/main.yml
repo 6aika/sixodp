@@ -7,6 +7,7 @@
     - libpq-dev
     - libxslt1-dev
     - python-dev
+    - python-virtualenv
     - zlib1g-dev
 
 - include: custom_requirements.yml
