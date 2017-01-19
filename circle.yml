@@ -16,4 +16,4 @@ dependencies:
         pwd: ckanext/ckanext-sixodp_ui
 compile:
   override:
-    - cd ansible && ansible-playbook -i inventories/vagrant build.yml
+    - cd ansible && ansible-playbook -i inventories/build build.yml
