@@ -11,7 +11,9 @@ dependencies:
   pre:
     - npm install -g browserify
     - pip install ansible
-    - ansible-playbook -v -i ansible/inventories/vagrant ansible/deploy-all.yml
   override:
     - npm install:
         pwd: ckanext/ckanext-sixodp_ui
+compile:
+  override:
+    - cd ansible && ansible-playbook -i inventories/vagrant build.yml
