@@ -10,14 +10,8 @@ checkout:
 dependencies:
   pre:
     - npm install -g browserify
+    - pip install ansible
+    - ansible-playbook -v -i inventories/vagrant deploy-all.yml
   override:
     - npm install:
         pwd: ckanext/ckanext-sixodp_ui
-general:
-  artifacts:
-    - "~/ckanext-sixodp_ui.tar.gz"
-deployment:
-  master:
-    branch: master
-    commands:
-       - tar --exclude=".git ckanext/ckanext/sixodp_ui/node_modules" -czvf ~/ckanext-sixodp_ui.tar.gz ckanext/ckanext-sixodp_ui
