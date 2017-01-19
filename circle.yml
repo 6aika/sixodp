@@ -9,8 +9,9 @@ checkout:
     - git submodule update --init
 dependencies:
   pre:
+    - sudo add-apt-repository -uy ppa:ansible/ansible
+    - sudo apt-get install -y ansible
     - npm install -g browserify
-    - pip install ansible
   override:
     - npm install:
         pwd: ckanext/ckanext-sixodp_ui
