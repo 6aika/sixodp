@@ -1,5 +1,8 @@
 ---
 
+- name: Install gettext
+  apt: name=gettext
+
 - name: Ensure CKAN translation directories
   file: path="{{ virtualenv }}/src/ckan/ckan/i18n/{{ item }}/LC_MESSAGES" state=directory mode="0755"
   with_items: "{{ ckan_languages }}"

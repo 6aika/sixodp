@@ -1,5 +1,14 @@
 ---
 
+- name: Install dependencies
+  apt: name="{{ item }}"
+  with_items:
+    - gcc
+    - libpq-dev
+    - libxslt1-dev
+    - python-dev
+    - zlib1g-dev
+
 - include: custom_requirements.yml
 
 - name: Install CKAN
