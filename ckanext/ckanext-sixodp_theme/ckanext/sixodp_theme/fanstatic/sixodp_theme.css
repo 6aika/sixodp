@@ -6599,6 +6599,10 @@ form.form-horizontal .control-label {
 form.form-horizontal .form-actions {
   margin-top: 20px; }
 
+form .upload-times ul {
+  list-style: none;
+  padding: 0; }
+
 form label {
   display: block;
   cursor: pointer; }
