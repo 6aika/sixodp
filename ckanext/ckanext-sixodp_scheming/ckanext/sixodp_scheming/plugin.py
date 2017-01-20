@@ -2,11 +2,53 @@ import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 import validators
 from datetime import datetime
+import converters
+
+from ckan.logic import NotFound
+import logging
+
+log = logging.getLogger(__name__ )
+
+
+def create_vocabulary(name):
+    user = toolkit.get_action('get_site_user')({'ignore_auth': True}, {})
+    context = {'user': user['name']}
+
+    try:
+        data = {'id': name}
+        v = toolkit.get_action('vocabulary_show')(context, data)
+        log.info( name + " vocabulary already exists, skipping.")
+    except NotFound:
+        log.info("Creating vocab '" + name + "'")
+        data = {'name': name}
+        v = toolkit.get_action('vocabulary_create')(context, data)
+
+    return v
+def create_tag_to_vocabulary(tag, vocab):
+    user = toolkit.get_action('get_site_user')({'ignore_auth': True}, {})
+    context = {'user': user['name']}
+
+    try:
+        data = {'id': vocab}
+        v = toolkit.get_action('vocabulary_show')(context, data)
+
+    except NotFound:
+        log.info("Creating vocab '" + vocab + "'")
+        data = {'name': vocab}
+        v = toolkit.get_action('vocabulary_create')(context, data)
+
+    data = {
+        "name": tag,
+        "vocabulary_id": v['id']}
+
+    toolkit.get_action('tag_create')(context, data)
+
 
 class Sixodp_SchemingPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IValidators)
     plugins.implements(plugins.IPackageController, inherit=True)
+    plugins.implements(plugins.IRoutes, inherit=True)
 
     # IConfigurer
 
@@ -19,7 +61,8 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin):
         return {
             'lower_if_exists': validators.lower_if_exists,
             'upper_if_exists': validators.upper_if_exists,
-            'tag_string_or_tags_required': validators.tag_string_or_tags_required
+            'tag_string_or_tags_required': validators.tag_string_or_tags_required,
+            'convert_and_create_tags': converters.convert_and_create_tags
             }
 
     # IPackageController
@@ -50,3 +93,13 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin):
                 data_dict['date_updated'] = d
 
         return data_dict
+
+    # IRoutes
+
+    def before_map(self, m):
+
+        controller = 'ckanext.ytp.dataset.controller:YtpDatasetController'
+        m.connect('/ytp-api/1/util/tag/autocomplete', action='ytp_tag_autocomplete',
+                  controller=controller,
+                  conditions=dict(method=['GET']))
+        return m
