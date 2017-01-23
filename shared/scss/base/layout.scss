@@ -1,44 +1,3 @@
-/* apply a natural box layout model to all elements, but allowing components to change */
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-html, body {
-  height: 100%;
-}
-
-body {
-  margin: 0;
-  background: $body-background;
-}
-
-.container {
-  width: 100%;
-  margin: 0 auto;
-  padding-left: 0;
-  padding-right: 0;
-
-  @media (min-width: $width-sm) {
-    padding-left: $padding-base-horizontal*0.5;
-    padding-right: $padding-base-horizontal*0.5;
-  }
-
-  @media (min-width: $width-md) {
-    width: 960px;
-  }
-
-  @media (min-width: $width-lg) {
-    width: 1180px;
-  }
-
-  @media (min-width: $width-xl) {
-    width: 1380px;
-  }
-}
-
 .wrapper {
   position: relative;
   height: 100%;
@@ -46,12 +5,53 @@ body {
 
 .primary {
   float: right;
-  margin-left: 0;
+  width: 100%;
+
+  @media (min-width: $width-md) {
+    width: $base*62;
+  }
+
+  @media (min-width: $width-lg) {
+    width: $base*84;
+  }
+
+  @media (min-width: $width-xl) {
+    width: $base*102;
+  }
 }
 
 .secondary {
-  padding: 0;
-  margin-left: 0;
+  position: relative;
+  z-index: 1;
+  float: left;
+  max-width: 0;
+  width: 100%;
+  overflow: hidden;
+  max-height: 0;
+
+  @media (max-width: ($width-md)-1 ) {
+    padding: 0;
+  }
+
+  @media (min-width: $width-md) {
+    max-width: $base*30;
+    max-height: none;
+  }
+
+  @media (min-width: $width-xl) {
+    max-width: $base*32;
+  }
+
+  &.open {
+    max-width: $base*32;
+    max-height: none;
+  }
+}
+
+.secondary, .primary {
+  @extend %box;
+  @extend %wrapper-padding;
+  @extend %content-padding;
 }
 
 // Fix width issue with BS3 in mobile.

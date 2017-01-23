@@ -1,9 +1,16 @@
 .module {
-  margin-bottom: $margin-base-vertical;
+
+  .filters & {
+    padding: $base 0;
+  }
 
   .module-heading {
     margin: 0;
-    padding: 7px 25px;
+    padding: $base 0;
+
+    i {
+      display: none;
+    }
   }
 
   .module-content {
@@ -46,8 +53,7 @@
     }
 
     &.main-content {
-      @extend .card;
-      margin-bottom: $margin-base-vertical;
+      margin-bottom: $base;
     }
   }
 }

@@ -1,22 +1,22 @@
 .toolbar {
   position: relative;
-  margin: $margin-base-vertical 0;
+  margin: $base 0;
   padding: 5px 0;
+}
 
-  .breadcrumb {
-    margin: 0;
-    background: none;
+.breadcrumb {
+  margin: 0;
+  background: none;
 
-    li {
-      +li:before {
-        content: "/ ";
-        padding: 0 5px;
-        color: $gray-light;
-      }
+  li {
+    +li:before {
+      content: "/ ";
+      padding: 0 5px;
+      color: $gray-light;
     }
+  }
 
-    a {
-      color: $gray-base;
-    }
+  a {
+    color: $gray-base;
   }
 }

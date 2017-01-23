@@ -1,0 +1,14 @@
+.form-control {
+  @extend %box-shadow;
+  border: 0;
+
+  &:focus {
+    @extend %box-shadow-highlight;
+    z-index: 2 !important;
+  }
+}
+
+.control-label[for="field-order-by"] {
+  line-height: $base*3;
+  padding-right: 0;
+}

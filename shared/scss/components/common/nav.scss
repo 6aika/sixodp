@@ -1,3 +1,7 @@
 .navbar-brand {
   width: $base*10;
 }
+
+.navbar-default > .navbar-nav > li > a {
+  color: #000;
+}
