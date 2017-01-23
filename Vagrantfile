@@ -12,17 +12,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     case RUBY_PLATFORM
     when /mswin|msys|mingw|cygwin|bccwin|wince|emc/
       # Fix Windows file rights, otherwise Ansible tries to execute files
-      server.vm.synced_folder "./", "/src", type:"virtualbox", :mount_options => ["dmode=755","fmode=644"]
-    else
-      # Basic VM synced folder mount
-      server.vm.synced_folder "", "/src"
+      server.vm.synced_folder ".", "/vagrant", type:"virtualbox", :mount_options => ["dmode=755","fmode=644"]
     end
 
     server.vm.provision "ansible_local" do |ansible|
       ansible.inventory_path = "inventories/vagrant"
       ansible.limit = "all"
       ansible.playbook = "deploy-all.yml"
-      ansible.provisioning_path = "/src/ansible"
+      ansible.provisioning_path = "/vagrant/ansible"
     end
     server.vm.provider "virtualbox" do |vbox|
       vbox.gui = false

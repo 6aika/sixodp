@@ -33,6 +33,10 @@ server {
   }
   {% endif %}
 
+  location /assets/ {
+    alias {{ assets_path }}/;
+  }
+
   location /.well-known/acme-challenge/ {
     alias /var/run/acme/acme-challenge/;
   }

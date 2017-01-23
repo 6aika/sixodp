@@ -70,6 +70,8 @@ class Sixodp_RoutesPlugin(ckan.plugins.SingletonPlugin):
                   controller='ckanext.sixodp_routes.plugin:Sixodp_OrganizationController')
         m.connect('search', '/dataset', action='search',
                   highlight_actions='index search', controller='ckanext.sixodp_routes.plugin:Sixodp_PackageController')
+
+        m.connect('/api/2/util/tag/autocomplete', action='tag_autocomplete', controller='ckanext.sixodp_routes.controller:Sixodp_RoutesController')
         return m
 
     # IAuthFunctions

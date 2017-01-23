@@ -1,7 +1,7 @@
 
 ### Deploy all configuration changes
 
-    /src/ansible
+    cd /vagrant/ansible
     ansible-playbook -v -i inventories/vagrant deploy-all.yml
 
 ### Check the logs to see what went wrong
@@ -35,5 +35,5 @@ This will run CKAN in port 5000. Footer and header have useful template-related 
 
 ### Destroy database and recreate databases
 
-    cd /src/ansible
+    cd /vagrant/ansible
     ansible-playbook -v -i inventories/vagrant vagrant-recreate-database.yml

@@ -1,9 +1,21 @@
 {% block header_wrapper %}
   {% block header_account %}
-    <nav class="navbar navbar-default">
+    <div class="header-logos">
+      <div class="logo">
+        <img src="{{ h.url_for_static('/base/images/EU_ERDF_FI.png') }}" alt="European Regional Development Fund logo">
+      </div>
+      <div class="logo">
+        <img src="{{ h.url_for_static('/base/images/LeverageEU_FI.png') }}" alt="Leverage with EU logo">
+      </div>
+      <div class="flag-ends"></div>
+    </div>
+    <nav class="navbar navbar-fixed">
       <div class="container-fluid">
 
         <div class="navbar-header">
+          <a href="{{ h.url('home') }}" class="navbar-brand">
+            <img src="{{ h.url_for_static('/base/images/main_logo.png') }}" alt="Site logo" />
+          </a>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-nav-collapse" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>

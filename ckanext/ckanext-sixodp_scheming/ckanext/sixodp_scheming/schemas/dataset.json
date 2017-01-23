@@ -41,6 +41,19 @@
       "preset": "dataset_organization_ex"
     },
     {
+      "field_name": "geographical_coverage_string",
+      "label": "Geographical Coverage",
+      "form_placeholder":"eg. tampere",
+      "validators": "not_empty lower_if_exists convert_and_create_tags(geographical_coverage)",
+      "form_attrs": {
+          "data-module": "autocomplete",
+          "data-module-tags": "",
+          "data-module-source": "/api/2/util/tag/autocomplete?incomplete=?&vocabulary_id=geographical_coverage"
+        },
+
+      "required": true
+    },
+    {
       "field_name": "date_released",
       "label": "Created",
       "preset": "date",
