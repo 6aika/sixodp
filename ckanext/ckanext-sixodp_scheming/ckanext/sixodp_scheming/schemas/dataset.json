@@ -52,7 +52,8 @@
           "data-module-source": "/api/2/util/tag/autocomplete?incomplete=?&vocabulary_id=geographical_coverage"
         },
       "required": true,
-      "display_snippet": "tag_list.html"
+      "display_snippet": "tag_list.html",
+      "form_snippet": "tag_list.html"
     },
     {
       "field_name": "date_released",
