@@ -11,16 +11,15 @@ server {
     internal;
   }
 
-  location / {
-    proxy_pass http://127.0.0.1:8080/;
+  location /data/ {
+    proxy_pass http://127.0.0.1:8080;
     proxy_set_header X-Url-Scheme $scheme;
     proxy_set_header Host $host;
   }
 
-  {% if deployment_environment_id == 'vagrant' %}
-  location /wp/ {
+  location / {
     alias /opt/wordpress/;
-    try_files $uri $uri/ /wp//wp/index.php?$args; # https://trac.nginx.org/nginx/ticket/97
+    try_files $uri $uri/ /index.php?$args;
     index index.php index.html;
 
     location ~ \.php$ {
@@ -31,7 +30,6 @@ server {
       fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
     }
   }
-  {% endif %}
 
   location /assets/ {
     alias {{ assets_path }}/;
