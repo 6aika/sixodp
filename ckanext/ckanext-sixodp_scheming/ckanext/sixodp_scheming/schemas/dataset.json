@@ -121,7 +121,7 @@
       "label": "Visibility",
       "form_snippet": "private.html",
       "display_snippet": null,
-      "validators": "boolean_validator"
+      "validators": "boolean_validator set_private_if_not_admin"
     },
     {
       "field_name": "external_urls",
