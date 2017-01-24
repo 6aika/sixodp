@@ -3,6 +3,8 @@ import ckan.plugins.toolkit as toolkit
 import validators
 from datetime import datetime
 import converters
+import json
+import helpers
 
 from ckan.logic import NotFound
 import logging
@@ -24,6 +26,7 @@ def create_vocabulary(name):
         v = toolkit.get_action('vocabulary_create')(context, data)
 
     return v
+
 def create_tag_to_vocabulary(tag, vocab):
     user = toolkit.get_action('get_site_user')({'ignore_auth': True}, {})
     context = {'user': user['name']}
@@ -49,6 +52,7 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IValidators)
     plugins.implements(plugins.IPackageController, inherit=True)
     plugins.implements(plugins.IRoutes, inherit=True)
+    plugins.implements(plugins.ITemplateHelpers)
 
     # IConfigurer
 
@@ -93,6 +97,10 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin):
                 d = datetime.combine(d, datetime.min.time()).replace(tzinfo=None).isoformat() + 'Z'
                 data_dict['date_updated'] = d
 
+
+        if data_dict.get('geographical_coverage'):
+            data_dict['vocab_geographical_coverage'] = [tag for tag in json.loads(data_dict['geographical_coverage'])]
+        log.debug(data_dict)
         return data_dict
 
     # IRoutes
@@ -104,3 +112,7 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin):
                   controller=controller,
                   conditions=dict(method=['GET']))
         return m
+
+
+    def get_helpers(self):
+        return {'call_toolkit_function': helpers.call_toolkit_function}
