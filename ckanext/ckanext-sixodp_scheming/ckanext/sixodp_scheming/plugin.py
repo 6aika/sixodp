@@ -51,7 +51,6 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IValidators)
     plugins.implements(plugins.IPackageController, inherit=True)
-    plugins.implements(plugins.IRoutes, inherit=True)
     plugins.implements(plugins.ITemplateHelpers)
 
     # IConfigurer
@@ -103,15 +102,8 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin):
         log.debug(data_dict)
         return data_dict
 
-    # IRoutes
 
-    def before_map(self, m):
 
-        controller = 'ckanext.ytp.dataset.controller:YtpDatasetController'
-        m.connect('/ytp-api/1/util/tag/autocomplete', action='ytp_tag_autocomplete',
-                  controller=controller,
-                  conditions=dict(method=['GET']))
-        return m
 
 
     def get_helpers(self):
