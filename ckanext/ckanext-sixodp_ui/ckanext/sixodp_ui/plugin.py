@@ -245,6 +245,7 @@ class Sixodp_UiPlugin(plugins.SingletonPlugin):
         facets_dict.update({'groups': _('Groups')})
         facets_dict.update({'maintainer': _('Maintainer')})
         facets_dict.update({'vocab_geographical_coverage': _('Geographical Coverage')})
+        facets_dict.update({'collections': _('Collections')})
 
         return facets_dict
 

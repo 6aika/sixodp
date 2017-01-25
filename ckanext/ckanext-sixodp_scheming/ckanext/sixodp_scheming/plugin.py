@@ -99,7 +99,7 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin):
 
         if data_dict.get('geographical_coverage'):
             data_dict['vocab_geographical_coverage'] = [tag for tag in json.loads(data_dict['geographical_coverage'])]
-        log.debug(data_dict)
+
         return data_dict
 
 
