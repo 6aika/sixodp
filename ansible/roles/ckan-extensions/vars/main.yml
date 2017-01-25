@@ -17,9 +17,8 @@ ckan_extensions:
   - ckanext-report
   - ckanext-qa
   - ckanext-archiver
-#  - ckanext-hierarchy
+  - ckanext-hierarchy
   - ckanext-disqus
-#  - ckanext-repeating
   - ckanext-reminder
   - ckanext-rating
   - ckanext-editor
