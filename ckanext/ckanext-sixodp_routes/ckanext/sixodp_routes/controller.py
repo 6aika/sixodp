@@ -18,12 +18,13 @@ class Sixodp_RoutesController(ApiController):
     # based on original from ytp
     def tag_autocomplete(self):
 
-        create_vocabulary('geographical_coverage')
+        vocabulary_id = request.params.get('vocabulary_id', None)
+        if vocabulary_id:
+            create_vocabulary(vocabulary_id)
 
         q = request.str_params.get('incomplete', '')
         q = unicode(urllib.unquote(q), 'utf-8')
         limit = request.params.get('limit', 10)
-        vocabulary_id = request.params.get('vocabulary_id', None)
         tag_names = []
         if q:
             context = {'model': model, 'session': model.Session,

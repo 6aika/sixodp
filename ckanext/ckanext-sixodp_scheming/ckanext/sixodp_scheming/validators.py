@@ -2,6 +2,7 @@ import ckan.lib.navl.dictization_functions as df
 from ckan.common import _
 import ckan.authz as authz
 import ckan.plugins.toolkit as toolkit
+import collections
 
 c = toolkit.c
 
@@ -12,6 +13,10 @@ def lower_if_exists(s):
 def upper_if_exists(s):
     return s.upper() if s else s
 
+def list_to_string(list):
+    if isinstance(list, collections.Sequence) and not isinstance(list, basestring):
+        return ','.join(list)
+    return list
 
 def tag_string_or_tags_required(key, data, errors, context):
     value = data.get(key)
