@@ -22,6 +22,14 @@
 - name: Ensure static file permissions
   command: chmod -R "0775" "{{ static_path }}"
 
+- name: Synchronize asset directory
+  synchronize: src="{{ playbook_dir }}/../shared/assets/" dest="{{ assets_path }}/"
+  when: deployment_environment_id != "vagrant"
+
+- name: Symlink asset directory from host machine (Vagrant)
+  file: src="/vagrant/shared/assets" path="{{ assets_path }}" state=link
+  when: deployment_environment_id == "vagrant"
+
 - name: Disable default site
   file: path=/etc/nginx/sites-enabled/default state=absent
 

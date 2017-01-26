@@ -2,10 +2,10 @@
   {% block header_account %}
     <div class="header-logos">
       <div class="logo">
-        <img src="/base/images/EU_ERDF_FI.png" alt="European Regional Development Fund logo">
+        <img src="{{ h.url_for_static('/base/images/EU_ERDF_FI.png') }}" alt="European Regional Development Fund logo">
       </div>
       <div class="logo">
-        <img src="/base/images/LeverageEU_FI.png" alt="Leverage with EU logo">
+        <img src="{{ h.url_for_static('/base/images/LeverageEU_FI.png') }}" alt="Leverage with EU logo">
       </div>
       <div class="flag-ends"></div>
     </div>
@@ -14,7 +14,7 @@
 
         <div class="navbar-header">
           <a href="{{ h.url('home') }}" class="navbar-brand">
-            <img src="/base/images/main_logo.png" alt="Site logo" />
+            <img src="{{ h.url_for_static('/base/images/main_logo.png') }}" alt="Site logo" />
           </a>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-nav-collapse" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
@@ -46,7 +46,7 @@
             <span class="icon-bar"></span>
           </button>
           <a href="{{ h.url('home') }}" class="navbar-brand">
-            <img src="/base/images/main_logo.png" alt="Site logo" />
+            <img src="{{ h.url_for_static('/base/images/main_logo.png') }}" alt="Site logo" />
           </a>
         </div>
 

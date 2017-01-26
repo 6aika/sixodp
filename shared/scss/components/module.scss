@@ -1,0 +1,53 @@
+.module {
+  margin-bottom: $margin-base-vertical;
+
+  .module-heading {
+    margin: 0;
+    padding: 7px 25px;
+  }
+
+  .module-content {
+    padding: 0;
+    margin: 0;
+
+    &.page-header {
+      background-color: $white;
+      padding: 0;
+      border: none;
+      padding-left: $padding-base-horizontal;
+      padding-right: $padding-base-horizontal;
+
+      .content_action {
+        width: 100%;
+        display: block;
+        padding: $padding-base-vertical 0;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    .info {
+      border: none;
+
+      .btn {
+        padding: 8px 12px;
+      }
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &.main-content {
+      @extend .card;
+      margin-bottom: $margin-base-vertical;
+    }
+  }
+}

@@ -83,6 +83,10 @@ scheming.presets = ckanext.scheming:presets.json
 scheming.dataset_schemas = ckanext.sixodp_scheming.schemas:dataset.json
 licenses_group_url = file://{{ckanext_sync_path}}/ckanext-sixodp_scheming/ckanext/sixodp_scheming/licenses/licenses.json
 
+ckanext.sixodp_ui.cms_site_url = dataportaali.demo.site
+ckanext.sixodp_ui.wp_main_menu_location = primary
+ckanext.sixodp_ui.wp_footer_menu_location = footer
+
 # Disable sending error emails. Commented out because the default is None, and "None" is interpreted here as a string.
 # email_to = 
 # error_email_from =
@@ -123,7 +127,7 @@ ckanext.cloudstorage.driver_options = {"key": {{ AWS.access_key }}, "secret": {{
 {%- endif %}
 {%- endif %}
 
-ckan.tracking_enabled = false
+ckan.tracking_enabled = true
 
 ckan.max_resource_size = {{ ckan_max_resource_size }}
 
@@ -135,8 +139,11 @@ ckanext.reminder.site_url = https://{{ public_facing_hostname }}
 ckanext.reminder.recipient_username = {{ ckan_users.admin.username }}
 
 # Editor configuration
-ckanext.editor.editable_fields = title_translated notes_translated tag_string owner_org update_frequency update_date publish_date url maintainer maintainer_email maintainer_website licence_id agency reminder private
+ckanext.editor.editable_fields = title_translated notes_translated tag_string owner_org update_frequency url maintainer maintainer_email maintainer_website licence_id agency reminder private
 ckanext.editor.default_field = title_translated
+ckanext.editor.appendable_fields = title_translated notes_translated update_frequency url maintainer maintainer_email maintainer_website agency
+ckanext.editor.enable_group_editing = true
+ckanext.editor.enable_collection_editing = true # Use only when ckanext-collection is in use
 
 # Disqus configuration
 disqus.name = sixodp-generic-{{ deployment_environment_id }}

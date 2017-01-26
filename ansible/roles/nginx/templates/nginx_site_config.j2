@@ -17,6 +17,26 @@ server {
     proxy_set_header Host $host;
   }
 
+  {% if deployment_environment_id == 'vagrant' %}
+  location /wp/ {
+    alias /opt/wordpress/;
+    try_files $uri $uri/ /wp//wp/index.php?$args; # https://trac.nginx.org/nginx/ticket/97
+    index index.php index.html;
+
+    location ~ \.php$ {
+      try_files $uri =404;
+      include fastcgi.conf;
+      fastcgi_index index.php;
+      fastcgi_param SCRIPT_FILENAME $request_filename;
+      fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+    }
+  }
+  {% endif %}
+
+  location /assets/ {
+    alias {{ assets_path }}/;
+  }
+
   location /.well-known/acme-challenge/ {
     alias /var/run/acme/acme-challenge/;
   }

@@ -11,10 +11,10 @@ enabled_ckan_extensions:
     - recline_graph_view
     - recline_grid_view
     - recline_map_view
+    - sixodp_scheming
     - sixodp_ui
     - sixodp_theme
     - datasetcopy
-    - sixodp_scheming 
     - scheming_datasets 
     - repeating
     - fluent
@@ -32,6 +32,8 @@ enabled_ckan_extensions:
     - reminder
     - editor
     - collection
+    - spatial_metadata
+    - spatial_query
 enabled_ckan_aws_extensions: cloudstorage
 
 redis_harvest_database: 0

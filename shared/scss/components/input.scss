@@ -1,0 +1,33 @@
+input {
+  font-size: $base*1.5;
+  padding: $base;
+  border: 1px solid $gray-lighter;
+  border-bottom: 2px solid $gray-lighter;;
+  transition: border-color .2s ease-in-out;
+
+  &:focus, &:active {
+    border-bottom-color: $brand-primary;
+    outline: none;
+  }
+
+  &#field-image-upload {
+    cursor: pointer;
+    position: absolute;
+    opacity: 0;
+  } 
+}
+
+.input--large {
+  font-size: $base*2;
+  padding: $base*1.5;
+}
+
+.js {
+  .image-upload {
+    .btn.hover {
+      color: $white;
+      background: $brand-primary-light;
+      text-decoration: none;
+    }
+  } 
+} 

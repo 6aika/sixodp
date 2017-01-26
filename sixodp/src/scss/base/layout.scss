@@ -1,0 +1,67 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding-top: $navbar-height;
+  background: $body-background;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 0;
+  padding-right: 0;
+
+  @media (min-width: $width-sm) {
+    padding-left: $padding-base-horizontal*0.5;
+    padding-right: $padding-base-horizontal*0.5;
+  }
+
+  @media (min-width: $width-md) {
+    width: 960px;
+  }
+  
+
+  @media (min-width: $width-lg) {
+    width: 1180px;
+  }
+
+  @media (min-width: $width-xl) {
+    width: 1380px;
+  }
+}
+
+.wrapper {
+  position: relative;
+  height: 100%;
+}
+
+[role=main] {
+  background: $brand-background;
+
+  .primary {
+    float: right;
+    margin-left: 0;
+  }
+
+  .secondary {
+    padding: 0;
+    margin-left: 0;
+  }
+}
+
+// Fix width issue with BS3 in mobile.
+.row {
+  margin-left: 0px;
+  margin-right: 0px;
+}

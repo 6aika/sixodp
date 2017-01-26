@@ -7,7 +7,7 @@
       - "/opt/solr/"
 
 - name: Download Solr package
-  get_url: url={{ solr_download_url }} dest={{ cache_path }}/solr/solr-{{ solr_version }}.zip mode="0644" owner=root group=root
+  get_url: url={{ solr_download_url }} dest={{ cache_path }}/solr/solr-{{ solr_version }}.zip checksum={{ solr_checksum }} mode="0644" owner=root group=root
   register: fetch_solr
 
 - name: Extract Solr installer from the archive

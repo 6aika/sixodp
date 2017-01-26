@@ -1,0 +1,22 @@
+.datepicker {
+  .table-condensed {
+    tbody {
+      tr {
+        td {
+          padding: $padding-base-vertical*0.5 $padding-base-vertical*0.5;
+
+          &.active,
+          span.active {
+            background: $brand-primary;
+            background-color: $brand-primary;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Hide chrome native datepicker arrow
+input::-webkit-calendar-picker-indicator{
+  display: none;
+}

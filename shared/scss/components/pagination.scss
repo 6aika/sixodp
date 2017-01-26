@@ -1,0 +1,36 @@
+.module.pagination,
+.pagination {
+    height: 36px;
+    margin-bottom: 0;
+
+    ul {
+        li {
+            a,
+            a:focus {
+                background-color: $brand-background;
+                color: $link-color;
+
+                &:hover {
+                    background-color: $button-background-color-active;
+                    border-color: $button-background-color-active;
+                    color: $button-text-color-active;
+                }
+            }
+
+            &.active {
+                a,
+                a:focus {
+                    background-color: $button-background-color;
+                    border-color: $button-background-color;
+                    color: $button-text-color-active;
+
+                    &:hover {
+                        background-color: $button-background-color-active;
+                        border-color: $button-background-color-active;
+                        color: $button-text-color-active;
+                    }
+                }    
+            }
+        }
+    }
+}
