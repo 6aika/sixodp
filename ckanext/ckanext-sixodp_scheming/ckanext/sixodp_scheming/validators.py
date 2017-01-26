@@ -14,6 +14,7 @@ def upper_if_exists(s):
     return s.upper() if s else s
 
 def list_to_string(list):
+    print list
     if isinstance(list, collections.Sequence) and not isinstance(list, basestring):
         return ','.join(list)
     return list

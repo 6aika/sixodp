@@ -108,4 +108,5 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin):
 
 
     def get_helpers(self):
-        return {'call_toolkit_function': helpers.call_toolkit_function}
+        return {'call_toolkit_function': helpers.call_toolkit_function,
+                'add_locale_to_source': helpers.add_locale_to_source}

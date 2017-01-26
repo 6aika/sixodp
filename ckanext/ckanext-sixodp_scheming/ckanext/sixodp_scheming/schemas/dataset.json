@@ -69,8 +69,18 @@
     },
     {
       "field_name": "update_frequency",
-      "label": "Update frequency",
-      "preset": "sixodp_update_frequency"
+      "label": "Update Frequency",
+      "form_placeholder":"eg. every second week",
+      "form_languages": ["fi", "en", "sv"],
+      "validators": "fluent_tags convert_and_create_tags(update_frequency)",
+      "output_validators": "fluent_tags_output",
+      "form_attrs": {
+        "data-module": "autocomplete",
+        "data-module-tags": "",
+        "data-module-source": "/api/2/util/tag/autocomplete?incomplete=?&vocabulary_id=update_frequency"
+      },
+      "display_snippet": "fluent_tags.html",
+      "form_snippet": "fluent_tags_with_autocomplete.html"
     },
     {
       "field_name": "url",

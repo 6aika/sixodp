@@ -13,30 +13,42 @@ import plugin
 def convert_and_create_tags(vocab):
     def callable(key, data, errors, context):
 
-        if isinstance(data[key], basestring):
-            tags = [tag.strip() \
-                    for tag in data[key].split(',') \
-                    if tag.strip()]
+        dict_with_langs = {}
+        value = data[key]
+        print value
+        try:
+            dict_with_langs = json.loads(value)
+
+        except ValueError:
+            pass
+
+
+        if len(dict_with_langs) is not 0:
+            for lang in dict_with_langs:
+                add_to_vocab(context, dict_with_langs[lang], vocab + '_' + lang)
         else:
-            tags = data[key]
+            if isinstance(value, basestring):
+                tags = [tag.strip() \
+                        for tag in value.split(',') \
+                        if tag.strip()]
+            else:
+                tags = value
+            add_to_vocab(context, tags, vocab)
+            data[key] = json.dumps(tags)
 
-        current_index = max( [int(k[1]) for k in data.keys() if len(k) == 3 and k[0] == 'tags'] + [-1 ])
-
-        v = get_action('vocabulary_show')(context, {'id': vocab})
-        if not v:
-            v = plugin.create_vocabulary(vocab)
-
-        context['vocabulary'] = model.Vocabulary.get(v.get('id'))
-
-        for tag in tags:
-            try:
-                validators.tag_in_vocabulary_validator(tag, context)
-            except Invalid:
-               plugin.create_tag_to_vocabulary(tag, vocab)
-
-
-        data[key] = json.dumps(tags)
 
     return callable
 
+def add_to_vocab(context, tags, vocab):
+    v = get_action('vocabulary_show')(context, {'id': vocab})
+    if not v:
+        v = plugin.create_vocabulary(vocab)
+
+    context['vocabulary'] = model.Vocabulary.get(v.get('id'))
+
+    for tag in tags:
+        try:
+            validators.tag_in_vocabulary_validator(tag, context)
+        except Invalid:
+            plugin.create_tag_to_vocabulary(tag, vocab)
 
