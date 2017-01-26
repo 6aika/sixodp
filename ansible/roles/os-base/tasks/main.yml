@@ -41,6 +41,7 @@
     - node-less
     - curl
     - acl
+    - libgeos-c1v5
 
 # Note: psycopg2 requires postgresql-server-dev
 
