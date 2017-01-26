@@ -27,6 +27,7 @@ enabled_ckan_extensions:
     - qa 
     - archiver
     - hierarchy_display
+    - hierarchy_form
     - reminder
     - editor
     - collection
