@@ -19,7 +19,7 @@
   pip: requirements={{ virtualenv }}/src/ckan/requirements.txt virtualenv={{ virtualenv }}
 
 - name: Install CKAN development/testing requirements
-  pip: requirements={{ virtualenv }}/src/ckan/dev-requirements.txt virtualenv={{ virtualenv }} state=latest
+  pip: requirements={{ virtualenv }}/src/ckan/dev-requirements.txt virtualenv={{ virtualenv }}
   when: deployment_environment_id == "build"
 
 - name: Create CKAN paths
@@ -35,4 +35,4 @@
   command: chmod -R "0770" "{{ ckan_storage_path }}"
 
 - name: Install CKAN core unit test requirements
-  pip: requirements={{ virtualenv }}/src/ckan/dev-requirements.txt virtualenv={{ virtualenv }} state=latest
+  pip: requirements={{ virtualenv }}/src/ckan/dev-requirements.txt virtualenv={{ virtualenv }}
