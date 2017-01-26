@@ -101,6 +101,7 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin):
         if data_dict.get('geographical_coverage'):
             data_dict['vocab_geographical_coverage'] = [tag for tag in json.loads(data_dict['geographical_coverage'])]
 
+
         return data_dict
 
 
@@ -109,4 +110,5 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin):
 
     def get_helpers(self):
         return {'call_toolkit_function': helpers.call_toolkit_function,
-                'add_locale_to_source': helpers.add_locale_to_source}
+                'add_locale_to_source': helpers.add_locale_to_source,
+                'get_lang': helpers.get_current_lang}

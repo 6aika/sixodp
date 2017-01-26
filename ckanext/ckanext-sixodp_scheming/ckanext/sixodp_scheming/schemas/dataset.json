@@ -29,11 +29,19 @@
       "display_snippet": null
     },
     {
-      "field_name": "tag_string",
+      "field_name": "keywords",
       "label": "Tags",
-      "preset": "sixodp_tag_string_autocomplete",
-      "form_placeholder":"eg. economy, mental health, government",
-      "required": true
+      "form_placeholder":"eg. every second week",
+      "form_languages": ["fi", "en", "sv"],
+      "validators": "fluent_tags convert_and_create_tags(keywords)",
+      "output_validators": "fluent_tags_output",
+      "form_attrs": {
+        "data-module": "autocomplete",
+        "data-module-tags": "",
+        "data-module-source": "/api/2/util/tag/autocomplete?incomplete=?&vocabulary_id=keywords"
+      },
+      "display_snippet": "fluent_tag_list.html",
+      "form_snippet": "fluent_tags_with_autocomplete.html"
     },
     {
       "field_name": "owner_org",
@@ -79,7 +87,7 @@
         "data-module-tags": "",
         "data-module-source": "/api/2/util/tag/autocomplete?incomplete=?&vocabulary_id=update_frequency"
       },
-      "display_snippet": "fluent_tags.html",
+      "display_snippet": "fluent_tag_list.html",
       "form_snippet": "fluent_tags_with_autocomplete.html"
     },
     {
