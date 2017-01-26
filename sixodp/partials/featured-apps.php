@@ -13,7 +13,7 @@
       //while($i < get_field("sovellukset_count")) {
       while($i < 4 ) {?>
         <div class="featured-content__item">
-          <img src="http://placehold.it/320x280">
+          <img src="https://placehold.it/320x280">
           <div class="wrapper">
             <h4>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</h4>
             <p>Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
