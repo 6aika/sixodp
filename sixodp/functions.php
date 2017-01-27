@@ -146,3 +146,7 @@ function parse_date($date) {
   $d = new DateTime($date);
   return $d->format('d.m.Y');
 }
+
+function assets_url() {
+  return site_url().'/assets';
+}

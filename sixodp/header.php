@@ -82,14 +82,14 @@
   </nav><!-- .main-navigation -->
 	<div class="logos">
     <a href="<?php echo site_url(); ?>" class="logo--brand">
-			<img src="https://demo.dataportaali.com/base/images/main_logo.png" />
+			<img src="<?php echo assets_url(); ?>/images/main_logo.png" />
 		</a>
     <div class="logos--eu">
       <div class="logo--erdf">
-				<img src="https://demo.dataportaali.com//base/images/EU_ERDF_FI.png" alt="European Regional Development Fund logo">
+				<img src="<?php echo assets_url(); ?>/images/EU_ERDF_FI.png" alt="European Regional Development Fund logo">
 			</div>
 			<div class="logo--eu">
-				<img src="https://demo.dataportaali.com//base/images/LeverageEU_FI.png" alt="Leverage with EU logo">
+				<img src="<?php echo assets_url(); ?>/images/LeverageEU_FI.png" alt="Leverage with EU logo">
 			</div>
 			<div class="flag-ends"></div>
     </div>
