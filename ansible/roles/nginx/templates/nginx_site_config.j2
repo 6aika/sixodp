@@ -50,7 +50,7 @@ server {
   listen 443 ssl default_server;
 
   location / {
-    return 301 https://{{ public_facing_hostname }}$request_uri;
+    return 302 https://{{ public_facing_hostname }}$request_uri;
   }
 
   location /.well-known/acme-challenge/ {
@@ -63,7 +63,7 @@ server {
   listen 80 default_server;
 
   location / {
-    return 301 https://{{ public_facing_hostname }}$request_uri;
+    return 302 https://{{ public_facing_hostname }}$request_uri;
   }
 
   location /.well-known/acme-challenge/ {
