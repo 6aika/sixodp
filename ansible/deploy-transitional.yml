@@ -35,3 +35,6 @@
     - ckan-restart
     #- supervisor Not in use
     - solr-reindex
+    - php-fpm
+    - mysql
+    - wordpress
