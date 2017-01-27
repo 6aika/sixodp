@@ -58,7 +58,7 @@
     command: >
       wp core install
         --path=/opt/wordpress
-        --url=https://{{ public_facing_hostname }}/wp/
+        --url=https://{{ public_facing_hostname }}/
         --title=6aika
         --admin_user={{ wordpress_admin_user }}
         --admin_password={{ secret.wordpress_admin_password }}
@@ -70,14 +70,24 @@
         --path=/opt/wordpress
         permalink_structure /%postname%/
 
-  - name: Create symbolic link to sixodp theme
-    file:
-      src: /vagrant/sixodp
-      dest: /opt/wordpress/wp-content/themes/sixodp
-      state: link
+  become: yes
+  become_user: www-data
 
-  - name: Activate sixodp theme
-    command: wp theme activate sixodp --path=/opt/wordpress
+- name: Create symbolic link to sixodp theme
+  file:
+    src: /vagrant/sixodp
+    dest: /opt/wordpress/wp-content/themes/sixodp
+    state: link
+  when: deployment_environment_id == "vagrant"
 
+- name: Synchronize sixodp theme
+  synchronize:
+    src: ../sixodp/
+    dest: /opt/wordpress/wp-content/themes/sixodp/
+    delete: true
+  when: deployment_environment_id != "vagrant"
+
+- name: Activate sixodp theme
+  command: wp theme activate sixodp --path=/opt/wordpress
   become: yes
   become_user: www-data

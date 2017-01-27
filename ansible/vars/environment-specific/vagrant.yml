@@ -31,7 +31,6 @@ nginx:
   use_ssl_certificate: true
   use_selfsigned_certificate: true
   fqdn_common_part: goforecrew.com
-  alternative_hostnames: www.{{ public_facing_hostname }}
 
 solr:
   host: 127.0.0.1

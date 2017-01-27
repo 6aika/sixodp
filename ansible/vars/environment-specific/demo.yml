@@ -31,7 +31,6 @@ nginx:
   use_ssl_certificate: true
   use_selfsigned_certificate: false
   fqdn_common_part: dataportaali.com
-  alternative_hostnames: www.{{ public_facing_hostname }}
 
 acmetool_hostnames:
   - demo.dataportaali.com

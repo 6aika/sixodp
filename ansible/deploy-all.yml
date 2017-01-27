@@ -35,9 +35,6 @@
     - ckan-restart
     - supervisor
     - solr-reindex
-    - role: php-fpm
-      when: deployment_environment_id == "vagrant"
-    - role: mysql
-      when: deployment_environment_id == "vagrant"
-    - role: wordpress
-      when: deployment_environment_id == "vagrant"
+    - php-fpm
+    - mysql
+    - wordpress
