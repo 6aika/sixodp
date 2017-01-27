@@ -1,10 +1,8 @@
-.searchbar {
+.hero {
   padding: $base*4;
-  background: $brand-primary;
-  color: #fff;
 }
 
-.searchbar .input-group {
+.hero .input-group {
   display: block;
 
   .form-control {
@@ -23,4 +21,12 @@
       margin-bottom: 0;
     }
   }
+}
+
+.hero .heading {
+  margin-bottom: 0;
+}
+
+.hero .subheading {
+  margin-top: 0 !important;
 }

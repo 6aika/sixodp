@@ -2,7 +2,8 @@
 $base: 10px;
 
 // Typography
-$font: 'Work Sans', sans-serif;
+$font: 'Open Sans',sans-serif;
+$font-heading: 'Roboto Slab',sans-serif;
 
 // Colors
 
@@ -53,9 +54,10 @@ $line-height-small: 1.5 !default;
 
 $padding-small-vertical: 5px !default;
 
-$input-height-base: ($line-height-computed + ($padding-base-vertical * 2) - 1);
-$input-height-large: (ceil($font-size-large * $line-height-large) + ($padding-large-vertical * 2) - 1);
-$input-height-small: (floor($font-size-small * $line-height-small) + ($padding-small-vertical * 2) - 3);
+$input-height-base: ($line-height-computed + ($padding-base-vertical * 2) + 1);
+$input-height-large: (ceil($font-size-large * $line-height-large) + ($padding-large-vertical * 2) + 1);
+$input-height-small: (floor($font-size-small * $line-height-small) + ($padding-small-vertical * 2) + 1);
+$input-border-focus: $brand-secondary-light;
 
 // Borders
 $border-radius-base: 2px;
@@ -64,12 +66,13 @@ $border-radius-small: 2px;
 $border-base: $border-radius-base;
 
 // Navigation
-$navbar-height: 80px;
+$navbar-height: 40px;
 $navbar-margin-bottom: 0;
 $nav-link-hover-bg: transparent;
 
-$navbar-height: 70px;
-$navbar-background: white;
+$navbar-bg: #f8f8f8;
+$navbar-active-link-border-color: $brand-secondary;
+
 $navbar-logos-background-color: white;
 $navbar-link-color: $gray-base;
 $navbar-link-color-active: $brand-primary;

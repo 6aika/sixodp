@@ -60,27 +60,9 @@
 }
 
 %heading {
-  margin-bottom: $base*4;
-  padding-bottom: $base*2;
-  border-bottom: 1px solid $brand-primary;
-}
-
-%input-field {
-  border-radius: $border-radius-base;
-  color: $text-color;
-  background-color: #fff;
-  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-  border: 1px solid #f2f2f2;
-  border-bottom: $border-base solid #f2f2f2;
-  box-shadow: none;
-  @include transition(border-color, .2s, ease-in-out);
-
-  &:active, &:focus {
-    outline: 0;
-    border: 1px solid #f2f2f2;
-    border-bottom: $border-base solid $brand-primary;
-    box-shadow: none;
-  }
+  font-family: $font-heading;
+  color: $brand-primary;
+  font-weight: 700;
 }
 
 %vertically-centered {

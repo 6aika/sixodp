@@ -1,5 +1,14 @@
-.navbar-brand {
-  width: $base*10;
+.navbar {
+  background: $navbar-bg;
+}
+
+.navbar li {
+  border-top: $base/2 solid transparent;
+  border-bottom: $base/2 solid transparent;
+
+  &.active, &:nth-child(1) {
+    border-bottom-color: $navbar-active-link-border-color;  
+  }
 }
 
 .navbar-default > .navbar-nav > li > a {

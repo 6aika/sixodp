@@ -20,11 +20,19 @@
 	<?php endif; ?>
 	<?php wp_head(); ?>
   <link rel="stylesheet" href="<?php echo site_url(); ?>/wp-content/themes/sixodp/app.css">
-	<link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
-	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body <?php body_class(); ?>>
+
+<div class="notification">
+	<p class="notification__text">
+		<i class="material-icons">warning</i>
+		<span class="bold">Käyttökatkos</span>
+		Dataportaalia päivitetään uusimpaan versioon 24.12.2017 klo 23:00 alkaen. Käyttökatkoksen arvioitu kestoaika on 3 tuntia.
+	</p>
+</div>
 
 <?php if ( has_nav_menu( 'primary' ) ) : ?>
   <nav class="navbar navbar-default" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'twentysixteen' ); ?>">
@@ -37,9 +45,6 @@
 			    <span class="icon-bar"></span>
 			    <span class="icon-bar"></span>
 			  </button>
-				<a href="<?php echo site_url(); ?>" class="navbar-brand">
-					<img src="https://demo.dataportaali.com/base/images/main_logo.png" />
-				</a>
       </div>
 
 			<div class="collapse navbar-collapse" id="top-nav-collapse">
@@ -75,4 +80,18 @@
 			</div>
 		</div>
   </nav><!-- .main-navigation -->
+	<div class="logos">
+    <a href="<?php echo site_url(); ?>" class="logo--brand">
+			<img src="https://demo.dataportaali.com/base/images/main_logo.png" />
+		</a>
+    <div class="logos--eu">
+      <div class="logo--erdf">
+				<img src="https://demo.dataportaali.com//base/images/EU_ERDF_FI.png" alt="European Regional Development Fund logo">
+			</div>
+			<div class="logo--eu">
+				<img src="https://demo.dataportaali.com//base/images/LeverageEU_FI.png" alt="Leverage with EU logo">
+			</div>
+			<div class="flag-ends"></div>
+    </div>
+  </div>
 <?php endif; ?>

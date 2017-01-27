@@ -1,0 +1,13 @@
+.notification {
+  background: #E89D21;
+  color: #fff;
+  padding: $base $base;
+
+  @media (min-width: $width-md) {
+    padding: $base $base*4.5;
+  }
+}
+
+.notification__text {
+  margin: 0;
+}

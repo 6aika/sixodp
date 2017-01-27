@@ -21,7 +21,7 @@ get_header(); ?>
 		// Start the loop.
 		while ( have_posts() ) : the_post();
 
-      get_template_part( 'partials/searchbar' );
+      get_template_part( 'partials/hero' );
 			get_template_part( 'partials/categories' );
 			get_template_part( 'partials/featured-posts' );
 			get_template_part( 'partials/featured-datasets' );

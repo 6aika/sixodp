@@ -1,0 +1,36 @@
+.logos {
+  margin-top: $base*4;
+  padding: 0 $base;
+
+  &:after {
+    display: block;
+    content: '';
+    clear: both;
+  }
+
+  @media (min-width: $width-md) {
+    padding: 0 $base*3.5;
+  }
+}
+
+.logo--brand {
+  width: $base*16;
+  float: left;
+}
+
+.logos--eu {
+  float: right;
+  height: $base*12;
+  text-align: center;
+
+  .logo--erdf, .logo--eu {
+    width: auto;
+    height: 60px;
+    display: block;
+
+    img {
+      width: auto;
+      height: 60px;
+    }
+  }
+}

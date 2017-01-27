@@ -44,15 +44,6 @@
 				<div class="text-center copyrights">
     			© 6Aika
   			</div>
-				<div class="header-logos" style="display:none;">
-			    <div class="logo">
-			      <img src="https://demo.dataportaali.com//base/images/EU_ERDF_FI.png" alt="European Regional Development Fund logo">
-			    </div>
-			    <div class="logo">
-			      <img src="https://demo.dataportaali.com//base/images/LeverageEU_FI.png" alt="Leverage with EU logo">
-			    </div>
-			    <div class="flag-ends"></div>
-			  </div>
 			</div>
 		</footer><!-- .site-footer -->
 	</div><!-- .site-inner -->
