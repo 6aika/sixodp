@@ -11,16 +11,15 @@ server {
     internal;
   }
 
-  location / {
-    proxy_pass http://127.0.0.1:8080/;
+  location /data/ {
+    proxy_pass http://127.0.0.1:8080;
     proxy_set_header X-Url-Scheme $scheme;
     proxy_set_header Host $host;
   }
 
-  {% if deployment_environment_id == 'vagrant' %}
-  location /wp/ {
+  location / {
     alias /opt/wordpress/;
-    try_files $uri $uri/ /wp//wp/index.php?$args; # https://trac.nginx.org/nginx/ticket/97
+    try_files $uri $uri/ /index.php?$args;
     index index.php index.html;
 
     location ~ \.php$ {
@@ -31,7 +30,6 @@ server {
       fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
     }
   }
-  {% endif %}
 
   location /assets/ {
     alias {{ assets_path }}/;
@@ -45,29 +43,25 @@ server {
   client_max_body_size {{ ckan_max_resource_size }}m;
 }
 
-{% if nginx.alternative_hostnames %}
-# Redirect from alternative hostnames to primary hostname
+# Redirect unknown hostnames to primary hostname
 server {
-  listen 443 ssl;
-  server_name {{ nginx.alternative_hostnames }};
+  listen 443 ssl default_server;
 
   location / {
-    return 301 https://{{ public_facing_hostname }}$request_uri;
+    return 302 https://{{ public_facing_hostname }}$request_uri;
   }
 
   location /.well-known/acme-challenge/ {
     alias /var/run/acme/acme-challenge/;
   }
 }
-{% endif %}
 
 # Redirect HTTP to HTTPS
 server {
-  listen 80;
-  server_name {{ public_facing_hostname }};
+  listen 80 default_server;
 
   location / {
-    return 301 https://$server_name$request_uri;
+    return 302 https://{{ public_facing_hostname }}$request_uri;
   }
 
   location /.well-known/acme-challenge/ {

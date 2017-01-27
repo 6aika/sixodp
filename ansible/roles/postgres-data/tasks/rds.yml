@@ -48,3 +48,12 @@
   with_items: "{{ sql_files_to_execute }}"
   environment:
     PGPASSWORD: "{{ postgres.server.admin_password }}"
+
+- name: Initialize Spatial database
+  command: psql -f {{ role_path }}/files/enable-rds-postgis.sql --set ON_ERROR_STOP=1
+  ignore_errors: True
+  environment:
+    PGHOST: "{{ postgres.server.host }}"
+    PGDATABASE: ckan_default
+    PGUSER: "{{ postgres.server.admin_user }}"
+    PGPASSWORD: "{{ postgres.server.admin_password }}"

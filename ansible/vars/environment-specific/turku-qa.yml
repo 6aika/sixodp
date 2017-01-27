@@ -31,7 +31,15 @@ nginx:
   use_ssl_certificate: true
   use_selfsigned_certificate: true
   fqdn_common_part: dataportaali.com
-  alternative_hostnames: www.{{ public_facing_hostname }}
+
+acmetool_hostnames:
+  - "{{ public_facing_hostname }}"
+
+wordpress_database_host: sixodp-{{ deployment_environment_id }}-wordpress.{{ rds_domain_common_part }}
+wordpress_database_admin_user: ckan_admin
+wordpress_database_admin_password: "{{ secret.database_ckan_admin_password }}"
+wordpress_database_password: "{{ secret.wordpress_database_password }}"
+wordpress_admin_password: "{{ secret.wordpress_admin_password }}"
 
 solr:
   host: 127.0.0.1

@@ -79,5 +79,15 @@ setup(
     entry_points='''
         [ckan.plugins]
         sixodp_ui=ckanext.sixodp_ui.plugin:Sixodp_UiPlugin
+
+        [babel.extractors]
+        ckan = ckan.lib.extract:extract_ckan
     ''',
+    message_extractors={
+        'ckanext': [
+            ('**.py', 'python', None),
+            ('**.js', 'javascript', None),
+            ('**/templates/**.html', 'ckan', None),
+        ],
+    }
 )
