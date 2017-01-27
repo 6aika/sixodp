@@ -19,7 +19,7 @@ def convert_and_create_tags(vocab):
         try:
             dict_with_langs = json.loads(value)
 
-        except ValueError:
+        except (ValueError, TypeError):
             pass
 
 
