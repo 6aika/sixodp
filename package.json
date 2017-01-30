@@ -7,7 +7,7 @@
     "watch-sass": "watch 'npm run build' ./shared/scss",
     "build": "run-p build:*",
     "build:ckan": "node-sass ./shared/scss/main.scss ckanext/ckanext-sixodp_theme/ckanext/sixodp_theme/fanstatic/sixodp_theme.css",
-    "build:cms": "node-sass ./shared/scss/main.scss sixodp/app.css",
+    "build:cms": "node-sass ./shared/scss/cms.scss sixodp/app.css",
     "dev": "run-p watch-sass",
     "postinstall": "run-p build"
   },
