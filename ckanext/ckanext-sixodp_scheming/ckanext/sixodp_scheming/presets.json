@@ -80,7 +80,7 @@
       "preset_name": "resource_url_upload_ex",
       "values": {
         "validators": "not_empty unicode remove_whitespace",
-        "form_snippet": "upload_ex.html",
+        "form_snippet": "upload.html",
         "form_placeholder": "http://example.com/my-data.csv",
         "upload_field": "upload",
         "upload_clear": "clear_upload",
