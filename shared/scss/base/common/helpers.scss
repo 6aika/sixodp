@@ -21,6 +21,22 @@
 
 
 // Placeholder classes
+%button {
+  @extend %box;
+  border: 0;
+  transition: $transition;
+
+  &:focus, &:active, &:hover {
+    color: #fff;
+  }
+}
+
+%button-primary {
+  @extend %button;
+  background-color: $brand-primary;
+  color: #fff;
+}
+
 %wrapper-padding {
   padding-left: $base*2;
   padding-right: $base*2;

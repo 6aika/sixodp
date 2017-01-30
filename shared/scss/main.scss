@@ -2,7 +2,6 @@
 @import "vendor/bootstrap/bootstrap";
 @import "base/common/helpers";
 @import "base/common/layout";
-@import "base/layout";
 @import "base/common/typography";
 
 // Components
@@ -13,12 +12,12 @@
 @import "components/common/hero";
 @import "components/common/form";
 @import "components/common/footer";
+@import "components/common/icons";
+@import "components/common/toolbar";
 
-@import "components/icons";
-@import "components/header-logos";
-@import "components/toolbar";
-@import "components/media-grid";
-@import "components/actions";
-@import "components/module";
-@import "components/showcase";
-@import "components/alert";
+@import "components/ckan/layout";
+@import "components/ckan/media-grid";
+@import "components/ckan/actions";
+@import "components/ckan/module";
+@import "components/ckan/showcase";
+@import "components/ckan/alert";

@@ -1,19 +1,28 @@
-%button {
-  @extend %box;
-  border: 0;
-  transition: $transition;
+.btn {
+  @extend %button;
+}
 
-  &:focus, &:active, &:hover {
-    color: $brand-primary;
+.btn-primary {
+  background-color: $brand-primary;
+
+  &:hover {
+    background-color: $brand-primary-light;
   }
 }
 
-%button-primary {
-  @extend %button;
-  background-color: $brand-primary;
+.btn-secondary {
+  background-color: $brand-secondary;
   color: #fff;
-  
-  &:focus, &:active, &:hover {
-    color: #fff;
+
+  &:hover {
+    background-color: $brand-secondary-light;
+  }
+}
+
+.btn-wrapper--right {
+  text-align: center !important;
+
+  @media (min-width: $width-md) {
+    text-align: right !important;
   }
 }

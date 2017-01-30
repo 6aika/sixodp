@@ -24,9 +24,11 @@
 }
 
 .hero .heading {
-  margin-bottom: 0;
+  margin: $base*2 auto;
 }
 
 .hero .subheading {
-  margin-top: 0 !important;
+  margin: $base*2 auto;
+  color: $brand-primary;
+  font-weight: 300;
 }

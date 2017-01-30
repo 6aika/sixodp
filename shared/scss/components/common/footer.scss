@@ -1,51 +1,70 @@
 .site-footer {
-  background: #1F1A40;
-  padding: $base*6 0;
-  margin-top: $base*8;
+  padding-top: $base*6;
+  background: $brand-primary;
+  color: #fff;
 
-  hr {
-    border-color: $brand-primary-dark;
+  a {
+    color: currentColor;
   }
 }
 
-.footer-section:nth-child(1) {
-  padding: 0;
+.footer-follow-links {
+  padding: $base*2 0;
 }
 
-.footer-follow-links > * {
-  display: inline-block;
-  vertical-align: middle;
+.footer-follow-title {
   margin-right: $base;
-  color: #fff;
 }
 
-.footer-follow-link {
-  @include transition();
+.footer-follow-link:hover {
+  text-decoration: none;
+}
+
+hr {
+  margin: 0;
+}
+
+.footer-section {
+  padding-top: $base*2;
+  padding-bottom: $base*2;
+  height: $base*30;
+
+  &.footer-section--links > div {
+    height: 100%;
+  }
+}
+
+.footer-logo-wrapper {
+  @extend %vertically-centered;
+
+  width: 25%;
+  margin: auto;
+
+  @media (min-width: $width-lg) {
+    width: 100%;
+  }
+}
+
+.footer-logo {
+  width: 100%;
 }
 
 .footer-links {
+  @extend %vertically-centered;
+
   padding: 0;
-  margin: 0;
-  text-align: center;
-}
+  li {
+    list-style: none;
+    display: inline-block;
+    width: 49%;
 
-.footer__item {
-  list-style: none;
-  display: inline-block;
-  margin: 0 $base;
-}
-
-.footer__link {
-  @include transition();
-  display: block;
-  padding: $base $base*1.5;
-  color: #fff;
-
-  &:hover {
-    color: $brand-primary-light;
+    a {
+      display: block;
+      padding: $base;
+    }
   }
 }
 
 .copyrights {
-  color: #fff;
+  padding: $base*2 0 $base*8;
 }
