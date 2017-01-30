@@ -33,6 +33,7 @@
       "label": "Tags",
       "form_placeholder":"eg. every second week",
       "form_languages": ["fi", "en", "sv"],
+      "validators": "fluent_tags create_tags(keywords)",
       "output_validators": "fluent_tags_output",
       "form_attrs": {
         "data-module": "autocomplete",
@@ -51,7 +52,7 @@
       "field_name": "geographical_coverage",
       "label": "Geographical Coverage",
       "form_placeholder":"eg. tampere",
-      "validators": "not_empty list_to_string lower_if_exists convert_and_create_tags(geographical_coverage)",
+      "validators": "not_empty convert_to_list create_tags(geographical_coverage)",
       "output_validators": "fluent_tags_output",
       "form_attrs": {
           "data-module": "autocomplete",
@@ -202,7 +203,7 @@
       "field_name": "time_series_precision",
       "label": "Time Series Precision",
       "form_placeholder":"eg. 2 weeks",
-      "validators": "ignore_missing lower_if_exists convert_and_create_tags(time_series_precision)",
+      "validators": "ignore_missing lower_if_exists create_tags(time_series_precision)",
       "output_validators": "fluent_tags_output",
       "form_attrs": {
         "data-module": "autocomplete",
