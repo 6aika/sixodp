@@ -67,6 +67,18 @@ def create_tags(vocab):
 
     return callable
 
+def create_fluent_tags(vocab):
+    def callable(key, data, errors, context):
+
+        value = data[key]
+
+        if isinstance(value, dict):
+            for lang in value:
+                add_to_vocab(context, value, vocab + '_' + lang)
+            data[key] = json.dumps(value)
+
+    return callable
+
 def add_to_vocab(context, tags, vocab):
     v = get_action('vocabulary_show')(context, {'id': vocab})
     if not v:

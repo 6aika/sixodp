@@ -33,7 +33,7 @@
       "label": "Tags",
       "form_placeholder":"eg. every second week",
       "form_languages": ["fi", "en", "sv"],
-      "validators": "fluent_tags create_tags(keywords)",
+      "validators": "fluent_tags create_fluent_tags(keywords)",
       "output_validators": "fluent_tags_output",
       "form_attrs": {
         "data-module": "autocomplete",
@@ -80,6 +80,7 @@
       "label": "Update Frequency",
       "form_placeholder":"eg. every second week",
       "form_languages": ["fi", "en", "sv"],
+      "validators": "fluent_tags create_fluent_tags(updata_frequency)",
       "output_validators": "fluent_tags_output",
       "form_attrs": {
         "data-module": "autocomplete",

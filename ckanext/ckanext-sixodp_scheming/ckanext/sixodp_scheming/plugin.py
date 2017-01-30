@@ -65,6 +65,7 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin):
             'upper_if_exists': validators.upper_if_exists,
             'tag_string_or_tags_required': validators.tag_string_or_tags_required,
             'create_tags': validators.create_tags,
+            'create_fluent_tags': validators.create_fluent_tags,
             'set_private_if_not_admin': validators.set_private_if_not_admin,
             'list_to_string': validators.list_to_string,
             'convert_to_list': validators.convert_to_list,
