@@ -25,7 +25,7 @@
       </div>
     </div>
     <div class="col-sm-3 stat__wrapper btn-wrapper--right">
-      <button type="button" class="btn btn-lg btn-secondary">Kaikki aineistot</button>
+      <button type="button" class="btn btn-lg btn-primary">Kaikki aineistot</button>
     </div>
   </div>
 </div>
