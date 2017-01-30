@@ -203,7 +203,8 @@
       "field_name": "time_series_precision",
       "label": "Time Series Precision",
       "form_placeholder":"eg. 2 weeks",
-      "validators": "ignore_missing lower_if_exists create_tags(time_series_precision)",
+      "validators": "ignore_missing convert_to_list create_tags(time_series_precision)",
+      "output_validators": "tag_list_output",
       "form_attrs": {
         "data-module": "autocomplete",
         "data-module-tags": "",

@@ -52,7 +52,6 @@ def convert_to_list(value):
     else:
         tags = value
 
-    print tags
     return tags
 
 
@@ -83,3 +82,9 @@ def add_to_vocab(context, tags, vocab):
             validators.tag_in_vocabulary_validator(tag, context)
         except Invalid:
             plugin.create_tag_to_vocabulary(tag, vocab)
+
+
+def tag_list_output(value):
+    if isinstance(value, dict) or len(value) is 0:
+        return value
+    return json.loads(value)
