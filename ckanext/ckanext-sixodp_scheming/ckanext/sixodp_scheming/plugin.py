@@ -2,7 +2,6 @@ import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 import validators
 from datetime import datetime
-import converters
 import json
 import helpers
 
