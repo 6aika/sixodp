@@ -83,17 +83,17 @@ if ( !function_exists('sixodp_theme_setup') ) :
     	// Set up default menu items
         wp_update_nav_menu_item($menu_id, 0, array(
             'menu-item-title' =>  __('Datasets'),
-            'menu-item-url' => home_url( '/dataset' ),
+            'menu-item-url' => home_url( '/data/dataset' ),
             'menu-item-status' => 'publish'));
 
         wp_update_nav_menu_item($menu_id, 0, array(
             'menu-item-title' =>  __('Showcase'),
-            'menu-item-url' => home_url( '/showcase' ),
+            'menu-item-url' => home_url( '/data/showcase' ),
             'menu-item-status' => 'publish'));
 
         wp_update_nav_menu_item($menu_id, 0, array(
             'menu-item-title' =>  __('Collections'),
-            'menu-item-url' => home_url( '/collection' ),
+            'menu-item-url' => home_url( '/data/collection' ),
             'menu-item-status' => 'publish'));
 
     }
