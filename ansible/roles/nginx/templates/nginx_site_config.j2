@@ -21,7 +21,7 @@ server {
 
   location / {
     alias /opt/wordpress/;
-    try_files $uri $uri/ /index.php?$args;
+    try_files $uri $uri/ //index.php?$args; # https://trac.nginx.org/nginx/ticket/97
     index index.php index.html;
 
     location ~ \.php$ {
