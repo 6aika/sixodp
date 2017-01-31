@@ -14,7 +14,7 @@ Invalid = df.Invalid
 
 import plugin
 
-
+ObjectNotFound = toolkit.ObjectNotFound
 c = toolkit.c
 
 def lower_if_exists(s):
@@ -80,8 +80,9 @@ def create_fluent_tags(vocab):
     return callable
 
 def add_to_vocab(context, tags, vocab):
-    v = get_action('vocabulary_show')(context, {'id': vocab})
-    if not v:
+    try:
+        v = get_action('vocabulary_show')(context, {'id': vocab})
+    except ObjectNotFound:
         v = plugin.create_vocabulary(vocab)
 
     context['vocabulary'] = model.Vocabulary.get(v.get('id'))
