@@ -1,7 +1,8 @@
 #main > .wrapper {
   padding: $base*10 $base*2 $base*16;
+}
 
-  &:nth-child(even) {
-    background: #f7f7f7;
-  }
+.wrapper--categories {
+  background: url('/assets/images/siluetti_6aika@2x.png') no-repeat center center;
+  background-size: 100% auto;
 }

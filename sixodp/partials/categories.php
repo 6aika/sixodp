@@ -4,10 +4,9 @@
   */
 ?>
 
-<div class="wrapper">
+<div class="wrapper wrapper--categories">
   <div class="container">
     <div class="row">
-      <h3 class="heading">Kategoriat</h3>
       <div class="categories">
         <div class="category">
           <a href="<?php echo site_url(); ?>" class="category__link">
@@ -66,4 +65,5 @@
       </div>
     </div>
   </div>
+  <?php include(locate_template('/partials/featured-stats.php')); ?>
 </div>

@@ -34,5 +34,4 @@
 
     </div>
   </div>
-  <?php include(locate_template('/partials/featured-stats.php')); ?>
 </div>

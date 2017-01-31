@@ -5880,8 +5880,10 @@ a {
 
 #main > .wrapper {
   padding: 100px 20px 160px; }
-  #main > .wrapper:nth-child(even) {
-    background: #f7f7f7; }
+
+.wrapper--categories {
+  background: url("/assets/images/siluetti_6aika@2x.png") no-repeat center center;
+  background-size: 100% auto; }
 
 .material-icons {
   float: left;
