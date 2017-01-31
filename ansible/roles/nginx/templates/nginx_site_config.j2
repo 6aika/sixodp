@@ -1,9 +1,10 @@
-{% macro server_block(listen, server_name) %}
 
 server {
 
-  listen {{ listen }};
-  server_name {{ server_name }};
+  listen [::1]:80;
+  listen 127.0.0.1:80;
+  listen 443 ssl;
+  server_name {{ public_facing_hostname }};
 
   error_page 500 502 503 504 /50x.html;
 
@@ -43,11 +44,6 @@ server {
   # file upload size in megabytes
   client_max_body_size {{ ckan_max_resource_size }}m;
 }
-
-{% endmacro %}
-
-{{ server_block('80', 'localhost') }}
-{{ server_block('443 ssl', public_facing_hostname) }}
 
 # Redirect unknown hostnames to primary hostname
 server {
