@@ -34,6 +34,7 @@ enabled_ckan_extensions:
     - collection
     - spatial_metadata
     - spatial_query
+    - datasubmitter
 enabled_ckan_aws_extensions: cloudstorage
 
 redis_harvest_database: 0
