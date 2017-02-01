@@ -150,21 +150,22 @@
     {
       "field_name": "url",
       "label": "URL",
-      "preset": "resource_url_upload_ex",
-      "final": true
+      "preset": "resource_url_upload_ex"
     },
     {
-      "field_name": "name",
+      "field_name": "name_translated",
       "label": "Name",
-      "required": true,
-      "form_snippet": "text_ex.html"
+      "preset": "fluent_core_translated",
+      "form_languages": ["fi", "en", "sv"],
+      "form_placeholder":"eg. January 2011 Gold Prices",
+      "required": true
     },
     {
       "field_name": "description_translated",
       "label": "Description",
       "preset": "fluent_core_markdown_translated",
       "form_placeholder": "eg. A detailed description",
-      "form_languages": ["fi", "sv", "en"]
+      "form_languages": ["fi", "en", "sv"]
     },
     {
       "field_name": "format",
