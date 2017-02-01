@@ -33,17 +33,6 @@ class DatasubmitterController(p.toolkit.BaseController):
 
     @staticmethod
     def _submit():
-        context = { 'model': model }
-        errors = {}
-        error_summary = {}
-        data_dict = {}
-        import pprint
-        pprint.pprint("Submitted")
-        log.info(context)
-        return data_dict, errors, error_summary
-
-    @staticmethod
-    def _submit():
         try:
             username = config.get('ckanext.datasubmitter.creating_user_username')
             user = model.User.get(username)
@@ -77,8 +66,8 @@ class DatasubmitterController(p.toolkit.BaseController):
                 'geographical_coverage': ["update this before publishing"],
                 'date_released': datetime.date.today().strftime("%Y-%m-%d"),
                 'date_updated': datetime.date.today().strftime("%Y-%m-%d"),
-                'maintainer': 'Lorem ipsum',
-                'maintainer_email': 'Lorem ipsum',
+                'maintainer': parsedParams.get('maintainer'),
+                'maintainer_email': parsedParams.get('maintainer_email'),
                 'license_id': 'other-open',
                 'private': True
             }
@@ -87,7 +76,6 @@ class DatasubmitterController(p.toolkit.BaseController):
         except NotAuthorized:
             abort(403, _('Unauthorized to create a package'))
         except ValidationError, e:
-            log.debug(e)
             errors = e.error_dict
             error_summary = e.error_summary
             data_dict['state'] = 'none'
@@ -105,6 +93,5 @@ class DatasubmitterController(p.toolkit.BaseController):
         data, errors, error_summary = self._submit()
         vars = {'data': data, 'errors': errors,
                 'error_summary': error_summary}
-        log.info(vars)
         return render(index_template(), extra_vars=vars)
 

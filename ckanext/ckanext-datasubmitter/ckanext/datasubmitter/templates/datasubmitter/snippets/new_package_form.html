@@ -1,5 +1,5 @@
 {% import 'macros/form.html' as form %}
-<form class="dataset-form form-horizontal" method="post" action="submit-data/submit" data-module="basic-form" novalidate>
+<form class="dataset-form form-horizontal" method="post" action="submit-data" data-module="basic-form" novalidate>
   {% block errors %}{{ form.errors(error_summary) }}{% endblock %}
 
   {% call form.input(
@@ -9,7 +9,7 @@
   placeholder=h.scheming_language_text('eg. A descriptive title'),
   value='',
   error='',
-  classes=['control-large'],
+  classes=['control-full'],
   attrs={},
   is_required=true
   )
@@ -23,9 +23,37 @@
   placeholder='',
   value='',
   error='',
-  classes=['control-large'],
+  classes=['control-full'],
   attrs={},
-  is_required=true
+  is_required=false
+  )
+  %}
+  {% endcall %}
+
+  {% call form.input(
+  'maintainer',
+  id='maintainer',
+  label=h.scheming_language_text('Name or organization of the submitter'),
+  placeholder='',
+  value='',
+  error='',
+  classes=['control-medium'],
+  attrs={},
+  is_required=false
+  )
+  %}
+  {% endcall %}
+
+  {% call form.input(
+  'maintainer-email',
+  id='maintainer-email',
+  label=h.scheming_language_text('Submitter email'),
+  placeholder='',
+  value='',
+  error='',
+  classes=['control-medium'],
+  attrs={},
+  is_required=false
   )
   %}
   {% endcall %}

@@ -36,14 +36,16 @@ class DatasubmitterPlugin(plugins.SingletonPlugin):
     def before_map(self, map):
         map.connect('/submit-data',
                     controller='ckanext.datasubmitter.controller:DatasubmitterController',
-                    action='index')
+                    action='index',
+                    conditions=dict(method=['GET']))
+
+        map.connect('/submit-data',
+                    controller='ckanext.datasubmitter.controller:DatasubmitterController',
+                    action='submit',
+                    conditions=dict(method=['POST']))
 
         map.connect('/submit-data/ajax-submit',
                     controller='ckanext.datasubmitter.controller:DatasubmitterController',
                     action='ajax_submit')
-
-        map.connect('/submit-data/submit',
-                    controller='ckanext.datasubmitter.controller:DatasubmitterController',
-                    action='submit')
 
         return map
