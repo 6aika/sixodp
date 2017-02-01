@@ -116,6 +116,34 @@
           "data-module": "slug-preview-target"
         }
       }
+    },
+    {
+      "preset_name": "vocabulary_with_autocomplete",
+      "values": {
+        "validators": "not_empty convert_to_list create_tags(example_vocab)",
+        "output_validators": "fluent_tags_output",
+        "form_attrs": {
+          "data-module": "autocomplete",
+          "data-module-tags": "",
+          "data-module-source": "/api/2/util/tag/autocomplete?incomplete=?&vocabulary_id=example_vocab"
+        },
+        "display_snippet": "tag_list.html",
+        "form_snippet": "tag_list.html"
+      }
+    },
+    {
+      "preset_name": "fluent_vocabulary_with_autocomplete",
+      "values":{
+        "validators": "fluent_tags create_fluent_tags(example_vocab)",
+        "output_validators": "fluent_tags_output",
+        "form_attrs": {
+          "data-module": "autocomplete",
+          "data-module-tags": "",
+          "data-module-source": "/api/2/util/tag/autocomplete?incomplete=?&vocabulary_id=example_vocab"
+        },
+        "display_snippet": "fluent_tag_list.html",
+        "form_snippet": "fluent_tags_with_autocomplete.html"
+      }
     }
   ]
 }
