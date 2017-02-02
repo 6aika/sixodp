@@ -20,12 +20,12 @@
     </div>
     <div class="col-sm-3 stat__wrapper">
       <div class="stat">
-        <div class="stat__value">1234</div>
+        <div class="stat__value"><?php echo get_organizations_count(); ?></div>
         <div class="stat__description">Julkaisijaa</div>
       </div>
     </div>
     <div class="col-sm-3 stat__wrapper btn-wrapper--right">
-      <button type="button" class="btn btn-lg btn-primary">Kaikki aineistot</button>
+      <button type="button" class="btn btn-lg btn-secondary">Kaikki aineistot</button>
     </div>
   </div>
 </div>

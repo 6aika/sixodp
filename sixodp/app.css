@@ -6146,7 +6146,8 @@ hr {
   float: left; }
 
 .category__name {
-  display: inline-block; }
+  display: inline-block;
+  text-transform: capitalize; }
 
 .datasets {
   padding: 0;

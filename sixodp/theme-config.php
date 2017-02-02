@@ -5,7 +5,5 @@
 ?>
 
 <?php
-
-  define( 'CKAN_API_URL', 'https://generic-qa.dataportaali.com/api/action' );
-
+  define( 'CKAN_API_URL', 'https://generic-qa.dataportaali.com/data/api' );
 ?>

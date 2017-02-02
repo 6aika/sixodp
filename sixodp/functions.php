@@ -118,17 +118,17 @@ function get_ckan_data($url) {
 }
 
 function get_popular_tags() {
-  $data = get_ckan_data(CKAN_API_URL.'/package_search?facet.field=["tags"]&facet.limit=5');
+  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?facet.field=["tags"]&facet.limit=5');
   return $data['result']['facets']['tags'];
 }
 
 function get_recent_content() {
-  $data = get_ckan_data(CKAN_API_URL.'/package_search?sort=date_released%20desc&rows=5');
+  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_released%20desc&rows=5');
   return $data['result']['results'];
 }
 
 function get_datasets() {
-  $data = get_ckan_data(CKAN_API_URL.'/package_search');
+  $data = get_ckan_data(CKAN_API_URL.'/action/package_search');
   return $data['result'];
 }
 
@@ -136,10 +136,20 @@ function get_dataset_count() {
   return get_datasets()['count'];
 }
 
-
 function get_showcases_count() {
-  $data = get_ckan_data(CKAN_API_URL.'/ckanext_showcase_list');
+  $data = get_ckan_data(CKAN_API_URL.'/action/ckanext_showcase_list');
   return count($data['result']);
+}
+
+/** @TODO: get orgs from CKAN API **/
+function get_organizations_count() {
+  $data = get_ckan_data(CKAN_API_URL.'/action/ckanext_showcase_list');
+  return count($data['result']);
+}
+
+function get_ckan_categories() {
+  $data = get_ckan_data(CKAN_API_URL.'/action/group_list?all_fields=true');
+  return $data['result'];
 }
 
 function parse_date($date) {
