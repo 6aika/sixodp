@@ -12,4 +12,5 @@ translation_projects:
   - "ckanext-reminder"
   - "ckanext-collection"
   - "ckanext-datasetcopy"
+  - "ckanext-datasubmitter"
   - "ckanext-sixodp_ui"
