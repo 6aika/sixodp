@@ -137,13 +137,15 @@ function get_dataset_count() {
 }
 
 function get_showcases_count() {
-  $data = get_ckan_data(CKAN_API_URL.'/action/ckanext_showcase_list');
-  return count($data['result']);
+  return get_count('ckanext_showcase');
 }
 
-/** @TODO: get orgs from CKAN API **/
 function get_organizations_count() {
-  $data = get_ckan_data(CKAN_API_URL.'/action/ckanext_showcase_list');
+  return get_count('organization');
+}
+
+function get_count($type) {
+  $data = get_ckan_data(CKAN_API_URL."/action/".$type."_list");
   return count($data['result']);
 }
 
