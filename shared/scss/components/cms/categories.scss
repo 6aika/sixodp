@@ -1,6 +1,17 @@
+.wrapper--categories {
+  background: url('/assets/images/siluetti_6aika@2x.png') repeat-x center bottom;
+  background-size: auto 100%;
+}
+
 .categories {
   display: flex;
   flex-wrap: wrap;
+  padding-top: $base*30;
+  padding-bottom: $base*4;
+
+  @media (min-width: $width-sm) {
+    padding-bottom: 0;
+  }
 }
 
 .category {
@@ -9,15 +20,22 @@
   margin: $base;
   margin-left: 0;
   padding: $base*1.5 $base*2.5;
-  width: $base*12;
+  width: $base*20;
 }
 
 .category__link {
-  width: $base*12;
+  display: flex;
+  height: 100%;
+  align-items: center;
 }
 
 .category__icon {
   margin-right: $base;
   height: 24px;
   width: auto;
+  float: left;
+}
+
+.category__name {
+  display: inline-block;
 }

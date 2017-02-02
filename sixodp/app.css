@@ -5878,13 +5878,6 @@ a {
     color: #9989d7;
     text-decoration: none; }
 
-#main > .wrapper {
-  padding: 100px 20px 160px; }
-
-.wrapper--categories {
-  background: url("/assets/images/siluetti_6aika@2x.png") no-repeat center center;
-  background-size: 100% auto; }
-
 .material-icons {
   float: left;
   line-height: 18px !important;
@@ -5965,7 +5958,7 @@ a {
       height: 60px; }
 
 .hero {
-  padding: 40px; }
+  padding: 40px 0 0; }
 
 .hero .input-group {
   display: block; }
@@ -5981,10 +5974,10 @@ a {
       margin-bottom: 0; } }
 
 .hero .heading {
-  margin: 20px auto; }
+  margin: 20px auto 0; }
 
 .hero .subheading {
-  margin: 20px auto;
+  margin: 0 auto 20px;
   color: #5940BA;
   font-weight: 300; }
 
@@ -6088,39 +6081,72 @@ hr {
   margin-top: 20px; }
 
 .stats {
-  margin-top: 20px; }
+  display: none;
+  margin-top: 20px;
+  padding-bottom: 60px;
+  color: #fff; }
+  @media (min-width: 768px) {
+    .stats {
+      display: block; } }
 
 .stat__wrapper {
   text-align: center;
-  margin-top: 20px; }
+  margin-top: 20px;
+  border-left: 1px solid white; }
   @media (min-width: 992px) {
     .stat__wrapper {
       text-align: left; } }
+  .stat__wrapper:first-child {
+    border-left: none; }
+  .stat__wrapper:last-child {
+    border-left: none; }
 
 .stat {
   display: inline-block;
-  text-align: center; }
+  text-align: center;
+  padding-left: 20px; }
+  .stat > div {
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 10px;
+    padding-right: 10px; }
 
 .stat__value {
-  font-size: 3rem; }
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 5rem; }
+
+.wrapper--categories {
+  background: url("/assets/images/siluetti_6aika@2x.png") repeat-x center bottom;
+  background-size: auto 100%; }
 
 .categories {
   display: flex;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  padding-top: 300px;
+  padding-bottom: 40px; }
+  @media (min-width: 768px) {
+    .categories {
+      padding-bottom: 0; } }
 
 .category {
   margin: 10px;
   margin-left: 0;
   padding: 15px 25px;
-  width: 120px; }
+  width: 200px; }
 
 .category__link {
-  width: 120px; }
+  display: flex;
+  height: 100%;
+  align-items: center; }
 
 .category__icon {
   margin-right: 10px;
   height: 24px;
-  width: auto; }
+  width: auto;
+  float: left; }
+
+.category__name {
+  display: inline-block; }
 
 .datasets {
   padding: 0;

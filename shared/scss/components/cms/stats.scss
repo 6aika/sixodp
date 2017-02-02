@@ -1,21 +1,46 @@
 .stats {
+  display: none;
   margin-top: $base*2;
+  padding-bottom: $base*6;
+  color: #fff;
+
+  @media (min-width: $width-sm) {
+    display: block;
+  }
 }
 
 .stat__wrapper {
   text-align: center;
   margin-top: $base*2;
+  border-left: 1px solid white;
 
   @media (min-width: $width-md) {
     text-align: left;
+  }
+
+  &:first-child {
+    border-left: none;
+  }
+
+  &:last-child {
+    border-left: none;
   }
 }
 
 .stat {
   display: inline-block;
   text-align: center;
+  padding-left: $base*2;
+
+  & > div {
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: $base;
+    padding-right: $base;
+  }
 }
 
 .stat__value {
-  font-size: 3rem;
+  font-family: $font-heading;
+  font-size: 5rem;
 }

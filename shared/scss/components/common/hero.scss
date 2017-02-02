@@ -1,5 +1,5 @@
 .hero {
-  padding: $base*4;
+  padding: $base*4 0 0;
 }
 
 .hero .input-group {
@@ -24,11 +24,11 @@
 }
 
 .hero .heading {
-  margin: $base*2 auto;
+  margin: $base*2 auto 0;
 }
 
 .hero .subheading {
-  margin: $base*2 auto;
+  margin: 0 auto $base*2;
   color: $brand-primary;
   font-weight: 300;
 }
