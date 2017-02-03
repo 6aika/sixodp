@@ -1,0 +1,85 @@
+.wrapper--horizaccordion {
+  background: #534F98;
+  margin-top: $base;
+}
+
+.horizaccordion {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  height: $base*48;
+
+  .horizaccordion__container {
+    width: 100%;
+    max-width: 25%;
+    position: relative;
+    transition: max-width .2s ease-in-out;
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      background: rgba($brand-primary, 0.6);
+    }
+    /*@media (min-width: $width-sm) {
+      width: $base*36;
+    }
+
+    @media (min-width: $width-md) {
+      width: $base*30;
+    }
+
+    @media (min-width: $width-lg) {
+      width: $base*26;
+    }*/
+  }
+
+  &:hover {
+
+    .horizaccordion__container {
+      max-width: $base*24;
+
+      &:hover {
+        max-width: $base*45;
+
+        &:after {
+          background: rgba(0,0,0, 0.6);
+        }
+      }
+    }
+  }
+}
+
+.horizaccordion__item {
+  height: 100%;
+  padding: $base $base*2 $base*2;
+  color: #fff;
+}
+
+.horizaccordion__img {
+  width: 100%;
+}
+
+.horizaccordion__link {
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.horizaccordion__text {
+  position: relative;
+  z-index: 1;
+}
+
+.horizaccordion__footer {
+  margin-top: $base*2;
+
+  .btn {
+    position: relative;
+    z-index: 1;
+  }
+}

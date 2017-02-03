@@ -23,7 +23,7 @@ get_header(); ?>
 
       get_template_part( 'partials/hero' );
 			get_template_part( 'partials/categories' );
-			get_template_part( 'partials/featured-posts' );
+			get_template_part( 'partials/horizaccordion' );
 			get_template_part( 'partials/featured-datasets' );
 			get_template_part( 'partials/featured-apps' );
 
