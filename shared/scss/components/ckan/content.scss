@@ -1,15 +1,42 @@
 #content {
   .primary {
     padding: $padding-large-vertical $padding-large-horizontal;
+    margin-bottom: $margin-large-vertical;
+
+    .module {
+      margin: $margin-large-vertical 0;
+    }
   }
 
   .secondary {
     padding: $padding-large-vertical 0;
+    margin-bottom: $margin-large-vertical;
+
+    .main-heading {
+      padding: 0 $padding-large-horizontal;
+      font-size: $font-size-xlarge;
+    }
+
+    .module {
+      padding: $padding-large-vertical $padding-large-horizontal;
+
+      .module-heading {
+        font-size: $font-size-large;
+      }
+
+      .module-content {
+        .heading {
+          font-size: $font-size-large;
+        }
+      }
+    }
 
     .filters {
       padding: $padding-large-vertical 0;
 
       .module {
+        padding: $padding-large-vertical 0;
+
         .module-heading,
         .module-content.empty {
           padding: 0;
