@@ -4,16 +4,16 @@
 }
 
 .horizaccordion {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  height: $base*48;
+  padding-bottom: $base*2;
 
   .horizaccordion__container {
     width: 100%;
-    max-width: 25%;
+    max-width: $base*44;
+    margin-left: auto;
+    margin-right: auto;
     position: relative;
     transition: all .2s ease-in-out;
+    margin-top: $base*2;
 
     &:after {
       content: '';
@@ -23,37 +23,78 @@
         right: 0;
         bottom: 0;
         left: 0;
-      background: rgba($brand-primary, 0.6);
+      background: rgba(0,0,0, 0.7);
     }
   }
 
-  &:hover {
+  @media (min-width: $width-sm) {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 
     .horizaccordion__container {
-      max-width: $base*20;
+      max-width: 48%;
 
-      &:hover {
-        max-width: $base*37;
+      &:nth-child(odd) {
+        margin-right: 1%;
+      }
+      &:nth-child(even) {
+        margin-left: 1%;
+      }
+    }
+  }
 
-        .horizaccordion__title {
-          font-size: 2.5rem;
-        }
+  @media (min-width: $width-md) {
+    height: $base*48;
+    padding-bottom: 0;
 
-        .horizaccordion__text {
-          display: block;
-        }
+    &:hover {
 
-        .horizaccordion__footer .btn {
-          opacity: 1;
-        }
+      .horizaccordion__container {
+        max-width: $base*20;
 
-        &:after {
-          background: rgba(0,0,0, 0.6);
+        &:hover {
+          max-width: $base*37;
+
+          .horizaccordion__title {
+            font-size: 2.5rem;
+          }
+
+          .horizaccordion__text {
+            display: block;
+          }
+
+          .horizaccordion__footer .btn {
+            display: initial;
+          }
+
+          &:after {
+            background: rgba(0,0,0, 0.6);
+          }
         }
       }
     }
 
-    @media (min-width: 1200px) {
+    .horizaccordion__container {
+      max-width: 25%;
+      margin-top: 0;
+
+      &:after {
+        background: rgba($brand-primary, 0.6);
+      }
+
+      &:nth-child(odd) {
+        margin-right: 0;
+      }
+      &:nth-child(even) {
+        margin-left: 0;
+      }
+    }
+  }
+
+  @media (min-width: 1200px) {
+
+    &:hover {
 
       .horizaccordion__container {
         max-width: $base*24;
@@ -69,6 +110,9 @@
     }
   }
 }
+
+
+
 
 .horizaccordion__title {
   font-size: 2rem;
@@ -97,7 +141,6 @@
 }
 
 .horizaccordion__text {
-  display: none;
   position: relative;
   z-index: 1;
 }
@@ -108,7 +151,9 @@
   .btn {
     position: relative;
     z-index: 1;
-    opacity: 0;
-    transition: opacity .2s ease-in-out;
+    
+    @media (min-width: $width-md) {
+      display: none;
+    }
   }
 }
