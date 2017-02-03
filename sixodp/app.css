@@ -6130,18 +6130,7 @@ hr {
     width: 100%;
     max-width: 25%;
     position: relative;
-    transition: all .2s ease-in-out;
-    /*@media (min-width: $width-sm) {
-      width: $base*36;
-    }
-
-    @media (min-width: $width-md) {
-      width: $base*30;
-    }
-
-    @media (min-width: $width-lg) {
-      width: $base*26;
-    }*/ }
+    transition: all .2s ease-in-out; }
     .horizaccordion .horizaccordion__container:after {
       content: '';
       display: block;
@@ -6152,17 +6141,24 @@ hr {
       left: 0;
       background: rgba(89, 64, 186, 0.6); }
   .horizaccordion:hover .horizaccordion__container {
-    max-width: 240px; }
+    max-width: 200px; }
     .horizaccordion:hover .horizaccordion__container:hover {
-      max-width: 450px; }
+      max-width: 370px; }
       .horizaccordion:hover .horizaccordion__container:hover .horizaccordion__title {
-        font-size: 3rem; }
+        font-size: 2.5rem; }
       .horizaccordion:hover .horizaccordion__container:hover .horizaccordion__text {
         display: block; }
       .horizaccordion:hover .horizaccordion__container:hover .horizaccordion__footer .btn {
         opacity: 1; }
       .horizaccordion:hover .horizaccordion__container:hover:after {
         background: rgba(0, 0, 0, 0.6); }
+  @media (min-width: 1200px) {
+    .horizaccordion:hover .horizaccordion__container {
+      max-width: 240px; }
+      .horizaccordion:hover .horizaccordion__container:hover {
+        max-width: 450px; }
+        .horizaccordion:hover .horizaccordion__container:hover .horizaccordion__title {
+          font-size: 3rem; } }
 
 .horizaccordion__title {
   font-size: 2rem;

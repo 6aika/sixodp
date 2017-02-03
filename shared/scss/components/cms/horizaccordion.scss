@@ -25,29 +25,18 @@
         left: 0;
       background: rgba($brand-primary, 0.6);
     }
-    /*@media (min-width: $width-sm) {
-      width: $base*36;
-    }
-
-    @media (min-width: $width-md) {
-      width: $base*30;
-    }
-
-    @media (min-width: $width-lg) {
-      width: $base*26;
-    }*/
   }
 
   &:hover {
 
     .horizaccordion__container {
-      max-width: $base*24;
+      max-width: $base*20;
 
       &:hover {
-        max-width: $base*45;
+        max-width: $base*37;
 
         .horizaccordion__title {
-          font-size: 3rem;
+          font-size: 2.5rem;
         }
 
         .horizaccordion__text {
@@ -60,6 +49,21 @@
 
         &:after {
           background: rgba(0,0,0, 0.6);
+        }
+      }
+    }
+
+    @media (min-width: 1200px) {
+
+      .horizaccordion__container {
+        max-width: $base*24;
+
+        &:hover {
+          max-width: $base*45;
+
+          .horizaccordion__title {
+            font-size: 3rem;
+          }
         }
       }
     }
