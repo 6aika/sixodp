@@ -1,0 +1,26 @@
+#content {
+  .primary {
+    padding: $padding-large-vertical $padding-large-horizontal;
+  }
+
+  .secondary {
+    padding: $padding-large-vertical 0;
+
+    .filters {
+      padding: $padding-large-vertical 0;
+
+      .module {
+        .module-heading,
+        .module-content.empty {
+          padding: 0;
+          margin: 0 $margin-large-horizontal;
+        }
+
+        .module-heading {
+          font-size: $font-size-large;
+        }
+      }
+    }
+
+  }
+}

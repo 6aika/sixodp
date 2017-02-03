@@ -1,0 +1,34 @@
+.nav-facet {
+  .nav-item {
+    background: none;
+
+    &.active {
+      background: $brand-primary;
+      color: $white;
+
+      * {
+        color: $white;
+      }
+
+      .plusglyph {
+        display: none;
+      }
+
+      .minusglyph {
+        display: inline-block;
+      }
+    }
+
+    a {
+      padding: $padding-large-vertical $padding-large-horizontal;
+    }
+
+    .plusglyph {
+      display: inline-block;
+    }
+
+    .minusglyph {
+      display: none;
+    }
+  }
+}
