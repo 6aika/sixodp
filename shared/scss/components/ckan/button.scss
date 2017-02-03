@@ -1,5 +1,11 @@
-button, .btn {
+button,
+.btn {
   @extend %button;
+}
+
+a.btn {
+  @extend .btn-default;
+  background: $gray-lighter;
 }
 
 .btn-primary {

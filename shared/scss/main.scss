@@ -15,6 +15,7 @@
 @import "components/common/icons";
 @import "components/common/toolbar";
 
+@import "components/ckan/button";
 @import "components/ckan/layout";
 @import "components/ckan/media-grid";
 @import "components/ckan/actions";
@@ -27,3 +28,5 @@
 @import "components/ckan/dataset-list";
 @import "components/ckan/content";
 @import "components/ckan/facets";
+@import "components/ckan/resource-list";
+@import "components/ckan/tags";
