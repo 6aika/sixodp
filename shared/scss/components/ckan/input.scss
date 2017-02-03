@@ -1,0 +1,10 @@
+input {
+  @extend .form-control;
+
+  &[type="file"] {
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+  }
+}

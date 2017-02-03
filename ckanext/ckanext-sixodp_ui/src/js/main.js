@@ -41,7 +41,7 @@ $(function ($) {
       });
     });
 
-    $("form button[type=submit]").one('click', function() {
+    $(".form-actions button[type=submit]").one('click', function() {
       $(this).append(' ').append($('<span id="loading-indicator" ' +
           'class="icon icon-spinner icon-spin"></span>') );
     });

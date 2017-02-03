@@ -1,0 +1,167 @@
+.stages {
+  height: 40px;
+  list-style: none;
+  padding: 0;
+
+  li {
+    float: none;
+    height: 100%;
+    display: inline-block;
+
+    span,
+    button {
+      padding: 10px 15px;
+      position: relative;
+      background-color: #eeeeee;
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      border: none;
+
+      .badge {
+        margin-left: 3px;
+        color: #eeeeee;
+        background-color: $brand-primary;
+      }
+    }
+
+    &:not(:first-child) {
+
+      span,
+      button {
+        padding-left: 34px;
+
+        &:before {
+          width: 0px;
+          height: 0px;
+          border-top: 20px inset transparent;
+          border-bottom: 20px inset transparent;
+          border-bottom: 20px inset transparent;
+          border-left: 20px solid $white;
+          position: absolute;
+          content: "";
+          top: 0;
+          left: 0;
+        }
+      }
+    }
+
+    &:not(:last-child) {
+
+      span,
+      button {
+        margin-right: 6px;
+
+        &:after {
+          width: 0px;
+          height: 0px;
+          border-top: 20px inset transparent;
+          border-bottom: 20px inset transparent;
+          border-left: 20px solid #eeeeee;
+          position: absolute;
+          content: "";
+          top: 0;
+          right: -20px;
+          z-index: 2;
+        }
+      }
+    }
+
+    &:first-child {
+
+      span,
+      button {
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+      }
+    }
+
+    &:last-child {
+
+      span,
+      button {
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+      }
+    }
+
+    &:hover,
+    &.complete:hover {
+
+      span,
+      button {
+        background-color: #d5d5d5;
+
+        &:before {
+          border-right-color: #d5d5d5;
+        }
+
+        &:after {
+          border-left-color: #d5d5d5;
+        }
+      }
+    }
+
+    &.complete {
+      span,
+      button {
+        background-color: #e2e2e2;
+
+        &:before {
+          border-right-color: #e2e2e2;
+        }
+
+        &:after {
+          border-left-color: #e2e2e2;
+        }
+      }
+    }
+
+    &.active {
+      span,
+      span:hover,
+      span:focus,
+      button,
+      button:hover,
+      button:focus {
+        color: #ffffff;
+        background-color: $brand-primary;
+      }
+
+      span,
+      button {
+        &:after {
+          border-left-color: $brand-primary;
+        }
+
+        .badge {
+          color: $brand-primary;
+          background-color: #ffffff;
+        }
+      }
+    }
+
+    &.uncomplete {
+      span,
+      button {
+        color: #777777;
+
+        &:hover,
+        &:focus {
+          color: #777777;
+          text-decoration: none;
+          background-color: #eeeeee;
+          cursor: default;
+        }
+
+        &:before {
+          border-right-color: #eeeeee;
+        }
+
+        &:after {
+          border-left-color: #eeeeee;
+        }
+      }
+    }
+  }
+}
