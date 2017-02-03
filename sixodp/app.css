@@ -5869,7 +5869,7 @@ body {
   color: #000; }
 
 h1, h2, h3, h4, h5, h6 {
-  line-height: 1.6; }
+  line-height: 1.5; }
 
 a {
   color: #5940BA;
@@ -6130,7 +6130,7 @@ hr {
     width: 100%;
     max-width: 25%;
     position: relative;
-    transition: max-width .2s ease-in-out;
+    transition: all .2s ease-in-out;
     /*@media (min-width: $width-sm) {
       width: $base*36;
     }
@@ -6155,8 +6155,19 @@ hr {
     max-width: 240px; }
     .horizaccordion:hover .horizaccordion__container:hover {
       max-width: 450px; }
+      .horizaccordion:hover .horizaccordion__container:hover .horizaccordion__title {
+        font-size: 3rem; }
+      .horizaccordion:hover .horizaccordion__container:hover .horizaccordion__text {
+        display: block; }
+      .horizaccordion:hover .horizaccordion__container:hover .horizaccordion__footer .btn {
+        opacity: 1; }
       .horizaccordion:hover .horizaccordion__container:hover:after {
         background: rgba(0, 0, 0, 0.6); }
+
+.horizaccordion__title {
+  font-size: 2rem;
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 600; }
 
 .horizaccordion__item {
   height: 100%;
@@ -6170,8 +6181,11 @@ hr {
   color: #fff;
   position: relative;
   z-index: 1; }
+  .horizaccordion__link:hover {
+    color: #eee; }
 
 .horizaccordion__text {
+  display: none;
   position: relative;
   z-index: 1; }
 
@@ -6179,4 +6193,6 @@ hr {
   margin-top: 20px; }
   .horizaccordion__footer .btn {
     position: relative;
-    z-index: 1; }
+    z-index: 1;
+    opacity: 0;
+    transition: opacity .2s ease-in-out; }
