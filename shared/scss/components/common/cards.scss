@@ -3,35 +3,45 @@
   justify-content: space-around;
   flex-wrap: wrap;
 
-  @media (min-width: $width-sm) {
-    justify-content: space-between;
+  .card__container {
+    width: 100%;
+    max-width: 25%;
+    margin-top: $base*4;
+    transition: max-width .2s ease-in-out;
+
+    /*@media (min-width: $width-sm) {
+      width: $base*36;
+    }
+
+    @media (min-width: $width-md) {
+      width: $base*30;
+    }
+
+    @media (min-width: $width-lg) {
+      width: $base*26;
+    }*/
   }
-}
 
-.card__container {
-  width: 100%;
-  max-width: $base*54;
-  margin-top: $base*4;
+  &:hover {
 
-  @media (min-width: $width-sm) {
-    width: $base*36;
-  }
+    .card__container {
+      max-width: $base*24;
 
-  @media (min-width: $width-md) {
-    width: $base*30;
-  }
-
-  @media (min-width: $width-lg) {
-    width: $base*26;
+      &:hover {
+        max-width: $base*45;
+      }
+    }
   }
 }
 
 .card {
   @extend %box;
+  height: 100%;
 }
 
 .card__content {
   padding: $base $base*2 $base*2;
+  color: #fff;
 }
 
 .card__img {
@@ -63,7 +73,7 @@
 }
 
 .card__link {
-  color: currentColor;
+  color: #fff;
 }
 
 .card__footer {

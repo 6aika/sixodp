@@ -6034,26 +6034,33 @@ hr {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap; }
-  @media (min-width: 768px) {
-    .cards {
-      justify-content: space-between; } }
+  .cards .card__container {
+    width: 100%;
+    max-width: 25%;
+    margin-top: 40px;
+    transition: max-width .2s ease-in-out;
+    /*@media (min-width: $width-sm) {
+      width: $base*36;
+    }
 
-.card__container {
-  width: 100%;
-  max-width: 540px;
-  margin-top: 40px; }
-  @media (min-width: 768px) {
-    .card__container {
-      width: 360px; } }
-  @media (min-width: 992px) {
-    .card__container {
-      width: 300px; } }
-  @media (min-width: 1248px) {
-    .card__container {
-      width: 260px; } }
+    @media (min-width: $width-md) {
+      width: $base*30;
+    }
+
+    @media (min-width: $width-lg) {
+      width: $base*26;
+    }*/ }
+  .cards:hover .card__container {
+    max-width: 240px; }
+    .cards:hover .card__container:hover {
+      max-width: 450px; }
+
+.card {
+  height: 100%; }
 
 .card__content {
-  padding: 10px 20px 20px; }
+  padding: 10px 20px 20px;
+  color: #fff; }
 
 .card__img {
   width: 100%; }
@@ -6075,7 +6082,7 @@ hr {
     background: rgba(0, 0, 0, 0.3); }
 
 .card__link {
-  color: currentColor; }
+  color: #fff; }
 
 .card__footer {
   margin-top: 20px; }
