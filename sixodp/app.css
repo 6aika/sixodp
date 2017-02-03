@@ -2300,7 +2300,7 @@ output {
   display: block;
   width: 100%;
   height: 31px;
-  padding: 6px 12px;
+  padding: 6px 6px;
   font-size: 14px;
   line-height: 1.42857;
   color: #7c7c82;
@@ -2478,7 +2478,7 @@ fieldset[disabled]
 .input-group-sm > .input-group-addon,
 .input-group-sm > .input-group-btn > .btn {
   height: 27px;
-  padding: 5px 10px;
+  padding: 5px 5px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 2px; }
@@ -2500,7 +2500,7 @@ select[multiple].input-sm,
 
 .form-group-sm .form-control {
   height: 27px;
-  padding: 5px 10px;
+  padding: 5px 5px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 2px; }
@@ -2516,7 +2516,7 @@ select[multiple].input-sm,
 .form-group-sm .form-control-static {
   height: 27px;
   min-height: 32px;
-  padding: 6px 10px;
+  padding: 6px 5px;
   font-size: 12px;
   line-height: 1.5; }
 
@@ -2524,7 +2524,7 @@ select[multiple].input-sm,
 .input-group-lg > .input-group-addon,
 .input-group-lg > .input-group-btn > .btn {
   height: 43px;
-  padding: 10px 16px;
+  padding: 10px 10px;
   font-size: 18px;
   line-height: 1.33333;
   border-radius: 2px; }
@@ -2546,7 +2546,7 @@ select[multiple].input-lg,
 
 .form-group-lg .form-control {
   height: 43px;
-  padding: 10px 16px;
+  padding: 10px 10px;
   font-size: 18px;
   line-height: 1.33333;
   border-radius: 2px; }
@@ -2562,7 +2562,7 @@ select[multiple].input-lg,
 .form-group-lg .form-control-static {
   height: 43px;
   min-height: 38px;
-  padding: 11px 16px;
+  padding: 11px 10px;
   font-size: 18px;
   line-height: 1.33333; }
 
@@ -2790,7 +2790,7 @@ select[multiple].input-lg,
   background-image: none;
   border: 1px solid transparent;
   white-space: nowrap;
-  padding: 6px 12px;
+  padding: 6px 6px;
   font-size: 14px;
   line-height: 1.42857;
   border-radius: 2px;
@@ -3065,13 +3065,13 @@ fieldset[disabled] a.btn {
     text-decoration: none; }
 
 .btn-lg, .btn-group-lg > .btn {
-  padding: 10px 16px;
+  padding: 10px 10px;
   font-size: 18px;
   line-height: 1.33333;
   border-radius: 2px; }
 
 .btn-sm, .btn-group-sm > .btn {
-  padding: 5px 10px;
+  padding: 5px 5px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 2px; }
@@ -3459,7 +3459,7 @@ tbody.collapse.in {
   vertical-align: middle; }
 
 .input-group-addon {
-  padding: 6px 12px;
+  padding: 6px 6px;
   font-size: 14px;
   font-weight: normal;
   line-height: 1;
@@ -3471,13 +3471,13 @@ tbody.collapse.in {
   .input-group-addon.input-sm,
   .input-group-sm > .input-group-addon,
   .input-group-sm > .input-group-btn > .input-group-addon.btn {
-    padding: 5px 10px;
+    padding: 5px 5px;
     font-size: 12px;
     border-radius: 2px; }
   .input-group-addon.input-lg,
   .input-group-lg > .input-group-addon,
   .input-group-lg > .input-group-btn > .input-group-addon.btn {
-    padding: 10px 16px;
+    padding: 10px 10px;
     font-size: 18px;
     border-radius: 2px; }
   .input-group-addon input[type="radio"],
@@ -4073,7 +4073,7 @@ tbody.collapse.in {
     .pagination > li > span {
       position: relative;
       float: left;
-      padding: 6px 12px;
+      padding: 6px 6px;
       line-height: 1.42857;
       text-decoration: none;
       color: #534f97;
@@ -4118,7 +4118,7 @@ tbody.collapse.in {
 
 .pagination-lg > li > a,
 .pagination-lg > li > span {
-  padding: 10px 16px;
+  padding: 10px 10px;
   font-size: 18px;
   line-height: 1.33333; }
 
@@ -4134,7 +4134,7 @@ tbody.collapse.in {
 
 .pagination-sm > li > a,
 .pagination-sm > li > span {
-  padding: 5px 10px;
+  padding: 5px 5px;
   font-size: 12px;
   line-height: 1.5; }
 
@@ -6066,7 +6066,7 @@ hr {
   font-size: 5rem; }
 
 .wrapper--categories {
-  background: url("/assets/images/siluetti_6aika@2x.png") repeat-x center bottom;
+  background: url("/assets/images/siluetti@2x.png") repeat-x center bottom;
   background-size: auto 100%; }
 
 .categories {
