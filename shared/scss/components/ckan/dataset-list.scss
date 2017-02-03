@@ -1,0 +1,12 @@
+.dataset-list {
+  list-style: none;
+  padding: 0;
+
+  .dataset-item {
+    padding: 0;
+
+    > a {
+      color: $text-color;
+    }
+  }
+}

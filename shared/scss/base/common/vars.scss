@@ -39,7 +39,11 @@ $white: #ffffff;
 
 // New input heights based on BS defaults
 $line-height-computed: 20px;
+
 $padding-base-vertical: 6px;
+$padding-base-horizontal: 6px;
+$margin-base-vertical: 6px;
+$margin-base-horizontal: 6px;
 
 $font-size-base: 14px !default;
 $font-size: $font-size-base;
@@ -47,12 +51,18 @@ $font-size-large: ceil(($font-size-base * 1.25)) !default; // ~18px
 $font-size-small: ceil(($font-size-base * 0.85)) !default; // ~12px
 
 $padding-large-vertical: 10px !default;
+$padding-large-horizontal: 10px !default;
+$margin-large-vertical: 10px !default;
+$margin-large-horizontal: 10px !default;
 
 $line-height-base:  1.428571429 !default; // 20/14
 $line-height-large: 1.3333333 !default; // extra decimals for Win 8.1 Chrome
 $line-height-small: 1.5 !default;
 
 $padding-small-vertical: 5px !default;
+$padding-small-horizontal: 5px !default;
+$margin-small-vertical: 5px !default;
+$margin-small-horizontal: 5px !default;
 
 $input-height-base: ($line-height-computed + ($padding-base-vertical * 2) - 1);
 $input-height-large: (ceil($font-size-large * $line-height-large) + ($padding-large-vertical * 2) - 1);
