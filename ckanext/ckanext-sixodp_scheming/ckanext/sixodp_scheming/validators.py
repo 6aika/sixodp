@@ -101,3 +101,17 @@ def tag_list_output(value):
     if isinstance(value, dict) or len(value) is 0:
         return value
     return json.loads(value)
+
+def repeating_text_output(value):
+    """
+    Return stored json representation as a list, if
+    value is already a list just pass it through.
+    """
+    if isinstance(value, list):
+        return value
+    if value is None:
+        return []
+    try:
+        return json.loads(value)
+    except ValueError:
+        return [value]

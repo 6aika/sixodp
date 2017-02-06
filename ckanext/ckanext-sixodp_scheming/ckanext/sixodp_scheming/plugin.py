@@ -69,7 +69,9 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin):
             'set_private_if_not_admin': validators.set_private_if_not_admin,
             'list_to_string': validators.list_to_string,
             'convert_to_list': validators.convert_to_list,
-            'tag_list_output': validators.tag_list_output
+            'tag_list_output': validators.tag_list_output,
+            'repeating_text_output':
+                validators.repeating_text_output,
             }
 
     # IPackageController
