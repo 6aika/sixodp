@@ -5,6 +5,12 @@
 
     .module {
       margin: $margin-large-vertical 0;
+
+      .main-content {
+        p {
+          margin: $margin-large-vertical*2 0;
+        }
+      }
     }
   }
 
@@ -15,6 +21,8 @@
     .main-heading {
       padding: 0 $padding-large-horizontal;
       font-size: $font-size-xlarge;
+      font-weight: $headings-font-weight;
+      font-family: $font;
     }
 
     .module {
@@ -22,11 +30,17 @@
 
       .module-heading {
         font-size: $font-size-large;
+        color: $text-color;
+        font-weight: $headings-font-weight;
+        font-family: $font;
       }
 
       .module-content {
         .heading {
           font-size: $font-size-large;
+          color: $text-color;
+          font-weight: $headings-font-weight;
+          font-family: $font;
         }
       }
     }
@@ -45,9 +59,11 @@
 
         .module-heading {
           font-size: $font-size-large;
+          color: $text-color;
+          font-weight: $headings-font-weight;
+          font-family: $font;
         }
       }
     }
-
   }
 }
