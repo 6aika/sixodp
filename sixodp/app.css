@@ -5879,12 +5879,7 @@ a {
     text-decoration: none; }
 
 .material-icons {
-  float: left;
-  line-height: 18px !important;
-  margin-right: 4px; }
-
-.star-rating-stars .icon {
-  font-size: 1.5em; }
+  vertical-align: top; }
 
 .btn-primary {
   background-color: #534f97; }
@@ -5897,11 +5892,18 @@ a {
   .btn-secondary:hover {
     background-color: #c18ffc; }
 
+.btn-lg, .btn-group-lg > .btn {
+  padding-left: 20px;
+  padding-right: 20px; }
+
 .btn-wrapper--right {
   text-align: center !important; }
   @media (min-width: 992px) {
     .btn-wrapper--right {
       text-align: right !important; } }
+
+.btn--ajankohtaista {
+  margin-top: 10px; }
 
 .control-label[for="field-order-by"] {
   line-height: 30px;
@@ -6218,3 +6220,44 @@ hr {
     @media (min-width: 992px) {
       .horizaccordion__footer .btn {
         display: none; } }
+
+.showcase__wrapper {
+  float: left;
+  width: 300px;
+  padding-left: 10px;
+  padding-right: 10px; }
+
+.showcase {
+  background: #534f97;
+  color: #fff;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  position: relative;
+  margin-bottom: 60px; }
+  .showcase:after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 16px;
+    width: 0;
+    height: 0;
+    border: 124px solid transparent;
+    border-top: 26px solid #534f97; }
+
+.showcase__content {
+  padding: 20px; }
+
+.showcase__title {
+  text-align: center;
+  font-family: "Roboto Slab", sans-serif; }
+
+.showcase__text {
+  color: #fff; }
+
+.showcase__link {
+  color: #fff; }
+
+.showcase__footer {
+  width: 75%;
+  margin: 20px auto 0;
+  border-top: 1px solid #6d69b0; }

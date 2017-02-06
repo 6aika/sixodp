@@ -18,17 +18,13 @@ get_header(); ?>
 <div id="primary" class="content-area">
 	<main id="main" class="site-main site-main--home" role="main">
 		<?php
-		// Start the loop.
-		while ( have_posts() ) : the_post();
 
       get_template_part( 'partials/hero' );
 			get_template_part( 'partials/categories' );
 			get_template_part( 'partials/horizaccordion' );
-			get_template_part( 'partials/featured-datasets' );
 			get_template_part( 'partials/featured-apps' );
+			get_template_part( 'partials/featured-datasets' );
 
-			// End of the loop.
-		endwhile;
 		?>
 
 	</main><!-- .site-main -->
