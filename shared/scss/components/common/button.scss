@@ -19,10 +19,19 @@
   }
 }
 
+.btn-lg {
+  padding-left: $base*2;
+  padding-right: $base*2;
+}
+
 .btn-wrapper--right {
   text-align: center !important;
 
   @media (min-width: $width-md) {
     text-align: right !important;
   }
+}
+
+.btn--ajankohtaista {
+  margin-top: $base;
 }
