@@ -48,6 +48,10 @@
     height: $base*48;
     padding-bottom: 0;
 
+    .horizaccordion__text {
+      display: none;
+    }
+
     &:hover {
 
       .horizaccordion__container {

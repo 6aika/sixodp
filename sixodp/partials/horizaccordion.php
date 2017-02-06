@@ -9,26 +9,34 @@
     <div class="row">
       <div class="horizaccordion">
         <?php
-          $i = 0;
-          while($i < 4) {
-            $imgUrl = site_url()."/wp-content/themes/sixodp/images/article_bg".($i+1).".jpg"; ?>
+          $args = array( 'posts_per_page' => 4 );
 
+          $myposts = get_posts( $args );
+          foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
             <div class="horizaccordion__container">
-              <div class="horizaccordion__item" style="background-image: url(<?php echo $imgUrl; ?>);">
+              <?php
+                if (has_post_thumbnail( $post->ID ) ):
+                  $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
+                else :
+                  $image = array("/assets/images/frontpage.jpg");
+                endif;
+              ?>
+              <div class="horizaccordion__item" style="background-image: url(<?php echo $image[0]; ?>);">
                 <h4 class="horizaccordion__title">
-                  <a class="horizaccordion__link" href="<?php echo site_url(); ?>">
-                    Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+                  <a class="horizaccordion__link" href="<?php the_permalink(); ?>">
+                    <?php the_title(); ?>
                   </a>
                 </h4>
-                <p class="horizaccordion__text">Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <div class="horizaccordion__text">
+                  <?php the_excerpt(); ?>
+                </div>
                 <div class="horizaccordion__footer">
                   <button type="button" class="btn btn-secondary">Lue lisää</button>
                 </div>
               </div>
-            </div><?php
-            $i++;
-          }
-        ?>
+            </div>
+          <?php endforeach; 
+          wp_reset_postdata();?>
       </div>
     </div>
   </div>

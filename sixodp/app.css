@@ -6155,6 +6155,8 @@ hr {
     .horizaccordion {
       height: 480px;
       padding-bottom: 0; }
+      .horizaccordion .horizaccordion__text {
+        display: none; }
       .horizaccordion:hover .horizaccordion__container {
         max-width: 200px; }
         .horizaccordion:hover .horizaccordion__container:hover {
