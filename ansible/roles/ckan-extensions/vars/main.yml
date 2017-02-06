@@ -1,6 +1,6 @@
 ---
 
-ckanext_sync_path: "{{ server_path }}/ckanext"
+ckanext_sync_path: "{{ server_path }}"
 
 ckan_extensions:
   - ckanext-sixodp_routes
@@ -12,7 +12,6 @@ ckan_extensions:
   - ckanext-showcase
   - ckanext-fluent
   - ckanext-pages
-  - ckanext-contact
   - ckanext-harvest
   - ckanext-cloudstorage
   - ckanext-report
@@ -20,7 +19,6 @@ ckan_extensions:
   - ckanext-archiver
   - ckanext-hierarchy
   - ckanext-disqus
-  - ckanext-repeating
   - ckanext-reminder
   - ckanext-rating
   - ckanext-editor

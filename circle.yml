@@ -9,18 +9,17 @@ checkout:
     - git submodule update --init
 dependencies:
   pre:
+    - sudo add-apt-repository -y ppa:ansible/ansible
+    - sudo apt-get update
+    - sudo apt-get install -y ansible
     - npm install -g browserify
   override:
     - npm install:
         pwd: ckanext/ckanext-sixodp_ui
-general:
-  branches:
-    only:
-      - setup-unit-tests
-  artifacts:
-    - "~/ckanext-sixodp_ui.tar.gz"
-deployment:
-  master:
-    branch: master
-    commands:
-       - tar --exclude=".git ckanext/ckanext/sixodp_ui/node_modules" -czvf ~/ckanext-sixodp_ui.tar.gz ckanext/ckanext-sixodp_ui
+compile:
+  override:
+    - sudo -u postgres psql -c "CREATE ROLE ckan_admin NOSUPERUSER CREATEDB CREATEROLE INHERIT LOGIN PASSWORD 'admin';"
+    - cd ansible && ansible-playbook -i inventories/build build.yml
+test:
+  override:
+    - "true"

@@ -34,9 +34,6 @@ ckan.datastore.read_url = postgres://{{ postgres.users.ckan_datastore.username }
 
 ckan.site_url = https://{{ public_facing_hostname }}
 ckan.site_url_internally = https://{{ public_facing_hostname }}/data/
-{% raw %}
-ckan.root_path = /data/{{LANG}}
-{% endraw %}
 
 ckan.auth.anon_create_dataset = false
 ckan.auth.create_unowned_dataset = false
@@ -81,7 +78,6 @@ ckan.feeds.author_link =
 scheming.presets = ckanext.scheming:presets.json
                    ckanext.fluent:presets.json
                    ckanext.sixodp_scheming:presets.json
-                   ckanext.repeating:presets.json
 
 scheming.dataset_schemas = ckanext.sixodp_scheming.schemas:dataset.json
 licenses_group_url = file://{{ckanext_sync_path}}/ckanext-sixodp_scheming/ckanext/sixodp_scheming/licenses/licenses.json
@@ -97,10 +93,6 @@ ckanext.sixodp_ui.wp_footer_menu_location = footer
 smtp.server = {{ email.smtp_server }}
 smtp.starttls = False
 smtp.mail_from = no-reply
-
-ckanext.contact.mail_to = {{ email.contact }}
-ckanext.contact.recipient_name =
-ckanext.contact.subject = Palautetta dataportaalista
 
 ckan.harvest.mq.type = redis
 ckan.harvest.mq.hostname = {{ redis.host }}
@@ -147,6 +139,8 @@ ckanext.editor.default_field = title_translated
 ckanext.editor.appendable_fields = title_translated notes_translated update_frequency url maintainer maintainer_email maintainer_website agency
 ckanext.editor.enable_group_editing = true
 ckanext.editor.enable_collection_editing = true # Use only when ckanext-collection is in use
+
+ckanext.hierarchy.show_organizations_without_datasets = True
 
 # Todo replace with organization user
 ckanext.datasubmitter.creating_user_username = {{ ckan_users.admin.username }}

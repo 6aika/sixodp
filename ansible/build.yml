@@ -1,0 +1,25 @@
+---
+
+# To run:
+# ansible-playbook -v -i inventories/build build.yml
+
+- hosts: mainserver
+  become: true
+  vars_files:
+    - "vars/common.yml"
+    - "vars/environment-specific/{{ deployment_environment_id }}.yml"
+    - "{{ secrets_file_path }}"
+  roles:
+    - java8
+    - postgres-install
+    - postgres-data
+    - solr6
+    - apache
+    - ckan-install
+    - ckan-extensions
+    - ckan-config
+    - ckan-install-patches
+    - ckan-database
+    - datapusher
+    - ckan-translations
+    - solr-reindex
