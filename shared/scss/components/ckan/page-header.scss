@@ -1,0 +1,20 @@
+.page-header {
+  padding-left: 0;
+  padding-right: 0;
+
+  .content_action {
+    margin-bottom: $margin-small-vertical;
+  }
+
+  .nav-tabs {
+    li {
+      background: $gray-lighter;
+      color: $brand-primary;
+
+      &.active {
+        background: $brand-primary;
+        color: $white;
+      }
+    }
+  }
+}

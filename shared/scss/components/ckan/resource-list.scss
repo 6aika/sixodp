@@ -3,6 +3,26 @@
   padding: 0;
 
   .resource-item {
+    height: 100%;
+    padding: 0;
     background: $gray-lighter;
+
+    .container-fluid {
+      padding: 0;
+    }
+
+    a {
+      &:not(.dropdown-toggle) {
+        height: 100%;
+        width: 100%;
+        display: inline-block;
+        padding: $padding-large-vertical $padding-large-vertical $padding-large-vertical 6*$padding-large-vertical;
+      }
+
+      &.dropdown-toggle {
+        display: inline;
+        height: 100%;
+      }
+    }
   }
 }

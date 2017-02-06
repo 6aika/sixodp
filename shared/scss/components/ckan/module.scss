@@ -17,20 +17,6 @@
     padding: 0;
     margin: 0;
 
-    &.page-header {
-      background-color: $white;
-      padding: 0;
-      border: none;
-      padding-left: $padding-base-horizontal;
-      padding-right: $padding-base-horizontal;
-
-      .content_action {
-        width: 100%;
-        display: block;
-        padding: $padding-base-vertical 0;
-      }
-    }
-
     img {
       width: 100%;
       height: auto;

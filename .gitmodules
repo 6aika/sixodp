@@ -12,7 +12,7 @@
 	url = https://github.com/ckan/ckanext-showcase.git
 [submodule "ckanext/ckanext-hierarchy"]
 	path = ckanext/ckanext-hierarchy
-	url = https://github.com/datagovuk/ckanext-hierarchy
+	url = https://github.com/6aika/ckanext-hierarchy.git
 [submodule "ckanext/ckanext-disqus"]
 	path = ckanext/ckanext-disqus
 	url = https://github.com/ckan/ckanext-disqus

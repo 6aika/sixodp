@@ -3,7 +3,8 @@ button,
   @extend %button;
 }
 
-a.btn {
+a.btn,
+button.btn {
   @extend .btn-default;
   background: $gray-lighter;
 }
