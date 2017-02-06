@@ -5,4 +5,14 @@
   display: block;
   position: relative;
   margin-bottom: $base;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    display: block;
+
+    li {
+      display: inline-block;
+    }
+  }
 }

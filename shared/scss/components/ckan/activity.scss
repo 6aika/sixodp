@@ -1,0 +1,13 @@
+.activity {
+  list-style: none;
+  padding: 0;
+
+  .item {
+    display: inline-block;
+    width: 100%;
+
+    p {
+      display: inline-block;
+    }
+  }
+}

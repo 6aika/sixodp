@@ -6,9 +6,15 @@
     .module {
       margin: $margin-large-vertical 0;
 
-      .main-content {
-        p {
-          margin: $margin-large-vertical*2 0;
+      .module-content {
+        &.main-content {
+          p {
+            margin: $margin-large-vertical*2 0;
+          }
+        }
+
+        .page_primary_action {
+          margin: $margin-small-vertical 0;
         }
       }
     }
