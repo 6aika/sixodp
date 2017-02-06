@@ -34,6 +34,9 @@ ckan.datastore.read_url = postgres://{{ postgres.users.ckan_datastore.username }
 
 ckan.site_url = https://{{ public_facing_hostname }}
 ckan.site_url_internally = https://{{ public_facing_hostname }}/data/
+{% raw %}
+ckan.root_path = /data/{{LANG}}
+{% endraw %}
 
 ckan.auth.anon_create_dataset = false
 ckan.auth.create_unowned_dataset = false
