@@ -80,7 +80,6 @@
       "preset_name": "resource_url_upload_ex",
       "values": {
         "validators": "not_empty unicode remove_whitespace",
-        "form_snippet": "upload.html",
         "form_placeholder": "http://example.com/my-data.csv",
         "upload_field": "upload",
         "upload_clear": "clear_upload",
@@ -143,6 +142,15 @@
         },
         "display_snippet": "fluent_tag_list.html",
         "form_snippet": "fluent_tags_with_autocomplete.html"
+      }
+    },
+    {
+      "preset_name": "repeating_text",
+      "values": {
+        "form_snippet": "repeating_text.html",
+        "display_snippet": "repeating_text.html",
+        "validators": "repeating_text",
+        "output_validators": "repeating_text_output"
       }
     }
   ]

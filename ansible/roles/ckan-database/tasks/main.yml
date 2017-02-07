@@ -1,11 +1,5 @@
 ---
 
-# Supervisor and other services may block database update and they should be
-# stopped here before database upgrade
-
-- name: Stop supervisor services
-  command: supervisorctl stop all
-
 - name: Initialize CKAN database
   command: ckan db init
   ignore_errors: True

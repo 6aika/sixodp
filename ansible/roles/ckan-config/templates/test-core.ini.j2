@@ -1,0 +1,147 @@
+#
+# ckan - Pylons testing environment configuration
+#
+
+[server:main]
+use = egg:Paste#http
+host = 0.0.0.0
+port = 5000
+
+[app:main]
+use = egg:ckan
+full_stack = true
+cache_dir = %(here)s/data
+debug = false
+testing = true
+
+
+# Specify the Postgres database for SQLAlchemy to use
+sqlalchemy.url = postgres://{{ postgres.users.ckan.username }}:{{ postgres.users.ckan.password }}@{{ postgres.server.host }}/{{ postgres.databases.ckan.name }}
+
+## Datastore
+ckan.datastore.write_url = postgres://{{ postgres.users.ckan.username }}:{{ postgres.users.ckan.password }}@{{ postgres.server.host }}/{{ postgres.databases.ckan_datastore.name }}
+ckan.datastore.read_url = postgres://{{ postgres.users.ckan_datastore.username }}:{{ postgres.users.ckan_datastore.password }}@{{ postgres.server.host }}/{{ postgres.databases.ckan_datastore.name }}
+
+ckan.datapusher.url = http://0.0.0.0:8800/
+
+## Solr support
+solr_url = http://{{ solr.host }}:{{ solr.port }}/solr/ckan
+
+ckan.auth.user_create_organizations = true
+ckan.auth.user_create_groups = true
+ckan.auth.create_user_via_api = false
+ckan.auth.create_user_via_web = false
+ckan.auth.create_dataset_if_not_in_organization = false
+ckan.auth.anon_create_dataset = false
+ckan.auth.user_delete_groups = true
+ckan.auth.user_delete_organizations = true
+ckan.auth.create_unowned_dataset = false
+ckan.auth.roles_that_cascade_to_sub_groups = admin
+
+ckan.cache_validation_enabled = True
+ckan.cache_enabled = False
+ckan.tests.functional.test_cache.expires = 1800
+ckan.tests.functional.test_cache.TestCacheBasics.test_get_cache_expires.expires = 3600
+
+ckan.site_id = {{ ckan_site_id }}
+ckan.site_title = {{ ckan_site_name }}
+ckan.site_logo =
+ckan.site_description =
+package_form = standard
+licenses_group_url = file://{{ckanext_sync_path}}/ckanext-sixodp_scheming/ckanext/sixodp_scheming/licenses/licenses.json
+
+# pyamqplib or queue
+carrot_messaging_library = queue
+ckan.site_url = https://{{ public_facing_hostname }}
+ckan.site_url_internally = https://{{ public_facing_hostname }}/data/
+
+# Add additional test specific configuration options as necessary.
+
+ckanext.sixodp_ui.cms_site_url = dataportaali.demo.site
+ckanext.sixodp_ui.wp_main_menu_location = primary
+ckanext.sixodp_ui.wp_footer_menu_location = footer
+
+# Rating configuration
+ckanext.rating.enabled_dataset_types = showcase
+
+# Reminder configuration
+ckanext.reminder.site_url = https://{{ public_facing_hostname }}
+ckanext.reminder.recipient_username = {{ ckan_users.admin.username }}
+
+# Editor configuration
+ckanext.editor.editable_fields = title_translated notes_translated tag_string owner_org update_frequency url maintainer maintainer_email maintainer_website licence_id agency reminder private
+ckanext.editor.default_field = title_translated
+ckanext.editor.appendable_fields = title_translated notes_translated update_frequency url maintainer maintainer_email maintainer_website agency
+ckanext.editor.enable_group_editing = true
+ckanext.editor.enable_collection_editing = true # Use only when ckanext-collection is in use
+
+# Disqus configuration
+disqus.name = sixodp-generic-{{ deployment_environment_id }}
+
+# Change API key HTTP header to something non-standard.
+
+ckan.plugins = {{ enabled_ckan_extensions | join(" ") }} {% if AWS.enabled  -%} {{ enabled_ckan_aws_extensions }} {%- endif %}
+
+# use <strong> so we can check that html is *not* escaped
+ckan.template_head_end = <link rel="stylesheet" href="TEST_TEMPLATE_HEAD_END.css" type="text/css">
+
+# use <strong> so we can check that html is *not* escaped
+ckan.template_footer_end = <strong>TEST TEMPLATE_FOOTER_END TEST</strong>
+
+# mailer
+smtp.test_server = localhost:6675
+smtp.mail_from = info@test.ckan.net
+
+ckan.locale_default = fi
+ckan.locale_order = fi en_GB sv en pt_BR ja it cs_CZ ca es fr el sv sr sr@latin no sk fi ru de pl nl bg ko_KR hu sa sl lv
+ckan.locales_offered = fi sv en_GB
+ckan.locales_filtered_out =
+ckan.feeds.authority_name =
+ckan.feeds.date =
+ckan.feeds.author_name =
+ckan.feeds.author_link =
+
+ckan.tracking_enabled = true
+
+beaker.session.key = ckan
+beaker.session.secret = {{ secret.ckan_config.beaker_session_secret }}
+# repoze.who config
+who.config_file = %(here)s/who.ini
+who.log_level = warning
+who.log_file = %(cache_dir)s/who_log.ini
+
+# Logging configuration
+[loggers]
+keys = root, ckan, ckanext, sqlalchemy
+
+[handlers]
+keys = console
+
+[formatters]
+keys = generic
+
+[logger_root]
+level = WARN
+handlers = console
+
+[logger_ckan]
+qualname = ckan
+handlers = console
+level = INFO
+
+[logger_sqlalchemy]
+handlers =
+qualname = sqlalchemy.engine
+level = WARNING
+# "level = INFO" logs SQL queries.
+# "level = DEBUG" logs SQL queries and results.
+# "level = WARNING" logs neither.
+
+[handler_console]
+class = StreamHandler
+args = (sys.stderr,)
+level = NOTSET
+formatter = generic
+
+[formatter_generic]
+format = %(asctime)s %(levelname)-5.5s [%(name)s] %(message)s

@@ -20,6 +20,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       ansible.limit = "all"
       ansible.playbook = "deploy-all.yml"
       ansible.provisioning_path = "/vagrant/ansible"
+      ansible.raw_arguments = ["-v"]
     end
     server.vm.provider "virtualbox" do |vbox|
       vbox.gui = false

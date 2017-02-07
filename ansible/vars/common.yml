@@ -9,6 +9,8 @@ data_path: "{{ server_path }}/data"
 ckan_storage_path: "{{ data_path }}/ckan"
 
 ckan_ini: /etc/ckan/default/production.ini
+ckan_test_core_ini: /etc/ckan/default/test-core.ini
+ckan_who_ini: /etc/ckan/default/who.ini
 virtualenv: /usr/lib/ckan/default
 datapusherenv: /usr/lib/ckan/datapusher
 
