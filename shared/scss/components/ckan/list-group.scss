@@ -1,0 +1,37 @@
+.list-group {
+  .list-group-item {
+    margin-bottom: $margin-large-vertical;
+
+    .image-wrapper {
+      max-height: 175px;
+      max-width: 100%;
+      overflow: hidden;
+
+      img {
+        width: 200px;
+        height: auto;
+      }
+    }
+
+    .media-view {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 1px solid #dddddd;
+      overflow: hidden;
+      -webkit-transition: all 0.2s ease-in;
+      -moz-transition: all 0.2s ease-in;
+      -o-transition: all 0.2s ease-in;
+      transition: all 0.2s ease-in;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+
+      span {
+        display: none;
+      }
+    }
+  }
+}
