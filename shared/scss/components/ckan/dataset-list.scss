@@ -4,6 +4,8 @@
 
   .dataset-item {
     padding: 0;
+    background: $gray-lighter;
+    margin-bottom: $margin-large-vertical;
 
     > a {
       color: $text-color;
