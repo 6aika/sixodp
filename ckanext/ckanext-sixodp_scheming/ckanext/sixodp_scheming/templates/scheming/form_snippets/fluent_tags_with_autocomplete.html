@@ -18,7 +18,7 @@ or ','.join(data.get(field.field_name, {}).get(lang, [])),
 error=errors[field.field_name + '-' + lang],
 classes=['control-medium'],
 attrs=attrs_with_locale,
-is_required=h.scheming_field_required(field)
+is_required=h.scheming_field_only_default_required(field, lang)
 ) %}
 {%- snippet 'scheming/form_snippets/fluent_help_text.html',
 field=field,

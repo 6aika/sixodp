@@ -137,13 +137,14 @@
           "data-module-source": "/api/2/util/tag/autocomplete?incomplete=?&vocabulary_id=example_vocab"
         },
         "display_snippet": "tag_list.html",
-        "form_snippet": "tag_list.html"
+        "form_snippet": "tag_list.html",
+        "error_snippet": "fluent_text.html"
       }
     },
     {
       "preset_name": "fluent_vocabulary_with_autocomplete",
       "values":{
-        "validators": "fluent_tags create_fluent_tags(example_vocab)",
+        "validators": "only_default_lang_required fluent_tags create_fluent_tags(example_vocab)",
         "output_validators": "fluent_tags_output",
         "form_attrs": {
           "data-module": "autocomplete",
@@ -151,7 +152,8 @@
           "data-module-source": "/api/2/util/tag/autocomplete?incomplete=?&vocabulary_id=example_vocab"
         },
         "display_snippet": "fluent_tag_list.html",
-        "form_snippet": "fluent_tags_with_autocomplete.html"
+        "form_snippet": "fluent_tags_with_autocomplete.html",
+        "error_snippet": "fluent_text.html"
       }
     },
     {
