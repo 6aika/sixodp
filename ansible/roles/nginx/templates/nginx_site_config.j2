@@ -19,6 +19,10 @@ server {
     proxy_set_header Host $host;
   }
 
+  location = /data/ {
+    return 302 /data/dataset;
+  }
+
   location / {
     alias /opt/wordpress/;
     try_files $uri $uri/ //index.php?$args; # https://trac.nginx.org/nginx/ticket/97
