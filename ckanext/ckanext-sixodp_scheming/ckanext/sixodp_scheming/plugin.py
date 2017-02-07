@@ -70,6 +70,7 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin):
             'list_to_string': validators.list_to_string,
             'convert_to_list': validators.convert_to_list,
             'tag_list_output': validators.tag_list_output,
+            'repeating_text': validators.repeating_text,
             'repeating_text_output':
                 validators.repeating_text_output,
             }
