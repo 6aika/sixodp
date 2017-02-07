@@ -3,12 +3,12 @@
    instead of media-items (Bootstrap 2) #}
 
 {% block item %}
-<li class="list-group-item kapa-item">
+<li class="list-group-item">
   <div class="media">
   {% block item_inner %}
   {% block image %}
     <div class="media-left media-middle hidden-xs">
-      <div class="kapa-image-wrapper">
+      <div class="image-wrapper">
         <img class="media-object" src="{{ group.image_display_url or h.url_for_static('/base/images/placeholder-group.png') }}" alt="{{ group.name }}">
       </div>
     </div>
