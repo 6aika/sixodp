@@ -45,6 +45,10 @@
           font-family: $font;
         }
       }
+
+      &.context-info {
+        padding: 0;
+      }
     }
 
     .filters {
