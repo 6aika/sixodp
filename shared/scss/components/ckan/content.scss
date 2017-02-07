@@ -12,10 +12,6 @@
             margin: $margin-large-vertical*2 0;
           }
         }
-
-        .page_primary_action {
-          margin: $margin-small-vertical 0;
-        }
       }
     }
   }
@@ -71,5 +67,10 @@
         }
       }
     }
+  }
+
+  .page_primary_action,
+  #followee-filter {
+    margin: $margin-small-vertical 0;
   }
 }
