@@ -20,6 +20,7 @@
           $i = 0;
           while($i < 4) {
             $imgUrl = site_url()."/wp-content/themes/sixodp/images/article_bg".($i+1).".jpg";
+            $packageId = (rand(1, 4))*3;
             include(locate_template( 'partials/showcase.php' ));
             $i++;
           }

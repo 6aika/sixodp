@@ -17,7 +17,16 @@
         <p>Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       </div>
       <div class="showcase__footer">
-        
+        <?php
+          $rating = get_ckan_package_rating($packageId);
+          $i = $rating['rating'];
+          while ($i > 0) {
+            echo '<span class="icon icon-star"></span>';
+            $i--;
+          }
+        ?>
+
+        <p><?php echo $rating['ratings_count'] . " arviota"; ?></p>
       </div>
     </div>
   </div>
