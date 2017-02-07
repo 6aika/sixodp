@@ -11,7 +11,7 @@
       "preset": "fluent_core_title_translated",
       "form_languages": ["fi", "en", "sv"],
       "form_placeholder":"eg. A descriptive title",
-      "required": true
+      "only_default_lang_required": true
     },
 
     {
@@ -26,7 +26,8 @@
       "form_placeholder": "eg. A detailed description",
       "form_languages": ["fi", "en", "sv"],
       "label": "Description",
-      "display_snippet": null
+      "display_snippet": null,
+      "only_default_lang_required": true
     },
     {
       "field_name": "keywords",
@@ -155,10 +156,10 @@
     {
       "field_name": "name_translated",
       "label": "Name",
-      "preset": "fluent_core_translated",
+      "preset": "fluent_core_translated_extended",
       "form_languages": ["fi", "en", "sv"],
       "form_placeholder":"eg. January 2011 Gold Prices",
-      "required": true
+      "only_default_lang_required": true
     },
     {
       "field_name": "description_translated",

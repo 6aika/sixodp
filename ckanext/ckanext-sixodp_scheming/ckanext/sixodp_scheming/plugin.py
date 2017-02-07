@@ -71,8 +71,8 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin):
             'convert_to_list': validators.convert_to_list,
             'tag_list_output': validators.tag_list_output,
             'repeating_text': validators.repeating_text,
-            'repeating_text_output':
-                validators.repeating_text_output,
+            'repeating_text_output': validators.repeating_text_output,
+            'only_default_lang_required': validators.only_default_lang_required
             }
 
     # IPackageController
@@ -116,4 +116,5 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin):
     def get_helpers(self):
         return {'call_toolkit_function': helpers.call_toolkit_function,
                 'add_locale_to_source': helpers.add_locale_to_source,
-                'get_lang': helpers.get_current_lang}
+                'get_lang': helpers.get_current_lang,
+                'scheming_field_only_default_required': helpers.scheming_field_only_default_required}

@@ -6,16 +6,33 @@ import collections
 import ckan.model as model
 import ckan.logic.validators as validators
 import ckan.lib.navl.dictization_functions as df
-
+import re
 import json
 from ckan.logic import get_action
 
+
+try:
+    from ckanext.scheming.validation import (
+        scheming_validator, validators_from_string)
+except ImportError:
+    # If scheming can't be imported, return a normal validator instead
+    # of the scheming validator
+    def scheming_validator(fn):
+        def noop(key, data, errors, context):
+            return fn(None, None)(key, data, errors, context)
+        return noop
+    validators_from_string = None
+
+from ckan.common import config
 Invalid = df.Invalid
 
 import plugin
 
 ObjectNotFound = toolkit.ObjectNotFound
 c = toolkit.c
+
+missing = toolkit.missing
+ISO_639_LANGUAGE = u'^[a-z][a-z][a-z]?[a-z]?$'
 
 def lower_if_exists(s):
     return s.lower() if s else s
@@ -187,3 +204,42 @@ def repeating_text_output(value):
         return json.loads(value)
     except ValueError:
         return [value]
+
+
+@scheming_validator
+def only_default_lang_required(field, schema):
+    default_lang = ''
+    if field and field.get('only_default_lang_required'):
+        default_lang =  config.get('ckan.locale_default', 'en')
+
+    def validator(key, data, errors, context):
+        if errors[key]:
+            return
+
+        value = data[key]
+
+        if value is not missing:
+            if isinstance(value, basestring):
+                try:
+                    value = json.loads(value)
+                except ValueError:
+                    errors[key].append(_('Failed to decode JSON string'))
+                    return
+                except UnicodeDecodeError:
+                    errors[key].append(_('Invalid encoding for JSON string'))
+                    return
+            if not isinstance(value, dict):
+                errors[key].append(_('expecting JSON object'))
+                return
+
+            if value.get(default_lang) is None:
+                errors[key].append(_('Required language "%s" missing') % default_lang)
+            return
+
+        prefix = key[-1] + '-'
+        extras = data.get(key[:-1] + ('__extras',), {})
+
+        if extras.get(prefix + default_lang) == '':
+            errors[key[:-1] + (key[-1] + '-' + default_lang,)] = [_('Missing value')]
+
+    return  validator
