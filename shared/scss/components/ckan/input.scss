@@ -1,5 +1,4 @@
 input {
-  @extend .form-control;
 
   &[type="file"] {
     cursor: pointer;

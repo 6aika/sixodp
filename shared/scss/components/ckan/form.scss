@@ -1,6 +1,10 @@
 form {
   .control-group {
     margin: $margin-large-vertical 0;
+
+    input {
+      @extend .form-control;
+    }
   }
 
   .form-group {
