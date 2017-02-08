@@ -1,14 +1,10 @@
-button,
-.btn {
-  @extend %button;
-}
+a,
+button {
+  &.btn {
+    @extend %button-default;
 
-a.btn,
-button.btn {
-  @extend .btn-default;
-  background: $gray-lighter;
-}
-
-.btn-primary {
-  @extend %button-primary;
+    &.btn-primary {
+      @extend %button-primary;
+    }
+  }
 }

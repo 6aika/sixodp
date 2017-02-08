@@ -25,16 +25,28 @@
   @extend %box;
   border: 0;
   transition: $transition;
+}
+
+%button-default {
+  @extend %button;
+  background-color: $gray-lighter;
+  color: $brand-primary;
 
   &:focus, &:active, &:hover {
-    color: #fff;
+    background-color: $white;
+    color: $brand-primary-light;
   }
 }
 
 %button-primary {
   @extend %button;
   background-color: $brand-primary;
-  color: #fff;
+  color: $white;
+
+  &:focus, &:active, &:hover {
+    background-color: $brand-primary-light;
+    color: $white;
+  }
 }
 
 %wrapper-padding {
@@ -72,7 +84,6 @@
 %box {
   @extend %box-shadow;
   @extend %border-radius;
-  background: #fff;
 }
 
 %heading {

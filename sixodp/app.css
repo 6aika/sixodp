@@ -5812,8 +5812,6 @@ button.close {
 .btn {
   border: 0;
   transition: all 0.2s ease-in-out; }
-  .btn:focus, .btn:active, .btn:hover {
-    color: #fff; }
 
 .btn, .category, .dataset, .box-shadow {
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
@@ -5825,9 +5823,6 @@ button.close {
 
 .btn, .category, .dataset {
   border-radius: 2px; }
-
-.btn, .category, .dataset {
-  background: #fff; }
 
 .heading {
   font-family: "Roboto Slab", sans-serif;
@@ -5880,30 +5875,6 @@ a {
 
 .material-icons {
   vertical-align: top; }
-
-.btn-primary {
-  background-color: #534f97; }
-  .btn-primary:hover {
-    background-color: #6d69b0; }
-
-.btn-secondary {
-  background-color: #a55efa;
-  color: #fff; }
-  .btn-secondary:hover {
-    background-color: #c18ffc; }
-
-.btn-lg, .btn-group-lg > .btn {
-  padding-left: 20px;
-  padding-right: 20px; }
-
-.btn-wrapper--right {
-  text-align: center !important; }
-  @media (min-width: 992px) {
-    .btn-wrapper--right {
-      text-align: right !important; } }
-
-.btn--ajankohtaista {
-  margin-top: 10px; }
 
 .control-label[for="field-order-by"] {
   line-height: 30px;
@@ -6031,6 +6002,30 @@ hr {
 
 .copyrights {
   padding: 20px 0 80px; }
+
+.btn-primary {
+  background-color: #534f97; }
+  .btn-primary:hover {
+    background-color: #6d69b0; }
+
+.btn-secondary {
+  background-color: #a55efa;
+  color: #fff; }
+  .btn-secondary:hover {
+    background-color: #c18ffc; }
+
+.btn-lg, .btn-group-lg > .btn {
+  padding-left: 20px;
+  padding-right: 20px; }
+
+.btn-wrapper--right {
+  text-align: center !important; }
+  @media (min-width: 992px) {
+    .btn-wrapper--right {
+      text-align: right !important; } }
+
+.btn--ajankohtaista {
+  margin-top: 10px; }
 
 .stats {
   display: none;
