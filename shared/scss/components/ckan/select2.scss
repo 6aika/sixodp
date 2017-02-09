@@ -1,0 +1,48 @@
+.select2-container,
+.select2-container-multi {
+  .select2-choices,
+  .select2-choice {
+    height: auto;
+    color: $input-color;
+    font-size: $font-size-base;
+    padding: 0;
+    border: 1px solid #ccc;
+    transition: border-color .2s ease-in-out;
+    background: $white;
+
+    input {
+      height: $input-height-small;
+      line-height: $line-height-small;
+    }
+
+    .select2-chosen {
+      padding: 0 $padding-small-horizontal;
+    }
+
+    .select2-arrow {
+      background: none;
+
+      b {
+        position: absolute;
+        top: 0;
+      }
+    }
+  }
+
+  &.select2-container-active {
+    .select2-choices,
+    .select2-choice {
+      border-color: $input-border-focus;
+    }
+  }
+}
+
+.select2-container {
+  width: 62%;
+}
+
+.select2-drop {
+  &-active {
+    border-color: $input-border-focus;
+  }
+}
