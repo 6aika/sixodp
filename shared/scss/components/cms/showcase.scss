@@ -1,8 +1,6 @@
 .wrapper--showcase {
+  @extend .wrapper;
   background: #f5f5f5;
-  margin-top: $base*4;
-  padding-top: $base*2;
-  padding-bottom: $base*4;
 
   .container {
 

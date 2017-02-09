@@ -1,23 +1,77 @@
 .datasets {
+  padding-left: $base*4;
+  border-left: 1px solid #ddd;
+}
+
+.dataset__list {
   padding: 0;
   margin: 0;
 }
 
 .dataset {
-  @extend %box;
-  padding: $base*2;
+  padding: $base 0;
   list-style: none;
   margin: $base auto;
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+
+.dataset__left {
+  width: 100%;
+  max-width: 80px;
+}
+
+.dataset__meta {
+  width: 100%;
+  height: 80px;
+  border-radius: 50%;
+  background: $brand-primary;
+  color: #fff;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+
+  .dataset__meta-wrapper {
+    display: block;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  span {
+    display: block;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+
+    &.dataset__sincetext {
+      font-size: 9px;
+    }
+  }
+}
+
+.dataset__content {
+  padding: 0 0 0 $base*2;
+
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+.dataset__type {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: $brand-secondary;
 }
 
 .dataset__title {
   margin: 0;
-}
-
-.dataset__meta {
-  margin-top: $base/2;
+  font-weight: 600;
+  font-family: $font-heading;
 }
 
 .dataset__body {
-  margin-top: $base;
+  color: $brand-primary;
 }
