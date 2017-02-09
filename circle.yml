@@ -16,7 +16,7 @@ dependencies:
         pwd: ckanext/ckanext-sixodp_ui
 compile:
   override:
-    - psql -c "CREATE ROLE ckan_admin NOSUPERUSER CREATEDB CREATEROLE INHERIT LOGIN PASSWORD 'admin';"
+    - psql -c "CREATE ROLE ckan_admin SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN PASSWORD 'admin';"
     - cd ansible && ansible-playbook -i inventories/build build.yml
 test:
   override:
