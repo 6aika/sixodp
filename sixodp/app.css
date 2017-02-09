@@ -5918,6 +5918,10 @@ a {
   float: right;
   height: 120px;
   text-align: center; }
+  .logos--eu .logo {
+    margin-right: 10px; }
+    .logos--eu .logo:last-of-type {
+      margin-right: 0; }
   .logos--eu .logo--erdf, .logos--eu .logo--eu {
     width: auto;
     height: 60px;
