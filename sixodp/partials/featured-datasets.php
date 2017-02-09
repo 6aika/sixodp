@@ -65,6 +65,9 @@
             </div>
           </li>
         </ul>
+        <button type="button" class="btn btn-lg btn-secondary pull-right">
+          Lisää päivityksiä <i class="material-icons">arrow_forward</i>
+        </button>
       </div>
     </div>
   </div>
