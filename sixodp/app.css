@@ -5925,7 +5925,7 @@ a {
   .logos--eu .logo--erdf, .logos--eu .logo--eu {
     width: auto;
     height: 60px;
-    display: block; }
+    display: inline-block; }
     .logos--eu .logo--erdf img, .logos--eu .logo--eu img {
       width: auto;
       height: 60px; }
@@ -6002,6 +6002,24 @@ hr {
 
 .copyrights {
   padding: 20px 0 80px; }
+
+.alert {
+  border: 2px solid transparent;
+  border-radius: 2px; }
+  .alert p {
+    margin: 0 0; }
+  .alert ul {
+    list-style: disc;
+    padding-left: 18px; }
+  .alert.alert-error {
+    background-color: #d9534f;
+    color: #ffffff; }
+  .alert.alert-success {
+    background-color: #97ba54;
+    color: #ffffff; }
+  .alert.alert-info {
+    background-color: #446eb5;
+    color: #ffffff; }
 
 .btn-primary {
   background-color: #534f97; }

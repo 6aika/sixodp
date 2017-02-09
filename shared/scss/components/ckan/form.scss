@@ -20,4 +20,10 @@ form {
       width: 50%;
     }
   }
+
+  .form-actions {
+    .action-info {
+      margin: $margin-large-vertical*2 0;
+    }
+  }
 }
