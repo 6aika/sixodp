@@ -22,11 +22,12 @@
 
 hr {
   margin: 0;
+  border-top: 1px solid rgba(255,255,255,0.6);
 }
 
 .footer-section {
-  padding-top: $base*2;
-  padding-bottom: $base*2;
+  padding-top: $base;
+  padding-bottom: $base;
 
   &.footer-section--links > div {
     height: 100%;
@@ -34,8 +35,6 @@ hr {
 }
 
 .footer-logo-wrapper {
-  @extend %vertically-centered;
-
   width: 25%;
   margin: auto;
 
@@ -49,13 +48,13 @@ hr {
 }
 
 .footer-links {
-  @extend %vertically-centered;
-
+  text-align: center;
   padding: 0;
+  margin-bottom:0;
+
   li {
     list-style: none;
     display: inline-block;
-    width: 49%;
 
     a {
       display: block;
@@ -66,4 +65,5 @@ hr {
 
 .copyrights {
   padding: $base*2 0 $base*8;
+  text-align: right;
 }
