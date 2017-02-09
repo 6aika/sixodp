@@ -5813,7 +5813,7 @@ button.close {
   border: 0;
   transition: all 0.2s ease-in-out; }
 
-.btn, .category, .dataset, .box-shadow {
+.btn, .category, .box-shadow {
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); }
 
@@ -5821,20 +5821,13 @@ button.close {
   -webkit-box-shadow: 1px 1px 3px rgba(83, 79, 151, 0.6);
   box-shadow: 1px 1px 3px rgba(83, 79, 151, 0.6); }
 
-.btn, .category, .dataset {
+.btn, .category {
   border-radius: 2px; }
 
 .heading {
   font-family: "Roboto Slab", sans-serif;
   color: #534f97;
   font-weight: 700; }
-
-.footer-logo-wrapper, .footer-links {
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%); }
 
 .js .js-hide, .hide-heading {
   display: none; }
@@ -5872,6 +5865,9 @@ a {
   a:hover {
     color: #8d8ac2;
     text-decoration: none; }
+
+.wrapper, .wrapper--showcase {
+  padding: 40px 0; }
 
 .material-icons {
   vertical-align: top; }
@@ -5971,12 +5967,12 @@ a {
   text-decoration: none; }
 
 hr {
-  margin: 0; }
+  margin: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.6); }
 
 .footer-section {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  height: 300px; }
+  padding-top: 10px;
+  padding-bottom: 10px; }
   .footer-section.footer-section--links > div {
     height: 100%; }
 
@@ -5991,17 +5987,19 @@ hr {
   width: 100%; }
 
 .footer-links {
-  padding: 0; }
+  text-align: center;
+  padding: 0;
+  margin-bottom: 0; }
   .footer-links li {
     list-style: none;
-    display: inline-block;
-    width: 49%; }
+    display: inline-block; }
     .footer-links li a {
       display: block;
       padding: 10px; }
 
 .copyrights {
-  padding: 20px 0 80px; }
+  padding: 20px 0 80px;
+  text-align: right; }
 
 .alert {
   border: 2px solid transparent;
@@ -6042,9 +6040,6 @@ hr {
   @media (min-width: 992px) {
     .btn-wrapper--right {
       text-align: right !important; } }
-
-.btn--ajankohtaista {
-  margin-top: 10px; }
 
 .btn--sovellukset {
   position: relative;
@@ -6121,22 +6116,65 @@ hr {
   text-transform: capitalize; }
 
 .datasets {
+  padding-left: 40px;
+  border-left: 1px solid #ddd; }
+
+.dataset__list {
   padding: 0;
   margin: 0; }
 
 .dataset {
-  padding: 20px;
+  padding: 10px 0;
   list-style: none;
-  margin: 10px auto; }
+  margin: 10px auto;
+  display: flex;
+  border-top: 1px solid #ddd; }
 
-.dataset__title {
-  margin: 0; }
+.dataset__left {
+  width: 100%;
+  max-width: 80px; }
 
 .dataset__meta {
-  margin-top: 5px; }
+  width: 100%;
+  height: 80px;
+  border-radius: 50%;
+  background: #534f97;
+  color: #fff;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%); }
+  .dataset__meta .dataset__meta-wrapper {
+    display: block;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); }
+  .dataset__meta span {
+    display: block;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600; }
+    .dataset__meta span.dataset__sincetext {
+      font-size: 9px; }
+
+.dataset__content {
+  padding: 0 0 0 20px; }
+  .dataset__content:after {
+    content: '';
+    display: block;
+    clear: both; }
+
+.dataset__type {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #a55efa; }
+
+.dataset__title {
+  margin: 0;
+  font-weight: 600;
+  font-family: "Roboto Slab", sans-serif; }
 
 .dataset__body {
-  margin-top: 10px; }
+  color: #534f97; }
 
 .wrapper--horizaccordion {
   background: #534f97;
@@ -6241,13 +6279,19 @@ hr {
         display: none; } }
 
 .wrapper--showcase {
-  background: #f5f5f5;
-  margin-top: 40px;
-  padding-top: 20px;
-  padding-bottom: 40px; }
-  @media (min-width: 1248px) {
-    .wrapper--showcase .container {
-      width: 1200px; } }
+  background: #f5f5f5; }
+  .wrapper--showcase .container {
+    width: 300px;
+    margin: 0 auto; }
+    @media (min-width: 768px) {
+      .wrapper--showcase .container {
+        width: 600px; } }
+    @media (min-width: 992px) {
+      .wrapper--showcase .container {
+        width: 600px; } }
+    @media (min-width: 1248px) {
+      .wrapper--showcase .container {
+        width: 1200px; } }
   .wrapper--showcase .heading {
     margin-bottom: 20px; }
 
