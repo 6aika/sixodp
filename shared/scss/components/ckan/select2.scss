@@ -38,7 +38,9 @@
 }
 
 .select2-container {
-  width: 62%;
+  &:not(.select2-container-multi) {
+    width: 62% !important;
+  }
 }
 
 .select2-drop {
