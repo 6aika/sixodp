@@ -12,4 +12,18 @@ form {
     width: 100%;
     margin: $margin-large-vertical 0;
   }
+
+  .form-select {
+    width: 100%;
+
+    @media (min-width: $width-sm) {
+      width: 50%;
+    }
+  }
+
+  .form-actions {
+    .action-info {
+      margin: $margin-large-vertical*2 0;
+    }
+  }
 }

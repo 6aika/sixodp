@@ -152,7 +152,7 @@
     {
       "field_name": "url",
       "label": "URL",
-      "preset": "resource_url_upload_ex"
+      "preset": "resource_url_upload"
     },
     {
       "field_name": "name_translated",

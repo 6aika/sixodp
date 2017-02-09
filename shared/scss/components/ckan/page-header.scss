@@ -10,10 +10,15 @@
     li {
       background: $gray-lighter;
       color: $brand-primary;
+      width: 100%;
 
       &.active {
         background: $brand-primary;
         color: $white;
+      }
+
+      @media (min-width: $width-lg) {
+        width: auto;
       }
     }
   }

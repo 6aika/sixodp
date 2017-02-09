@@ -1,0 +1,30 @@
+.alert {
+  border: $border-base solid transparent;
+  border-radius: $border-radius-small;
+
+  p {
+    margin: 0 0;
+  }
+
+  ul {
+    list-style: disc;
+    padding-left: 18px;
+  }
+
+  &.alert {
+    &-error {
+      background-color: $brand-danger;
+      color: $white;
+    }
+
+    &-success {
+      background-color: $brand-success;
+      color: $white;
+    }
+
+    &-info {
+      background-color: $brand-info;
+      color: $white;
+    }
+  }
+}
