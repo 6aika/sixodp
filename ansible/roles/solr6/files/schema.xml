@@ -92,7 +92,7 @@
     <field name="notes" type="text" indexed="true" stored="true"/>
     <field name="author" type="textgen" indexed="true" stored="true" />
     <field name="author_email" type="textgen" indexed="true" stored="true" />
-    <field name="maintainer" type="textgen" indexed="true" stored="true" />
+    <field name="maintainer" type="string" indexed="true" stored="true" />
     <field name="maintainer_email" type="textgen" indexed="true" stored="true" />
     <field name="license" type="string" indexed="true" stored="true" />
     <field name="license_id" type="string" indexed="true" stored="true" />
