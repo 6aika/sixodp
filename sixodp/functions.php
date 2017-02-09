@@ -182,10 +182,10 @@ function get_stars($package_id) {
   $count = $package_rating['ratings_count'];
   $rating = $package_rating['rating'];
   
-  $i = 5;
+  /*$i = 5;
   while ( $i < 0 ) {
     array_push($i);
-  }
+  }*/
 }
 
 function parse_date($date) {

@@ -1,6 +1,24 @@
+.wrapper--showcase {
+  background: #f5f5f5;
+  margin-top: $base*4;
+  padding-top: $base*2;
+  padding-bottom: $base*4;
+
+  .container {
+
+    @media (min-width: $width-lg) {
+      width: 1200px;
+    }
+  }
+
+  .heading {
+    margin-bottom: $base*2;
+  }
+}
+
 .showcase__wrapper {
   float: left;
-  width: 300px;
+  width: $base*30;
   padding-left: $base;
   padding-right: $base;
 }
@@ -8,10 +26,10 @@
 .showcase {
   background: $brand-primary;
   color: #fff;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: $base*2;
+  border-bottom-right-radius: $base*2;
   position: relative;
-  margin-bottom: 60px;
+  margin-bottom: $base*6;
 
   &:after {
     content: '';
@@ -47,4 +65,10 @@
   margin: $base*2 auto 0;
   padding: $base 0;
   border-top: 1px solid $brand-primary-light;
+  text-align: center;
+
+  .material-icons {
+    margin: $base 0;
+    color: $brand-secondary-light;
+  }
 }

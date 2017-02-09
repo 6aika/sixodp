@@ -4,16 +4,14 @@
   */
 ?>
 
-<div class="wrapper">
+<div class="wrapper--showcase">
   <div class="container">
     <div class="row">
       <h3 class="heading">Sovellukset</h3>
     </div>
   </div>
-</div>
 
-<div class="wrapper">
-  <div class="">
+  <div class="container">
     <div class="row">
       <div class="showcase_list">
         <?php
@@ -26,6 +24,14 @@
           }
         ?>
       </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row text-right">
+      <button type="button" class="btn btn-lg btn-secondary btn--sovellukset">
+        Sovellukset <i class="material-icons">arrow_forward</i>
+      </button>
     </div>
   </div>
 </div>

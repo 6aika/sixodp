@@ -17,6 +17,7 @@
 .category {
   @extend %box;
 
+  background: #fff;
   margin: $base;
   margin-left: 0;
   padding: $base*1.5 $base*2.5;

@@ -19,10 +19,13 @@
       <div class="showcase__footer">
         <?php
           $rating = get_ckan_package_rating($packageId);
-          $i = $rating['rating'];
-          while ($i > 0) {
-            echo '<span class="icon icon-star"></span>';
-            $i--;
+          $j = $rating['rating'];
+          while ($j > 0.5) {
+            echo '<span class="material-icons brandColor">star</span>';
+            $j--;
+          }
+          if(abs($rating['rating']) - (int)(abs($rating['rating'])) == 0.5) {
+            echo '<span class="material-icons brandColor">star_half</span>';
           }
         ?>
 
