@@ -10,5 +10,16 @@
     > a {
       color: $text-color;
     }
+
+    .dataset-content {
+      font-size: $font-size-base;
+      padding: $padding-large-vertical 0;
+
+      .dataset-heading {
+        margin: 0;
+        font-size: $font-size-large;
+      }
+    }
+
   }
 }
