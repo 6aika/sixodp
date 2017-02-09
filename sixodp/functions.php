@@ -169,13 +169,11 @@ function get_ckan_categories() {
 *  }
 */
 function get_ckan_package_rating($package_id) {
-  /*$data = get_ckan_data(CKAN_API_URL.'/action/rating_showcase_get?package_id='.$package_id);
+  $data = get_ckan_data(CKAN_API_URL.'/action/rating_showcase_get?package_id='.$package_id);
   $rating = ($package_id*0.5);
   if ( $rating > 5 ) {
     $rating = 5;
-  }*/
-  $package_id = 3;
-  $rating = 5;
+  }
   return array('rating' => $rating, 'ratings_count' => ($package_id*2)); //return $data['result'];
 }
 

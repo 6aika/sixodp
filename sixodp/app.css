@@ -6005,14 +6005,15 @@ hr {
 
 .btn-primary {
   background-color: #534f97; }
-  .btn-primary:hover {
+  .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
     background-color: #6d69b0; }
 
 .btn-secondary {
   background-color: #a55efa;
   color: #fff; }
-  .btn-secondary:hover {
-    background-color: #c18ffc; }
+  .btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active {
+    background-color: #c18ffc;
+    color: #fff; }
 
 .btn-lg, .btn-group-lg > .btn {
   padding-left: 20px;
@@ -6026,6 +6027,10 @@ hr {
 
 .btn--ajankohtaista {
   margin-top: 10px; }
+
+.btn--sovellukset {
+  position: relative;
+  z-index: 1; }
 
 .stats {
   display: none;
@@ -6076,6 +6081,7 @@ hr {
       padding-bottom: 0; } }
 
 .category {
+  background: #fff;
   margin: 10px;
   margin-left: 0;
   padding: 15px 25px;
@@ -6216,6 +6222,17 @@ hr {
       .horizaccordion__footer .btn {
         display: none; } }
 
+.wrapper--showcase {
+  background: #f5f5f5;
+  margin-top: 40px;
+  padding-top: 20px;
+  padding-bottom: 40px; }
+  @media (min-width: 1248px) {
+    .wrapper--showcase .container {
+      width: 1200px; } }
+  .wrapper--showcase .heading {
+    margin-bottom: 20px; }
+
 .showcase__wrapper {
   float: left;
   width: 300px;
@@ -6256,4 +6273,8 @@ hr {
   width: 75%;
   margin: 20px auto 0;
   padding: 10px 0;
-  border-top: 1px solid #6d69b0; }
+  border-top: 1px solid #6d69b0;
+  text-align: center; }
+  .showcase__footer .material-icons {
+    margin: 10px 0;
+    color: #c18ffc; }
