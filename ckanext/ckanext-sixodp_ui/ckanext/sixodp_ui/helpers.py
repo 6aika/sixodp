@@ -1,13 +1,14 @@
 import logging
 import httplib
 from pylons import config
+import json
 
 log = logging.getLogger(__name__)
 
 def get_wordpress_menus():
     connection = httplib.HTTPConnection(config.get('ckanext.sixodp_ui.cms_site_url'))
     connection.request("GET", "/wp-json/wp-api-menus/v2/menus")
-    response_data_dict = eval(connection.getresponse().read())
+    response_data_dict = json.loads(connection.getresponse().read())
     connection.close()
 
     wp_menus = {}
@@ -20,7 +21,7 @@ def get_navigation_items_by_menu_location(wp_menu_location):
 
     connection = httplib.HTTPConnection(config.get('ckanext.sixodp_ui.cms_site_url'))
     connection.request("GET", "/wp-json/wp-api-menus/v2/menus/" + wp_menus.get(wp_menu_location))
-    response_data_dict = eval(connection.getresponse().read())
+    response_data_dict = json.loads(connection.getresponse().read())
     connection.close()
 
     navigation_items = []
@@ -28,8 +29,7 @@ def get_navigation_items_by_menu_location(wp_menu_location):
         for item in response_data_dict['items']:
             navigation_items.append({
                 'title': item.get('title'),
-                'url': item.get('url'),
-                'path': '/' + item.get('object_slug')
+                'url': item.get('url')
             })
 
     return navigation_items

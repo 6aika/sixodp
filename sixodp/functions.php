@@ -82,6 +82,11 @@ if ( !function_exists('sixodp_theme_setup') ) :
 
     	// Set up default menu items
         wp_update_nav_menu_item($menu_id, 0, array(
+                    'menu-item-title' =>  __('Front Page'),
+                    'menu-item-url' => home_url( '/' ),
+                    'menu-item-status' => 'publish'));
+
+        wp_update_nav_menu_item($menu_id, 0, array(
             'menu-item-title' =>  __('Datasets'),
             'menu-item-url' => home_url( '/data/dataset' ),
             'menu-item-status' => 'publish'));
@@ -92,9 +97,29 @@ if ( !function_exists('sixodp_theme_setup') ) :
             'menu-item-status' => 'publish'));
 
         wp_update_nav_menu_item($menu_id, 0, array(
-            'menu-item-title' =>  __('Collections'),
-            'menu-item-url' => home_url( '/data/collection' ),
+                    'menu-item-title' =>  __('News'),
+                    'menu-item-url' => home_url( '/news' ),
+                    'menu-item-status' => 'publish'));
+
+        wp_update_nav_menu_item($menu_id, 0, array(
+            'menu-item-title' =>  __('Support'),
+            'menu-item-url' => home_url( '/support' ),
             'menu-item-status' => 'publish'));
+
+        wp_update_nav_menu_item($menu_id, 0, array(
+                    'menu-item-title' =>  __('Dashboard'),
+                    'menu-item-url' => home_url( '/dashboard' ),
+                    'menu-item-status' => 'publish'));
+
+        wp_update_nav_menu_item($menu_id, 0, array(
+                    'menu-item-title' =>  __('About'),
+                    'menu-item-url' => home_url( '/about' ),
+                    'menu-item-status' => 'publish'));
+
+        wp_update_nav_menu_item($menu_id, 0, array(
+                    'menu-item-title' =>  __('API Management'),
+                    'menu-item-url' => home_url( '/apis' ),
+                    'menu-item-status' => 'publish'));
 
     }
 
