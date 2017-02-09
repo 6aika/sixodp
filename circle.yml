@@ -9,9 +9,7 @@ checkout:
     - git submodule update --init
 dependencies:
   pre:
-    - sudo add-apt-repository -y ppa:ansible/ansible
-    - sudo apt-get update
-    - sudo apt-get install -y ansible
+    - pip install ansible
     - npm install -g browserify
   override:
     - npm install:
