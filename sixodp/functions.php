@@ -82,17 +82,17 @@ if ( !function_exists('sixodp_theme_setup') ) :
 
     	// Set up default menu items
         wp_update_nav_menu_item($menu_id, 0, array(
-            'menu-item-title' =>  __('Datasets'),
+            'menu-item-title' =>  __('Datasets', 'sixodp'),
             'menu-item-url' => home_url( '/data/dataset' ),
             'menu-item-status' => 'publish'));
 
         wp_update_nav_menu_item($menu_id, 0, array(
-            'menu-item-title' =>  __('Showcase'),
+            'menu-item-title' =>  __('Showcase', 'sixodp'),
             'menu-item-url' => home_url( '/data/showcase' ),
             'menu-item-status' => 'publish'));
 
         wp_update_nav_menu_item($menu_id, 0, array(
-            'menu-item-title' =>  __('Collections'),
+            'menu-item-title' =>  __('Collections', 'sixodp'),
             'menu-item-url' => home_url( '/data/collection' ),
             'menu-item-status' => 'publish'));
 
@@ -106,6 +106,11 @@ if ( !function_exists('sixodp_theme_setup') ) :
   }
 endif; // twentysixteen_setup
 add_action( 'after_setup_theme', 'sixodp_theme_setup' );
+
+function my_theme_load_theme_textdomain() {
+  load_theme_textdomain( 'sixodp', get_template_directory() . '/languages' );
+}
+add_action( 'after_setup_theme', 'my_theme_load_theme_textdomain' );
 
 function sixodp_scripts() {
     wp_enqueue_script( 'app', get_template_directory_uri() . '/app.js', array( 'jquery' ), '1.0.0', true );
