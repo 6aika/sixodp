@@ -10,17 +10,19 @@ Example:
 #}
 {% block package_info %}
 {% if pkg %}
-<section class="module module-narrow">
+  {% if h.show_rating_in_type(pkg.type) %}
+  <section class="module module-narrow">
     <div class="module context-info">
-        <div class="module-content">
-            {% block package_info_inner %}
-                {% block follow_button %}{% endblock %}
-                {% block rating %}
-                  {% snippet "rating/snippets/rating.html", package=pkg %}
-                {% endblock %}
-            {% endblock %}
-        </div>
+      <div class="module-content">
+        {% block package_info_inner %}
+          {% block follow_button %}{% endblock %}
+          {% block rating %}
+            {% snippet "rating/snippets/rating.html", package=pkg %}
+          {% endblock %}
+        {% endblock %}
+      </div>
     </div>
-</section>
+  </section>
+  {% endif %}
 {% endif %}
 {% endblock %}
