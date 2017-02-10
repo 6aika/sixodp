@@ -7,7 +7,17 @@
     padding: 0;
     background: $gray-lighter;
 
+    .format-label {
+      position: absolute;
+      top: $padding-large-vertical;
+      left: $padding-large-horizontal;
+    }
+
     .container-fluid {
+      padding: 0;
+    }
+
+    .resource-col {
       padding: 0;
     }
 
@@ -16,12 +26,21 @@
         height: 100%;
         width: 100%;
         display: inline-block;
-        padding: $padding-large-vertical $padding-large-vertical $padding-large-vertical 6*$padding-large-vertical;
+        padding: 15px 0 17px 60px;
       }
 
       &.dropdown-toggle {
         display: inline;
         height: 100%;
+      }
+
+      p {
+        padding: 0;
+        margin: 0;
+      }
+
+      &.resource-action {
+        padding: 16px 0;
       }
     }
   }
