@@ -31,7 +31,8 @@ $gray-darker:            darken($gray-base, $darken-intensity*2);
 $gray-dark:              darken($gray-base, $darken-intensity);
 $gray:                   lighten($gray-base, $lighten-intensity*1.5);
 $gray-light:             lighten($gray-base, $lighten-intensity*3);
-$gray-lighter:           lighten($gray-base, $lighten-intensity*6);
+$gray-lighter:           lighten($gray-base, $lighten-intensity*5.5);
+$gray-lightest:          lighten($gray-base, $lighten-intensity*6);
 
 $black: #000;
 $text-color: #000;
@@ -146,6 +147,9 @@ $stages-background-color-filled: $gray-light;
 $stages-text-color: $text-color;
 $stages-text-color-active: white;
 $stages-text-color-filled: white;
+
+// Label
+$label-text-color: $brand-success;
 
 // Other component colors
 $link-color: $brand-primary;
