@@ -21,5 +21,12 @@
       }
     }
 
+    .dataset-resources {
+      padding: 0 0 $padding-large-vertical 0;
+
+      @media(min-width: $width-md) {
+        padding: $padding-large-vertical 0;
+      }
+    }
   }
 }
