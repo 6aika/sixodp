@@ -12,6 +12,12 @@
       color: $brand-primary;
       width: 100%;
 
+      a {
+        i {
+          display: none;
+        }
+      }
+
       &.active {
         background: $brand-primary;
         color: $white;

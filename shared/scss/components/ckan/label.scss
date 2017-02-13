@@ -1,0 +1,58 @@
+// This file is for the label-class not the label-element
+// Label-element can be found under form.scss
+
+.label {
+  padding: 3px 5px 3px 8px;
+  font-size: $font-size-small;
+  background-color: $gray-light;
+  display: inline-block;
+
+  &[data-format=html],
+  &[data-format*=html] {
+    background-color: #55a1ce;
+  }
+  &[data-format=json],
+  &[data-format*=json] {
+    background-color: #ef7100;
+  }
+  &[data-format=xml],
+  &[data-format*=xml] {
+    background-color: #ef7100;
+  }
+  &[data-format=text],
+  &[data-format*=text] {
+    background-color: #74cbec;
+  }
+  &[data-format=csv],
+  &[data-format*=csv] {
+    background-color: #dfb100;
+  }
+  &[data-format=xls],
+  &[data-format*=xls] {
+    background-color: #2db55d;
+  }
+  &[data-format=zip],
+  &[data-format*=zip] {
+    background-color: #686868;
+  }
+  &[data-format=api],
+  &[data-format*=api] {
+    background-color: #ec96be;
+  }
+  &[data-format=pdf],
+  &[data-format*=pdf] {
+    background-color: #e0051e;
+  }
+  &[data-format=rdf],
+  &[data-format*=rdf],
+  &[data-format*=nquad],
+  &[data-format*=ntriples],
+  &[data-format*=turtle] {
+    background-color: #0b4498;
+  }
+
+  &.dataset-private {
+    background-color: $brand-danger;
+  }
+}
+
