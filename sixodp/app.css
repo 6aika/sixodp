@@ -5890,11 +5890,16 @@ a {
 .navbar {
   background: #f8f8f8; }
 
-.navbar li {
+.navbar-nav li {
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent; }
-  .navbar li.active, .navbar li:nth-child(1) {
+  .navbar-nav li.active {
     border-bottom-color: #a55efa; }
+    .navbar-nav li.active a {
+      background: transparent !important; }
+
+.nav-link {
+  text-transform: uppercase; }
 
 .navbar-default > .navbar-nav > li > a {
   color: #000; }
