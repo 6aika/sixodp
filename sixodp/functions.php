@@ -220,6 +220,10 @@ function parse_date($date) {
   return $d->format('d.m.Y');
 }
 
+function get_notes_excerpt($str) {
+  return explode(".", $str)[0] . '. ';
+}
+
 function assets_url() {
   return site_url().'/assets';
 }
