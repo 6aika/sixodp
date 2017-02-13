@@ -5870,7 +5870,7 @@ a {
   padding: 40px 0; }
 
 .material-icons {
-  vertical-align: top; }
+  vertical-align: middle; }
 
 .control-label[for="field-order-by"] {
   line-height: 30px;
@@ -5898,7 +5898,7 @@ a {
     .navbar-nav li.active a {
       background: transparent !important; }
 
-.nav-link {
+.navbar-right .nav-link {
   text-transform: uppercase; }
 
 .navbar-default > .navbar-nav > li > a {
