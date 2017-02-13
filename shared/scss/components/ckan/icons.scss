@@ -2,6 +2,12 @@
   float: left;
   line-height: 18px !important;
   margin-right: 4px;
+
+  .notification & {
+    float: none;
+    line-height: 1 !important;
+    vertical-align: middle;
+  }
 }
 
 .icon {

@@ -5870,6 +5870,7 @@ a {
   padding: 40px 0; }
 
 .material-icons {
+  margin-right: 4px;
   vertical-align: middle; }
 
 .control-label[for="field-order-by"] {
