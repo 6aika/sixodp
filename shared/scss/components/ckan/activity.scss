@@ -1,13 +1,41 @@
 .activity {
   list-style: none;
   padding: 0;
+  background: transparent url("/assets/images/dotted.png") 11px repeat-y;
 
   .item {
-    display: inline-block;
+    position: relative;
+    margin: 0 0 $margin-large-vertical*2 0;
+    display: list-item;
     width: 100%;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    i {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: $white;
+      background-color: $brand-primary;
+      border-radius: 50%;
+      padding: $padding-small-horizontal;
+    }
 
     p {
       display: inline-block;
+      margin: 0 0 0 30px;
+
+      span {
+        &.date {
+          width: 100%;
+          display: block;
+          color: $text-muted;
+          font-size: $font-size-small;
+        }
+      }
     }
   }
 }

@@ -1,4 +1,4 @@
-{%- if c.is_sysadmin -%}
+{%- if h.check_access('organization_update', {'id':data.owner_org }) -%}
 <div class="control-group">
     <label for="field-private" class="control-label">{{ _('Visibility') }}</label>
     <div class="controls">

@@ -98,7 +98,7 @@ function create_primary_menu_i18n($menu_name, $itemsArr) {
           'menu-item-url' => home_url( $item['menu-item-url'] ),
           'menu-item-status' => 'publish'));
       }
-    
+
     //then you set the wanted theme  location
     $menu = get_term_by( 'name', $menu_name, 'nav_menu' );
     $locations = get_theme_mod('nav_menu_locations');

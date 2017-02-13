@@ -2,7 +2,7 @@
 <ul class="nav navbar-nav">
     {% for item in h.get_main_navigation_items() %}
     <li>
-        <a class="nav-link" href="{{item.path}}">
+        <a class="nav-link" href="{{item.url}}">
             {{ _(item.title) }}
         </a>
     </li>
