@@ -17,8 +17,8 @@
 }
 
 .dataset__left {
-  width: 100%;
-  max-width: 80px;
+  width: 80px;
+  min-width: 80px;
 }
 
 .dataset__meta {
