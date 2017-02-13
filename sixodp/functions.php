@@ -72,51 +72,73 @@ if ( !function_exists('sixodp_theme_setup') ) :
       'chat',
     ) );
 
-    // Check if the menu exists
-    $menu_name = 'primary';
-    $menu_exists = wp_get_nav_menu_object( $menu_name );
+    create_primary_menus();
+    create_default_pages();
+    
+  }
+endif; // twentysixteen_setup
+add_action( 'after_setup_theme', 'sixodp_theme_setup' );
 
-    // If it doesn't exist, let's create it.
-    if( !$menu_exists){
-        $menu_id = wp_create_nav_menu($menu_name);
+function create_primary_menus() {
+  create_primary_menu_i18n('primary_fi', MENU_ITEMS_FI);
+  create_primary_menu_i18n('primary_en', MENU_ITEMS_EN);
+  create_primary_menu_i18n('primary_sv', MENU_ITEMS_SV);
+}
 
-    	// Set up default menu items
+// Creates all primary menus
+function create_primary_menu_i18n($menu_name, $itemsArr) {
+
+  // If it doesn't exist, let's create it.
+  if( !wp_get_nav_menu_object( $menu_name )){
+      $menu_id = wp_create_nav_menu($menu_name);
+
+      foreach($itemsArr as $item) {
         wp_update_nav_menu_item($menu_id, 0, array(
-            'menu-item-title' =>  __('Datasets', 'sixodp'),
-            'menu-item-url' => home_url( '/data/dataset' ),
-            'menu-item-status' => 'publish'));
-
-        wp_update_nav_menu_item($menu_id, 0, array(
-            'menu-item-title' =>  __('Showcase', 'sixodp'),
-            'menu-item-url' => home_url( '/data/showcase' ),
-            'menu-item-status' => 'publish'));
-
-        wp_update_nav_menu_item($menu_id, 0, array(
-            'menu-item-title' =>  __('Collections', 'sixodp'),
-            'menu-item-url' => home_url( '/data/collection' ),
-            'menu-item-status' => 'publish'));
-
-    }
-
+          'menu-item-title' =>  $item['menu-item-title'],
+          'menu-item-url' => home_url( $item['menu-item-url'] ),
+          'menu-item-status' => 'publish'));
+      }
+    
     //then you set the wanted theme  location
     $menu = get_term_by( 'name', $menu_name, 'nav_menu' );
     $locations = get_theme_mod('nav_menu_locations');
     $locations['primary'] = $menu->term_id;
     set_theme_mod( 'nav_menu_locations', $locations );
   }
-endif; // twentysixteen_setup
-add_action( 'after_setup_theme', 'sixodp_theme_setup' );
-
-function my_theme_load_theme_textdomain() {
-  load_theme_textdomain( 'sixodp', get_template_directory() . '/languages' );
 }
-add_action( 'after_setup_theme', 'my_theme_load_theme_textdomain' );
+
+function create_default_pages() {
+  foreach(['fi', 'en', 'sv'] as $locale) {
+    insert_default_page($locale);
+  }
+}
+
+function insert_default_page($locale) {
+  $page_exists = get_page_by_title($locale);
+  if ( !isset( $page_exists ) ) {
+    $page = array(
+      'post_title'    => $locale,
+      'post_content'  => "This is my post",
+      'post_type'     => 'page',
+      'post_status'   => 'publish',
+      'page_template' => 'home.php'
+    );
+
+    $page_id = wp_insert_post( $page );
+  }
+}
 
 function sixodp_scripts() {
     wp_enqueue_script( 'app', get_template_directory_uri() . '/app.js', array( 'jquery' ), '1.0.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'sixodp_scripts' );
 
+
+function get_menu_items($page_name) {
+  $menuLocations = get_nav_menu_locations();
+  $menuID = $menuLocations["primary"];
+  return wp_get_nav_menu_items($menuID);
+}
 
 function get_ckan_data($url) {
   return json_decode(file_get_contents($url), TRUE);
