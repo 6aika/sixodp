@@ -59,14 +59,14 @@
 
         .module-heading,
         .module-content.empty {
-          padding: 0;
+          padding: $padding-small-vertical 0;
           margin: 0 $margin-large-horizontal;
         }
 
         .module-heading {
-          font-size: $font-size-large;
-          color: $text-color;
-          font-weight: $headings-font-weight;
+          font-size: $font-size;
+          color: $brand-primary;
+          font-weight: bold;
           font-family: $font;
         }
       }
