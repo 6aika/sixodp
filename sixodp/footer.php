@@ -32,19 +32,10 @@
 			    <div class="col-md-12 footer-section footer-section--links">
 						<ul class="footer-links">
 							<?php
-								$menuLocations = get_nav_menu_locations();
-								$menuID = $menuLocations['footer'];
-								$primaryNav = wp_get_nav_menu_items($menuID);
-
-								foreach ( $primaryNav as $navItem ) {
-									echo '<li class="footer__item"><a class="footer__link" href="'.$navItem->url.'" title="'.$navItem->title.'">'.$navItem->title.'</a></li>';
+								foreach ( wp_get_nav_menu_items("primary_$pagename") as $navItem ) {
+									echo '<li class="footer__item"><a href="'.$navItem->url.'" class="footer__link" title="'.$navItem->title.'">'.$navItem->title.'</a></li>';
 								}
 			        ?>
-							<li class="footer__item"><a class="footer__link" href="/" title="Etusivu">Etusivu</a></li>
-							<li class="footer__item"><a class="footer__link" href="/data/dataset" title="Tietoaineistot">Tietoaineistot</a></li>
-							<li class="footer__item"><a class="footer__link" href="/data/showcase" title="Sovellukset">Sovellukset</a></li>
-							<li class="footer__item"><a class="footer__link" href="/data/collection" title="Aineistokokonaisuudet">Aineistokokonaisuudet</a></li>
-							<li class="footer__item"><a class="footer__link" href="/" title="Muut">Muut</a></li>
 						</ul>
 			    </div>
 			  </div>
