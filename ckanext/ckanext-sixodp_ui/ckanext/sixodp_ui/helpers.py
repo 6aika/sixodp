@@ -2,6 +2,7 @@ import logging
 import httplib
 from pylons import config
 import json
+import ckan.lib.i18n as i18n
 
 log = logging.getLogger(__name__)
 
@@ -35,7 +36,7 @@ def get_navigation_items_by_menu_location(wp_menu_location):
     return navigation_items
 
 def get_main_navigation_items():
-    return get_navigation_items_by_menu_location(config.get('ckanext.sixodp_ui.wp_main_menu_location'))
+    return get_navigation_items_by_menu_location(config.get('ckanext.sixodp_ui.wp_main_menu_location') + '_' + i18n.get_lang())
 
 def get_footer_navigation_items():
-    return get_navigation_items_by_menu_location(config.get('ckanext.sixodp_ui.wp_footer_menu_location'))
+    return get_navigation_items_by_menu_location(config.get('ckanext.sixodp_ui.wp_footer_menu_location') + '_' + i18n.get_lang())
