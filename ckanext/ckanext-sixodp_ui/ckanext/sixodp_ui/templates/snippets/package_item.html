@@ -50,7 +50,7 @@ Example:
 
               {% block metadata %}
                 <p class="dataset-metadata">
-                  <span class="dataset-created">{{ h.render_datetime(package.metadata_created, '%-d.%-m.%Y') }}</span>
+                  <span class="dataset-created">{{ h.render_datetime(package.date_released, '%-d.%-m.%Y') }}</span>
                   {% if category %}
                     <span> - </span>
                     <span class="dataset-category">{{category}}</span>
