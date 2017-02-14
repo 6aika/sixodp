@@ -13,6 +13,7 @@
   roles:
     - os-base
     - java8
+    - nodejs
     #- ssh # Done in cloudformation bootstrapping
     - postgres-install
     #- postgres-backup # Replaced by RDS

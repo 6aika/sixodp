@@ -13,6 +13,7 @@
   roles:
     - os-base
     - java8
+    - nodejs
     - ssh
     - postgres-install
     - postgres-backup
