@@ -31,8 +31,7 @@ $gray-darker:            darken($gray-base, $darken-intensity*2);
 $gray-dark:              darken($gray-base, $darken-intensity);
 $gray:                   lighten($gray-base, $lighten-intensity*1.5);
 $gray-light:             lighten($gray-base, $lighten-intensity*3);
-$gray-lighter:           lighten($gray-base, $lighten-intensity*5.5);
-$gray-lightest:          lighten($gray-base, $lighten-intensity*6);
+$gray-lighter:           lighten($gray-base, $lighten-intensity*6);
 
 $black: #000;
 $text-color: #000;
@@ -101,6 +100,8 @@ $nav-tabs-link-hover-border-color:          transparent !default;
 $nav-tabs-active-link-hover-bg:             $brand-primary !default;
 $nav-tabs-active-link-hover-color:          #fff !default;
 $nav-tabs-active-link-hover-border-color:   $brand-primary !default;
+
+$secondary-bg: $navbar-bg;
 
 // Breakpoints
 $width-xs: 480px;
