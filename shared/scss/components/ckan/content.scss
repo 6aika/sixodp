@@ -1,10 +1,3 @@
-@mixin dataset-heading() {
-  font-size: $font-size-large;
-  font-weight: $headings-font-weight;
-  font-family: $font-heading;
-  color: $brand-primary;
-}
-
 #content {
   .primary {
     padding: 0 $padding-large-horizontal;
@@ -19,7 +12,7 @@
           margin-bottom: $margin-large-vertical;
 
           h1, h2, h3, h4, h5, h6 {
-            @include dataset-heading;
+            @include heading;
             font-size: $font-size-xlarge;
           }
         }
@@ -33,7 +26,7 @@
     background: $secondary-bg;
 
     .main-heading {
-      @include dataset-heading;
+      @include heading;
       padding: 0 $padding-large-horizontal;
       margin: $margin-large-vertical 0;
       font-size: $font-size-xlarge;
@@ -43,7 +36,7 @@
       padding: $padding-large-vertical $padding-large-horizontal;
 
       .module-heading {
-        @include dataset-heading;
+        @include heading;
         padding: 0;
         margin: 0;
 
@@ -54,7 +47,7 @@
 
       .module-content {
         .heading {
-          @include dataset-heading;
+          @include heading;
           margin-bottom: 0;
         }
 

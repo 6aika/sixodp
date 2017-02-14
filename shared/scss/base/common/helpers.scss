@@ -86,12 +86,6 @@
   @extend %border-radius;
 }
 
-%heading {
-  font-family: $font-heading;
-  color: $brand-primary;
-  font-weight: 700;
-}
-
 %vertically-centered {
   @include vertical-align();
 }

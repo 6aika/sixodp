@@ -5824,11 +5824,6 @@ button.close {
 .btn, .category {
   border-radius: 2px; }
 
-.heading {
-  font-family: "Roboto Slab", sans-serif;
-  color: #534f97;
-  font-weight: 700; }
-
 .js .js-hide, .hide-heading {
   display: none; }
 
@@ -5865,6 +5860,12 @@ a {
   a:hover {
     color: #8d8ac2;
     text-decoration: none; }
+
+.heading {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Roboto Slab", sans-serif;
+  color: #534f97; }
 
 .wrapper, .wrapper--showcase {
   padding: 40px 0; }
