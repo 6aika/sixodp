@@ -3,7 +3,7 @@
 {% block pre_primary %}
   <div class="search-form-container row">
     <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12">
-      {% snippet 'snippets/search_form.html', form_id='dataset-search-form', type='dataset', query=c.q, sorting=sorting, sorting_selected=c.sort_by_selected, count=c.page.item_count, facets=facets, show_empty=request.params, error=c.query_error, fields=c.fields %}
+      {{ h.snippet('snippets/search_input.html', query=c.q, placeholder=_('Search datasets...'), query_params=c.fields_grouped, sorting=c.sort_by_selected) }}
     </div>
   </div>
 {% endblock %}
@@ -12,36 +12,39 @@
   <section class="module">
     <div class="module-content main-content">
       {% block page_primary_action %}
-      {% if h.check_access('package_create') %}
-      <div class="page_primary_action">
-        {% link_for _('Add Dataset'), controller='package', action='new', class_='btn btn-primary', icon='plus-square' %}
-      </div>
-      {% endif %}
+        {% if h.check_access('package_create') %}
+          <div class="page_primary_action">
+            {% link_for _('Add Dataset'), controller='package', action='new', class_='btn btn-primary', icon='plus-square' %}
+          </div>
+        {% endif %}
       {% endblock %}
       {% block form %}
-      {% set facets = {
-      'fields': c.fields_grouped,
-      'search': c.search_facets,
-      'titles': c.facet_titles,
-      'translated_fields': c.translated_fields,
-      'remove_field': c.remove_field }
-      %}
-      {% set sorting = [
-      (_('Last Created'), 'date_released desc'),
-      (_('Popular'), 'views_recent desc') if g.tracking_enabled else (false, false),
-      (_('Relevance'), 'score desc, metadata_modified desc'),
-      (_('Name Ascending'), 'title_string asc'),
-      (_('Name Descending'), 'title_string desc'),
-      (_('Last Modified'), 'date_updated desc') ]
-      %}
+        {% set facets = {
+        'fields': c.fields_grouped,
+        'search': c.search_facets,
+        'titles': c.facet_titles,
+        'translated_fields': c.translated_fields,
+        'remove_field': c.remove_field }
+        %}
+        {% set sorting = [
+        (_('Last Created'), 'date_released desc'),
+        (_('Popular'), 'views_recent desc') if g.tracking_enabled else (false, false),
+        (_('Relevance'), 'score desc, metadata_modified desc'),
+        (_('Name Ascending'), 'title_string asc'),
+        (_('Name Descending'), 'title_string desc'),
+        (_('Last Modified'), 'date_updated desc') ]
+        %}
+
+        {% snippet 'snippets/search_form_without_input.html', type='dataset', query=c.q, sorting=sorting, sorting_selected=c.sort_by_selected, count=c.page.item_count, facets=facets, show_empty=request.params, error=c.query_error, query_params=c.fields_grouped %}
       {% endblock %}
+
       {% block package_search_results_list %}
-      {{ h.snippet('snippets/package_list.html', packages=c.page.items) }}
+        {{ h.snippet('snippets/package_list.html', packages=c.page.items) }}
       {% endblock %}
     </div>
 
     {% block page_pagination %}
-    {{ c.page.pager(q=c.q) }}
+      {{ c.page.pager(q=c.q) }}
     {% endblock %}
   </section>
 

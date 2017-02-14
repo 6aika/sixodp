@@ -6,6 +6,7 @@
   margin-bottom: $margin-large-vertical*2;
 
   .search-form {
+    padding-bottom: $padding-large-vertical*4;
     width: 100%;
 
     @media(min-width: $width-md) {

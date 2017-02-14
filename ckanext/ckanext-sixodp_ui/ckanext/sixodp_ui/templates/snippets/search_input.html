@@ -1,0 +1,22 @@
+{% set search_class = search_class if search_class else 'search-giant' %}
+
+<form class="search-form" method="get" data-module="select-switch">
+  {% for param in query_params %}
+    {% for value in query_params[param] %}
+      <input type="hidden" name="{{ param }}" value="{{value}}">
+    {% endfor %}
+  {% endfor %}
+
+  <input type="hidden" name="sort" value="{{ sorting }}">
+
+  <div class="input-group {{ search_class }}">
+    <input type="text" class="form-control input-lg search" name="q" value="{{ query }}" autocomplete="off" placeholder="{{ placeholder }}">
+    <span class="input-group-btn">
+      {% block search_input_button %}
+        <button class="btn btn-primary btn-lg" type="submit" value="search">
+          {{ _('Submit') }}
+        </button>
+      {% endblock %}
+    </span>
+  </div>
+</form>
