@@ -1,3 +1,10 @@
+@mixin dataset-heading() {
+  font-size: $font-size-large;
+  font-weight: $headings-font-weight;
+  font-family: $font-heading;
+  color: $brand-primary;
+}
+
 #content {
   .primary {
     padding: 0 $padding-large-horizontal;
@@ -9,6 +16,12 @@
       .module-content {
         &.main-content {
           padding-top: 0;
+          margin-bottom: $margin-large-vertical;
+
+          h1, h2, h3, h4, h5, h6 {
+            @include dataset-heading;
+            font-size: $font-size-xlarge;
+          }
         }
       }
     }
@@ -20,30 +33,34 @@
     background: $secondary-bg;
 
     .main-heading {
+      @include dataset-heading;
       padding: 0 $padding-large-horizontal;
-      margin: 0 0 $margin-large-vertical 0;
+      margin: $margin-large-vertical 0;
       font-size: $font-size-xlarge;
-      font-weight: $headings-font-weight;
-      font-family: $font;
     }
 
     .module {
       padding: $padding-large-vertical $padding-large-horizontal;
 
       .module-heading {
-        font-size: $font-size-large;
-        color: $text-color;
-        font-weight: $headings-font-weight;
-        font-family: $font;
+        @include dataset-heading;
         padding: 0;
+        margin: 0;
+
+        i {
+          display: none;
+        }
       }
 
       .module-content {
         .heading {
-          font-size: $font-size-large;
-          color: $text-color;
-          font-weight: $headings-font-weight;
-          font-family: $font;
+          @include dataset-heading;
+          margin-bottom: 0;
+        }
+
+        img {
+          width: 100%;
+          height: auto;
         }
       }
 
@@ -74,7 +91,6 @@
     }
   }
 
-  .page_primary_action,
   #followee-filter {
     margin: $margin-small-vertical 0;
   }
