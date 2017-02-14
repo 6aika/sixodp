@@ -1,6 +1,6 @@
 #content {
   .primary {
-    padding: $padding-large-vertical $padding-large-horizontal;
+    padding: 0 $padding-large-horizontal;
     margin-bottom: $margin-large-vertical;
 
     .module {
@@ -8,14 +8,14 @@
 
       .module-content {
         &.main-content {
-          padding-top: $padding-large-vertical;
+          padding-top: 0;
         }
       }
     }
   }
 
   .secondary {
-    padding: $padding-large-vertical 0;
+    padding: 0;
     margin-bottom: $margin-large-vertical;
     background: $gray-lightest;
 

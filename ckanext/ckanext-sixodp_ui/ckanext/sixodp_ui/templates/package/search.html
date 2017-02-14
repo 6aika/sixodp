@@ -35,7 +35,9 @@
         (_('Last Modified'), 'date_updated desc') ]
         %}
 
-        {% snippet 'snippets/search_form_without_input.html', type='dataset', query=c.q, sorting=sorting, sorting_selected=c.sort_by_selected, count=c.page.item_count, facets=facets, show_empty=request.params, error=c.query_error, query_params=c.fields_grouped %}
+        <div class="search-options">
+          {% snippet 'snippets/search_form_without_input.html', type='dataset', query=c.q, sorting=sorting, sorting_selected=c.sort_by_selected, count=c.page.item_count, facets=facets, show_empty=request.params, error=c.query_error, query_params=c.fields_grouped %}
+        </div>
       {% endblock %}
 
       {% block package_search_results_list %}

@@ -1,0 +1,15 @@
+.search-options {
+  form {
+    display: inline-block;
+    width: 100%;
+
+    .form-select {
+      display: inline-block;
+      float: right;
+    }
+
+    h4 {
+      display: inline-block;
+    }
+  }
+}
