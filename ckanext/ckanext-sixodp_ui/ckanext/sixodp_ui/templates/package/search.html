@@ -1,5 +1,12 @@
 {% ckan_extends %}
 
+{% block pre_primary %}
+  <div class="search-form-container row">
+    <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12">
+      {% snippet 'snippets/search_form.html', form_id='dataset-search-form', type='dataset', query=c.q, sorting=sorting, sorting_selected=c.sort_by_selected, count=c.page.item_count, facets=facets, show_empty=request.params, error=c.query_error, fields=c.fields %}
+    </div>
+  </div>
+{% endblock %}
 
 {% block primary_content %}
   <section class="module">
@@ -27,7 +34,6 @@
       (_('Name Descending'), 'title_string desc'),
       (_('Last Modified'), 'date_updated desc') ]
       %}
-      {% snippet 'snippets/search_form.html', form_id='dataset-search-form', type='dataset', query=c.q, sorting=sorting, sorting_selected=c.sort_by_selected, count=c.page.item_count, facets=facets, show_empty=request.params, error=c.query_error, fields=c.fields %}
       {% endblock %}
       {% block package_search_results_list %}
       {{ h.snippet('snippets/package_list.html', packages=c.page.items) }}
