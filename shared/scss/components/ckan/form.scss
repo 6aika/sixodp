@@ -2,6 +2,10 @@ form {
   .control-group {
     margin: $margin-large-vertical 0;
 
+    label {
+      color: $brand-primary;
+    }
+
     input {
       @extend .form-control;
     }
