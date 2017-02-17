@@ -5,3 +5,4 @@
   with_items:
     - php-fpm
     - php-mysql
+    - php-curl
