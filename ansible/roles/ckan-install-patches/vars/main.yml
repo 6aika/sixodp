@@ -11,6 +11,7 @@ ckan_patches:
   - { file: "set_attachment_content_disposition" }
   - { file: "package_group_list_fix" }
   - { file: "move_rootpathmiddleware" }
+  - { file: "fix_datapusher_urls" }
 
 files_created_by_patches:
   - { file: '/usr/lib/ckan/default/src/ckan/ckan/lib/csrf_token.py'}
