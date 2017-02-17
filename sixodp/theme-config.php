@@ -5,7 +5,7 @@
 ?>
 
 <?php
-  define( 'CKAN_API_URL', 'https://generic-qa.dataportaali.com/data/api' );
+  define( 'CKAN_API_URL', 'http://localhost/data/api' );
   define( 'MENU_ITEMS_FI', array(
     array('menu-item-title' => 'Tietoaineistot', 'menu-item-url' => '/data/dataset'),
     array('menu-item-title' => 'Sovellukset', 'menu-item-url' => '/data/showcase'),
