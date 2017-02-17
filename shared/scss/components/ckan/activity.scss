@@ -21,7 +21,10 @@
       color: $white;
       background-color: $brand-primary;
       border-radius: 50%;
-      padding: $padding-small-horizontal;
+      width: 25px;
+      height: 25px;
+      line-height: 25px;
+      text-align: center;
     }
 
     p {

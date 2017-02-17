@@ -2,6 +2,10 @@ form {
   .control-group {
     margin: $margin-large-vertical 0;
 
+    label {
+      color: $brand-primary;
+    }
+
     input {
       @extend .form-control;
     }
@@ -17,7 +21,7 @@ form {
     width: 100%;
 
     @media (min-width: $width-sm) {
-      width: 50%;
+      width: 33%;
     }
   }
 

@@ -5824,11 +5824,6 @@ button.close {
 .btn, .category {
   border-radius: 2px; }
 
-.heading {
-  font-family: "Roboto Slab", sans-serif;
-  color: #534f97;
-  font-weight: 700; }
-
 .js .js-hide, .hide-heading {
   display: none; }
 
@@ -5866,11 +5861,18 @@ a {
     color: #8d8ac2;
     text-decoration: none; }
 
+.heading {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Roboto Slab", sans-serif;
+  color: #534f97; }
+
 .wrapper, .wrapper--showcase {
   padding: 40px 0; }
 
 .material-icons {
-  vertical-align: top; }
+  margin-right: 4px;
+  vertical-align: middle; }
 
 .control-label[for="field-order-by"] {
   line-height: 30px;
@@ -5890,11 +5892,16 @@ a {
 .navbar {
   background: #f8f8f8; }
 
-.navbar li {
+.navbar-nav li {
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent; }
-  .navbar li.active, .navbar li:nth-child(1) {
+  .navbar-nav li.active {
     border-bottom-color: #a55efa; }
+    .navbar-nav li.active a {
+      background: transparent !important; }
+
+.navbar-right .nav-link {
+  text-transform: uppercase; }
 
 .navbar-default > .navbar-nav > li > a {
   color: #000; }
@@ -6135,8 +6142,8 @@ hr {
   border-top: 1px solid #ddd; }
 
 .dataset__left {
-  width: 100%;
-  max-width: 80px; }
+  width: 80px;
+  min-width: 80px; }
 
 .dataset__meta {
   width: 100%;

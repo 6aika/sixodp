@@ -32,12 +32,12 @@
               <div class="dataset__content">
                 <span class="dataset__type"><?php echo $item['type']; ?></span>
                 <h4 class="dataset__title">
-                  <a class="dataset__link" href="/dataset/tampereen-rakennukset-alueina">
+                  <a class="dataset__link" href="/data/dataset/<?php echo $item['name']; ?>">
                     <?php echo $item['title']; ?>
                   </a>
                 </h4>
                 <div class="dataset__body">
-                  <p class="dataset__info"><?php echo $item['notes']; ?></p>
+                  <p class="dataset__info"><?php echo get_notes_excerpt($item['notes']); ?> <a href="/data/dataset/<?php echo $item['name']; ?>"><i class="material-icons">arrow_forward</i></a></p>
                 </div>
               </div>
             </li>

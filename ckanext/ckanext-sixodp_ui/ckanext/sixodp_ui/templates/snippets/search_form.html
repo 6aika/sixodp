@@ -16,7 +16,6 @@
   {% block search_sortby %}
     {% if sorting %}
       <div class="form-select form-group control-order-by">
-        <label class="control-label text-right" for="field-order-by">{{ _('Order by') }}</label>
         <select id="field-order-by" name="sort" class="form-control">
           {% for label, value in sorting %}
             {% if label and value %}

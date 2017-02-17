@@ -38,7 +38,6 @@
     - supervisor
     - libxml2-dev
     - libxslt1-dev
-    - node-less
     - curl
     - acl
     - libgeos-c1v5

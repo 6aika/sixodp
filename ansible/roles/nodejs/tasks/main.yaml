@@ -1,0 +1,12 @@
+---
+- name: Add NodeSource GPG key
+  apt_key:
+    data: "{{ lookup('file', 'nodesource.gpg.key') }}"
+
+- name: Add NodeSource APT repository
+  apt_repository:
+    repo: 'deb https://deb.nodesource.com/node_6.x {{ ansible_distribution_release }} main'
+
+- name: Install Node.js
+  apt:
+    name: nodejs

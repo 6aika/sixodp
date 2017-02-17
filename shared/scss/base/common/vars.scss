@@ -101,6 +101,8 @@ $nav-tabs-active-link-hover-bg:             $brand-primary !default;
 $nav-tabs-active-link-hover-color:          #fff !default;
 $nav-tabs-active-link-hover-border-color:   $brand-primary !default;
 
+$secondary-bg: $navbar-bg;
+
 // Breakpoints
 $width-xs: 480px;
 $width-xs-sm: 600px;
@@ -146,6 +148,9 @@ $stages-background-color-filled: $gray-light;
 $stages-text-color: $text-color;
 $stages-text-color-active: white;
 $stages-text-color-filled: white;
+
+// Label
+$label-text-color: $brand-success;
 
 // Other component colors
 $link-color: $brand-primary;
