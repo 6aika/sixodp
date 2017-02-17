@@ -86,12 +86,12 @@ def create_tags(vocab):
 
 def create_fluent_tags(vocab):
     def callable(key, data, errors, context):
-
         value = data[key]
-
+        if isinstance(value, str):
+            value = json.loads(value)
         if isinstance(value, dict):
             for lang in value:
-                add_to_vocab(context, value, vocab + '_' + lang)
+                add_to_vocab(context, value[lang], vocab + '_' + lang)
             data[key] = json.dumps(value)
 
     return callable
