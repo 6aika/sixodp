@@ -1,4 +1,5 @@
 {% set search_class = search_class if search_class else 'search-giant' %}
+{% set sorting = sorting if sorting else 'name asc' %}
 
 <form class="search-form" method="get" data-module="select-switch">
   {% for param in query_params %}
