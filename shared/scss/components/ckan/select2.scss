@@ -15,6 +15,12 @@
       line-height: $line-height-small;
     }
 
+    .select2-search-choice {
+      @extend %button-primary;
+      background-image: none;
+      padding: 5px 5px 5px 18px;
+    }
+
     .select2-chosen {
       padding: 0 $padding-small-horizontal;
     }
