@@ -8,6 +8,7 @@ wordpress_admin_user: admin
 wordpress_admin_email: admin@localhost.localdomain
 wordpress_plugins:
   - wp-api-menus
+  - https://github.com/hetenho/wp-trello/archive/master.zip
 
 wp_cli_version: "1.1.0"
 wp_cli_checksum: sha512:1fb4a3800441fc5188dac73efc6ca865076772ef698189ded379c53947d1fec30311e84eb4371455d415ef2cbb33d7593240fdf7b7f206277a12cfa8596d4b51
