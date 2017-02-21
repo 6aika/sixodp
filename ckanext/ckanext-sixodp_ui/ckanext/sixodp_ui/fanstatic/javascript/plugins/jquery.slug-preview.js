@@ -38,18 +38,10 @@
         value.text(val);
       }
 
-      preview.find('strong').html(required + ' ' + options.i18n['URL'] + ':');
-      preview.find('.slug-preview-prefix').text(options.prefix);
-      preview.find('button').text(options.i18n['Edit']).click(function (event) {
-        event.preventDefault();
-        element.show();
-        preview.hide();
-      });
+      preview.hide();
 
       setValue();
       field.on('change', setValue);
-
-      element.after(preview).hide();
 
       return preview[0];
     });
