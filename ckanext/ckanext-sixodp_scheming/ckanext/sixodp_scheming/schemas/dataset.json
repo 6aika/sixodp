@@ -26,7 +26,7 @@
       "form_placeholder": "http://example.com/dataset.json",
       "display_property": "foaf:homepage",
       "display_snippet": "link.html",
-      "description": "The source url for the dataset"
+      "description": "The source url for the dataset."
     },
     {
       "field_name": "keywords",
@@ -55,7 +55,7 @@
         "data-module-source": "/api/2/util/tag/autocomplete?incomplete=?&vocabulary_id=geographical_coverage"
       },
       "required": true,
-      "description": "Select the municipalities from which the dataset contains data"
+      "description": "Select the municipalities from which the dataset contains data."
     },
     {
       "field_name": "notes_translated",
@@ -74,18 +74,18 @@
       "form_blanks": 1,
       "display_snippet": "repeating_link.html",
       "form_snippet": "repeating.html",
-      "description": "Links to additional information concerning the dataset"
+      "description": "Links to additional information concerning the dataset."
     },
     {
       "field_name": "owner_org",
       "label": "Organization",
       "preset": "dataset_organization_ex",
-      "description": "The organization which owns the dataset"
+      "description": "The organization which owns the dataset."
     },
     {
       "field_name": "agency",
       "label": "Agency",
-      "description": "An agency inside the organization which owns the dataset"
+      "description": "An agency inside the organization which owns the dataset."
     },
     {
       "field_name": "maintainer",
@@ -121,14 +121,14 @@
       "label": "Created",
       "preset": "date",
       "required": true,
-      "description": "The date which will be shown as the publish date for this dataset"
+      "description": "The date which will be shown as the publish date for this dataset."
     },
     {
       "field_name": "date_updated",
       "label": "Updated",
       "preset": "date",
       "required": true,
-      "description": "The date which will be shown as the last modified date for this dataset"
+      "description": "The date which will be shown as the last modified date for this dataset."
     },
     {
       "field_name": "update_frequency",
@@ -162,17 +162,33 @@
   ],
   "resource_fields": [
     {
-      "field_name": "url",
-      "label": "URL",
-      "preset": "resource_url_upload"
-    },
-    {
       "field_name": "name_translated",
       "label": "Name",
       "preset": "fluent_core_translated_extended",
       "form_languages": ["fi", "en", "sv"],
       "form_placeholder":"eg. January 2011 Gold Prices",
-      "only_default_lang_required": true
+      "only_default_lang_required": true,
+      "description": "A short and descriptive name for the resource."
+    },
+    {
+      "field_name": "url",
+      "label": "URL",
+      "preset": "resource_url_upload",
+      "description": "A file or url which describes the location of the desired resource file."
+    },
+    {
+      "field_name": "file_size",
+      "label": {
+        "en_GB": "Size",
+        "fi": "Koko"
+      },
+      "description": "Size of the added resouce file in bytes. Will be automatically filled when the file is uploaded."
+    },
+    {
+      "field_name": "format",
+      "label": "Format",
+      "preset": "sixodp_resource_format_autocomplete",
+      "description": "File format of the selected resource."
     },
     {
       "field_name": "description_translated",
@@ -180,35 +196,27 @@
       "preset": "fluent_core_markdown_translated",
       "validators": "fluent_text",
       "form_placeholder": "eg. A detailed description",
-      "form_languages": ["fi", "en", "sv"]
-    },
-    {
-      "field_name": "format",
-      "label": "Format",
-      "preset": "sixodp_resource_format_autocomplete"
-    },
-    {
-      "field_name": "file_size",
-      "label": {
-        "en_GB": "Size",
-        "fi": "Koko"
-      }
+      "form_languages": ["fi", "en", "sv"],
+      "description": "An universal, compact and easy to understand description of the added resource."
     },
     {
       "field_name": "position_info",
-      "label": "Position coordinates"
+      "label": "Position coordinates",
+      "description": "Coordinates which describe the area which the added resource is associated with."
     },
     {
       "field_name": "time_series_start",
       "label": "Time series start",
       "preset": "date",
-      "display_snippet": "date.html"
+      "display_snippet": "date.html",
+      "description": "A moment in time after which the data is relevant."
     },
     {
       "field_name": "time_series_end",
       "label": "Time series end",
       "preset": "date",
-      "display_snippet": "date.html"
+      "display_snippet": "date.html",
+      "description": "A moment in time after which the data is no longer relevant."
     },
     {
       "field_name": "time_series_precision",
@@ -220,7 +228,8 @@
         "data-module": "autocomplete",
         "data-module-tags": "",
         "data-module-source": "/api/2/util/tag/autocomplete?incomplete=?&vocabulary_id=time_series_precision"
-      }
+      },
+      "description": "A string which describes the precision of the entered time series."
     }
   ]
 }
