@@ -3,14 +3,17 @@
 - name: Ensure temp directory for extensions
   file: path={{ ckanext_sync_path }} state=directory
 
-- name: Install npm dependencies
-  npm:
-    path: "{{ playbook_dir }}/.."
+- block:
+    - name: Install npm dependencies
+      npm:
+        path: "{{ playbook_dir }}/.."
 
-- name: Build CSS
-  command: npm run build
-  args:
-    chdir: "{{ playbook_dir }}/.."
+    - name: Build CSS
+      command: npm run build
+      args:
+        chdir: "{{ playbook_dir }}/.."
+
+    when: deployment_environment_id != "vagrant"
 
 - include: extension.yml
   with_items: "{{ ckan_extensions }}"
