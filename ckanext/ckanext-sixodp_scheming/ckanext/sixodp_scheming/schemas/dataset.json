@@ -4,14 +4,6 @@
   "about": "API catalog service/interface schema",
   "about_url": "http://github.com/vrk-kpa/api-catalog",
   "dataset_fields": [
-
-    {
-      "field_name": "name",
-      "label": "URL",
-      "preset": "dataset_slug_ex",
-      "form_placeholder": "eg. my-dataset",
-      "description": "An URL-address which refers to the dataset. The default option derived from the title is the best option in most cases."
-    },
     {
       "field_name": "title_translated",
       "label": "Title",
@@ -20,6 +12,13 @@
       "form_placeholder":"eg. A descriptive title",
       "only_default_lang_required": true,
       "description": "A short and descriptive title for the dataset. Do not utilize dates in the title but instead add multiple time-specific resources to the dataset in the next stage."
+    },
+    {
+      "field_name": "name",
+      "label": "URL",
+      "preset": "dataset_slug_ex",
+      "form_placeholder": "eg. my-dataset",
+      "description": "An URL-address which refers to the dataset. The default option derived from the title is the best option in most cases."
     },
     {
       "field_name": "url",
