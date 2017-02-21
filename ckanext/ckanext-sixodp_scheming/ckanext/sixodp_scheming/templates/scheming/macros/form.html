@@ -10,13 +10,13 @@
         {% set values = value if value.append else [value] %}
         {% for value_item in values %}
         {% if value_item %}
-        <div>
+        <div class="multiple-value-group">
             <input id="{{ id or name }}-{{ loop.index }}" type="{{ type }}" name="{{ name }}" value="{{ value_item | empty_and_escape }}" placeholder="{{ placeholder }}" class="multiple-value form-control" {{ form.attributes(attrs) }} />
         </div>
         {% endif %}
         {% endfor %}
         {% endif %}
-        <div>
+        <div class="multiple-value-group">
             <input id="{{ id or name }}" type="{{ type }}" name="{{ name }}" value="" placeholder="{{ placeholder }}" class="multiple-value form-control" {{ form.attributes(attrs) }} />
         </div>
     </div>

@@ -1,0 +1,22 @@
+.multiple-values {
+  .multiple-value-group {
+    height: $input-height-base;
+    margin-bottom: $margin-large-vertical;
+
+    .multiple-value {
+      padding-left: 30px;
+    }
+
+    .add-input {
+      position: relative;
+      bottom: 30px;
+      left: 5px;
+
+      &:focus,
+      &:hover,
+      &:active {
+        text-decoration: none;
+      }
+    }
+  }
+}
