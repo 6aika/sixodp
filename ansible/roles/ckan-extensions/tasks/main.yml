@@ -4,16 +4,16 @@
   file: path={{ ckanext_sync_path }} state=directory
 
 - block:
-    - name: Install npm dependencies
-      npm:
-        path: "{{ playbook_dir }}/.."
+  - name: Install npm dependencies
+    npm:
+      path: "{{ playbook_dir }}/.."
 
-    - name: Build CSS
-      command: npm run build
-      args:
-        chdir: "{{ playbook_dir }}/.."
+  - name: Build CSS
+    command: npm run build
+    args:
+      chdir: "{{ playbook_dir }}/.."
 
-    when: deployment_environment_id != "vagrant"
+  when: deployment_environment_id != "vagrant"
 
 - include: extension.yml
   with_items: "{{ ckan_extensions }}"
