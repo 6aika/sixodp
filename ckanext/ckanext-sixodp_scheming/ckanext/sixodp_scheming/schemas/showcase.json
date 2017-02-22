@@ -1,0 +1,15 @@
+{
+  "scheming_version": 1,
+  "dataset_type": "showcase",
+  "about": "Sixodp Showcase schema",
+  "about_url": "http://github.com/6aika/sixodp",
+  "dataset_fields": [
+    {
+      "field_name": "name",
+      "label": "URL",
+      "preset": "dataset_slug_ex",
+      "form_placeholder": "eg. my-dataset",
+      "description": "An URL-address which refers to the dataset. The automatically filled option derived from the title is the best option in most cases."
+    }
+  ]
+}
