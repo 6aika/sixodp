@@ -10,8 +10,8 @@ ckan_patches:
   - { file: "allow_org_admins_create_users" }
   - { file: "set_attachment_content_disposition" }
   - { file: "package_group_list_fix" }
-  - { file: "move_rootpathmiddleware" }
   - { file: "fix_datapusher_urls" }
+  - { file: "fix_fanstatic_urls" }
 
 files_created_by_patches:
   - { file: '/usr/lib/ckan/default/src/ckan/ckan/lib/csrf_token.py'}
