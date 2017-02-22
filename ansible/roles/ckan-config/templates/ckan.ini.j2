@@ -150,7 +150,8 @@ ckanext.datasubmitter.creating_user_username = {{ ckan_users.admin.username }}
 ckanext.datasubmitter.organization_name_or_id = sammakkokaupunki
 
 # Disqus configuration
-disqus.name = sixodp-generic-{{ deployment_environment_id }}
+# Disqus sites should always be named sixodp-CITY-ENVIRONMENT for the configuration to work properly
+disqus.name = sixodp-{{ deployment_environment_id }}
 
 [loggers]
 
