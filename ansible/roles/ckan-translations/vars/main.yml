@@ -5,12 +5,4 @@ ckan_languages:
   - sv
   - en_GB
 
-translation_projects:
-  - "ckanext-qa"
-  - "ckanext-editor"
-  - "ckanext-rating"
-  - "ckanext-reminder"
-  - "ckanext-collection"
-  - "ckanext-datasetcopy"
-  - "ckanext-datasubmitter"
-  - "ckanext-sixodp_ui"
+translation_projects: []
