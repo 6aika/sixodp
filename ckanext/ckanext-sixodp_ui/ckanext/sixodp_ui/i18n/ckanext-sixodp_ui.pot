@@ -3,39 +3,43 @@
 # This file is distributed under the same license as the ckanext-sixodp_ui
 # project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_ui 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-01-23 14:10+0000\n"
+"POT-Creation-Date: 2017-02-23 08:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Language-Team: Swedish (https://www.transifex.com/6aika-dataportal/teams/68018/sv/)\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.3.4\n"
-"Language: sv\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ckanext/sixodp_ui/plugin.py:243
+#: ckanext/sixodp_ui/plugin.py:246
 msgid "Formats"
 msgstr ""
 
-#: ckanext/sixodp_ui/plugin.py:244
-msgid "Organization"
+#: ckanext/sixodp_ui/plugin.py:247
+msgid "Geographical Coverage"
 msgstr ""
 
-#: ckanext/sixodp_ui/plugin.py:245
+#: ckanext/sixodp_ui/plugin.py:248
 #: ckanext/sixodp_ui/templates/package/read_base.html:9
 msgid "Groups"
 msgstr ""
 
-#: ckanext/sixodp_ui/plugin.py:246
+#: ckanext/sixodp_ui/plugin.py:249
 #: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:32
 #: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:37
 msgid "Maintainer"
+msgstr ""
+
+#: ckanext/sixodp_ui/plugin.py:250
+#: ckanext/sixodp_ui/templates/package/read_base.html:12
+msgid "Collections"
 msgstr ""
 
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/activity-stream.js:20
@@ -109,33 +113,44 @@ msgstr ""
 msgid "Unfollow"
 msgstr ""
 
-#: ckanext/sixodp_ui/fanstatic/javascript/modules/image-upload.js:15
+#: ckanext/sixodp_ui/fanstatic/javascript/modules/image-upload.js:16
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/image-upload.min.js:1
 msgid "Upload"
 msgstr ""
 
-#: ckanext/sixodp_ui/fanstatic/javascript/modules/image-upload.js:16
+#: ckanext/sixodp_ui/fanstatic/javascript/modules/image-upload.js:17
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/image-upload.min.js:1
 msgid "Link"
 msgstr ""
 
-#: ckanext/sixodp_ui/fanstatic/javascript/modules/image-upload.js:17
+#: ckanext/sixodp_ui/fanstatic/javascript/modules/image-upload.js:18
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/image-upload.min.js:1
 #: ckanext/sixodp_ui/templates/group/snippets/group_item.html:41
 msgid "Remove"
 msgstr ""
 
-#: ckanext/sixodp_ui/fanstatic/javascript/modules/image-upload.js:18
+#: ckanext/sixodp_ui/fanstatic/javascript/modules/image-upload.js:19
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/image-upload.min.js:1
 msgid "Image"
 msgstr ""
 
-#: ckanext/sixodp_ui/fanstatic/javascript/modules/image-upload.js:19
+#: ckanext/sixodp_ui/fanstatic/javascript/modules/image-upload.js:20
+#: ckanext/sixodp_ui/fanstatic/javascript/modules/slug-preview.js:35
+#: ckanext/sixodp_ui/fanstatic/javascript/modules/slug-preview.min.js:1
+#: ckanext/sixodp_ui/templates/package/snippets/resource_form.html:24
+msgid "URL"
+msgstr ""
+
+#: ckanext/sixodp_ui/fanstatic/javascript/modules/image-upload.js:21
+msgid "File"
+msgstr ""
+
+#: ckanext/sixodp_ui/fanstatic/javascript/modules/image-upload.js:22
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/image-upload.min.js:1
 msgid "Upload a file on your computer"
 msgstr ""
 
-#: ckanext/sixodp_ui/fanstatic/javascript/modules/image-upload.js:20
+#: ckanext/sixodp_ui/fanstatic/javascript/modules/image-upload.js:23
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/image-upload.min.js:1
 msgid "Link to a URL on the internet (you can also link to an API)"
 msgstr ""
@@ -211,17 +226,10 @@ msgstr ""
 msgid "Reorder resource view"
 msgstr ""
 
-#: ckanext/sixodp_ui/fanstatic/javascript/modules/slug-preview.js:35
-#: ckanext/sixodp_ui/fanstatic/javascript/modules/slug-preview.min.js:1
-#: ckanext/sixodp_ui/templates/package/snippets/resource_form.html:24
-msgid "URL"
-msgstr ""
-
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/slug-preview.js:36
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/slug-preview.min.js:1
 #: ckanext/sixodp_ui/templates/ckanext_pages/blog.html:12
 #: ckanext/sixodp_ui/templates/organization/bulk_process.html:44
-#: ckanext/sixodp_ui/templates/package/snippets/resource_item.html:66
 #: ckanext/sixodp_ui/templates/showcase/edit_base.html:19
 msgid "Edit"
 msgstr ""
@@ -273,15 +281,43 @@ msgstr ""
 msgid "There are currently no pages here"
 msgstr ""
 
+#: ckanext/sixodp_ui/templates/collection/index.html:6
+#: ckanext/sixodp_ui/templates/collection/index.html:13
+msgid "Search collections..."
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/collection/index.html:13
+#: ckanext/sixodp_ui/templates/group/index.html:13
+#: ckanext/sixodp_ui/templates/organization/read.html:15
+#: ckanext/sixodp_ui/templates/package/search.html:33
+#: ckanext/sixodp_ui/templates/showcase/manage_datasets.html:25
+#: ckanext/sixodp_ui/templates/showcase/search.html:21
+#: ckanext/sixodp_ui/templates/snippets/search_form_without_input.html:30
+msgid "Name Ascending"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/collection/index.html:13
+#: ckanext/sixodp_ui/templates/group/index.html:13
+#: ckanext/sixodp_ui/templates/organization/read.html:16
+#: ckanext/sixodp_ui/templates/package/search.html:34
+#: ckanext/sixodp_ui/templates/showcase/manage_datasets.html:26
+#: ckanext/sixodp_ui/templates/showcase/search.html:22
+#: ckanext/sixodp_ui/templates/snippets/search_form_without_input.html:30
+msgid "Name Descending"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/group/index.html:6
+#: ckanext/sixodp_ui/templates/group/index.html:13
+msgid "Search groups..."
+msgstr ""
+
 #: ckanext/sixodp_ui/templates/group/snippets/group_item.html:29
-#: ckanext/sixodp_ui/templates/organization/snippets/organization_item.html:37
 msgid "{num} Dataset"
 msgid_plural "{num} Datasets"
 msgstr[0] ""
 msgstr[1] ""
 
 #: ckanext/sixodp_ui/templates/group/snippets/group_item.html:31
-#: ckanext/sixodp_ui/templates/organization/snippets/organization_item.html:39
 msgid "0 Datasets"
 msgstr ""
 
@@ -459,50 +495,43 @@ msgstr ""
 msgid "This organization has no datasets associated to it"
 msgstr ""
 
+#: ckanext/sixodp_ui/templates/organization/index.html:6
+#: ckanext/sixodp_ui/templates/organization/index.html:13
+msgid "Search organizations..."
+msgstr ""
+
 #: ckanext/sixodp_ui/templates/organization/read.html:12
-#: ckanext/sixodp_ui/templates/package/search.html:12
+#: ckanext/sixodp_ui/templates/package/search.html:30
 msgid "Last Created"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/organization/read.html:13
-#: ckanext/sixodp_ui/templates/package/search.html:13
+#: ckanext/sixodp_ui/templates/package/search.html:31
 #: ckanext/sixodp_ui/templates/showcase/manage_datasets.html:28
-#: ckanext/sixodp_ui/templates/snippets/package_item.html:52
+#: ckanext/sixodp_ui/templates/showcase/search.html:24
+#: ckanext/sixodp_ui/templates/snippets/package_item.html:63
 msgid "Popular"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/organization/read.html:14
-#: ckanext/sixodp_ui/templates/package/search.html:14
+#: ckanext/sixodp_ui/templates/package/search.html:32
 #: ckanext/sixodp_ui/templates/showcase/manage_datasets.html:24
+#: ckanext/sixodp_ui/templates/showcase/search.html:20
 msgid "Relevance"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/organization/read.html:15
-#: ckanext/sixodp_ui/templates/package/search.html:15
-#: ckanext/sixodp_ui/templates/showcase/manage_datasets.html:25
-msgid "Name Ascending"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/organization/read.html:16
-#: ckanext/sixodp_ui/templates/package/search.html:16
-#: ckanext/sixodp_ui/templates/showcase/manage_datasets.html:26
-msgid "Name Descending"
-msgstr ""
-
 #: ckanext/sixodp_ui/templates/organization/read.html:17
-#: ckanext/sixodp_ui/templates/package/search.html:17
+#: ckanext/sixodp_ui/templates/package/search.html:35
 #: ckanext/sixodp_ui/templates/package/snippets/resource_form.html:51
 #: ckanext/sixodp_ui/templates/showcase/manage_datasets.html:27
+#: ckanext/sixodp_ui/templates/showcase/search.html:23
 msgid "Last Modified"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/organization/read.html:19
+#: ckanext/sixodp_ui/templates/package/search.html:6
+#: ckanext/sixodp_ui/templates/snippets/search_form_without_input.html:3
 msgid "Search datasets..."
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/organization/snippets/organization_item.html:45
-#: ckanext/sixodp_ui/templates/organization/snippets/organization_item.html:46
-msgid "View {organization_name}"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/edit.html:9
@@ -532,16 +561,42 @@ msgstr ""
 msgid "Showcases"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/read_base.html:12
-msgid "Collections"
-msgstr ""
-
 #: ckanext/sixodp_ui/templates/package/read_base.html:37
 msgid "Openness"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/read_base.html:51
 msgid "Subscribe for dataset updates"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/package/search.html:17
+msgid "Add Dataset"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/package/search.html:58
+msgid "API"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/package/search.html:59
+msgid "API Docs"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/package/search.html:61
+msgid "full {format} dump"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/package/search.html:62
+#, python-format
+msgid ""
+" You can also access this registry using the %(api_link)s (see "
+"%(api_doc_link)s) or download a %(dump_link)s. "
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/package/search.html:66
+#, python-format
+msgid ""
+" You can also access this registry using the %(api_link)s (see "
+"%(api_doc_link)s). "
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:2
@@ -657,23 +712,6 @@ msgstr ""
 msgid "Estimated upload times with the selected resource file"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/snippets/resource_item.html:42
-msgid "Preview"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/package/snippets/resource_item.html:45
-msgid "More information"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/package/snippets/resource_item.html:54
-#: ckanext/sixodp_ui/templates/report/view.html:38
-msgid "Download"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/package/snippets/resource_item.html:57
-msgid "Go to resource"
-msgstr ""
-
 #: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:18
 msgid "This resource view is not available at the moment."
 msgstr ""
@@ -702,6 +740,10 @@ msgstr ""
 
 #: ckanext/sixodp_ui/templates/report/view.html:22
 msgid "Options"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/report/view.html:38
+msgid "Download"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/report/view.html:43
@@ -786,6 +828,11 @@ msgstr ""
 msgid "Launch website"
 msgstr ""
 
+#: ckanext/sixodp_ui/templates/showcase/search.html:6
+#: ckanext/sixodp_ui/templates/showcase/search.html:27
+msgid "Search showcases..."
+msgstr ""
+
 #: ckanext/sixodp_ui/templates/snippets/facet_list.html:27
 msgid "Show More {facet_type}"
 msgstr ""
@@ -798,16 +845,28 @@ msgstr ""
 msgid "There are no {facet_type} that match this search"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/snippets/package_item.html:59
+#: ckanext/sixodp_ui/templates/snippets/package_item.html:70
 msgid "This dataset has no description"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/snippets/search_form.html:6
-msgid "Order by"
+#: ckanext/sixodp_ui/templates/snippets/search_form.html:9
+#: ckanext/sixodp_ui/templates/snippets/search_input.html:18
+msgid "Submit"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/snippets/search_form.html:15
+#: ckanext/sixodp_ui/templates/snippets/search_form.html:27
+#: ckanext/sixodp_ui/templates/snippets/search_form_without_input.html:43
 msgid "Go"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/snippets/search_form_without_input.html:57
+msgid " <p class=\"extra\">Please try another search or change search facets.</p> "
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/snippets/search_form_without_input.html:63
+msgid ""
+" <p><strong>There was an error while searching.</strong> Please try "
+"again.</p> "
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/snippets/sixodp_offcanvas-filter-button.html:2
@@ -858,4 +917,302 @@ msgstr ""
 
 #: ckanext/sixodp_ui/templates/user/snippets/followee_dropdown.html:44
 msgid "You are not following anything"
+msgstr ""
+
+#: ckan/controllers/feed.py:227 ckan/controllers/group.py:138
+#: ckan/controllers/group.py:225 ckan/controllers/group.py:401
+#: ckan/controllers/group.py:509 ckan/controllers/group.py:542
+#: ckan/controllers/group.py:572 ckan/controllers/group.py:583
+#: ckan/controllers/group.py:637 ckan/controllers/group.py:654
+#: ckan/controllers/group.py:706 ckan/controllers/group.py:738
+#: ckan/controllers/group.py:771 ckan/controllers/group.py:828
+#: ckan/controllers/group.py:925 ckan/controllers/package.py:1251
+#: ckan/controllers/package.py:1266 ckan/logic/action/create.py:1384
+msgid "Group not found"
+msgstr ""
+
+#: ckan/controllers/group.py:140 ckan/controllers/group.py:586
+msgid "Incorrect group type"
+msgstr ""
+
+#: ckan/controllers/group.py:466
+msgid "Unauthorized to create a group"
+msgstr ""
+
+#: ckan/controllers/group.py:620 ckan/controllers/group.py:635
+#, python-format
+msgid "Unauthorized to delete group %s"
+msgstr ""
+
+#: ckan/controllers/group.py:628
+msgid "Group has been deleted."
+msgstr ""
+
+#: ckan/controllers/group.py:630
+#, python-format
+msgid "%s has been deleted."
+msgstr ""
+
+#: ckan/controllers/group.py:704
+#, python-format
+msgid "Unauthorized to add member to group %s"
+msgstr ""
+
+#: ckan/controllers/group.py:723 ckan/controllers/group.py:736
+#, python-format
+msgid "Unauthorized to delete group %s members"
+msgstr ""
+
+#: ckan/controllers/group.py:730
+msgid "Group member has been deleted."
+msgstr ""
+
+#: ckan/controllers/group.py:778
+msgid "CKAN Group Revision History"
+msgstr ""
+
+#: ckan/controllers/group.py:782
+msgid "Recent changes to CKAN Group: "
+msgstr ""
+
+#: ckan/lib/activity_streams.py:63
+msgid "{actor} updated the group {group}"
+msgstr ""
+
+#: ckan/lib/activity_streams.py:81
+msgid "{actor} deleted the group {group}"
+msgstr ""
+
+#: ckan/lib/activity_streams.py:97
+msgid "{actor} created the group {group}"
+msgstr ""
+
+#: ckan/lib/activity_streams.py:124
+msgid "{actor} started following {group}"
+msgstr ""
+
+#: ckan/lib/mailer.py:128 ckan/templates/home/snippets/stats.html:23
+msgid "group"
+msgstr ""
+
+#: ckan/logic/converters.py:171 ckan/logic/validators.py:243
+#: ckanext/stats/templates/ckanext/stats/index.html:113
+msgid "Group"
+msgstr ""
+
+#: ckan/logic/validators.py:253
+msgid "That group name or ID does not exist."
+msgstr ""
+
+#: ckan/logic/validators.py:409
+msgid "Group name already exists in database"
+msgstr ""
+
+#: ckan/logic/action/create.py:1465 ckan/logic/action/create.py:1473
+msgid "You must be logged in to follow a group."
+msgstr ""
+
+#: ckan/logic/auth/create.py:31 ckan/logic/auth/update.py:45
+#, python-format
+msgid "User %s not authorized to edit these groups"
+msgstr ""
+
+#: ckan/logic/auth/create.py:119
+#, python-format
+msgid "User %s not authorized to create groups"
+msgstr ""
+
+#: ckan/logic/auth/create.py:191
+msgid "Group was not found."
+msgstr ""
+
+#: ckan/logic/auth/create.py:219
+msgid "Valid API key needed to create a group"
+msgstr ""
+
+#: ckan/logic/auth/create.py:263 ckan/logic/auth/update.py:115
+#, python-format
+msgid "User %s not authorized to edit group %s"
+msgstr ""
+
+#: ckan/logic/auth/delete.py:82
+#, python-format
+msgid "User %s not authorized to delete groups"
+msgstr ""
+
+#: ckan/logic/auth/delete.py:86
+#, python-format
+msgid "User %s not authorized to delete group %s"
+msgstr ""
+
+#: ckan/logic/auth/get.py:176
+#, python-format
+msgid "User %s not authorized to read group %s"
+msgstr ""
+
+#: ckan/logic/auth/update.py:145
+#, python-format
+msgid "User %s not authorized to change state of group %s"
+msgstr ""
+
+#: ckan/logic/auth/update.py:162
+#, python-format
+msgid "User %s not authorized to edit permissions of group %s"
+msgstr ""
+
+#: ckan/logic/auth/update.py:271
+msgid "Valid API key needed to edit a group"
+msgstr ""
+
+#: ckan/templates/group/base_form_page.html:7
+msgid "Add a Group"
+msgstr ""
+
+#: ckan/templates/group/base_form_page.html:11
+msgid "Group Form"
+msgstr ""
+
+#: ckan/templates/group/confirm_delete.html:3
+#: ckan/templates/group/confirm_delete.html:15
+#: ckan/templates/group/confirm_delete_member.html:3
+#: ckan/templates/group/confirm_delete_member.html:16
+#: ckan/templates/organization/confirm_delete.html:3
+#: ckan/templates/organization/confirm_delete.html:15
+#: ckan/templates/organization/confirm_delete_member.html:3
+#: ckan/templates/organization/confirm_delete_member.html:16
+#: ckan/templates/package/confirm_delete.html:3
+#: ckan/templates/package/confirm_delete.html:16
+#: ckan/templates/package/confirm_delete_resource.html:3
+#: ckan/templates/package/confirm_delete_resource.html:15
+msgid "Confirm Delete"
+msgstr ""
+
+#: ckan/templates/group/confirm_delete.html:11
+msgid "Are you sure you want to delete group - {name}?"
+msgstr ""
+
+#: ckan/templates/group/edit.html:12
+msgid "Edit Group"
+msgstr ""
+
+#: ckan/templates/group/index.html:13 ckan/templates/user/dashboard_groups.html:7
+msgid "Add Group"
+msgstr ""
+
+#: ckan/templates/group/index.html:29
+msgid "There are currently no groups for this site"
+msgstr ""
+
+#: ckan/templates/group/member_new.html:81
+msgid ""
+" <p><strong>Admin:</strong> Can edit group information, as well as manage "
+"organization members.</p> <p><strong>Member:</strong> Can add/remove datasets"
+" from groups</p> "
+msgstr ""
+
+#: ckan/templates/group/new.html:3 ckan/templates/group/new.html:5
+#: ckan/templates/group/new.html:7
+msgid "Create a Group"
+msgstr ""
+
+#: ckan/templates/group/new_group_form.html:17
+msgid "Update Group"
+msgstr ""
+
+#: ckan/templates/group/new_group_form.html:19
+msgid "Create Group"
+msgstr ""
+
+#: ckan/templates/group/snippets/feeds.html:3
+msgid "Datasets in group: {group}"
+msgstr ""
+
+#: ckan/templates/group/snippets/group_form.html:10
+msgid "My Group"
+msgstr ""
+
+#: ckan/templates/group/snippets/group_form.html:18
+msgid "my-group"
+msgstr ""
+
+#: ckan/templates/group/snippets/group_form.html:20
+msgid "A little information about my group..."
+msgstr ""
+
+#: ckan/templates/group/snippets/group_form.html:60
+msgid "Are you sure you want to delete this Group?"
+msgstr ""
+
+#: ckan/templates/group/snippets/group_form.html:64
+msgid "Save Group"
+msgstr ""
+
+#: ckan/templates/group/snippets/helper.html:4
+msgid "What are Groups?"
+msgstr ""
+
+#: ckan/templates/group/snippets/helper.html:8
+msgid ""
+" You can use CKAN Groups to create and manage collections of datasets. This "
+"could be to catalogue datasets for a particular project or team, or on a "
+"particular theme, or as a very simple way to help people find and search your"
+" own published datasets. "
+msgstr ""
+
+#: ckan/templates/home/snippets/stats.html:23
+msgid "groups"
+msgstr ""
+
+#: ckan/templates/package/group_list.html:14
+msgid "Associate this group with this dataset"
+msgstr ""
+
+#: ckan/templates/package/group_list.html:14
+msgid "Add to group"
+msgstr ""
+
+#: ckan/templates/package/group_list.html:23
+msgid "There are no groups associated with this dataset"
+msgstr ""
+
+#: ckan/templates/snippets/search_result_text.html:21
+msgid "{number} group found for \"{query}\""
+msgid_plural "{number} groups found for \"{query}\""
+msgstr[0] ""
+msgstr[1] ""
+
+#: ckan/templates/snippets/search_result_text.html:22
+msgid "No groups found for \"{query}\""
+msgstr ""
+
+#: ckan/templates/snippets/search_result_text.html:23
+msgid "{number} group found"
+msgid_plural "{number} groups found"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ckan/templates/snippets/search_result_text.html:24
+msgid "No groups found"
+msgstr ""
+
+#: ckan/templates/user/dashboard_groups.html:20
+msgid "You are not a member of any groups."
+msgstr ""
+
+#: ckan/templates/user/new.html:28
+msgid "Create datasets, groups and other exciting things"
+msgstr ""
+
+#: ckanext/example_theme/v10_custom_snippet/templates/snippets/example_theme_most_popular_groups.html:20
+#: ckanext/example_theme/v11_HTML_and_CSS/templates/snippets/example_theme_most_popular_groups.html:19
+msgid "This group has no description"
+msgstr ""
+
+#: ckanext/stats/templates/ckanext/stats/index.html:108
+#: ckanext/stats/templates/ckanext/stats/index.html:182
+msgid "Largest Groups"
+msgstr ""
+
+#: ckanext/stats/templates/ckanext/stats/index.html:127
+msgid "No groups"
 msgstr ""
