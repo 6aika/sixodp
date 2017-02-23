@@ -1178,12 +1178,6 @@ msgstr ""
 msgid "There are no groups associated with this dataset"
 msgstr ""
 
-#: ckan/templates/snippets/search_result_text.html:21
-msgid "{number} group found for \"{query}\""
-msgid_plural "{number} groups found for \"{query}\""
-msgstr[0] ""
-msgstr[1] ""
-
 #: ckan/templates/snippets/search_result_text.html:22
 msgid "No groups found for \"{query}\""
 msgstr ""
@@ -1218,4 +1212,48 @@ msgstr ""
 
 #: ckanext/stats/templates/ckanext/stats/index.html:127
 msgid "No groups"
+msgstr ""
+
+#: ckan/templates/snippets/search_result_text.html:15
+msgid "{number} dataset found for \"{query}\""
+msgid_plural "{number} datasets found for \"{query}\""
+msgstr[0] ""
+msgstr[1] ""
+
+#: ckan/templates/snippets/search_result_text.html:16
+msgid "No datasets found for \"{query}\""
+msgstr ""
+
+#: ckan/templates/snippets/search_result_text.html:17
+msgid "{number} dataset found"
+msgid_plural "{number} datasets found"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ckan/templates/snippets/search_result_text.html:18
+msgid "No datasets found"
+msgstr ""
+
+#: ckan/templates/snippets/search_result_text.html:27
+msgid "{number} organization found for \"{query}\""
+msgid_plural "{number} organizations found for \"{query}\""
+msgstr[0] ""
+msgstr[1] ""
+
+#: ckan/templates/snippets/search_result_text.html:28
+msgid "No organizations found for \"{query}\""
+msgstr ""
+
+#: ckan/templates/snippets/search_result_text.html:29
+msgid "{number} organization found"
+msgid_plural "{number} organizations found"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ckan/templates/snippets/search_result_text.html:30
+msgid "No organizations found"
+msgstr ""
+
+#: ckan/templates/snippets/search_form.html:78
+msgid " <p class=\"extra\">Please try another search.</p> "
 msgstr ""
