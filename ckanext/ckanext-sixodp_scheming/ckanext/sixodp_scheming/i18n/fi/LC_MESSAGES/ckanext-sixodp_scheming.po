@@ -27,29 +27,29 @@ msgstr "Puuttuva arvo"
 
 #: ckanext/sixodp_scheming/validators.py:152
 msgid "expecting list of strings"
-msgstr ""
+msgstr "odotetaan listaa merkkijonoja"
 
 #: ckanext/sixodp_scheming/validators.py:158
 #, python-format
 msgid "invalid type for repeating text: %r"
-msgstr ""
+msgstr "virheellinen toistuvan merkkijonon tyyppi: %r"
 
 #: ckanext/sixodp_scheming/validators.py:165
 #, python-format
 msgid "invalid encoding for \"%s\" value"
-msgstr ""
+msgstr "virheellinen koodaus arvolle \"%s\""
 
 #: ckanext/sixodp_scheming/validators.py:226
 msgid "Failed to decode JSON string"
-msgstr ""
+msgstr "JSON merkkijonon purku epäonnistui"
 
 #: ckanext/sixodp_scheming/validators.py:229
 msgid "Invalid encoding for JSON string"
-msgstr ""
+msgstr "Virheellinen JSON merkkijonon koodaus"
 
 #: ckanext/sixodp_scheming/validators.py:232
 msgid "expecting JSON object"
-msgstr ""
+msgstr "odotetaan JSON objektia"
 
 #: ckanext/sixodp_scheming/validators.py:236
 #, python-format
@@ -58,52 +58,53 @@ msgstr "Vaadittu kieli \"%s\" puuttuu"
 
 #: ckanext/sixodp_scheming/templates/scheming/form_snippets/organization_ex.html:26
 msgid "No organization"
-msgstr ""
+msgstr "Ei organisaatiota"
 
 #: ckanext/sixodp_scheming/templates/scheming/form_snippets/private.html:3
 msgid "Visibility"
-msgstr ""
+msgstr "Näkyvyys"
 
 #: ckanext/sixodp_scheming/templates/scheming/form_snippets/private.html:6
 msgid "Private"
-msgstr ""
+msgstr "Yksityinen"
 
 #: ckanext/sixodp_scheming/templates/scheming/form_snippets/private.html:6
 msgid "Public"
-msgstr ""
+msgstr "Julkinen"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:17
 msgid "From the dataset abstract"
-msgstr ""
+msgstr "Tietoaineiston yhteenvedosta"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:19
 #, python-format
 msgid "Source: <a \t\t\t     href=\"%(url)s\">%(dataset)s</a>"
-msgstr ""
+msgstr "Lähde: <a href=\"%(url)s\">%(dataset)s</a>"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:60
 msgid "There are no views created for this resource yet."
-msgstr ""
+msgstr "Resurssille ei ole luotu vielä yhtään näkymää."
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:64
 msgid "Not seeing the views you were expecting?"
-msgstr ""
+msgstr "Et näe odottamiasi näkymiä?"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:66
 msgid "Click here for more information."
-msgstr ""
+msgstr "Klikkaa tästä saadaksesi lisätietoa..."
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:69
 msgid "Here are some reasons you may not be seeing expected views:"
-msgstr ""
+msgstr "Tässä joitakin syitä, jos et näe odottamiasi näkymiä:"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:71
 msgid "No view has been created that is suitable for this resource"
-msgstr ""
+msgstr "Tälle resurssille ei ole luotu yhtään sopivaa näkymää"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:72
 msgid "The site administrators may not have enabled the relevant view plugins"
 msgstr ""
+"Voi olla, ettei ylläpitäjä ole ottanut käyttöön tarvittavia liitännäisiä"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:73
 msgid ""
@@ -111,10 +112,13 @@ msgid ""
 "or the data may not have been pushed to the DataStore, or the DataStore "
 "hasn't finished processing the data yet"
 msgstr ""
+"Jos näkymä vaatii DataStoren, voi olla, ettei DataStore-liitännäistä ole "
+"otettu käyttöön, tai ettei tietoja ole tallennettu DataStoreen, tai ettei "
+"DataStore ole vielä saanut prosessointia valmiiksi"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:89
 msgid "Manage"
-msgstr "Hallinnoi"
+msgstr "Hallitse"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:95
 msgid "View"
@@ -122,7 +126,7 @@ msgstr "Näkymä"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:98
 msgid "API Endpoint"
-msgstr ""
+msgstr "API-osoite"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:101
 msgid "Download"
@@ -130,4 +134,227 @@ msgstr "Lataa"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:30
 msgid "State"
+msgstr "Tila"
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:14
+msgid ""
+"A short and descriptive title for the dataset. Do not utilize dates in the "
+"title but instead add multiple time-specific resources to the dataset in the"
+" next stage."
 msgstr ""
+"Lyhyt ja ytimekäs nimi tietoaineistolle. Älä käytä vuosilukuja, vaan "
+"julkaise eri vuosien tiedot samassa tietoaineistossa erillisinä resursseina."
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:21
+msgid ""
+"An URL-address which refers to the dataset. The automatically filled option "
+"derived from the title is the best option in most cases."
+msgstr ""
+"URL-osoite, joka viittaa tietoaineistoon. Otsikosta johdettu oletusasetus on"
+" yleensä paras vaihtoehto."
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:29
+msgid "The origin of the dataset."
+msgstr "Tietoaineiston lähde."
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:44
+msgid ""
+"Keywords or tags through which users are able to find this dataset easily "
+"through the search page or other datasets which have the same tag."
+msgstr ""
+"Avainsanat eli tägit, joiden kautta tiedon hakijat löytävät tämän "
+"tietoaineiston helposti hakusivulta ja toisten aineistojen kautta, mikäli "
+"niille on annettu sama avainsana."
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:58
+msgid "Select the municipalities from which the dataset contains data."
+msgstr "Valitse, mistä kunnista tai alueista tietoaineisto sisältää tietoa."
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:63
+#: ckanext/sixodp_scheming/schemas/dataset.json:198
+msgid "eg. A detailed description"
+msgstr "esim. lyhyt ja ytimekäs kuvaus"
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:68
+msgid ""
+"An universal, compact and easy to understand description of the added "
+"dataset. Use as confining terms as possible to assist the user to understand"
+" what types of data, meters and dimensions the dataset contains."
+msgstr ""
+"Yleiskielinen, tiivis ja helposti ymmärrettävä kuvaus tietoaineistosta. "
+"Käytä mahdollisimman rajaavia termejä, jotta käyttäjä ymmärtää tarkalleen "
+"mitä tietoa, mittareita ja dimensioita aineisto sisältää."
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:73
+msgid "Links to additional information"
+msgstr "Linkkejä lisätietoihin"
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:77
+msgid "Links to additional information concerning the dataset."
+msgstr "Linkkejä tietoaineistoa koskeviin lisätietoihin verkossa."
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:83
+msgid "The organization which owns the dataset."
+msgstr "Tietoaineiston omistava organisaatio."
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:87
+msgid "Agency"
+msgstr "Virasto"
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:88
+msgid "An agency inside the organization which owns the dataset."
+msgstr ""
+"Valitun omistajaorganisaation sisällä oleva virasto, josta tietoaineisto on "
+"lähtöisin."
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:92
+msgid "Maintainer"
+msgstr "Ylläpitäjä"
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:93
+msgid "Joe Bloggs"
+msgstr "Etunimi Sukunimi"
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:98
+msgid "Maintainer Email"
+msgstr "Ylläpitäjän sähköposti"
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:99
+msgid "joe@example.com"
+msgstr "joe@example.com"
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:106
+msgid "Maintainer Website"
+msgstr "Ylläpitäjän verkkosivusto"
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:107
+msgid "http://www.example.com"
+msgstr "http://www.example.com"
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:121
+msgid "Created"
+msgstr "Luotu"
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:124
+msgid "The date which will be shown as the publish date for this dataset."
+msgstr "Päivämäärä, joka näytetään tietoaineiston julkaisupäivämääränä."
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:128
+msgid "Updated"
+msgstr "Päivitetty"
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:131
+msgid ""
+"The date which will be shown as the last modified date for this dataset."
+msgstr "Päivämäärä, jolloin tietoaineistoa on viimeksi muokattu."
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:135
+msgid "Update Frequency"
+msgstr "Päivitystiheys"
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:136
+msgid "eg. every second week"
+msgstr "esim. joka toinen viikko"
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:145
+msgid "A short description of how frequently the dataset will get updated."
+msgstr "Lyhyt sanallinen kuvaus siitä miten usein tietoaineistoa päivitetään."
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:149
+msgid "License"
+msgstr "Lisenssi"
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:157
+msgid "Reminder date"
+msgstr "Muistutuspäivämäärä"
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:160
+msgid ""
+"A date when a reminder will be sent to a specified email address reminding "
+"to check this dataset. The email address can be changed in the CKAN admin "
+"config page."
+msgstr ""
+"Päivämäärä, jolloin tietoaineistoa koskien lähetetään sähköposti "
+"määritettyyn sähköpostiosoitteeseen muistuttamaan tietoaineiston tietojen "
+"tarkistuksesta. Osoitetta on mahdollista muuttaa CKAN:in ylläpitäjän "
+"asetussivulta."
+
+#: ckan/templates/package/snippets/package_form.html:29
+msgid ""
+"The <i>data license</i> you select above only applies to the contents of any"
+" resource files that you add to this dataset. By submitting this form, you "
+"agree to release the <i>metadata</i> values that you enter into the form "
+"under the <a href=\"http://opendatacommons.org/licenses/odbl/1-0/\">Open "
+"Database License</a>."
+msgstr ""
+"<i>Lisenssi</i>, jonka valitset yllä olevasta valikosta, koskee ainoastaan "
+"tähän tietoaineistoon liittämiäsi tiedostoja. Lähettämällä tämän lomakkeen "
+"suostut julkaisemaan täyttämäsi <i>metatiedot</i> <a "
+"href=\"http://opendatacommons.org/licenses/odbl/1-0/\">Open Database "
+"Lisenssin</a> mukaisesti."
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:171
+msgid "A short and descriptive name for the resource."
+msgstr "Lyhyt ja kuvaava nimi resurssille."
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:177
+msgid ""
+"A file or url which describes the location of the desired resource file."
+msgstr ""
+"Tiedosto tai verkko-osoite, joka kuvaa halutun resurssitiedoston sijainnin."
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:185
+msgid ""
+"Size of the added resouce file in bytes. Will be automatically filled when "
+"the file is uploaded."
+msgstr ""
+"Lisätyn resurssitiedoston koko tavuina. Täytetään automaattisesti, kun "
+"tiedosto ladataan."
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:191
+msgid "File format of the selected resource."
+msgstr "Valitun resurssitiedoston tiedostotyyppi."
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:200
+msgid ""
+"An universal, compact and easy to understand description of the added "
+"resource."
+msgstr "Yleiskielinen, tiivis ja helposti ymmärrettävä kuvaus resurssista."
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:204
+msgid "Position coordinates"
+msgstr "Paikkakoordinaatit"
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:205
+msgid ""
+"Coordinates which describe the area which the added resource is associated "
+"with."
+msgstr "Koordinaatit, jotka kuvaavat aluetta, johon lisätty resurssi liittyy."
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:209
+msgid "Time series start"
+msgstr "Aikasarja alkaen"
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:212
+msgid "A moment in time after which the data is relevant."
+msgstr "Ajanhetki, jonka jälkeen data on relevanttia"
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:216
+msgid "Time series end"
+msgstr "Aikasarja päättyen"
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:219
+msgid "A moment in time after which the data is no longer relevant."
+msgstr "Ajanhetki, jonka jälkeen data ei enää ole relevanttia."
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:223
+msgid "Time Series Precision"
+msgstr "Aikasarjan tarkkuus"
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:224
+msgid "eg. 2 weeks"
+msgstr "esim. 2 viikkoa"
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:232
+msgid "A string which describes the precision of the entered time series."
+msgstr "Lyhyt sanallinen kuvaus aikasarjan tarkkuudesta."
