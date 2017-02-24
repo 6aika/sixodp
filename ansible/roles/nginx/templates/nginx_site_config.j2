@@ -20,7 +20,7 @@ server {
     proxy_set_header Host $host;
   }
 
-  location = /data/ {
+  location ~ ^/data/(fi|sv|en_GB)?/?$ {
     return 302 /data/dataset;
   }
 
