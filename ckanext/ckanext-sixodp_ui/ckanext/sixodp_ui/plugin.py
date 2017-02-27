@@ -264,5 +264,6 @@ class Sixodp_UiPlugin(plugins.SingletonPlugin, DefaultTranslation):
                 'dataset_display_name': dataset_display_name,
                 'get_navigation_items_by_menu_location': helpers.get_navigation_items_by_menu_location,
                 'get_main_navigation_items': helpers.get_main_navigation_items,
-                'get_footer_navigation_items': helpers.get_footer_navigation_items
+                'get_footer_navigation_items': helpers.get_footer_navigation_items,
+                'get_groups_for_package': helpers.get_groups_for_package
                 }
