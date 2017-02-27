@@ -11,7 +11,7 @@
   cron: name="Qa run" minute="0" hour="0" job="/usr/lib/ckan/default/bin/paster --plugin=ckanext-qa qa update --config={{ ckan_ini }}"
 
 - name: Ensure reminder cronjob
-  cron: name="Reminder run" minute="0" hour="7" job="/usr/lib/ckan/default/bin/paster --plugin=ckanext-reminder reminder send --config={{ckan_ini}}"
+  cron: name="Reminder send" minute="0" hour="7" job="/usr/lib/ckan/default/bin/paster --plugin=ckanext-reminder reminder send --config={{ckan_ini}}"
 
 - name: Ensure reminder notify subscribers cronjob
   cron: name="Reminder run" minute="0" hour="8" job="/usr/lib/ckan/default/bin/paster --plugin=ckanext-reminder reminder notify --config={{ckan_ini}}"
