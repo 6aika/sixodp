@@ -136,7 +136,7 @@
       "form_placeholder":"eg. every second week",
       "form_languages": ["fi", "en", "sv"],
       "preset": "fluent_vocabulary_with_autocomplete",
-      "validators": "fluent_tags create_fluent_tags(updata_frequency)",
+      "validators": "fluent_tags create_fluent_tags(update_frequency)",
       "form_attrs": {
         "data-module": "autocomplete",
         "data-module-tags": "",
@@ -222,8 +222,8 @@
       "field_name": "time_series_precision",
       "label": "Time Series Precision",
       "form_placeholder":"eg. 2 weeks",
-      "preset": "vocabulary_with_autocomplete",
-      "validators": "ignore_missing convert_to_list create_tags(time_series_precision)",
+      "preset": "fluent_vocabulary_with_autocomplete",
+      "validators": "fluent_tags create_fluent_tags(time_series_precision)",
       "form_attrs": {
         "data-module": "autocomplete",
         "data-module-tags": "",
@@ -233,4 +233,3 @@
     }
   ]
 }
-
