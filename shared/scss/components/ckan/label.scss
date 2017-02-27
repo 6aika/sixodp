@@ -8,10 +8,6 @@
   font-weight: normal;
   display: inline;
 
-  &:last-of-type {
-    padding-right: 0;
-  }
-
   &.dataset-private {
     font-size: $font-size-large;
     padding: 0;
