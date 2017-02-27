@@ -55,7 +55,7 @@
         .dataset-created {
           color: $text-color;
         }
-        .dataset-category {
+        .dataset-category-link {
           color: $label-text-color;
         }
       }
@@ -63,6 +63,12 @@
 
     .dataset-resources {
       padding: $padding-large-vertical 0 0 0;
+
+      .label {
+        display: inline-block;
+        background-color: $gray-lighter;
+        padding: $padding-small-vertical $padding-small-horizontal;
+      }
     }
   }
 }
