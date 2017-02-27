@@ -158,6 +158,12 @@
       "field_name": "global_id",
       "label": "Global ID",
       "description": "An Id that is used in other services, so that this dataset can be matched to dataset in other service."
+    },
+    {
+      "field_name": "search_synonyms",
+      "label": "Search Synonyms",
+      "display_snippet": null,
+      "description": "Synonyms for package search"
     }
   ],
   "resource_fields": [

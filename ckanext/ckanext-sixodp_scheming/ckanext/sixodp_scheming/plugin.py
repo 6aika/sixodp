@@ -113,7 +113,14 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin, DefaultTranslation):
         return data_dict
 
 
+    def after_show(self, context, data_dict):
+        if context.get('for_edit') is not True:
+            if data_dict.get('search_synonyms', None) is not None:
+                data_dict.pop('search_synonyms')
+            
 
+
+        return data_dict
 
 
     def get_helpers(self):
