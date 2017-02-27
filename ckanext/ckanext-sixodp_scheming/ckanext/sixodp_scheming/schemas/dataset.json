@@ -21,14 +21,6 @@
       "description": "An URL-address which refers to the dataset. The automatically filled option derived from the title is the best option in most cases."
     },
     {
-      "field_name": "url",
-      "label": "Source",
-      "form_placeholder": "http://example.com/dataset.json",
-      "display_property": "foaf:homepage",
-      "display_snippet": "link.html",
-      "description": "The source url for the dataset."
-    },
-    {
       "field_name": "keywords",
       "label": "Tags",
       "form_placeholder":"eg. every second week",
@@ -86,6 +78,14 @@
       "field_name": "agency",
       "label": "Agency",
       "description": "An agency inside the organization which owns the dataset."
+    },
+    {
+      "field_name": "url",
+      "label": "Source",
+      "form_placeholder": "http://example.com/dataset.json",
+      "display_property": "foaf:homepage",
+      "display_snippet": "link.html",
+      "description": "The origin of the dataset."
     },
     {
       "field_name": "maintainer",

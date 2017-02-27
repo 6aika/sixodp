@@ -10,6 +10,7 @@ import logging
 import copy
 from ckan.common import _
 from ckanext.sixodp_ui import helpers
+from ckan.lib.plugins import DefaultTranslation
 
 try:
     from collections import OrderedDict  # 2.7
@@ -196,11 +197,13 @@ def get_qa_openness(dataset):
                   extra_vars=extra_vars))
 
 
-class Sixodp_UiPlugin(plugins.SingletonPlugin):
+class Sixodp_UiPlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IConfigurable)
     plugins.implements(plugins.interfaces.IFacets, inherit=True)
     plugins.implements(plugins.ITemplateHelpers)
+    if toolkit.check_ckan_version(min_version='2.5.0'):
+        plugins.implements(plugins.ITranslation, inherit=True)
 
     # IConfigurer
 

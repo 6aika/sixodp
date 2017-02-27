@@ -59,6 +59,16 @@ With Vagrant, the host machine shares the working directory into the virtual mac
     ├── doc                                 Documentation
     └── Vagrantfile                         Configuration for local development environment
 
+### Managing translations
+
+Translations are decentralized to separate CKAN extensions. The main ckanext-sixodp_ui extension is used to manage modifications to CKAN core translations while other extensions
+will contain only extension specific translations. 
+The extensions follow the internalization conventions defined in [CKAN v2.6 docs](http://docs.ckan.org/en/ckan-2.6.0/extensions/translating-extensions.html).
+
+Transifex is used to handle the translating work itself and Transifex Client for uploading Transifex resources and downloading new translation files. 
+The project's Transifex page can be found [here](https://www.transifex.com/6aika-dataportal). 
+A more thorough guide on how to update existing translations in practise is located in the ckanext-sixodp_ui extension's README-file.
+
 ### Support / Contact / Contribution
 
 Please file a [new issue](https://github.com/6aika/sixodp/issues) at GitHub.

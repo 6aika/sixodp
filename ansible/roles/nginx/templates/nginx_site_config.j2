@@ -20,7 +20,7 @@ server {
     proxy_set_header Host $host;
   }
 
-  location = /data/ {
+  location ~ ^/data/(fi|sv|en_GB)?/?$ {
     return 302 /data/dataset;
   }
 
@@ -36,6 +36,10 @@ server {
       fastcgi_param SCRIPT_FILENAME $request_filename;
       fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
     }
+  }
+
+  location = / {
+    return 302 /fi/;
   }
 
   location /assets/ {

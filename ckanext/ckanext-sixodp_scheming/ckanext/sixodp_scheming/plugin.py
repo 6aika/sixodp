@@ -6,6 +6,7 @@ import json
 import helpers
 
 from ckan.logic import NotFound
+from ckan.lib.plugins import DefaultTranslation
 import logging
 
 log = logging.getLogger(__name__ )
@@ -46,11 +47,13 @@ def create_tag_to_vocabulary(tag, vocab):
     toolkit.get_action('tag_create')(context, data)
 
 
-class Sixodp_SchemingPlugin(plugins.SingletonPlugin):
+class Sixodp_SchemingPlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IValidators)
     plugins.implements(plugins.IPackageController, inherit=True)
     plugins.implements(plugins.ITemplateHelpers)
+    if toolkit.check_ckan_version(min_version='2.5.0'):
+        plugins.implements(plugins.ITranslation, inherit=True)
 
     # IConfigurer
 

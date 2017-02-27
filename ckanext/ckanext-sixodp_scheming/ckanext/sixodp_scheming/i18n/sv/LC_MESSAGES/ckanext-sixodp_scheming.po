@@ -1,0 +1,331 @@
+# Translations template for ckanext-sixodp_scheming.
+# Copyright (C) 2017 ORGANIZATION
+# This file is distributed under the same license as the ckanext-sixodp_scheming
+# project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ckanext-sixodp_scheming 0.0.1\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-02-23 10:22+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Language-Team: Swedish (https://www.transifex.com/6aika-dataportal/teams/68018/sv/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+"Language: sv\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ckanext/sixodp_scheming/validators.py:57
+#: ckanext/sixodp_scheming/validators.py:243
+msgid "Missing value"
+msgstr ""
+
+#: ckanext/sixodp_scheming/validators.py:152
+msgid "expecting list of strings"
+msgstr ""
+
+#: ckanext/sixodp_scheming/validators.py:158
+#, python-format
+msgid "invalid type for repeating text: %r"
+msgstr ""
+
+#: ckanext/sixodp_scheming/validators.py:165
+#, python-format
+msgid "invalid encoding for \"%s\" value"
+msgstr ""
+
+#: ckanext/sixodp_scheming/validators.py:226
+msgid "Failed to decode JSON string"
+msgstr ""
+
+#: ckanext/sixodp_scheming/validators.py:229
+msgid "Invalid encoding for JSON string"
+msgstr ""
+
+#: ckanext/sixodp_scheming/validators.py:232
+msgid "expecting JSON object"
+msgstr ""
+
+#: ckanext/sixodp_scheming/validators.py:236
+#, python-format
+msgid "Required language \"%s\" missing"
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/form_snippets/organization_ex.html:26
+msgid "No organization"
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/form_snippets/private.html:3
+msgid "Visibility"
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/form_snippets/private.html:6
+msgid "Private"
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/form_snippets/private.html:6
+msgid "Public"
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:17
+msgid "From the dataset abstract"
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:19
+#, python-format
+msgid "Source: <a \t\t\t     href=\"%(url)s\">%(dataset)s</a>"
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:60
+msgid "There are no views created for this resource yet."
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:64
+msgid "Not seeing the views you were expecting?"
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:66
+msgid "Click here for more information."
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:69
+msgid "Here are some reasons you may not be seeing expected views:"
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:71
+msgid "No view has been created that is suitable for this resource"
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:72
+msgid "The site administrators may not have enabled the relevant view plugins"
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:73
+msgid ""
+"If a view requires the DataStore, the DataStore plugin may not be enabled, "
+"or the data may not have been pushed to the DataStore, or the DataStore "
+"hasn't finished processing the data yet"
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:89
+msgid "Manage"
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:95
+msgid "View"
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:98
+msgid "API Endpoint"
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:101
+msgid "Download"
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:30
+msgid "State"
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:14
+msgid ""
+"A short and descriptive title for the dataset. Do not utilize dates in the "
+"title but instead add multiple time-specific resources to the dataset in the"
+" next stage."
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:21
+msgid ""
+"An URL-address which refers to the dataset. The automatically filled option "
+"derived from the title is the best option in most cases."
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:29
+msgid "The origin of the dataset."
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:44
+msgid ""
+"Keywords or tags through which users are able to find this dataset easily "
+"through the search page or other datasets which have the same tag."
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:58
+msgid "Select the municipalities from which the dataset contains data."
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:63
+#: ckanext/sixodp_scheming/schemas/dataset.json:198
+msgid "eg. A detailed description"
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:68
+msgid ""
+"An universal, compact and easy to understand description of the added "
+"dataset. Use as confining terms as possible to assist the user to understand"
+" what types of data, meters and dimensions the dataset contains."
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:73
+msgid "Links to additional information"
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:77
+msgid "Links to additional information concerning the dataset."
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:83
+msgid "The organization which owns the dataset."
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:87
+msgid "Agency"
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:88
+msgid "An agency inside the organization which owns the dataset."
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:92
+msgid "Maintainer"
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:93
+msgid "Joe Bloggs"
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:98
+msgid "Maintainer Email"
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:99
+msgid "joe@example.com"
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:106
+msgid "Maintainer Website"
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:107
+msgid "http://www.example.com"
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:121
+msgid "Created"
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:124
+msgid "The date which will be shown as the publish date for this dataset."
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:128
+msgid "Updated"
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:131
+msgid ""
+"The date which will be shown as the last modified date for this dataset."
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:135
+msgid "Update Frequency"
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:136
+msgid "eg. every second week"
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:145
+msgid "A short description of how frequently the dataset will get updated."
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:149
+msgid "License"
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:157
+msgid "Reminder date"
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:160
+msgid ""
+"A date when a reminder will be sent to a specified email address reminding "
+"to check this dataset. The email address can be changed in the CKAN admin "
+"config page."
+msgstr ""
+
+#: ckan/templates/package/snippets/package_form.html:29
+msgid ""
+"The <i>data license</i> you select above only applies to the contents of any"
+" resource files that you add to this dataset. By submitting this form, you "
+"agree to release the <i>metadata</i> values that you enter into the form "
+"under the <a href=\"http://opendatacommons.org/licenses/odbl/1-0/\">Open "
+"Database License</a>."
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:171
+msgid "A short and descriptive name for the resource."
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:177
+msgid ""
+"A file or url which describes the location of the desired resource file."
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:185
+msgid ""
+"Size of the added resouce file in bytes. Will be automatically filled when "
+"the file is uploaded."
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:191
+msgid "File format of the selected resource."
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:200
+msgid ""
+"An universal, compact and easy to understand description of the added "
+"resource."
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:204
+msgid "Position coordinates"
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:205
+msgid ""
+"Coordinates which describe the area which the added resource is associated "
+"with."
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:209
+msgid "Time series start"
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:212
+msgid "A moment in time after which the data is relevant."
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:216
+msgid "Time series end"
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:219
+msgid "A moment in time after which the data is no longer relevant."
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:223
+msgid "Time Series Precision"
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:224
+msgid "eg. 2 weeks"
+msgstr ""
+
+#: ckanext/sixodp_scheming/schemas/dataset.json:232
+msgid "A string which describes the precision of the entered time series."
+msgstr ""

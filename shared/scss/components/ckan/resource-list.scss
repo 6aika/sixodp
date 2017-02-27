@@ -49,4 +49,19 @@
       }
     }
   }
+
+  &.reordering {
+    .resource-item {
+      .handle {
+        display: inline;
+        position: absolute;
+        right: 40px;
+        margin-top: -60px;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+      }
+    }
+  }
 }
