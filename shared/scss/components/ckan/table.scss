@@ -1,0 +1,14 @@
+.table {
+  tbody {
+    tr {
+      td {
+        vertical-align: middle;
+        padding: $padding-small-vertical $padding-small-horizontal;
+
+        input {
+          height: auto;
+        }
+      }
+    }
+  }
+}
