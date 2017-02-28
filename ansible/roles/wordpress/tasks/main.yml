@@ -102,7 +102,7 @@
 
 - name: Create symbolic link to wp-trello plugin
   file:
-    src: /vagrant/sixodp/wordpress/wp-trello
+    src: /vagrant/wordpress/wp-trello
     dest: /opt/wordpress/wp-content/plugins/wp-trello
     state: link
   when: deployment_environment_id == "vagrant"
