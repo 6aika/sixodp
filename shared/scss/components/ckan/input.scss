@@ -9,3 +9,9 @@ input {
     opacity: 0;
   }
 }
+
+.radio {
+  input[type="radio"] {
+    height: auto;
+  }
+}
