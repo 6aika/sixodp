@@ -9,6 +9,11 @@ import ckan.model as model
 from ckan.model.package import Package
 from ckan.lib.dictization.model_dictize import group_list_dictize
 
+from pylons.i18n import gettext
+from ckanext.scheming.helpers import lang
+from ckan.common import _
+
+
 NotFound = logic.NotFound
 abort = base.abort
 
@@ -62,3 +67,85 @@ def get_groups_for_package(package_id):
         abort(404, _('Dataset not found'))
 
     return group_list
+
+
+_LOCALE_ALIASES = {'en_GB': 'en'}
+
+def get_translated(data_dict, field):
+    language = i18n.get_lang()
+    if language in _LOCALE_ALIASES:
+        language = _LOCALE_ALIASES[language]
+
+    try:
+        log.info("trying field %s in lang %s", field, language)
+        log.info(data_dict[field+'_translated'])
+        log.info(data_dict[field+'_translated'][language])
+        return data_dict[field+'_translated'][language]
+    except KeyError:
+        log.info("nope")
+        return data_dict.get(field, '')
+
+
+# Copied from core ckan to call over ridden get_translated
+def dataset_display_name(package_or_package_dict):
+    if isinstance(package_or_package_dict, dict):
+        return get_translated(package_or_package_dict, 'title') or \
+               package_or_package_dict['name']
+    else:
+        # FIXME: we probably shouldn't use the same functions for
+        # package dicts and real package objects
+        return package_or_package_dict.title or package_or_package_dict.name
+
+def get_translated_or_default_locale(data_dict, field):
+    language = i18n.get_lang()
+    if language in _LOCALE_ALIASES:
+        language = _LOCALE_ALIASES[language]
+
+    try:
+        value = data_dict[field+'_translated'][language]
+        if value:
+            return value
+        else:
+            return data_dict[field+'_translated'][config.get('ckan.locale_default', 'en')]
+    except KeyError:
+        return data_dict.get(field, '')
+
+
+def scheming_language_text_or_empty(text, prefer_lang=None):
+    """
+    :param text: {lang: text} dict or text string
+    :param prefer_lang: choose this language version if available
+
+    Convert "language-text" to users' language by looking up
+    language in dict or using gettext if not a dict
+    """
+    if not text:
+        return u''
+
+    if hasattr(text, 'get'):
+        try:
+            if prefer_lang is None:
+                prefer_lang = lang()
+        except:
+            pass  # lang() call will fail when no user language available
+        else:
+            if prefer_lang in _LOCALE_ALIASES:
+                prefer_lang = _LOCALE_ALIASES[prefer_lang]
+            try:
+                return text[prefer_lang]
+            except KeyError:
+                return ''
+
+    t = gettext(text)
+    if isinstance(t, str):
+        return t.decode('utf-8')
+    return t
+
+
+def resource_display_name(resource_dict):
+    name = get_translated(resource_dict, 'name')
+    if name:
+        return name
+
+    else:
+        return resource_dict['name']
