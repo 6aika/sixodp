@@ -6,7 +6,6 @@
 
 <?php
   define( 'CKAN_API_URL', 'http://localhost/data/api' );
-  define(' LOCALES ', ['fi', 'en', 'sv']);
   define( 'PRIMARY_MENU_ITEMS_FI', array(
     array('menu-item-title' => 'Tietoaineistot', 'menu-item-url' => '/data/fi/dataset'),
     array('menu-item-title' => 'Sovellukset', 'menu-item-url' => '/data/fi/showcase'),
@@ -24,19 +23,19 @@
   ) );
 
   define( 'SECONDARY_MENU_ITEMS_FI', array(
-    array('menu-item-title' => 'Tili', 'menu-item-url' => '/account'),
+    array('menu-item-title' => 'Tili', 'menu-item-url' => '/#'),
     array('menu-item-title' => 'fi', 'menu-item-url' => '/fi'),
     array('menu-item-title' => 'en', 'menu-item-url' => '/en'),
     array('menu-item-title' => 'sv', 'menu-item-url' => '/sv')
   ) );
   define( 'SECONDARY_MENU_ITEMS_EN', array(
-    array('menu-item-title' => 'Account', 'menu-item-url' => '/account'),
+    array('menu-item-title' => 'Account', 'menu-item-url' => '/#'),
     array('menu-item-title' => 'fi', 'menu-item-url' => '/fi'),
     array('menu-item-title' => 'en', 'menu-item-url' => '/en'),
     array('menu-item-title' => 'sv', 'menu-item-url' => '/sv')
   ) );
   define( 'SECONDARY_MENU_ITEMS_SV', array(
-    array('menu-item-title' => 'Konto', 'menu-item-url' => '/account'),
+    array('menu-item-title' => 'Konto', 'menu-item-url' => '/#'),
     array('menu-item-title' => 'fi', 'menu-item-url' => '/fi'),
     array('menu-item-title' => 'en', 'menu-item-url' => '/en'),
     array('menu-item-title' => 'sv', 'menu-item-url' => '/sv')
