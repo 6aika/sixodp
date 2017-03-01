@@ -1,5 +1,4 @@
 <?php
-session_start();
 /**
 * Template partial for the main navigation
 *
