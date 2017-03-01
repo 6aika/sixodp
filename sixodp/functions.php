@@ -131,6 +131,17 @@ function insert_default_page($locale) {
     );
 
     $page_id = wp_insert_post( $page );
+
+    $roadmap_page = array(
+      'post_title'    => 'Roadmap',
+      'post_content'  => "This is my post",
+      'post_type'     => 'page',
+      'post_parent'   => $page_id,
+      'post_status'   => 'publish',
+      'page_template' => 'roadmap.php'
+    );
+
+    $roadmap_page = wp_insert_post( $roadmap_page );
   }
 }
 
@@ -146,8 +157,8 @@ function get_menu_items($page_name) {
   return wp_get_nav_menu_items($menuID);
 }
 
-function get_account_link() {
-  return MENU_ITEM_ACCOUNT[get_current_locale()];
+function get_nav_menu_items($menu) {
+  return wp_get_nav_menu_items($menu . '_' . get_current_locale());
 }
 
 function get_current_locale() {

@@ -5903,6 +5903,17 @@ a {
 .navbar-right .nav-link {
   text-transform: uppercase; }
 
+.navbar-right li:nth-child(1) {
+  margin-right: 15px; }
+  .navbar-right li:nth-child(1) .nav-link:after {
+    display: inline-block;
+    content: '';
+    border-right: 1px solid #ddd;
+    height: 24px;
+    position: absolute;
+    vertical-align: middle;
+    padding-left: 15px; }
+
 .navbar-default > .navbar-nav > li > a {
   color: #000; }
 

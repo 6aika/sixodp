@@ -19,14 +19,14 @@
     <div class="collapse navbar-collapse" id="top-nav-collapse">
       <ul class="nav navbar-nav">
         <?php
-          foreach ( wp_get_nav_menu_items("primary_$pagename") as $navItem ) {
+          foreach ( get_nav_menu_items("primary") as $navItem ) {
             echo '<li><a href="'.$navItem->url.'" title="'.$navItem->title.'">'.$navItem->title.'</a></li>';
           }
         ?>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <?php
-          foreach ( wp_get_nav_menu_items("secondary_$pagename") as $navItem ) {
+          foreach ( get_nav_menu_items("secondary") as $navItem ) {
             $class = '';
             if ( $navItem->title === $pagename ) {
               $class = 'active';
