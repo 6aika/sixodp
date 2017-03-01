@@ -26,7 +26,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <?php
-          foreach ( wp_get_nav_menu_items("secondary") as $navItem ) {
+          foreach ( wp_get_nav_menu_items("secondary_$pagename") as $navItem ) {
             $class = '';
             if ( $navItem->title === $pagename ) {
               $class = 'active';
