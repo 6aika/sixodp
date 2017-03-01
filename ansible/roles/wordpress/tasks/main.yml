@@ -113,3 +113,8 @@
     dest: /opt/wordpress/wp-content/plugins/wp-trello/
     delete: true
   when: deployment_environment_id != "vagrant"
+
+- name: Activate wp-trello plugin
+  command: wp plugin activate wp-trello --path=/opt/wordpress
+  become: yes
+  become_user: www-data
