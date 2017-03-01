@@ -1,0 +1,66 @@
+<!-- https://d3js.org/d3.v4.min.js -->
+<script src="/data/stats/vendor/d3.v4.min.js"></script>
+<script src="/data/stats/vendor/moment.min.js"></script>
+<!-- <script src="/data/stats/vendor/lodash_full.js"></script> -->
+
+<link rel="stylesheet" type="text/css" href="/data/stats/stats.css" />
+
+<div class="stats-page">
+  <div class="stats-section">
+    <div class="stats-section-content stats-front">
+      <h1>
+        <div>lounaistieto.fi</div>
+        <div>Statistiikka</div>
+      </h1>
+      <div class="js-datavis-1 datavis-1 datavis">
+        <div>
+          <div class="js-datavis-1-datasets">0</div>
+          <div>tietoaineistoa avattu</div>
+        </div>
+        <div>
+          <div class="js-datavis-1-users">0</div>
+          <div>uniikkia kävijää</div>
+        </div>
+        <div>
+          <div class="js-datavis-1-apps">0</div>
+          <div>sovellusta</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-section">
+    <div class="stats-section-content">
+
+      <h2>Tietoaineistot</h2>
+
+      <div class="js-datavis-2 datavis">
+        <h3 class="datavis-title">Avattuja tietoaineistoja</h3>
+        <svg class="datavis-svg"></svg>
+
+        <input type="date" class="js-datavis-start-date datavis-start-date" placeholder="esim. 1.1.2015" />
+        <input type="date" class="js-datavis-end-date datavis-end-date" placeholder="esim. 31.12.2015" />
+        <br />
+
+        <br />
+        <button class="js-datavis-download-button datavis-download-button">Lataa</button>
+        <br />
+        <br />
+
+        <br />
+
+        <!--
+        Details and error sources:
+        - The date of deletion of a dataset may sometimes go wrong, because the metadata values state='deleted' and metadata_modified='<date>' are used for guessing when the deletion took place.
+        -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/data/stats/config.js"></script>
+<script src="/data/stats/helpers.js"></script>
+<script src="/data/stats/stats-front.js"></script>
+<script src="/data/stats/datavis1.js"></script>
+<script src="/data/stats/datavis2.js"></script>
+<script src="/data/stats/stats.js"></script>
