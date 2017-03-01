@@ -114,7 +114,7 @@ function create_menu_i18n($menu_name, $itemsArr, $location) {
 }
 
 function create_default_pages() {
-  foreach( LOCALES as $locale ) {
+  foreach( ['fi', 'en', 'sv'] as $locale ) {
     insert_default_page($locale);
   }
 }
