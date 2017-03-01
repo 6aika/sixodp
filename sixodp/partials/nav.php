@@ -1,4 +1,5 @@
 <?php
+session_start();
 /**
 * Template partial for the main navigation
 *
@@ -26,14 +27,13 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <?php
-          foreach(get_posts(array('post_type' => "page")) as $page) :
-            $id = $page->post_title;
+          foreach ( wp_get_nav_menu_items("secondary") as $navItem ) {
             $class = '';
-            if ( $id === $pagename ) {
+            if ( $navItem->title === $pagename ) {
               $class = 'active';
             }
-            echo '<li class="'.$class.'"><a href="/'.$id.'/" class="nav-link">'.$id.'</a></li>';
-          endforeach;
+            echo '<li class="'.$class.'"><a href="'.$navItem->url.'" title="'.$navItem->title.'" class="nav-link">'.$navItem->title.'</a></li>';
+          }
         ?>
       </ul>
     </div>
