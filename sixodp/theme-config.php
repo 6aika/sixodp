@@ -6,6 +6,7 @@
 
 <?php
   define( 'CKAN_API_URL', 'http://localhost/data/api' );
+  define(' LOCALES ', ['fi', 'en', 'sv']);
   define( 'MENU_ITEMS_FI', array(
     array('menu-item-title' => 'Tietoaineistot', 'menu-item-url' => '/data/fi/dataset'),
     array('menu-item-title' => 'Sovellukset', 'menu-item-url' => '/data/fi/showcase'),
@@ -20,5 +21,10 @@
     array('menu-item-title' => 'Datasets', 'menu-item-url' => '/data/sv/dataset'),
     array('menu-item-title' => 'Vitrin', 'menu-item-url' => '/data/sv/showcase'),
     array('menu-item-title' => 'Kollektion', 'menu-item-url' => '/data/sv/collection')
+  ) );
+  define( 'MENU_ITEM_ACCOUNT', array(
+    'fi' => 'Tili',
+    'en' => 'Account',
+    'sv' => 'Konto'
   ) );
 ?>
