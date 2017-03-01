@@ -20,7 +20,7 @@ get_header(); ?>
 		<?php
 
       get_template_part( 'partials/hero' );
-			echo do_shortcode('[wp-trello type="cards" id="58a6ee908925d15071b83994" link="yes"]');
+			echo do_shortcode('[wp-trello type="lists" id="58a6ee156f0df90aea3f7d6d" link="yes"]');
 
 		?>
 
