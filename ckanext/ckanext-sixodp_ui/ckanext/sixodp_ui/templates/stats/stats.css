@@ -1,0 +1,123 @@
+/*
+  primary: '#074a74',
+  secondary: '#6fbf69',
+  white: '#fff',
+  white2: '#f8f8f8',
+  black: '#000',
+*/
+
+body {
+  background-color: #fff;
+  font-family: sans;
+  margin: 0;
+}
+h1, h2, h3 {
+  text-align: center;
+  font-weight: normal;
+}
+h1 > :first-child {
+  font-size: 20px;
+}
+h1 > :last-child {
+  font-size: 40px;
+}
+h1 {
+
+}
+h2 {
+  font-size: 40px;
+  /*position: absolute;
+  top: 0;
+  left: 30px;*/
+
+}
+h3 {
+
+}
+
+.stats-page {
+}
+.stats-section {
+  position: relative;
+}
+
+.stats-section-content {
+  margin: auto;
+  padding: 30px;
+  width: 1024px;
+}
+.stats-section:first-child {
+  padding-top: 0px;
+}
+.stats-section:nth-child(2) {
+  color: #fff;
+  background-color: #074a74;
+
+}
+
+.stats-section:not(:first-child) {
+  /*border-top: solid #eee 1px;*/
+}
+
+.datavis-1 {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.datavis-1 > * {
+  /*background-color: #eee;*/
+  display: inline-block;
+  padding: 8px;
+  width: 200px;
+}
+.datavis-1 > * > *:first-child {
+  font-size: 40px;
+}
+.datavis-1 > * > *:last-child {
+  font-size: 14px;
+}
+
+
+.datavis {
+
+}
+
+.datavis-svg {
+  /*width: 100%;
+  min-height: 360px;*/
+  /*border: solid #eee 1px;*/
+}
+.datavis-download-button {
+  display: block;
+  float: right;
+}
+
+.datavis-start-date {
+
+}
+.datavis-end-date {
+  float: right;
+}
+
+input[type='date'] {
+  border: solid white 1px;
+  font-size: 24px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  width: 140px;
+  background: none;
+  color: inherit;
+}
+
+button {
+  background-color: white;
+  color: #074a74;
+  border: 0;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 12px;
+}
+button:hover {
+  background-color: #f8f8f8;
+}
