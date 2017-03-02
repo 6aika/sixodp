@@ -41,6 +41,24 @@
   background: none;
   
   .navbar-nav {
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #ddd;
+
+    li {
+      margin-left: $base;
+      margin-right: $base;
+
+      a {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+
+  .navbar-collapse {
+
+    @media (min-width: $width-md) {
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 }

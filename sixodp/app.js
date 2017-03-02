@@ -33,10 +33,17 @@ var App = {
   });
 
   $('.nav-link--roadmap').on('click', function() {
+    $('.fluidtable__body').css('opacity', 0);
     $list = $(this).attr('data-toggle');
     $(this).parent().parent().find('.active').removeClass('active');
     $(this).parent().addClass('active');
-    $('.fluidtable__row').css('display', 'none');
-    $('.fluidtable__row[data-list-id="'+$list+'"]').removeAttr('style');
+    setTimeout(function() {
+      $('.fluidtable__row').css('display', 'none');
+      $('.fluidtable__row[data-list-id="'+$list+'"]').removeAttr('style');
+    }, 150);
+
+    setTimeout(function() {
+      $('.fluidtable__body').css('opacity', 1);
+    }, 150);
   });
 })( jQuery );

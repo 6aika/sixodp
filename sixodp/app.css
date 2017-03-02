@@ -5861,11 +5861,18 @@ a {
     color: #8d8ac2;
     text-decoration: none; }
 
-.heading, .fluidtable__heading {
+.heading {
   font-size: 18px;
   font-weight: 500;
   font-family: "Roboto Slab", sans-serif;
   color: #534f97; }
+
+.heading--main, .fluidtable__heading {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Roboto Slab", sans-serif;
+  color: #534f97;
+  font-size: 3rem; }
 
 .wrapper, .wrapper--showcase {
   padding: 40px 0; }
@@ -5920,7 +5927,17 @@ a {
 .navbar-secondary {
   background: none; }
   .navbar-secondary .navbar-nav {
-    border-bottom: 1px solid #eee; }
+    border-bottom: 1px solid #ddd; }
+    .navbar-secondary .navbar-nav li {
+      margin-left: 10px;
+      margin-right: 10px; }
+      .navbar-secondary .navbar-nav li a {
+        padding-left: 0;
+        padding-right: 0; }
+  @media (min-width: 992px) {
+    .navbar-secondary .navbar-collapse {
+      padding-left: 0;
+      padding-right: 0; } }
 
 .logos {
   margin-top: 40px;
@@ -5969,7 +5986,7 @@ a {
       margin-top: 0;
       margin-bottom: 0; } }
 
-.hero .heading, .hero .fluidtable__heading {
+.hero .heading {
   margin: 20px auto 0; }
 
 .hero .subheading {
@@ -6051,6 +6068,10 @@ hr {
   max-width: 1280px;
   margin: auto; }
 
+.fluidtable__body {
+  opacity: 1;
+  transition: opacity .2s ease-in-out; }
+
 @media (min-width: 992px) {
   .fluidtable__row {
     display: flex;
@@ -6058,7 +6079,7 @@ hr {
 
 .fluidtable__cell {
   vertical-align: top;
-  padding: 40px 20px; }
+  padding: 40px 10px; }
 
 .fluidtable__cell--meta {
   width: 20%; }
@@ -6069,7 +6090,7 @@ hr {
 .fluidtable__cell--desc {
   width: 50%; }
 
-.fluidtable__cell-content .heading, .fluidtable__cell-content .fluidtable__heading {
+.fluidtable__cell-content .heading {
   margin-top: 0; }
 
 .btn-primary {
@@ -6345,7 +6366,7 @@ hr {
     @media (min-width: 1248px) {
       .wrapper--showcase .container {
         width: 1200px; } }
-  .wrapper--showcase .heading, .wrapper--showcase .fluidtable__heading {
+  .wrapper--showcase .heading {
     margin-bottom: 20px; }
 
 .showcase__wrapper {

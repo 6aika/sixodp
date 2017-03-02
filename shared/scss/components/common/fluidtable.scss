@@ -5,7 +5,12 @@
 }
 
 .fluidtable__heading {
-  @extend .heading;
+  @extend .heading--main;
+}
+
+.fluidtable__body {
+  opacity: 1;
+  transition: opacity .2s ease-in-out;
 }
 
 .fluidtable__row {
@@ -18,7 +23,7 @@
 
 .fluidtable__cell {
   vertical-align: top;
-  padding: $base*4 $base*2;
+  padding: $base*4 $base;
 }
 
 .fluidtable__cell--meta {
