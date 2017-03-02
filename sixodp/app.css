@@ -6066,7 +6066,7 @@ hr {
 .fluidtable {
   width: 100%;
   max-width: 1280px;
-  margin: auto; }
+  margin: 60px auto 240px; }
 
 .fluidtable__body {
   opacity: 1;

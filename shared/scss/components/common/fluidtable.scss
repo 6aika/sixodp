@@ -1,7 +1,7 @@
 .fluidtable {
   width: 100%;
   max-width: 1280px;
-  margin: auto;
+  margin: $base*6 auto $base*24;
 }
 
 .fluidtable__heading {
