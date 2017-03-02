@@ -6362,3 +6362,7 @@ hr {
   .showcase__footer .material-icons {
     margin: 10px 0;
     color: #c18ffc; }
+
+.roadmap-accordion {
+  max-width: 600px;
+  margin: 60px auto; }
