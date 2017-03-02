@@ -102,27 +102,137 @@ datavis2.curate = function (data) {
   for (i in tmpData) {
     self.data.push(tmpData[i])
   }
-  console.log('Data 2 storage:', self.data)
+  console.log('Datavis 2 data:', self.data)
 }
+
+
+
+// RENDER THE DATA VISUALIZATION
+
+datavis2.render = function () {
+  var self = this
+  var margin = {top: 20, right: 50, bottom: 30, left: 0}
+
+  var imageWidth = contentWidth
+  var imageHeight = 360
+
+  var dataWidth = imageWidth - margin.left - margin.right
+  var dataHeight = imageHeight - margin.top - margin.bottom
+
+  var svg = d3.select('.js-datavis-2 .datavis-svg')
+    .attr('width', imageWidth)
+    .attr('height', imageHeight + 50)
+
+  self.vis = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+
+  // var parseTime = d3.timeParse("%y-%m-%d");
+  self.xFullExtent = d3.extent(this.data, function(d) { return d.date })
+  self.xExtent = self.xFullExtent
+
+  self.inputs.startDate
+    .property('value', moment(self.xFullExtent[0]).format('D.M.YYYY'))
+    .attr('placeholder', moment(self.xFullExtent[0]).format('D.M.YYYY'))
+  self.inputs.endDate
+    .property('value', moment(self.xFullExtent[1]).format('D.M.YYYY'))
+    .attr('placeholder', moment(self.xFullExtent[1]).format('D.M.YYYY'))
+
+  self.xScale = d3.scaleTime()
+    .domain(self.xExtent)
+    .rangeRound([0, dataWidth])
+
+  self.yScale = d3.scaleLinear()
+    .domain([
+      Math.min(0, d3.min(self.data, function(d) { return d.availableCount })),
+      d3.max(self.data, function(d) { return d.availableCount })
+    ])
+    .rangeRound([dataHeight, 0])
+
+  self.xAxisGenerator = d3.axisBottom(self.xScale)
+  self.xAxis = self.vis.append("g")
+    .attr('transform', 'translate(0,' + dataHeight + ')')
+    .call(self.xAxisGenerator)
+
+  yAxis = self.vis.append("g")
+    .attr('transform', 'translate(' + dataWidth + ', 0)')
+    .call(d3.axisRight(self.yScale))
+  .append('text')
+    .attr('fill', color.white)
+    .attr('x', 20)
+    .attr('y', 0)
+    .attr('dy', '0.5em')
+    // .attr("text-anchor", "end")
+    .text(texts.amount[lang]) // Tietoaineistoja
+
+  self.lineDrawer = d3.line()
+    .x(function(d) { return self.xScale(d.date) })
+    .y(function(d) { return self.yScale(d.availableCount) })
+
+  self.line = self.vis.append("path")
+    .datum(self.data)
+    .attr('fill', 'none')
+    .attr("stroke", color.white)
+    .attr("stroke-linejoin", "round")
+    .attr("stroke-linecap", "round")
+    .attr("stroke-width", 3)
+    .attr("d", self.lineDrawer)
+}
+
+datavis2.resizeXAxis = function (xMin, xMax) {
+  var self = this
+  var newExtent = [xMin, xMax]
+  console.log('ResizeXAxis!', newExtent)
+
+  clearTimeout(self.resizeXAxisTimeout)
+  self.resizeXAxisTimeout = setTimeout(function () {
+    self.xAxis
+      // .interrupt().selectAll('*').interrupt()
+      .transition().duration(800).tween('axis', function (d, i) {
+      // console.log('Transition tween', d, i)
+      var interpolator = d3.interpolate(self.xExtent, newExtent)
+
+      self.xExtent = newExtent
+      return function (t) {
+        // console.log('Transition callback, t =', t)
+        self.xScale.domain(interpolator(t))
+        self.xAxis.call(self.xAxisGenerator)
+        self.lineDrawer = d3.line()
+          .x(function(d) { return self.xScale(d.date) })
+          .y(function(d) { return self.yScale(d.availableCount) })
+
+        self.line.attr("d", self.lineDrawer)
+      }
+    })
+  }, 100)
+}
+
 
 
 // USER INTERACTIONS
 
 datavis2.eventListeners = function () {
   self.inputs.startDate.on('keyup', function () {
-    date = validDate(self.inputs.startDate.property('value'))
-    if (!date) {
+    console.log('keyup!', new Date())
+    var startDate = validDate(self.inputs.startDate.property('value'))
+    if (!startDate) {
       return false
     }
-    console.log('New valid start date', date)
+    var endDate = validDate(self.inputs.endDate.property('value'))
+    if ((!endDate) || (startDate == self.xExtent[0]) || (startDate >= endDate)) {
+      return false
+    }
+    self.resizeXAxis(startDate.toDate(), endDate.toDate())
   })
 
   self.inputs.endDate.on('keyup', function () {
-    date = validDate(self.inputs.endDate.property('value'))
-    if (!date) {
+    var endDate = validDate(self.inputs.endDate.property('value'))
+    if (!endDate) {
       return false
     }
-    console.log('New valid end date', date)
+    var startDate = validDate(self.inputs.startDate.property('value'))
+    if ((!startDate) || (endDate == self.xExtent[1]) || startDate >= endDate) {
+      return false
+    }
+    self.resizeXAxis(startDate.toDate(), endDate.toDate())
   })
 
   self.inputs.downloadButton.on('click', function () {
@@ -132,126 +242,70 @@ datavis2.eventListeners = function () {
 
 
 
-// RENDER THE DATA VISUALIZATION
+// var yGroup = vis.append("g")
+// var xGroup = vis.append("g")
+//     .attr("transform", "translate(0," + height + ")");
 
-datavis2.render = function () {
+// var areaPath = g.append("path")
+//     .attr("clip-path", "url(#clip)")
+//     .attr("fill", "steelblue");
 
-  var svg = d3.select('.js-datavis-2 .datavis-svg')
-  var margin = {top: 20, right: 20, bottom: 30, left: 50}
-  var width = 800 // +svg.attr("width") - margin.left - margin.right,
-  var height = 300 // +svg.attr("height") - margin.top - margin.bottom,
-  var g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+// var zoom = d3.zoom()
+//   .scaleExtent([1 / 2, 2])
+//   .translateExtent([[-width, -Infinity], [2 * width, Infinity]])
+//   .on("zoom", onZoom1);
 
-  // var parseTime = d3.timeParse("%y-%m-%d");
-  xExtent = d3.extent(this.data, function(d) { return d.date })
-  var x = d3.scaleTime()
-    .domain(xExtent)
-    .rangeRound([0, width])
+// var zoomRect = svg.append("rect")
+//   .attr("width", width)
+//   .attr("height", height)
+//   .attr("fill", "none")
+//   .attr("pointer-events", "all")
+//   .call(zoom);
 
-  var y = d3.scaleLinear()
-    .rangeRound([height, 0])
-    .domain(d3.extent(this.data, function(d) { return d.availableCount }))
+// g.append("clipPath")
+//     .attr("id", "clip")
+//   .append("rect")
+//     .attr("width", width)
+//     .attr("height", height);
 
-  // var zoom = d3.zoom()
-  //   .scaleExtent([1 / 2, 2])
-  //   .translateExtent([[-width, -Infinity], [2 * width, Infinity]])
-  //   .on("zoom", onZoom1);
+// zoom.translateExtent([
+//   [x(xExtent[0]), -Infinity],
+//   [x(xExtent[1]), Infinity]
+// ])
 
-  // var zoomRect = svg.append("rect")
-  //   .attr("width", width)
-  //   .attr("height", height)
-  //   .attr("fill", "none")
-  //   .attr("pointer-events", "all")
-  //   .call(zoom);
-
-  g.append("clipPath")
-      .attr("id", "clip")
-    .append("rect")
-      .attr("width", width)
-      .attr("height", height);
-
-  // zoom.translateExtent([
-  //   [x(xExtent[0]), -Infinity],
-  //   [x(xExtent[1]), Infinity]
-  // ])
-
-  y.domain([0, d3.max(this.data, function(d) { return d.availableCount })])
-  // yGroup.call(yAxis).select(".domain").remove();
+// yGroup.call(yAxis).select(".domain").remove();
 
 
-  var line = d3.line()
-      .x(function(d) { return x(d.date) })
-      .y(function(d) { return y(d.availableCount) })
-
-  xAxis = g.append("g")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x))
-    // .select(".domain")
-    //   .remove()
-  // var xAxis = d3.axisBottom(x);
-
-  // g.append("g")
-  //     .attr("transform", "translate(0," + height + ")")
-  //     .call(customXAxis);
-  //
-  // function customXAxis(g) {
-  //   g.call(xAxis);
-  //   g.select(".domain").remove();
-  // }
-
-  yAxis = g.append("g")
-    .call(d3.axisLeft(y))
-  .append('text')
-      .attr('fill', color.white)
-      .attr('x', 20)
-      .attr('y', 0)
-      .attr('dy', '0.5em')
-      // .attr("text-anchor", "end")
-      .text(txt.amount[lang]) // Tietoaineistoja
+// g.append("g")
+//     .attr("transform", "translate(0," + height + ")")
+//     .call(customXAxis);
+//
+// function customXAxis(g) {
+//   g.call(xAxis);
+//   g.select(".domain").remove();
+// }
 
 
-  // g.append("g")
-  //     .call(customYAxis);
-  //
-  // function customYAxis(g) {
-  //   g.call(yAxis);
-  //   g.select(".domain").remove();
-  //   g.selectAll(".tick:not(:first-of-type) line").attr("stroke", "#777").attr("stroke-dasharray", "2,2");
-  //   g.selectAll(".tick text").attr("x", 4).attr("dy", -4);
-  // }
+// g.append("g")
+//     .call(customYAxis);
+//
+// function customYAxis(g) {
+//   g.call(yAxis);
+//   g.select(".domain").remove();
+//   g.selectAll(".tick:not(:first-of-type) line").attr("stroke", "#777").attr("stroke-dasharray", "2,2");
+//   g.selectAll(".tick text").attr("x", 4).attr("dy", -4);
+// }
 
-  var yGroup = g.append("g")
+// var area = d3.area()
+//   .curve(d3.curveStepAfter)
+//   .y0(y(0))
+//   .y1(function(d) { return y(d.availableCount); });
 
-  var xGroup = g.append("g")
-      .attr("transform", "translate(0," + height + ")");
+// function onZoom() {
+//   var xz = d3.event.transform.rescaleX(x)
+//   xGroup.call(xAxis.scale(xz))
+//
+//   areaPath.attr("d", area.x(function(d) { return xz(d.date) }))
+// }
 
-
-  var areaPath = g.append("path")
-      .attr("clip-path", "url(#clip)")
-      .attr("fill", "steelblue");
-
-
-  // var area = d3.area()
-  //   .curve(d3.curveStepAfter)
-  //   .y0(y(0))
-  //   .y1(function(d) { return y(d.availableCount); });
-
-  // function onZoom() {
-  //   var xz = d3.event.transform.rescaleX(x)
-  //   xGroup.call(xAxis.scale(xz))
-  //
-  //   areaPath.attr("d", area.x(function(d) { return xz(d.date) }))
-  // }
-
-  g.append("path")
-    .datum(this.data)
-    .attr('fill', 'none')
-    .attr("stroke", color.white)
-    .attr("stroke-linejoin", "round")
-    .attr("stroke-linecap", "round")
-    .attr("stroke-width", 3)
-    .attr("d", line)
-
-  // zoomRect.call(zoom.transform, d3.zoomIdentity);
-
-}
+// zoomRect.call(zoom.transform, d3.zoomIdentity);

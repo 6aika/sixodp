@@ -1,7 +1,7 @@
 function validDate (string) {
   date = moment.utc(string, ['D.M.YYYY', 'DD.MM.YYYY'])
 
-  if (!date.isValid() || date.year() < 1900 || date.year() > moment().year()) {
+  if (!date.isValid() || date.year() < 1900 || date.year() > moment().year() || string.length < 8) {
    return false
   }
   parts = string.split('.')

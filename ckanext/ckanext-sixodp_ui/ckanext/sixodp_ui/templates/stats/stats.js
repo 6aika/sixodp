@@ -10,7 +10,7 @@
 // TODO NEXT:
 /*
 - Change timespan: https://bl.ocks.org/mbostock/4015254
-- Move timespan by dragging the graph with mouse click
+- Move timespan by dragging the graph with mouse click: https://bl.ocks.org/mbostock/4015254, https://github.com/d3/d3-zoom
 - Graphic design
 
 - Axis design
