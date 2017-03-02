@@ -36,3 +36,11 @@
 .navbar-default > .navbar-nav > li > a {
   color: #000;
 }
+
+.navbar-secondary {
+  background: none;
+  
+  .navbar-nav {
+    border-bottom: 1px solid #eee;
+  }
+}
