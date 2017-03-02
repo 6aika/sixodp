@@ -28,3 +28,8 @@ a {
 .heading {
   @include heading;
 }
+
+.heading--main {
+  @include heading();
+  font-size: 3rem;
+}

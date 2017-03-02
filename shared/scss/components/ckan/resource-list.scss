@@ -6,6 +6,11 @@
     height: 100%;
     padding: 0;
     background: $secondary-bg;
+    margin-bottom: $margin-small-vertical;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
 
     .format-label {
       position: absolute;
