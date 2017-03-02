@@ -1,10 +1,36 @@
 {% ckan_extends %}
+
 {% block head_extras -%}
   <meta property="og:title" content="{{ h.dataset_display_name(pkg) }} - {{ g.site_title }}">
   <meta property="og:description" content="{{ h.get_translated(pkg ,'description')|forceescape|trim }}">
 {% endblock -%}
 
 {% block content_primary_nav %}
+  <h1 class="page-heading">
+    {% block page_heading %}
+      {{ h.dataset_display_name(pkg) }}
+      {% if pkg.state.startswith('draft') %}
+        [{{ _('Draft') }}]
+      {% endif %}
+      {% if pkg.state == 'deleted' %}
+        [{{ _('Deleted') }}]
+      {% endif %}
+    {% endblock %}
+  </h1>
+
+  {% block page_subheading %}
+  <h2 class="page-subheading">
+    <span class="dataset-created">{{ h.render_datetime(pkg.date_released, '%-d.%-m.%Y') }}</span>
+    {% if h.get_groups_for_package(pkg.id) %}
+      <span> - </span>
+      {% for category in h.get_groups_for_package(pkg.id) %}
+      <a class="dataset-category-link" href="{{h.url_for(controller='group', action='read', id=category.name)}}">
+        {{category.display_name}}</a>{% if not loop.last %}, {% endif %}
+      {% endfor %}
+    {% endif %}
+  </h2>
+  {% endblock %}
+
   {{ h.build_nav_icon('dataset_read', _('Dataset'), id=pkg.name) }}
   {{ h.build_nav_icon('dataset_groups', _('Groups'), id=pkg.name) }}
   {{ h.build_nav_icon('dataset_activity', _('Activity Stream'), id=pkg.name) }}
@@ -15,9 +41,7 @@
 {% block secondary_content %}
 
   {% block secondary_help_content %}{% endblock %}
-
   {% block heading %}{% endblock %}
-
   {% block package_organization %}{% endblock %}
 
   {% block package_info %}
