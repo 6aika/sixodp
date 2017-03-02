@@ -1,0 +1,61 @@
+{% extends "package/read_base.html" %}
+
+{% set pkg = c.pkg_dict %}
+{% set categories = h.get_groups_for_package(pkg.id) %}
+
+{% block primary_content_inner %}
+  {{ super() }}
+  {% block package_description %}
+    {% if pkg.private %}
+      <span class="dataset-private label label-inverse pull-right">
+        <i class="icon-lock"></i>
+          {{ _('Private') }}
+      </span>
+    {% endif %}
+    <h1>
+      {% block page_heading %}
+        {{ h.dataset_display_name(pkg) }}
+        {% if pkg.state.startswith('draft') %}
+          [{{ _('Draft') }}]
+        {% endif %}
+        {% if pkg.state == 'deleted' %}
+          [{{ _('Deleted') }}]
+        {% endif %}
+      {% endblock %}
+    </h1>
+
+    {% block page_subheading %}
+      <h2 class="page-subheading">
+        <span class="dataset-created">{{ h.render_datetime(pkg.date_released, '%-d.%-m.%Y') }}</span>
+        {% if categories %}
+          <span> - </span>
+          {% for category in categories %}
+            <a class="dataset-category-link" href="{{h.url_for(controller='group', action='read', id=category.name)}}">
+              {{category.display_name}}</a>{% if not loop.last %}, {% endif %}
+          {% endfor %}
+        {% endif %}
+      </h2>
+    {% endblock %}
+
+    {% block package_notes %}
+      {% if pkg.notes %}
+        <div class="notes embedded-content">
+          {{ h.render_markdown(h.get_translated(pkg, 'notes')) }}
+        </div>
+      {% endif %}
+    {% endblock %}
+  {% endblock %}
+
+  {% block package_tags %}
+    {% snippet "package/snippets/tags.html", tags=pkg.tags %}
+  {% endblock %}
+
+  {% block package_additional_info %}
+    {% snippet "package/snippets/additional_info.html", pkg_dict=pkg %}
+  {% endblock %}
+
+  {% block package_resources %}
+    {% snippet "package/snippets/resources_list.html", pkg=pkg, resources=pkg.resources %}
+  {% endblock %}
+
+{% endblock %}
