@@ -19,16 +19,13 @@
   </h1>
 
   {% block page_subheading %}
-  <h2 class="page-subheading">
-    <span class="dataset-created">{{ h.render_datetime(pkg.date_released, '%-d.%-m.%Y') }}</span>
-    {% if h.get_groups_for_package(pkg.id) %}
+    <h2 class="page-subheading">
+      <span class="dataset-created">{{ h.render_datetime(pkg.date_released, '%-d.%-m.%Y') }}</span>
       <span> - </span>
-      {% for category in h.get_groups_for_package(pkg.id) %}
-      <a class="dataset-category-link" href="{{h.url_for(controller='group', action='read', id=category.name)}}">
-        {{category.display_name}}</a>{% if not loop.last %}, {% endif %}
-      {% endfor %}
-    {% endif %}
-  </h2>
+      <a class="dataset-organization" href="{{h.url_for(controller='organization', action='read', id=pkg.organization.name)}}">
+        {{pkg.organization.title}}
+      </a>
+    </h2>
   {% endblock %}
 
   {{ h.build_nav_icon('dataset_read', _('Dataset'), id=pkg.name) }}
