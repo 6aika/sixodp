@@ -19,7 +19,6 @@ get_header(); ?>
 	<main id="main" class="site-main site-main--home" role="main">
 		<?php
 
-      get_template_part( 'partials/hero' );
 			echo do_shortcode('[wp-trello type="lists" id="58a6ee156f0df90aea3f7d6d" link="yes"]');
 
 		?>
