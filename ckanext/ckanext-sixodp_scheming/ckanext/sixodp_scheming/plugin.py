@@ -111,7 +111,6 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin, DefaultTranslation):
 
         keywords = data_dict.get('keywords')
         if keywords:
-            log.info(keywords)
             keywords_json = json.loads(keywords)
             if keywords_json.get('fi'):
                 data_dict['vocab_keywords_fi'] = [tag for tag in keywords_json['fi']]
