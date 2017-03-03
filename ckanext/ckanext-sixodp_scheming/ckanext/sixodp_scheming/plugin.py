@@ -109,6 +109,16 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin, DefaultTranslation):
         if data_dict.get('geographical_coverage'):
             data_dict['vocab_geographical_coverage'] = [tag for tag in json.loads(data_dict['geographical_coverage'])]
 
+        keywords = data_dict.get('keywords')
+        if keywords:
+            log.info(keywords)
+            keywords_json = json.loads(keywords)
+            if keywords_json.get('fi'):
+                data_dict['vocab_keywords_fi'] = [tag for tag in keywords_json['fi']]
+            if keywords_json.get('sv'):
+                data_dict['vocab_keywords_sv'] = [tag for tag in keywords_json['sv']]
+            if keywords_json.get('en'):
+                data_dict['vocab_keywords_en'] = [tag for tag in keywords_json['en']]
 
         return data_dict
 
