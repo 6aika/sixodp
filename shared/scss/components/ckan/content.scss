@@ -78,6 +78,12 @@
           width: 100%;
           height: auto;
         }
+
+        a {
+          img {
+            width: auto;
+          }
+        }
       }
 
       > .module {
