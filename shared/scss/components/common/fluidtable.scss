@@ -14,30 +14,50 @@
 }
 
 .fluidtable__row {
-  
+  border-bottom: 1px solid #eee;
+  padding: $base*4 0;
+
   @media (min-width: $width-md) {
     display: flex;
-    border-bottom: 1px solid #eee;
+    padding: initial;
   }
 }
 
 .fluidtable__cell {
   vertical-align: top;
-  padding: $base*4 $base;
+  padding: $base/2 $base;
+
+  @media (min-width: $width-sm) {
+    padding: $base/2 $base*4;
+  }
+
+  @media (min-width: $width-md) {
+    padding: $base*4 $base;
+  }
 }
 
 .fluidtable__cell--meta {
-  width: 20%;
+
+  @media (min-width: $width-md) {
+    width: 20%;
+  }
 }
 
 .fluidtable__cell--title {
-  width: 30%;
+
+  @media (min-width: $width-md) {
+    width: 30%;
+  }
 }
 
 .fluidtable__cell--desc {
-  width: 50%;
+  line-height: 1.6;
+
+  @media (min-width: $width-md) {
+    width: 50%;
+  }
 }
 
 .fluidtable__cell-content .heading {
-  margin-top: 0;
+  margin: 0;
 }

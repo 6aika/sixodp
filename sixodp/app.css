@@ -5930,7 +5930,8 @@ a {
 .navbar-secondary {
   background: none; }
   .navbar-secondary .navbar-nav {
-    border-bottom: 1px solid #ddd; }
+    border-bottom: 1px solid #ddd;
+    width: 100%; }
     .navbar-secondary .navbar-nav li {
       margin-left: 10px;
       margin-right: 10px; }
@@ -6090,26 +6091,40 @@ hr {
   opacity: 1;
   transition: opacity .2s ease-in-out; }
 
-@media (min-width: 992px) {
-  .fluidtable__row {
-    display: flex;
-    border-bottom: 1px solid #eee; } }
+.fluidtable__row {
+  border-bottom: 1px solid #eee;
+  padding: 40px 0; }
+  @media (min-width: 992px) {
+    .fluidtable__row {
+      display: flex;
+      padding: initial; } }
 
 .fluidtable__cell {
   vertical-align: top;
-  padding: 40px 10px; }
+  padding: 5px 10px; }
+  @media (min-width: 768px) {
+    .fluidtable__cell {
+      padding: 5px 40px; } }
+  @media (min-width: 992px) {
+    .fluidtable__cell {
+      padding: 40px 10px; } }
 
-.fluidtable__cell--meta {
-  width: 20%; }
+@media (min-width: 992px) {
+  .fluidtable__cell--meta {
+    width: 20%; } }
 
-.fluidtable__cell--title {
-  width: 30%; }
+@media (min-width: 992px) {
+  .fluidtable__cell--title {
+    width: 30%; } }
 
 .fluidtable__cell--desc {
-  width: 50%; }
+  line-height: 1.6; }
+  @media (min-width: 992px) {
+    .fluidtable__cell--desc {
+      width: 50%; } }
 
 .fluidtable__cell-content .heading {
-  margin-top: 0; }
+  margin: 0; }
 
 .btn-primary {
   background-color: #534f97; }
