@@ -5,12 +5,17 @@
 .navbar-nav li {
   border-top: $base/2 solid transparent;
   border-bottom: $base/2 solid transparent;
+  position: static;
 
   &.active {
     border-bottom-color: $navbar-active-link-border-color;
 
     a {
       background: transparent !important;    
+    }
+
+    .subnav {
+      max-height: $base*4;
     }
   }
 }
@@ -60,5 +65,23 @@
       padding-left: 0;
       padding-right: 0;
     }
+  }
+}
+
+.navbar-default .navbar-nav.subnav {
+  position: absolute;
+  top: $base*5;
+  left: 0;
+  right: 0;
+  background: $brand-primary;
+  padding-left: $base*3;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .1s ease-in-out;
+
+  & > li > a {
+    color: #fff;
+    padding-top: $base/2;
+    padding-bottom: $base/2;
   }
 }

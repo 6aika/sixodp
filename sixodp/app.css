@@ -5901,11 +5901,14 @@ a {
 
 .navbar-nav li {
   border-top: 5px solid transparent;
-  border-bottom: 5px solid transparent; }
+  border-bottom: 5px solid transparent;
+  position: static; }
   .navbar-nav li.active {
     border-bottom-color: #a55efa; }
     .navbar-nav li.active a {
       background: transparent !important; }
+    .navbar-nav li.active .subnav {
+      max-height: 40px; }
 
 .navbar-right .nav-link {
   text-transform: uppercase; }
@@ -5939,8 +5942,23 @@ a {
       padding-left: 0;
       padding-right: 0; } }
 
+.navbar-default .navbar-nav.subnav {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  background: #534f97;
+  padding-left: 30px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .1s ease-in-out; }
+  .navbar-default .navbar-nav.subnav > li > a {
+    color: #fff;
+    padding-top: 5px;
+    padding-bottom: 5px; }
+
 .logos {
-  margin-top: 40px;
+  margin-top: 50px;
   padding: 0 10px; }
   .logos:after {
     display: block;
