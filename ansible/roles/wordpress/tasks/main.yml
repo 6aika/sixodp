@@ -99,3 +99,22 @@
   command: wp theme activate sixodp --path=/opt/wordpress
   become: yes
   become_user: www-data
+
+- name: Create symbolic link to wp-trello plugin
+  file:
+    src: /vagrant/wordpress/wp-trello
+    dest: /opt/wordpress/wp-content/plugins/wp-trello
+    state: link
+  when: deployment_environment_id == "vagrant"
+
+- name: Synchronize wp-trello plugin
+  synchronize:
+    src: ../wordpress/wp-trello/
+    dest: /opt/wordpress/wp-content/plugins/wp-trello/
+    delete: true
+  when: deployment_environment_id != "vagrant"
+
+- name: Activate wp-trello plugin
+  command: wp plugin activate wp-trello --path=/opt/wordpress
+  become: yes
+  become_user: www-data

@@ -2,6 +2,27 @@
   margin: 0 0 $margin-large-vertical 0;
   padding: 0;
 
+  h1 {
+    @include heading;
+    margin-top: 0;
+    font-size: $font-size-xlarge;
+  }
+
+  h2 {
+    @include heading;
+    font-size: $font-size-large;
+
+    &.page-subheading {
+      font-size: $font-size;
+      margin-top: 0;
+      margin-bottom: $margin-large-vertical*2;
+
+      a {
+        color: $brand-success;
+      }
+    }
+  }
+
   .content_action {
     margin-bottom: $margin-small-vertical;
   }

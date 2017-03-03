@@ -42,9 +42,12 @@ $(function ($) {
       });
     });
 
-    $(".form-actions button[type=submit]").one('click', function() {
-      $(this).append(' ').append($('<span id="loading-indicator" ' +
+    $("form").one('submit', function() {
+      var submitButton = $(this).find("button[type=submit]");
+      if(submitButton) {
+        submitButton.append(' ').append($('<span id="loading-indicator" ' +
           'class="icon icon-spinner icon-spin"></span>') );
+      }
     });
 
     $( "#resource-edit" ).one('submit', function() {

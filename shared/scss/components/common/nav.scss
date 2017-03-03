@@ -19,6 +19,46 @@
   text-transform: uppercase;
 }
 
+.navbar-right li:nth-child(1) {
+  margin-right: $base*1.5;
+
+  .nav-link:after {
+    display: inline-block;
+    content: '';
+    border-right: 1px solid #ddd;
+    height: 24px;
+    position: absolute;
+    vertical-align: middle;
+    padding-left: $base*1.5;
+  }
+}
+
 .navbar-default > .navbar-nav > li > a {
   color: #000;
+}
+
+.navbar-secondary {
+  background: none;
+  
+  .navbar-nav {
+    border-bottom: 1px solid #ddd;
+
+    li {
+      margin-left: $base;
+      margin-right: $base;
+
+      a {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+
+  .navbar-collapse {
+
+    @media (min-width: $width-md) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
 }
