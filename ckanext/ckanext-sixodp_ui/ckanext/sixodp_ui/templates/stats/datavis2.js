@@ -120,7 +120,7 @@ datavis2.render = function () {
   var dataHeight = imageHeight - margin.top - margin.bottom
 
   var svg = d3.select('.js-datavis-2 .datavis-svg')
-    .attr('width', imageWidth)
+    .attr('width', imageWidth + 300)
     .attr('height', imageHeight + 50)
 
   self.vis = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")")
@@ -167,29 +167,50 @@ datavis2.render = function () {
     .x(function(d) { return self.xScale(d.date) })
     .y(function(d) { return self.yScale(d.availableCount) })
 
-  self.line = self.vis.append("path")
+  self.lineClipper = self.vis.append('defs').append('clipPath')
+      .attr('id', 'datavis2-data-clipper')
+    .append('rect')
+      .attr('width', dataWidth)
+      .attr('height', dataHeight + 10)
+
+    // g.append("defs").append("clipPath")
+    //   .attr("id", "clip")
+    // .append("rect")
+    //   .attr("width", width)
+    //   .attr("height", height);
+
+  self.line = self.vis.append('g')
+    .attr('clip-path', function(d,i) { return 'url(#datavis2-data-clipper)' })
+  .append("path")
     .datum(self.data)
+    .attr('d', self.lineDrawer)
+    // .attr("class", "line")
     .attr('fill', 'none')
-    .attr("stroke", color.white)
-    .attr("stroke-linejoin", "round")
-    .attr("stroke-linecap", "round")
-    .attr("stroke-width", 3)
-    .attr("d", self.lineDrawer)
+    .attr('stroke', color.white)
+    .attr('stroke-linejoin', "round")
+    .attr('stroke-linecap', "round")
+    .attr('stroke-width', 2)
+
+  // .style('fill', 'none')
+  // .style('stroke', '#fff')
+
+  // g.append("g")
+  // .attr("clip-path", "url(#clip)")
+  // .append("path")
+  // .datum(data)
+
 }
 
 datavis2.resizeXAxis = function (xMin, xMax) {
   var self = this
   var newExtent = [xMin, xMax]
-  console.log('ResizeXAxis!', newExtent)
+  // console.log('ResizeXAxis!', newExtent)
 
   clearTimeout(self.resizeXAxisTimeout)
   self.resizeXAxisTimeout = setTimeout(function () {
-    self.xAxis
-      // .interrupt().selectAll('*').interrupt()
-      .transition().duration(800).tween('axis', function (d, i) {
+    self.xAxis.transition().duration(800).tween('axis', function (d, i) {
       // console.log('Transition tween', d, i)
       var interpolator = d3.interpolate(self.xExtent, newExtent)
-
       self.xExtent = newExtent
       return function (t) {
         // console.log('Transition callback, t =', t)
@@ -199,7 +220,7 @@ datavis2.resizeXAxis = function (xMin, xMax) {
           .x(function(d) { return self.xScale(d.date) })
           .y(function(d) { return self.yScale(d.availableCount) })
 
-        self.line.attr("d", self.lineDrawer)
+        self.line.attr('d', self.lineDrawer)
       }
     })
   }, 100)

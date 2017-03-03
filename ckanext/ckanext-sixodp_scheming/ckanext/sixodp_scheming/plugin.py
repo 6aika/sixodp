@@ -127,4 +127,6 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin, DefaultTranslation):
         return {'call_toolkit_function': helpers.call_toolkit_function,
                 'add_locale_to_source': helpers.add_locale_to_source,
                 'get_lang': helpers.get_current_lang,
-                'scheming_field_only_default_required': helpers.scheming_field_only_default_required}
+                'scheming_field_only_default_required': helpers.scheming_field_only_default_required,
+                'ensure_translated': helpers.ensure_translated,
+                'get_current_date': helpers.get_current_date}

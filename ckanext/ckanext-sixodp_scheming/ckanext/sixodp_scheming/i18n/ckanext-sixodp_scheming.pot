@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_scheming 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-02-27 13:32+0000\n"
+"POT-Creation-Date: 2017-03-03 08:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -322,5 +322,16 @@ msgstr ""
 
 #: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:30
 msgid "State"
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:36
+msgid "How to reference"
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:38
+msgid ""
+"{title}: The dataset's maintainer is {maintainer} and the original author is "
+"{author}. The dataset has been downloaded from the {site_title} service "
+"{date} using the license {license}."
 msgstr ""
 

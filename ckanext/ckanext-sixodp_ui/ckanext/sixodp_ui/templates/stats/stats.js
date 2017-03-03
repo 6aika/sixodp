@@ -10,7 +10,13 @@
 // TODO NEXT:
 /*
 - Change timespan: https://bl.ocks.org/mbostock/4015254
-- Move timespan by dragging the graph with mouse click: https://bl.ocks.org/mbostock/4015254, https://github.com/d3/d3-zoom
+
+- Move timespan by dragging the graph with mouse click:
+  https://bl.ocks.org/mbostock/34f08d5e11952a80609169b7917d4172
+  https://bl.ocks.org/mbostock/4015254,
+  https://github.com/d3/d3-zoom
+- Smoothen the curve?
+
 - Graphic design
 
 - Axis design
@@ -23,7 +29,6 @@
 - Change organization
 - Download buttons
 - Animation effects
-- Smoothen the curve?
 */
 // https://bl.ocks.org/mbostock/3883245
 // http://bl.ocks.org/d3noob/b3ff6ae1c120eea654b5

@@ -24,3 +24,17 @@ def scheming_field_only_default_required(field, lang):
         return True
 
     return False
+
+def ensure_translated(s):
+    ts = type(s)
+    if ts == unicode:
+        return s
+    elif ts == str:
+        return unicode(s)
+    elif ts == dict:
+        language = i18n.get_lang()
+        return ensure_translated(s.get(language, u""))
+
+def get_current_date():
+    import datetime
+    return datetime.date.today().strftime("%d.%m.%Y")
