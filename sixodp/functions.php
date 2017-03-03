@@ -109,6 +109,7 @@ function register_notifications() {
     'public'        => true,
     'supports'      => array( 'title', 'editor' ),
     'has_archive'   => false,
+    'show_in_rest'  => true
   );
  
   register_post_type( 'notification', $args );
