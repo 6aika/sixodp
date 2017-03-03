@@ -117,7 +117,7 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin, DefaultTranslation):
         if context.get('for_edit') is not True:
             if data_dict.get('search_synonyms', None) is not None:
                 data_dict.pop('search_synonyms')
-            
+
 
 
         return data_dict

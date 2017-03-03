@@ -9,7 +9,7 @@
   {%- endif -%}
   {% if pkg.notes%}
     <div class="notes embedded-content">
-      {{ h.render_markdown(h.get_translated(pkg, 'notes')) }}
+      {{ h.render_markdown(h.get_translated_or_default_locale(pkg, 'notes')) }}
     </div>
   {% endif %}
 {% endblock %}

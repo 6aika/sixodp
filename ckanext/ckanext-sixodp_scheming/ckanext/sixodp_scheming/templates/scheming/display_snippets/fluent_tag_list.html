@@ -1,6 +1,7 @@
 {# slight abuse of scheming_language_text for selecting the desired language version #}
-{%- set value = h.scheming_language_text(data[field.field_name]) -%}
+{%- set value = h.scheming_language_text_or_empty(data[field.field_name]) -%}
 {%- set lang = h.get_lang() %}
+{%- if value -%}
 <section class="tags">
     {% block tag_list %}
     <ul class="tag-list">
@@ -17,4 +18,4 @@
         {% endfor %}
     </ul>
     {% endblock %}
-    <section class="tags">
+     {%- endif -%}
