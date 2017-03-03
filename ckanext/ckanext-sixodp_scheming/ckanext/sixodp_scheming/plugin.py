@@ -109,6 +109,15 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin, DefaultTranslation):
         if data_dict.get('geographical_coverage'):
             data_dict['vocab_geographical_coverage'] = [tag for tag in json.loads(data_dict['geographical_coverage'])]
 
+        keywords = data_dict.get('keywords')
+        if keywords:
+            keywords_json = json.loads(keywords)
+            if keywords_json.get('fi'):
+                data_dict['vocab_keywords_fi'] = [tag for tag in keywords_json['fi']]
+            if keywords_json.get('sv'):
+                data_dict['vocab_keywords_sv'] = [tag for tag in keywords_json['sv']]
+            if keywords_json.get('en'):
+                data_dict['vocab_keywords_en'] = [tag for tag in keywords_json['en']]
 
         return data_dict
 
@@ -117,7 +126,7 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin, DefaultTranslation):
         if context.get('for_edit') is not True:
             if data_dict.get('search_synonyms', None) is not None:
                 data_dict.pop('search_synonyms')
-            
+
 
 
         return data_dict
@@ -129,4 +138,5 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin, DefaultTranslation):
                 'get_lang': helpers.get_current_lang,
                 'scheming_field_only_default_required': helpers.scheming_field_only_default_required,
                 'ensure_translated': helpers.ensure_translated,
-                'get_current_date': helpers.get_current_date}
+                'get_current_date': helpers.get_current_date,
+                'get_package_groups_by_type': helpers.get_package_groups_by_type}

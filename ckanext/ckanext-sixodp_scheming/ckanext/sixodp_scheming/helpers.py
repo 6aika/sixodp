@@ -1,6 +1,14 @@
 from ckan.plugins import toolkit
 from ckan.lib.i18n import get_lang
 from ckan.common import config
+import ckan.logic as logic
+import ckan.lib.base as base
+import ckan.model as model
+from ckan.model.package import Package
+from ckan.lib.dictization.model_dictize import group_list_dictize
+
+NotFound = logic.NotFound
+abort = base.abort
 
 def call_toolkit_function(fn, args, kwargs):
     return getattr(toolkit,fn)(*args, **kwargs)
@@ -38,3 +46,17 @@ def ensure_translated(s):
 def get_current_date():
     import datetime
     return datetime.date.today().strftime("%d.%m.%Y")
+
+def get_package_groups_by_type(package_id, group_type):
+    context = {'model': model, 'session': model.Session,
+               'for_view': True, 'use_cache': False}
+
+    group_list = []
+
+    try:
+        pkg_obj = Package.get(package_id)
+        group_list = group_list_dictize(pkg_obj.get_groups(group_type, None), context)
+    except (NotFound):
+        abort(404, _('Dataset not found'))
+
+    return group_list

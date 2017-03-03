@@ -11,6 +11,36 @@
     ] -%}
 
 {% block package_additional_info %}
+  {% if h.get_package_groups_by_type(pkg_dict.id, 'group') %}
+    <tr>
+      <th scope="row" class="dataset-label">{{ _("Groups") }}</th>
+      <td class="dataset-details">
+        <section class="tags">
+          <ul class="tag-list">
+            {% for group in h.get_package_groups_by_type(pkg_dict.id, 'group') %}
+            <li><a class="tag" href="{{h.url_for(controller='group', action='read', id=group.name)}}">{{ group.display_name }}</a></li>
+            {% endfor %}
+          </ul>
+        </section>
+      </td>
+    </tr>
+  {% endif %}
+
+  {% if h.get_package_groups_by_type(pkg_dict.id, 'collection') %}
+    <tr>
+      <th scope="row" class="dataset-label">{{ _("Collections") }}</th>
+      <td class="dataset-details">
+        <section class="tags">
+          <ul class="tag-list">
+            {% for collection in h.get_package_groups_by_type(pkg_dict.id, 'collection') %}
+            <li><a class="tag" href="{{h.url_for(controller='ckanext.collection.controller:CollectionController', action='read', id=collection.name)}}">{{ collection.display_name }}</a></li>
+            {% endfor %}
+          </ul>
+        </section>
+      </td>
+    </tr>
+  {% endif %}
+
   {%- for field in schema.dataset_fields -%}
     {%- if field.field_name not in exclude_fields
         and field.display_snippet is not none 
@@ -32,15 +62,15 @@
     </tr>
   {% endif %}
   {% if pkg_dict.maintainer and pkg_dict.organization and pkg_dict.license_title %}
-  <tr>
-    <th scope="row" class="dataset-label">{{ _("How to reference") }}</th>
-    <td class="dataset-details">
-      {{ _('{title}: The dataset\'s maintainer is {maintainer} and the original author is {author}.
-      The dataset has been downloaded from the {site_title} service {date} using the license {license}.')
-      .format(title=h.ensure_translated(pkg_dict.title_translated), maintainer=pkg_dict.maintainer,
-      author=pkg_dict.organization.title, site_title=g.site_title,
-      date=h.get_current_date(), license=pkg_dict.license_title) }}
-    </td>
-  </tr>
+    <tr>
+      <th scope="row" class="dataset-label">{{ _("How to reference") }}</th>
+      <td class="dataset-details">
+        {{ _('{title}: The dataset\'s maintainer is {maintainer} and the original author is {author}.
+        The dataset has been downloaded from the {site_title} service {date} using the license {license}.')
+        .format(title=h.ensure_translated(pkg_dict.title_translated), maintainer=pkg_dict.maintainer,
+        author=pkg_dict.organization.title, site_title=g.site_title,
+        date=h.get_current_date(), license=pkg_dict.license_title) }}
+      </td>
+    </tr>
   {% endif %}
 {% endblock %}
