@@ -1,5 +1,5 @@
 .logos {
-  margin-top: $base*4;
+  margin-top: $base*5;
   padding: 0 $base;
 
   &:after {
@@ -33,12 +33,12 @@
 
   .logo--erdf, .logo--eu {
     width: auto;
-    height: 60px;
+    height: $base*6;
     display: inline-block;
 
     img {
       width: auto;
-      height: 60px;
+      height: $base*6;
     }
   }
 }
