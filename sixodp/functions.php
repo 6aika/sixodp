@@ -81,6 +81,40 @@ if ( !function_exists('sixodp_theme_setup') ) :
 endif; // twentysixteen_setup
 add_action( 'after_setup_theme', 'sixodp_theme_setup' );
 
+function register_notifications() {
+ 
+   //labels array added inside the function and precedes args array
+ 
+   $labels = array(
+    'name'               => _x( 'Notifications', 'post type general name' ),
+    'singular_name'      => _x( 'Notification', 'post type singular name' ),
+    'add_new'            => _x( 'Add New', 'Notification' ),
+    'add_new_item'       => __( 'Add New Notification' ),
+    'edit_item'          => __( 'Edit Notification' ),
+    'new_item'           => __( 'New Notification' ),
+    'all_items'          => __( 'All Notifications' ),
+    'view_item'          => __( 'View Notification' ),
+    'search_items'       => __( 'Search notifications' ),
+    'not_found'          => __( 'No notifications found' ),
+    'not_found_in_trash' => __( 'No notifications found in the Trash' ),
+    'parent_item_colon'  => '',
+    'menu_name'          => 'Notifications'
+  );
+ 
+         // args array
+ 
+   $args = array(
+    'labels'        => $labels,
+    'description'   => 'Notifications',
+    'public'        => true,
+    'supports'      => array( 'title', 'editor' ),
+    'has_archive'   => false,
+  );
+ 
+  register_post_type( 'notification', $args );
+}
+add_action( 'init', 'register_notifications' );
+
 function create_primary_menus() {
   create_menu_i18n('primary_fi', PRIMARY_MENU_ITEMS_FI, 'primary');
   create_menu_i18n('primary_en', PRIMARY_MENU_ITEMS_EN, 'primary');
