@@ -121,3 +121,35 @@ button {
 button:hover {
   background-color: #f8f8f8;
 }
+
+
+/*
+CREATE VARIABLES:
+'#fff' -> $white
+'#555' -> lighten($primary, ...)
+
+*/
+
+.datavis-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 3px;
+  stroke-linejoin: 'round';
+  stroke-linecap: 'round';
+}
+/*.datavis-scale-line {
+  stroke: #555;
+  stroke-dasharray: '2,2';
+}*/
+
+.datavis-axis line {
+  stroke: #fff;
+}
+
+.datavis-axis path {
+  stroke: #fff;
+}
+
+.datavis-axis text {
+  fill: #fff;
+}

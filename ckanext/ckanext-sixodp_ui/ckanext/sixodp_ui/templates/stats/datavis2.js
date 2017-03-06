@@ -111,24 +111,26 @@ datavis2.curate = function (data) {
 
 datavis2.render = function () {
   var self = this
-  var margin = {top: 20, right: 50, bottom: 30, left: 0}
 
+  // Space needed on the page
   var imageWidth = contentWidth
   var imageHeight = 360
 
+  // Space for drawing the actual data
+  var margin = {top: 15, right: 50, bottom: 30, left: 1}
   var dataWidth = imageWidth - margin.left - margin.right
   var dataHeight = imageHeight - margin.top - margin.bottom
 
   var svg = d3.select('.js-datavis-2 .datavis-svg')
-    .attr('width', imageWidth + 300)
-    .attr('height', imageHeight + 50)
+    .attr('width', imageWidth)
+    .attr('height', imageHeight)
 
+  // Visualization = data line, axises, legends, etc.
   self.vis = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 
-  // var parseTime = d3.timeParse("%y-%m-%d");
+  // Extent of x axis (date)
   self.xFullExtent = d3.extent(this.data, function(d) { return d.date })
   self.xExtent = self.xFullExtent
-
   self.inputs.startDate
     .property('value', moment(self.xFullExtent[0]).format('D.M.YYYY'))
     .attr('placeholder', moment(self.xFullExtent[0]).format('D.M.YYYY'))
@@ -136,6 +138,7 @@ datavis2.render = function () {
     .property('value', moment(self.xFullExtent[1]).format('D.M.YYYY'))
     .attr('placeholder', moment(self.xFullExtent[1]).format('D.M.YYYY'))
 
+  // Create X and Y axis
   self.xScale = d3.scaleTime()
     .domain(self.xExtent)
     .rangeRound([0, dataWidth])
@@ -150,55 +153,131 @@ datavis2.render = function () {
   self.xAxisGenerator = d3.axisBottom(self.xScale)
   self.xAxis = self.vis.append("g")
     .attr('transform', 'translate(0,' + dataHeight + ')')
+    .attr('class', 'datavis-axis')
     .call(self.xAxisGenerator)
 
-  yAxis = self.vis.append("g")
-    .attr('transform', 'translate(' + dataWidth + ', 0)')
-    .call(d3.axisRight(self.yScale))
-  .append('text')
-    .attr('fill', color.white)
-    .attr('x', 20)
-    .attr('y', 0)
-    .attr('dy', '0.5em')
-    // .attr("text-anchor", "end")
-    .text(texts.amount[lang]) // Tietoaineistoja
+  self.yAxisGenerator = d3.axisRight(self.yScale)
+    .tickSize(dataWidth)
+    .tickFormat(function(d) {
+      // var s = formatNumber(d);
+      return this.parentNode.nextSibling
+          ? "\xa0" + d
+          : d + ' ' + texts.amount[lang];
+    })
 
+  self.customYAxis = function (g) {
+    g.call(self.yAxisGenerator)
+
+    // Remove vertical line
+    g.select('.domain').remove()
+
+    g.selectAll(".tick:not(:first-of-type) line")
+      // .attr('class', 'datavis-scale-line')
+      // .attr("stroke", 'red')
+      .attr("stroke-dasharray", "2,2")
+
+    // Move texts to the right
+    g.selectAll(".tick text").attr("x", dataWidth).attr("dy", 2)
+  }
+
+  yAxis = self.vis.append("g")
+    // .attr('transform', 'translate(' + dataWidth + ', 0)')
+    .attr('class', 'datavis-axis')
+    .call(self.customYAxis)
+
+
+  // Draws the line when given data
   self.lineDrawer = d3.line()
+    .curve(d3.curveBasis) // Smooth curve
     .x(function(d) { return self.xScale(d.date) })
     .y(function(d) { return self.yScale(d.availableCount) })
 
-  self.lineClipper = self.vis.append('defs').append('clipPath')
+  // Cuts the line outside the axises
+  self.lineClipper = self.vis.append('clipPath')
+      .attr('transform', 'translate(-1, -1)')
       .attr('id', 'datavis2-data-clipper')
     .append('rect')
-      .attr('width', dataWidth)
-      .attr('height', dataHeight + 10)
+      .attr('width', dataWidth + 1)
+      .attr('height', dataHeight + 1)
 
-    // g.append("defs").append("clipPath")
-    //   .attr("id", "clip")
-    // .append("rect")
-    //   .attr("width", width)
-    //   .attr("height", height);
-
+  // Finally, create the line
   self.line = self.vis.append('g')
     .attr('clip-path', function(d,i) { return 'url(#datavis2-data-clipper)' })
   .append("path")
     .datum(self.data)
     .attr('d', self.lineDrawer)
-    // .attr("class", "line")
+    .attr("class", "datavis-line")
+
+
+  // Focus point on the graph, changed by mouseover
+  var focus = self.vis.append('g')
+    .attr('class', 'focus')
+    // .style('display', 'none');
+
+  focus.append('circle')
+    .attr('r', 4.5);
+
+  focus.append('line')
+    .classed('x', true);
+
+  focus.append('line')
+    .classed('y', true);
+
+  focus.append('text')
+    .attr('x', 9)
+    .attr('dy', '.35em');
+
+  self.vis.append('rect')
+    .attr('class', 'overlay')
+    .attr('width', dataWidth)
+    .attr('height', dataHeight)
+    .on('mouseover', () => focus.style('display', null))
+    .on('mouseout', () => focus.style('display', 'none'))
+    .on('mousemove', onmousemove);
+
+  d3.select('.overlay')
     .attr('fill', 'none')
-    .attr('stroke', color.white)
-    .attr('stroke-linejoin', "round")
-    .attr('stroke-linecap', "round")
-    .attr('stroke-width', 2)
+    .attr('pointer-events', 'all')
+    
+  d3.selectAll('.focus')
+    .attr('opacity', 0.7);
 
-  // .style('fill', 'none')
-  // .style('stroke', '#fff')
+  d3.selectAll('.focus circle')
+    .attr({
+      fill: 'none',
+      stroke: 'black'
+    });
 
-  // g.append("g")
-  // .attr("clip-path", "url(#clip)")
-  // .append("path")
-  // .datum(data)
+  d3.selectAll('.focus line')
+    .attr({
+      fill: 'none',
+      'stroke': 'black',
+      'stroke-width': '1.5px',
+      'stroke-dasharray': '3 3'
+    });
 
+  var bisectDate = d3.bisector(function(d) { return d.date }).left;
+  function onmousemove() {
+    const x0 = self.xScale.invert(d3.mouse(this)[0]);
+    const i = bisectDate(self.data, x0, 1);
+    const d0 = self.data[i - 1];
+    const d1 = self.data[i];
+    const d = x0 - d0.date > d1.date - x0 ? d1 : d0;
+    focus.attr('transform', `translate(${self.xScale(d.date)}, ${self.yScale(d.availableCount)})`);
+    focus.select('line.x')
+      .attr('x1', 0)
+      .attr('x2', -self.xScale(d.date))
+      .attr('y1', 0)
+      .attr('y2', 0);
+
+    focus.select('line.y')
+      .attr('x1', 0)
+      .attr('x2', 0)
+      .attr('y1', 0)
+      .attr('y2', dataHeight - self.yScale(d.availableCount));
+
+    focus.select('text').text(d.availableCount);
+  }
 }
 
 datavis2.resizeXAxis = function (xMin, xMax) {
