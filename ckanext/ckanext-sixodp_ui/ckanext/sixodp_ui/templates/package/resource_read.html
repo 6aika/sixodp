@@ -1,0 +1,12 @@
+{% ckan_extends %}
+
+{% block pre_primary %}{% endblock %}
+
+{% block primary_content %}
+
+  {% block resource %}
+    {{ super() }}
+  {% endblock %}
+
+  {{ super() }}
+{% endblock %}
