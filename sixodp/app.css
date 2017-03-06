@@ -6172,8 +6172,9 @@ hr {
     margin: 0;
     padding: 0;
     border: 0; }
-    .navbar-offcanvas .nav-simple li.nav-item.active a {
-      background-color: #534f97; }
+    .navbar-offcanvas .nav-simple li.nav-item.active a, .navbar-offcanvas .nav-simple li.nav-item:focus a {
+      background-color: #534f97;
+      color: #ffffff; }
     .navbar-offcanvas .nav-simple li.nav-item a {
       padding: 7px 25px 7px 25px;
       font-size: 12px;
@@ -6182,9 +6183,6 @@ hr {
       .navbar-offcanvas .nav-simple li.nav-item a:hover {
         background-color: #8d8ac2;
         color: #ffffff; }
-      .navbar-offcanvas .nav-simple li.nav-item a:focus {
-        background-color: #ffffff;
-        color: #000; }
 
 @media (max-width: 767px) {
   .offcanvas-stop-scrolling {
