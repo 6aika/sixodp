@@ -8,26 +8,27 @@
 
 - name: Download Solr package
   get_url: url={{ solr_download_url }} dest={{ cache_path }}/solr/solr-{{ solr_version }}.zip checksum={{ solr_checksum }} mode="0644" owner=root group=root
-  register: fetch_solr
 
 - name: Extract Solr installer from the archive
-  unarchive: src={{ cache_path }}/solr/solr-{{ solr_version }}.zip dest={{ cache_path }}/solr copy=no
-  when: fetch_solr|changed
+  unarchive: src={{ cache_path }}/solr/solr-{{ solr_version }}.zip dest={{ cache_path }}/solr copy=no creates={{ cache_path }}/solr/solr-{{ solr_version }}
 
 - name: Install Solr
-  command: "{{ cache_path }}/solr/solr-{{ solr_version }}/bin/install_solr_service.sh  {{ cache_path }}/solr/solr-{{ solr_version }}.zip -d /var/solr -u {{ solr_user }} -s solr -p 8983 -i /opt/solr -f"
+  command:
+    "{{ cache_path }}/solr/solr-{{ solr_version }}/bin/install_solr_service.sh {{ cache_path }}/solr/solr-{{ solr_version }}.zip -d /var/solr -u {{ solr_user }} -s solr -p 8983 -i /opt/solr -f"
+  args:
+    creates: /opt/solr
   become: true
-  when: fetch_solr|changed
 
 - name: Start solr
   service: name=solr state=started
-  when: fetch_solr|changed
 
 - name: Create Solr core
-  command: "/opt/solr/solr/bin/solr create -c ckan"
+  command:
+    "/opt/solr/solr/bin/solr create -c ckan"
+  args:
+    creates: /var/solr/data/ckan
   become: true
   become_user: solr
-  when: fetch_solr|changed
   ignore_errors: True
 
 - name: Copy CKAN Solr schema and config
