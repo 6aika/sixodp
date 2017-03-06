@@ -1,49 +1,11 @@
 .navbar-offcanvas {
-  //@extend .card-theme;
   z-index: 1002;
-  padding: 10px;
   
   @media screen and (max-width: $width-sm - 1) {
     position: fixed !important;
     height: 0;
     max-height: initial !important;
     max-width: initial !important;
-  }
-
-  /*.offcanvas-toggle {
-    display: none;
-  }*/
-
-  .module {
-
-    .module-heading {
-      background-color: transparent;
-      border: none;
-      font-weight: bold;
-      font-size: $font-size;
-
-      >i {
-        display: none;
-      }
-    }
-
-    .module-content {
-      padding: 0 $padding-base-horizontal;
-
-      &.empty,
-      .empty {
-        //@extend .empty;
-        font-size: $font-size-small;
-      }
-
-      .nums {
-        border: none;
-      }
-    }
-
-    .module-footer {
-      display: none;
-    }
   }
 
   .nav-facet {
@@ -59,7 +21,6 @@
       }
 
       a {
-        padding: 7px 25px 7px 35px;
         font-size: $font-size*0.9;
         width: 100%;
         margin: 0;
@@ -87,7 +48,6 @@
       }
 
       a {
-        padding: 7px 25px 7px 25px;
         font-size: $font-size-small;
         margin: 0;
         width: 100%;
