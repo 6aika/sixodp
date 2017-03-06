@@ -13,10 +13,16 @@ stats.init = function () {
         'organizations',
         'organization_list?all_fields=true&include_extras=true',
         function () {
-
-          // Init all data visualizations
-          datavis1.init(self.downloads.datasets)
-          datavis2.init(self.downloads.datasets, self.downloads.organizations)
+          self.download(
+            'apps',
+            'ckanext_showcase_list',
+            function () {
+              console.log('self.downloads', self.downloads)
+              // Init all data visualizations
+              datavis1.init(self.downloads.datasets, self.downloads.apps)
+              datavis2.init(self.downloads.datasets, self.downloads.organizations)
+            }
+          )
         }
       )}
   )
