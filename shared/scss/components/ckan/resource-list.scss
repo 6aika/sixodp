@@ -3,14 +3,7 @@
   padding: 0;
 
   .resource-item {
-    height: 100%;
-    padding: 0;
-    background: $secondary-bg;
-    margin-bottom: $margin-small-vertical;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
+    @include list-item();
 
     .format-label {
       position: absolute;
