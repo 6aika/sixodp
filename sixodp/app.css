@@ -6138,24 +6138,22 @@ hr {
       height: 0;
       max-height: initial !important;
       max-width: initial !important; } }
-  .navbar-offcanvas .module {
-    margin: 20px 0; }
-    .navbar-offcanvas .module .module-heading {
-      background-color: transparent;
-      border: none;
-      font-weight: bold;
-      font-size: 14px; }
-      .navbar-offcanvas .module .module-heading > i {
-        display: none; }
-    .navbar-offcanvas .module .module-content {
-      padding: 0 6px; }
-      .navbar-offcanvas .module .module-content.empty,
-      .navbar-offcanvas .module .module-content .empty {
-        font-size: 12px; }
-      .navbar-offcanvas .module .module-content .nums {
-        border: none; }
-    .navbar-offcanvas .module .module-footer {
+  .navbar-offcanvas .module .module-heading {
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    font-size: 14px; }
+    .navbar-offcanvas .module .module-heading > i {
       display: none; }
+  .navbar-offcanvas .module .module-content {
+    padding: 0 6px; }
+    .navbar-offcanvas .module .module-content.empty,
+    .navbar-offcanvas .module .module-content .empty {
+      font-size: 12px; }
+    .navbar-offcanvas .module .module-content .nums {
+      border: none; }
+  .navbar-offcanvas .module .module-footer {
+    display: none; }
   .navbar-offcanvas .nav-facet li.nav-item {
     border: none;
     margin: 0;
