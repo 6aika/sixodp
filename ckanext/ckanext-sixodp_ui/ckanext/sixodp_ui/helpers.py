@@ -96,20 +96,6 @@ def dataset_display_name(package_or_package_dict):
         # package dicts and real package objects
         return package_or_package_dict.title or package_or_package_dict.name
 
-def get_translated_or_default_locale(data_dict, field):
-    language = i18n.get_lang()
-    if language in _LOCALE_ALIASES:
-        language = _LOCALE_ALIASES[language]
-
-    try:
-        value = data_dict[field+'_translated'][language]
-        if value:
-            return value
-        else:
-            return data_dict[field+'_translated'][config.get('ckan.locale_default', 'en')]
-    except KeyError:
-        return data_dict.get(field, '')
-
 
 def scheming_language_text_or_empty(text, prefer_lang=None):
     """

@@ -1,5 +1,6 @@
 from ckan.plugins import toolkit
 from ckan.lib.i18n import get_lang
+import ckan.lib.i18n as i18n
 from ckan.common import config
 import ckan.logic as logic
 import ckan.lib.base as base
@@ -60,3 +61,19 @@ def get_package_groups_by_type(package_id, group_type):
         abort(404, _('Dataset not found'))
 
     return group_list
+
+_LOCALE_ALIASES = {'en_GB': 'en'}
+
+def get_translated_or_default_locale(data_dict, field):
+    language = i18n.get_lang()
+    if language in _LOCALE_ALIASES:
+        language = _LOCALE_ALIASES[language]
+
+    try:
+        value = data_dict[field+'_translated'][language]
+        if value:
+            return value
+        else:
+            return data_dict[field+'_translated'][config.get('ckan.locale_default', 'en')]
+    except KeyError:
+        return data_dict.get(field, '')

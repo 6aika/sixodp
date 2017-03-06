@@ -243,7 +243,6 @@ class Sixodp_UiPlugin(plugins.SingletonPlugin, DefaultTranslation):
                 'service_alerts': service_alerts,
                 'unquote_url': unquote_url,
                 'get_translated': helpers.get_translated,
-                'get_translated_or_default_locale': helpers.get_translated_or_default_locale,
                 'get_qa_openness': get_qa_openness,
                 'dataset_display_name': helpers.dataset_display_name,
                 'get_navigation_items_by_menu_location': helpers.get_navigation_items_by_menu_location,

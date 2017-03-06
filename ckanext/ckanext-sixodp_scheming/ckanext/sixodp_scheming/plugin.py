@@ -139,4 +139,5 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin, DefaultTranslation):
                 'scheming_field_only_default_required': helpers.scheming_field_only_default_required,
                 'ensure_translated': helpers.ensure_translated,
                 'get_current_date': helpers.get_current_date,
-                'get_package_groups_by_type': helpers.get_package_groups_by_type}
+                'get_package_groups_by_type': helpers.get_package_groups_by_type,
+                'get_translated_or_default_locale': helpers.get_translated_or_default_locale}
