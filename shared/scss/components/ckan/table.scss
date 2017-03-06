@@ -1,6 +1,11 @@
 .table {
   tbody {
     tr {
+      th,
+      td {
+        border: none;
+      }
+
       td {
         vertical-align: middle;
         padding: $padding-small-vertical $padding-small-horizontal;

@@ -15,6 +15,10 @@
             margin-top: 0;
           }
 
+          > section {
+            padding: $margin-large-vertical 0;
+          }
+
           h1 {
             @include heading;
             font-size: $font-size-xlarge;
