@@ -22,11 +22,11 @@ class Sixodp_ShowcasePlugin(ShowcasePlugin):
     def package_types(self):
         return []
 
-    #def search_template(self):
-    #    return "sixodp_showcase/search.html"
+    def search_template(self):
+        return "sixodp_showcase/search.html"
 
-    #def read_template(self):
-    #    return "bar"
+    def read_template(self):
+        return "sixodp_showcase/read.html"
 
     #def new_template(self):
     #    return 'sixodp_showcase/new.html'
@@ -36,6 +36,12 @@ class Sixodp_ShowcasePlugin(ShowcasePlugin):
         with SubMapper(map, controller='ckanext.sixodp_showcase.controller:Sixodp_ShowcaseController') as m:
 
             m.connect('ckanext_showcase_new', '/showcase/new', action='new')
+            m.connect('ckanext_showcase_read', '/showcase/{id}', action='read',
+                      ckan_icon='picture')
+            m.connect('ckanext_showcase_edit', '/showcase/edit/{id}',
+                      action='edit', ckan_icon='edit')
+            m.connect('ckanext_showcase_index', '/showcase', action='search',
+                      highlight_actions='index search')
 
         return map
 

@@ -10,7 +10,7 @@
 {% block page_primary_action %}
   {% if h.check_access('ckanext_showcase_create') %}
     <div class="page_primary_action">
-      {% link_for _('Add Showcase'), controller='package', action='new', class_='btn btn-primary', icon='plus-sign-alt' %}
+      {% link_for _('Add Showcase'), controller='ckanext.sixodp_showcase.controller:Sixodp_ShowcaseController', action='new', class_='btn btn-primary', icon='plus-sign-alt' %}
     </div>
   {% endif %}
 {% endblock %}
@@ -34,7 +34,7 @@
 {% endblock %}
 
 {% block package_search_results_list %}
-  {# {{ h.snippet('showcase/snippets/showcase_list.html', packages=c.page.items) }} #}
+  {{ h.snippet('sixodp_showcase/snippets/showcase_list.html', packages=c.page.items) }}
 {% endblock %}
 
 {% block package_search_results_api %}
