@@ -3,15 +3,25 @@
     tr {
       th,
       td {
-        border: none;
-      }
-
-      td {
+        color: $brand-primary;
+        font-weight: normal;
         vertical-align: middle;
         padding: $padding-small-vertical $padding-small-horizontal;
 
         input {
           height: auto;
+        }
+      }
+    }
+  }
+
+  &.table-borderless {
+    thead,
+    tbody {
+      tr {
+        th,
+        td {
+          border: none;
         }
       }
     }
