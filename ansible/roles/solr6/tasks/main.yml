@@ -16,7 +16,7 @@
   command:
     "{{ cache_path }}/solr/solr-{{ solr_version }}/bin/install_solr_service.sh {{ cache_path }}/solr/solr-{{ solr_version }}.zip -d /var/solr -u {{ solr_user }} -s solr -p 8983 -i /opt/solr -f"
   args:
-    creates: /opt/solr
+    creates: /opt/solr/solr-{{ solr_version }}
   become: true
 
 - name: Start solr
