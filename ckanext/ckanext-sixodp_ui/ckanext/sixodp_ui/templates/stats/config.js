@@ -1,5 +1,6 @@
 // CKAN data api
-domain = 'https://10.106.10.10/'
+// https://generic-qa.dataportaali.com/'
+domain = 'https://' + window.location.hostname + '/'
 api = domain + 'data/api/3/action/'
 apiKey = '0c7f22e1-48b9-441e-8c2e-9a45bba727dd'
 
@@ -9,6 +10,8 @@ contentWidth = 964
 // Graphics
 color = {
   primary: '#074a74',
+  primaryDarker: '#033a64',
+  primaryLighter: 'red', // '#0e5a84',
   secondary: '#6fbf69',
   white: '#fff',
   white2: '#f8f8f8',
@@ -21,7 +24,7 @@ lang = 'fi'
 // Translations
 texts = {
   amount: {
-    'fi': 'Kpl',
+    'fi': 'kpl',
     'sv': '',
     'en': '',
   }

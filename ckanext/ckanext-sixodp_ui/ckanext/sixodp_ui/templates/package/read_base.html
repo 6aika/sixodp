@@ -31,6 +31,10 @@
   {{ h.build_nav_icon('dataset_read', _('Dataset'), id=pkg.name) }}
   {{ h.build_nav_icon('dataset_showcase_list', _('Showcases'), id=pkg.name) }}
   {{ h.build_nav_icon('dataset_activity', _('Activity Stream'), id=pkg.name) }}
+  {% if h.check_access('package_update', {'id':pkg.id }) %}
+    {{ h.build_nav_icon('dataset_groups', _('Groups'), id=pkg.name) }}
+    {{ h.build_nav_icon('dataset_collection_list', _('Collections'), id=pkg.name) }}
+  {% endif %}
 {% endblock %}
 
 {% block secondary_content %}
@@ -39,6 +43,17 @@
     <div class="license-container">
       {% snippet "snippets/license.html", pkg_dict=pkg %}
     </div>
+  {% endblock %}
+
+  {% block package_openness %}
+    {% if c.pkg_dict %}
+      <div class="module module-narrow module-shallow context-info">
+        <h2 class="module-heading">{{ _('Openness') }}</h2>
+        <section class="module-content">
+          {{ h.get_qa_openness(c.pkg_dict) }}<br>
+        </section>
+      </div>
+    {% endif %}
   {% endblock %}
 
   {% block secondary_help_content %}{% endblock %}
@@ -60,16 +75,5 @@
         {% snippet "reminder/snippets/subscription_form.html", package=pkg %}
       </section>
     </div>
-  {% endblock %}
-
-  {% block package_openness %}
-    {% if c.pkg_dict %}
-      <div class="module module-narrow module-shallow context-info">
-        <h2 class="module-heading">{{ _('Openness') }}</h2>
-        <section class="module-content">
-          {{ h.get_qa_openness(c.pkg_dict) }}<br>
-        </section>
-      </div>
-    {% endif %}
   {% endblock %}
 {% endblock %}

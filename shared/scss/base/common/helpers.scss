@@ -18,7 +18,17 @@
   box-shadow: $box $rgba;
 }
 
+@mixin list-item() {
+  padding: 0;
+  background: none;
+  border-style: solid;
+  border-width: 1px 0 0 0;
+  border-color: $gray-lighter;
 
+  &:last-of-type {
+    border-bottom-width: 1px;
+  }
+}
 
 // Placeholder classes
 %button {
