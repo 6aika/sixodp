@@ -153,3 +153,8 @@ CREATE VARIABLES:
 .datavis-axis text {
   fill: #fff;
 }
+
+
+.choose-organization {
+  width: 500px;
+}
