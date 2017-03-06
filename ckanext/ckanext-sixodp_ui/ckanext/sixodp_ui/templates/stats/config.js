@@ -1,7 +1,8 @@
 // CKAN data api
-// domain = 'https://10.106.10.10/'
 domain = 'https://generic-qa.dataportaali.com/'
 api = domain + 'data/api/3/action/'
+domainLocal = 'https://10.106.10.10/'
+apiLocal = domainLocal + 'data/api/3/action/'
 apiKey = '0c7f22e1-48b9-441e-8c2e-9a45bba727dd'
 
 // Space on the page for the visualizations

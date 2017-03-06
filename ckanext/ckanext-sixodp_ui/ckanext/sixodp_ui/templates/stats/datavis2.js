@@ -146,7 +146,7 @@ datavis2.render = function () {
   self.yScale = d3.scaleLinear()
     .domain([
       Math.min(0, d3.min(self.data, function(d) { return d.availableCount })),
-      d3.max(self.data, function(d) { return d.availableCount })
+      Math.round(d3.max(self.data, function(d) { return d.availableCount }) * 1.25)
     ])
     .rangeRound([dataHeight, 0])
 
@@ -210,74 +210,87 @@ datavis2.render = function () {
 
 
   // Focus point on the graph, changed by mouseover
-  var focus = self.vis.append('g')
+  self.focus = self.vis.append('g')
     .attr('class', 'focus')
-    // .style('display', 'none');
+    .attr('opacity', 0.9)
+    .attr('fill', 'white')
+    .attr('stroke', 'white')
 
-  focus.append('circle')
+  self.focus.append('circle')
     .attr('r', 4.5);
 
-  focus.append('line')
+  self.focus.append('line')
     .classed('x', true);
 
-  focus.append('line')
+  self.focus.append('line')
     .classed('y', true);
 
-  focus.append('text')
-    .attr('x', 9)
-    .attr('dy', '.35em');
+  self.focus.append('text')
+    .attr('class', 'js-datavis-count')
+    .attr('x', -80)
+    .attr('dy', '-30px')
+    .style('font-size', '24px')
+
+  self.focus.append('text')
+    .attr('class', 'js-datavis-date')
+    .attr('x', -80)
+    .attr('dy', '-12px')
+    .style('font-size', '12px')
+
+  self.focus.selectAll('circle')
+    .attr({
+      fill: 'white',
+      stroke: 'white'
+    });
+
+  self.focus.selectAll('line')
+    .attr({
+      fill: 'none',
+      'stroke': 'white',
+      'stroke-width': '1.5px',
+      'stroke-dasharray': '3 3'
+    });
 
   self.vis.append('rect')
     .attr('class', 'overlay')
     .attr('width', dataWidth)
     .attr('height', dataHeight)
-    .on('mouseover', () => focus.style('display', null))
-    .on('mouseout', () => focus.style('display', 'none'))
+    // .on('mouseover', () => self.focus.style('display', null))
+    .on('mouseout', () => setFocusDate(self.data[self.data.length - 1]))
     .on('mousemove', onmousemove);
 
-  d3.select('.overlay')
+  self.vis.select('.overlay')
     .attr('fill', 'none')
     .attr('pointer-events', 'all')
-    
-  d3.selectAll('.focus')
-    .attr('opacity', 0.7);
 
-  d3.selectAll('.focus circle')
-    .attr({
-      fill: 'none',
-      stroke: 'black'
-    });
-
-  d3.selectAll('.focus line')
-    .attr({
-      fill: 'none',
-      'stroke': 'black',
-      'stroke-width': '1.5px',
-      'stroke-dasharray': '3 3'
-    });
 
   var bisectDate = d3.bisector(function(d) { return d.date }).left;
-  function onmousemove() {
+
+  function onmousemove () {
     const x0 = self.xScale.invert(d3.mouse(this)[0]);
     const i = bisectDate(self.data, x0, 1);
     const d0 = self.data[i - 1];
     const d1 = self.data[i];
     const d = x0 - d0.date > d1.date - x0 ? d1 : d0;
-    focus.attr('transform', `translate(${self.xScale(d.date)}, ${self.yScale(d.availableCount)})`);
-    focus.select('line.x')
-      .attr('x1', 0)
-      .attr('x2', -self.xScale(d.date))
-      .attr('y1', 0)
-      .attr('y2', 0);
 
-    focus.select('line.y')
+    setFocusDate(d)
+  }
+
+  function setFocusDate (d) {
+    self.focus.attr('transform', `translate(${self.xScale(d.date)}, ${self.yScale(d.availableCount)})`)
+
+    self.focus.select('line.y')
       .attr('x1', 0)
       .attr('x2', 0)
-      .attr('y1', 0)
-      .attr('y2', dataHeight - self.yScale(d.availableCount));
+      .attr('y1', -self.yScale(d.availableCount))
+      .attr('y2', -self.yScale(d.availableCount) + dataHeight);
 
-    focus.select('text').text(d.availableCount);
+    self.focus.select('.js-datavis-count').html(d.availableCount)
+
+    self.focus.select('.js-datavis-date').html(moment(d.date).format('D.M.YYYY'))
   }
+
+  setFocusDate(self.data[self.data.length - 1])
 }
 
 datavis2.resizeXAxis = function (xMin, xMax) {
@@ -311,7 +324,7 @@ datavis2.resizeXAxis = function (xMin, xMax) {
 
 datavis2.eventListeners = function () {
   self.inputs.startDate.on('keyup', function () {
-    console.log('keyup!', new Date())
+    // console.log('keyup!', new Date())
     var startDate = validDate(self.inputs.startDate.property('value'))
     if (!startDate) {
       return false
@@ -339,73 +352,3 @@ datavis2.eventListeners = function () {
     console.log('clicked download')
   })
 }
-
-
-
-// var yGroup = vis.append("g")
-// var xGroup = vis.append("g")
-//     .attr("transform", "translate(0," + height + ")");
-
-// var areaPath = g.append("path")
-//     .attr("clip-path", "url(#clip)")
-//     .attr("fill", "steelblue");
-
-// var zoom = d3.zoom()
-//   .scaleExtent([1 / 2, 2])
-//   .translateExtent([[-width, -Infinity], [2 * width, Infinity]])
-//   .on("zoom", onZoom1);
-
-// var zoomRect = svg.append("rect")
-//   .attr("width", width)
-//   .attr("height", height)
-//   .attr("fill", "none")
-//   .attr("pointer-events", "all")
-//   .call(zoom);
-
-// g.append("clipPath")
-//     .attr("id", "clip")
-//   .append("rect")
-//     .attr("width", width)
-//     .attr("height", height);
-
-// zoom.translateExtent([
-//   [x(xExtent[0]), -Infinity],
-//   [x(xExtent[1]), Infinity]
-// ])
-
-// yGroup.call(yAxis).select(".domain").remove();
-
-
-// g.append("g")
-//     .attr("transform", "translate(0," + height + ")")
-//     .call(customXAxis);
-//
-// function customXAxis(g) {
-//   g.call(xAxis);
-//   g.select(".domain").remove();
-// }
-
-
-// g.append("g")
-//     .call(customYAxis);
-//
-// function customYAxis(g) {
-//   g.call(yAxis);
-//   g.select(".domain").remove();
-//   g.selectAll(".tick:not(:first-of-type) line").attr("stroke", "#777").attr("stroke-dasharray", "2,2");
-//   g.selectAll(".tick text").attr("x", 4).attr("dy", -4);
-// }
-
-// var area = d3.area()
-//   .curve(d3.curveStepAfter)
-//   .y0(y(0))
-//   .y1(function(d) { return y(d.availableCount); });
-
-// function onZoom() {
-//   var xz = d3.event.transform.rescaleX(x)
-//   xGroup.call(xAxis.scale(xz))
-//
-//   areaPath.attr("d", area.x(function(d) { return xz(d.date) }))
-// }
-
-// zoomRect.call(zoom.transform, d3.zoomIdentity);
