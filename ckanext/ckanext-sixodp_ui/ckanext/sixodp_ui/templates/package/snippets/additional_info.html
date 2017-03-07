@@ -78,4 +78,8 @@
       {% endblock %}
     </tbody>
   </table>
+
+  {% block api_link %}
+    <a class="api-link" href="{{ h.url_for('/', locale='default', qualified=true) }}api/action/package_show?id={{pkg_dict.name}}">{{ _('API metadata') }}</a>
+  {% endblock %}
 </section>

@@ -108,6 +108,10 @@
                 color: $button-background-color-active;
               }
             }
+
+            a {
+              padding: $padding-small-horizontal;
+            }
           }
         }
       }

@@ -112,9 +112,18 @@
     </section>
   {% endblock %}
 
-  <hr>
+  {% block resource_additional_information %}
+    <section class="module additional-info">
+      {% block resource_additional_information_inner %}
+        {{ super() }}
+      {% endblock %}
 
-  {{ super() }}
+      {% block api_link %}
+        <a class="api-link" href="{{ h.url_for('/', locale='default', qualified=true) }}api/action/resource_show?id={{c.resource.id}}">{{ _('API metadata') }}</a>
+      {% endblock %}
+    </section>
+  {% endblock %}
+
 {% endblock %}
 
 {% block secondary_content %}
