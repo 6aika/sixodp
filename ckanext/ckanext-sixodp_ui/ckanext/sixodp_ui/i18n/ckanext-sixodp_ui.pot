@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_ui 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-06 07:51+0000\n"
+"POT-Creation-Date: 2017-03-07 07:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,6 +31,7 @@ msgid "Geographical Coverage"
 msgstr ""
 
 #: ckanext/sixodp_ui/plugin.py:232
+#: ckanext/sixodp_ui/templates/package/read_base.html:35
 msgid "Groups"
 msgstr ""
 
@@ -41,6 +42,7 @@ msgid "Maintainer"
 msgstr ""
 
 #: ckanext/sixodp_ui/plugin.py:234
+#: ckanext/sixodp_ui/templates/package/read_base.html:36
 msgid "Collections"
 msgstr ""
 
@@ -570,12 +572,18 @@ msgstr ""
 msgid "Activity Stream"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/read_base.html:58
+#: ckanext/sixodp_ui/templates/package/read_base.html:51
+#: ckanext/sixodp_ui/templates/package/resource_read.html:37
+msgid "Openness"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/package/read_base.html:73
+#: ckanext/sixodp_ui/templates/package/resource_read.html:59
 msgid "Subscribe for dataset updates"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/read_base.html:68
-msgid "Openness"
+#: ckanext/sixodp_ui/templates/package/resource_read.html:19
+msgid "Back to dataset"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/search.html:17
@@ -884,6 +892,10 @@ msgstr ""
 
 #: ckanext/sixodp_ui/templates/snippets/sixodp_offcanvas-info-button.html:2
 msgid "About"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/snippets/social.html:5
+msgid "Social"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/snippets/tag_list.html:4

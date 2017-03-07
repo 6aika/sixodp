@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_ui 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-06 07:51+0000\n"
+"POT-Creation-Date: 2017-03-07 07:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Mikko Nieminen <mikko.nieminen@gofore.com>, 2017\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
@@ -33,6 +33,7 @@ msgid "Geographical Coverage"
 msgstr "Alue"
 
 #: ckanext/sixodp_ui/plugin.py:232
+#: ckanext/sixodp_ui/templates/package/read_base.html:35
 msgid "Groups"
 msgstr "Kategoriat"
 
@@ -43,6 +44,7 @@ msgid "Maintainer"
 msgstr "Ylläpitäjä"
 
 #: ckanext/sixodp_ui/plugin.py:234
+#: ckanext/sixodp_ui/templates/package/read_base.html:36
 msgid "Collections"
 msgstr "Aineistokokonaisuudet"
 
@@ -576,13 +578,19 @@ msgstr "Sovellukset"
 msgid "Activity Stream"
 msgstr "Aktiivisuusvirta"
 
-#: ckanext/sixodp_ui/templates/package/read_base.html:58
+#: ckanext/sixodp_ui/templates/package/read_base.html:51
+#: ckanext/sixodp_ui/templates/package/resource_read.html:37
+msgid "Openness"
+msgstr "Avoimuusaste"
+
+#: ckanext/sixodp_ui/templates/package/read_base.html:73
+#: ckanext/sixodp_ui/templates/package/resource_read.html:59
 msgid "Subscribe for dataset updates"
 msgstr "Tilaa ilmoitukset muutoksista"
 
-#: ckanext/sixodp_ui/templates/package/read_base.html:68
-msgid "Openness"
-msgstr "Avoimuusaste"
+#: ckanext/sixodp_ui/templates/package/resource_read.html:19
+msgid "Back to dataset"
+msgstr "Takaisin tietoaineistoon"
 
 #: ckanext/sixodp_ui/templates/package/search.html:17
 msgid "Add Dataset"
@@ -900,6 +908,10 @@ msgstr "Suodattimet"
 #: ckanext/sixodp_ui/templates/snippets/sixodp_offcanvas-info-button.html:2
 msgid "About"
 msgstr "Tiedot"
+
+#: ckanext/sixodp_ui/templates/snippets/social.html:5
+msgid "Social"
+msgstr "Jaa sosiaalisessa mediassa"
 
 #: ckanext/sixodp_ui/templates/snippets/tag_list.html:4
 msgid "Tags"
