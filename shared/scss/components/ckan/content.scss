@@ -93,6 +93,24 @@
       > .module {
         padding: 0;
       }
+
+      &.social {
+        .nav {
+          .nav-item {
+            display: inline-block;
+
+            &:hover,
+            &:focus {
+              background: none;
+
+              a {
+                background: none;
+                color: $button-background-color-active;
+              }
+            }
+          }
+        }
+      }
     }
 
     .filters {
