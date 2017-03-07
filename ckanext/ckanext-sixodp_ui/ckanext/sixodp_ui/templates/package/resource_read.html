@@ -7,12 +7,29 @@
   {% block resource %}
     <section class="module module-resource">
       {% block resource_inner %}
-        <div class="module-content">
-          <div class="actions">
-            {% block resource_actions %} {{ super() }} {% endblock %}
-          </div>
+        <div class="module-content main-content">
+          {% if h.check_access('package_update', {'id':pkg.id }) %}
+            <div class="actions">
+              {% link_for _('Manage'), controller='package', action='resource_edit', id=pkg.name, resource_id=res.id, class_='btn', icon='wrench' %}
+            </div>
+          {% endif %}
 
-          {% block resource_read_title %}<h1 class="page-heading">{{ h.resource_display_name(res) | truncate(50) }}</h1>{% endblock %}
+          {% block resource_read_title %}<h1 class="page-heading resource-heading">{{ h.resource_display_name(res) | truncate(50) }}</h1>{% endblock %}
+          {% block resource_url_action %}
+            <div class="resource-url-action">
+              {% if res.url and h.is_url(res.url) %}
+                <a class="btn btn-primary resource-url-analytics resource-type-{{ res.resource_type }}" href="{{ res.url }}">
+                  {% if res.resource_type in ('listing', 'service') %}
+                  <i class="icon-eye-open"></i> {{ _('View') }}
+                  {% elif  res.resource_type == 'api' %}
+                  <i class="icon-key"></i> {{ _('API Endpoint') }}
+                  {% else %}
+                  <i class="icon-download"></i> {{ _('Download') }}
+                  {% endif %}
+                </a>
+              {% endif %}
+            </div>
+          {% endblock %}
 
           {% block data_preview %}
             {% block resource_view %}
