@@ -1,7 +1,16 @@
 .module-resource {
-  .resource-heading {
+  .heading-container {
     display: inline-block;
     width: 100%;
+
+    .page-heading,
+    .page-subheading {
+      display: block;
+    }
+
+    .page-subheading {
+      margin-bottom: $margin-large-vertical * 2;
+    }
 
     @media(min-width: $width-sm) {
       width: auto;

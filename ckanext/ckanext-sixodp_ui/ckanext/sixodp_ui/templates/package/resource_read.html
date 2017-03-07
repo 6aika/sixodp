@@ -9,12 +9,22 @@
       {% block resource_inner %}
         <div class="module-content main-content">
           {% if h.check_access('package_update', {'id':pkg.id }) %}
-            <div class="actions">
-              {% link_for _('Manage'), controller='package', action='resource_edit', id=pkg.name, resource_id=res.id, class_='btn', icon='wrench' %}
-            </div>
+          <div class="actions">
+            {% link_for _('Manage'), controller='package', action='resource_edit', id=pkg.name, resource_id=res.id, class_='btn', icon='wrench' %}
+          </div>
           {% endif %}
 
-          {% block resource_read_title %}<h1 class="page-heading resource-heading">{{ h.resource_display_name(res) | truncate(50) }}</h1>{% endblock %}
+          <div class="heading-container">
+            {% block resource_read_title %}
+              <h1 class="page-heading resource-heading">{{ h.resource_display_name(res) | truncate(50) }}</h1>
+            {% endblock %}
+            {% block page_subheading %}
+              <h2 class="page-subheading">
+                <span>{{ h.render_datetime(c.resource.created, '%-d.%-m.%Y') }}</span>
+              </h2>
+            {% endblock %}
+          </div>
+
           {% block resource_url_action %}
             <div class="resource-url-action">
               {% if res.url and h.is_url(res.url) %}
