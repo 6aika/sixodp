@@ -8,16 +8,16 @@ datavis1.outputs = {
   apps: datavis1.element.select('.js-datavis-1-apps'),
 }
 
-datavis1.init = function (data) {
+datavis1.init = function (datasets, apps) {
   self = this
-  self.curate(data)
+  self.curate(datasets, apps)
   self.render()
 }
 
-datavis1.curate = function (data1) {
-  self.data.datasets = data1.length
+datavis1.curate = function (datasets, apps) {
+  self.data.datasets = datasets.length
   self.data.users = '-'
-  self.data.apps = '-'
+  self.data.apps = apps.length
 }
 
 datavis1.render = function () {

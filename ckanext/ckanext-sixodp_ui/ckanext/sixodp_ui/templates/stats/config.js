@@ -27,6 +27,11 @@ texts = {
     'fi': 'kpl',
     'sv': '',
     'en': '',
+  },
+  all: {
+    'fi': 'Kaikki julkaisijat',
+    'sv': '',
+    'en': 'All publishers'
   }
 }
 

@@ -8,6 +8,7 @@ datavis2.inputs = {
   startDate: datavis2.element.select('.js-datavis-start-date'),
   endDate: datavis2.element.select('.js-datavis-end-date'),
   downloadButton: datavis2.element.select('.js-datavis-download-button'),
+  organization: datavis2.element.select('.js-datavis-organization')
 }
 datavis2.filters = {
   startDate: undefined,
@@ -20,25 +21,30 @@ datavis2.data = []
 
 // INIT
 
-datavis2.init = function (data) {
+datavis2.init = function (datasets, organizations) {
   self = this
   self.eventListeners()
-  self.curate(data)
+  self.data = {}
+  self.data.datasetsRaw = datasets
+  self.data.organizations = organizations
+  self.data.datasets = self.curate(datasets, '')
   self.render()
+
+  datavis2.initOrganizationSelector()
 }
 
 
 
 // PREPROCESS DATA
 
-datavis2.curate = function (data) {
+datavis2.curate = function (data, organization) {
   var self = this
   tmpData = {}
 
   // What's the earliest date of releasing data
   startDateString = undefined
   data.forEach(function(dataset) {
-    if (dataset.private) {
+    if (dataset.private || (organization != '' && dataset.organization.id !== organization)) {
       return true
     }
     if (typeof startDateString === 'undefined' || dataset['date_released'] < startDateString) {
@@ -71,7 +77,7 @@ datavis2.curate = function (data) {
   // Add each dataset to its creation date
   data.forEach(function(dataset) {
     // Skip private datasets completely
-    if (dataset.private || dataset.date_released > moment(endDate).format('YYYY-MM-DD')) {
+    if (dataset.private || dataset.date_released > moment(endDate).format('YYYY-MM-DD') || (organization != '' && dataset.organization.id !== organization)) {
       return true
     }
 
@@ -90,19 +96,27 @@ datavis2.curate = function (data) {
   // Calculate cumulative values
   dateToCumulate = startDate
   availableCount = 0
+  // latestDatasets = []
   while (dateToCumulate <= endDate) {
     dateString = moment(dateToCumulate).format('YYYY-MM-DD')
     availableCount = availableCount + tmpData[dateString].added.length - tmpData[dateString].removed.length
     tmpData[dateString].availableCount = availableCount
-    dateToCumulate = dateToAdd = moment.utc(dateToCumulate).add(1, 'days').toDate()
+
+    // if (tmpData[dateString].added.length > 0) {
+    //   latestDatasets = tmpData[dateString].added
+    //   // TODO: List removed items too
+    // }
+    // tmpData[dateString].latestDatasets = latestDatasets
+    dateToCumulate = moment.utc(dateToCumulate).add(1, 'days').toDate()
   }
 
   // Turn into array
-  self.data = []
+  result = []
   for (i in tmpData) {
-    self.data.push(tmpData[i])
+    result.push(tmpData[i])
   }
-  console.log('Datavis 2 data:', self.data)
+  console.log('Datavis 2 data:', result)
+  return result
 }
 
 
@@ -126,10 +140,18 @@ datavis2.render = function () {
     .attr('height', imageHeight)
 
   // Visualization = data line, axises, legends, etc.
-  self.vis = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+
+  existing = svg.select('.js-datavis-2-visualization')
+  if (!existing.empty()) {
+    existing.remove()
+  }
+
+  self.vis = svg.append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+    .classed('js-datavis-2-visualization', true)
 
   // Extent of x axis (date)
-  self.xFullExtent = d3.extent(this.data, function(d) { return d.date })
+  self.xFullExtent = d3.extent(self.data.datasets, function(d) { return d.date })
   self.xExtent = self.xFullExtent
   self.inputs.startDate
     .property('value', moment(self.xFullExtent[0]).format('D.M.YYYY'))
@@ -145,8 +167,8 @@ datavis2.render = function () {
 
   self.yScale = d3.scaleLinear()
     .domain([
-      Math.min(0, d3.min(self.data, function(d) { return d.availableCount })),
-      Math.round(d3.max(self.data, function(d) { return d.availableCount }) * 1.25)
+      Math.min(0, d3.min(self.data.datasets, function(d) { return d.availableCount })),
+      Math.round(d3.max(self.data.datasets, function(d) { return d.availableCount }) * 1.25)
     ])
     .rangeRound([dataHeight, 0])
 
@@ -158,12 +180,15 @@ datavis2.render = function () {
 
   self.yAxisGenerator = d3.axisRight(self.yScale)
     .tickSize(dataWidth)
+    .tickValues(d3.range(self.yScale.domain().slice(-1)[0] + 1))
     .tickFormat(function(d) {
       // var s = formatNumber(d);
       return this.parentNode.nextSibling
           ? "\xa0" + d
           : d + ' ' + texts.amount[lang];
     })
+
+
 
   self.customYAxis = function (g) {
     g.call(self.yAxisGenerator)
@@ -188,7 +213,7 @@ datavis2.render = function () {
 
   // Draws the line when given data
   self.lineDrawer = d3.line()
-    .curve(d3.curveBasis) // Smooth curve
+    // .curve(d3.curveBasis) // Smooth curve
     .x(function(d) { return self.xScale(d.date) })
     .y(function(d) { return self.yScale(d.availableCount) })
 
@@ -204,7 +229,7 @@ datavis2.render = function () {
   self.line = self.vis.append('g')
     .attr('clip-path', function(d,i) { return 'url(#datavis2-data-clipper)' })
   .append("path")
-    .datum(self.data)
+    .datum(self.data.datasets)
     .attr('d', self.lineDrawer)
     .attr("class", "datavis-line")
 
@@ -217,13 +242,20 @@ datavis2.render = function () {
     .attr('stroke', 'white')
 
   self.focus.append('circle')
-    .attr('r', 4.5);
+    .attr('r', 4.5)
+    .attr({
+      fill: 'white',
+      stroke: 'white'
+    })
 
   self.focus.append('line')
-    .classed('x', true);
-
-  self.focus.append('line')
-    .classed('y', true);
+    .classed('y', true)
+    .attr({
+      fill: 'none',
+      'stroke': 'white',
+      'stroke-width': '1.5px',
+      'stroke-dasharray': '3 3'
+    })
 
   self.focus.append('text')
     .attr('class', 'js-datavis-count')
@@ -237,26 +269,18 @@ datavis2.render = function () {
     .attr('dy', '-12px')
     .style('font-size', '12px')
 
-  self.focus.selectAll('circle')
-    .attr({
-      fill: 'white',
-      stroke: 'white'
-    });
-
-  self.focus.selectAll('line')
-    .attr({
-      fill: 'none',
-      'stroke': 'white',
-      'stroke-width': '1.5px',
-      'stroke-dasharray': '3 3'
-    });
+  // self.focus.append('text')
+  //   .attr('class', 'js-datavis-dataset')
+  //   .attr('x', -80)
+  //   .attr('dy', '-2px')
+  //   .style('font-size', '12px')
 
   self.vis.append('rect')
     .attr('class', 'overlay')
     .attr('width', dataWidth)
     .attr('height', dataHeight)
     // .on('mouseover', () => self.focus.style('display', null))
-    .on('mouseout', () => setFocusDate(self.data[self.data.length - 1]))
+    .on('mouseout', () => setFocusDate(self.data.datasets[self.data.datasets.length - 1]))
     .on('mousemove', onmousemove);
 
   self.vis.select('.overlay')
@@ -268,9 +292,9 @@ datavis2.render = function () {
 
   function onmousemove () {
     const x0 = self.xScale.invert(d3.mouse(this)[0]);
-    const i = bisectDate(self.data, x0, 1);
-    const d0 = self.data[i - 1];
-    const d1 = self.data[i];
+    const i = bisectDate(self.data.datasets, x0, 1);
+    const d0 = self.data.datasets[i - 1];
+    const d1 = self.data.datasets[i];
     const d = x0 - d0.date > d1.date - x0 ? d1 : d0;
 
     setFocusDate(d)
@@ -286,11 +310,11 @@ datavis2.render = function () {
       .attr('y2', -self.yScale(d.availableCount) + dataHeight);
 
     self.focus.select('.js-datavis-count').html(d.availableCount)
-
     self.focus.select('.js-datavis-date').html(moment(d.date).format('D.M.YYYY'))
+    // self.focus.select('.js-datavis-dataset').html(d.added)
   }
 
-  setFocusDate(self.data[self.data.length - 1])
+  setFocusDate(self.data.datasets[self.data.datasets.length - 1])
 }
 
 datavis2.resizeXAxis = function (xMin, xMax) {
@@ -318,11 +342,25 @@ datavis2.resizeXAxis = function (xMin, xMax) {
   }, 100)
 }
 
+datavis2.initOrganizationSelector = function () {
+  self.inputs.organization.append('option')
+    .text(texts.all[lang])
+    .attr('value', '')
+
+  for (i in self.data.organizations) {
+    self.inputs.organization.append('option')
+      .text(self.data.organizations[i].display_name)
+      .attr('value', self.data.organizations[i].id)
+
+  }
+}
+
 
 
 // USER INTERACTIONS
 
 datavis2.eventListeners = function () {
+  var self = this
   self.inputs.startDate.on('keyup', function () {
     // console.log('keyup!', new Date())
     var startDate = validDate(self.inputs.startDate.property('value'))
@@ -346,6 +384,13 @@ datavis2.eventListeners = function () {
       return false
     }
     self.resizeXAxis(startDate.toDate(), endDate.toDate())
+  })
+
+  self.inputs.organization.on('change', function () {
+    var organization = self.inputs.organization.property('value')
+    console.log('Organization changed', organization)
+    self.data.datasets = self.curate(self.data.datasetsRaw, organization)
+    self.render()
   })
 
   self.inputs.downloadButton.on('click', function () {

@@ -1,5 +1,7 @@
 ---
 
+cache_path: /root/.cache
+
 public_facing_hostname: build
 internal_hostname: build
 ckan_site_name: Dataportaali
