@@ -43,7 +43,27 @@ class Sixodp_ShowcasePlugin(ShowcasePlugin):
             m.connect('ckanext_showcase_index', '/showcase', action='search',
                       highlight_actions='index search')
 
+
+        with SubMapper(map, controller='ckanext.showcase.controller:ShowcaseController') as m:
+            m.connect('ckanext_showcase_delete', '/showcase/delete/{id}',
+                      action='delete')
+            m.connect('ckanext_showcase_manage_datasets',
+                      '/showcase/manage_datasets/{id}',
+                      action="manage_datasets", ckan_icon="sitemap")
+            m.connect('dataset_showcase_list', '/dataset/showcases/{id}',
+                      action='dataset_showcase_list', ckan_icon='picture')
+            m.connect('ckanext_showcase_admins', '/ckan-admin/showcase_admins',
+                      action='manage_showcase_admins', ckan_icon='picture'),
+            m.connect('ckanext_showcase_admin_remove',
+                      '/ckan-admin/showcase_admin_remove',
+                      action='remove_showcase_admin')
+        map.redirect('/showcases', '/showcase')
+        map.redirect('/showcases/{url:.*}', '/showcase/{url}')
+
         return map
+
+
+
 
     #def package_form(self):
     #    return 'scheming/package/snippets/package_form.html'
