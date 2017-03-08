@@ -1,0 +1,19 @@
+.attention-numbers {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  text-align: center;
+
+  padding-top: 30px;
+  padding-bottom: 60px;
+}
+.attention-numbers > * {
+  display: inline-block;
+  padding: 8px;
+  width: 200px;
+}
+.attention-numbers > * > *:first-child {
+  font-size: 40px;
+}
+.attention-numbers > * > *:last-child {
+  font-size: 14px;
+}
