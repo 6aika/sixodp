@@ -2,7 +2,7 @@ var Helpers = {
   validDate: function (string) {
     date = moment.utc(string, ['D.M.YYYY', 'DD.MM.YYYY'])
 
-    if (!date.isValid() || date.year() < 1900 || date.year() > moment().year() || string.length < 8) {
+    if (!date.isValid() || date.year() < 1900 || date.year() > 2100 || string.length < 8) {
       return false
     }
     parts = string.split('.')

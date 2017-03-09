@@ -4,14 +4,16 @@ body {
   margin: 0;
 }
 
-.dashboard-page {
+.dashboard {
 }
 .dashboard-section {
+  min-height: 600px;
   position: relative;
 }
 .dashboard-section-content {
   margin: auto;
-  padding: 30px;
+  padding: 60px;
+  padding-bottom: 120px;
   width: 1024px;
 }
 .dashboard-section:nth-child(1) {
@@ -30,4 +32,13 @@ body {
 .dashboard-section:nth-child(4) {
   color: #000;
   background-color: #fff;
+}
+
+.dashboard-footer {
+  padding: 30px;
+  text-align: center;
+}
+.dashboard-footer a {
+  color: inherit;
+  font-size: 12px;
 }

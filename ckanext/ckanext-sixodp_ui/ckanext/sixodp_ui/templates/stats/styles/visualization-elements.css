@@ -22,3 +22,15 @@
 .dashboard-axis text {
   fill: #fff;
 }
+
+.bar rect {
+  fill: #6fbf69;
+}
+
+.bar text {
+  fill: #fff;
+  font: 10px sans-serif;
+}
+.bar:hover {
+  fill: black; /*#5faf59;*/
+}
