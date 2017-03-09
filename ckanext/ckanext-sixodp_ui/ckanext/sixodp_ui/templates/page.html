@@ -54,7 +54,10 @@
             {% endblock %}
 
             {% block primary %}
-            {% snippet 'snippets/sixodp_offcanvas-button.html' %}
+
+            {% block offcanvas_button %}
+              {% snippet 'snippets/sixodp_offcanvas-button.html' %}
+            {% endblock %}
               <div class="primary border-left col-xs-12 col-sm-9">
                 {#
                 The primary_content block can be used to add content to the page.
@@ -96,10 +99,12 @@
             {% endblock %}
 
             {% block secondary %}
-            <aside class="secondary border-right col-sm-3 navbar-offcanvas navbar-offcanvas-touch" id="js-bootstrap-offcanvas">
-              {% snippet 'snippets/sixodp_offcanvas-close-button.html' %}
-              {% block secondary_content %}{% endblock %}
-            </aside>
+              {% block offcanvas_navigation %}
+                <aside class="secondary border-right col-sm-3 navbar-offcanvas navbar-offcanvas-touch" id="js-bootstrap-offcanvas">
+                  {% snippet 'snippets/sixodp_offcanvas-close-button.html' %}
+                  {% block secondary_content %}{% endblock %}
+                </aside>
+              {% endblock %}
             {% endblock %}
           </div>
         {% endblock %}

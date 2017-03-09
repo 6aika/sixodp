@@ -37,43 +37,51 @@
   {% endif %}
 {% endblock %}
 
-{% block secondary_content %}
+{% block offcanvas_button %}{% endblock %}
 
-  {% block package_license %}
-    <div class="license-container">
-      {% snippet "snippets/license.html", pkg_dict=pkg %}
-    </div>
-  {% endblock %}
+{% block offcanvas_navigation %}
+  <aside class="secondary border-right col-sm-3">
 
-  {% block package_openness %}
-    {% if c.pkg_dict %}
-      <div class="module module-narrow module-shallow context-info">
-        <h2 class="module-heading">{{ _('Openness') }}</h2>
-        <section class="module-content">
-          {{ h.get_qa_openness(c.pkg_dict) }}<br>
-        </section>
-      </div>
-    {% endif %}
-  {% endblock %}
+    {% block secondary_content %}
 
-  {% block secondary_help_content %}{% endblock %}
-  {% block heading %}{% endblock %}
-  {% block package_organization %}{% endblock %}
+      {% block package_license %}
+        <div class="license-container">
+          {% snippet "snippets/license.html", pkg_dict=pkg %}
+        </div>
+      {% endblock %}
 
-  {% block package_info %}
-    {% snippet 'package/snippets/info.html', pkg=pkg %}
-  {% endblock %}
+      {% block package_openness %}
+        {% if c.pkg_dict %}
+          <div class="module module-narrow module-shallow context-info">
+            <h2 class="module-heading">{{ _('Openness') }}</h2>
+            <section class="module-content">
+              {{ h.get_qa_openness(c.pkg_dict) }}<br>
+            </section>
+          </div>
+        {% endif %}
+      {% endblock %}
 
-  {% block package_social %}
-    {% snippet "snippets/social.html" %}
-  {% endblock %}
+      {% block secondary_help_content %}{% endblock %}
+      {% block heading %}{% endblock %}
+      {% block package_organization %}{% endblock %}
 
-  {% block package_subscribe %}
-    <div class="module module-narrow module-shallow context-info">
-      <h2 class="module-heading">{{ _('Subscribe for dataset updates') }}</h2>
-      <section class="module-content">
-        {% snippet "reminder/snippets/subscription_form.html", package=pkg %}
-      </section>
-    </div>
-  {% endblock %}
+      {% block package_info %}
+        {% snippet 'package/snippets/info.html', pkg=pkg %}
+      {% endblock %}
+
+      {% block package_social %}
+        {% snippet "snippets/social.html" %}
+      {% endblock %}
+
+      {% block package_subscribe %}
+        <div class="module module-narrow module-shallow context-info">
+          <h2 class="module-heading">{{ _('Subscribe for dataset updates') }}</h2>
+          <section class="module-content">
+            {% snippet "reminder/snippets/subscription_form.html", package=pkg %}
+          </section>
+        </div>
+      {% endblock %}
+    {% endblock %}
+
+  </aside>
 {% endblock %}
