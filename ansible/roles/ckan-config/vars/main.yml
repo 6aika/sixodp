@@ -12,7 +12,6 @@ enabled_ckan_extensions:
     - recline_grid_view
     - recline_map_view
     - sixodp_ui
-    - sixodp_theme
     - datasetcopy
     - sixodp_scheming
     - scheming_datasets
