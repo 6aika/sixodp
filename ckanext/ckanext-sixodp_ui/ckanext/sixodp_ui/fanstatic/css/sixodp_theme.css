@@ -6531,6 +6531,15 @@ input {
 .radio input[type="radio"] {
   height: auto; }
 
+label.checkbox {
+  min-height: 20px;
+  padding-left: 20px;
+  margin-bottom: 0; }
+  label.checkbox input[type="checkbox"] {
+    width: auto;
+    height: auto;
+    position: absolute; }
+
 .stages {
   height: 40px;
   list-style: none;
