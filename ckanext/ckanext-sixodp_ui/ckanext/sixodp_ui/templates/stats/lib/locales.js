@@ -27,7 +27,7 @@ Translations = {
 
   // Apps section
   appsPublishedTitle: {
-    fi: 'Sovelluksia tehty',
+    fi: 'Sovelluksia julkaistu',
     sv: '',
     en: 'Apps created',
   },

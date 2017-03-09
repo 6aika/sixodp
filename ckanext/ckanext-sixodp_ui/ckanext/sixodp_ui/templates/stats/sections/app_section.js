@@ -7,7 +7,7 @@ var AppSection = function (dashboard) {
   self.totalsTimeline = new TotalsTimeline(
     self.dashboard,
     self.element.select('.js-app-totals-timeline'),
-    self.dashboard.translations.datasetsOpenedTitle,
+    self.dashboard.translations.appsPublishedTitle,
     {
       nameField: 'name',
       dateField: 'metadata_created',
