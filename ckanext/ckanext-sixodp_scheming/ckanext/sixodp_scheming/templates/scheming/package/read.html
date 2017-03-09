@@ -9,7 +9,9 @@
   {%- endif -%}
   {% if pkg.notes%}
     <div class="notes embedded-content show-more-content hide-content">
-      {{ h.render_markdown(h.get_translated_or_default_locale(pkg, 'notes')) }}
+      <div class="text-content">
+        {{ h.render_markdown(h.get_translated_or_default_locale(pkg, 'notes')) }}
+      </div>
       <div class="fadeout"></div>
     </div>
     <div class="show-more">
