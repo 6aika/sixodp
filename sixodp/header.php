@@ -38,7 +38,6 @@
 	</div>
 	<?php endif; ?>
 
-
 	<?php require_once('partials/nav.php'); ?>
 
 	<div class="logos">

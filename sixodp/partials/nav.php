@@ -20,16 +20,14 @@
       <ul class="nav navbar-nav">
         <?php
           foreach ( get_nav_menu_items("primary") as $navItem ) {
-            //var_dump($navItem);
-            $children = get_pages( array( 'child_of' => $navItem->object_id ) );
-            //var_dump(count($children));
-            if ( count($children) > 0 ) {
-              var_dump($children[0]);
-              $sub_nav_item = $children[0];
-              echo '<li><a href="'.$navItem->url.'" title="'.$navItem->title.'">'.$navItem->title.'</a><ul class="nav navbar-nav subnav">';
-              echo '<li><a href="'.$sub_nav_item->url.'" title="'.$sub_nav_item->title.'">'.$sub_nav_item->title.'</a></li></ul></li>';
+            if ( count($navItem["children"]) > 0 ) {
+              echo '<li><a href="'.$navItem["url"].'" title="'.$navItem["title"].'">'.$navItem["title"].'</a><ul class="nav navbar-nav subnav">';
+              foreach ($navItem["children"] as $sub_nav_item) {
+                echo '<li><a href="'.$sub_nav_item["url"].'" title="'.$sub_nav_item["title"].'">'.$sub_nav_item["title"].'</a></li>';
+              }
+              echo '</ul></li>';
             } else {
-              echo '<li><a href="'.$navItem->url.'" title="'.$navItem->title.'">'.$navItem->title.'</a></li>';
+              echo '<li><a href="'.$navItem["url"].'" title="'.$navItem["title"].'">'.$navItem["title"].'</a></li>';
             }
           }
         ?>
