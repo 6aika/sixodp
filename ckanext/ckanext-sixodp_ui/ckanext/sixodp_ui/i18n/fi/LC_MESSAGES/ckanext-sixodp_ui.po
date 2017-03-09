@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_ui 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-06 07:51+0000\n"
+"POT-Creation-Date: 2017-03-09 09:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Mikko Nieminen <mikko.nieminen@gofore.com>, 2017\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
@@ -20,29 +20,31 @@ msgstr ""
 "Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ckanext/sixodp_ui/helpers.py:67
+#: ckanext/sixodp_ui/helpers.py:92
 msgid "Dataset not found"
-msgstr ""
+msgstr "Tietoaineistoa ei löytynyt"
 
-#: ckanext/sixodp_ui/plugin.py:230
+#: ckanext/sixodp_ui/plugin.py:221
 msgid "Formats"
 msgstr "Tiedostomuodot"
 
-#: ckanext/sixodp_ui/plugin.py:231
+#: ckanext/sixodp_ui/plugin.py:222
 msgid "Geographical Coverage"
 msgstr "Alue"
 
-#: ckanext/sixodp_ui/plugin.py:232
+#: ckanext/sixodp_ui/plugin.py:223
+#: ckanext/sixodp_ui/templates/package/read_base.html:35
 msgid "Groups"
 msgstr "Kategoriat"
 
-#: ckanext/sixodp_ui/plugin.py:233
+#: ckanext/sixodp_ui/plugin.py:224
 #: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:32
 #: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:37
 msgid "Maintainer"
 msgstr "Ylläpitäjä"
 
-#: ckanext/sixodp_ui/plugin.py:234
+#: ckanext/sixodp_ui/plugin.py:225
+#: ckanext/sixodp_ui/templates/package/read_base.html:36
 msgid "Collections"
 msgstr "Aineistokokonaisuudet"
 
@@ -336,78 +338,6 @@ msgstr "Näytä {name}"
 msgid "Remove dataset from this group"
 msgstr "Poista tietoaineisto tästä kategoriasta"
 
-#: ckanext/sixodp_ui/templates/home/layout1.html:2
-msgid "Site title"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/home/layout1.html:3
-msgid "Site subtitle"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/home/layout1.html:9
-#: ckanext/sixodp_ui/templates/home/snippets/search.html:18
-msgid "Popular tags"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/home/layout1.html:52
-msgid "Datasets statistics"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/home/layout1.html:56
-msgid "Applications statistics"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/home/layout1.html:60
-msgid "Interfaces statistics"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/home/layout1.html:64
-msgid "Users statistics"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/home/layout1.html:68
-msgid "Shares statistics"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/home/layout1.html:76
-msgid "Topics"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/home/layout1.html:95
-msgid "Most recent content"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/home/layout1.html:109
-msgid "Recent content was not found"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/home/layout1.html:113
-msgid "Popular this month"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/home/snippets/promoted.html:3
-msgid "Welcome to CKAN"
-msgstr "Tervetuloa CKAN:iin"
-
-#: ckanext/sixodp_ui/templates/home/snippets/promoted.html:5
-msgid ""
-"This is a nice introductory paragraph about CKAN or the site in general. We "
-"don't have any copy to go here yet but soon we will "
-msgstr "Tämä on hieno johdantokappale CKAN:sta tai sivustosta yleensä. "
-
-#: ckanext/sixodp_ui/templates/home/snippets/search.html:2
-msgid "E.g. environment"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/home/snippets/search.html:8
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_huge-search.html:2
-msgid "Search data"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/home/snippets/search.html:13
-msgid "Search"
-msgstr ""
-
 #: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:12
 msgid "Sysadmin settings"
 msgstr "Järjestelmän ylläpitäjän asetukset"
@@ -462,10 +392,6 @@ msgstr "Kirjaudu sisään"
 #: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:88
 msgid "Register"
 msgstr "Rekisteröidy"
-
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_slogan.html:4
-msgid "kapa-slogan-text"
-msgstr ""
 
 #: ckanext/sixodp_ui/templates/organization/bulk_process.html:16
 msgid "Make public"
@@ -557,10 +483,6 @@ msgstr ""
 "Paksulla harmaalla kehyksellä merkittyjä kenttiä käytetään automaattiseen "
 "prosessointiin, eikä niitä voi muokata"
 
-#: ckanext/sixodp_ui/templates/package/read.html:37
-msgid "API metadata"
-msgstr "API metatiedot"
-
 #: ckanext/sixodp_ui/templates/package/read_base.html:31
 msgid "Dataset"
 msgstr "Tietoaineisto"
@@ -576,13 +498,87 @@ msgstr "Sovellukset"
 msgid "Activity Stream"
 msgstr "Aktiivisuusvirta"
 
-#: ckanext/sixodp_ui/templates/package/read_base.html:58
+#: ckanext/sixodp_ui/templates/package/read_base.html:51
+#: ckanext/sixodp_ui/templates/package/resource_read.html:162
+msgid "Openness"
+msgstr "Avoimuusaste"
+
+#: ckanext/sixodp_ui/templates/package/read_base.html:73
+#: ckanext/sixodp_ui/templates/package/resource_read.html:184
 msgid "Subscribe for dataset updates"
 msgstr "Tilaa ilmoitukset muutoksista"
 
-#: ckanext/sixodp_ui/templates/package/read_base.html:68
-msgid "Openness"
-msgstr "Avoimuusaste"
+#: ckanext/sixodp_ui/templates/package/resource_read.html:13
+#: ckanext/sixodp_ui/templates/showcase/read.html:6
+msgid "Manage"
+msgstr "Hallitse"
+
+#: ckanext/sixodp_ui/templates/package/resource_read.html:33
+msgid "View"
+msgstr "Näkymä"
+
+#: ckanext/sixodp_ui/templates/package/resource_read.html:35
+msgid "API Endpoint"
+msgstr "API-osoite"
+
+#: ckanext/sixodp_ui/templates/package/resource_read.html:37
+#: ckanext/sixodp_ui/templates/report/view.html:38
+msgid "Download"
+msgstr "Lataa"
+
+#: ckanext/sixodp_ui/templates/package/resource_read.html:80
+msgid "There are no views created for this resource yet."
+msgstr "Resurssille ei ole luotu vielä yhtään näkymää."
+
+#: ckanext/sixodp_ui/templates/package/resource_read.html:84
+msgid "Not seeing the views you were expecting?"
+msgstr "Et näe odottamiasi näkymiä?"
+
+#: ckanext/sixodp_ui/templates/package/resource_read.html:86
+#: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:18
+msgid "Click here for more information."
+msgstr "Klikkaa tästä saadaksesi lisätietoa..."
+
+#: ckanext/sixodp_ui/templates/package/resource_read.html:90
+msgid "Here are some reasons you may not be seeing expected views:"
+msgstr "Tässä joitakin syitä, jos et näe odottamiasi näkymiä:"
+
+#: ckanext/sixodp_ui/templates/package/resource_read.html:92
+msgid "No view has been created that is suitable for this resource"
+msgstr "Tälle resurssille ei ole luotu yhtään sopivaa näkymää"
+
+#: ckanext/sixodp_ui/templates/package/resource_read.html:93
+msgid "The site administrators may not have enabled the relevant view plugins"
+msgstr ""
+"Voi olla, ettei ylläpitäjä ole ottanut käyttöön tarvittavia liitännäisiä"
+
+#: ckanext/sixodp_ui/templates/package/resource_read.html:94
+msgid ""
+"If a view requires the DataStore, the DataStore plugin may not be enabled, "
+"or the data may not have been pushed to the DataStore, or the DataStore "
+"hasn't finished processing the data yet"
+msgstr ""
+"Jos näkymä vaatii DataStoren, voi olla, ettei DataStore-liitännäistä ole "
+"otettu käyttöön, tai ettei tietoja ole tallennettu DataStoreen, tai ettei "
+"DataStore ole vielä saanut prosessointia valmiiksi"
+
+#: ckanext/sixodp_ui/templates/package/resource_read.html:114
+msgid "From the dataset abstract"
+msgstr "Tietoaineiston yhteenvedosta"
+
+#: ckanext/sixodp_ui/templates/package/resource_read.html:116
+#, python-format
+msgid "Source: <a href=\"%(url)s\">%(dataset)s</a>"
+msgstr "Lähde: <a href=\"%(url)s\">%(dataset)s</a>"
+
+#: ckanext/sixodp_ui/templates/package/resource_read.html:132
+#: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:83
+msgid "API metadata"
+msgstr "API metatiedot"
+
+#: ckanext/sixodp_ui/templates/package/resource_read.html:144
+msgid "Back to dataset"
+msgstr "Takaisin tietoaineistoon"
 
 #: ckanext/sixodp_ui/templates/package/search.html:17
 msgid "Add Dataset"
@@ -644,7 +640,7 @@ msgid "Last Updated"
 msgstr "Viimeksi päivitetty"
 
 #: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:63
-#: ckanext/sixodp_ui/templates/scheming/package/resource_read.html:29
+#: ckanext/sixodp_ui/templates/scheming/package/resource_read.html:27
 msgid "Created"
 msgstr "Luotu"
 
@@ -673,7 +669,7 @@ msgid "Some useful notes about the data"
 msgstr "Datan sanallinen kuvaus"
 
 #: ckanext/sixodp_ui/templates/package/snippets/resource_form.html:37
-#: ckanext/sixodp_ui/templates/scheming/package/resource_read.html:37
+#: ckanext/sixodp_ui/templates/scheming/package/resource_read.html:35
 msgid "Format"
 msgstr "Tiedostomuoto"
 
@@ -731,19 +727,15 @@ msgstr "Lisää"
 msgid "Estimated upload times with the selected resource file"
 msgstr "Arvioidut latausajat valitulle resurssitiedostolle"
 
-#: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:18
+#: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:16
 msgid "This resource view is not available at the moment."
 msgstr "Resurssille ei ole esikatselua tällä hetkellä."
 
-#: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:20
-msgid "Click here for more information."
-msgstr "Klikkaa tästä saadaksesi lisätietoa..."
-
-#: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:27
+#: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:25
 msgid "Download resource"
 msgstr "Lataa resurssi"
 
-#: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:51
+#: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:49
 msgid "Your browser does not support iframes."
 msgstr "Selaimesi ei tue iframe-elementtejä."
 
@@ -763,10 +755,6 @@ msgstr ""
 msgid "Options"
 msgstr "Valinnat"
 
-#: ckanext/sixodp_ui/templates/report/view.html:38
-msgid "Download"
-msgstr "Lataa"
-
 #: ckanext/sixodp_ui/templates/report/view.html:43
 msgid "Results"
 msgstr "Tulokset"
@@ -775,25 +763,25 @@ msgstr "Tulokset"
 msgid "No results found."
 msgstr "Tuloksia ei löytynyt"
 
-#: ckanext/sixodp_ui/templates/scheming/package/resource_read.html:7
+#: ckanext/sixodp_ui/templates/scheming/package/resource_read.html:5
 msgid "Additional Information"
 msgstr "Lisätiedot"
 
-#: ckanext/sixodp_ui/templates/scheming/package/resource_read.html:11
+#: ckanext/sixodp_ui/templates/scheming/package/resource_read.html:9
 msgid "Field"
 msgstr "Kenttä"
 
-#: ckanext/sixodp_ui/templates/scheming/package/resource_read.html:12
+#: ckanext/sixodp_ui/templates/scheming/package/resource_read.html:10
 msgid "Value"
 msgstr "Arvo"
 
-#: ckanext/sixodp_ui/templates/scheming/package/resource_read.html:18
+#: ckanext/sixodp_ui/templates/scheming/package/resource_read.html:16
 msgid "Last updated"
 msgstr "Viimeksi päivitetty"
 
-#: ckanext/sixodp_ui/templates/scheming/package/resource_read.html:23
-#: ckanext/sixodp_ui/templates/scheming/package/resource_read.html:31
-#: ckanext/sixodp_ui/templates/scheming/package/resource_read.html:38
+#: ckanext/sixodp_ui/templates/scheming/package/resource_read.html:21
+#: ckanext/sixodp_ui/templates/scheming/package/resource_read.html:29
+#: ckanext/sixodp_ui/templates/scheming/package/resource_read.html:36
 msgid "unknown"
 msgstr "tuntematon"
 
@@ -840,10 +828,6 @@ msgstr "Poista sovelluksesta"
 #: ckanext/sixodp_ui/templates/showcase/manage_datasets.html:140
 msgid "This showcase has no datasets associated to it"
 msgstr "Tähän sovellukseen ei liity tietoaineistoja"
-
-#: ckanext/sixodp_ui/templates/showcase/read.html:6
-msgid "Manage"
-msgstr "Hallitse"
 
 #: ckanext/sixodp_ui/templates/showcase/read.html:38
 msgid "Launch website"
@@ -900,6 +884,10 @@ msgstr "Suodattimet"
 #: ckanext/sixodp_ui/templates/snippets/sixodp_offcanvas-info-button.html:2
 msgid "About"
 msgstr "Tiedot"
+
+#: ckanext/sixodp_ui/templates/snippets/social.html:5
+msgid "Social"
+msgstr "Jaa sosiaalisessa mediassa"
 
 #: ckanext/sixodp_ui/templates/snippets/tag_list.html:4
 msgid "Tags"

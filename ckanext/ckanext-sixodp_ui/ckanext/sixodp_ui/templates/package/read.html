@@ -33,8 +33,4 @@
     {% snippet "package/snippets/additional_info.html", pkg_dict=pkg %}
   {% endblock %}
 
-  {% block api_link %}
-    <a href="{{ h.url_for('/', locale='default', qualified=true) }}api/action/package_show?id={{pkg.name}}">{{ _('API metadata') }}</a>
-  {% endblock %}
-
 {% endblock %}

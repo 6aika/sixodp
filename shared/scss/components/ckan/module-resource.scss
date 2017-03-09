@@ -1,0 +1,30 @@
+.module-resource {
+  .heading-container {
+    display: inline-block;
+    width: 100%;
+
+    .page-heading,
+    .page-subheading {
+      display: block;
+    }
+
+    .page-subheading {
+      margin-bottom: $margin-large-vertical * 2;
+    }
+
+    @media(min-width: $width-sm) {
+      width: auto;
+    }
+  }
+
+  .resource-url-action {
+    display: inline-block;
+    float: right;
+    width: 100%;
+    margin: $margin-large-vertical 0;
+
+    @media(min-width: $width-sm) {
+      width: auto;
+    }
+  }
+}

@@ -1,12 +1,13 @@
 {% block header_wrapper %}
   {% block header_account %}
-  <div class="notification">
-    <p class="notification__text">
-      <i class="material-icons">warning</i>
-      <span class="bold">Käyttökatkos</span>
-      Dataportaalia päivitetään uusimpaan versioon 24.12.2017 klo 23:00 alkaen. Käyttökatkoksen arvioitu kestoaika on 3 tuntia.
-    </p>
-  </div>
+  {% for notification in h.get_notifications() %}
+    <div class="notification">
+        <p class="notification__text">
+          <i class="material-icons">warning</i>
+          {{ notification.title }}
+        </p>
+    </div>
+  {% endfor %}
    <nav class="navbar navbar-default navbar-fixed">
       <div class="container-fluid">
 

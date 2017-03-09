@@ -30,15 +30,6 @@ def ensure_translated(s):
         return ensure_translated(s.get(language, u""))
 
 
-
-
-
-
-
-
-
-
-
 def service_alerts():
     message = config.get('ckanext.sixodp_ui.service_alert.message')
     category = "info"
@@ -250,5 +241,6 @@ class Sixodp_UiPlugin(plugins.SingletonPlugin, DefaultTranslation):
                 'get_footer_navigation_items': helpers.get_footer_navigation_items,
                 'get_groups_for_package': helpers.get_groups_for_package,
                 'scheming_language_text_or_empty': helpers.scheming_language_text_or_empty,
-                'resource_display_name': helpers.resource_display_name
+                'resource_display_name': helpers.resource_display_name,
+                'get_notifications': helpers.get_notifications
                 }

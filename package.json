@@ -1,12 +1,12 @@
 {
-  "name": "ckanext-sixodp_theme",
+  "name": "sixodp",
   "version": "1.0.0",
   "description": "",
   "scripts": {
     "test": "sudo nosetests --ckan --with-pylons=/etc/ckan/default/test-core.ini ckan ckanext",
     "watch-sass": "watch 'npm run build' ./shared/scss",
     "build": "run-p build:*",
-    "build:ckan": "node-sass ./shared/scss/main.scss ckanext/ckanext-sixodp_theme/ckanext/sixodp_theme/fanstatic/sixodp_theme.css",
+    "build:ckan": "node-sass ./shared/scss/main.scss ckanext/ckanext-sixodp_ui/ckanext/sixodp_ui/fanstatic/css/sixodp_theme.css",
     "build:cms": "node-sass ./shared/scss/cms.scss sixodp/app.css",
     "dev": "run-p watch-sass",
     "postinstall": "run-p build"

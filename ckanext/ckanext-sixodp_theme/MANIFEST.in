@@ -1,5 +1,0 @@
-include README.rst
-include LICENSE
-include requirements.txt
-recursive-include ckanext/sixodp_theme *.html *.json *.js *.less *.css *.mo *.config
-recursive-include ckanext/sixodp_theme/public *

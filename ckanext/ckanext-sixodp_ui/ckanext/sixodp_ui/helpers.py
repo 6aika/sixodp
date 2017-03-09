@@ -19,6 +19,31 @@ abort = base.abort
 
 log = logging.getLogger(__name__)
 
+def get_wp_api_content(action):
+    response_data_dict = {}
+    try:
+        connection = httplib.HTTPConnection(config.get('ckanext.sixodp_ui.cms_site_url'))
+        url = config.get('ckanext.sixodp_ui.wp_api_base_url') + "/" + action
+        connection.request("GET", url)
+        response_data_dict = json.loads(connection.getresponse().read())
+        connection.close()
+    except:
+        log.error('Connection to WP api failed')
+
+    return response_data_dict
+
+def get_notifications():
+    response_data = get_wp_api_content('notification')
+    notifications = []
+
+    if (type(response_data) is list):
+        for item in response_data:
+            notifications.append({
+                'title': item['title']['rendered'],
+            })
+
+    return notifications
+
 def get_wordpress_menus():
     connection = httplib.HTTPConnection(config.get('ckanext.sixodp_ui.cms_site_url'))
     connection.request("GET", "/wp-json/wp-api-menus/v2/menus")
@@ -77,12 +102,8 @@ def get_translated(data_dict, field):
         language = _LOCALE_ALIASES[language]
 
     try:
-        log.info("trying field %s in lang %s", field, language)
-        log.info(data_dict[field+'_translated'])
-        log.info(data_dict[field+'_translated'][language])
         return data_dict[field+'_translated'][language]
     except KeyError:
-        log.info("nope")
         return data_dict.get(field, '')
 
 

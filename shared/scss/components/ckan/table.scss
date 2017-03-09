@@ -1,18 +1,34 @@
 .table {
+  thead,
   tbody {
     tr {
+      th,
+      th.condensed,
+      td.condensed {
+        width: 1%;
+        white-space: nowrap;
+      }
+
+      td {
+        width: 100%;
+      }
+
       th,
       td {
         color: $brand-primary;
         font-weight: normal;
         vertical-align: middle;
-        padding: $padding-small-vertical $padding-small-horizontal;
+        padding: $padding-small-vertical $padding-large-horizontal;
 
         input {
           height: auto;
         }
       }
     }
+  }
+
+  thead tr th {
+    font-weight: bold;
   }
 
   &.table-borderless {

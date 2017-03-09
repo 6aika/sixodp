@@ -1,88 +1,64 @@
-<!-- https://d3js.org/d3.v4.min.js -->
-<script src="/data/stats/vendor/d3.v4.min.js"></script>
-<script src="/data/stats/vendor/moment.min.js"></script>
-<!-- <script src="/data/stats/vendor/lodash_full.js"></script> -->
+<link rel="stylesheet" type="text/css" href="/data/stats/styles/sections.css" />
+<link rel="stylesheet" type="text/css" href="/data/stats/styles/typography.css" />
+<link rel="stylesheet" type="text/css" href="/data/stats/styles/ui-components.css" />
+<link rel="stylesheet" type="text/css" href="/data/stats/styles/visualization-elements.css" />
 
-<link rel="stylesheet" type="text/css" href="/data/stats/stats.css" />
+<link rel="stylesheet" type="text/css" href="/data/stats/visualizations/attention_numbers.css" />
+<link rel="stylesheet" type="text/css" href="/data/stats/visualizations/totals_timeline.css" />
+<link rel="stylesheet" type="text/css" href="/data/stats/sections/front_section.css" />
 
-<div class="stats-page">
-  <div class="stats-section">
-    <div class="stats-section-content stats-front">
+
+<div class="dashboard-page">
+
+  <div class="dashboard-section front-section js-front-section">
+    <div class="dashboard-section-content">
       <h1>
         <div>lounaistieto.fi</div>
         <div>Statistiikka</div>
       </h1>
-      <div class="js-datavis-1 datavis-1 datavis">
-        <div>
-          <div class="js-datavis-1-datasets">0</div>
-          <div>tietoaineistoa avattu</div>
-        </div>
-        <div>
-          <div class="js-datavis-1-users">0</div>
-          <div>uniikkia kävijää</div>
-        </div>
-        <div>
-          <div class="js-datavis-1-apps">0</div>
-          <div>sovellusta</div>
-        </div>
-      </div>
+      <div class="js-front-attention-numbers"></div>
     </div>
   </div>
 
-  <div class="stats-section">
-    <div class="stats-section-content">
-
+  <div class="dashboard-section js-dataset-section">
+    <div class="dashboard-section-content">
       <h2>Tietoaineistot</h2>
-
-      <div class="js-datavis-2 datavis">
-        <h3 class="datavis-title">Avattuja tietoaineistoja</h3>
-        <svg class="datavis-svg"></svg>
-
-        <input type="date" class="js-datavis-start-date datavis-start-date" placeholder="1.1.2015" />
-        <input type="date" class="js-datavis-end-date datavis-end-date" placeholder="31.12.2015" />
-        <br />
-        <br />
-        <button class="js-datavis-download-button datavis-download-button">Lataa</button>
-        <br />
-        <br />
-        <br />
-
-        <select class="js-datavis-organization choose-organization">
-        </select>
-
-        <!--
-        Details and error sources:
-        - The date of deletion of a dataset may sometimes go wrong, because the metadata values state='deleted' and metadata_modified='<date>' are used for guessing when the deletion took place.
-        -->
-      </div>
+      <div class="js-dataset-totals-timeline"></div>
     </div>
   </div>
 
-  <div class="stats-section">
-    <div class="stats-section-content">
-
+  <div class="dashboard-section js-app-section">
+    <div class="dashboard-section-content">
       <h2>Sovellukset</h2>
+      <div class="js-app-totals-timeline"></div>
+    </div>
+  </div>
 
-      <div class="js-datavis-3 datavis">
-        <h3 class="datavis-title">Sovelluksia</h3>
-        <svg class="datavis-svg"></svg>
-
-        <input type="date" class="js-datavis-start-date datavis-start-date" placeholder="1.1.2015" />
-        <input type="date" class="js-datavis-end-date datavis-end-date" placeholder="31.12.2015" />
-        <br />
-        <br />
-        <button class="js-datavis-download-button datavis-download-button">Lataa</button>
-        <br />
-        <br />
-        <br />
-      </div>
+  <div class="dashboard-section js-app-section">
+    <div class="dashboard-section-content">
+      <h2>Käyttäjät</h2>
     </div>
   </div>
 </div>
 
-<script src="/data/stats/config.js"></script>
-<script src="/data/stats/helpers.js"></script>
-<script src="/data/stats/stats-front.js"></script>
-<script src="/data/stats/datavis1.js"></script>
-<script src="/data/stats/datavis2.js"></script>
-<script src="/data/stats/stats.js"></script>
+
+<script src="/data/stats/styles/styles.js"></script>
+
+<script src="/data/stats/vendor/d3.v4.min.js"></script>
+<script src="/data/stats/vendor/moment.min.js"></script>
+
+<script src="/data/stats/lib/config.js"></script>
+<script src="/data/stats/lib/helpers.js"></script>
+<script src="/data/stats/lib/locales.js"></script>
+
+<script src="/data/stats/data/api.js"></script>
+
+<script src="/data/stats/visualizations/attention_numbers.js"></script>
+
+<script src="/data/stats/visualizations/totals_timeline.js"></script>
+
+<script src="/data/stats/sections/front_section.js"></script>
+<script src="/data/stats/sections/dataset_section.js"></script>
+<script src="/data/stats/sections/app_section.js"></script>
+
+<script src="/data/stats/main.js"></script>

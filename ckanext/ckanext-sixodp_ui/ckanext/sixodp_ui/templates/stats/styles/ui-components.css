@@ -1,0 +1,37 @@
+.dashboard-download-button {
+  display: block;
+  float: right;
+}
+.dashboard-start-date {
+
+}
+.dashboard-end-date {
+  float: right;
+}
+
+.dashboard input[type='date'] {
+  border: solid white 1px;
+  font-size: 24px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  width: 140px;
+  background: none;
+  color: inherit;
+}
+
+.dashboard button {
+  background-color: white;
+  color: #074a74;
+  border: 0;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 12px;
+}
+.dashboard button:hover {
+  background-color: #f8f8f8;
+}
+
+.choose-organization {
+  width: 500px;
+}

@@ -15,3 +15,15 @@ input {
     height: auto;
   }
 }
+
+label.checkbox {
+  min-height: 20px;
+  padding-left: $padding-large-horizontal * 2;
+  margin-bottom: 0;
+
+  input[type="checkbox"] {
+    width: auto;
+    height: auto;
+    position: absolute;
+  }
+}
