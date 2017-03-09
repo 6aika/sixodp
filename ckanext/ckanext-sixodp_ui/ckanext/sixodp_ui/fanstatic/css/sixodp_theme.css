@@ -7257,3 +7257,32 @@ select {
 
 .resource-view .desc {
   margin: 10px 0; }
+
+.hide-content {
+  position: relative;
+  overflow: hidden;
+  height: 15em; }
+
+.show-content {
+  height: auto; }
+
+.show-more {
+  padding: 10px 0;
+  text-align: center; }
+  .show-more a {
+    cursor: pointer; }
+    .show-more a.show-more-link {
+      display: inline; }
+    .show-more a.show-less-link {
+      display: none; }
+
+.fadeout {
+  position: absolute;
+  bottom: 0em;
+  width: 100%;
+  height: 5em;
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 0) 0%, white 100%);
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0) 0%, white 100%);
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0) 0%, white 100%);
+  background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, white 100%);
+  background-image: -ms-linear-gradient(rgba(255, 255, 255, 0) 0%, white 100%); }

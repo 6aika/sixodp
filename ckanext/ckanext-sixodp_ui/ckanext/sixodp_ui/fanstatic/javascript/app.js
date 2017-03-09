@@ -42,12 +42,9 @@ $(function ($) {
       });
     });
 
-    $("form").one('submit', function() {
-      var submitButton = $(this).find("button[type=submit]");
-      if(submitButton) {
-        submitButton.append(' ').append($('<span id="loading-indicator" ' +
+    $(".form-actions button[type=submit]").one('click', function() {
+      $(this).append(' ').append($('<span id="loading-indicator" ' +
           'class="icon icon-spinner icon-spin"></span>') );
-      }
     });
 
     $( "#resource-edit" ).one('submit', function() {
@@ -64,6 +61,21 @@ $(function ($) {
           $("#submit-info").append(html).show();
       }
     });
+
+    $(".show-more").on("click", function() {
+        var $this = $(this);
+        var $content = $this.prev("div.show-more-content");
+
+        if($(this).children(".show-more-link").css('display') !== 'none'){
+            $content.addClass("show-content");
+            $content.removeClass("hide-content");
+        } else {
+            $content.addClass("hide-content");
+            $content.removeClass("show-content");
+        }
+        $(this).children().toggle();
+    });
+
   });
 }(jQuery));
 
