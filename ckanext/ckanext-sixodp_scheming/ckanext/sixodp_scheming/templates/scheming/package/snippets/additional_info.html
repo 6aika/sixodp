@@ -1,5 +1,13 @@
 {% extends "package/snippets/additional_info.html" %}
 
+{% macro license_string(pkg_dict) %}
+  {% if 'license_url' in pkg_dict %}
+    <a href="{{ pkg_dict.license_url }}" rel="dc:rights">{{ pkg_dict.license_title }}</a>
+  {% else %}
+    <span property="dc:rights">{{ pkg_dict.license_title }}</span>
+  {% endif %}
+{% endmacro %}
+
 {%- set exclude_fields = [
     'id',
     'title',
@@ -55,12 +63,28 @@
       </tr>
     {%- endif -%}
   {%- endfor -%}
+
+  {% if pkg_dict %}
+    <tr class="mobile-only">
+      <th>{{ _('Openness') }}</th>
+      <td class="dataset-details">{{ h.get_qa_openness(pkg_dict) }}</td>
+    </tr>
+  {% endif %}
+
+  {% if pkg_dict %}
+    <tr class="mobile-only">
+      <th>{{ _('License') }}</th>
+      <td class="dataset-details">{{ license_string(pkg_dict) }}</td>
+    </tr>
+  {% endif %}
+
   {% if h.check_access('package_update',{'id':pkg_dict.id}) %}
     <tr>
       <th scope="row" class="dataset-label">{{ _("State") }}</th>
       <td class="dataset-details">{{ _(pkg_dict.state) }}</td>
     </tr>
   {% endif %}
+
   {% if pkg_dict.maintainer and pkg_dict.organization and pkg_dict.license_title %}
     <tr>
       <th scope="row" class="dataset-label">{{ _("How to reference") }}</th>

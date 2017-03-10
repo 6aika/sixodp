@@ -5944,6 +5944,10 @@ button.btn.btn-primary, .tags .tag-list li a, .select2-container .select2-choice
 img {
   width: 100%; }
 
+@media (min-width: 992px) {
+  .mobile-only {
+    display: none; } }
+
 /* apply a natural box layout model to all elements, but allowing components to change */
 html {
   box-sizing: border-box; }

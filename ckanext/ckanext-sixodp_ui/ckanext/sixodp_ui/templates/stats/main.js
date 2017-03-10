@@ -42,10 +42,10 @@ Dashboard.prototype.transformData = function () {
 
   var firstDate = moment.utc(firstDateDataset < firstDateApp ? firstDateDataset : firstDateApp)
 
-  firstDateVis = moment.utc([firstDate.year(), 0, 1, 0, 0, 0, 0])
+  firstDateVis = moment.utc([firstDate.year(), 0, 1])
 
   today = moment.utc()
-  today = moment.utc([today.year(), today.month(), today.date(), 0, 0, 0, 0])
+  today = moment.utc([today.year(), today.month(), today.date()])
 
   self.data.dateRange = [firstDateVis, today]
 }
