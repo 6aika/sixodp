@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_ui 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-09 09:12+0000\n"
+"POT-Creation-Date: 2017-03-10 11:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/6aika-dataportal/teams/68018/en_GB/)\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ckanext/sixodp_ui/helpers.py:92
+#: ckanext/sixodp_ui/helpers.py:95
 msgid "Dataset not found"
 msgstr ""
 
@@ -241,6 +241,7 @@ msgstr ""
 
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/table-toggle-more.js:9
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/table-toggle-more.min.js:1
+#: ckanext/sixodp_ui/templates/package/resource_read.html:123
 msgid "Show more"
 msgstr ""
 
@@ -493,13 +494,13 @@ msgstr ""
 msgid "Activity Stream"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/read_base.html:51
-#: ckanext/sixodp_ui/templates/package/resource_read.html:162
+#: ckanext/sixodp_ui/templates/package/read_base.html:56
+#: ckanext/sixodp_ui/templates/package/resource_read.html:169
 msgid "Openness"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/read_base.html:73
-#: ckanext/sixodp_ui/templates/package/resource_read.html:184
+#: ckanext/sixodp_ui/templates/package/read_base.html:78
+#: ckanext/sixodp_ui/templates/package/resource_read.html:191
 msgid "Subscribe for dataset updates"
 msgstr ""
 
@@ -553,21 +554,25 @@ msgid ""
 "hasn't finished processing the data yet"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/resource_read.html:114
+#: ckanext/sixodp_ui/templates/package/resource_read.html:115
 msgid "From the dataset abstract"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/resource_read.html:116
+#: ckanext/sixodp_ui/templates/package/resource_read.html:117
 #, python-format
 msgid "Source: <a href=\"%(url)s\">%(dataset)s</a>"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/resource_read.html:132
+#: ckanext/sixodp_ui/templates/package/resource_read.html:124
+msgid "Show less"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/package/resource_read.html:139
 #: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:83
 msgid "API metadata"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/resource_read.html:144
+#: ckanext/sixodp_ui/templates/package/resource_read.html:151
 msgid "Back to dataset"
 msgstr ""
 
