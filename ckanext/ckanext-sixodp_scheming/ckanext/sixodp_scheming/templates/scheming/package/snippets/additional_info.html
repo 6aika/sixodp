@@ -64,19 +64,15 @@
     {%- endif -%}
   {%- endfor -%}
 
-  {% if pkg_dict %}
-    <tr class="mobile-only">
-      <th>{{ _('Openness') }}</th>
-      <td class="dataset-details">{{ h.get_qa_openness(pkg_dict) }}</td>
-    </tr>
-  {% endif %}
+  <tr class="mobile-only">
+    <th>{{ _('Openness') }}</th>
+    <td class="dataset-details">{{ h.get_qa_openness(pkg_dict) }}</td>
+  </tr>
 
-  {% if pkg_dict %}
-    <tr class="mobile-only">
-      <th>{{ _('License') }}</th>
-      <td class="dataset-details">{{ license_string(pkg_dict) }}</td>
-    </tr>
-  {% endif %}
+  <tr>
+    <th>{{ _('License') }}</th>
+    <td class="dataset-details">{{ license_string(pkg_dict) }}</td>
+  </tr>
 
   {% if h.check_access('package_update',{'id':pkg_dict.id}) %}
     <tr>
