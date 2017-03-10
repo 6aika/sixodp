@@ -223,6 +223,10 @@ function wp_get_menu_array($current_menu) {
      
 }
 
+function is_active_menu_item($menu_item) {
+  return ('https://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']) === $menu_item["url"];
+}
+
 function get_current_locale() {
   $path = explode('/', $_SERVER['REQUEST_URI']);
   return $path[1];

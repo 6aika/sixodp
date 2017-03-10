@@ -21,13 +21,25 @@
         <?php
           foreach ( get_nav_menu_items("primary") as $navItem ) {
             if ( count($navItem["children"]) > 0 ) {
-              echo '<li><a href="'.$navItem["url"].'" title="'.$navItem["title"].'">'.$navItem["title"].'</a><ul class="nav navbar-nav subnav">';
+              $class = '';
+              if ( is_active_menu_item($navItem) ) {
+                $class = 'active';
+              }
+              echo '<li class="'.$class.'"><a href="'.$navItem["url"].'" title="'.$navItem["title"].'">'.$navItem["title"].'</a><ul class="nav navbar-nav subnav">';
               foreach ($navItem["children"] as $sub_nav_item) {
-                echo '<li><a href="'.$sub_nav_item["url"].'" title="'.$sub_nav_item["title"].'">'.$sub_nav_item["title"].'</a></li>';
+                $class = '';
+                if ( is_active_menu_item($navItem) ) {
+                  $class = 'active';
+                }
+                echo '<li class="'.$class.'"><a href="'.$sub_nav_item["url"].'" title="'.$sub_nav_item["title"].'">'.$sub_nav_item["title"].'</a></li>';
               }
               echo '</ul></li>';
             } else {
-              echo '<li><a href="'.$navItem["url"].'" title="'.$navItem["title"].'">'.$navItem["title"].'</a></li>';
+              $class = '';
+              if ( is_active_menu_item($navItem) ) {
+                $class = 'active';
+              }
+              echo '<li class="'.$class.'"><a href="'.$navItem["url"].'" title="'.$navItem["title"].'">'.$navItem["title"].'</a></li>';
             }
           }
         ?>
