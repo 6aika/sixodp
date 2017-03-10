@@ -61,3 +61,6 @@
 [submodule "wordpress/wp-trello"]
 	path = wordpress/wp-trello
 	url = https://github.com/6aika/wp-trello
+[submodule "wp-api-menus"]
+	path = wp-api-menus
+	url = https://github.com/6aika/wp-api-menus
