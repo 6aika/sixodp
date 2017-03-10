@@ -64,3 +64,6 @@
 [submodule "wp-api-menus"]
 	path = wp-api-menus
 	url = https://github.com/6aika/wp-api-menus
+[submodule "wordpress/wp-api-menus"]
+	path = wordpress/wp-api-menus
+	url = https://github.com/6aika/wp-api-menus
