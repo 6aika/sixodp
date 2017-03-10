@@ -11,7 +11,7 @@ var AppSection = function (dashboard) {
     {
       nameField: 'name',
       dateField: 'metadata_created',
-      skip: function (dataset) {
+      skip: function (app) {
         return false
       },
     },
