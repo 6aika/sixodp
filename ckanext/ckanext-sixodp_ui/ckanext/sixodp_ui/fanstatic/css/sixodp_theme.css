@@ -7292,3 +7292,9 @@ select {
   background-image: -o-linear-gradient(rgba(255, 255, 255, 0) 0%, white 100%);
   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, white 100%);
   background-image: -ms-linear-gradient(rgba(255, 255, 255, 0) 0%, white 100%); }
+
+.toolbar {
+  display: none; }
+  @media (min-width: 992px) {
+    .toolbar {
+      display: block; } }

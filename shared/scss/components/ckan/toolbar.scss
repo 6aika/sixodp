@@ -1,0 +1,7 @@
+.toolbar {
+  display: none;
+
+  @media(min-width: $width-md) {
+    display: block;
+  }
+}

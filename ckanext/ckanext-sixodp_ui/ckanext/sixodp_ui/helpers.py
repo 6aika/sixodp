@@ -19,6 +19,7 @@ abort = base.abort
 
 log = logging.getLogger(__name__)
 
+# Fetches any CMS content under the configured wp_api_base_url endpoint
 def get_wp_api_content(action):
     response_data_dict = {}
     try:
@@ -44,6 +45,8 @@ def get_notifications():
 
     return notifications
 
+# Serves the same functionality for CMS menus as get_wp_api_content() for all other content
+# Needs a separate method since menus are located in a separate enpoint
 def get_wordpress_menus():
     connection = httplib.HTTPConnection(config.get('ckanext.sixodp_ui.cms_site_url'))
     connection.request("GET", "/wp-json/wp-api-menus/v2/menus")
