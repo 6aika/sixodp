@@ -64,13 +64,13 @@
         --admin_password={{ secret.wordpress_admin_password }}
         --admin_email={{ wordpress_admin_email }}
 
-  - name: Install and activate plugins
-    command: >
-      wp plugin install
-        --path=/opt/wordpress
-        --activate
-        {{ wordpress_plugins|join(' ') }}
-    when: wordpress_plugins
+  #name: Install and activate plugins
+    #command: >
+      #wp plugin install
+        #--path=/opt/wordpress
+        #--activate
+        #{{ wordpress_plugins|join(' ') }}
+    #when: wordpress_plugins
 
   - name: Change permalink structure
     command: >
@@ -116,5 +116,24 @@
 
 - name: Activate wp-trello plugin
   command: wp plugin activate wp-trello --path=/opt/wordpress
+  become: yes
+  become_user: www-data
+
+- name: Create symbolic link to wp-api-menus plugin
+  file:
+    src: /vagrant/wordpress/wp-api-menus
+    dest: /opt/wordpress/wp-content/plugins/wp-api-menus
+    state: link
+  when: deployment_environment_id == "vagrant"
+
+- name: Synchronize wp-api-menus plugin
+  synchronize:
+    src: ../wordpress/wp-api-menus/
+    dest: /opt/wordpress/wp-content/plugins/wp-api-menus/
+    delete: true
+  when: deployment_environment_id != "vagrant"
+
+- name: Activate wp-api-menus plugin
+  command: wp plugin activate wp-api-menus --path=/opt/wordpress
   become: yes
   become_user: www-data
