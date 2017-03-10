@@ -106,15 +106,22 @@
           <hr>
 
           {% block resource_content %}
-            <div class="prose notes" property="rdfs:label">
-              {% if res.description %}
-                {{ h.render_markdown(res.description) }}
-              {% endif %}
-              {% if not res.description and c.package.notes %}
-                <h3>{{ _('From the dataset abstract') }}</h3>
-                <p>{{ h.markdown_extract(h.get_translated(c.package, 'notes')) }}</p>
-                <p>{% trans dataset=c.package.title, url=h.url_for(controller='package', action='read', id=c.package['name']) %}Source: <a href="{{ url }}">{{ dataset }}</a>{% endtrans %}
-              {% endif %}
+            <div class="prose notes show-more-content hide-content" property="rdfs:label">
+              <div class="text-content">
+                {% if res.description %}
+                  {{ h.render_markdown(res.description) }}
+                {% endif %}
+                  {% if not res.description and c.package.notes %}
+                  <h3>{{ _('From the dataset abstract') }}</h3>
+                  <p>{{ h.markdown_extract(h.get_translated(c.package, 'notes')) }}</p>
+                  <p>{% trans dataset=c.package.title, url=h.url_for(controller='package', action='read', id=c.package['name']) %}Source: <a href="{{ url }}">{{ dataset }}</a>{% endtrans %}
+                {% endif %}
+              </div>
+              <div class="fadeout"></div>
+            </div>
+            <div class="show-more">
+              <a class="show-more-link">{{ _('Show more') }}</a>
+              <a class="show-less-link">{{ _('Show less') }}</a>
             </div>
           {% endblock %}
         </div>
