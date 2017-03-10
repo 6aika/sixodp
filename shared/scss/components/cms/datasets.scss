@@ -1,6 +1,6 @@
 .datasets {
   padding-left: $base*4;
-  border-left: 1px solid #ddd;
+  border-left: 1px solid $table-border-color;
 }
 
 .dataset__list {
@@ -13,7 +13,7 @@
   list-style: none;
   margin: $base auto;
   display: flex;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid $table-border-color;
 }
 
 .dataset__left {

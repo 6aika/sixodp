@@ -1,6 +1,6 @@
 select {
   background-color: $white;
-  border: 1px solid #ccc;
+  border: 1px solid $table-border-color;
   height: $input-height-small;
   line-height: $line-height-small;
   color: $input-color;

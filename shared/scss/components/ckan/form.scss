@@ -44,7 +44,7 @@ form {
   .field-assistive-text {
     margin-bottom: $margin-large-vertical;
     padding-bottom: $padding-large-vertical*2;
-    border-bottom: 1px solid $gray-lighter;
+    border-bottom: 1px solid $table-border-color;
   }
 
   .form-select {
