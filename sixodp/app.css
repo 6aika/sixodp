@@ -5846,6 +5846,10 @@ button.close {
 img {
   width: 100%; }
 
+@media (min-width: 992px) {
+  .mobile-only {
+    display: none; } }
+
 body {
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
