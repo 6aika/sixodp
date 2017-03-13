@@ -43,6 +43,12 @@
 {% block primary_content_inner %}
 {{ pkg }}
 
+<img src="{{pkg['icon_display_url']}}">
+<img src="{{pkg['image_1_display_url']}}">
+<img src="{{pkg['image_2_display_url']}}">
+<img src="{{pkg['image_3_display_url']}}">
+<img src="{{pkg['image_4_display_url']}}">
+
 {% if h.check_access('ckanext_showcase_update', {'id':pkg.id }) %}
     <div class="actions">
     {% link_for _('Manage'), controller='ckanext.sixodp_showcase.controller:Sixodp_ShowcaseController', action='edit', id=pkg.name, class_='btn', icon='wrench' %}

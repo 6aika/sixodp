@@ -1,12 +1,17 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 from ckanext.showcase.plugin import ShowcasePlugin
+from ckanext.showcase.logic import action as showcase_action
+from logic.action import create, update
+
+import ckan.lib.helpers as h
 
 from routes.mapper import SubMapper
 
 class Sixodp_ShowcasePlugin(ShowcasePlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IDatasetForm)
+    plugins.implements(plugins.IActions)
 
     # IConfigurer
 
@@ -63,7 +68,71 @@ class Sixodp_ShowcasePlugin(ShowcasePlugin):
         return map
 
 
+    # IRoutes
 
+    def get_actions(self):
+        action_functions = {
+            'ckanext_showcase_create':
+                create.showcase_create,
+            'ckanext_showcase_update':
+                update.showcase_update,
+            'ckanext_showcase_delete':
+                showcase_action.delete.showcase_delete,
+            'ckanext_showcase_show':
+                showcase_action.get.showcase_show,
+            'ckanext_showcase_list':
+                showcase_action.get.showcase_list,
+            'ckanext_showcase_package_association_create':
+                showcase_action.create.showcase_package_association_create,
+            'ckanext_showcase_package_association_delete':
+                showcase_action.delete.showcase_package_association_delete,
+            'ckanext_showcase_package_list':
+                showcase_action.get.showcase_package_list,
+            'ckanext_package_showcase_list':
+                showcase_action.get.package_showcase_list,
+            'ckanext_showcase_admin_add':
+                showcase_action.create.showcase_admin_add,
+            'ckanext_showcase_admin_remove':
+                showcase_action.delete.showcase_admin_remove,
+            'ckanext_showcase_admin_list':
+                showcase_action.get.showcase_admin_list,
+        }
+        return action_functions
 
-    #def package_form(self):
-    #    return 'scheming/package/snippets/package_form.html'
+    def _add_to_pkg_dict(self, context, pkg_dict):
+        '''
+        Add key/values to pkg_dict and return it.
+        '''
+
+        if pkg_dict['type'] != 'showcase':
+            return pkg_dict
+
+        # Add a image urls for the Showcase image to the pkg dict so template
+        # has access to it.
+
+        imgs = ['icon', 'image_1', 'image_2', 'image_3', 'image_4']
+        for image in imgs:
+            image_url = pkg_dict.get(image)
+            pkg_dict[image +'_display_url'] = image_url
+            if image_url and not image_url.startswith('http'):
+                pkg_dict[image] = image_url
+                pkg_dict[image + '_display_url'] = \
+                    h.url_for_static('uploads/{0}/{1}'
+                                    .format('showcase',
+                                            pkg_dict.get(image)),
+                                    qualified=True)
+
+        # Add dataset count
+        pkg_dict[u'num_datasets'] = len(
+            toolkit.get_action('ckanext_showcase_package_list')(
+                context, {'showcase_id': pkg_dict['id']}))
+
+        # Rendered notes
+        pkg_dict[u'showcase_notes_formatted'] = \
+            h.render_markdown(pkg_dict['notes'])
+        return pkg_dict
+
+    ## IPackageController
+    #def after_show(self, context, pkg_dict):
+
+    #    pkg_dict = self._add_to_pkg_dict(context, object)
