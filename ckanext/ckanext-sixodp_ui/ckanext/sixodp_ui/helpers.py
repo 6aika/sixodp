@@ -20,11 +20,11 @@ abort = base.abort
 log = logging.getLogger(__name__)
 
 # Fetches any CMS content under the configured wp_api_base_url endpoint
-def get_wp_api_content(action):
+def get_wp_api_content(endpoint, action):
     response_data_dict = {}
     try:
         connection = httplib.HTTPConnection(config.get('ckanext.sixodp_ui.cms_site_url'))
-        url = config.get('ckanext.sixodp_ui.wp_api_base_url') + "/" + action
+        url = endpoint + "/" + action
         connection.request("GET", url)
         response_data_dict = json.loads(connection.getresponse().read())
         connection.close()
@@ -33,8 +33,10 @@ def get_wp_api_content(action):
 
     return response_data_dict
 
+
 def get_notifications():
-    response_data = get_wp_api_content('notification')
+    notifications_endpoint = config.get('ckanext.sixodp_ui.wp_api_base_url')
+    response_data = get_wp_api_content(notifications_endpoint, 'notification')
     notifications = []
 
     if (type(response_data) is list):
@@ -45,42 +47,34 @@ def get_notifications():
 
     return notifications
 
-# Serves the same functionality for CMS menus as get_wp_api_content() for all other content
-# Needs a separate method since menus are located in a separate enpoint
-def get_wordpress_menus():
-    connection = httplib.HTTPConnection(config.get('ckanext.sixodp_ui.cms_site_url'))
-    connection.request("GET", "/wp-json/wp-api-menus/v2/menus")
-    response_data_dict = json.loads(connection.getresponse().read())
-    connection.close()
-
-    wp_menus = {}
-    for menu in response_data_dict:
-        wp_menus[menu['name']] = str(menu['term_id'])
-    return wp_menus
 
 def get_navigation_items_by_menu_location(wp_menu_location):
-    wp_menus = get_wordpress_menus()
-
-    connection = httplib.HTTPConnection(config.get('ckanext.sixodp_ui.cms_site_url'))
-    connection.request("GET", "/wp-json/wp-api-menus/v2/menus/" + wp_menus.get(wp_menu_location))
-    response_data_dict = json.loads(connection.getresponse().read())
-    connection.close()
+    menu_endpoint = config.get('ckanext.sixodp_ui.wp_api_menus_base_url')
+    response_data = get_wp_api_content(menu_endpoint, 'menus/' + wp_menu_location + '_' + i18n.get_lang())
 
     navigation_items = []
-    if(response_data_dict.get('items')):
-        for item in response_data_dict['items']:
+    if(response_data.get('items')):
+        for item in response_data['items']:
             navigation_items.append({
                 'title': item.get('title'),
-                'url': item.get('url')
+                'url': item.get('url'),
+                'children': item.get('children')
             })
 
     return navigation_items
 
+
 def get_main_navigation_items():
-    return get_navigation_items_by_menu_location(config.get('ckanext.sixodp_ui.wp_main_menu_location') + '_' + i18n.get_lang())
+    return get_navigation_items_by_menu_location(config.get('ckanext.sixodp_ui.wp_main_menu_location'))
+
 
 def get_footer_navigation_items():
-    return get_navigation_items_by_menu_location(config.get('ckanext.sixodp_ui.wp_footer_menu_location') + '_' + i18n.get_lang())
+    return get_navigation_items_by_menu_location(config.get('ckanext.sixodp_ui.wp_footer_menu_location'))
+
+
+def menu_is_active(menu_url, current_path):
+    return current_path in menu_url
+
 
 def get_groups_for_package(package_id):
     context = {'model': model, 'session': model.Session,

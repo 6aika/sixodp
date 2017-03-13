@@ -242,5 +242,6 @@ class Sixodp_UiPlugin(plugins.SingletonPlugin, DefaultTranslation):
                 'get_groups_for_package': helpers.get_groups_for_package,
                 'scheming_language_text_or_empty': helpers.scheming_language_text_or_empty,
                 'resource_display_name': helpers.resource_display_name,
-                'get_notifications': helpers.get_notifications
+                'get_notifications': helpers.get_notifications,
+                'menu_is_active': helpers.menu_is_active,
                 }
