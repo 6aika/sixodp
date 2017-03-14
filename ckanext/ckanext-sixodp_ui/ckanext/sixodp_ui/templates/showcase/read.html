@@ -52,15 +52,3 @@
   {% endblock %}
 
 {% endblock %}
-
-{% block secondary_content %}
-  {% block secondary_help_content %}{% endblock %}
-
-  {% block package_info %}
-    {% snippet 'showcase/snippets/showcase_info.html', pkg=pkg, showcase_pkgs=c.showcase_pkgs %}
-  {% endblock %}
-
-  {% block package_social %}
-    {% snippet "snippets/social.html" %}
-  {% endblock %}
-{% endblock %}

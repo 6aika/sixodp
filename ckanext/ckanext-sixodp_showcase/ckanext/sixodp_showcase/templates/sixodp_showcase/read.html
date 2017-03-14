@@ -75,7 +75,6 @@
 {% endblock %}
 
 {% block primary_content_inner %}
-{{ pkg }}
 
 {% if h.check_access('ckanext_showcase_update', {'id':pkg.id }) %}
     <div class="actions">
@@ -115,13 +114,14 @@
   {% block package_search_results_list %}
   {% endblock %}
 
+{{ pkg }}
 {% endblock %}
 
 {% block secondary_content %}
   {% block secondary_help_content %}{% endblock %}
 
   {% block package_info %}
-    {# snippet 'showcase/snippets/showcase_info.html', pkg=pkg, showcase_pkgs=c.showcase_pkgs #}
+    {{ h.snippet('sixodp_showcase/snippets/showcase_info.html', pkg=pkg, showcase_pkgs=c.showcase_pkgs) }}
   {% endblock %}
 
   {% block package_social %}
