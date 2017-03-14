@@ -94,9 +94,9 @@
     {% endif %}
 
     {% block package_notes %}
-      {% if pkg.showcase_notes_formatted %}
+      {% if pkg.description_translated %}
         <div class="notes embedded-content ckanext-showcase-notes">
-          {{ pkg.showcase_notes_formatted }}
+          {{ h.render_markdown(h.get_translated(pkg, 'description')) }}
         </div>
       {% endif %}
     {% endblock %}
@@ -119,7 +119,6 @@
       <h3 class="module-heading">{{ _('Datasets in Showcase') }}</h3>
       {% if c.showcase_pkgs %}
         {{ h.snippet('snippets/package_list.html', packages=c.showcase_pkgs) }}
-
       {% else %}
         <p class="module-content empty">{{_('There are no Datasets in this Showcase')}}</p>
       {% endif %}
