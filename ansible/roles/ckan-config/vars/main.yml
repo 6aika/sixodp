@@ -22,7 +22,7 @@ enabled_ckan_extensions:
     - sixodp_routes
     - sixodp_feed 
     - rating
-    - showcase 
+    - sixodp_showcase
     - qa 
     - archiver
     - hierarchy_display
