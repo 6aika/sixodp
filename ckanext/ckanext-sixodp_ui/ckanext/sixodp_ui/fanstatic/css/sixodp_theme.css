@@ -6798,10 +6798,7 @@ label.checkbox {
     .dataset-list .dataset-item .dataset-content {
       font-size: 14px;
       padding: 0;
-      color: #534f97;
-      border-style: solid;
-      border-width: 0 1px 0 0;
-      border-color: #dddddd; }
+      color: #534f97; }
       .dataset-list .dataset-item .dataset-content .dataset-heading {
         margin: 0;
         font-size: 18px;

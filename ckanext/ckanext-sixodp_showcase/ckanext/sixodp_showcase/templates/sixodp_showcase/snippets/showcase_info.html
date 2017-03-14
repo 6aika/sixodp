@@ -33,20 +33,5 @@ Example:
         </div>
       </div>
     </section>
-
-    <section class="module module-narrow">
-      <h3 class="module-heading"><i class="icon-medium icon-sitemap"></i> {{ _('Datasets in Showcase') }}</h3>
-        {% if showcase_pkgs %}
-        <ul class="nav nav-simple">
-          {% for package in showcase_pkgs %}
-          {% set truncate_title = truncate_title or 80 %}
-          {% set title = package.title or package.name %}
-          <li class="nav-item">{{ h.link_to(h.truncate(title, truncate_title), h.url_for(controller='package', action='read', id=package.name)) }}</li>
-          {% endfor %}
-        </ul>
-        {% else %}
-        <p class="module-content empty">{{_('There are no Datasets in this Showcase')}}</p>
-        {% endif %}
-    </section>
   {% endif %}
 {% endblock %}
