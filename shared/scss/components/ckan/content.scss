@@ -15,9 +15,32 @@
             margin-top: 0;
           }
 
-          h1, h2, h3, h4, h5, h6 {
+          > section {
+            padding: $margin-large-vertical 0;
+          }
+
+          h1 {
             @include heading;
             font-size: $font-size-xlarge;
+          }
+
+          h2 {
+            @include heading;
+            font-size: $font-size-large;
+
+            &.page-subheading {
+              font-size: $font-size;
+              margin-top: 0;
+
+              a {
+                color: $brand-success;
+              }
+            }
+          }
+
+          h3, h4, h5, h6 {
+            @include heading;
+            font-size: $font-size-large;
           }
         }
       }
@@ -59,10 +82,38 @@
           width: 100%;
           height: auto;
         }
+
+        a {
+          img {
+            width: auto;
+          }
+        }
       }
 
       > .module {
         padding: 0;
+      }
+
+      &.social {
+        .nav {
+          .nav-item {
+            display: inline-block;
+
+            &:hover,
+            &:focus {
+              background: none;
+
+              a {
+                background: none;
+                color: $button-background-color-active;
+              }
+            }
+
+            a {
+              padding: $padding-small-horizontal;
+            }
+          }
+        }
       }
     }
 

@@ -1,5 +1,7 @@
 ---
 
+cache_path: /root/.cache
+
 public_facing_hostname: build
 internal_hostname: build
 ckan_site_name: Dataportaali
@@ -7,8 +9,8 @@ ckan_featured_orgs:
 
 postgres:
   server:
-    installed_locally: false
-    host: localhost
+    installed_locally: true
+    host: 127.0.0.1
     admin_user: ckan_admin
     admin_password: "{{ secret.database_ckan_admin_password }}"
     trusted_ip_range: 127.0.0.1/32

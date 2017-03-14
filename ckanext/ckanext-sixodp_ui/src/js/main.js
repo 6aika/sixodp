@@ -60,5 +60,27 @@ $(function ($) {
           $("#submit-info").append(html).show();
       }
     });
+
+    // Show the show more -link only when the specified height is filled
+    var showMoreTextContent = $(".show-more-content .text-content");
+    if( showMoreTextContent.outerHeight() > $(".show-more-content").outerHeight() ) {
+        $(".show-more").show();
+        $(".fadeout").show();
+    }
+
+    $(".show-more").on("click", function() {
+        var $this = $(this);
+        var $content = $this.prev("div.show-more-content");
+
+        if($(this).children(".show-more-link").css('display') !== 'none'){
+            $content.addClass("show-content");
+            $content.removeClass("hide-content");
+        } else {
+            $content.addClass("hide-content");
+            $content.removeClass("show-content");
+        }
+        $(this).children().toggle();
+    });
+
   });
 }(jQuery));

@@ -13,6 +13,8 @@ server {
     internal;
   }
 
+  ### CKAN
+
   location /data/ {
     proxy_pass http://127.0.0.1:8080;
     proxy_read_timeout 300s;
@@ -20,9 +22,31 @@ server {
     proxy_set_header Host $host;
   }
 
-  location = /data/ {
+  location ~ ^/data/(fi|sv|en_GB)?/?$ {
     return 302 /data/dataset;
   }
+
+  ### Question2Answer
+
+  location @qa {
+    rewrite ^/qa/(.*)$ /qa/index.php?qa-rewrite=$1 last;
+  }
+
+  location /qa/ {
+    alias /opt/question2answer/;
+    try_files $uri $uri/ @qa;
+    index index.php index.html;
+
+    location ~ \.php$ {
+      try_files $uri =404;
+      include fastcgi.conf;
+      fastcgi_index index.php;
+      fastcgi_param SCRIPT_FILENAME $request_filename;
+      fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+    }
+  }
+
+  ### WordPress
 
   location / {
     alias /opt/wordpress/;
@@ -36,6 +60,10 @@ server {
       fastcgi_param SCRIPT_FILENAME $request_filename;
       fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
     }
+  }
+
+  location = / {
+    return 302 /fi/;
   }
 
   location /assets/ {

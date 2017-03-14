@@ -7,7 +7,7 @@
 <div class="hero">
   <div class="container">
     <div class="row">
-      <h1 class="heading text-center">6Aika Open Data Portal</h1>
+      <h1 class="heading--main text-center">6Aika Open Data Portal</h1>
       <h3 class="subheading text-center">Avointa dataa vapaasti hyödynnettäväksesi</h3>  
 
       <div class="col-md-8 col-md-offset-2">

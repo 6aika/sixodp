@@ -1,0 +1,7 @@
+.front-section {
+  min-height: 400px;
+}
+.front-section .dashboard-section-content {
+  padding: 0px;
+  padding-top: 30px;
+}

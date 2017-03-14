@@ -3,15 +3,7 @@
   padding: 0;
 
   .dataset-item {
-    padding: 0;
-    background: none;
-    border-style: solid;
-    border-width: 1px 0 0 0;
-    border-color: $gray-lighter;
-
-    &:last-of-type {
-      border-bottom-width: 1px;
-    }
+    @include list-item();
 
     > a {
       color: $text-color;
@@ -40,7 +32,7 @@
       color: $brand-primary;
       border-style: solid;
       border-width: 0 1px 0 0;
-      border-color: $gray-lighter;
+      border-color: $table-border-color;
 
       .dataset-heading {
         margin: 0;
@@ -55,7 +47,7 @@
         .dataset-created {
           color: $text-color;
         }
-        .dataset-category {
+        .dataset-category-link {
           color: $label-text-color;
         }
       }
@@ -63,6 +55,12 @@
 
     .dataset-resources {
       padding: $padding-large-vertical 0 0 0;
+
+      .label {
+        display: inline-block;
+        background-color: $gray-lighter;
+        padding: $padding-small-vertical $padding-small-horizontal;
+      }
     }
   }
 }

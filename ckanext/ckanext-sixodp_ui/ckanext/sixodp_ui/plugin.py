@@ -10,6 +10,7 @@ import logging
 import copy
 from ckan.common import _
 from ckanext.sixodp_ui import helpers
+from ckan.lib.plugins import DefaultTranslation
 
 try:
     from collections import OrderedDict  # 2.7
@@ -27,31 +28,6 @@ def ensure_translated(s):
     elif ts == dict:
         language = i18n.get_lang()
         return ensure_translated(s.get(language, u""))
-
-
-_LOCALE_ALIASES = {'en_GB': 'en'}
-
-def get_translated(data_dict, field):
-    language = i18n.get_lang()
-    if language in _LOCALE_ALIASES:
-        language = _LOCALE_ALIASES[language]
-
-    try:
-        return data_dict[field+'_translated'][language]
-    except KeyError:
-        return data_dict.get(field, '')
-
-# Copied from core ckan to call over ridden get_translated
-def dataset_display_name(package_or_package_dict):
-    if isinstance(package_or_package_dict, dict):
-        return get_translated(package_or_package_dict, 'title') or \
-               package_or_package_dict['name']
-    else:
-        # FIXME: we probably shouldn't use the same functions for
-        # package dicts and real package objects
-        return package_or_package_dict.title or package_or_package_dict.name
-
-
 
 
 def service_alerts():
@@ -196,11 +172,13 @@ def get_qa_openness(dataset):
                   extra_vars=extra_vars))
 
 
-class Sixodp_UiPlugin(plugins.SingletonPlugin):
+class Sixodp_UiPlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IConfigurable)
     plugins.implements(plugins.interfaces.IFacets, inherit=True)
     plugins.implements(plugins.ITemplateHelpers)
+    if toolkit.check_ckan_version(min_version='2.5.0'):
+        plugins.implements(plugins.ITranslation, inherit=True)
 
     # IConfigurer
 
@@ -255,11 +233,15 @@ class Sixodp_UiPlugin(plugins.SingletonPlugin):
                 'get_homepage_organizations': get_homepage_organizations,
                 'service_alerts': service_alerts,
                 'unquote_url': unquote_url,
-                'ensure_translated': ensure_translated,
-                'get_translated': get_translated,
+                'get_translated': helpers.get_translated,
                 'get_qa_openness': get_qa_openness,
-                'dataset_display_name': dataset_display_name,
+                'dataset_display_name': helpers.dataset_display_name,
                 'get_navigation_items_by_menu_location': helpers.get_navigation_items_by_menu_location,
                 'get_main_navigation_items': helpers.get_main_navigation_items,
-                'get_footer_navigation_items': helpers.get_footer_navigation_items
+                'get_footer_navigation_items': helpers.get_footer_navigation_items,
+                'get_groups_for_package': helpers.get_groups_for_package,
+                'scheming_language_text_or_empty': helpers.scheming_language_text_or_empty,
+                'resource_display_name': helpers.resource_display_name,
+                'get_notifications': helpers.get_notifications,
+                'menu_is_active': helpers.menu_is_active,
                 }

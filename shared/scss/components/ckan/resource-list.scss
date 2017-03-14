@@ -3,9 +3,7 @@
   padding: 0;
 
   .resource-item {
-    height: 100%;
-    padding: 0;
-    background: $secondary-bg;
+    @include list-item();
 
     .format-label {
       position: absolute;
@@ -44,8 +42,23 @@
         text-align: center;
 
         .icon {
-          font-size: $font-size-xlarge;
+          font-size: 21px;
         }
+      }
+    }
+  }
+
+  &.reordering {
+    .resource-item {
+      .handle {
+        display: inline;
+        position: absolute;
+        right: 40px;
+        margin-top: -60px;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
       }
     }
   }

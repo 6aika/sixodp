@@ -13,6 +13,8 @@
 @import "components/common/footer";
 @import "components/common/toolbar";
 @import "components/common/alert";
+@import "components/common/navbar-offcanvas";
+@import "components/common/horizaccordion";
 
 @import "components/ckan/icons";
 @import "components/ckan/button";
@@ -33,7 +35,6 @@
 @import "components/ckan/activity";
 @import "components/ckan/form";
 @import "components/ckan/list-group";
-@import "components/ckan/toolbar";
 @import "components/ckan/select";
 @import "components/ckan/select2";
 @import "components/ckan/format-label";
@@ -41,3 +42,10 @@
 @import "components/ckan/search_form";
 @import "components/ckan/search_options";
 @import "components/ckan/multiple-value";
+@import "components/ckan/embedded-content";
+@import "components/ckan/table";
+@import "components/ckan/qa";
+@import "components/ckan/module-resource";
+@import "components/ckan/resource-view";
+@import "components/ckan/show-more";
+@import "components/ckan/toolbar";

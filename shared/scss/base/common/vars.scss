@@ -36,6 +36,7 @@ $gray-lighter:           lighten($gray-base, $lighten-intensity*6);
 $black: #000;
 $text-color: #000;
 $white: #ffffff;
+$table-border-color: #dddddd;
 
 // New input heights based on BS defaults
 $line-height-computed: 20px;
@@ -47,7 +48,7 @@ $margin-base-horizontal: 6px;
 
 $font-size-base: 14px !default;
 $font-size: $font-size-base;
-$font-size-xlarge: ceil(($font-size-base * 1.5)) !default; // ~21px
+$font-size-xlarge: ceil(($font-size-base * 2.0)) !default; // ~21px
 $font-size-large: ceil(($font-size-base * 1.25)) !default; // ~18px
 $font-size-small: ceil(($font-size-base * 0.85)) !default; // ~12px
 

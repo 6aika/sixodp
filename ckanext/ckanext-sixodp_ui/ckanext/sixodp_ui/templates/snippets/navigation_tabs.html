@@ -1,19 +1,30 @@
 {% block header_site_navigation_tabs %}
-<ul class="nav navbar-nav">
+  <ul class="nav navbar-nav">
     {% for item in h.get_main_navigation_items() %}
-    <li>
+      <li class="{{ 'active' if h.menu_is_active(item.url, request.path ) }}">
         <a class="nav-link" href="{{item.url}}">
-            {{ _(item.title) }}
+          {{ _(item.title) }}
         </a>
-    </li>
+      </li>
+      {% if item.children %}
+        <ul class="nav navbar-nav subnav">
+          {% for child_menu in item.children %}
+            <li class="{{ 'active' if h.menu_is_active(child_menu.url, request.path ) }}">
+              <a class="nav-link" href="{{child_menu.url}}">
+                {{ _(child_menu.title) }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
     {% endfor %}
 
     {{ h.build_nav_main() }}
-</ul>
-<ul class="nav navbar-nav navbar-right">
+  </ul>
+  <ul class="nav navbar-nav navbar-right">
     {% if c.userobj %}
-        {% snippet 'home/snippets/sixodp_profile.html' %}
+      {% snippet 'home/snippets/sixodp_profile.html' %}
     {% endif %}
     {% snippet 'home/snippets/sixodp_language-changer.html' %}
-</ul>
+  </ul>
 {% endblock %}

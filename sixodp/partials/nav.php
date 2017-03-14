@@ -19,21 +19,40 @@
     <div class="collapse navbar-collapse" id="top-nav-collapse">
       <ul class="nav navbar-nav">
         <?php
-          foreach ( wp_get_nav_menu_items("primary_$pagename") as $navItem ) {
-            echo '<li><a href="'.$navItem->url.'" title="'.$navItem->title.'">'.$navItem->title.'</a></li>';
+          foreach ( get_nav_menu_items("primary") as $navItem ) {
+            if ( count($navItem["children"]) > 0 ) {
+              $class = '';
+              if ( is_active_menu_item($navItem) ) {
+                $class = 'active';
+              }
+              echo '<li class="'.$class.'"><a href="'.$navItem["url"].'" title="'.$navItem["title"].'">'.$navItem["title"].'</a><ul class="nav navbar-nav subnav">';
+              foreach ($navItem["children"] as $sub_nav_item) {
+                $class = '';
+                if ( is_active_menu_item($navItem) ) {
+                  $class = 'active';
+                }
+                echo '<li class="'.$class.'"><a href="'.$sub_nav_item["url"].'" title="'.$sub_nav_item["title"].'">'.$sub_nav_item["title"].'</a></li>';
+              }
+              echo '</ul></li>';
+            } else {
+              $class = '';
+              if ( is_active_menu_item($navItem) ) {
+                $class = 'active';
+              }
+              echo '<li class="'.$class.'"><a href="'.$navItem["url"].'" title="'.$navItem["title"].'">'.$navItem["title"].'</a></li>';
+            }
           }
         ?>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <?php
-          foreach(get_posts(array('post_type' => "page")) as $page) :
-            $id = $page->post_title;
+          foreach ( get_nav_menu_items("secondary") as $navItem ) {
             $class = '';
-            if ( $id === $pagename ) {
+            if ( $navItem->title === get_current_locale() ) {
               $class = 'active';
             }
-            echo '<li class="'.$class.'"><a href="/'.$id.'/" class="nav-link">'.$id.'</a></li>';
-          endforeach;
+            echo '<li class="'.$class.'"><a href="'.$navItem->url.'" title="'.$navItem->title.'" class="nav-link">'.$navItem->title.'</a></li>';
+          }
         ?>
       </ul>
     </div>

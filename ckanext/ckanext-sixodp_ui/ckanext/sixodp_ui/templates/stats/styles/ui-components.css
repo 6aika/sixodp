@@ -1,0 +1,51 @@
+.dashboard-download-button {
+  display: block;
+  float: right;
+}
+.dashboard-start-date {
+
+}
+.dashboard-end-date {
+  float: right;
+}
+
+.dashboard input[type='date'], .dashboard select {
+  border: solid white 1px;
+  font-size: 14px;
+  height: 30px;
+  line-height: 30px;
+  background: none;
+  color: inherit;
+  margin-right: 15px;
+}
+.dashboard input[type='date'] {
+  text-align: center;
+  width: 100px;
+}
+
+.dashboard select {
+  width: 450px;
+  background: #fff;
+  color: #074a74;
+  outline: 0px;
+}
+.dashboard option {
+  padding: 5px;
+  border-bottom: solid #eee 1px;
+}
+
+.dashboard button {
+  background-color: white;
+  color: #074a74;
+  border: 0;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 12px;
+}
+.dashboard button:hover {
+  background-color: #f8f8f8;
+}
+
+.choose-organization {
+  width: 500px;
+}

@@ -10,14 +10,14 @@ EXTENSION_PATH="../ckanext"
 
 HELPTEXT="Usage: $0 ckanext-yourextensionname\n\n\
 Compiles ckan-extension translations.\nThe script assumes that the extension translations are located 
-in the default path relative to this script: $EXTENSION_PATH/ckanext-extension_name/i18n/\n"
+in the default path relative to this script: $EXTENSION_PATH/<ckanext-extension_name>/ckanext/<extension_name>/i18n/\n"
 
 function compile_translations {
-  CKANEXT_NAME=$1
-  cd "$EXTENSION_PATH/$CKANEXT_NAME/i18n/"
-  msgfmt "./en_GB/LC_MESSAGES/$CKANEXT_NAME.po" -o "./en_GB/LC_MESSAGES/$CKANEXT_NAME.mo"
-  msgfmt "./fi/LC_MESSAGES/$CKANEXT_NAME.po" -o "./fi/LC_MESSAGES/$CKANEXT_NAME.mo"
-  msgfmt "./sv/LC_MESSAGES/$CKANEXT_NAME.po" -o "./sv/LC_MESSAGES/$CKANEXT_NAME.mo"
+  EXTENSION_NAME=$1
+  cd "$EXTENSION_PATH/ckanext-$EXTENSION_NAME/ckanext/$EXTENSION_NAME/i18n/"
+  msgfmt "./en_GB/LC_MESSAGES/ckanext-$EXTENSION_NAME.po" -o "./en_GB/LC_MESSAGES/ckanext-$EXTENSION_NAME.mo"
+  msgfmt "./fi/LC_MESSAGES/ckanext-$EXTENSION_NAME.po" -o "./fi/LC_MESSAGES/ckanext-$EXTENSION_NAME.mo"
+  msgfmt "./sv/LC_MESSAGES/ckanext-$EXTENSION_NAME.po" -o "./sv/LC_MESSAGES/ckanext-$EXTENSION_NAME.mo"
   echo -e "Translations compiled, exiting..."
 }
 

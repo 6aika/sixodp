@@ -88,6 +88,9 @@ scheming.dataset_schemas = ckanext.sixodp_scheming.schemas:dataset.json
 licenses_group_url = file://{{ckanext_sync_path}}/ckanext-sixodp_scheming/ckanext/sixodp_scheming/licenses/licenses.json
 
 ckanext.sixodp_ui.cms_site_url = localhost
+ckanext.sixodp_ui.wp_api_base_url = /wp-json/wp/v2
+
+ckanext.sixodp_ui.wp_api_menus_base_url = /wp-json/wp-api-menus/v2
 ckanext.sixodp_ui.wp_main_menu_location = primary
 ckanext.sixodp_ui.wp_footer_menu_location = footer
 
@@ -139,9 +142,9 @@ ckanext.reminder.site_url = https://{{ public_facing_hostname }}/data
 ckanext.reminder.email = {{ ckan_users.admin.email }}
 
 # Editor configuration
-ckanext.editor.editable_fields = title_translated notes_translated tag_string owner_org update_frequency url maintainer maintainer_email maintainer_website licence_id agency reminder private
+ckanext.editor.editable_fields = title_translated name keywords geographical_coverage notes_translated external_urls owner_org url maintainer maintainer_email maintainer_website private date_released date_updated update_frequency licence_id reminder global_id search_synonyms
 ckanext.editor.default_field = title_translated
-ckanext.editor.appendable_fields = title_translated notes_translated update_frequency url maintainer maintainer_email maintainer_website agency
+ckanext.editor.appendable_fields = title_translated name keywords geographical_coverage notes_translated external_urls url maintainer maintainer_email maintainer_website update_frequency global_id search_synonyms
 ckanext.editor.enable_group_editing = true
 ckanext.editor.enable_collection_editing = true # Use only when ckanext-collection is in use
 
@@ -152,7 +155,8 @@ ckanext.datasubmitter.creating_user_username = {{ ckan_users.admin.username }}
 ckanext.datasubmitter.organization_name_or_id = sammakkokaupunki
 
 # Disqus configuration
-disqus.name = sixodp-generic-{{ deployment_environment_id }}
+# Disqus sites should always be named sixodp-CITY-ENVIRONMENT for the configuration to work properly
+disqus.name = sixodp-{{ deployment_environment_id }}
 
 [loggers]
 

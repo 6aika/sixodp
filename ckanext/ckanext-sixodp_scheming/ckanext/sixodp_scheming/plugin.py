@@ -6,6 +6,7 @@ import json
 import helpers
 
 from ckan.logic import NotFound
+from ckan.lib.plugins import DefaultTranslation
 import logging
 
 log = logging.getLogger(__name__ )
@@ -46,11 +47,13 @@ def create_tag_to_vocabulary(tag, vocab):
     toolkit.get_action('tag_create')(context, data)
 
 
-class Sixodp_SchemingPlugin(plugins.SingletonPlugin):
+class Sixodp_SchemingPlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IValidators)
     plugins.implements(plugins.IPackageController, inherit=True)
     plugins.implements(plugins.ITemplateHelpers)
+    if toolkit.check_ckan_version(min_version='2.5.0'):
+        plugins.implements(plugins.ITranslation, inherit=True)
 
     # IConfigurer
 
@@ -106,15 +109,35 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin):
         if data_dict.get('geographical_coverage'):
             data_dict['vocab_geographical_coverage'] = [tag for tag in json.loads(data_dict['geographical_coverage'])]
 
+        keywords = data_dict.get('keywords')
+        if keywords:
+            keywords_json = json.loads(keywords)
+            if keywords_json.get('fi'):
+                data_dict['vocab_keywords_fi'] = [tag for tag in keywords_json['fi']]
+            if keywords_json.get('sv'):
+                data_dict['vocab_keywords_sv'] = [tag for tag in keywords_json['sv']]
+            if keywords_json.get('en'):
+                data_dict['vocab_keywords_en'] = [tag for tag in keywords_json['en']]
 
         return data_dict
 
 
+    def after_show(self, context, data_dict):
+        if context.get('for_edit') is not True:
+            if data_dict.get('search_synonyms', None) is not None:
+                data_dict.pop('search_synonyms')
 
+
+
+        return data_dict
 
 
     def get_helpers(self):
         return {'call_toolkit_function': helpers.call_toolkit_function,
                 'add_locale_to_source': helpers.add_locale_to_source,
                 'get_lang': helpers.get_current_lang,
-                'scheming_field_only_default_required': helpers.scheming_field_only_default_required}
+                'scheming_field_only_default_required': helpers.scheming_field_only_default_required,
+                'ensure_translated': helpers.ensure_translated,
+                'get_current_date': helpers.get_current_date,
+                'get_package_groups_by_type': helpers.get_package_groups_by_type,
+                'get_translated_or_default_locale': helpers.get_translated_or_default_locale}

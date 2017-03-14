@@ -39,6 +39,7 @@ if ( !function_exists('sixodp_theme_setup') ) :
     // This theme uses wp_nav_menu() in two locations.
     register_nav_menus( array(
       'primary' => __( 'Primary Menu', 'sixodp' ),
+      'secondary' => __( 'Secondary Menu', 'sixodp' ),
       'social'  => __( 'Social Links Menu', 'sixodp' ),
       'footer'  => __( 'Footer Menu', 'sixodp' ),
     ) );
@@ -74,19 +75,60 @@ if ( !function_exists('sixodp_theme_setup') ) :
 
     create_primary_menus();
     create_default_pages();
+    create_secondary_menus();
     
   }
 endif; // twentysixteen_setup
 add_action( 'after_setup_theme', 'sixodp_theme_setup' );
 
+function register_notifications() {
+ 
+   //labels array added inside the function and precedes args array
+ 
+   $labels = array(
+    'name'               => _x( 'Notifications', 'post type general name' ),
+    'singular_name'      => _x( 'Notification', 'post type singular name' ),
+    'add_new'            => _x( 'Add New', 'Notification' ),
+    'add_new_item'       => __( 'Add New Notification' ),
+    'edit_item'          => __( 'Edit Notification' ),
+    'new_item'           => __( 'New Notification' ),
+    'all_items'          => __( 'All Notifications' ),
+    'view_item'          => __( 'View Notification' ),
+    'search_items'       => __( 'Search notifications' ),
+    'not_found'          => __( 'No notifications found' ),
+    'not_found_in_trash' => __( 'No notifications found in the Trash' ),
+    'parent_item_colon'  => '',
+    'menu_name'          => 'Notifications'
+  );
+ 
+         // args array
+ 
+   $args = array(
+    'labels'        => $labels,
+    'description'   => 'Notifications',
+    'public'        => true,
+    'supports'      => array( 'title', 'editor' ),
+    'has_archive'   => false,
+    'show_in_rest'  => true
+  );
+ 
+  register_post_type( 'notification', $args );
+}
+add_action( 'init', 'register_notifications' );
+
 function create_primary_menus() {
-  create_primary_menu_i18n('primary_fi', MENU_ITEMS_FI);
-  create_primary_menu_i18n('primary_en', MENU_ITEMS_EN);
-  create_primary_menu_i18n('primary_sv', MENU_ITEMS_SV);
+  create_menu_i18n('primary_fi', PRIMARY_MENU_ITEMS_FI, 'primary');
+  create_menu_i18n('primary_en', PRIMARY_MENU_ITEMS_EN, 'primary');
+  create_menu_i18n('primary_sv', PRIMARY_MENU_ITEMS_SV, 'primary');
 }
 
-// Creates all primary menus
-function create_primary_menu_i18n($menu_name, $itemsArr) {
+function create_secondary_menus() {
+  create_menu_i18n('secondary_fi', SECONDARY_MENU_ITEMS_FI, 'secondary');
+  create_menu_i18n('secondary_en', SECONDARY_MENU_ITEMS_EN, 'secondary');
+  create_menu_i18n('secondary_sv', SECONDARY_MENU_ITEMS_SV, 'secondary');
+}
+
+function create_menu_i18n($menu_name, $itemsArr, $location) {
 
   // If it doesn't exist, let's create it.
   if( !wp_get_nav_menu_object( $menu_name )){
@@ -98,17 +140,16 @@ function create_primary_menu_i18n($menu_name, $itemsArr) {
           'menu-item-url' => home_url( $item['menu-item-url'] ),
           'menu-item-status' => 'publish'));
       }
-
     //then you set the wanted theme  location
     $menu = get_term_by( 'name', $menu_name, 'nav_menu' );
     $locations = get_theme_mod('nav_menu_locations');
-    $locations['primary'] = $menu->term_id;
+    $locations[$location] = $menu->term_id;
     set_theme_mod( 'nav_menu_locations', $locations );
   }
 }
 
 function create_default_pages() {
-  foreach(['fi', 'en', 'sv'] as $locale) {
+  foreach( ['fi', 'en', 'sv'] as $locale ) {
     insert_default_page($locale);
   }
 }
@@ -125,6 +166,17 @@ function insert_default_page($locale) {
     );
 
     $page_id = wp_insert_post( $page );
+
+    $roadmap_page = array(
+      'post_title'    => 'Roadmap',
+      'post_content'  => "This is my post",
+      'post_type'     => 'page',
+      'post_parent'   => $page_id,
+      'post_status'   => 'publish',
+      'page_template' => 'roadmap.php'
+    );
+
+    $roadmap_page = wp_insert_post( $roadmap_page );
   }
 }
 
@@ -138,6 +190,46 @@ function get_menu_items($page_name) {
   $menuLocations = get_nav_menu_locations();
   $menuID = $menuLocations["primary"];
   return wp_get_nav_menu_items($menuID);
+}
+
+function get_nav_menu_items($menu) {
+  return wp_get_menu_array($menu . '_' . get_current_locale());
+}
+
+function wp_get_menu_array($current_menu) {
+ 
+    $array_menu = wp_get_nav_menu_items($current_menu);
+    $menu = array();
+    foreach ($array_menu as $m) {
+        if (empty($m->menu_item_parent)) {
+            $menu[$m->ID] = array();
+            $menu[$m->ID]['ID']      =   $m->ID;
+            $menu[$m->ID]['title']       =   $m->title;
+            $menu[$m->ID]['url']         =   $m->url;
+            $menu[$m->ID]['children']    =   array();
+        }
+    }
+    $submenu = array();
+    foreach ($array_menu as $m) {
+        if ($m->menu_item_parent) {
+            $submenu[$m->ID] = array();
+            $submenu[$m->ID]['ID']       =   $m->ID;
+            $submenu[$m->ID]['title']    =   $m->title;
+            $submenu[$m->ID]['url']  =   $m->url;
+            $menu[$m->menu_item_parent]['children'][$m->ID] = $submenu[$m->ID];
+        }
+    }
+    return $menu;
+     
+}
+
+function is_active_menu_item($menu_item) {
+  return ('https://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']) === $menu_item["url"];
+}
+
+function get_current_locale() {
+  $path = explode('/', $_SERVER['REQUEST_URI']);
+  return $path[1];
 }
 
 function get_ckan_data($url) {

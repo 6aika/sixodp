@@ -1,0 +1,36 @@
+
+.dashboard-line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 3px;
+  stroke-linejoin: 'round';
+  stroke-linecap: 'round';
+}
+/*.datavis-scale-line {
+  stroke: #555;
+  stroke-dasharray: '2,2';
+}*/
+
+.dashboard-axis line {
+  stroke: #fff;
+}
+
+.dashboard-axis path {
+  stroke: #fff;
+}
+
+.dashboard-axis text {
+  fill: #fff;
+}
+
+.bar rect {
+  fill: #6fbf69;
+}
+
+.bar text {
+  fill: #fff;
+  font: 10px sans-serif;
+}
+.bar:hover {
+  fill: black; /*#5faf59;*/
+}

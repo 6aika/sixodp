@@ -31,11 +31,12 @@
 
   @media (max-width: ($width-md)-1 ) {
     padding: 0;
+    width: $base*25;
   }
 
   @media (min-width: $width-md) {
     max-width: $base*30;
-    max-height: none;
+    max-height: initial;
   }
 
   @media (min-width: $width-xl) {
@@ -44,7 +45,7 @@
 
   &.open {
     max-width: $base*32;
-    max-height: none;
+    max-height: initial;
   }
 }
 
@@ -66,5 +67,5 @@ ul {
 
 hr {
   margin: $margin-large-vertical 0;
-  border-top: 1px solid $gray-lighter;
+  border-top: 1px solid $table-border-color;
 }

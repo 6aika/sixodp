@@ -2,7 +2,7 @@
 host = https://www.transifex.com
 
 [sixodp.ckanext-datasubmitter]
-file_filter = i18n/<lang>/LC_MESSAGES/ckanext-datasubmitter.po
-source_file = i18n/ckanext-datasubmitter.pot
+file_filter = ckanext/datasubmitter/i18n/<lang>/LC_MESSAGES/ckanext-datasubmitter.po
+source_file = ckanext/datasubmitter/i18n/ckanext-datasubmitter.pot
 source_lang = en
 type = PO

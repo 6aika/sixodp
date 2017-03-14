@@ -1,60 +1,87 @@
 {% ckan_extends %}
+
 {% block head_extras -%}
   <meta property="og:title" content="{{ h.dataset_display_name(pkg) }} - {{ g.site_title }}">
   <meta property="og:description" content="{{ h.get_translated(pkg ,'description')|forceescape|trim }}">
 {% endblock -%}
 
 {% block content_primary_nav %}
+  <h1 class="page-heading">
+    {% block page_heading %}
+      {{ h.dataset_display_name(pkg) }}
+      {% if pkg.state.startswith('draft') %}
+        [{{ _('Draft') }}]
+      {% endif %}
+      {% if pkg.state == 'deleted' %}
+        [{{ _('Deleted') }}]
+      {% endif %}
+    {% endblock %}
+  </h1>
+
+  {% block page_subheading %}
+    <h2 class="page-subheading">
+      <span class="dataset-created">{{ h.render_datetime(pkg.date_released, '%-d.%-m.%Y') }}</span>
+      <span> - </span>
+      <a class="dataset-organization" href="{{h.url_for(controller='organization', action='read', id=pkg.organization.name)}}">
+        {{pkg.organization.title}}
+      </a>
+    </h2>
+  {% endblock %}
+
   {{ h.build_nav_icon('dataset_read', _('Dataset'), id=pkg.name) }}
-  {{ h.build_nav_icon('dataset_groups', _('Groups'), id=pkg.name) }}
-  {{ h.build_nav_icon('dataset_activity', _('Activity Stream'), id=pkg.name) }}
   {{ h.build_nav_icon('dataset_showcase_list', _('Showcases'), id=pkg.name) }}
-  {{ h.build_nav_icon('dataset_collection_list', _('Collections'), id=pkg.name) }}
+  {{ h.build_nav_icon('dataset_activity', _('Activity Stream'), id=pkg.name) }}
+  {% if h.check_access('package_update', {'id':pkg.id }) %}
+    {{ h.build_nav_icon('dataset_groups', _('Groups'), id=pkg.name) }}
+    {{ h.build_nav_icon('dataset_collection_list', _('Collections'), id=pkg.name) }}
+  {% endif %}
 {% endblock %}
 
-{% block secondary_content %}
+{% block offcanvas_button %}{% endblock %}
 
-  {% block secondary_help_content %}{% endblock %}
+{% block offcanvas_navigation %}
+  <aside class="secondary border-right col-sm-3">
 
-  {% block heading %}
-    <h1 class="main-heading">{{ h.dataset_display_name(pkg) }}</h1>
-  {% endblock %}
+    {% block secondary_content %}
 
-  {% block package_organization %}
-    {% if pkg.organization %}
-      {% set org = h.get_organization(pkg.organization.name) %}
-      {% snippet "snippets/organization.html", organization=org, has_context_title=true %}
-    {% endif %}
-  {% endblock %}
+      {% block package_license %}
+        <div class="license-container">
+          {% snippet "snippets/license.html", pkg_dict=pkg %}
+        </div>
+      {% endblock %}
 
-  {% block package_info %}
-    {% snippet 'package/snippets/info.html', pkg=pkg %}
-  {% endblock %}
+      {% block package_openness %}
+        {% if c.pkg_dict %}
+          <div class="module module-narrow module-shallow context-info">
+            <h2 class="module-heading">{{ _('Openness') }}</h2>
+            <section class="module-content">
+              {{ h.get_qa_openness(c.pkg_dict) }}<br>
+            </section>
+          </div>
+        {% endif %}
+      {% endblock %}
 
-  {% block package_openness %}
-    {% if c.pkg_dict %}
-      <div class="module module-narrow module-shallow context-info">
-        <h2 class="module-heading">{{ _('Openness') }}</h2>
-        <section class="module-content">
-          {{ h.get_qa_openness(c.pkg_dict) }}<br>
-        </section>
-      </div>
-    {% endif %}
-  {% endblock %}
+      {% block secondary_help_content %}{% endblock %}
+      {% block heading %}{% endblock %}
+      {% block package_organization %}{% endblock %}
 
-  {% block package_social %}
-    {% snippet "snippets/social.html" %}
-  {% endblock %}
+      {% block package_info %}
+        {% snippet 'package/snippets/info.html', pkg=pkg %}
+      {% endblock %}
 
-  {% block package_subscribe %}
-    <div class="module module-narrow module-shallow context-info">
-      <h2 class="module-heading">{{ _('Subscribe for dataset updates') }}</h2>
-      <section class="module-content">
-        {% snippet "reminder/snippets/subscription_form.html", package=pkg %}
-      </section>
-    </div>
-  {% endblock %}
+      {% block package_social %}
+        {% snippet "snippets/social.html" %}
+      {% endblock %}
 
-  {% block package_license %}
-  {% endblock %}
+      {% block package_subscribe %}
+        <div class="module module-narrow module-shallow context-info">
+          <h2 class="module-heading">{{ _('Subscribe for dataset updates') }}</h2>
+          <section class="module-content">
+            {% snippet "reminder/snippets/subscription_form.html", package=pkg %}
+          </section>
+        </div>
+      {% endblock %}
+    {% endblock %}
+
+  </aside>
 {% endblock %}

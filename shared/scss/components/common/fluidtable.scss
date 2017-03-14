@@ -1,0 +1,63 @@
+.fluidtable {
+  width: 100%;
+  max-width: 1280px;
+  margin: $base*6 auto $base*24;
+}
+
+.fluidtable__heading {
+  @extend .heading--main;
+}
+
+.fluidtable__body {
+  opacity: 1;
+  transition: opacity .2s ease-in-out;
+}
+
+.fluidtable__row {
+  border-bottom: 1px solid #eee;
+  padding: $base*4 0;
+
+  @media (min-width: $width-md) {
+    display: flex;
+    padding: initial;
+  }
+}
+
+.fluidtable__cell {
+  vertical-align: top;
+  padding: $base/2 $base;
+
+  @media (min-width: $width-sm) {
+    padding: $base/2 $base*4;
+  }
+
+  @media (min-width: $width-md) {
+    padding: $base*4 $base;
+  }
+}
+
+.fluidtable__cell--meta {
+
+  @media (min-width: $width-md) {
+    width: 20%;
+  }
+}
+
+.fluidtable__cell--title {
+
+  @media (min-width: $width-md) {
+    width: 30%;
+  }
+}
+
+.fluidtable__cell--desc {
+  line-height: 1.6;
+
+  @media (min-width: $width-md) {
+    width: 50%;
+  }
+}
+
+.fluidtable__cell-content .heading {
+  margin: 0;
+}

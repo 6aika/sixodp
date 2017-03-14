@@ -25,15 +25,18 @@
 </head>
 
 <body <?php body_class(); ?>>
-
+	<?php $notifications = get_posts(array('post_type' => 'notification')); ?>
+	<?php if ( count($notifications) > 0 && ($notifications[0]->post_title !== '' || $notifications[0]->post_content !== '') ) : ?>
 	<div class="notification">
 		<p class="notification__text">
 			<i class="material-icons">warning</i>
-			<span class="bold">Käyttökatkos</span>
-			Dataportaalia päivitetään uusimpaan versioon 24.12.2017 klo 23:00 alkaen. Käyttökatkoksen arvioitu kestoaika on 3 tuntia.
+			<?php foreach (get_posts(array('post_type' => 'notification')) as $notification) : ?>
+			<span class="bold"><?php echo $notification->post_title; ?></span>
+				<?php echo $notification->post_content; ?>
+			<?php endforeach; ?>
 		</p>
 	</div>
-
+	<?php endif; ?>
 
 	<?php require_once('partials/nav.php'); ?>
 
