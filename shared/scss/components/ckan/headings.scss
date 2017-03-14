@@ -1,0 +1,45 @@
+.page-heading {
+  @include heading;
+  font-size: $font-size-xlarge;
+}
+
+.heading-icon {
+  display: inline-block;
+  margin-right: $margin-large-vertical;
+
+  @media(min-width: $width-sm) {
+    float: left;
+  }
+
+  + .headings-wrapper {
+    display: block;
+    overflow: hidden;
+
+    > * {
+      margin: 0;
+      display: block;
+      width: 100%;
+    }
+  }
+
+  img {
+    object-fit: cover;
+    width: 64px;
+    height: 64px;
+  }
+}
+
+.page-subheading {
+  @include heading;
+  font-size: $font-size;
+  margin-top: 0;
+
+  a {
+    color: $brand-success;
+  }
+}
+
+h3, h4, h5, h6 {
+  @include heading;
+  font-size: $font-size-large;
+}

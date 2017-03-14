@@ -6,7 +6,6 @@ ckan_extensions:
   - ckanext-sixodp_routes
   - ckanext-sixodp_scheming
   - ckanext-sixodp_ui
-  - ckanext-sixodp_theme
   - ckanext-sixodp_showcase
   #- ckanext-fluentall
   - ckanext-scheming

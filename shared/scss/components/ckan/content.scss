@@ -18,30 +18,6 @@
           > section {
             padding: $margin-large-vertical 0;
           }
-
-          h1 {
-            @include heading;
-            font-size: $font-size-xlarge;
-          }
-
-          h2 {
-            @include heading;
-            font-size: $font-size-large;
-
-            &.page-subheading {
-              font-size: $font-size;
-              margin-top: 0;
-
-              a {
-                color: $brand-success;
-              }
-            }
-          }
-
-          h3, h4, h5, h6 {
-            @include heading;
-            font-size: $font-size-large;
-          }
         }
       }
     }

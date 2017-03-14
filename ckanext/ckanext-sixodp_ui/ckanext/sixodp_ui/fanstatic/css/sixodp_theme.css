@@ -6478,6 +6478,21 @@ hr {
       .horizaccordion__footer .btn {
         display: none; } }
 
+.image-list {
+  list-style: none;
+  width: 100%;
+  padding: 0;
+  margin: 20px 0;
+  display: block; }
+  .image-list.image-list-horizontal li,
+  .image-list.image-list-horizontal .image-list-item {
+    display: inline-block; }
+    .image-list.image-list-horizontal li img,
+    .image-list.image-list-horizontal .image-list-item img {
+      object-fit: cover;
+      width: 250px;
+      height: 250px; }
+
 .material-icons {
   float: left;
   line-height: 18px !important;
@@ -6817,29 +6832,6 @@ label.checkbox {
         margin-top: 0; }
       #content .primary .module .module-content.main-content > section {
         padding: 10px 0; }
-      #content .primary .module .module-content.main-content h1 {
-        font-size: 18px;
-        font-weight: 500;
-        font-family: "Roboto Slab", sans-serif;
-        color: #534f97;
-        font-size: 28px; }
-      #content .primary .module .module-content.main-content h2 {
-        font-size: 18px;
-        font-weight: 500;
-        font-family: "Roboto Slab", sans-serif;
-        color: #534f97;
-        font-size: 18px; }
-        #content .primary .module .module-content.main-content h2.page-subheading {
-          font-size: 14px;
-          margin-top: 0; }
-          #content .primary .module .module-content.main-content h2.page-subheading a {
-            color: #97ba54; }
-      #content .primary .module .module-content.main-content h3, #content .primary .module .module-content.main-content h4, #content .primary .module .module-content.main-content h5, #content .primary .module .module-content.main-content h6 {
-        font-size: 18px;
-        font-weight: 500;
-        font-family: "Roboto Slab", sans-serif;
-        color: #534f97;
-        font-size: 18px; }
 
 #content .secondary {
   padding: 0;
@@ -7400,3 +7392,45 @@ select {
   @media (min-width: 992px) {
     .toolbar {
       display: block; } }
+
+.page-heading {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Roboto Slab", sans-serif;
+  color: #534f97;
+  font-size: 28px; }
+
+.heading-icon {
+  display: inline-block;
+  margin-right: 10px; }
+  @media (min-width: 768px) {
+    .heading-icon {
+      float: left; } }
+  .heading-icon + .headings-wrapper {
+    display: block;
+    overflow: hidden; }
+    .heading-icon + .headings-wrapper > * {
+      margin: 0;
+      display: block;
+      width: 100%; }
+  .heading-icon img {
+    object-fit: cover;
+    width: 64px;
+    height: 64px; }
+
+.page-subheading {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Roboto Slab", sans-serif;
+  color: #534f97;
+  font-size: 14px;
+  margin-top: 0; }
+  .page-subheading a {
+    color: #97ba54; }
+
+h3, h4, h5, h6 {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Roboto Slab", sans-serif;
+  color: #534f97;
+  font-size: 18px; }

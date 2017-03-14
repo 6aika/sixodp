@@ -38,16 +38,47 @@
 {% endblock %}
 
 {% block pre_primary %}
+  <div class="page-heading-container">
+    <div class="heading-icon">
+      <img src="{{pkg['icon_display_url']}}">
+    </div>
+
+    <div class="headings-wrapper">
+      <h1 class="page-heading">
+        {% block page_heading %}
+          {{ name }}
+          {% if pkg.state.startswith('draft') %}
+            [{{ _('Draft') }}]
+          {% endif %}
+        {% endblock %}
+      </h1>
+      {% block page_subheading %}
+        <h2 class="page-subheading">
+          <span class="dataset-created">{{ h.render_datetime(pkg.metadata_created, '%-d.%-m.%Y') }}</span>
+          <span> - </span>
+          <span class="dataset-created">{{ _('Updated') }} {{ h.render_datetime(pkg.metadata_modified, '%-d.%-m.%Y') }}</span>
+        </h2>
+      {% endblock %}
+    </div>
+  </div>
+
+  <div class="text-center">
+    <ol class="image-list image-list-horizontal">
+      <li><img src="http://placehold.it/200x350"></li>
+      <li><img src="http://placehold.it/200x350"></li>
+      <li><img src="http://placehold.it/200x350"></li>
+      <li><img src="http://placehold.it/200x350"></li>
+      <!-- Todo replace above with these when the showcase schema is ready -->
+      <!--<li><img src="{{pkg['image_1_display_url']}}"></li>-->
+      <!--<li><img src="{{pkg['image_2_display_url']}}"></li>-->
+      <!--<li><img src="{{pkg['image_3_display_url']}}"></li>-->
+      <!--<li><img src="{{pkg['image_4_display_url']}}"></li>-->
+    </ol>
+  </div>
 {% endblock %}
 
 {% block primary_content_inner %}
 {{ pkg }}
-
-<img src="{{pkg['icon_display_url']}}">
-<img src="{{pkg['image_1_display_url']}}">
-<img src="{{pkg['image_2_display_url']}}">
-<img src="{{pkg['image_3_display_url']}}">
-<img src="{{pkg['image_4_display_url']}}">
 
 {% if h.check_access('ckanext_showcase_update', {'id':pkg.id }) %}
     <div class="actions">
@@ -61,14 +92,6 @@
         {{ _('Private') }}
       </span>
     {% endif %}
-    <h1>
-      {% block page_heading %}
-        {{ name }}
-        {% if pkg.state.startswith('draft') %}
-          [{{ _('Draft') }}]
-        {% endif %}
-      {% endblock %}
-    </h1>
 
     {% if pkg.image_display_url %}
       <p class="ckanext-showcase-image-container"><img src="{{ pkg.image_display_url }}" alt="{{ name }}" class="media-image ckanext-showcase-image"></p>
