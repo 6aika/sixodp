@@ -665,9 +665,9 @@ TotalsTimeline.prototype.eventListeners = function () {
       self.renderData()
       self.resizeAxis('y', [
         // Y min = 0 or lower
-        Math.min(0, Math.round(d3.min(self.data.line, function(d) { return d.value }) * 1.25)),
+        Math.min(0, Math.round(d3.min(self.data.line, function(d) { return d.value }) * 1.25 + 1)),
         // Y max = max value + some margin
-        Math.round(d3.max(self.data.line, function(d) { return d.value }) * 1.25)
+        Math.round(d3.max(self.data.line, function(d) { return d.value }) * 1.25 + 1)
       ])
     })
   }
