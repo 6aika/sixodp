@@ -1,0 +1,27 @@
+.image-slider-wrapper {
+  text-align: left;
+  width: 100%;
+
+  .image-slider {
+    white-space: nowrap;
+    width: 100%;
+    overflow-x: auto;
+    list-style: none;
+    padding: 0 0 $padding-large-vertical 0;
+    margin: $margin-large-vertical*2 0;
+    display: block;
+
+    li,
+    .image-slider-item {
+      display: inline-block;
+      height: 100%;
+
+      img {
+        object-fit: cover;
+        width: auto;
+        height: 300px;
+      }
+    }
+
+  }
+}

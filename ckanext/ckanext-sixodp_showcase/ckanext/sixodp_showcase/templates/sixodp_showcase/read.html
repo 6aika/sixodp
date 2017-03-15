@@ -64,12 +64,16 @@
     </div>
   </div>
 
-  <div class="text-center">
-    <ol class="image-list image-list-horizontal">
-      {% if pkg.image_1_display_url %}<li><img src="{{ pkg.image_1_display_url }}"></li>{% endif %}
-      {% if pkg.image_2_display_url %}<li><img src="{{ pkg.image_2_display_url }}"></li>{% endif %}
-      {% if pkg.image_3_display_url %}<li><img src="{{ pkg.image_3_display_url }}"></li>{% endif %}
-      {% if pkg.image_4_display_url %}<li><img src="{{ pkg.image_4_display_url }}"></li>{% endif %}
+  <div class="image-slider-wrapper">
+    <ol class="image-slider">
+      <li><img src="http://placehold.it/320x180"></li>
+      <li><img src="http://placehold.it/180x320"></li>
+      <li><img src="http://placehold.it/180x320"></li>
+      <li><img src="http://placehold.it/320x180"></li>
+      <!--{% if pkg.image_1_display_url %}<li><img src="{{ pkg.image_1_display_url }}"></li>{% endif %}-->
+      <!--{% if pkg.image_2_display_url %}<li><img src="{{ pkg.image_2_display_url }}"></li>{% endif %}-->
+      <!--{% if pkg.image_3_display_url %}<li><img src="{{ pkg.image_3_display_url }}"></li>{% endif %}-->
+      <!--{% if pkg.image_4_display_url %}<li><img src="{{ pkg.image_4_display_url }}"></li>{% endif %}-->
     </ol>
   </div>
 {% endblock %}

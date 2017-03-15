@@ -6478,20 +6478,26 @@ hr {
       .horizaccordion__footer .btn {
         display: none; } }
 
-.image-list {
-  list-style: none;
-  width: 100%;
-  padding: 0;
-  margin: 20px 0;
-  display: block; }
-  .image-list.image-list-horizontal li,
-  .image-list.image-list-horizontal .image-list-item {
-    display: inline-block; }
-    .image-list.image-list-horizontal li img,
-    .image-list.image-list-horizontal .image-list-item img {
-      object-fit: cover;
-      width: 250px;
-      height: 250px; }
+.image-slider-wrapper {
+  text-align: left;
+  width: 100%; }
+  .image-slider-wrapper .image-slider {
+    white-space: nowrap;
+    width: 100%;
+    overflow-x: auto;
+    list-style: none;
+    padding: 0 0 10px 0;
+    margin: 20px 0;
+    display: block; }
+    .image-slider-wrapper .image-slider li,
+    .image-slider-wrapper .image-slider .image-slider-item {
+      display: inline-block;
+      height: 100%; }
+      .image-slider-wrapper .image-slider li img,
+      .image-slider-wrapper .image-slider .image-slider-item img {
+        object-fit: cover;
+        width: auto;
+        height: 300px; }
 
 .material-icons {
   float: left;
