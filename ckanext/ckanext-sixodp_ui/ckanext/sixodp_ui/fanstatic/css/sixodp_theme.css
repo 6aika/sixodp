@@ -7473,24 +7473,6 @@ select {
   color: #534f97;
   font-size: 28px; }
 
-.heading-icon {
-  display: inline-block;
-  margin-right: 10px; }
-  @media (min-width: 768px) {
-    .heading-icon {
-      float: left; } }
-  .heading-icon + .headings-wrapper {
-    display: block;
-    overflow: hidden; }
-    .heading-icon + .headings-wrapper > * {
-      margin: 0;
-      display: block;
-      width: 100%; }
-  .heading-icon img {
-    object-fit: cover;
-    width: 64px;
-    height: 64px; }
-
 .page-subheading {
   font-size: 18px;
   font-weight: 500;
@@ -7507,3 +7489,23 @@ h3, h4, h5, h6 {
   font-family: "Roboto Slab", sans-serif;
   color: #534f97;
   font-size: 18px; }
+
+.page-heading-container {
+  height: 96px; }
+  .page-heading-container .heading-icon {
+    display: inline-block;
+    margin-right: 10px; }
+    @media (min-width: 768px) {
+      .page-heading-container .heading-icon {
+        float: left; } }
+    .page-heading-container .heading-icon + .headings-wrapper {
+      display: block;
+      overflow: hidden; }
+      .page-heading-container .heading-icon + .headings-wrapper > * {
+        margin: 0;
+        display: block;
+        width: 100%; }
+    .page-heading-container .heading-icon img {
+      object-fit: cover;
+      width: 96px;
+      height: 96px; }

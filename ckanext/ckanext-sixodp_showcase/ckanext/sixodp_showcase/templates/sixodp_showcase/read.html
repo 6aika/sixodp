@@ -56,9 +56,26 @@
       </h1>
       {% block page_subheading %}
         <h2 class="page-subheading">
-          <span class="dataset-created">{{ _('published') }} {{ h.render_datetime(pkg.metadata_created, '%-d.%-m.%Y') }}</span>
+          {% if pkg.author %}
+            <span class="subheading-section">{{ pkg.author }}</span>
+            <span> - </span>
+          {% endif %}
+          <span class="subheading-section">{{ _('Published') }} {{ h.render_datetime(pkg.metadata_created, '%-d.%-m.%Y') }}</span>
           <span> - </span>
-          <span class="dataset-created">{{ _('updated') }} {{ h.render_datetime(pkg.metadata_modified, '%-d.%-m.%Y') }}</span>
+          <span class="subheading-section">{{ _('updated') }} {{ h.render_datetime(pkg.metadata_modified, '%-d.%-m.%Y') }}</span>
+        </h2>
+
+        <h2 class="page-subheading">
+          <span class="subheading-section">{{ _('Showcases') }}</span>
+          {% set lang = h.get_current_lang() %}
+          {% if pkg.keywords.get(lang) %}
+            <span> - </span>
+            <span class="subheading-section">
+              {% for keyword in pkg.keywords.get(lang) %}
+               {{ keyword }}{% if not loop.last %}, {% endif %}
+              {% endfor %}
+            </span>
+          {% endif %}
         </h2>
       {% endblock %}
     </div>
@@ -130,6 +147,8 @@
       {% endif %}
     </section>
   {% endblock %}
+
+
 {% endblock %}
 
 {% block secondary_content %}

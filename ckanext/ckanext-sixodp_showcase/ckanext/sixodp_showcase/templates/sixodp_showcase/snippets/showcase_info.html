@@ -18,10 +18,6 @@ Example:
             {% block rating %}
               {% snippet "rating/snippets/rating.html", package=pkg %}
             {% endblock %}
-            {% if pkg.author %}
-              <span class="smallest">{{_('Submitted by')}}</span>
-              <p>{{ pkg.author }}</p>
-            {% endif %}
             {% if pkg.url %}
               <div class="info">
                 <a class="btn btn-primary" href="{{ pkg.url }}" target="_blank">
