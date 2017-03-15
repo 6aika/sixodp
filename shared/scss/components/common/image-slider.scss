@@ -20,8 +20,13 @@
         object-fit: cover;
         width: auto;
         height: 300px;
+
+        &:hover {
+          opacity: 0.8;
+          transition: all 0.3s;
+          cursor: pointer;
+        }
       }
     }
-
   }
 }
