@@ -6479,14 +6479,15 @@ hr {
         display: none; } }
 
 .image-slider-wrapper {
-  text-align: left;
+  text-align: center;
   width: 100%; }
   .image-slider-wrapper .image-slider {
     white-space: nowrap;
     width: 100%;
     overflow-x: auto;
     list-style: none;
-    padding: 0 0 10px 0;
+    background: #f8f8f8;
+    padding: 10px;
     margin: 20px 0;
     display: block; }
     .image-slider-wrapper .image-slider li,
@@ -6893,17 +6894,22 @@ label.checkbox {
         background-color: #f2f2f2;
         padding: 5px 5px; }
 
-#content .primary {
+#content .primary,
+#content .pre-primary {
   padding: 0 10px;
   margin-bottom: 10px; }
-  #content .primary .module {
+  #content .primary .module,
+  #content .pre-primary .module {
     margin: 0; }
-    #content .primary .module .module-content.main-content {
+    #content .primary .module .module-content.main-content,
+    #content .pre-primary .module .module-content.main-content {
       padding-top: 0;
       margin-bottom: 10px; }
-      #content .primary .module .module-content.main-content .page-heading {
+      #content .primary .module .module-content.main-content .page-heading,
+      #content .pre-primary .module .module-content.main-content .page-heading {
         margin-top: 0; }
-      #content .primary .module .module-content.main-content > section {
+      #content .primary .module .module-content.main-content > section,
+      #content .pre-primary .module .module-content.main-content > section {
         padding: 10px 0; }
 
 #content .secondary {
@@ -7491,7 +7497,7 @@ h3, h4, h5, h6 {
   font-size: 18px; }
 
 .page-heading-container {
-  height: 96px; }
+  min-height: 96px; }
   .page-heading-container .heading-icon {
     display: inline-block;
     margin-right: 10px; }
