@@ -31,3 +31,7 @@ FrontSection.prototype.update = function () {
     apps: self.dashboard.data.apps.length
   })
 }
+
+FrontSection.prototype.onContentResize = function () {
+
+}

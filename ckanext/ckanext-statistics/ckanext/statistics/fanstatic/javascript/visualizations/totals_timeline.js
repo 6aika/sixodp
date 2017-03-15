@@ -1,6 +1,6 @@
-function TotalsTimeline (dashboard, element, title, schema, settings) {
+function TotalsTimeline (statistics, element, title, schema, settings) {
   var self = this
-  self.dashboard = dashboard
+  self.statistics = statistics
   self.element = element
   self.schema = schema
   self.settings = settings
@@ -39,7 +39,7 @@ TotalsTimeline.prototype.updateAll = function (items, firstDataLoad = false) {
   if (firstDataLoad) {
     self.renderAxisX()
     self.renderAxisY()
-    self.resizeAxis('x', self.dashboard.data.dateRange)
+    self.resizeAxis('x', self.statistics.data.dateRange)
     self.initValues()
     self.renderFocus()
     self.eventListeners()
@@ -57,13 +57,13 @@ TotalsTimeline.prototype.updateOrganizationSelector = function () {
 
   // Refresh organization options
   self.inputs.organization.append('option')
-    .text(self.dashboard.translations.all[self.dashboard.config.locale])
+    .text(self.statistics.translations.all[self.statistics.config.locale])
     .attr('value', '')
 
-  for (i in self.dashboard.data.organizations) {
+  for (i in self.statistics.data.organizations) {
     self.inputs.organization.append('option')
-      .text(self.dashboard.data.organizations[i].display_name)
-      .attr('value', self.dashboard.data.organizations[i].id)
+      .text(self.statistics.data.organizations[i].display_name)
+      .attr('value', self.statistics.data.organizations[i].id)
   }
 }
 
@@ -86,8 +86,8 @@ TotalsTimeline.prototype.transformLineData = function () {
 
   result = {}
 
-  startDate = moment.utc(self.dashboard.data.dateRange[0]).toDate()
-  endDate = moment.utc(self.dashboard.data.dateRange[1]).toDate()
+  startDate = moment.utc(self.statistics.data.dateRange[0]).toDate()
+  endDate = moment.utc(self.statistics.data.dateRange[1]).toDate()
 
   // First, create an empty datatable with the correct datespan
   dateToAdd = startDate
@@ -114,7 +114,7 @@ TotalsTimeline.prototype.transformLineData = function () {
     }
     itemDate = moment.utc(item[self.schema.dateField]).format('YYYY-MM-DD')
     // Add creation of this item
-    result[itemDate].added.push(item[self.schema.nameField][self.dashboard.config.locale])
+    result[itemDate].added.push(item[self.schema.nameField][self.statistics.config.locale])
   })
 
   // TODO: Get data from removed items
@@ -146,7 +146,7 @@ TotalsTimeline.prototype.transformHistogramData = function () {
     yearly: [],
     monthly: [],
   }
-  var lastDate = self.dashboard.data.dateRange[1]
+  var lastDate = self.statistics.data.dateRange[1]
   if (self.settings.organizations) {
     var organization = self.inputs.organization.property('value') || ''
   } else {
@@ -193,10 +193,10 @@ TotalsTimeline.prototype.transformHistogramData = function () {
   // Monthly histogram
   createHistogramBins(
     'monthly',
-    self.dashboard.data.dateRange[0],
+    self.statistics.data.dateRange[0],
     moment.utc([
-      self.dashboard.data.dateRange[0].year(),
-      self.dashboard.data.dateRange[0].month(),
+      self.statistics.data.dateRange[0].year(),
+      self.statistics.data.dateRange[0].month(),
       1
     ]).add(1, 'months'),
     lastDate,
@@ -207,8 +207,8 @@ TotalsTimeline.prototype.transformHistogramData = function () {
   // Yearly histogram
   createHistogramBins(
     'yearly',
-    self.dashboard.data.dateRange[0],
-    moment.utc([self.dashboard.data.dateRange[0].year() + 1, 0, 1]),
+    self.statistics.data.dateRange[0],
+    moment.utc([self.statistics.data.dateRange[0].year() + 1, 0, 1]),
     lastDate,
     function (date) {
       return moment.utc(date).add(1, 'years')
@@ -224,11 +224,11 @@ TotalsTimeline.prototype.renderBase = function (title) {
 
   // Add HTML elements
   self.title = self.element.append('h3')
-    .text(title[self.dashboard.config.locale])
-    .classed('dashboard-vis-title')
+    .text(title[self.statistics.config.locale])
+    .classed('statistics-vis-title')
 
   // Space needed on the page
-  self.size.image.width = self.dashboard.styles.contentWidth
+  self.size.image.width = parseInt(self.statistics.styles.contentWidth)
   self.size.image.height = 360
 
   // Space for drawing the actual data
@@ -284,9 +284,9 @@ TotalsTimeline.prototype.initValues = function () {
     .y(function(d) { return self.visual.yScale(d.value) })
 
   self.inputs.startDate
-    .property('value', self.dashboard.data.dateRange[0].format('D.M.YYYY'))
+    .property('value', self.statistics.data.dateRange[0].format('D.M.YYYY'))
   self.inputs.endDate
-    .property('value', self.dashboard.data.dateRange[1].format('D.M.YYYY'))
+    .property('value', self.statistics.data.dateRange[1].format('D.M.YYYY'))
 }
 
 
@@ -295,16 +295,18 @@ TotalsTimeline.prototype.renderInputs = function () {
 
   self.inputs = {}
   self.inputs.startDate = self.element.append('input')
-    .attr('type', 'date')
-    .attr('placeholder', self.dashboard.translations.datePlaceholder[self.dashboard.config.locale])
+    // .attr('type', 'date')
+    .classed('statistics-input-date', true)
+    .attr('placeholder', self.statistics.translations.datePlaceholder[self.statistics.config.locale])
 
   self.inputs.endDate = self.element.append('input')
-    .attr('type', 'date')
-    .attr('placeholder', self.dashboard.translations.datePlaceholder[self.dashboard.config.locale])
+  // .attr('type', 'date')
+  .classed('statistics-input-date', true)
+  .attr('placeholder', self.statistics.translations.datePlaceholder[self.statistics.config.locale])
 
   self.inputs.downloadButton = self.element.append('button')
-    .text(self.dashboard.translations.downloadButton[self.dashboard.config.locale])
-    .classed('dashboard-download-button', true)
+    .text(self.statistics.translations.downloadButton[self.statistics.config.locale])
+    .classed('statistics-download-button', true)
 
   if (self.settings.organizations) {
     self.inputs.organization = self.element.append('select')
@@ -315,7 +317,7 @@ TotalsTimeline.prototype.renderInputs = function () {
 
 TotalsTimeline.prototype.renderAxisX = function () {
   var self = this
-  self.visual.xExtent = self.dashboard.data.dateRange
+  self.visual.xExtent = self.statistics.data.dateRange
   self.visual.xScale = d3.scaleTime()
     .domain(self.visual.xExtent)
     .rangeRound([0, self.size.data.width])
@@ -323,7 +325,7 @@ TotalsTimeline.prototype.renderAxisX = function () {
   self.visual.xAxisGenerator = d3.axisBottom(self.visual.xScale)
   self.visual.xAxis = self.visual.extrasFrontLayer.append("g")
     .attr('transform', 'translate(0,' + self.size.data.height + ')')
-    .attr('class', 'dashboard-axis')
+    .attr('class', 'statistics-axis')
     .call(self.visual.xAxisGenerator)
 }
 
@@ -346,7 +348,7 @@ TotalsTimeline.prototype.renderAxisY = function () {
     .tickFormat(function(d) {
       return this.parentNode.nextSibling
           ? '\xa0' + d
-          : d + ' ' + self.dashboard.translations.amount[self.dashboard.config.locale];
+          : d + ' ' + self.statistics.translations.amount[self.statistics.config.locale];
     })
 
   self.visual.yAxisGenerator = function (g) {
@@ -363,7 +365,7 @@ TotalsTimeline.prototype.renderAxisY = function () {
   }
 
   self.visual.yAxis = self.visual.extrasBackLayer.append("g")
-    .attr('class', 'dashboard-axis')
+    .attr('class', 'statistics-axis')
     .call(self.visual.yAxisGenerator)
 }
 
@@ -439,7 +441,7 @@ TotalsTimeline.prototype.setFocusDate = function (d) {
 
   if (!d) {
     if (self.data.line.length > 0) {
-      var endDate = self.dashboard.helpers.validDate(self.inputs.endDate.property('value'))
+      var endDate = self.statistics.helpers.validDate(self.inputs.endDate.property('value'))
 
       if (!endDate) {
         d = self.data.line[self.data.line.length - 1]
@@ -488,7 +490,7 @@ TotalsTimeline.prototype.renderHistogram = function () {
 
   self.visual.histogramBars = self.visual.histogramCanvas.selectAll('.bar')
       .data(self.data.histogram[self.visual.histogramType])
-    .enter().append('g') // '.dashboard-totals-timeline-line'
+    .enter().append('g') // '.statistics-totals-timeline-line'
       .attr('class', 'bar')
       .attr('transform', function(d) { return 'translate(' + self.visual.xScale(d.x0) + ',' + self.visual.yScale(d.length) + ')' })
 
@@ -524,8 +526,8 @@ TotalsTimeline.prototype.renderLine = function () {
   self.visual.line = self.visual.lineCanvas.append("path")
     .datum(self.data.line)
     .attr('d', self.visual.lineDrawer)
-    .classed('dashboard-line', true)
-    .classed('dashboard-totals-timeline-line', true)
+    .classed('statistics-line', true)
+    .classed('statistics-totals-timeline-line', true)
 }
 
 
@@ -593,6 +595,36 @@ TotalsTimeline.prototype.resizeAxis = function (axis, newExtent) {
 }
 
 
+TotalsTimeline.prototype.onAreaResize = function () {
+  var self = this
+  self.size.image.width = parseInt(self.statistics.styles.contentWidth)
+
+  self.size.image.height = 360
+  self.size.data.width = self.size.image.width - self.size.margin.left - self.size.margin.right
+  self.size.data.height = self.size.image.height - self.size.margin.top - self.size.margin.bottom
+  self.visual.svg
+    .attr('width', self.size.image.width)
+    .attr('height', self.size.image.height)
+
+  self.visual.extrasBackLayer
+    .attr('transform', 'translate(' + self.size.margin.left + ',' + self.size.margin.top + ')')
+
+  // Data lines, bars, etc. - clipped if go outside data area
+  self.visual.dataCanvas
+    .attr('transform', 'translate(' + self.size.margin.left + ',' + self.size.margin.top + ')')
+
+  // Cuts out the data elements outside the axes
+  self.visual.dataClipper
+    .attr('width', self.size.data.width + 1)
+    .attr('height', self.size.data.height + 1)
+
+  self.visual.extrasFrontLayer
+    .attr('transform', 'translate(' + self.size.margin.left + ',' + self.size.margin.top + ')')
+
+  self.updateAll(self.data.raw)
+}
+
+
 // USER INTERACTIONS
 
 TotalsTimeline.prototype.eventListeners = function () {
@@ -601,18 +633,18 @@ TotalsTimeline.prototype.eventListeners = function () {
   var readDateInputs = function () {
     var startDate = ''
     if (self.inputs.startDate.property('value') == '') {
-      startDate = self.dashboard.data.dateRange[0]
+      startDate = self.statistics.data.dateRange[0]
     } else {
-      startDate = self.dashboard.helpers.validDate(self.inputs.startDate.property('value'))
+      startDate = self.statistics.helpers.validDate(self.inputs.startDate.property('value'))
       if (!startDate) {
         return false
       }
     }
     var endDate = ''
     if (self.inputs.endDate.property('value') == '') {
-      endDate = self.dashboard.data.dateRange[1]
+      endDate = self.statistics.data.dateRange[1]
     } else {
-      endDate = self.dashboard.helpers.validDate(self.inputs.endDate.property('value'))
+      endDate = self.statistics.helpers.validDate(self.inputs.endDate.property('value'))
       if (!endDate) {
         return false
       }

@@ -25,3 +25,8 @@ DatasetSection.prototype.update = function (firstDataLoad = false) {
   var self = this
   self.totalsTimeline.updateAll(self.dashboard.data.datasets, firstDataLoad)
 }
+
+DatasetSection.prototype.onContentResize = function () {
+  var self = this
+  self.totalsTimeline.onAreaResize()
+}

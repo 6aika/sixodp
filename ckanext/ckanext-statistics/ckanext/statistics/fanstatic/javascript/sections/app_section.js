@@ -25,3 +25,8 @@ AppSection.prototype.update = function (firstDataLoad = false) {
   var self = this
   self.totalsTimeline.updateAll(self.dashboard.data.apps, firstDataLoad)
 }
+
+AppSection.prototype.onContentResize = function () {
+  var self = this
+  self.totalsTimeline.onAreaResize()
+}

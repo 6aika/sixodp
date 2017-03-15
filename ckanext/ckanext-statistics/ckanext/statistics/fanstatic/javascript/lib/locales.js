@@ -13,7 +13,7 @@ Translations = {
     en: 'unique users',
   },
   apps: {
-    fi: 'sovellusta',
+    fi: 'sovellusta julkaistu',
     sv: '',
     en: 'apps',
   },

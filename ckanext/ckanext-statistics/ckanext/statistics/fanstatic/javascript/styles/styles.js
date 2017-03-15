@@ -1,6 +1,4 @@
 Styles = {
-  // Space on the page for the visualizations
-  contentWidth: 964,
 
   // Graphics
   color: {
