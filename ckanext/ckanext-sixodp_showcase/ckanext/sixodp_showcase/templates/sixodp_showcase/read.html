@@ -77,10 +77,7 @@
     </ol>
   </div>
 
-  <div id="image-modal" class="image-modal">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="modal-image-placeholder">
-  </div>
+  {% snippet 'snippets/image_modal.html' %}
 {% endblock %}
 
 {% block primary_content_inner %}
@@ -125,7 +122,7 @@
 
   {% block package_datasets %}
     <section class="module module-narrow">
-      <h3 class="module-heading">{{ _('Datasets in Showcase') }}</h3>
+      <h3 class="module-heading">{{ _('Used datasets') }}</h3>
       {% if c.showcase_pkgs %}
         {{ h.snippet('snippets/package_list.html', packages=c.showcase_pkgs) }}
       {% else %}
@@ -133,8 +130,6 @@
       {% endif %}
     </section>
   {% endblock %}
-
-{{ pkg }}
 {% endblock %}
 
 {% block secondary_content %}
