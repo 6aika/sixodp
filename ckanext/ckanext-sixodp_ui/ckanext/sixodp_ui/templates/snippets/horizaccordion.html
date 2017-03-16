@@ -20,7 +20,10 @@
                 </div>
               {% endif %}
               <div class="horizaccordion__footer">
-                <button type="button" class="btn btn-secondary">{{ _('Read more') }}</button>
+                <a type="button" class="btn btn-secondary"
+                  href="{{ h.url_for(controller=controller, action='read', id=item.id) }}">
+                  {{ _('Read more') }}
+                </a>
               </div>
             </div>
           </div>
