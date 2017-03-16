@@ -1,6 +1,5 @@
 #content {
-  .primary,
-  .pre-primary {
+  .primary {
     padding: 0 $padding-large-horizontal;
     margin-bottom: $margin-large-vertical;
 
@@ -21,6 +20,14 @@
           }
         }
       }
+    }
+  }
+
+  .pre-primary {
+    padding: 0 $padding-large-horizontal;
+
+    @media(min-width: $width-md) {
+      padding: 0;
     }
   }
 
