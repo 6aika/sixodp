@@ -1,18 +1,24 @@
+{% set truncate = truncate or 180 %}
+
 <div class="wrapper--horizaccordion">
   <div class="container">
     <div class="row">
       <div class="horizaccordion">
-        {% for showcase in showcases %}
+        {% for item in items %}
           <div class="horizaccordion__container">
-            <div class="horizaccordion__item" style="background-image: url(http://placehold.it/350x350);">
+            <div class="horizaccordion__item" style="background-image: url({{item[image]}});">
               <h4 class="horizaccordion__title">
                 <a class="horizaccordion__link" href="">
-                  {{ showcase.title }}
+                  {{ h.get_translated(item, 'title') }}
                 </a>
               </h4>
-              <div class="horizaccordion__text">
-                {{ showcase.description }}
-              </div>
+              {% if item.description_translated %}
+                <div class="horizaccordion__text">
+                  <div class="notes embedded-content">
+                    {{ h.get_translated(item, 'description') | truncate }}
+                  </div>
+                </div>
+              {% endif %}
               <div class="horizaccordion__footer">
                 <button type="button" class="btn btn-secondary">{{ _('Read more') }}</button>
               </div>
