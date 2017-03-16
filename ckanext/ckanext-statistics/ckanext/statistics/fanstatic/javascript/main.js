@@ -51,11 +51,20 @@ Statistics.prototype.transformData = function () {
   var firstDateDataset = d3.min(self.data.datasets, function (d) { return d.date_released })
   var firstDateApp = d3.min(self.data.apps, function (d) { return d.metadata_created })
 
-  var firstDate = moment.utc(firstDateDataset < firstDateApp ? firstDateDataset : firstDateApp)
-
-  firstDateVis = moment.utc([firstDate.year(), 0, 1])
-
-  today = moment.utc()
+  // Default value if no data exists
+  var firstDateDatavis = moment.utc([moment.utc().year(), 0, 1])
+  if (firstDateDataset !== undefined || firstDateApp !== undefined) {
+    var firstDate = firstDateDataset
+    if (
+      (firstDateDataset == undefined && firstDateApp !== undefined)
+      || firstDateDataset > firstDateApp
+    ) {
+      firstDate = firstDateApp
+    }
+    firstDate = moment.utc(firstDate)
+    firstDateVis = moment.utc([firstDate.year(), 0, 1])
+  }
+  var today = moment.utc()
   today = moment.utc([today.year(), today.month(), today.date()])
 
   self.data.dateRange = [firstDateVis, today]
