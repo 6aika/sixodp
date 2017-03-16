@@ -48,10 +48,10 @@
         <?php
           foreach ( get_nav_menu_items("secondary") as $navItem ) {
             $class = '';
-            if ( $navItem->title === get_current_locale() ) {
+            if ( $navItem["title"] === get_current_locale() ) {
               $class = 'active';
             }
-            echo '<li class="'.$class.'"><a href="'.$navItem->url.'" title="'.$navItem->title.'" class="nav-link">'.$navItem->title.'</a></li>';
+            echo '<li class="'.$class.'"><a href="'.$navItem["url"].'" title="'.$navItem["title"].'" class="nav-link">'.$navItem["title"].'</a></li>';
           }
         ?>
       </ul>
