@@ -137,6 +137,15 @@
   {% block package_search_results_list %}
   {% endblock %}
 
+  {% block package_comments %}
+    {{ h.disqus_comments() }}
+  {% endblock %}
+
+{% endblock %}
+
+{% block secondary_content %}
+  {% block secondary_help_content %}{% endblock %}
+
   {% block package_datasets %}
     <section class="module module-narrow">
       <h3 class="module-heading">{{ _('Used datasets') }}</h3>
@@ -147,12 +156,6 @@
       {% endif %}
     </section>
   {% endblock %}
-
-
-{% endblock %}
-
-{% block secondary_content %}
-  {% block secondary_help_content %}{% endblock %}
 
   {% block package_info %}
     {{ h.snippet('sixodp_showcase/snippets/showcase_info.html', pkg=pkg) }}
