@@ -6903,6 +6903,9 @@ label.checkbox {
 #content #followee-filter {
   margin: 5px 0; }
 
+#content .page-highlight {
+  margin-bottom: 40px; }
+
 .nav-facet .nav-item {
   background: none; }
   .nav-facet .nav-item.active {
@@ -7269,6 +7272,8 @@ select {
   border-width: 0 0 1px 0;
   border-color: #dddddd;
   margin-bottom: 20px; }
+  .search-form-container-borderless {
+    border: none; }
   .search-form-container .search-form {
     padding-bottom: 40px;
     width: 100%; }

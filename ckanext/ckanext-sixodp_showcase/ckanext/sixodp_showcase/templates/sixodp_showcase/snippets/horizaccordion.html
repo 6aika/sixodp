@@ -1,0 +1,25 @@
+<div class="wrapper--horizaccordion">
+  <div class="container">
+    <div class="row">
+      <div class="horizaccordion">
+        {% for showcase in showcases %}
+          <div class="horizaccordion__container">
+            <div class="horizaccordion__item" style="background-image: url(http://placehold.it/350x350);">
+              <h4 class="horizaccordion__title">
+                <a class="horizaccordion__link" href="">
+                  {{ showcase.title }}
+                </a>
+              </h4>
+              <div class="horizaccordion__text">
+                {{ showcase.description }}
+              </div>
+              <div class="horizaccordion__footer">
+                <button type="button" class="btn btn-secondary">{{ _('Read more') }}</button>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
