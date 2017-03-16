@@ -304,9 +304,9 @@ TotalsTimeline.prototype.renderInputs = function () {
   .classed('statistics-input-date', true)
   .attr('placeholder', self.statistics.translations.datePlaceholder[self.statistics.config.locale])
 
-  self.inputs.downloadButton = self.element.append('button')
-    .text(self.statistics.translations.downloadButton[self.statistics.config.locale])
-    .classed('statistics-download-button', true)
+  // self.inputs.downloadButton = self.element.append('button')
+  //   .text(self.statistics.translations.downloadButton[self.statistics.config.locale])
+  //   .classed('statistics-download-button', true)
 
   if (self.settings.organizations) {
     self.inputs.organization = self.element.append('select')
@@ -672,7 +672,7 @@ TotalsTimeline.prototype.eventListeners = function () {
     })
   }
 
-  self.inputs.downloadButton.on('click', function () {
-    console.log('clicked download')
-  })
+  // self.inputs.downloadButton.on('click', function () {
+  //   console.log('clicked download')
+  // })
 }
