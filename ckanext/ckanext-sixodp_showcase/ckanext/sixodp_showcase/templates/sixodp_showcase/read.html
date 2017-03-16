@@ -79,6 +79,11 @@
         </h2>
       {% endblock %}
     </div>
+    <div class="heading-rating-wrapper">
+      {% block rating %}
+        {% snippet "rating/snippets/rating_single.html", package=pkg %}
+      {% endblock %}
+    </div>
   </div>
 
   <div class="image-slider-wrapper">

@@ -7502,18 +7502,31 @@ h3, h4, h5, h6 {
   min-height: 96px; }
   .page-heading-container .heading-icon {
     display: inline-block;
-    margin-right: 10px; }
-    @media (min-width: 768px) {
-      .page-heading-container .heading-icon {
-        float: left; } }
-    .page-heading-container .heading-icon + .headings-wrapper {
-      display: block;
-      overflow: hidden; }
-      .page-heading-container .heading-icon + .headings-wrapper > * {
-        margin: 0;
-        display: block;
-        width: 100%; }
+    margin-right: 10px;
+    float: left; }
     .page-heading-container .heading-icon img {
       object-fit: cover;
       width: 96px;
       height: 96px; }
+  .page-heading-container .headings-wrapper {
+    height: 96px;
+    width: auto;
+    display: inline-block;
+    overflow: hidden; }
+    .page-heading-container .headings-wrapper > * {
+      margin: 0;
+      display: block;
+      width: 100%; }
+  .page-heading-container .heading-rating-wrapper {
+    margin: 20px 0;
+    text-align: center;
+    height: 96px;
+    width: 100%;
+    float: left; }
+    @media (min-width: 992px) {
+      .page-heading-container .heading-rating-wrapper {
+        margin: 0;
+        float: right;
+        width: auto;
+        display: inline-block;
+        overflow: hidden; } }

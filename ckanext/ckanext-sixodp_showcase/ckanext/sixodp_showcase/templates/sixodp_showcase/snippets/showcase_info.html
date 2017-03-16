@@ -15,9 +15,7 @@ Example:
         <div class="module-content">
           {% block package_info_inner %}
             {% block heading %}{% endblock %}
-            {% block rating %}
-              {% snippet "rating/snippets/rating.html", package=pkg %}
-            {% endblock %}
+
             {% if pkg.url %}
               <div class="info">
                 <a class="btn btn-primary" href="{{ pkg.url }}" target="_blank">
