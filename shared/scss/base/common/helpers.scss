@@ -30,6 +30,37 @@
   }
 }
 
+@mixin animation-zoom() {
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.3s;
+  -moz-animation-name: zoom;
+  -moz-animation-duration: 0.3s;
+  -ms-animation-name: zoom;
+  -ms-animation-duration: 0.3s;
+  animation-name: zoom;
+  animation-duration: 0.3s;
+
+  @-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)}
+    to {-webkit-transform:scale(1)}
+  }
+
+  @-moz-keyframes zoom {
+    from {-moz-transform:scale(0)}
+    to {-moz-transform:scale(1)}
+  }
+
+  @-ms-keyframes zoom {
+    from {-ms-transform:scale(0)}
+    to {-ms-transform:scale(1)}
+  }
+
+  @keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+  }
+}
+
 // Placeholder classes
 %button {
   @extend %box;
