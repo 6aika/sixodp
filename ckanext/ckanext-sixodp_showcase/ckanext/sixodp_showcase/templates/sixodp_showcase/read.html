@@ -105,6 +105,11 @@
     {% link_for _('Manage'), controller='ckanext.sixodp_showcase.controller:Sixodp_ShowcaseController', action='edit', id=pkg.name, class_='btn', icon='wrench' %}
     </div>
   {% endif %}
+
+  {% block store_icons %}
+    {{ h.snippet('sixodp_showcase/snippets/store_icon_links.html', links=pkg.links) }}
+  {% endblock %}
+
   {% block package_description %}
     {% if pkg.private %}
       <span class="dataset-private label label-inverse pull-right">

@@ -6571,6 +6571,19 @@ hr {
       text-decoration: none;
       cursor: pointer; }
 
+.horizontal-list {
+  display: inline-block;
+  list-style: none; }
+  .horizontal-list li {
+    display: inline-block;
+    margin: 0 10px 10px 0; }
+    .horizontal-list li * {
+      display: inline-block;
+      width: auto;
+      height: 40px; }
+    .horizontal-list li:last-child {
+      margin-right: 0; }
+
 .material-icons {
   float: left;
   line-height: 18px !important;

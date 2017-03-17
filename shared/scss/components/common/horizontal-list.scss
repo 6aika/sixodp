@@ -1,0 +1,19 @@
+.horizontal-list {
+  display: inline-block;
+  list-style: none;
+
+  li {
+    display: inline-block;
+    margin: 0 $margin-large-horizontal $margin-large-vertical 0;
+
+    * {
+      display: inline-block;
+      width: auto;
+      height: 40px;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
