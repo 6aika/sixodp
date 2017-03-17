@@ -1,0 +1,40 @@
+{% extends "statistics/read_base.html" %}
+
+{% block primary %}
+  <div class="statistics-page">
+
+    <div class="statistics-section front-section js-front-section">
+      <div class="statistics-section-content">
+        <h1>
+          <div>Tilastot</div>
+        </h1>
+        <div class="js-front-attention-numbers"></div>
+      </div>
+    </div>
+
+    <div class="statistics-section js-dataset-section">
+      <div class="statistics-section-content">
+        <h2>Tietoaineistot</h2>
+        <div class="js-dataset-totals-timeline"></div>
+      </div>
+    </div>
+
+    <div class="statistics-section js-app-section">
+      <div class="statistics-section-content">
+        <h2>Sovellukset</h2>
+        <div class="js-app-totals-timeline"></div>
+      </div>
+    </div>
+
+    <!-- <div class="statistics-section js-app-section">
+      <div class="statistics-section-content">
+        <h2>Käyttäjät</h2>
+      </div>
+    </div> -->
+
+    <!-- <div class="statistics-footer"> -->
+      <!-- <a href="">Tekniset raportit</a> -->
+    <!-- </div> -->
+
+  </div>
+{% endblock %}

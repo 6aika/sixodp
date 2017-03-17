@@ -7140,8 +7140,7 @@ form .form-group-fluent .editor-info-block {
   display: none; }
 
 form .form-group-fluent .control-group:first-of-type {
-  margin-top: 0; }
-
+  margin-top: 0; 
 form .field-assistive-text {
   margin-bottom: 10px;
   padding-bottom: 20px;
@@ -7458,6 +7457,7 @@ select {
     .toolbar {
       display: block; } }
 
+
 .page-heading {
   font-size: 18px;
   font-weight: 500;
@@ -7514,3 +7514,4 @@ h3, h4, h5, h6 {
         width: auto;
         display: inline-block;
         overflow: hidden; } }
+
