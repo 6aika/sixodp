@@ -104,6 +104,10 @@ def get_translated(data_dict, field):
         return data_dict.get(field, '')
 
 
+def get_current_lang():
+    return i18n.get_lang()
+
+
 # Copied from core ckan to call over ridden get_translated
 def dataset_display_name(package_or_package_dict):
     if isinstance(package_or_package_dict, dict):
