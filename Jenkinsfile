@@ -14,7 +14,7 @@ node {
 			currentBuild.result = "SUCCESS"
 		} catch (err) {
 			currentBuild.result = "FAILURE"
-			slackSend "Build Failed - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+			slackSend "Build Failed - ${env.JOB_NAME} (${env.GIT_BRANCH}) ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
 		} finally {
 			sh "lxc stop ${containerName}"
 			step([$class: 'GitHubCommitStatusSetter'])
