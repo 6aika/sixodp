@@ -6963,15 +6963,6 @@ label.checkbox {
       width: auto; }
     #content .secondary .module > .module {
       padding: 0; }
-    #content .secondary .module.social .nav .nav-item {
-      display: inline-block; }
-      #content .secondary .module.social .nav .nav-item:hover, #content .secondary .module.social .nav .nav-item:focus {
-        background: none; }
-        #content .secondary .module.social .nav .nav-item:hover a, #content .secondary .module.social .nav .nav-item:focus a {
-          background: none;
-          color: #8d8ac2; }
-      #content .secondary .module.social .nav .nav-item a {
-        padding: 5px; }
   #content .secondary .filters {
     padding: 0; }
     #content .secondary .filters .module {
@@ -6988,6 +6979,16 @@ label.checkbox {
 
 #content #followee-filter {
   margin: 5px 0; }
+
+#content .social .nav .nav-item {
+  display: inline-block; }
+  #content .social .nav .nav-item:hover, #content .social .nav .nav-item:focus {
+    background: none; }
+    #content .social .nav .nav-item:hover a, #content .social .nav .nav-item:focus a {
+      background: none;
+      color: #8d8ac2; }
+  #content .social .nav .nav-item a {
+    padding: 5px; }
 
 .nav-facet .nav-item {
   background: none; }
@@ -7504,12 +7505,14 @@ select {
   .page-subheading a {
     color: #97ba54; }
 
-h3, h4, h5, h6 {
+h3, h4, h5, h6, .module-heading {
   font-size: 18px;
   font-weight: 500;
   font-family: "Roboto Slab", sans-serif;
   color: #534f97;
   font-size: 18px; }
+  h3 i, h4 i, h5 i, h6 i, .module-heading i {
+    display: none; }
 
 .page-heading-container {
   min-height: 96px; }

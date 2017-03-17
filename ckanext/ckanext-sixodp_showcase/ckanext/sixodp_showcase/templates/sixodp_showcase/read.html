@@ -136,6 +136,19 @@
 
   {% endblock %}
 
+  {% block package_info_mobile_only %}
+    <div class="mobile-only">
+      <h2 class="module-heading">{{ _('Used datasets') }}</h2>
+      {% if c.showcase_pkgs %}
+        {{ h.snippet('snippets/package_list.html', packages=c.showcase_pkgs) }}
+      {% else %}
+        <p class="module-content empty">{{_('There are no Datasets in this Showcase')}}</p>
+      {% endif %}
+
+      {% snippet "snippets/social.html" %}
+    </div>
+  {% endblock %}
+
   {% block package_tags %}
     {% snippet "showcase/snippets/tags.html", tags=pkg.tags %}
   {% endblock %}
@@ -154,7 +167,7 @@
 
   {% block package_datasets %}
     <section class="module module-narrow">
-      <h3 class="module-heading">{{ _('Used datasets') }}</h3>
+      <h2 class="module-heading">{{ _('Used datasets') }}</h2>
       {% if c.showcase_pkgs %}
         {{ h.snippet('snippets/package_list.html', packages=c.showcase_pkgs) }}
       {% else %}
@@ -163,9 +176,7 @@
     </section>
   {% endblock %}
 
-  {% block package_info %}
-    {{ h.snippet('sixodp_showcase/snippets/showcase_info.html', pkg=pkg) }}
-  {% endblock %}
+  {% block package_info %}{% endblock %}
 
   {% block package_social %}
     {% snippet "snippets/social.html" %}
