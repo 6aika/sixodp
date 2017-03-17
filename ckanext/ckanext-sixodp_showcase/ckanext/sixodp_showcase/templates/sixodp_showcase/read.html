@@ -88,14 +88,10 @@
 
   <div class="image-slider-wrapper">
     <ol class="image-slider">
-      <li><img class="image-modal-open" src="http://placehold.it/1280x640"></li>
-      <li><img class="image-modal-open" src="http://placehold.it/1080x1920"></li>
-      <li><img class="image-modal-open" src="http://placehold.it/180x320"></li>
-      <li><img class="image-modal-open" src="http://placehold.it/320x180"></li>
-      <!--{% if pkg.image_1_display_url %}<li><img src="{{ pkg.image_1_display_url }}"></li>{% endif %}-->
-      <!--{% if pkg.image_2_display_url %}<li><img src="{{ pkg.image_2_display_url }}"></li>{% endif %}-->
-      <!--{% if pkg.image_3_display_url %}<li><img src="{{ pkg.image_3_display_url }}"></li>{% endif %}-->
-      <!--{% if pkg.image_4_display_url %}<li><img src="{{ pkg.image_4_display_url }}"></li>{% endif %}-->
+      {% if pkg.image_1_display_url %}<li><img class="image-modal-open" src="{{ pkg.image_1_display_url }}"></li>{% endif %}
+      {% if pkg.image_2_display_url %}<li><img class="image-modal-open" src="{{ pkg.image_2_display_url }}"></li>{% endif %}
+      {% if pkg.image_3_display_url %}<li><img class="image-modal-open" src="{{ pkg.image_3_display_url }}"></li>{% endif %}
+      {% if pkg.image_4_display_url %}<li><img class="image-modal-open" src="{{ pkg.image_4_display_url }}"></li>{% endif %}
     </ol>
   </div>
 
