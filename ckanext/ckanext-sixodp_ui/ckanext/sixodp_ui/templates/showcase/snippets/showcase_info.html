@@ -1,8 +1,0 @@
-{% ckan_extends %}
-
-{% block package_info_inner %}
-  {{ super() }}
-  {% block rating %}
-    {% snippet "rating/snippets/rating.html", package=pkg %}
-  {% endblock %}
-{% endblock %}

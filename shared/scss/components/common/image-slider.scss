@@ -1,0 +1,33 @@
+.image-slider-wrapper {
+  text-align: center;
+  width: 100%;
+
+  .image-slider {
+    white-space: nowrap;
+    width: 100%;
+    overflow-x: auto;
+    list-style: none;
+    background: $navbar-bg;
+    padding: $padding-large-vertical;
+    margin: $margin-large-vertical*2 0;
+    display: block;
+
+    li,
+    .image-slider-item {
+      display: inline-block;
+      height: 100%;
+
+      img {
+        object-fit: cover;
+        width: auto;
+        height: 300px;
+
+        &:hover {
+          opacity: 0.8;
+          transition: all 0.3s;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
