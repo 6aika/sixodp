@@ -7509,7 +7509,7 @@ h3, h4, h5, h6 {
       width: 96px;
       height: 96px; }
   .page-heading-container .headings-wrapper {
-    height: 96px;
+    min-height: 96px;
     width: auto;
     display: inline-block;
     overflow: hidden; }
