@@ -26,3 +26,4 @@ ckan_extensions:
   - ckanext-datasetcopy
   - ckanext-spatial
   - ckanext-datasubmitter
+  - ckanext-statistics
