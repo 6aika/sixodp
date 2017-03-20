@@ -6336,6 +6336,7 @@ hr {
             background: rgba(0, 0, 0, 0.6); }
       .horizaccordion .horizaccordion__container {
         max-width: 25%;
+        height: 100%;
         margin-top: 0; }
         .horizaccordion .horizaccordion__container:after {
           background: rgba(83, 79, 151, 0.6); }
