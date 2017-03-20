@@ -88,14 +88,10 @@
 
   <div class="image-slider-wrapper">
     <ol class="image-slider">
-      <li><img class="image-modal-open" src="http://placehold.it/1280x640"></li>
-      <li><img class="image-modal-open" src="http://placehold.it/1080x1920"></li>
-      <li><img class="image-modal-open" src="http://placehold.it/180x320"></li>
-      <li><img class="image-modal-open" src="http://placehold.it/320x180"></li>
-      <!--{% if pkg.image_1_display_url %}<li><img src="{{ pkg.image_1_display_url }}"></li>{% endif %}-->
-      <!--{% if pkg.image_2_display_url %}<li><img src="{{ pkg.image_2_display_url }}"></li>{% endif %}-->
-      <!--{% if pkg.image_3_display_url %}<li><img src="{{ pkg.image_3_display_url }}"></li>{% endif %}-->
-      <!--{% if pkg.image_4_display_url %}<li><img src="{{ pkg.image_4_display_url }}"></li>{% endif %}-->
+      {% if pkg.image_1_display_url %}<li><img class="image-modal-open" src="{{ pkg.image_1_display_url }}"></li>{% endif %}
+      {% if pkg.image_2_display_url %}<li><img class="image-modal-open" src="{{ pkg.image_2_display_url }}"></li>{% endif %}
+      {% if pkg.image_3_display_url %}<li><img class="image-modal-open" src="{{ pkg.image_3_display_url }}"></li>{% endif %}
+      {% if pkg.image_4_display_url %}<li><img class="image-modal-open" src="{{ pkg.image_4_display_url }}"></li>{% endif %}
     </ol>
   </div>
 
@@ -109,6 +105,11 @@
     {% link_for _('Manage'), controller='ckanext.sixodp_showcase.controller:Sixodp_ShowcaseController', action='edit', id=pkg.name, class_='btn', icon='wrench' %}
     </div>
   {% endif %}
+
+  {% block store_icons %}
+    {{ h.snippet('sixodp_showcase/snippets/store_icon_links.html', links=pkg.links) }}
+  {% endblock %}
+
   {% block package_description %}
     {% if pkg.private %}
       <span class="dataset-private label label-inverse pull-right">
@@ -135,6 +136,19 @@
 
   {% endblock %}
 
+  {% block package_info_mobile_only %}
+    <div class="mobile-only">
+      <h2 class="module-heading">{{ _('Used datasets') }}</h2>
+      {% if c.showcase_pkgs %}
+        {{ h.snippet('snippets/package_list.html', packages=c.showcase_pkgs) }}
+      {% else %}
+        <p class="module-content empty">{{_('There are no Datasets in this Showcase')}}</p>
+      {% endif %}
+
+      {% snippet "snippets/social.html" %}
+    </div>
+  {% endblock %}
+
   {% block package_tags %}
     {% snippet "showcase/snippets/tags.html", tags=pkg.tags %}
   {% endblock %}
@@ -153,7 +167,7 @@
 
   {% block package_datasets %}
     <section class="module module-narrow">
-      <h3 class="module-heading">{{ _('Used datasets') }}</h3>
+      <h2 class="module-heading">{{ _('Used datasets') }}</h2>
       {% if c.showcase_pkgs %}
         {{ h.snippet('snippets/package_list.html', packages=c.showcase_pkgs) }}
       {% else %}
@@ -162,9 +176,7 @@
     </section>
   {% endblock %}
 
-  {% block package_info %}
-    {{ h.snippet('sixodp_showcase/snippets/showcase_info.html', pkg=pkg) }}
-  {% endblock %}
+  {% block package_info %}{% endblock %}
 
   {% block package_social %}
     {% snippet "snippets/social.html" %}

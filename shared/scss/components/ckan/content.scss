@@ -77,28 +77,6 @@
       > .module {
         padding: 0;
       }
-
-      &.social {
-        .nav {
-          .nav-item {
-            display: inline-block;
-
-            &:hover,
-            &:focus {
-              background: none;
-
-              a {
-                background: none;
-                color: $button-background-color-active;
-              }
-            }
-
-            a {
-              padding: $padding-small-horizontal;
-            }
-          }
-        }
-      }
     }
 
     .filters {
@@ -127,6 +105,28 @@
     margin: $margin-small-vertical 0;
   }
 
+  .social {
+    .nav {
+      .nav-item {
+        display: inline-block;
+
+        &:hover,
+        &:focus {
+          background: none;
+
+          a {
+            background: none;
+            color: $button-background-color-active;
+          }
+        }
+
+        a {
+          padding: $padding-small-horizontal;
+        }
+      }
+    }
+  }
+  
   .page-highlight {
     margin-bottom: $margin-large-vertical*4;
   }
