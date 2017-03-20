@@ -5842,43 +5842,26 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
-a.btn,
-button.btn, a.btn.btn-primary,
-button.btn.btn-primary, .tags .tag-list li a, .select2-container .select2-choices .select2-search-choice,
+.tags .tag-list li a, .select2-container .select2-choices .select2-search-choice,
 .select2-container .select2-choice .select2-search-choice,
 .select2-container-multi .select2-choices .select2-search-choice,
-.select2-container-multi .select2-choice .select2-search-choice {
+.select2-container-multi .select2-choice .select2-search-choice, .btn {
   border: 0;
   transition: all 0.2s ease-in-out; }
 
-a.btn,
-button.btn {
-  background-color: #f2f2f2;
-  color: #534f97; }
-  a.btn:focus,
-  button.btn:focus, a.btn:active,
-  button.btn:active, a.btn:hover,
-  button.btn:hover {
-    background-color: #ffffff;
-    color: #6d69b0; }
-
-a.btn.btn-primary,
-button.btn.btn-primary, .tags .tag-list li a, .select2-container .select2-choices .select2-search-choice,
+.tags .tag-list li a, .select2-container .select2-choices .select2-search-choice,
 .select2-container .select2-choice .select2-search-choice,
 .select2-container-multi .select2-choices .select2-search-choice,
 .select2-container-multi .select2-choice .select2-search-choice {
   background-color: #534f97;
   color: #ffffff; }
-  a.btn.btn-primary:focus,
-  button.btn.btn-primary:focus, .tags .tag-list li a:focus, .select2-container .select2-choices .select2-search-choice:focus,
+  .tags .tag-list li a:focus, .select2-container .select2-choices .select2-search-choice:focus,
   .select2-container .select2-choice .select2-search-choice:focus,
   .select2-container-multi .select2-choices .select2-search-choice:focus,
-  .select2-container-multi .select2-choice .select2-search-choice:focus, a.btn.btn-primary:active,
-  button.btn.btn-primary:active, .tags .tag-list li a:active, .select2-container .select2-choices .select2-search-choice:active,
+  .select2-container-multi .select2-choice .select2-search-choice:focus, .tags .tag-list li a:active, .select2-container .select2-choices .select2-search-choice:active,
   .select2-container .select2-choice .select2-search-choice:active,
   .select2-container-multi .select2-choices .select2-search-choice:active,
-  .select2-container-multi .select2-choice .select2-search-choice:active, a.btn.btn-primary:hover,
-  button.btn.btn-primary:hover, .tags .tag-list li a:hover, .select2-container .select2-choices .select2-search-choice:hover,
+  .select2-container-multi .select2-choice .select2-search-choice:active, .tags .tag-list li a:hover, .select2-container .select2-choices .select2-search-choice:hover,
   .select2-container .select2-choice .select2-search-choice:hover,
   .select2-container-multi .select2-choices .select2-search-choice:hover,
   .select2-container-multi .select2-choice .select2-search-choice:hover {
@@ -5901,12 +5884,10 @@ button.btn.btn-primary, .tags .tag-list li a, .select2-container .select2-choice
       padding-top: 40px;
       padding-bottom: 40px; } }
 
-a.btn,
-button.btn, a.btn.btn-primary,
-button.btn.btn-primary, .tags .tag-list li a, .select2-container .select2-choices .select2-search-choice,
+.tags .tag-list li a, .select2-container .select2-choices .select2-search-choice,
 .select2-container .select2-choice .select2-search-choice,
 .select2-container-multi .select2-choices .select2-search-choice,
-.select2-container-multi .select2-choice .select2-search-choice, .media-grid .media-item, .box-shadow {
+.select2-container-multi .select2-choice .select2-search-choice, .btn, .media-grid .media-item, .box-shadow {
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); }
 
@@ -5914,12 +5895,10 @@ button.btn.btn-primary, .tags .tag-list li a, .select2-container .select2-choice
   -webkit-box-shadow: 1px 1px 3px rgba(83, 79, 151, 0.6);
   box-shadow: 1px 1px 3px rgba(83, 79, 151, 0.6); }
 
-a.btn,
-button.btn, a.btn.btn-primary,
-button.btn.btn-primary, .tags .tag-list li a, .select2-container .select2-choices .select2-search-choice,
+.tags .tag-list li a, .select2-container .select2-choices .select2-search-choice,
 .select2-container .select2-choice .select2-search-choice,
 .select2-container-multi .select2-choices .select2-search-choice,
-.select2-container-multi .select2-choice .select2-search-choice, .media-grid .media-item {
+.select2-container-multi .select2-choice .select2-search-choice, .btn, .media-grid .media-item {
   border-radius: 2px; }
 
 .js .js-hide, .hide-heading {
@@ -6430,6 +6409,7 @@ hr {
             background: rgba(0, 0, 0, 0.6); }
       .horizaccordion .horizaccordion__container {
         max-width: 25%;
+        height: 100%;
         margin-top: 0; }
         .horizaccordion .horizaccordion__container:after {
           background: rgba(83, 79, 151, 0.6); }
@@ -6477,6 +6457,32 @@ hr {
     @media (min-width: 992px) {
       .horizaccordion__footer .btn {
         display: none; } }
+
+.btn-primary {
+  background-color: #534f97; }
+  .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+    background-color: #6d69b0; }
+
+.btn-secondary {
+  background-color: #a55efa;
+  color: #fff; }
+  .btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active {
+    background-color: #c18ffc;
+    color: #fff; }
+
+.btn-lg, .btn-group-lg > .btn {
+  padding-left: 20px;
+  padding-right: 20px; }
+
+.btn-wrapper--right {
+  text-align: center !important; }
+  @media (min-width: 992px) {
+    .btn-wrapper--right {
+      text-align: right !important; } }
+
+.btn--sovellukset {
+  position: relative;
+  z-index: 1; }
 
 .image-slider-wrapper {
   text-align: center;
@@ -6990,6 +6996,9 @@ label.checkbox {
   #content .social .nav .nav-item a {
     padding: 5px; }
 
+#content .page-highlight {
+  margin-bottom: 40px; }
+
 .nav-facet .nav-item {
   background: none; }
   .nav-facet .nav-item.active {
@@ -7356,6 +7365,8 @@ select {
   border-width: 0 0 1px 0;
   border-color: #dddddd;
   margin-bottom: 20px; }
+  .search-form-container-borderless {
+    border: none; }
   .search-form-container .search-form {
     padding-bottom: 40px;
     width: 100%; }
@@ -7487,6 +7498,141 @@ select {
   @media (min-width: 992px) {
     .toolbar {
       display: block; } }
+
+.statistics-page h1, .statistics-page h2, .statistics-page h3 {
+  text-align: center;
+  font-weight: normal; }
+
+.statistics-page h1 {
+  font-size: 40px; }
+
+.statistics-page h2 {
+  font-size: 40px; }
+
+.statistics-section {
+  min-height: 600px;
+  position: relative;
+  padding: 60px;
+  padding-bottom: 120px; }
+
+.statistics-section-content {
+  margin: auto;
+  padding: 0; }
+
+.statistics-footer {
+  padding: 30px;
+  text-align: center; }
+
+.statistics-footer a {
+  color: inherit;
+  font-size: 12px; }
+
+.front-section {
+  background-color: #ffffff;
+  color: #000;
+  min-height: 400px;
+  padding-top: 0px; }
+
+.front-section .statistics-section-content {
+  padding: 0px; }
+
+.statistics-section:nth-child(2) {
+  color: #ffffff;
+  background-color: #534f97; }
+
+.statistics-section:nth-child(3) {
+  color: #ffffff;
+  background-color: #413d76; }
+
+.statistics-section:nth-child(4) {
+  color: #000;
+  background-color: #ffffff; }
+
+.statistics-line {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 3px;
+  stroke-linejoin: 'round';
+  stroke-linecap: 'round'; }
+
+/*.datavis-scale-line {
+  stroke: #555;
+  stroke-dasharray: '2,2';
+}*/
+.statistics-axis line {
+  stroke: #ffffff; }
+
+.statistics-axis path {
+  stroke: #ffffff; }
+
+.statistics-axis text {
+  fill: #ffffff; }
+
+.bar rect {
+  fill: #97ba54; }
+
+.bar text {
+  fill: #ffffff;
+  font: 10px sans-serif; }
+
+.attention-numbers {
+  margin-top: 50px;
+  text-align: center; }
+
+.attention-numbers > * {
+  display: inline-block;
+  padding: 8px;
+  width: 25%; }
+
+.attention-numbers > * > *:first-child {
+  font-size: 70px; }
+
+.attention-numbers > * > *:last-child {
+  font-size: 14px; }
+
+.statistics-download-button {
+  display: block;
+  float: right; }
+
+.statistics-end-date {
+  float: right; }
+
+.statistics-page .statistics-input-date, .statistics-page select {
+  border: solid white 1px;
+  font-size: 14px;
+  height: 30px;
+  line-height: 30px;
+  background: none;
+  color: inherit;
+  margin-right: 15px; }
+
+.statistics-page .statistics-input-date {
+  text-align: center;
+  width: 100px; }
+
+.statistics-page select {
+  width: 450px;
+  background: #ffffff;
+  color: #534f97;
+  outline: 0px; }
+
+.statistics-page option {
+  padding: 5px;
+  border-bottom: solid #eee 1px; }
+
+.statistics-page button {
+  background-color: white;
+  color: #446eb5;
+  border: 0;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 12px; }
+
+.statistics-page button:hover {
+  background-color: #f8f8f8; }
+
+.choose-organization {
+  width: 500px; }
 
 .page-heading {
   font-size: 18px;
