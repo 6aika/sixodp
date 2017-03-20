@@ -1,6 +1,6 @@
 var Statistics = function () {
   var self = this
-  self.styles = Styles
+  self.styles = {}
   self.initStyles()
   self.updateFullWidthBackground()
 
@@ -77,7 +77,7 @@ Statistics.prototype.updateFullWidthBackground = function () {
 
   d3.select('#content').style('width', undefined)
   self.styles.contentWidth = d3.select('#content').style('width')
-  console.log('update contentwidth to', self.styles.contentWidth)
+  console.log('Update contentwidth to', self.styles.contentWidth)
 
   if (self.styles.contentWidth != previousContentWidth) {
     d3.selectAll('.statistics-section-content').style('width', self.styles.contentWidth)

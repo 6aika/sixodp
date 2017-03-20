@@ -62,7 +62,7 @@ TotalsTimeline.prototype.updateOrganizationSelector = function () {
 
   for (i in self.statistics.data.organizations) {
     self.inputs.organization.append('option')
-      .text(self.statistics.data.organizations[i].display_name)
+      .text(self.statistics.data.organizations[i].title)
       .attr('value', self.statistics.data.organizations[i].id)
   }
 }
@@ -136,7 +136,6 @@ TotalsTimeline.prototype.transformLineData = function () {
     resultFormatted.push(result[i])
   }
   self.data.line = resultFormatted
-  console.log('Transformed line data for totals timeline:', self.data.line)
 }
 
 
@@ -174,7 +173,6 @@ TotalsTimeline.prototype.transformHistogramData = function () {
         ) {
           value++
         }
-
       }
 
       self.data.histogram[id].push({
@@ -214,18 +212,18 @@ TotalsTimeline.prototype.transformHistogramData = function () {
       return moment.utc(date).add(1, 'years')
     }
   )
-
-  console.log('histogram bins', self.data.histogram)
 }
 
 
 TotalsTimeline.prototype.renderBase = function (title) {
   var self = this
 
+  self.element.classed('statistics-vis totals-timeline', true)
+
   // Add HTML elements
   self.title = self.element.append('h3')
     .text(title[self.statistics.config.locale])
-    .classed('statistics-vis-title')
+    .classed('statistics-vis-title', true)
 
   // Space needed on the page
   self.size.image.width = parseInt(self.statistics.styles.contentWidth)
@@ -323,7 +321,7 @@ TotalsTimeline.prototype.renderAxisX = function () {
     .rangeRound([0, self.size.data.width])
 
   self.visual.xAxisGenerator = d3.axisBottom(self.visual.xScale)
-  self.visual.xAxis = self.visual.extrasFrontLayer.append("g")
+  self.visual.xAxis = self.visual.extrasFrontLayer.append('g')
     .attr('transform', 'translate(0,' + self.size.data.height + ')')
     .attr('class', 'statistics-axis')
     .call(self.visual.xAxisGenerator)
@@ -660,7 +658,6 @@ TotalsTimeline.prototype.eventListeners = function () {
   if (self.settings.organizations) {
     self.inputs.organization.on('change', function () {
       var organization = self.inputs.organization.property('value')
-      console.log('Organization changed', organization)
       self.transformAllData()
       self.renderData()
       self.resizeAxis('y', [

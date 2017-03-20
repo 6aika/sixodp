@@ -11,3 +11,4 @@ node_modules
 transifexrc
 ckanext/ckanext-sixodp_theme/ckanext/sixodp_theme/fanstatic/sixodp_theme.css
 ckanext/ckan/
+ckanext/ckanext-sixodp_ui/ckanext/sixodp_ui/fanstatic/css/sixodp_theme.css
