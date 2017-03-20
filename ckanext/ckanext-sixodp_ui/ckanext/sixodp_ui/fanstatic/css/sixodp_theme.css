@@ -6660,7 +6660,7 @@ hr {
   padding: 0 0 15px 0; }
   .media-grid .media-item {
     width: 290px;
-    height: 380px;
+    height: 350px;
     padding: 0;
     position: relative;
     float: left;
@@ -6700,7 +6700,10 @@ hr {
       position: absolute;
       bottom: 458px; }
     .media-grid .media-item .item-content {
-      padding: 10px 10px; }
+      padding: 10px 10px;
+      text-align: left; }
+      .media-grid .media-item .item-content .empty {
+        text-align: center; }
       .media-grid .media-item .item-content .star-rating {
         position: absolute;
         bottom: 10px;

@@ -6,7 +6,7 @@
   .media-item {
     @extend %box;
     width: 290px;
-    height: 380px;
+    height: 350px;
     padding: 0;
     position: relative;
     float: left;
@@ -60,6 +60,11 @@
 
     .item-content {
       padding: $padding-large-vertical $padding-large-horizontal;
+      text-align: left;
+
+      .empty {
+        text-align: center;
+      }
 
       .star-rating {
         position: absolute;
