@@ -49,12 +49,16 @@
 }
 
 // Other sections
-.statistics-section:nth-child(2) {
+.statistics-section:nth-child(2), .statistics-section:nth-child(3) {
   color: $white;
+  h1, h2, .statistics-vis-title {
+    color: $white;
+  }
+}
+.statistics-section:nth-child(2) {
   background-color: $datavis-color-1;
 }
 .statistics-section:nth-child(3) {
-  color: $white;
   background-color: $datavis-color-1-dark;
 }
 .statistics-section:nth-child(4) {
