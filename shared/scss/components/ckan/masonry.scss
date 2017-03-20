@@ -1,0 +1,40 @@
+.media-grid {
+  .media-item {
+    height: 380px;
+    padding: 0;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 150px;
+    }
+
+    .media-heading {
+      text-align: center;
+    }
+
+    .media-subheading {
+      font-size: $font-size;
+      color: $brand-success;
+    }
+
+    .item-content {
+      padding: $padding-large-vertical $padding-large-horizontal;
+
+      .star-rating {
+        position: absolute;
+        bottom: $padding-large-vertical;
+        left: $padding-large-horizontal;
+        color: $brand-primary;
+      }
+
+      .rating-description {
+        position: absolute;
+        float: right;
+        bottom: $padding-large-vertical;
+        right: $padding-large-horizontal;
+        color: $text-muted;
+      }
+    }
+  }
+}

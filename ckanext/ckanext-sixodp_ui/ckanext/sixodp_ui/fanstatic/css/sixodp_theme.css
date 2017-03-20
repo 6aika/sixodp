@@ -7692,3 +7692,29 @@ h3, h4, h5, h6, .module-heading {
         width: auto;
         display: inline-block;
         overflow: hidden; } }
+
+.media-grid .media-item {
+  height: 380px;
+  padding: 0; }
+  .media-grid .media-item img {
+    object-fit: cover;
+    width: 100%;
+    height: 150px; }
+  .media-grid .media-item .media-heading {
+    text-align: center; }
+  .media-grid .media-item .media-subheading {
+    font-size: 14px;
+    color: #97ba54; }
+  .media-grid .media-item .item-content {
+    padding: 10px 10px; }
+    .media-grid .media-item .item-content .star-rating {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      color: #534f97; }
+    .media-grid .media-item .item-content .rating-description {
+      position: absolute;
+      float: right;
+      bottom: 10px;
+      right: 10px;
+      color: #a3a3a8; }
