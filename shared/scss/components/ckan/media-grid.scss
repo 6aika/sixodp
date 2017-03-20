@@ -5,8 +5,9 @@
 
   .media-item {
     @extend %box;
-    padding: 15px;
     width: 290px;
+    height: 380px;
+    padding: 0;
     position: relative;
     float: left;
     margin: 15px 0 0 15px;
@@ -16,12 +17,19 @@
     border-radius: 3px;
 
     img {
+      object-fit: cover;
       width: 100%;
-      height: auto;
+      height: 150px;
     }
 
     .media-heading {
+      text-align: center;
       font-size: $font-size-large;
+    }
+
+    .media-subheading {
+      font-size: $font-size;
+      color: $brand-success;
     }
 
     .media-view {
@@ -48,6 +56,25 @@
     .media-edit {
       position: absolute;
       bottom: 458px;
+    }
+
+    .item-content {
+      padding: $padding-large-vertical $padding-large-horizontal;
+
+      .star-rating {
+        position: absolute;
+        bottom: $padding-large-vertical;
+        left: $padding-large-horizontal;
+        color: $brand-primary;
+      }
+
+      .rating-description {
+        position: absolute;
+        float: right;
+        bottom: $padding-large-vertical;
+        right: $padding-large-horizontal;
+        color: $text-muted;
+      }
     }
   }
 }
