@@ -6411,6 +6411,29 @@ hr {
   position: relative;
   z-index: 1; }
 
+.wrapper--contentbox {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: cyan; }
+
+.wrapper--innter-contentbox {
+  border-top: 1px solid white;
+  border-bottom: 1px solid white; }
+
+.contentbox {
+  height: 360px;
+  text-align: center;
+  border-right: 1px solid white; }
+  .contentbox:nth-child(1) {
+    border-left: 1px solid white; }
+
+.contentbox__img-wrapper {
+  width: 50%;
+  margin: 20px auto; }
+  .contentbox__img-wrapper img {
+    width: 100%;
+    height: auto; }
+
 .stats {
   display: none;
   margin-top: 20px;

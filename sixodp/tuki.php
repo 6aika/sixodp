@@ -19,7 +19,8 @@ get_header(); ?>
 	<main id="main" class="site-main site-main--home" role="main">
 		<?php
 
-      echo "<h1>Tukisivu</h1>";
+			echo '<h1 style="text-align: center;">Tuki</h1>';
+			get_template_part( 'partials/tuki-contentbox' );
 
 		?>
 

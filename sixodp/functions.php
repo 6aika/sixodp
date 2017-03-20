@@ -116,6 +116,12 @@ function register_notifications() {
 }
 add_action( 'init', 'register_notifications' );
 
+
+function add_custom_fields_support_for_pages() {
+	add_post_type_support( 'page', 'custom-fields' );
+}
+add_action( 'init', 'add_custom_fields_support_for_pages' );
+
 function create_primary_menus() {
   create_menu_i18n('primary_fi', PRIMARY_MENU_ITEMS_FI, 'primary');
   create_menu_i18n('primary_en', PRIMARY_MENU_ITEMS_EN, 'primary');
@@ -185,13 +191,6 @@ function sixodp_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'sixodp_scripts' );
 
-
-function get_menu_items($page_name) {
-  $menuLocations = get_nav_menu_locations();
-  $menuID = $menuLocations["primary"];
-  return wp_get_nav_menu_items($menuID);
-}
-
 function get_nav_menu_items($menu) {
   return wp_get_menu_array($menu . '_' . get_current_locale());
 }
@@ -225,6 +224,15 @@ function wp_get_menu_array($current_menu) {
 
 function is_active_menu_item($menu_item) {
   return ('https://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']) === $menu_item["url"];
+}
+
+function get_tuki_links() {
+  // Set up the objects needed
+  $my_wp_query = new WP_Query();
+  $all_wp_pages = $my_wp_query->query(array('post_type' => 'page', 'posts_per_page' => '-1'));
+
+  $tuki_page          = get_page_by_title('Tuki');
+  return get_page_children( $tuki_page->ID, $all_wp_pages );
 }
 
 function get_current_locale() {
