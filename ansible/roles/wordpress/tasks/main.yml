@@ -137,3 +137,22 @@
   command: wp plugin activate wp-api-menus --path=/opt/wordpress
   become: yes
   become_user: www-data
+
+- name: Create symbolic link to contact-widgets plugin
+  file:
+    src: /vagrant/wordpress/contact-widgets
+    dest: /opt/wordpress/wp-content/plugins/contact-widgets
+    state: link
+  when: deployment_environment_id == "vagrant"
+
+- name: Synchronize contact-widgets plugin
+  synchronize:
+    src: ../wordpress/contact-widgets/
+    dest: /opt/wordpress/wp-content/plugins/contact-widgets/
+    delete: true
+  when: deployment_environment_id != "vagrant"
+
+- name: Activate contact-widgets plugin
+  command: wp plugin activate contact-widgets --path=/opt/wordpress
+  become: yes
+  become_user: www-data

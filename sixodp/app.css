@@ -6013,12 +6013,6 @@ a {
   .site-footer a {
     color: currentColor; }
 
-.footer-follow-links {
-  padding: 20px 0; }
-
-.footer-follow-title {
-  margin-right: 10px; }
-
 .footer-follow-link:hover {
   text-decoration: none; }
 
@@ -6033,14 +6027,47 @@ hr {
     height: 100%; }
 
 .footer-logo-wrapper {
-  width: 25%;
+  width: 75%;
   margin: auto; }
   @media (min-width: 1248px) {
     .footer-logo-wrapper {
-      width: 100%; } }
+      width: 100%;
+      margin-bottom: 75px; } }
 
 .footer-logo {
   width: 100%; }
+
+.footer-follow-links {
+  padding: 0  0 20px 0;
+  margin-bottom: 35px;
+  text-align: right; }
+  .footer-follow-links h4 {
+    margin-right: 10px;
+    display: inline;
+    font-size: 14px;
+    margin-top: 0px; }
+  .footer-follow-links .post-edit-link {
+    display: none; }
+  .footer-follow-links ul {
+    list-style: none;
+    display: inline-block;
+    padding-left: 10px; }
+    .footer-follow-links ul li {
+      margin-right: 10px;
+      font-size: 12px; }
+      .footer-follow-links ul li {
+        float: none;
+        display: inline-block;
+        margin-right: 10px;
+        font-size: 7px;
+        background: #fff;
+        width: 24px;
+        height: 24px;
+        padding: 5px;
+        border-radius: 50%; }
+        .footer-follow-links ul li a {
+          color: #534f97; }
+
 
 .footer-links {
   text-align: center;

@@ -76,15 +76,36 @@ if ( !function_exists('sixodp_theme_setup') ) :
     create_primary_menus();
     create_default_pages();
     create_secondary_menus();
-    
+    create_footer_menus();
+
   }
 endif; // twentysixteen_setup
 add_action( 'after_setup_theme', 'sixodp_theme_setup' );
 
+function footer_widgets_init() {
+	register_sidebar( array(
+		'name'          => 'Footer widget sidebar',
+		'id'            => 'footer_widgets',
+		'before_widget' => '',
+		'after_widget'  => '',
+		'before_title'  => '<h4 class="rounded">',
+		'after_title'   => '</h4>',
+	) );
+    register_sidebar( array(
+		'name'          => 'Footer content sidebar',
+		'id'            => 'footer_content',
+		'before_widget' => '<div class="footer-content-widget">',
+		'after_widget'  => '</div>',
+		'before_title'  => '',
+		'after_title'   => '',
+	) );
+}
+add_action( 'widgets_init', 'footer_widgets_init' );
+
 function register_notifications() {
- 
+
    //labels array added inside the function and precedes args array
- 
+
    $labels = array(
     'name'               => _x( 'Notifications', 'post type general name' ),
     'singular_name'      => _x( 'Notification', 'post type singular name' ),
@@ -100,9 +121,9 @@ function register_notifications() {
     'parent_item_colon'  => '',
     'menu_name'          => 'Notifications'
   );
- 
+
          // args array
- 
+
    $args = array(
     'labels'        => $labels,
     'description'   => 'Notifications',
@@ -111,7 +132,7 @@ function register_notifications() {
     'has_archive'   => false,
     'show_in_rest'  => true
   );
- 
+
   register_post_type( 'notification', $args );
 }
 add_action( 'init', 'register_notifications' );
@@ -126,6 +147,12 @@ function create_secondary_menus() {
   create_menu_i18n('secondary_fi', SECONDARY_MENU_ITEMS_FI, 'secondary');
   create_menu_i18n('secondary_en', SECONDARY_MENU_ITEMS_EN, 'secondary');
   create_menu_i18n('secondary_sv', SECONDARY_MENU_ITEMS_SV, 'secondary');
+}
+
+function create_footer_menus() {
+  create_menu_i18n('footer_fi', FOOTER_MENU_ITEMS_FI, 'footer_menu');
+  create_menu_i18n('footer_en', FOOTER_MENU_ITEMS_EN, 'footer_menu');
+  create_menu_i18n('footer_sv', FOOTER_MENU_ITEMS_SV, 'footer_menu');
 }
 
 function create_menu_i18n($menu_name, $itemsArr, $location) {
@@ -197,7 +224,7 @@ function get_nav_menu_items($menu) {
 }
 
 function wp_get_menu_array($current_menu) {
- 
+
     $array_menu = wp_get_nav_menu_items($current_menu);
     $menu = array();
     foreach ($array_menu as $m) {
@@ -220,7 +247,7 @@ function wp_get_menu_array($current_menu) {
         }
     }
     return $menu;
-     
+
 }
 
 function is_active_menu_item($menu_item) {
@@ -274,7 +301,7 @@ function get_ckan_categories() {
 }
 
 /*
-* Returns package rating 
+* Returns package rating
 *
 * Example data below
 *
@@ -300,7 +327,7 @@ function get_stars($package_id) {
   $package_rating = get_ckan_package_rating($package_id);
   $count = $package_rating['ratings_count'];
   $rating = $package_rating['rating'];
-  
+
   /*$i = 5;
   while ( $i < 0 ) {
     array_push($i);
