@@ -1,8 +1,9 @@
 var Statistics = function () {
   var self = this
-  self.styles = {}
+  self.styles = {
+    contentWidth: d3.select('.statistics-section-content:first-child').style('width')
+  }
   self.initStyles()
-  self.updateFullWidthBackground()
 
   self.data = {}
 
@@ -32,14 +33,13 @@ var Statistics = function () {
     self.appSection.update(true)
   })
 
-
+  // Resize elements on window resize
   window.onresize = function () {
-    var contentWidthChanged = self.updateFullWidthBackground()
-    if (contentWidthChanged) {
-      self.frontSection.onContentResize()
-      self.datasetSection.onContentResize()
-      self.appSection.onContentResize()
-    }
+    self.styles.contentWidth = d3.select('.statistics-section-content:first-child').style('width')
+    console.log('Window resized to', self.styles.contentWidth)
+    self.frontSection.onContentResize()
+    self.datasetSection.onContentResize()
+    self.appSection.onContentResize()
   }
 }
 
@@ -71,30 +71,9 @@ Statistics.prototype.transformData = function () {
 }
 
 
-Statistics.prototype.updateFullWidthBackground = function () {
-  var self = this
-  var previousContentWidth = self.styles.contentWidth
-
-  d3.select('#content').style('width', undefined)
-  self.styles.contentWidth = d3.select('#content').style('width')
-  console.log('Update contentwidth to', self.styles.contentWidth)
-
-  if (self.styles.contentWidth != previousContentWidth) {
-    d3.selectAll('.statistics-section-content').style('width', self.styles.contentWidth)
-  }
-
-  d3.select('#content')
-    .style('margin', 0)
-    .style('padding', 0)
-    .style('width', 'auto')
-
-  return self.styles.contentWidth != previousContentWidth
-}
-
-
 Statistics.prototype.initStyles = function () {
   var self = this
-  d3.select('#js-bootstrap-offcanvas')
+  d3.select('#js-bootstrap-offcanvas, .container')
     .style('display', 'none')
 }
 
