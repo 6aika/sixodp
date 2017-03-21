@@ -1,13 +1,13 @@
-var AppSection = function (dashboard) {
+var AppSection = function (statistics) {
   var self = this
-  self.dashboard = dashboard
+  self.statistics = statistics
 
   self.element = d3.select('.js-app-section')
 
   self.totalsTimeline = new TotalsTimeline(
-    self.dashboard,
+    self.statistics,
     self.element.select('.js-app-totals-timeline'),
-    self.dashboard.translations.appsPublishedTitle,
+    self.statistics.translations.appsPublishedTitle,
     {
       nameField: 'name',
       dateField: 'metadata_created',
@@ -23,7 +23,7 @@ var AppSection = function (dashboard) {
 
 AppSection.prototype.update = function (firstDataLoad = false) {
   var self = this
-  self.totalsTimeline.updateAll(self.dashboard.data.apps, firstDataLoad)
+  self.totalsTimeline.updateAll(self.statistics.data.apps, firstDataLoad)
 }
 
 AppSection.prototype.onContentResize = function () {
