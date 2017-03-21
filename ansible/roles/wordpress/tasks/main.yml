@@ -64,7 +64,7 @@
         --admin_password={{ secret.wordpress_admin_password }}
         --admin_email={{ wordpress_admin_email }}
 
-  name: Install and activate plugins
+  - name: Install and activate plugins
     command: >
       wp plugin install
         --path=/opt/wordpress

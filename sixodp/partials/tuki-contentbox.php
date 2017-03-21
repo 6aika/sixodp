@@ -8,7 +8,7 @@
   <div class="wrapper--innter-contentbox">
     <div class="container">
       <div class="row"><?php
-        foreach ( get_tuki_links() as $tuki_page ) : var_dump($tuki_page); ?>
+        foreach ( get_tuki_links() as $tuki_page ) : ?>
           <div class="contentbox col-md-4">
             <h3 class="title">
               <a href="<?php echo $tuki_page->post_name; ?>">
