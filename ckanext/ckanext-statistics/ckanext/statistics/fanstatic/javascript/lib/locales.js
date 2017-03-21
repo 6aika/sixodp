@@ -24,6 +24,11 @@ Translations = {
     sv: '',
     en: '',
   },
+  topPublishersTitle: {
+    fi: 'Julkaisijat', // 'Eniten julkaisseet',
+    sv: '',
+    en: 'Publishers',
+  },
 
   // Apps section
   appsPublishedTitle: {

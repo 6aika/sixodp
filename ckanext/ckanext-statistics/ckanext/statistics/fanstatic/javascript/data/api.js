@@ -9,12 +9,16 @@ Api.prototype.getAllData = function (callback) {
   // Get all data from APIs, one after another
   self.get('datasets', 'current_package_list_with_resources?limit=1000', function () {
 
-    self.get('organizations', 'organization_list?all_fields=true&include_extras=true', function () {
+    self.get('organizations',
+    // 'organization_list?all_fields=true&include_extras=true',
+    'group_tree',
+    function () {
 
       self.get('apps', 'ckanext_showcase_list', callback)
     })
   })
 }
+
 
 // url = api + 'package_search?rows=20'
 Api.prototype.get = function (dataId, endPoint, callback) {
@@ -28,7 +32,7 @@ Api.prototype.get = function (dataId, endPoint, callback) {
       self.dashboard.data[dataId] = []
       throw error
     } else {
-      console.log('Dashboard api.get', dataId, 'url:', url, 'response:', response)
+      // console.log('Dashboard api.get', dataId, 'url:', url, 'response:', response)
       self.dashboard.data[dataId] = response.result
     }
     callback()

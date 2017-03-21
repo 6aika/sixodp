@@ -81,6 +81,48 @@ if ( !function_exists('sixodp_theme_setup') ) :
 endif; // twentysixteen_setup
 add_action( 'after_setup_theme', 'sixodp_theme_setup' );
 
+
+if(function_exists("register_field_group"))
+{
+  register_field_group(array (
+    'id' => 'acf_page-fields',
+    'title' => 'Page fields',
+    'fields' => array (
+      array (
+        'key' => 'field_58d0f3bd42153',
+        'label' => 'Page description',
+        'name' => 'page_description',
+        'type' => 'text',
+        'default_value' => '',
+        'placeholder' => '',
+        'prepend' => '',
+        'append' => '',
+        'formatting' => 'html',
+        'maxlength' => '',
+      ),
+    ),
+    'location' => array (
+      array (
+        array (
+          'param' => 'post_type',
+          'operator' => '==',
+          'value' => 'page',
+          'order_no' => 0,
+          'group_no' => 0,
+        ),
+      ),
+    ),
+    'options' => array (
+      'position' => 'normal',
+      'layout' => 'no_box',
+      'hide_on_screen' => array (
+      ),
+    ),
+    'menu_order' => 0,
+  ));
+}
+
+
 function register_notifications() {
  
    //labels array added inside the function and precedes args array
