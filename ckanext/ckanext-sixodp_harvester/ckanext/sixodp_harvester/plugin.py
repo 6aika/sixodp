@@ -14,15 +14,16 @@ class Sixodp_HarvesterPlugin(plugins.SingletonPlugin):
     def get_package_dict(self, context, data_dict):
 
         package_dict = data_dict['package_dict']
-        package_dict.pop('tags')
 
+        tag_list = [tag['name'] for tag in package_dict['tags']]
         package_dict['date_released'] = "2017-03-20"
         package_dict['date_updated'] = "2017-03-20"
         package_dict['license_id'] = "CC-BY-4.0"
         package_dict['geographical_coverage'] = "tampere"
-        package_dict['keywords'] = {"fi": ["moi"] }
+        package_dict['keywords'] = {"fi": tag_list }
 
-        log.debug(package_dict)
+        package_dict.pop('tags')
+
 
         return package_dict
 
