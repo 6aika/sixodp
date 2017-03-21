@@ -33,3 +33,9 @@ a {
   @include heading();
   font-size: 3rem;
 }
+
+.heading--tuki {
+  @include heading();
+  font-size: 3.5rem;
+  text-align: center;
+}

@@ -5878,6 +5878,14 @@ a {
   color: #534f97;
   font-size: 3rem; }
 
+.heading--tuki {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Roboto Slab", sans-serif;
+  color: #534f97;
+  font-size: 3.5rem;
+  text-align: center; }
+
 .wrapper, .wrapper--showcase {
   padding: 40px 0; }
 
@@ -6414,18 +6422,36 @@ hr {
 .wrapper--contentbox {
   padding-top: 20px;
   padding-bottom: 20px;
-  background: cyan; }
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover; }
+  .wrapper--contentbox:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(83, 79, 151, 0.8); }
 
-.wrapper--innter-contentbox {
+.wrapper--inner-contentbox {
   border-top: 1px solid white;
-  border-bottom: 1px solid white; }
+  border-bottom: 1px solid white;
+  position: relative;
+  z-index: 1; }
 
 .contentbox {
   height: 360px;
   text-align: center;
-  border-right: 1px solid white; }
+  border-right: 1px solid white;
+  color: #fff; }
   .contentbox:nth-child(1) {
     border-left: 1px solid white; }
+
+.contentbox__link {
+  color: #fff; }
 
 .contentbox__img-wrapper {
   width: 50%;
@@ -6433,6 +6459,9 @@ hr {
   .contentbox__img-wrapper img {
     width: 100%;
     height: auto; }
+
+.contentbox__body {
+  color: #fff; }
 
 .stats {
   display: none;

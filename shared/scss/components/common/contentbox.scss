@@ -1,22 +1,43 @@
 .wrapper--contentbox {
   padding-top: $base*2;
   padding-bottom: $base*2;
-  background: cyan;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    background: rgba($brand-primary,0.8);
+  }
 }
 
-.wrapper--innter-contentbox {
+.wrapper--inner-contentbox {
   border-top: 1px solid white;
   border-bottom: 1px solid white;
+  position: relative;
+  z-index: 1;
 }
 
 .contentbox {
   height: 360px;
   text-align: center;
   border-right: 1px solid white;
+  color: #fff;
 
   &:nth-child(1) {
     border-left: 1px solid white;
   }
+}
+
+.contentbox__link {
+  color: #fff;
 }
 
 .contentbox__img-wrapper {
@@ -27,4 +48,8 @@
     width: 100%;
     height: auto;
   }
+}
+
+.contentbox__body {
+  color: #fff;
 }
