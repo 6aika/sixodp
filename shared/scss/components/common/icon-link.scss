@@ -1,0 +1,44 @@
+.icon-link {
+  display: flex;
+  align-items: baseline;
+
+  p {
+    margin-left: $base;
+    margin-right: $base;
+  }
+}
+
+.icon-link__text {
+  width: 90%;
+}
+
+.icon-link__icon {
+  width: 10%;
+}
+
+.icon-link__link {
+  background: $brand-secondary;
+  color: #fff;
+}
+
+.icon-link__link--round {
+  @extend .icon-link__link;
+  display: inline-block;
+  height: $base*3.2;
+  width: $base*3.2;
+  border-radius: 100%;
+  text-align: center;
+
+  i {
+    line-height: $base*3.2;
+    margin-right: 0;
+  }
+
+  &:hover {
+    background: $brand-primary;
+
+    i {
+      color: #fff;
+    }
+  }
+}

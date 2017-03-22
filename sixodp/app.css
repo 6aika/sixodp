@@ -5884,7 +5884,8 @@ a {
   font-family: "Roboto Slab", sans-serif;
   color: #534f97;
   font-size: 3.5rem;
-  text-align: center; }
+  text-align: center;
+  font-weight: 700; }
 
 .wrapper, .wrapper--showcase {
   padding: 40px 0; }
@@ -6420,6 +6421,7 @@ hr {
   z-index: 1; }
 
 .wrapper--contentbox {
+  margin-top: 40px;
   padding-top: 20px;
   padding-bottom: 20px;
   position: relative;
@@ -6462,6 +6464,37 @@ hr {
 
 .contentbox__body {
   color: #fff; }
+
+.icon-link {
+  display: flex;
+  align-items: baseline; }
+  .icon-link p {
+    margin-left: 10px;
+    margin-right: 10px; }
+
+.icon-link__text {
+  width: 90%; }
+
+.icon-link__icon {
+  width: 10%; }
+
+.icon-link__link, .icon-link__link--round {
+  background: #a55efa;
+  color: #fff; }
+
+.icon-link__link--round {
+  display: inline-block;
+  height: 32px;
+  width: 32px;
+  border-radius: 100%;
+  text-align: center; }
+  .icon-link__link--round i {
+    line-height: 32px;
+    margin-right: 0; }
+  .icon-link__link--round:hover {
+    background: #534f97; }
+    .icon-link__link--round:hover i {
+      color: #fff; }
 
 .stats {
   display: none;
@@ -6660,3 +6693,10 @@ hr {
 .roadmap-accordion {
   max-width: 600px;
   margin: 60px auto; }
+
+.wrapper--themelinks {
+  background: #eee;
+  padding: 40px 0 60px; }
+
+.themelink {
+  padding: 20px 0 0; }

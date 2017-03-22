@@ -21,12 +21,16 @@
             <div class="contentbox__img-wrapper">
               <img src="<?php echo $thumb[0]; ?>" alt="thumb">
             </div>
-            <div class="contentbox__body">
-              <p class="contentbox__desc" style="float:left;width:90%;font-size: 18px;">
-                <a class="contentbox__link" href="<?php echo $tuki_page->post_name; ?>"><?php echo get_field("page_description", $tuki_page->ID); ?></a>
+            <div class="contentbox__body icon-link">
+              <p class="icon-link__text">
+                <a class="contentbox__link" href="<?php echo $tuki_page->post_name; ?>">
+                  <?php echo get_field("page_description", $tuki_page->ID); ?>
+                </a>
               </p>
-              <p style="float:right;width:10%;">
-                <a class="contentbox__link" href="<?php echo $tuki_page->post_name; ?>">-></a>
+              <p class="icon-link__icon">
+                <a class="icon-link__link--round" href="<?php echo $tuki_page->post_name; ?>">
+                  <i class="material-icons">arrow_forward</i>
+                </a>
               </p>
               <span class="clearfix"></span>
             </div>    
