@@ -22,13 +22,13 @@
           foreach ( get_nav_menu_items("primary") as $navItem ) {
             if ( count($navItem["children"]) > 0 ) {
               $class = '';
-              if ( is_active_menu_item($navItem) ) {
+              if ( $navItem["isActive"] ) {
                 $class = 'active';
               }
               echo '<li class="'.$class.'"><a href="'.$navItem["url"].'" title="'.$navItem["title"].'">'.$navItem["title"].'</a><ul class="nav navbar-nav subnav">';
               foreach ($navItem["children"] as $sub_nav_item) {
                 $class = '';
-                if ( is_active_menu_item($navItem) ) {
+                if ( $sub_nav_item["isActive"] ) {
                   $class = 'active';
                 }
                 echo '<li class="'.$class.'"><a href="'.$sub_nav_item["url"].'" title="'.$sub_nav_item["title"].'">'.$sub_nav_item["title"].'</a></li>';
@@ -36,7 +36,7 @@
               echo '</ul></li>';
             } else {
               $class = '';
-              if ( is_active_menu_item($navItem) ) {
+              if ( $navItem["isActive"] ) {
                 $class = 'active';
               }
               echo '<li class="'.$class.'"><a href="'.$navItem["url"].'" title="'.$navItem["title"].'">'.$navItem["title"].'</a></li>';
@@ -48,10 +48,10 @@
         <?php
           foreach ( get_nav_menu_items("secondary") as $navItem ) {
             $class = '';
-            if ( $navItem->title === get_current_locale() ) {
+            if ( $navItem["title"] === get_current_locale() ) {
               $class = 'active';
             }
-            echo '<li class="'.$class.'"><a href="'.$navItem->url.'" title="'.$navItem->title.'" class="nav-link">'.$navItem->title.'</a></li>';
+            echo '<li class="'.$class.'"><a href="'.$navItem["url"].'" title="'.$navItem["title"].'" class="nav-link">'.$navItem["title"].'</a></li>';
           }
         ?>
       </ul>

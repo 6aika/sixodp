@@ -1,0 +1,36 @@
+{% set truncate = truncate or 180 %}
+
+<div class="wrapper--horizaccordion">
+  <div class="container">
+    <div class="row">
+      <div class="horizaccordion">
+        {% for item in items%}
+          {% if loop.index0 < 4 %}
+            <div class="horizaccordion__container">
+              <div class="horizaccordion__item" style="background-image: url({{item[image]}});">
+                <h4 class="horizaccordion__title">
+                  <a class="horizaccordion__link" href="">
+                    {{ h.get_translated(item, 'title') }}
+                  </a>
+                </h4>
+                {% if item.description_translated %}
+                  <div class="horizaccordion__text">
+                    <div class="notes embedded-content">
+                      {{ h.get_translated(item, 'description') | truncate }}
+                    </div>
+                  </div>
+                {% endif %}
+                <div class="horizaccordion__footer">
+                  <a type="button" class="btn btn-secondary"
+                    href="{{ h.url_for(controller=controller, action='read', id=item.id) }}">
+                    {{ _('Read more') }}
+                  </a>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>

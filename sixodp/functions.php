@@ -81,6 +81,48 @@ if ( !function_exists('sixodp_theme_setup') ) :
 endif; // twentysixteen_setup
 add_action( 'after_setup_theme', 'sixodp_theme_setup' );
 
+
+if(function_exists("register_field_group"))
+{
+  register_field_group(array (
+    'id' => 'acf_page-fields',
+    'title' => 'Page fields',
+    'fields' => array (
+      array (
+        'key' => 'field_58d0f3bd42153',
+        'label' => 'Page description',
+        'name' => 'page_description',
+        'type' => 'text',
+        'default_value' => '',
+        'placeholder' => '',
+        'prepend' => '',
+        'append' => '',
+        'formatting' => 'html',
+        'maxlength' => '',
+      ),
+    ),
+    'location' => array (
+      array (
+        array (
+          'param' => 'post_type',
+          'operator' => '==',
+          'value' => 'page',
+          'order_no' => 0,
+          'group_no' => 0,
+        ),
+      ),
+    ),
+    'options' => array (
+      'position' => 'normal',
+      'layout' => 'no_box',
+      'hide_on_screen' => array (
+      ),
+    ),
+    'menu_order' => 0,
+  ));
+}
+
+
 function register_notifications() {
  
    //labels array added inside the function and precedes args array
@@ -207,6 +249,11 @@ function wp_get_menu_array($current_menu) {
             $menu[$m->ID]['title']       =   $m->title;
             $menu[$m->ID]['url']         =   $m->url;
             $menu[$m->ID]['children']    =   array();
+            if (is_active_menu_item($m)) {
+              $menu[$m->ID]['isActive'] = true;
+            } else {
+              $menu[$m->ID]['isActive'] = false;
+            }
         }
     }
     $submenu = array();
@@ -217,6 +264,13 @@ function wp_get_menu_array($current_menu) {
             $submenu[$m->ID]['title']    =   $m->title;
             $submenu[$m->ID]['url']  =   $m->url;
             $menu[$m->menu_item_parent]['children'][$m->ID] = $submenu[$m->ID];
+            if (is_active_menu_item($m)) {
+              $submenu[$m->ID]['isActive']            = true;
+              $menu[$m->menu_item_parent]['children'][$m->ID]["isActive"] = true;
+              $menu[$m->menu_item_parent]['isActive'] = true;
+            } else {
+              $submenu[$m->ID]['isActive']            = false;
+            }
         }
     }
     return $menu;
@@ -224,7 +278,9 @@ function wp_get_menu_array($current_menu) {
 }
 
 function is_active_menu_item($menu_item) {
-  return ('https://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']) === $menu_item["url"];
+  $req_url = 'https://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+  $menu_url = $menu_item->url;
+  return ( $req_url == $menu_url.'/' || $req_url == $menu_url );
 }
 
 function get_current_locale() {
