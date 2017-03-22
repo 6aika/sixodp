@@ -5895,13 +5895,6 @@ a {
   font-size: 2.5rem;
   font-weight: 700; }
 
-.heading--contentbox {
-  font-size: 18px;
-  font-weight: 500;
-  font-family: "Roboto Slab", sans-serif;
-  color: #534f97;
-  font-size: 2.5rem; }
-
 .wrapper, .wrapper--showcase {
   padding: 40px 0; }
 
@@ -6475,23 +6468,32 @@ hr {
   border-bottom: 1px solid white;
   position: relative;
   z-index: 1; }
+  @media (min-width: 992px) {
+    .wrapper--inner-contentbox .row {
+      display: flex; } }
 
 .contentbox {
   max-width: 400px;
   margin: 0 auto;
-  height: 360px;
   text-align: center;
   border-right: 1px solid white;
   border-left: 1px solid white;
   border-top: 1px solid white;
-  color: #fff; }
+  color: #fff;
+  padding-top: 20px;
+  padding-bottom: 20px; }
   .contentbox:nth-child(1) {
     border-top: 0; }
+  .contentbox h1 {
+    margin-top: 0; }
   @media (min-width: 992px) {
     .contentbox {
       max-width: none;
+      margin: 0;
       border-left: 0;
-      border-top: 0; }
+      border-top: 0;
+      padding-top: 20px;
+      padding-bottom: 40px; }
       .contentbox:nth-child(1) {
         border-left: 1px solid white; } }
 

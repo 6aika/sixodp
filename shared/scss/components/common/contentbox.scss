@@ -24,27 +24,41 @@
   border-bottom: 1px solid white;
   position: relative;
   z-index: 1;
+
+  @media(min-width: $width-md) {
+
+    .row {
+      display: flex;
+    }
+  }
 }
 
 .contentbox {
   max-width: $base*40;
   margin: 0 auto;
-
-  height: $base*36;
   text-align: center;
   border-right: 1px solid white;
   border-left: 1px solid white;
   border-top: 1px solid white;
   color: #fff;
+  padding-top: $base*2;
+  padding-bottom: $base*2;
 
   &:nth-child(1) {
     border-top: 0;
   }
 
+  h1 {
+    margin-top: 0;
+  }
+
   @media (min-width: $width-md) {
     max-width: none;
+    margin: 0;
     border-left: 0;
     border-top: 0;
+    padding-top: $base*2;
+    padding-bottom: $base*4;
 
     &:nth-child(1) {
       border-left: 1px solid white;
