@@ -12,7 +12,7 @@
       <div class="row"><?php
         foreach ( get_tuki_links() as $tuki_page ) : ?>
           <div class="contentbox col-md-4">
-            <h1 class="heading">
+            <h1 class="heading--contentbox">
               <a class="contentbox__link" href="<?php echo $tuki_page->post_name; ?>">
                 <?php echo $tuki_page->post_title; ?>
               </a>

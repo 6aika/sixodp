@@ -37,11 +37,6 @@
   border-top: 1px solid white;
   color: #fff;
 
-  .heading {
-    margin-top: 0;
-    padding-top: $base*2;
-  }
-
   &:nth-child(1) {
     border-top: 0;
   }
@@ -57,8 +52,18 @@
   }
 }
 
+.heading--contentbox {
+  margin-top: 0;
+  padding-top: $base*2;
+}
+
 .contentbox__link {
   color: #fff;
+
+  &:hover {
+    color: #eee;
+    text-decoration: underline;
+  }
 }
 
 .contentbox__img-wrapper {

@@ -40,3 +40,14 @@ a {
   text-align: center;
   font-weight: 700;
 }
+
+.heading--themes {
+  @include heading();
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.heading--contentbox {
+  @include heading();
+  font-size: 2.5rem;
+}
