@@ -22,6 +22,7 @@ get_header(); ?>
 			echo '<h1 class="heading--tuki">Tuki</h1>';
 			get_template_part( 'partials/tuki-contentbox' );
       get_template_part( 'partials/tuki-themes' );
+      get_template_part( 'partials/tuki-contactbanner' );
 
 		?>
 

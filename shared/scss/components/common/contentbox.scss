@@ -27,13 +27,33 @@
 }
 
 .contentbox {
+  max-width: $base*40;
+  margin: 0 auto;
+
   height: $base*36;
   text-align: center;
   border-right: 1px solid white;
+  border-left: 1px solid white;
+  border-top: 1px solid white;
   color: #fff;
 
+  .heading {
+    margin-top: 0;
+    padding-top: $base*2;
+  }
+
   &:nth-child(1) {
-    border-left: 1px solid white;
+    border-top: 0;
+  }
+
+  @media (min-width: $width-md) {
+    max-width: none;
+    border-left: 0;
+    border-top: 0;
+
+    &:nth-child(1) {
+      border-left: 1px solid white;
+    }
   }
 }
 
@@ -43,6 +63,7 @@
 
 .contentbox__img-wrapper {
   width: 50%;
+  max-width: $base*20;
   margin: $base*2 auto;
 
   img {

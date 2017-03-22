@@ -6416,6 +6416,23 @@ hr {
     .btn-wrapper--right {
       text-align: right !important; } }
 
+.btn-transparent {
+  background: transparent;
+  border: 1px solid white; }
+  .btn-transparent:hover, .btn-transparent:focus, .btn-transparent:active {
+    background: transparent;
+    color: #eee;
+    border-color: #eee; }
+
+.btn-transparent--inverse {
+  background: transparent;
+  border: 1px solid #534f97;
+  color: #534f97; }
+  .btn-transparent--inverse:hover, .btn-transparent--inverse:focus, .btn-transparent--inverse:active {
+    background: transparent;
+    color: #6d69b0;
+    border-color: #6d69b0; }
+
 .btn--sovellukset {
   position: relative;
   z-index: 1; }
@@ -6445,18 +6462,33 @@ hr {
   z-index: 1; }
 
 .contentbox {
+  max-width: 400px;
+  margin: 0 auto;
   height: 360px;
   text-align: center;
   border-right: 1px solid white;
+  border-left: 1px solid white;
+  border-top: 1px solid white;
   color: #fff; }
+  .contentbox .heading {
+    margin-top: 0;
+    padding-top: 20px; }
   .contentbox:nth-child(1) {
-    border-left: 1px solid white; }
+    border-top: 0; }
+  @media (min-width: 992px) {
+    .contentbox {
+      max-width: none;
+      border-left: 0;
+      border-top: 0; }
+      .contentbox:nth-child(1) {
+        border-left: 1px solid white; } }
 
 .contentbox__link {
   color: #fff; }
 
 .contentbox__img-wrapper {
   width: 50%;
+  max-width: 200px;
   margin: 20px auto; }
   .contentbox__img-wrapper img {
     width: 100%;
@@ -6495,6 +6527,38 @@ hr {
     background: #534f97; }
     .icon-link__link--round:hover i {
       color: #fff; }
+
+.contactbanner {
+  background: #a55efa;
+  margin: 20px auto;
+  padding-bottom: 20px;
+  color: #fff;
+  position: relative; }
+
+.contactbanner .contactbanner__icon--chat {
+  display: none;
+  font-size: 40px;
+  position: absolute;
+  top: 20px;
+  left: 20px; }
+  @media (min-width: 480px) {
+    .contactbanner .contactbanner__icon--chat {
+      display: inline-block; } }
+  @media (min-width: 992px) {
+    .contactbanner .contactbanner__icon--chat {
+      left: 40px; } }
+  @media (min-width: 1248px) {
+    .contactbanner .contactbanner__icon--chat {
+      font-size: 60px; } }
+
+.contactbanner .heading,
+.contactbanner div {
+  text-align: center;
+  color: #fff; }
+
+.contactbanner .btn-transparent {
+  padding-left: 20px;
+  padding-right: 10px; }
 
 .stats {
   display: none;

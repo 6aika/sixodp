@@ -1,0 +1,38 @@
+.contactbanner {
+  background: $brand-secondary;
+  margin: $base*2 auto;
+  padding-bottom: $base*2;
+  color: #fff;
+  position: relative;
+}
+
+.contactbanner .contactbanner__icon--chat {
+  display: none;
+  font-size: $base*4;
+  position: absolute;
+    top: $base*2;
+    left: $base*2;
+
+  @media (min-width: $width-xs) {
+    display: inline-block;
+  }  
+
+  @media (min-width: $width-md) {
+    left: $base*4;
+  }
+
+  @media (min-width: $width-lg) {
+    font-size: $base*6;
+  }
+}
+
+.contactbanner .heading,
+.contactbanner div {
+  text-align: center;
+  color: #fff;
+}
+
+.contactbanner .btn-transparent {
+  padding-left: $base*2;
+  padding-right: $base;
+}
