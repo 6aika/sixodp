@@ -27,3 +27,4 @@ ckan_extensions:
   - ckanext-spatial
   - ckanext-datasubmitter
   - ckanext-statistics
+  - ckanext-sixodp_harvester
