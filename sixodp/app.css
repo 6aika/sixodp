@@ -6583,6 +6583,32 @@ hr {
   padding-left: 20px;
   padding-right: 10px; }
 
+.author {
+  display: flex;
+  align-items: center;
+  margin-top: 60px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #ccc; }
+
+.author__img {
+  margin-right: 20px; }
+
+.author__body p {
+  margin: 0 0 2px; }
+
+.author__text {
+  color: #bbb;
+  text-transform: uppercase;
+  font-size: 1.1rem; }
+
+.author__name {
+  color: #534f97;
+  text-transform: uppercase;
+  font-size: 1.4rem; }
+
+.post__meta {
+  font-size: 1.1rem; }
+
 .stats {
   display: none;
   margin-top: 20px;

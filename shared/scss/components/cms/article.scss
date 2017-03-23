@@ -11,5 +11,6 @@
   position: relative;
   height: 0;
   overflow: visible;
+  // This is a fallback, JS calculates the value based on iframe props
   padding-top: 56.25%;
 }
