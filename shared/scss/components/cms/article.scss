@@ -1,0 +1,15 @@
+.article {
+  line-height: 1.5;
+  font-size: 1.6rem;
+}
+
+.article p {
+  margin: $base*2 auto $base*4;
+}
+
+.article__iframe-wrapper {
+  position: relative;
+  height: 0;
+  overflow: visible;
+  padding-top: 56.25%;
+}

@@ -1,6 +1,6 @@
 <?php
   /**
-  * Themes on Tuki frontpage.
+  * More links template
   */
 ?>
 
@@ -8,7 +8,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <h1 class="heading--themes">Teemat</h1>
+        <h1 class="heading--themes">Lisää aiheesta</h1>
       </div>
       <div class="col-md-4">
         <div class="icon-link morelink">

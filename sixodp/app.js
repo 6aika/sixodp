@@ -10,6 +10,24 @@ var App = {
 
   search: function(domain, q) {
     window.location.href=domain+'?q='+q+'&sort=title+asc';
+  },
+
+  // Fix to 100% width
+  resizeArticleContent: function($iframe) {
+    var paddingTop = ($iframe.outerHeight() / $iframe.outerWidth())*100 || 56.25;
+
+    var iframeCSS = {
+      position: 'absolute',
+      top: '0',
+      left: '0',
+      bottom: '0',
+      right: '0',
+      width: '100%',
+      height: '100%'
+    };
+
+    $iframe.wrap('<div class="article__iframe-wrapper" style="padding-top: '+paddingTop+'%;"></div>');
+    $iframe.css(iframeCSS);
   }
 };
 
@@ -46,4 +64,7 @@ var App = {
       $('.fluidtable__body').css('opacity', 1);
     }, 150);
   });
+
+  App.resizeArticleContent($('.article iframe'));
+
 })( jQuery );
