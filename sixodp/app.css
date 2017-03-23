@@ -6820,9 +6820,13 @@ hr {
   margin-bottom: 40px; }
 
 .sidebar {
-  width: 320px;
-  margin-right: 40px;
-  float: left; }
+  width: 320px; }
+  @media (min-width: 992px) {
+    .sidebar {
+      float: left; } }
+  @media (min-width: 1248px) {
+    .sidebar {
+      margin-right: 40px; } }
 
 .sidebar__list, .sidebar__list--heading {
   list-style: none;
@@ -6883,9 +6887,25 @@ hr {
     .sidebar__icon-wrapper:hover i {
       color: #fff; }
 
+.article__wrapper {
+  width: 100%;
+  max-width: 780px;
+  margin: 60px 0 0; }
+  @media (min-width: 992px) {
+    .article__wrapper {
+      float: left;
+      max-width: 600px;
+      margin: 0;
+      padding: 0 40px 0; } }
+  @media (min-width: 1248px) {
+    .article__wrapper {
+      max-width: 780px;
+      padding: 0 40px 0 80px; } }
+
 .article {
-  line-height: 1.5;
-  font-size: 1.6rem; }
+  line-height: 1.6;
+  font-size: 1.6rem;
+  color: #333; }
 
 .article p {
   margin: 20px auto 40px; }
