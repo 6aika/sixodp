@@ -78,9 +78,9 @@ $input-height-small: (floor($font-size-small * $line-height-small) + ($padding-s
 $input-border-focus: $brand-secondary-light;
 
 // Borders
-$border-radius-base: 4px;
+$border-radius-base: 6px;
 $border-radius-large: 10px;
-$border-radius-small: 2px;
+$border-radius-small: 3px;
 $border-base: $border-radius-base;
 
 // Navigation
