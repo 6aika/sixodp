@@ -6458,6 +6458,15 @@ hr {
       .horizaccordion__footer .btn {
         display: none; } }
 
+.horizaccordion__collapse {
+  border-top: 3px solid #534f97; }
+  .horizaccordion__collapse .btn {
+    position: absolute;
+    right: 60px;
+    padding: 6px 6px; }
+    .horizaccordion__collapse .btn #show-text {
+      display: none; }
+
 .btn-primary {
   background-color: #534f97; }
   .btn-primary:hover, .btn-primary:focus, .btn-primary:active {

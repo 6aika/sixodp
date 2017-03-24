@@ -162,3 +162,17 @@
     }
   }
 }
+
+.horizaccordion__collapse {
+  border-top: 3px solid $brand-primary;
+
+  .btn {
+    position: absolute;
+    right: $padding-large-horizontal*6;
+    padding: $padding-base-vertical $padding-base-horizontal;
+
+    #show-text {
+      display: none;
+    }
+  }
+}

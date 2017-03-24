@@ -97,6 +97,17 @@ $(function ($) {
             modal.style.display = "none";
         }
     });
+
+    // Toggle horizaccordion collapse button text
+    $("#horizaccordion-collapse-btn").click(function() {
+        if ( $(this).hasClass("collapsed") ) {
+            $(this).find("#show-text").hide();
+            $(this).find("#close-text").show();
+            return;
+        }
+        $(this).find("#show-text").show();
+        $(this).find("#close-text").hide();
+    });
   });
 }(jQuery));
 
