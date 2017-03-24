@@ -7530,6 +7530,8 @@ select {
 
 .toolbar {
   display: none; }
+  .toolbar .breadcrumb {
+    text-align: center; }
   @media (min-width: 992px) {
     .toolbar {
       display: block; } }
