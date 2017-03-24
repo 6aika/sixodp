@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_showcase 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-17 06:42+0000\n"
+"POT-Creation-Date: 2017-03-24 07:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/6aika-dataportal/teams/68018/en_GB/)\n"
 "MIME-Version: 1.0\n"
@@ -128,74 +128,91 @@ msgstr ""
 msgid "updated"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:109
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:105
 msgid "Manage"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:116
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:117
 msgid "Private"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:133
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:134
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/snippets/showcase_info.html:22
 msgid "Launch website"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:156
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:141
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:170
 msgid "Used datasets"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:160
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:145
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:174
 msgid "There are no Datasets in this Showcase"
 msgstr ""
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:13
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:47
+msgid "Search showcases..."
+msgstr ""
+
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:26
 msgid "Add Showcase"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:27
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:40
 msgid "Relevance"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:28
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:41
 msgid "Name Ascending"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:29
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:42
 msgid "Name Descending"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:30
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:43
 msgid "Last Modified"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:31
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:44
 msgid "Popular"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/snippets/showcase_item.html:30
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/snippets/showcase_item.html:32
 msgid "This showcase has no description"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/snippets/showcase_item.html:35
-msgid "{num} Dataset"
-msgid_plural "{num} Datasets"
-msgstr[0] ""
-msgstr[1] ""
-
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/snippets/showcase_item.html:37
-msgid "0 Datasets"
-msgstr ""
-
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/snippets/showcase_item.html:41
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/snippets/showcase_item.html:42
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/snippets/showcase_item.html:38
 msgid "View {showcase_title}"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/snippets/showcase_item.html:46
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/snippets/showcase_item.html:45
 msgid "Remove"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/snippets/showcase_item.html:46
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/snippets/showcase_item.html:45
 msgid "Remove dataset from this showcase"
+msgstr ""
+
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/snippets/showcase_search_result_text.html:7
+msgid "{number} showcase found for '{query}'"
+msgid_plural "{number} showcases found for '{query}'"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/snippets/showcase_search_result_text.html:8
+msgid "No showcases found for '{query}'"
+msgstr ""
+
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/snippets/showcase_search_result_text.html:9
+msgid "{number} showcase found"
+msgid_plural "{number} showcases found"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/snippets/showcase_search_result_text.html:10
+msgid "No showcases found"
 msgstr ""

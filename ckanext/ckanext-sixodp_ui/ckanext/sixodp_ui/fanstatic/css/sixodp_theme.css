@@ -6461,6 +6461,7 @@ hr {
 .horizaccordion__collapse {
   border-top: 3px solid #534f97; }
   .horizaccordion__collapse .btn {
+    border-radius: 0 0 2px 2px;
     position: absolute;
     right: 60px;
     padding: 6px 6px; }
