@@ -6811,9 +6811,15 @@ hr {
   clear: both;
   background: #eee;
   padding: 40px 0 60px; }
+  .wrapper--morelinks:after {
+    content: "";
+    display: block;
+    clear: both; }
 
 .morelink {
-  padding: 20px 0 0; }
+  padding: 20px 0 0;
+  width: 50%;
+  float: left; }
 
 .headingbar {
   border-bottom: 1px solid #ccc;

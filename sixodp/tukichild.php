@@ -33,7 +33,9 @@ get_header(); ?>
       </div>
     </div>
     <?php
-      get_template_part( 'partials/more-links' );
+      $morelinks_title = "Lisää aiheesta";
+      $links = get_tuki_links();
+      include(locate_template( 'partials/morelinks.php' ));
     ?>
   </main><!-- .site-main -->
 
