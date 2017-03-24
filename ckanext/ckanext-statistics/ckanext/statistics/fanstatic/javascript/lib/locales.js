@@ -1,6 +1,27 @@
 // Translations
 Translations = {
 
+  frontSectionTitle: {
+    fi: 'Yhteenveto',
+    sv: '',
+    en: 'Summary',
+  },
+  datasetSectionTitle: {
+    fi: 'Tietoaineistot',
+    sv: '',
+    en: 'Datasets',
+  },
+  appSectionTitle: {
+    fi: 'Sovellukset',
+    sv: '',
+    en: 'Apps',
+  },
+  articleSectionTitle: {
+    fi: 'Artikkelit',
+    sv: '',
+    en: 'Articles',
+  },
+
   // Front section
   datasetsOpened: {
     fi: 'tietoaineistoa avattu',

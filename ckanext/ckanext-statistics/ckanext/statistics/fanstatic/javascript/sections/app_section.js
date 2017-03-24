@@ -2,7 +2,7 @@ var AppSection = function (statistics) {
   var self = this
   self.statistics = statistics
 
-  self.element = d3.select('.js-app-section')
+  self.element = d3.select('.js-statistics-apps-section')
 
   self.totalsTimeline = new TotalsTimeline(
     self.statistics,

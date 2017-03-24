@@ -6,6 +6,7 @@ var Statistics = function () {
   self.initStyles()
 
   self.data = {}
+  self.updatingHash = false
 
   self.config = Config
   self.helpers = Helpers
@@ -13,6 +14,50 @@ var Statistics = function () {
   self.timeFormats = TimeFormats
 
   self.api = new Api(self)
+
+  self.nav = new StatisticsNav({
+    element: $('.statistics-nav'),
+    items: [
+      {
+        id: 'summary',
+        title: self.translations.frontSectionTitle[self.config.locale],
+      },
+      {
+        id: 'datasets',
+        title: self.translations.datasetSectionTitle[self.config.locale],
+      },
+      {
+        id: 'apps',
+        title: self.translations.appSectionTitle[self.config.locale],
+      },
+      {
+        id: 'articles',
+        title: self.translations.articleSectionTitle[self.config.locale],
+      },
+    ],
+    setHashState: function (hash) {
+      hash = '#' + hash
+      if(history.replaceState) {
+          history.replaceState(null, null, hash)
+      }
+      else {
+        window.onhashchange = undefined
+        window.location.hash = hash
+        setTimeout(function () {
+          window.onhashchange = self.onHashChange
+        }, 100)
+      }
+    },
+    autoScrolling: function (value) {
+      if (value) {
+        window.onscroll = undefined
+      } else {
+        setTimeout(function () {
+          window.onscroll = self.onScroll
+        }, 100)
+      }
+    },
+  })
   self.frontSection = new FrontSection(self)
   self.datasetSection = new DatasetSection(self)
   self.appSection = new AppSection(self)
@@ -31,16 +76,39 @@ var Statistics = function () {
     self.frontSection.update()
     self.datasetSection.update(true)
     self.appSection.update(true)
+
+    self.nav.dataLoaded()
   })
 
   // Resize elements on window resize
   window.onresize = function () {
     self.styles.contentWidth = d3.select('.statistics-section-content:first-child').style('width')
     console.log('Window resized to', self.styles.contentWidth)
+
+    self.nav.onResize()
     self.frontSection.onContentResize()
     self.datasetSection.onContentResize()
     self.appSection.onContentResize()
   }
+
+  // Scroll event
+  self.onScroll = $.throttle(300, function () {
+    var y = $(window).scrollTop()
+    self.nav.onScroll(y)
+  })
+  window.onscroll = self.onScroll
+
+  // Hash change event
+  self.onHashChange = function (e) {
+    if (e && e.preventDefault) {
+      e.preventDefault()
+    }
+    var hash = location.hash.substring(1)
+    self.nav.onHashChange(hash)
+    return false
+  }
+  window.onhashchange = self.onHashChange
+  self.onHashChange()
 }
 
 

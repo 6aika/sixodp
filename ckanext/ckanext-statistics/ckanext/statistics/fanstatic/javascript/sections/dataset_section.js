@@ -2,7 +2,7 @@ var DatasetSection = function (statistics) {
   var self = this
   self.statistics = statistics
 
-  self.element = d3.select('.js-dataset-section')
+  self.element = d3.select('.js-statistics-datasets-section')
 
   self.totalsTimeline = new TotalsTimeline(
     self.statistics,

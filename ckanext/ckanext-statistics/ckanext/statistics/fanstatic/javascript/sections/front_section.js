@@ -2,7 +2,7 @@ var FrontSection = function (statistics) {
   var self = this
   self.statistics = statistics
 
-  self.element = d3.select('.js-front-section')
+  self.element = d3.select('.js-statistics-summary-section')
 
   self.attentionNumbers = new AttentionNumbers(
     self.element.select('.js-front-attention-numbers'),

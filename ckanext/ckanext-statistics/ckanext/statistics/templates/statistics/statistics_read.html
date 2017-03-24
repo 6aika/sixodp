@@ -2,17 +2,48 @@
 
 {% block pre_primary %}
   <div class="statistics-page">
+    <h1 class="page-heading">Dataportaalin tilastot</h1>
+    <nav class="statistics-nav" data-spy="affix" data-offset-top="280" data-offset-bottom="900">
+      <ul class="statistics-nav-items">
+        <li><a href="#summary"></a></li>
+        <li><a href="#datasets"></a></li>
+        <li><a href="#apps"></a></li>
+        <li><a href="#articles"></a></li>
+      </ul>
+      <div class="statistics-nav-filters">
+        <select class="js-statistics-filter-organization">
+          <option>Kaikki julkaisijat</option>
+          <option>Espoo</option>
+          <option>Helsinki</option>
+          <option>Kauniainen</option>
+          <option>Vantaa</option>
+        </select>
+        <input class="js-statistics-filter-datespan" type="text" placeholder="2014-2017" />
+        <select class="js-statistics-filter-category">
+          <option>Kaikki kategoriat</option>
+          <option>Asuminen</option>
+          <option>Kartat</option>
+          <option>Kulttuuri</option>
+          <option>Laki ja turvallisuus</option>
+          <option>Liikenne</option>
+          <option>Luonto</option>
+          <option>Matkailu ja liikunta</option>
+          <option>Opetus</option>
+          <option>Rakentaminen</option>
+          <option>Talous ja verotus</option>
+          <option>Työ</option>
+          <option>Väestö</option>
+        </select>
+      </div>
+    </nav>
 
-    <div class="statistics-section front-section js-front-section">
+    <div class="statistics-section front-section js-statistics-summary-section">
       <div class="statistics-section-content">
-        <h1>
-          <div>Tilastot</div>
-        </h1>
         <div class="js-front-attention-numbers"></div>
       </div>
     </div>
 
-    <div class="statistics-section js-dataset-section">
+    <div class="statistics-section statistics-dataset-section js-statistics-datasets-section">
       <div class="statistics-section-content">
         <h2>Tietoaineistot</h2>
         <div class="js-dataset-totals-timeline"></div>
@@ -20,18 +51,18 @@
       </div>
     </div>
 
-    <div class="statistics-section js-app-section">
+    <div class="statistics-section statistics-app-section js-statistics-apps-section">
       <div class="statistics-section-content">
         <h2>Sovellukset</h2>
         <div class="js-app-totals-timeline"></div>
       </div>
     </div>
 
-    <!-- <div class="statistics-section js-app-section">
+    <div class="statistics-section js-statistics-articles-section">
       <div class="statistics-section-content">
-        <h2>Käyttäjät</h2>
+        <h2>Artikkelit</h2>
       </div>
-    </div> -->
+    </div>
 
     <!-- <div class="statistics-footer"> -->
       <!-- <a href="">Tekniset raportit</a> -->
