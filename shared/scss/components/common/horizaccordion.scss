@@ -170,7 +170,7 @@
     border-radius: 0 0 $border-radius-small $border-radius-small;
     position: absolute;
     right: $padding-large-horizontal*6;
-    padding: $padding-base-vertical $padding-base-horizontal;
+    padding: $btn-padding-large;
 
     #show-text {
       display: none;
