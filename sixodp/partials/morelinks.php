@@ -1,6 +1,6 @@
 <?php
   /**
-  * Themes on Tuki frontpage.
+  * Morelinks template
   */
 ?>
 
