@@ -15,12 +15,21 @@
 		<footer id="colophon" class="site-footer bgcolor-primary" role="contentinfo">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-1">
+					<div class="col-md-2">
 						<div class="footer-logo-wrapper">
 							<img class="footer-logo" src="<?php echo site_url(); ?>/wp-content/themes/sixodp/images/6aika_logo_w.png" alt="6Aika logo">
 						</div>
 					</div>
-					<div class="col-md-5 pull-right">
+					<div class="col-md-4">
+						<div class="row">
+						  <div class="col-xs-12">
+						    <div class="footer-follow-links">
+						      <?php dynamic_sidebar( 'footer_content' ); ?>
+						    </div>
+						  </div>
+						</div>
+					</div>
+					<div class="col-md-6 pull-right">
 						<?php
 							get_template_part( 'partials/social_links' );
 						?>
