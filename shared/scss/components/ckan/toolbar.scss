@@ -1,6 +1,10 @@
 .toolbar {
   display: none;
 
+  .breadcrumb {
+    text-align: center;
+  }
+
   @media(min-width: $width-md) {
     display: block;
   }
