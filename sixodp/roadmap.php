@@ -17,10 +17,15 @@ get_header(); ?>
 
 <div id="primary" class="content-area">
 	<main id="main" class="site-main site-main--home" role="main">
+
 		<?php
 
-			echo do_shortcode('[wp-trello type="lists" id="557aae1c6bde881c9cbc6e0e" link="yes"]');
-
+			// Get the board id for retrieving the lists
+			$board_id = get_option('wptsettings_settings')['wptsettings_helper_boards'];
+			
+			// Render the widget
+			echo do_shortcode('[wp-trello type="lists" id="'.$board_id.'" link="yes"]');
+			
 		?>
 
 	</main><!-- .site-main -->

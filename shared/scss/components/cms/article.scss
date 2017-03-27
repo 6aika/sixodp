@@ -1,0 +1,35 @@
+.article__wrapper {
+  width: 100%;
+  max-width: $base*78;
+  margin: $base*6 0 0;
+
+  @media (min-width: $width-md) {
+    float: left;
+    max-width: $base*60;
+    margin: 0;
+    padding: 0 $base*4 0;
+  }
+
+  @media (min-width: $width-lg) {
+    max-width: $base*78;
+    padding: 0 $base*4 0 $base*8;
+  }
+}
+
+.article {
+  line-height: 1.6;
+  font-size: 1.6rem;
+  color: #333;
+}
+
+.article p {
+  margin: $base*2 auto $base*4;
+}
+
+.article__iframe-wrapper {
+  position: relative;
+  height: 0;
+  overflow: visible;
+  // This is a fallback, JS calculates the value based on iframe props
+  padding-top: 56.25%;
+}

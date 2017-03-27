@@ -81,6 +81,7 @@
 
     .horizaccordion__container {
       max-width: 25%;
+      height: 100%;
       margin-top: 0;
 
       &:after {
@@ -157,6 +158,21 @@
     z-index: 1;
     
     @media (min-width: $width-md) {
+      display: none;
+    }
+  }
+}
+
+.horizaccordion__collapse {
+  border-top: 3px solid $brand-primary;
+
+  .btn {
+    border-radius: 0 0 $border-radius-small $border-radius-small;
+    position: absolute;
+    right: $padding-large-horizontal*6;
+    padding: $btn-padding-large;
+
+    #show-text {
       display: none;
     }
   }

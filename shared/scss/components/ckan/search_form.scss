@@ -5,6 +5,10 @@
   border-color: $table-border-color;
   margin-bottom: $margin-large-vertical*2;
 
+  &-borderless {
+    border: none;
+  }
+
   .search-form {
     padding-bottom: $padding-large-vertical*4;
     width: 100%;

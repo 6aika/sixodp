@@ -1,0 +1,62 @@
+.btn {
+  @extend %button;
+}
+
+.btn-primary {
+  background-color: $brand-primary;
+
+  &:hover, &:focus, &:active {
+    background-color: $brand-primary-light;
+  }
+}
+
+.btn-secondary {
+  background-color: $brand-secondary;
+  color: #fff;
+
+  &:hover, &:focus, &:active {
+    background-color: $brand-secondary-light;
+    color: #fff;
+  }
+}
+
+.btn-lg {
+  padding-left: $base*2;
+  padding-right: $base*2;
+}
+
+.btn-wrapper--right {
+  text-align: center !important;
+
+  @media (min-width: $width-md) {
+    text-align: right !important;
+  }
+}
+
+.btn-transparent {
+  background: transparent;
+  border: 1px solid white;
+
+  &:hover, &:focus, &:active {
+    background: transparent;
+    color: #eee;
+    border-color: #eee;
+  }
+}
+
+.btn-transparent--inverse {
+  background: transparent;
+  border: 1px solid $brand-primary;
+  color: $brand-primary;
+
+  &:hover, &:focus, &:active {
+    background: transparent;
+    color: $brand-primary-light;
+    border-color: $brand-primary-light;
+  }
+}
+
+.btn--sovellukset {
+  position: relative;
+  z-index: 1;
+}

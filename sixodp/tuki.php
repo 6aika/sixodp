@@ -19,7 +19,14 @@ get_header(); ?>
 	<main id="main" class="site-main site-main--home" role="main">
 		<?php
 
-      echo "<h1>Tukisivu</h1>";
+			echo '<h1 class="heading--tuki">Tuki</h1>';
+			get_template_part( 'partials/tuki-contentbox' );
+      
+      $morelinks_title  = "Teemat";
+      $links            = get_tuki_links();
+      include(locate_template( 'partials/morelinks.php' ));
+      
+      get_template_part( 'partials/tuki-contactbanner' );
 
 		?>
 

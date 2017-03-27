@@ -38,6 +38,12 @@ $text-color: #000;
 $white: #ffffff;
 $table-border-color: #dddddd;
 
+// Datavis colors
+$datavis-color-1: $brand-primary;
+$datavis-color-1-dark: $brand-primary-dark;
+$datavis-color-2: $brand-success;
+
+
 // New input heights based on BS defaults
 $line-height-computed: 20px;
 
@@ -72,9 +78,9 @@ $input-height-small: (floor($font-size-small * $line-height-small) + ($padding-s
 $input-border-focus: $brand-secondary-light;
 
 // Borders
-$border-radius-base: 2px;
-$border-radius-large: 2px;
-$border-radius-small: 2px;
+$border-radius-base: 6px;
+$border-radius-large: 10px;
+$border-radius-small: 3px;
 $border-base: $border-radius-base;
 
 // Navigation
@@ -117,6 +123,12 @@ $grid-float-breakpoint: 992px; // Navbar collapse point
 $transition: all .2s ease-in-out;
 
 // Button
+$btn-font-weight: 100;
+$btn-border-radius-base: $border-radius-base;
+$btn-border-radius-small: $border-radius-small;
+$btn-border-radius-large: $border-radius-large;
+$btn-padding-small: 6px 6px;
+$btn-padding-large: 8px 12px;
 $button-background-color: $brand-primary;
 $button-background-color-active: lighten($button-background-color, 20%);
 $button-text-color: $white;

@@ -1,0 +1,31 @@
+.author {
+  display: flex;
+  align-items: center;
+  margin-top: $base*6;
+  padding-bottom: $base*4;
+  border-bottom: 1px solid #ccc;
+}
+
+.author__img {
+  margin-right: $base*2;
+}
+
+.author__body p {
+  margin: 0 0 2px;
+}
+
+.author__text {
+  color: #bbb;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+}
+
+.author__name {
+  color: $brand-primary;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+}
+
+.post__meta {
+  font-size: 1.1rem;
+}

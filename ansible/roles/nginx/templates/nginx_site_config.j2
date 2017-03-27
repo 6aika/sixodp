@@ -63,7 +63,9 @@ server {
   }
 
   location = / {
-    return 302 /fi/;
+    if ($arg_s = "") {
+      return 302 /fi/;
+    }
   }
 
   location /assets/ {

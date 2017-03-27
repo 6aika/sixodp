@@ -38,22 +38,78 @@
 {% endblock %}
 
 {% block pre_primary %}
+  <div class="page-heading-container">
+    {% if pkg.icon_display_url %}
+      <div class="heading-icon">
+        <img src="{{ pkg.icon_display_url }}">
+      </div>
+    {% endif %}
+
+    <div class="headings-wrapper">
+      <h1 class="page-heading">
+        {% block page_heading %}
+          {{ name }}
+          {% if pkg.state.startswith('draft') %}
+            [{{ _('Draft') }}]
+          {% endif %}
+        {% endblock %}
+      </h1>
+      {% block page_subheading %}
+        <h2 class="page-subheading">
+          {% if pkg.author %}
+            <span class="subheading-section">{{ pkg.author }}</span>
+            <span> - </span>
+          {% endif %}
+          <span class="subheading-section">{{ _('Published') }} {{ h.render_datetime(pkg.metadata_created, '%-d.%-m.%Y') }}</span>
+          <span> - </span>
+          <span class="subheading-section">{{ _('updated') }} {{ h.render_datetime(pkg.metadata_modified, '%-d.%-m.%Y') }}</span>
+        </h2>
+
+        <h2 class="page-subheading">
+          <span class="subheading-section">{{ _('Showcases') }}</span>
+          {% set lang = h.get_current_lang() %}
+          {% if pkg.keywords.get(lang) %}
+            <span> - </span>
+            <span class="subheading-section">
+              {% for keyword in pkg.keywords.get(lang) %}
+               {{ keyword }}{% if not loop.last %}, {% endif %}
+              {% endfor %}
+            </span>
+          {% endif %}
+        </h2>
+      {% endblock %}
+    </div>
+    <div class="heading-rating-wrapper">
+      {% block rating %}
+        {% snippet "rating/snippets/rating_single.html", package=pkg, enable_input="true" %}
+      {% endblock %}
+    </div>
+  </div>
+
+  <div class="image-slider-wrapper">
+    <ol class="image-slider">
+      {% if pkg.image_1_display_url %}<li><img class="image-modal-open" src="{{ pkg.image_1_display_url }}"></li>{% endif %}
+      {% if pkg.image_2_display_url %}<li><img class="image-modal-open" src="{{ pkg.image_2_display_url }}"></li>{% endif %}
+      {% if pkg.image_3_display_url %}<li><img class="image-modal-open" src="{{ pkg.image_3_display_url }}"></li>{% endif %}
+      {% if pkg.image_4_display_url %}<li><img class="image-modal-open" src="{{ pkg.image_4_display_url }}"></li>{% endif %}
+    </ol>
+  </div>
+
+  {% snippet 'snippets/image_modal.html' %}
 {% endblock %}
 
 {% block primary_content_inner %}
-{{ pkg }}
-
-<img src="{{pkg['icon_display_url']}}">
-<img src="{{pkg['image_1_display_url']}}">
-<img src="{{pkg['image_2_display_url']}}">
-<img src="{{pkg['image_3_display_url']}}">
-<img src="{{pkg['image_4_display_url']}}">
 
 {% if h.check_access('ckanext_showcase_update', {'id':pkg.id }) %}
     <div class="actions">
     {% link_for _('Manage'), controller='ckanext.sixodp_showcase.controller:Sixodp_ShowcaseController', action='edit', id=pkg.name, class_='btn', icon='wrench' %}
     </div>
   {% endif %}
+
+  {% block store_icons %}
+    {{ h.snippet('sixodp_showcase/snippets/store_icon_links.html', links=pkg.links) }}
+  {% endblock %}
+
   {% block package_description %}
     {% if pkg.private %}
       <span class="dataset-private label label-inverse pull-right">
@@ -61,23 +117,15 @@
         {{ _('Private') }}
       </span>
     {% endif %}
-    <h1>
-      {% block page_heading %}
-        {{ name }}
-        {% if pkg.state.startswith('draft') %}
-          [{{ _('Draft') }}]
-        {% endif %}
-      {% endblock %}
-    </h1>
 
     {% if pkg.image_display_url %}
       <p class="ckanext-showcase-image-container"><img src="{{ pkg.image_display_url }}" alt="{{ name }}" class="media-image ckanext-showcase-image"></p>
     {% endif %}
 
     {% block package_notes %}
-      {% if pkg.showcase_notes_formatted %}
+      {% if pkg.description_translated %}
         <div class="notes embedded-content ckanext-showcase-notes">
-          {{ pkg.showcase_notes_formatted }}
+          {{ h.render_markdown(h.get_translated(pkg, 'description')) }}
         </div>
       {% endif %}
     {% endblock %}
@@ -88,6 +136,19 @@
 
   {% endblock %}
 
+  {% block package_info_mobile_only %}
+    <div class="mobile-only">
+      <h2 class="module-heading">{{ _('Used datasets') }}</h2>
+      {% if c.showcase_pkgs %}
+        {{ h.snippet('snippets/package_list.html', packages=c.showcase_pkgs) }}
+      {% else %}
+        <p class="module-content empty">{{_('There are no Datasets in this Showcase')}}</p>
+      {% endif %}
+
+      {% snippet "snippets/social.html" %}
+    </div>
+  {% endblock %}
+
   {% block package_tags %}
     {% snippet "showcase/snippets/tags.html", tags=pkg.tags %}
   {% endblock %}
@@ -95,14 +156,27 @@
   {% block package_search_results_list %}
   {% endblock %}
 
+  {% block package_comments %}
+    {{ h.disqus_comments() }}
+  {% endblock %}
+
 {% endblock %}
 
 {% block secondary_content %}
   {% block secondary_help_content %}{% endblock %}
 
-  {% block package_info %}
-    {# snippet 'showcase/snippets/showcase_info.html', pkg=pkg, showcase_pkgs=c.showcase_pkgs #}
+  {% block package_datasets %}
+    <section class="module module-narrow">
+      <h2 class="module-heading">{{ _('Used datasets') }}</h2>
+      {% if c.showcase_pkgs %}
+        {{ h.snippet('snippets/package_list.html', packages=c.showcase_pkgs) }}
+      {% else %}
+        <p class="module-content empty">{{_('There are no Datasets in this Showcase')}}</p>
+      {% endif %}
+    </section>
   {% endblock %}
+
+  {% block package_info %}{% endblock %}
 
   {% block package_social %}
     {% snippet "snippets/social.html" %}

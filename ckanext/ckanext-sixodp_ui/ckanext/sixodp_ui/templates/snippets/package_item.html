@@ -94,9 +94,11 @@ Example:
             {% endblock %}
           </div>
         </div>
-        <div class="col-md-4 col-sm-12 dataset-col-right">
-          {% snippet "rating/snippets/stars_inactive.html", package=package %}
-        </div>
+        {% if show_rating %}
+          <div class="col-md-4 col-sm-12 dataset-col-right">
+            {% snippet "rating/snippets/rating_single.html", package=package %}
+          </div>
+        {% endif %}
       {% endblock %}
     </div>
   </li>

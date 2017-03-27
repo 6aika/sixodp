@@ -82,5 +82,30 @@ $(function ($) {
         $(this).children().toggle();
     });
 
+    $(".image-modal-open").click(function() {
+        var img = $(this)[0];
+
+        var modal = document.getElementById('image-modal');
+        var modalImg = document.getElementById("modal-image-placeholder");
+
+        modal.style.display = "block";
+        modalImg.src = img.src;
+
+        var closeModal = document.getElementsByClassName("close")[0];
+        closeModal.onclick = function() {
+            modal.style.display = "none";
+        }
+    });
+
+    // Toggle horizaccordion collapse button text
+    $("#horizaccordion-collapse-btn").click(function() {
+        if ( $(this).hasClass("collapsed") ) {
+            $(this).find("#show-text").hide();
+            $(this).find("#close-text").show();
+            return;
+        }
+        $(this).find("#show-text").show();
+        $(this).find("#close-text").hide();
+    });
   });
 }(jQuery));
