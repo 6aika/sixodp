@@ -10,6 +10,17 @@
   }
 }
 
+.btn-transparent {
+  background-color: transparent;
+  color: $brand-primary;
+  border: 1px solid $brand-primary;
+
+  &:hover, &:focus, &:active {
+    background-color: $brand-primary;
+    color: #ffffff;
+  }
+}
+
 .btn-secondary {
   background-color: $brand-secondary;
   color: #fff;
