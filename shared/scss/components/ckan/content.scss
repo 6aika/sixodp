@@ -34,6 +34,8 @@
   .secondary {
     padding: 0;
     margin-bottom: $margin-large-vertical;
+    border: 1px solid $secondary-bg;
+    border-radius: $border-radius-base;
     background: $secondary-bg;
 
     .main-heading {
