@@ -35,6 +35,14 @@ var Statistics = function () {
         title: self.translations.articleSectionTitle[self.config.locale],
       },
     ],
+    texts: {
+      allPublishers: self.translations.allPublishers[self.config.locale],
+      allCategories: self.translations.allCategories[self.config.locale],
+      wholeDatespan: self.translations.wholeDatespan[self.config.locale],
+      lastYear: self.translations.lastYear[self.config.locale],
+      last3months: self.translations.last3months[self.config.locale],
+      lastMonth: self.translations.lastMonth[self.config.locale],
+    },
     setHashState: function (hash) {
       hash = '#' + hash
       if(history.replaceState) {
@@ -57,6 +65,20 @@ var Statistics = function () {
         }, 100)
       }
     },
+    setDateRangeFilter: function (value) {
+      // console.log('setDateRange', value)
+      // self.datasetSection.setDateRangeFilter(value)
+      // self.appSection.setDateRangeFilter(value)
+      // self.articleSection.setDateRangeFilter(value)
+    },
+    setOrganizationFilter: function(value) {
+      // console.log('setOrganization', value)
+      // self.datasetSection.setOrganizationFilter(value)
+    },
+    setCategoryFilter: function(value) {
+      // console.log('setCategory', value)
+      // self.datasetSection.setOrganizationFilter(value)
+    },
   })
   self.frontSection = new FrontSection(self)
   self.datasetSection = new DatasetSection(self)
@@ -77,7 +99,7 @@ var Statistics = function () {
     self.datasetSection.update(true)
     self.appSection.update(true)
 
-    self.nav.dataLoaded()
+    self.nav.updateData(self.data.dateRange, self.data.organizations, self.data.categories)
   })
 
   // Resize elements on window resize

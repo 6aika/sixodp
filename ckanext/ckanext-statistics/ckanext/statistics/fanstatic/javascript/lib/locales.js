@@ -22,6 +22,38 @@ Translations = {
     en: 'Articles',
   },
 
+  // Nav filters
+  allPublishers: {
+    fi: 'Kaikki julkaisijat',
+    sv: '',
+    en: 'All publishers',
+  },
+  allCategories: {
+    fi: 'Kaikki kategoriat',
+    sv: '',
+    en: 'All categories',
+  },
+  wholeDatespan: {
+    fi: 'Kaikki',
+    sv: '',
+    en: 'All',
+  },
+  lastYear: {
+    fi: 'Vuosi',
+    sv: '',
+    en: '1y',
+  },
+  last3months: {
+    fi: '3 kk',
+    sv: '',
+    en: '3m',
+  },
+  lastMonth: {
+    fi: '1 kk',
+    sv: '',
+    en: '1m',
+  },
+
   // Front section
   datasetsOpened: {
     fi: 'tietoaineistoa avattu',

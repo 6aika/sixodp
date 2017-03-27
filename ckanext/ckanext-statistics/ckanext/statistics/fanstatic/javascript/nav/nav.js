@@ -2,6 +2,7 @@
 function StatisticsNav (params) {
   var self = this
   self.element = params.element
+  self.texts = params.texts
   self.navItems = self.element.find('.statistics-nav-items')
   self.items = params.items
   self.items.forEach(function (item) {
@@ -24,11 +25,51 @@ function StatisticsNav (params) {
   self.inputs = {
     organizationFilter: $('.js-statistics-filter-organization'),
     categoryFilter: $('.js-statistics-filter-category'),
-    datespanFilter: $('.js-statistics-filter-datespan'),
+    startDateFilter: $('.js-statistics-filter-start-date'),
+    endDateFilter: $('.js-statistics-filter-end-date'),
   }
+  self.inputsD3 = {}
+  for (key in self.inputs) {
+    self.inputsD3[key] = d3.select(self.inputs[key].get(0))
+  }
+
+  self.dateRangeQuicklinks = {
+    all: [0, 0],
+    lastYear: [0, 0],
+    last3months: [0, 0],
+    lastMonth: [0, 0],
+  }
+  self.element.find('.js-statistics-filter-datespan-all').click(function () {
+    self._setDateRange(self.dateRangeQuicklinks.all)
+  })
+  self.element.find('.js-statistics-filter-datespan-year').click(function () {
+    self._setDateRange(self.dateRangeQuicklinks.lastYear)
+  })
+  self.element.find('.js-statistics-filter-datespan-3months').click(function () {
+    self._setDateRange(self.dateRangeQuicklinks.last3months)
+  })
+  self.element.find('.js-statistics-filter-datespan-month').click(function () {
+    self._setDateRange(self.dateRangeQuicklinks.lastMonth)
+  })
 
   self._autoScrolling = params.autoScrolling
   self._setHashState = params.setHashState
+  self._setOrganizationFilter = params.setOrganizationFilter
+  self._setCategoryFilter = params.setCategoryFilter
+  self._setDateRangeFilter = params.setDateRangeFilter
+
+  self.inputs.organizationFilter.change(function () {
+    self._setOrganizationFilter(self.inputsD3.organizationFilter.node().value)
+  })
+  self.inputs.categoryFilter.change(function () {
+    self._setCategoryFilter(self.inputsD3.categoryFilter.node().value)
+  })
+
+  self.data = {
+    dateRange: undefined,
+    organizations: undefined,
+    categories: undefined,
+  }
 
   self.onResize()
 }
@@ -45,8 +86,13 @@ StatisticsNav.prototype.onHashChange = function (hash) {
   }
 }
 
-StatisticsNav.prototype.dataLoaded = function () {
+StatisticsNav.prototype.updateData = function (dateRange, organizations, categories) {
   var self = this
+  self._setDateRange(dateRange)
+  self._updateDateRangeQuicklinks(dateRange)
+  self._setOrganizations(organizations)
+  self._setCategories(categories)
+
   self._updateSectionPositions()
 }
 StatisticsNav.prototype.onResize = function () {
@@ -76,6 +122,93 @@ StatisticsNav.prototype.onScroll = function (y) {
   }
 }
 
+StatisticsNav.prototype._setDateRange = function (dates) {
+  var self = this
+  self.data.dateRange = dates
+  self.inputs.startDateFilter.val(dates[0].format('YYYY-MM-DD'))
+  self.inputs.endDateFilter.val(dates[1].format('YYYY-MM-DD'))
+  self._setDateRangeFilter(dates)
+}
+
+StatisticsNav.prototype._updateDateRangeQuicklinks = function (totalDateRange) {
+  var self = this
+  self.dateRangeQuicklinks.all = totalDateRange
+
+  var lastYear = totalDateRange[1].year() - 1
+  self.dateRangeQuicklinks.lastYear = [
+    moment.utc({year: lastYear, month: 0, day: 1}),
+    moment.utc({year: lastYear, month: 11, day: 31}),
+  ]
+
+  var lastMonth = moment.utc(totalDateRange[1]).subtract(1, 'months')
+  var lastMonthFirst = moment.utc({year: lastMonth.year(), month: lastMonth.month(), day: 1})
+  var lastMonthLast = moment.utc(lastMonthFirst).add(1, 'months').subtract(1, 'days')
+  self.dateRangeQuicklinks.lastMonth = [
+    lastMonthFirst,
+    lastMonthLast,
+  ]
+
+  var before3m = moment.utc(totalDateRange[1]).subtract(3, 'months')
+  var before3mFirst = moment.utc({year: before3m.year(), month: before3m.month(), day: 1})
+  self.dateRangeQuicklinks.last3months = [
+    before3mFirst,
+    lastMonthLast,
+  ]
+}
+
+StatisticsNav.prototype._setOrganizations = function (organizations) {
+  var self = this
+
+  // List whole hierarchy as options
+  self.data.organizations = organizations
+  var optionData = [{
+    value: 0,
+    label: self.texts.allPublishers,
+  }].concat(self._addOrganizationsWithChildren(self.data.organizations))
+
+  self.inputsD3.organizationFilter.selectAll('option').remove()
+  var options = self.inputsD3.organizationFilter.selectAll('option')
+    .data(optionData)
+
+  options.enter().append('option')
+    .text(function (d) { return d.label })
+    .attr('value', function (d) { return d.value })
+}
+
+StatisticsNav.prototype._addOrganizationsWithChildren = function (organizations, parentText = '') {
+  var self = this
+  var result = []
+  organizations.forEach(function(organization) {
+    result.push({
+      value: organization.id,
+      label: parentText + organization.title,
+    })
+    result = result.concat(self._addOrganizationsWithChildren(organization.children, parentText + organization.title + ' > '))
+  })
+  return result
+}
+
+StatisticsNav.prototype._setCategories = function (categories) {
+  var self = this
+  self.data.categories = categories
+
+  var optionData = [{
+    id: 0,
+    display_name: self.texts.allCategories,
+  }].concat(self.data.categories)
+
+  self.inputsD3.categoryFilter.selectAll('option').remove()
+  var options = self.inputsD3.categoryFilter.selectAll('option')
+    .data(optionData)
+
+  options.enter().append('option').text(function (d) {
+    return d.display_name
+  })
+  .attr('value', function (d) {
+    return d.id
+  })
+}
+
 StatisticsNav.prototype._updateActiveSection = function (item) {
   var self = this
   self.navItems.find('a').removeClass('active')
@@ -91,18 +224,6 @@ StatisticsNav.prototype._updateActiveSection = function (item) {
     self.inputs.organizationFilter.slideUp() // .css('visibility', 'hidden')
     self.inputs.categoryFilter.slideUp() // .css('visibility', 'hidden')
   }
-}
-
-StatisticsNav.prototype.setOrganizations = function (organizations) {
-
-}
-
-StatisticsNav.prototype.dateRange = function (dates) {
-
-}
-
-StatisticsNav.prototype.setCategories = function (categories) {
-
 }
 
 StatisticsNav.prototype._scroll = function (item) {

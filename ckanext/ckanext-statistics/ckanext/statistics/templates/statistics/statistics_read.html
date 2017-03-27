@@ -10,29 +10,26 @@
         <li><a href="#apps"></a></li>
         <li><a href="#articles"></a></li>
       </ul>
+
       <div class="statistics-nav-filters">
         <select class="js-statistics-filter-organization">
           <option>Kaikki julkaisijat</option>
-          <option>Espoo</option>
-          <option>Helsinki</option>
-          <option>Kauniainen</option>
-          <option>Vantaa</option>
         </select>
-        <input class="js-statistics-filter-datespan" type="text" placeholder="2014-2017" />
+        <div class="statistics-filter-datespan">
+          <div class="statistics-filter-datespan-quicklinks">
+            <a class="js-statistics-filter-datespan-all">Kaikki</a>
+            <a class="js-statistics-filter-datespan-year">Vuosi</a>
+            <a class="js-statistics-filter-datespan-3months">3 kk</a>
+            <a class="js-statistics-filter-datespan-month">1 kk</a>
+          </div>
+          <div>
+            <input class="js-statistics-filter-start-date" type="date" />
+            -
+            <input class="js-statistics-filter-end-date" type="date" />
+          </div>
+        </div>
         <select class="js-statistics-filter-category">
           <option>Kaikki kategoriat</option>
-          <option>Asuminen</option>
-          <option>Kartat</option>
-          <option>Kulttuuri</option>
-          <option>Laki ja turvallisuus</option>
-          <option>Liikenne</option>
-          <option>Luonto</option>
-          <option>Matkailu ja liikunta</option>
-          <option>Opetus</option>
-          <option>Rakentaminen</option>
-          <option>Talous ja verotus</option>
-          <option>Työ</option>
-          <option>Väestö</option>
         </select>
       </div>
     </nav>

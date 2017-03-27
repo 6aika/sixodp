@@ -20,7 +20,7 @@
 .statistics-nav {
   background-color: $white;
   border-bottom: solid $brand-primary 1px;
-  height: 100px;
+  height: 120px;
   padding: $padding-base-vertical $padding-base-horizontal;
   text-align: center;
   width: 100%;
@@ -51,6 +51,29 @@
 
   .statistics-nav-items {
     padding: $padding-large-vertical 0px;
+  }
+}
+
+.statistics-nav-filters {
+  > * {
+    vertical-align: bottom;
+  }
+}
+.statistics-filter-datespan {
+  display: inline-block;
+  input {
+    border: solid $gray-lighter 1px;
+    font-size: $font-size-small;
+    height: 18px; // $input-height-small;
+    text-align: center;
+    width: 100px;
+  }
+}
+.statistics-filter-datespan-quicklinks {
+  > a {
+    cursor: pointer;
+    display: inline-block;
+    margin: 0px $margin-base-horizontal;
   }
 }
 
@@ -179,7 +202,7 @@
 }
 
 .statistics-page .statistics-input-date, .statistics-page select {
-  border: solid white 1px;
+  border: solid $gray-light 1px;
   font-size: 14px;
   height: 30px;
   line-height: 30px;

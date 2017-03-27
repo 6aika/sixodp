@@ -6,15 +6,21 @@ var Api = function (dashboard) {
 Api.prototype.getAllData = function (callback) {
   var self = this
 
-  // Get all data from APIs, one after another
-  self.get('datasets', 'current_package_list_with_resources?limit=1000', function () {
+  self.get('organizations',
+  // 'organization_list?all_fields=true&include_extras=true',
+  'group_tree',
+  function () {
 
-    self.get('organizations',
+    self.get('categories',
     // 'organization_list?all_fields=true&include_extras=true',
-    'group_tree',
+    'group_list?all_fields=true',
     function () {
 
-      self.get('apps', 'ckanext_showcase_list', callback)
+      // Get all data from APIs, one after another
+      self.get('datasets', 'current_package_list_with_resources?limit=1000', function () {
+
+        self.get('apps', 'ckanext_showcase_list', callback)
+      })
     })
   })
 }
