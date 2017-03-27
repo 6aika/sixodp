@@ -33,6 +33,29 @@
   }
 }
 
+.btn-transparent {
+  background: transparent;
+  border: 1px solid white;
+
+  &:hover, &:focus, &:active {
+    background: transparent;
+    color: #eee;
+    border-color: #eee;
+  }
+}
+
+.btn-transparent--inverse {
+  background: transparent;
+  border: 1px solid $brand-primary;
+  color: $brand-primary;
+
+  &:hover, &:focus, &:active {
+    background: transparent;
+    color: $brand-primary-light;
+    border-color: $brand-primary-light;
+  }
+}
+
 .btn--sovellukset {
   position: relative;
   z-index: 1;

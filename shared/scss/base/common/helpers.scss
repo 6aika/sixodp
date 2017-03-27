@@ -65,6 +65,7 @@
 %button {
   @extend %box;
   border: 0;
+  font-weight: $btn-font-weight;
   transition: $transition;
 }
 

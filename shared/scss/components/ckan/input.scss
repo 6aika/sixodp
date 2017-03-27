@@ -10,6 +10,10 @@ input {
   }
 }
 
+.input-lg {
+  border-radius: $border-radius-base;
+}
+
 .radio {
   input[type="radio"] {
     height: auto;

@@ -1,0 +1,17 @@
+.wrapper--morelinks {
+  clear: both;
+  background: #eee;
+  padding: $base*4 0 $base*6;
+
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+.morelink {
+  padding: $base*2 0 0;
+  width: 50%;
+  float: left;
+}
