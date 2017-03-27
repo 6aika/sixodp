@@ -1,6 +1,6 @@
-var FrontSection = function (dashboard) {
+var FrontSection = function (statistics) {
   var self = this
-  self.dashboard = dashboard
+  self.statistics = statistics
 
   self.element = d3.select('.js-front-section')
 
@@ -9,15 +9,15 @@ var FrontSection = function (dashboard) {
     [
       {
         id: 'datasets',
-        text: self.dashboard.translations.datasetsOpened[self.dashboard.config.locale]
+        text: self.statistics.translations.datasetsOpened[self.statistics.config.locale]
       },
       // {
       //   id: 'users',
-      //   text: self.dashboard.translations.users[self.dashboard.config.locale]
+      //   text: self.statistics.translations.users[self.statistics.config.locale]
       // },
       {
         id: 'apps',
-        text: self.dashboard.translations.apps[self.dashboard.config.locale]
+        text: self.statistics.translations.apps[self.statistics.config.locale]
       },
     ]
   )
@@ -26,9 +26,9 @@ var FrontSection = function (dashboard) {
 FrontSection.prototype.update = function () {
   var self = this
   self.attentionNumbers.update({
-    datasets: self.dashboard.data.datasets.length,
+    datasets: self.statistics.data.datasets.length,
     // users: '-', // self.data.users,
-    apps: self.dashboard.data.apps.length
+    apps: self.statistics.data.apps.length
   })
 }
 

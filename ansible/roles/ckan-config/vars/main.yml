@@ -11,6 +11,7 @@ enabled_ckan_extensions:
     - recline_graph_view
     - recline_grid_view
     - recline_map_view
+    - sixodp_showcase
     - sixodp_ui
     - datasetcopy
     - sixodp_scheming
@@ -22,7 +23,6 @@ enabled_ckan_extensions:
     - sixodp_routes
     - sixodp_feed 
     - rating
-    - sixodp_showcase
     - qa 
     - archiver
     - hierarchy_display
@@ -35,6 +35,8 @@ enabled_ckan_extensions:
     - datasubmitter
     - harvest
     - statistics
+    - csw_harvester
+    - sixodp_harvester
 
 enabled_ckan_aws_extensions: cloudstorage
 

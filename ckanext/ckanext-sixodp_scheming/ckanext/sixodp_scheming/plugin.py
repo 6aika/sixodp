@@ -44,6 +44,7 @@ def create_tag_to_vocabulary(tag, vocab):
         "name": tag,
         "vocabulary_id": v['id']}
 
+    context['defer_commit'] = True
     toolkit.get_action('tag_create')(context, data)
 
 
