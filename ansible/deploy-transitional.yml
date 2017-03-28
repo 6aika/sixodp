@@ -34,7 +34,7 @@
     #- transifex-install Only used on Vagrant
     - ckan-translations
     - ckan-restart
-    #- supervisor Not in use
+    - supervisor
     - solr-reindex
     - php-fpm
     - mysql
