@@ -68,7 +68,6 @@ class Sixodp_ShowcaseController(ShowcaseController):
 
     def _guess_package_type(self, expecting_name=False):
         """Showcase packages are always DATASET_TYPE_NAME."""
-        log.info("Guessing")
         return 'showcase'
 
     def _search_template(self, package_type):

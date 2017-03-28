@@ -3,15 +3,22 @@ import ckan.plugins.toolkit as toolkit
 from ckanext.showcase.plugin import ShowcasePlugin
 from ckanext.showcase.logic import action as showcase_action
 from logic.action import create, update
+from ckan.common import _
 
 import ckan.lib.helpers as h
 
 from routes.mapper import SubMapper
 
+try:
+    from collections import OrderedDict  # 2.7
+except ImportError:
+    from sqlalchemy.util import OrderedDict
+
 class Sixodp_ShowcasePlugin(ShowcasePlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IDatasetForm)
     plugins.implements(plugins.IActions)
+    plugins.implements(plugins.IFacets)
 
     # IConfigurer
 
@@ -19,8 +26,6 @@ class Sixodp_ShowcasePlugin(ShowcasePlugin):
         toolkit.add_template_directory(config_, 'templates')
         toolkit.add_public_directory(config_, 'public')
         toolkit.add_resource('fanstatic', 'sixodp_showcase')
-
-
 
     # IDatasetForm
 
@@ -67,6 +72,15 @@ class Sixodp_ShowcasePlugin(ShowcasePlugin):
 
         return map
 
+    # IFacets #
+
+    def dataset_facets(self, facets_dict, package_type):
+        if(package_type == 'showcase'):
+            facets_dict = OrderedDict()
+            facets_dict.update({'category': _('Category')})
+            facets_dict.update({'platform': _('Platform')})
+
+        return facets_dict
 
     # IRoutes
 
