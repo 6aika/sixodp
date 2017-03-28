@@ -6031,6 +6031,12 @@ a {
   .site-footer a {
     color: currentColor; }
 
+.footer-follow-links {
+  padding: 20px 0; }
+
+.footer-follow-title {
+  margin-right: 10px; }
+
 .footer-follow-link:hover {
   text-decoration: none; }
 
@@ -6045,47 +6051,15 @@ hr {
     height: 100%; }
 
 .footer-logo-wrapper {
-  width: 75%;
+  width: 25%;
   margin: auto; }
   @media (min-width: 1248px) {
     .footer-logo-wrapper {
-      width: 100%;
-      margin-bottom: 75px; } }
+      width: 100%; } }
 
 .footer-logo {
-  width: 100%; }
-
-.footer-follow-links {
-  padding: 0  0 20px 0;
-  margin-bottom: 35px;
-  text-align: right; }
-  .footer-follow-links h4 {
-    margin-right: 10px;
-    display: inline;
-    font-size: 14px;
-    margin-top: 0px; }
-  .footer-follow-links .post-edit-link {
-    display: none; }
-  .footer-follow-links ul {
-    list-style: none;
-    display: inline-block;
-    padding-left: 10px; }
-    .footer-follow-links ul li {
-      margin-right: 10px;
-      font-size: 12px; }
-      .footer-follow-links ul li {
-        float: none;
-        display: inline-block;
-        margin-right: 10px;
-        font-size: 7px;
-        background: #fff;
-        width: 24px;
-        height: 24px;
-        padding: 5px;
-        border-radius: 50%; }
-        .footer-follow-links ul li a {
-          color: #534f97; }
-
+  width: 100%;
+  margin-bottom: 40px; }
 
 .footer-links {
   text-align: center;
@@ -6654,6 +6628,60 @@ hr {
 
 .post__meta {
   font-size: 1.1rem; }
+
+.popper {
+  position: absolute;
+  top: -110px;
+  right: 15px;
+  width: 100%;
+  max-width: 180px;
+  max-height: 0;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
+  .popper.open {
+    max-height: 100px;
+    overflow: visible; }
+
+.popper__list {
+  list-style: none;
+  margin: 0;
+  padding-left: 0; }
+
+.popper__item {
+  background: #fff;
+  color: #534f97; }
+
+.popper__link {
+  width: 100%;
+  display: block;
+  text-align: left;
+  padding: 15px; }
+  .popper__link .material-icons {
+    float: right; }
+  .popper__link:hover {
+    background: #eee; }
+
+.popper:after, .popper:before {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none; }
+
+.popper:after {
+  border-color: transparent;
+  border-top-color: #fff;
+  border-width: 5px;
+  margin-left: 50px; }
+
+.popper:before {
+  border-color: transparent;
+  border-top-color: #fff;
+  border-width: 8px;
+  margin-left: 50px; }
 
 .stats {
   display: none;
