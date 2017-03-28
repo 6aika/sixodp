@@ -12,6 +12,7 @@ class Sixodp_ShowcasePlugin(ShowcasePlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IDatasetForm)
     plugins.implements(plugins.IActions)
+    plugins.implements(plugins.IPackageController, inherit=True)
 
     # IConfigurer
 
@@ -132,7 +133,12 @@ class Sixodp_ShowcasePlugin(ShowcasePlugin):
             h.render_markdown(pkg_dict['notes'])
         return pkg_dict
 
-    ## IPackageController
-    #def after_show(self, context, pkg_dict):
+    # IPackageController
+    def after_show(self, context, data_dict):
+        if context.get('for_edit') is not True:
+            if data_dict.get('notifier', None) is not None:
+                data_dict.pop('notifier')
+            if data_dict.get('notifier_email', None) is not None:
+                data_dict.pop('notifier_email')
 
-    #    pkg_dict = self._add_to_pkg_dict(context, object)
+        return self._add_to_pkg_dict(context, data_dict)
