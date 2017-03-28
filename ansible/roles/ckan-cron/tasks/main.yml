@@ -17,4 +17,4 @@
   cron: name="Reminder run" minute="0" hour="8" job="/usr/lib/ckan/default/bin/paster --plugin=ckanext-reminder reminder notify --config={{ckan_ini}}"
 
 - name: Ensure CKAN tracking
-  cron: name="CKAN tracking" minute="0" hour="0" job="/usr/lib/ckan/bin/paster --plugin=ckan tracking update -config={{ckan_ini}} && /usr/lib/ckan/bin/paster --plugin=ckan search-index rebuild -r -config={{ckan_ini}}"
+  cron: name="CKAN tracking" minute="0" hour="0" job="/usr/lib/ckan/bin/paster --plugin=ckan tracking update --config={{ckan_ini}} && /usr/lib/ckan/bin/paster --plugin=ckan search-index rebuild -r --config={{ckan_ini}}"
