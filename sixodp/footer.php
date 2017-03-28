@@ -32,7 +32,7 @@
 				<div class="row">
 					<div class="col-md-2">
 						<div class="footer-logo-wrapper">
-							<img class="footer-logo" src="<?php echo site_url(); ?>/wp-content/themes/sixodp/images/6aika_logo_w.png" alt="6Aika logo">
+							<img class="footer-logo" src="<?php echo assets_url(); ?>/images/main_logo_w.png" alt="6Aika logo">
 						</div>
 					</div>
 					<div class="col-md-4">
@@ -56,9 +56,13 @@
 			    <div class="col-md-12 footer-section footer-section--links">
 						<ul class="footer-links">
 							<?php
-								foreach ( wp_get_nav_menu_items("primary_$pagename") as $navItem ) {
-									echo '<li class="footer__item"><a href="'.$navItem->url.'" class="footer__link" title="'.$navItem->title.'">'.$navItem->title.'</a></li>';
-								}
+			          foreach ( get_nav_menu_items("primary") as $navItem ) {
+			            $class = '';
+			            if ( $navItem["title"] === get_current_locale() ) {
+			              $class = 'active';
+			            }
+			            echo '<li class="'.$class.'"><a href="'.$navItem["url"].'" title="'.$navItem["title"].'" class="nav-link">'.$navItem["title"].'</a></li>';
+			          }
 			        ?>
 						</ul>
 			    </div>
