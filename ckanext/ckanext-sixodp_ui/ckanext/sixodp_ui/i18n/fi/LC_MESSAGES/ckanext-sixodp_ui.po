@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_ui 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-24 07:35+0000\n"
+"POT-Creation-Date: 2017-03-27 13:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Mikko Nieminen <mikko.nieminen@gofore.com>, 2017\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
@@ -38,8 +38,8 @@ msgid "Groups"
 msgstr "Kategoriat"
 
 #: ckanext/sixodp_ui/plugin.py:224
-#: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:32
-#: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:37
+#: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:41
+#: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:46
 msgid "Maintainer"
 msgstr "Ylläpitäjä"
 
@@ -577,9 +577,9 @@ msgid "Show less"
 msgstr "Näytä vähemmän"
 
 #: ckanext/sixodp_ui/templates/package/resource_read.html:139
-#: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:83
-msgid "API metadata"
-msgstr "API metatiedot"
+#: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:7
+msgid "Metadata API"
+msgstr "Metadata API"
 
 #: ckanext/sixodp_ui/templates/package/resource_read.html:151
 msgid "Back to dataset"
@@ -623,28 +623,28 @@ msgstr ""
 msgid "Additional Info"
 msgstr "Lisätiedot"
 
-#: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:9
+#: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:18
 msgid "Source"
 msgstr "Lähde"
 
-#: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:20
-#: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:25
+#: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:29
+#: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:34
 msgid "Author"
 msgstr "Laatija"
 
-#: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:44
+#: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:53
 msgid "Version"
 msgstr "Versio"
 
-#: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:51
+#: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:60
 msgid "State"
 msgstr "Tila"
 
-#: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:57
+#: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:66
 msgid "Last Updated"
 msgstr "Viimeksi päivitetty"
 
-#: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:63
+#: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:72
 #: ckanext/sixodp_ui/templates/scheming/package/resource_read.html:27
 msgid "Created"
 msgstr "Luotu"
@@ -858,20 +858,11 @@ msgstr "Hakuun ei liity {facet_type} -tyyppistä sisältöä"
 msgid "Read more"
 msgstr "Lue lisää"
 
-#: ckanext/sixodp_ui/templates/snippets/horizaccordion.html:39
-msgid "Close preview"
-msgstr "Sulje esittely"
-
-#: ckanext/sixodp_ui/templates/snippets/horizaccordion.html:40
-msgid "Show preview"
-msgstr "Avaa esittely"
-
 #: ckanext/sixodp_ui/templates/snippets/package_item.html:74
 msgid "This dataset has no description"
 msgstr "Tietoaineistolla ei ole kuvausta"
 
 #: ckanext/sixodp_ui/templates/snippets/search_form.html:9
-#: ckanext/sixodp_ui/templates/snippets/search_input.html:18
 msgid "Submit"
 msgstr "Lähetä"
 
@@ -892,6 +883,10 @@ msgid ""
 " <p><strong>There was an error while searching.</strong> Please try "
 "again.</p> "
 msgstr " <p><strong>Haussa tapahtui virhe.</strong> Yritä uudelleen.</p> "
+
+#: ckanext/sixodp_ui/templates/snippets/search_input.html:18
+msgid "Search"
+msgstr "Hae"
 
 #: ckanext/sixodp_ui/templates/snippets/sixodp_offcanvas-filter-button.html:2
 msgid "Filters"
