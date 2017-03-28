@@ -54,23 +54,25 @@ function StatisticsNav (params) {
 
   self._autoScrolling = params.autoScrolling
   self._setHashState = params.setHashState
-  self._setOrganizationFilter = params.setOrganizationFilter
-  self._setCategoryFilter = params.setCategoryFilter
-  self._setDateRangeFilter = params.setDateRangeFilter
+  self._onOrganizationUpdate = params.onOrganizationUpdate
+  self._onCategoryUpdate = params.onCategoryUpdate
+  self._onDateRangeUpdate = params.onDateRangeUpdate
 
   self.inputs.organizationFilter.change(function () {
-    self._setOrganizationFilter(self.inputsD3.organizationFilter.node().value)
+    self._onOrganizationUpdate(self.inputsD3.organizationFilter.node().value)
   })
   self.inputs.categoryFilter.change(function () {
-    self._setCategoryFilter(self.inputsD3.categoryFilter.node().value)
+    self._onCategoryUpdate(self.inputsD3.categoryFilter.node().value)
   })
+  self.inputs.startDateFilter.change(function () { self._readDates(self) })
+  self.inputs.endDateFilter.change(function () { self._readDates(self) })
 
   self.data = {
     dateRange: undefined,
     organizations: undefined,
     categories: undefined,
   }
-
+  // self._setDateRange([moment.utc().subtract(1, 'years'), moment.utc()])
   self.onResize()
 }
 
@@ -90,7 +92,7 @@ StatisticsNav.prototype.updateData = function (dateRange, organizations, categor
   var self = this
   self._setDateRange(dateRange)
   self._updateDateRangeQuicklinks(dateRange)
-  self._setOrganizations(organizations)
+  self._onOrganizationUpdates(organizations)
   self._setCategories(categories)
 
   self._updateSectionPositions()
@@ -104,7 +106,7 @@ StatisticsNav.prototype.onResize = function () {
 StatisticsNav.prototype.onScroll = function (y) {
   var self = this
   var newActiveSection = self.items[0]
-  var margin = 100 + self.height
+  var margin = 200 + self.height
   self.items.forEach(function (item, i) {
     var useMargin = margin
     if (i == 0) {
@@ -124,10 +126,20 @@ StatisticsNav.prototype.onScroll = function (y) {
 
 StatisticsNav.prototype._setDateRange = function (dates) {
   var self = this
-  self.data.dateRange = dates
   self.inputs.startDateFilter.val(dates[0].format('YYYY-MM-DD'))
   self.inputs.endDateFilter.val(dates[1].format('YYYY-MM-DD'))
-  self._setDateRangeFilter(dates)
+  self._onDateRangeUpdate(dates)
+}
+
+StatisticsNav.prototype._readDates = function (self) {
+  var dates = [
+    moment.utc(self.inputs.startDateFilter.val(), 'YYYY-MM-DD'),
+    moment.utc(self.inputs.endDateFilter.val(), 'YYYY-MM-DD'),
+  ]
+  if (dates[0].toDate() > dates[1].toDate()) {
+    return false
+  }
+  self._onDateRangeUpdate(dates)
 }
 
 StatisticsNav.prototype._updateDateRangeQuicklinks = function (totalDateRange) {
@@ -156,13 +168,13 @@ StatisticsNav.prototype._updateDateRangeQuicklinks = function (totalDateRange) {
   ]
 }
 
-StatisticsNav.prototype._setOrganizations = function (organizations) {
+StatisticsNav.prototype._onOrganizationUpdates = function (organizations) {
   var self = this
 
   // List whole hierarchy as options
   self.data.organizations = organizations
   var optionData = [{
-    value: 0,
+    value: '',
     label: self.texts.allPublishers,
   }].concat(self._addOrganizationsWithChildren(self.data.organizations))
 
@@ -193,7 +205,7 @@ StatisticsNav.prototype._setCategories = function (categories) {
   self.data.categories = categories
 
   var optionData = [{
-    id: 0,
+    id: '',
     display_name: self.texts.allCategories,
   }].concat(self.data.categories)
 
@@ -230,7 +242,7 @@ StatisticsNav.prototype._scroll = function (item) {
   var self = this
   self._updateActiveSection(item)
   self._autoScrolling(true)
-  $('html, body').stop().animate({scrollTop: item.position}, 500, 'swing', function() {
+  $('html, body').stop().animate({scrollTop: item.position - self.height}, 500, 'swing', function() {
     self._autoScrolling(false)
   })
 }

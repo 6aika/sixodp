@@ -4,29 +4,35 @@ var DatasetSection = function (statistics) {
 
   self.element = d3.select('.js-statistics-datasets-section')
 
-  self.totalsTimeline = new TotalsTimeline(
-    self.statistics,
-    self.element.select('.js-dataset-totals-timeline'),
-    self.statistics.translations.datasetsOpenedTitle,
-    {
+  self.totalsTimeline = new TotalsTimeline({
+    id: 'datasetCount',
+    element: self.element.select('.js-dataset-totals-timeline'),
+    texts: {
+      title: self.statistics.translations.datasetsOpenedTitle[self.statistics.config.locale],
+      amount: self.statistics.translations.amount[self.statistics.config.locale],
+    },
+    width: parseInt(self.statistics.styles.contentWidth),
+    height: 360,
+    margin: {top: 15, right: 50, bottom: 30, left: 1},
+    schema: {
       nameField: 'title_translated',
       dateField: 'date_released',
       skip: function (dataset) {
         return !!dataset.private
       },
     },
-    {
+    settings: {
       organizations: true
-    }
-  )
+    },
+    locale: self.statistics.config.locale,
+  })
 
   self.organizationDatasets = new TopHistogram({
     id: 'organizationDatasets',
     element: self.element.select('.js-organization-dataset-counts'),
-    translations: {
-      title: self.statistics.translations.topPublishersTitle
+    texts: {
+      title: self.statistics.translations.topPublishersTitle[self.statistics.config.locale],
     },
-    locale: self.statistics.config.locale,
     width: parseInt(self.statistics.styles.contentWidth),
     height: 360,
     margin: {top: 15, right: 50, bottom: 30, left: 1},
@@ -37,19 +43,37 @@ var DatasetSection = function (statistics) {
   })
 }
 
-DatasetSection.prototype.update = function (firstDataLoad = false) {
+DatasetSection.prototype.update = function () {
   var self = this
-  self.totalsTimeline.updateAll(self.statistics.data.datasets, firstDataLoad)
+  self.totalsTimeline.setDateFilter(self.statistics.data.dateRange)
+  self.totalsTimeline.setData(self.statistics.data.datasets, self.statistics.data.organizations)
   self.organizationDatasets.setData(self.statistics.data.organizations)
 }
 
+
 DatasetSection.prototype.onContentResize = function (content) {
   var self = this
-  self.totalsTimeline.onAreaResize()
+  self.totalsTimeline.resize(parseInt(self.statistics.styles.contentWidth))
   self.organizationDatasets.resize(parseInt(self.statistics.styles.contentWidth))
 }
 
-DatasetSection.prototype.setLocale = function (locale) {
+
+// Filter all the visualizations in this section by the given dates
+DatasetSection.prototype.setDateRange = function (dates) {
   var self = this
-  self.organizationDatasets.setLocale(locale)
+  self.totalsTimeline.setDateFilter(dates)
+  self.organizationDatasets.setDateFilter(dates)
+}
+
+
+// Filter all the visualizations in this section by the given organization
+DatasetSection.prototype.setOrganization = function (organization) {
+  var self = this
+  self.totalsTimeline.setOrganizationFilter(organization)
+}
+
+// Filter all the visualizations in this section by the given category
+DatasetSection.prototype.setCategory = function (category) {
+  var self = this
+  self.totalsTimeline.setCategoryFilter(category)
 }

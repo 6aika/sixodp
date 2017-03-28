@@ -15,6 +15,43 @@ var Statistics = function () {
 
   self.api = new Api(self)
 
+  // Set d3 locale
+  d3.timeFormatDefaultLocale(self.timeFormats[self.config.locale])
+
+  self.frontSection = new FrontSection(self)
+  self.datasetSection = new DatasetSection(self)
+  self.appSection = new AppSection(self)
+
+
+  // Scroll event
+  self.onScroll = $.throttle(300, function () {
+    var y = $(window).scrollTop()
+    self.nav.onScroll(y)
+  })
+  window.onscroll = self.onScroll
+
+  // Hash change event
+  self.onHashChange = function (e) {
+    if (e && e.preventDefault) {
+      e.preventDefault()
+    }
+    var hash = location.hash.substring(1)
+    self.nav.onHashChange(hash)
+    return false
+  }
+  window.onhashchange = self.onHashChange
+
+  // Resize elements on window resize
+  window.onresize = function () {
+    self.styles.contentWidth = d3.select('.statistics-section-content:first-child').style('width')
+    console.log('Window resized to', self.styles.contentWidth)
+
+    self.nav.onResize()
+    self.frontSection.onContentResize()
+    self.datasetSection.onContentResize()
+    self.appSection.onContentResize()
+  }
+
   self.nav = new StatisticsNav({
     element: $('.statistics-nav'),
     items: [
@@ -65,76 +102,40 @@ var Statistics = function () {
         }, 100)
       }
     },
-    setDateRangeFilter: function (value) {
-      // console.log('setDateRange', value)
-      // self.datasetSection.setDateRangeFilter(value)
-      // self.appSection.setDateRangeFilter(value)
-      // self.articleSection.setDateRangeFilter(value)
+    onDateRangeUpdate: (function (dates) {
+      var self = this
+      self.datasetSection.setDateRange(dates)
+      self.appSection.setDateRange(dates)
+      // self.articleSection.setDateRange(value)
+    }).bind(self),
+    onOrganizationUpdate: function(value) {
+      self.datasetSection.setOrganization(value)
     },
-    setOrganizationFilter: function(value) {
-      // console.log('setOrganization', value)
-      // self.datasetSection.setOrganizationFilter(value)
-    },
-    setCategoryFilter: function(value) {
-      // console.log('setCategory', value)
-      // self.datasetSection.setOrganizationFilter(value)
+    onCategoryUpdate: function(value) {
+      self.datasetSection.setCategory(value)
     },
   })
-  self.frontSection = new FrontSection(self)
-  self.datasetSection = new DatasetSection(self)
-  self.appSection = new AppSection(self)
 
-  // Set d3 locale
-  d3.timeFormatDefaultLocale(self.timeFormats[self.config.locale])
+  self.onHashChange()
 
   // Get all data for statistics from APIs
   self.api.getAllData(function () {
     console.log('Fetched all data from APIs:', self.data)
 
     // General data transformations for the whole statistics
-    self.transformData()
+    self._transformData()
 
     // Init all data visualizations with the updated data
     self.frontSection.update()
-    self.datasetSection.update(true)
-    self.appSection.update(true)
+    self.datasetSection.update()
+    self.appSection.update()
 
     self.nav.updateData(self.data.dateRange, self.data.organizations, self.data.categories)
   })
-
-  // Resize elements on window resize
-  window.onresize = function () {
-    self.styles.contentWidth = d3.select('.statistics-section-content:first-child').style('width')
-    console.log('Window resized to', self.styles.contentWidth)
-
-    self.nav.onResize()
-    self.frontSection.onContentResize()
-    self.datasetSection.onContentResize()
-    self.appSection.onContentResize()
-  }
-
-  // Scroll event
-  self.onScroll = $.throttle(300, function () {
-    var y = $(window).scrollTop()
-    self.nav.onScroll(y)
-  })
-  window.onscroll = self.onScroll
-
-  // Hash change event
-  self.onHashChange = function (e) {
-    if (e && e.preventDefault) {
-      e.preventDefault()
-    }
-    var hash = location.hash.substring(1)
-    self.nav.onHashChange(hash)
-    return false
-  }
-  window.onhashchange = self.onHashChange
-  self.onHashChange()
 }
 
 
-Statistics.prototype.transformData = function () {
+Statistics.prototype._transformData = function () {
   var self = this
 
   // eg. start date of the whole portal = 1.1. on the year of first dataset/app/article
@@ -142,18 +143,17 @@ Statistics.prototype.transformData = function () {
   var firstDateApp = d3.min(self.data.apps, function (d) { return d.metadata_created })
 
   // Default value if no data exists
-  var firstDateDatavis = moment.utc([moment.utc().year(), 0, 1])
-  if (firstDateDataset !== undefined || firstDateApp !== undefined) {
-    var firstDate = firstDateDataset
-    if (
-      (firstDateDataset == undefined && firstDateApp !== undefined)
-      || firstDateDataset > firstDateApp
-    ) {
-      firstDate = firstDateApp
-    }
-    firstDate = moment.utc(firstDate)
-    firstDateVis = moment.utc([firstDate.year(), 0, 1])
+  var firstDate = moment.utc().year() + '-01-01'
+
+  if (typeof firstDateDataset !== 'undefined') {
+    firstDate = firstDateDataset
   }
+  if (typeof firstDateApp !== 'undefined' && firstDateApp < firstDateDataset) {
+    firstDate = firstDateApp
+  }
+  firstDate = moment.utc(firstDate)
+  firstDateVis = moment.utc([firstDate.year(), 0, 1])
+
   var today = moment.utc()
   today = moment.utc([today.year(), today.month(), today.date()])
 

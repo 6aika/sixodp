@@ -145,29 +145,62 @@
   stroke-dasharray: '2,2';
 }*/
 
-.statistics-axis line {
-  stroke: $white;
-}
-
-.statistics-axis path {
-  stroke: $white;
-}
-
-.statistics-axis text {
+.statistics-focus-point {
+  opacity: 0.9;
   fill: $white;
+  stroke: $white;
+
+  circle {
+    fill: $white;
+    stroke: $white;
+  }
+
+  line {
+    fill: none;
+    stroke: $white;
+    stroke-width: 1.5px;
+    stroke-dasharray: 3 3;
+  }
+
+  .statistics-count {
+    font-size: 24px;
+  }
+
+  .statistics-date {
+    font-size: 12px;
+  }
 }
 
-.bar rect {
-  fill: $datavis-color-2;
+.statistics-axis {
+  line {
+    stroke: $white;
+  }
+  path {
+    stroke: $white;
+  }
+  text {
+    fill: $white;
+  }
+}
+.statistics-axis-y {
+  .tick:not(:first-of-type) line {
+    stroke-dasharray: 2,2;
+  }
 }
 
-.bar text {
-  fill: $white;
-  font: 10px sans-serif;
+.bar {
+  rect {
+    fill: $datavis-color-2;
+  }
+  text {
+    fill: $white;
+    font: 10px sans-serif;
+  }
+  &:hover {
+    // fill: #5faf59;
+  }
 }
-.bar:hover {
-  // fill: #5faf59;
-}
+
 
 // Attention numbers
 
