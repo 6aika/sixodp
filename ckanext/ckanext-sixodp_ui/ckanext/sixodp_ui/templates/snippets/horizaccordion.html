@@ -1,6 +1,6 @@
 {% set truncate = truncate or 180 %}
 
-<div class="wrapper--horizaccordion">
+<div class="wrapper--horizaccordion collapse in" id="horizaccordion">
   <div class="container">
     <div class="row">
       <div class="horizaccordion">
@@ -33,4 +33,10 @@
       </div>
     </div>
   </div>
+</div>
+<div class="horizaccordion__collapse">
+  <button id="horizaccordion-collapse-btn" class="btn btn-primary" data-toggle="collapse" data-target="#horizaccordion">
+    <span id="close-text">{{ _('Close preview') }}</span>
+    <span id="show-text">{{ _('Show preview') }}</span>
+  </button>
 </div>

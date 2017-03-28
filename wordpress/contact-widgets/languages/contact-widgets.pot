@@ -1,0 +1,259 @@
+# Copyright (c) 2017 GoDaddy Operating Company, LLC. All Rights Reserved.
+msgid ""
+msgstr ""
+"Project-Id-Version: Contact Widgets 1.4.0\n"
+"Report-Msgid-Bugs-To: https://github.com/godaddy/wp-contact-widgets/issues\n"
+"POT-Creation-Date: 2017-02-13 16:46:55+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Generator: grunt-wp-i18n1.0.0\n"
+
+#: contact-widgets.php:93
+msgid ""
+"Contact widgets requires PHP version %s or higher. Please deactivate the "
+"plugin and contact your system administrator."
+msgstr ""
+
+#: includes/class-base-widget.php:488
+msgid "Edit"
+msgstr ""
+
+#: includes/class-contact.php:29
+msgid "Display your contact information."
+msgstr ""
+
+#: includes/class-contact.php:35
+msgid "Contact Details"
+msgstr ""
+
+#: includes/class-contact.php:173 includes/class-social.php:217
+msgid "Title:"
+msgstr ""
+
+#: includes/class-contact.php:174 includes/class-social.php:218
+msgid "The title of widget. Leave empty for no title."
+msgstr ""
+
+#: includes/class-contact.php:179
+msgid "Email:"
+msgstr ""
+
+#: includes/class-contact.php:186
+msgid "An email address where website vistors can contact you."
+msgstr ""
+
+#: includes/class-contact.php:189
+msgid "Phone:"
+msgstr ""
+
+#: includes/class-contact.php:191
+msgid "A phone number that website vistors can call if they have questions."
+msgstr ""
+
+#: includes/class-contact.php:194
+msgid "Fax:"
+msgstr ""
+
+#: includes/class-contact.php:196
+msgid "A fax number that website vistors can use to send important documents."
+msgstr ""
+
+#: includes/class-contact.php:199
+msgid "Address:"
+msgstr ""
+
+#: includes/class-contact.php:204
+msgid "A physical address where website vistors can go to visit you in person."
+msgstr ""
+
+#: includes/class-contact.php:207 includes/class-social.php:228
+msgid "Display labels?"
+msgstr ""
+
+#: includes/class-contact.php:217
+msgid "Display map of address?"
+msgstr ""
+
+#: includes/class-social.php:20
+msgid "Display links to your social media profiles."
+msgstr ""
+
+#: includes/class-social.php:26
+msgid "Social Profiles"
+msgstr ""
+
+#: includes/social-networks.php:17
+msgid "Facebook"
+msgstr ""
+
+#: includes/social-networks.php:22
+msgid "Twitter"
+msgstr ""
+
+#: includes/social-networks.php:28
+msgid "Google+"
+msgstr ""
+
+#: includes/social-networks.php:34
+msgid "LinkedIn"
+msgstr ""
+
+#: includes/social-networks.php:39
+msgid "RSS feed"
+msgstr ""
+
+#: includes/social-networks.php:43
+msgid "Pinterest"
+msgstr ""
+
+#: includes/social-networks.php:48
+msgid "YouTube"
+msgstr ""
+
+#: includes/social-networks.php:54
+msgid "Vimeo"
+msgstr ""
+
+#: includes/social-networks.php:59
+msgid "Flickr"
+msgstr ""
+
+#: includes/social-networks.php:64
+msgid "500px"
+msgstr ""
+
+#: includes/social-networks.php:69
+msgid "Foursquare"
+msgstr ""
+
+#: includes/social-networks.php:74
+msgid "GitHub"
+msgstr ""
+
+#: includes/social-networks.php:79
+msgid "Slack"
+msgstr ""
+
+#: includes/social-networks.php:84
+msgid "Skype"
+msgstr ""
+
+#: includes/social-networks.php:91
+msgid "SoundCloud"
+msgstr ""
+
+#: includes/social-networks.php:96
+msgid "TripAdvisor"
+msgstr ""
+
+#: includes/social-networks.php:100
+msgid "WordPress"
+msgstr ""
+
+#: includes/social-networks.php:105
+msgid "Yelp"
+msgstr ""
+
+#: includes/social-networks.php:110
+msgid "Amazon"
+msgstr ""
+
+#: includes/social-networks.php:114
+msgid "Instagram"
+msgstr ""
+
+#: includes/social-networks.php:119
+msgid "Vine"
+msgstr ""
+
+#: includes/social-networks.php:124
+msgid "reddit"
+msgstr ""
+
+#: includes/social-networks.php:129
+msgid "XING"
+msgstr ""
+
+#: includes/social-networks.php:133
+msgid "Tumblr"
+msgstr ""
+
+#: includes/social-networks.php:138
+msgid "WhatsApp"
+msgstr ""
+
+#: includes/social-networks.php:142
+msgid "WeChat"
+msgstr ""
+
+#: includes/social-networks.php:146
+msgid "Medium"
+msgstr ""
+
+#: includes/social-networks.php:151
+msgid "Dribbble"
+msgstr ""
+
+#: includes/social-networks.php:156
+msgid "Twitch"
+msgstr ""
+
+#: includes/social-networks.php:161
+msgid "VK"
+msgstr ""
+
+#: includes/social-networks.php:165
+msgid "Trello"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Contact Widgets"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Beautifully display social media and contact information on your website "
+"with these simple widgets."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "GoDaddy"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://godaddy.com"
+msgstr ""
+
+#: includes/class-social.php:163
+msgctxt ""
+"1. Title of website (e.g. My Cat Blog), 2. Name of social network (e.g. "
+"Facebook)"
+msgid "Visit %1$s on %2$s"
+msgstr ""
+
+#: includes/social-networks.php:9
+msgctxt "Must be lowercase and use url-safe characters"
+msgid "username"
+msgstr ""
+
+#: includes/social-networks.php:10
+msgctxt "Must be lowercase and use url-safe characters"
+msgid "channel"
+msgstr ""
+
+#: includes/social-networks.php:11
+msgctxt "Must be lowercase and use url-safe characters"
+msgid "company"
+msgstr ""
+
+#: includes/social-networks.php:12
+msgctxt "Must be lowercase and use url-safe characters"
+msgid "board"
+msgstr ""
