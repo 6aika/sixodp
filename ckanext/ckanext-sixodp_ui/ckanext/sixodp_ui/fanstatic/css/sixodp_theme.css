@@ -5988,6 +5988,23 @@ a {
   color: #534f97;
   font-size: 3rem; }
 
+.heading--tuki {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Roboto Slab", sans-serif;
+  color: #534f97;
+  font-size: 3.5rem;
+  text-align: center;
+  font-weight: 700; }
+
+.heading--themes {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Roboto Slab", sans-serif;
+  color: #534f97;
+  font-size: 2.5rem;
+  font-weight: 700; }
+
 .notification {
   background: #E89D21;
   color: #fff;
@@ -6143,7 +6160,8 @@ hr {
       width: 100%; } }
 
 .footer-logo {
-  width: 100%; }
+  width: 100%;
+  margin-bottom: 40px; }
 
 .footer-links {
   text-align: center;
@@ -6490,6 +6508,23 @@ hr {
   @media (min-width: 992px) {
     .btn-wrapper--right {
       text-align: right !important; } }
+
+.btn-transparent {
+  background: transparent;
+  border: 1px solid white; }
+  .btn-transparent:hover, .btn-transparent:focus, .btn-transparent:active {
+    background: transparent;
+    color: #eee;
+    border-color: #eee; }
+
+.btn-transparent--inverse {
+  background: transparent;
+  border: 1px solid #534f97;
+  color: #534f97; }
+  .btn-transparent--inverse:hover, .btn-transparent--inverse:focus, .btn-transparent--inverse:active {
+    background: transparent;
+    color: #6d69b0;
+    border-color: #6d69b0; }
 
 .btn--sovellukset {
   position: relative;
@@ -7536,7 +7571,7 @@ select {
     .toolbar {
       display: block; } }
 
-.statistics-page h1, .statistics-page h2, .statistics-page h3 {
+.statistics-page h1, .statistics-page h2, .statistics-page .statistics-vis-title {
   text-align: center;
   font-weight: normal; }
 
@@ -7573,17 +7608,23 @@ select {
 .front-section .statistics-section-content {
   padding: 0px; }
 
+.statistics-section:nth-child(2), .statistics-section:nth-child(3) {
+  color: #ffffff; }
+  .statistics-section:nth-child(2) h1, .statistics-section:nth-child(2) h2, .statistics-section:nth-child(2) .statistics-vis-title, .statistics-section:nth-child(3) h1, .statistics-section:nth-child(3) h2, .statistics-section:nth-child(3) .statistics-vis-title {
+    color: #ffffff; }
+
 .statistics-section:nth-child(2) {
-  color: #ffffff;
   background-color: #534f97; }
 
 .statistics-section:nth-child(3) {
-  color: #ffffff;
   background-color: #413d76; }
 
 .statistics-section:nth-child(4) {
   color: #000;
   background-color: #ffffff; }
+
+.statistics-vis {
+  margin-bottom: 50px; }
 
 .statistics-line {
   fill: none;
@@ -7729,3 +7770,10 @@ h3, h4, h5, h6, .module-heading {
         width: auto;
         display: inline-block;
         overflow: hidden; } }
+
+.rating-wrapper {
+  color: #534f97; }
+  .rating-wrapper .rating-star {
+    color: #97ba54; }
+    .rating-wrapper .rating-star.rating-star-hover {
+      color: #cccc00; }
