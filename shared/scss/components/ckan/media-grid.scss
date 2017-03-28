@@ -51,7 +51,8 @@
 
     .media-edit {
       position: absolute;
-      bottom: 458px;
+      bottom: $padding-large-vertical;
+      right: $padding-large-horizontal;
     }
 
     .item-content {

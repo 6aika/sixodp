@@ -1,12 +1,10 @@
 .material-icons {
-  float: left;
   line-height: 18px !important;
   margin-right: 4px;
+  vertical-align: middle;
 
   .notification & {
-    float: none;
     line-height: 1 !important;
-    vertical-align: middle;
   }
 }
 

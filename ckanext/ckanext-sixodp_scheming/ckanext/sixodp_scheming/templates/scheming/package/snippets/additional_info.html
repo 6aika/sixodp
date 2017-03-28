@@ -16,6 +16,8 @@
     'tag_string',
     'license_id',
     'owner_org',
+    'title_translated',
+    'notes_translated'
     ] -%}
 
 {% block package_additional_info %}
@@ -64,7 +66,7 @@
     {%- endif -%}
   {%- endfor -%}
 
-  <tr class="mobile-only">
+  <tr>
     <th>{{ _('Openness') }}</th>
     <td class="dataset-details">{{ h.get_qa_openness(pkg_dict) }}</td>
   </tr>

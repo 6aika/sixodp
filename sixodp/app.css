@@ -6419,6 +6419,14 @@ hr {
   .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
     background-color: #6d69b0; }
 
+.btn-transparent {
+  background-color: transparent;
+  color: #534f97;
+  border: 1px solid #534f97; }
+  .btn-transparent:hover, .btn-transparent:focus, .btn-transparent:active {
+    background-color: #534f97;
+    color: #ffffff; }
+
 .btn-secondary {
   background-color: #a55efa;
   color: #fff; }
