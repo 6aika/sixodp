@@ -24,7 +24,8 @@ $(function ($) {
     jQuery('input[type=date]').datepicker({
       format: 'yyyy-mm-dd',
       weekStart: 1,
-      language: language
+      language: language,
+      todayHighlight: true
     });
 
     // hide .navbar first

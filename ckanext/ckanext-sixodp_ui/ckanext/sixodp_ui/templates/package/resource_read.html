@@ -142,7 +142,7 @@
 {% block secondary_content %}
   {% block back_link %}
     <div class="module module-narrow module-shallow context-info">
-      <a class="btn btn-primary" href="{{ h.url_for(controller='package', action='read', id=pkg.id) }}">
+      <a class="btn btn-block btn-transparent" href="{{ h.url_for(controller='package', action='read', id=pkg.id) }}">
         <span class="icon icon-long-arrow-left"></span>
         {{ _('Back to dataset') }}
       </a>
