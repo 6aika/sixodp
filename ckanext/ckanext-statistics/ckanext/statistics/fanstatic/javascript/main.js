@@ -67,10 +67,10 @@ var Statistics = function () {
         id: 'apps',
         title: self.translations.appSectionTitle[self.config.locale],
       },
-      {
-        id: 'articles',
-        title: self.translations.articleSectionTitle[self.config.locale],
-      },
+      // {
+      //   id: 'articles',
+      //   title: self.translations.articleSectionTitle[self.config.locale],
+      // },
     ],
     texts: {
       allPublishers: self.translations.allPublishers[self.config.locale],
