@@ -107,7 +107,7 @@
   {% endif %}
 
   {% block store_icons %}
-    {{ h.snippet('sixodp_showcase/snippets/store_icon_links.html', links=pkg.links) }}
+    {{ h.snippet('sixodp_showcase/snippets/store_icon_links.html', store_links=pkg.store_urls) }}
   {% endblock %}
 
   {% block package_description %}

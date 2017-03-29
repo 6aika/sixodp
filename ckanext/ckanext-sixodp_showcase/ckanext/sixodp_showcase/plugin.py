@@ -137,7 +137,7 @@ class Sixodp_ShowcasePlugin(ShowcasePlugin):
         # Add a image urls for the Showcase image to the pkg dict so template
         # has access to it.
 
-        imgs = ['icon', 'image_1', 'image_2', 'image_3', 'image_4']
+        imgs = ['icon', 'featured_image', 'image_1', 'image_2', 'image_3']
         for image in imgs:
             image_url = pkg_dict.get(image)
             pkg_dict[image +'_display_url'] = image_url
