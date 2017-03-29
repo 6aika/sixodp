@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_showcase 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-24 07:29+0000\n"
+"POT-Creation-Date: 2017-03-28 09:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,12 +18,45 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.3.4\n"
 
-#: ckanext/sixodp_showcase/controller.py:47
+#: ckanext/sixodp_showcase/controller.py:54
 msgid "Showcase not found"
 msgstr ""
 
-#: ckanext/sixodp_showcase/controller.py:49
+#: ckanext/sixodp_showcase/controller.py:56
 msgid "Unauthorized to read showcase"
+msgstr ""
+
+#: ckanext/sixodp_showcase/controller.py:87
+msgid "Not authorized to see this page"
+msgstr ""
+
+#: ckanext/sixodp_showcase/controller.py:181
+msgid "Organizations"
+msgstr ""
+
+#: ckanext/sixodp_showcase/controller.py:182
+msgid "Groups"
+msgstr ""
+
+#: ckanext/sixodp_showcase/controller.py:183
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:33
+msgid "Tags"
+msgstr ""
+
+#: ckanext/sixodp_showcase/controller.py:184
+msgid "Formats"
+msgstr ""
+
+#: ckanext/sixodp_showcase/controller.py:185
+msgid "Licenses"
+msgstr ""
+
+#: ckanext/sixodp_showcase/controller.py:235
+msgid "Invalid search query: {error_message}"
+msgstr ""
+
+#: ckanext/sixodp_showcase/controller.py:252
+msgid "Parameter \"{parameter_name}\" is not an integer"
 msgstr ""
 
 #: ckanext/sixodp_showcase/templates/scheming/package/snippets/package_form.html:4
@@ -61,10 +94,6 @@ msgstr ""
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:28
 msgid "eg. Some useful notes about the data"
-msgstr ""
-
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:33
-msgid "Tags"
 msgstr ""
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:33
@@ -151,7 +180,7 @@ msgid "There are no Datasets in this Showcase"
 msgstr ""
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:13
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:47
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:50
 msgid "Search showcases..."
 msgstr ""
 
@@ -160,23 +189,35 @@ msgid "Add Showcase"
 msgstr ""
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:40
-msgid "Relevance"
+msgid "Newest first"
 msgstr ""
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:41
-msgid "Name Ascending"
+msgid "Oldest first"
 msgstr ""
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:42
-msgid "Name Descending"
+msgid "Popular"
 msgstr ""
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:43
-msgid "Last Modified"
+msgid "Relevance"
 msgstr ""
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:44
-msgid "Popular"
+msgid "Name Ascending"
+msgstr ""
+
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:45
+msgid "Name Descending"
+msgstr ""
+
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:46
+msgid "Last Modified"
+msgstr ""
+
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:47
+msgid "Top rating"
 msgstr ""
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/snippets/showcase_item.html:32
