@@ -15,7 +15,7 @@
   </div>
 
   <div class="page-highlight">
-    {{ h.snippet('snippets/horizaccordion.html', items=c.page.items, image="image_2_display_url", controller='ckanext.sixodp_showcase.controller:Sixodp_ShowcaseController') }}
+    {{ h.snippet('snippets/horizaccordion.html', items=h.get_featured_showcases(), image="image_2_display_url", controller='ckanext.sixodp_showcase.controller:Sixodp_ShowcaseController') }}
   </div>
 
 {% endblock %}

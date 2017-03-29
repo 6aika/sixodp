@@ -1,8 +1,10 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 from ckanext.showcase.plugin import ShowcasePlugin
+import ckanext.showcase.logic.helpers as showcase_helpers
 from ckanext.showcase.logic import action as showcase_action
 from logic.action import create, update
+from ckanext.sixodp_showcase import helpers
 
 import ckan.lib.helpers as h
 
@@ -12,6 +14,7 @@ class Sixodp_ShowcasePlugin(ShowcasePlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IDatasetForm)
     plugins.implements(plugins.IActions)
+    plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IPackageController, inherit=True)
 
     # IConfigurer
@@ -99,6 +102,15 @@ class Sixodp_ShowcasePlugin(ShowcasePlugin):
                 showcase_action.get.showcase_admin_list,
         }
         return action_functions
+
+    # ITemplateHelpers
+
+    def get_helpers(self):
+        return {
+            'get_featured_showcases': helpers.get_featured_showcases,
+            'facet_remove_field': showcase_helpers.facet_remove_field,
+            'get_site_statistics': showcase_helpers.get_site_statistics
+        }
 
     def _add_to_pkg_dict(self, context, pkg_dict):
         '''
