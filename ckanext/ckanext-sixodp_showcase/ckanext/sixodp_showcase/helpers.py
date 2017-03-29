@@ -9,8 +9,7 @@ def get_featured_showcases():
     limit = 4
 
     data_dict = {
-        'fq': 'dataset_type:showcase',
-        'facet.field': [],
+        'fq': 'featured:true +dataset_type:showcase',
         'rows': limit,
         'start': 0,
         'sort': 'metadata_created desc',
