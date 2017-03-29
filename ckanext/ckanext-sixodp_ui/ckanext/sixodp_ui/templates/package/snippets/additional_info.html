@@ -3,7 +3,7 @@
 
   {% block api_link %}
     <div class="api-link">
-      <a class="btn btn-block btn-transparent" href="{{ h.url_for('/', locale='default', qualified=true) }}api/action/package_show?id={{c.pkg_dict.name}}">
+      <a class="btn btn-block btn-transparent--inverse" href="{{ h.url_for('/', locale='default', qualified=true) }}api/action/package_show?id={{c.pkg_dict.name}}">
         {{ _('Metadata API') }} <i class="material-icons">arrow_forward</i>
       </a>
     </div>
