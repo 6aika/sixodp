@@ -145,15 +145,17 @@
 
   {% endblock %}
 
+  {% block package_info %}
+    <h2 class="module-heading">{{ _('Used datasets') }}</h2>
+    {% if c.showcase_pkgs %}
+      {{ h.snippet('snippets/package_list.html', packages=c.showcase_pkgs) }}
+    {% else %}
+      <p class="module-content empty">{{_('There are no Datasets in this Showcase')}}</p>
+    {% endif %}
+  {% endblock %}
+
   {% block package_info_mobile_only %}
     <div class="mobile-only">
-      <h2 class="module-heading">{{ _('Used datasets') }}</h2>
-      {% if c.showcase_pkgs %}
-        {{ h.snippet('snippets/package_list.html', packages=c.showcase_pkgs) }}
-      {% else %}
-        <p class="module-content empty">{{_('There are no Datasets in this Showcase')}}</p>
-      {% endif %}
-
       {% snippet "snippets/social.html" %}
     </div>
   {% endblock %}
@@ -175,18 +177,15 @@
 {% block secondary_content %}
   {% block secondary_help_content %}{% endblock %}
 
-  {% block package_datasets %}
-    <section class="module module-narrow">
-      <h2 class="module-heading">{{ _('Used datasets') }}</h2>
-      {% if c.showcase_pkgs %}
-        {{ h.snippet('snippets/package_list.html', packages=c.showcase_pkgs) }}
-      {% else %}
-        <p class="module-content empty">{{_('There are no Datasets in this Showcase')}}</p>
-      {% endif %}
-    </section>
+  {% block more_from_author %}
+    {% set author_showcases = h.get_showcases_by_author(pkg.author) %}
+    {% if author_showcases %}
+      <section class="module module-narrow">
+        <h2 class="module-heading">{{ _('More from the author') }}</h2>
+        {{ h.snippet('sixodp_showcase/snippets/related_list.html', packages=author_showcases) }}
+      </section>
+    {% endif %}
   {% endblock %}
-
-  {% block package_info %}{% endblock %}
 
   {% block package_social %}
     {% snippet "snippets/social.html" %}

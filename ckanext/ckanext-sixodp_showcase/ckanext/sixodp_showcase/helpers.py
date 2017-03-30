@@ -19,3 +19,22 @@ def get_featured_showcases():
     query = get_action('package_search')(context, data_dict)
 
     return query['results']
+
+def get_showcases_by_author(author):
+    context = {'model': model, 'user': c.user, 'auth_user_obj': c.userobj}
+    limit = 3
+    fq = ''
+    fq += 'author:{author_name}'.format(author_name=author.replace(' ', '\ '))
+    fq += ' +dataset_type:showcase'
+
+    data_dict = {
+        'fq': fq,
+        'rows': limit,
+        'start': 0,
+        'sort': 'metadata_created desc',
+        'include_private': False
+    }
+
+    query = get_action('package_search')(context, data_dict)
+
+    return query['results']

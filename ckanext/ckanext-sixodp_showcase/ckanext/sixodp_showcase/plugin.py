@@ -121,9 +121,10 @@ class Sixodp_ShowcasePlugin(ShowcasePlugin):
 
     def get_helpers(self):
         return {
-            'get_featured_showcases': helpers.get_featured_showcases,
             'facet_remove_field': showcase_helpers.facet_remove_field,
-            'get_site_statistics': showcase_helpers.get_site_statistics
+            'get_site_statistics': showcase_helpers.get_site_statistics,
+            'get_featured_showcases': helpers.get_featured_showcases,
+            'get_showcases_by_author': helpers.get_showcases_by_author
         }
 
     def _add_to_pkg_dict(self, context, pkg_dict):

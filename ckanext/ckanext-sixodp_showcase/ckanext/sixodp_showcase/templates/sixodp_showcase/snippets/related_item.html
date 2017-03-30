@@ -1,0 +1,45 @@
+{#
+Displays a single of dataset.
+
+package        - A package to display.
+item_class     - The class name to use on the list item.
+hide_resources - If true hides the resources (default: false).
+banner         - If true displays a popular banner (default: false).
+truncate       - The length to trucate the description to (default: 180)
+truncate_title - The length to truncate the title to (default: 80).
+
+Example:
+
+{% snippet 'snippets/package_item.html', package=c.datasets[0] %}
+
+#}
+{% set truncate = truncate or 180 %}
+{% set truncate_title = truncate_title or 80 %}
+{% set title = package.title or package.name %}
+{% set categories = h.get_groups_for_package(package.id) %}
+{% set notes = h.markdown_extract(h.get_translated(package, 'notes'), extract_length=truncate) %}
+
+{% block package_item %}
+<li class="dataset-item">
+  <div class="row">
+    {% block content %}
+    <div class="{% if show_rating %}col-md-8 {% endif %} col-sm-12 dataset-col-left">
+      <div class="dataset-content">
+        {% block heading %}
+          <a href="{{ h.url_for(controller='ckanext.sixodp_showcase.controller:Sixodp_ShowcaseController', action='read', id=package.name) }}">
+            <h3 class="dataset-heading">
+              <span>{{title}}</span>
+            </h3>
+          </a>
+        {% endblock %}
+      </div>
+    </div>
+    {% if show_rating %}
+      <div class="col-md-4 col-sm-12 dataset-col-right">
+        {% snippet "rating/snippets/rating_single.html", package=package %}
+      </div>
+      {% endif %}
+    {% endblock %}
+  </div>
+</li>
+{% endblock %}
