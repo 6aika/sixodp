@@ -1,0 +1,31 @@
+.cards {
+  display: flex;
+  margin-bottom: $base*2;
+}
+
+.card {
+  border-radius: 6px;
+  background: white;
+  padding: $base*2;
+  margin: $base;
+  border: 1px solid #e7e7e7;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.card__title {
+  @include heading();
+  border-bottom: 1px solid #e7e7e7;
+  padding-bottom: $base;
+  margin-bottom: $base;
+}
+
+.card__meta {
+  margin-bottom: $base*1.5;
+}

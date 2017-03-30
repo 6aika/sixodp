@@ -29,26 +29,13 @@
   width: $base*30;
   padding-left: $base;
   padding-right: $base;
+  margin-bottom: $base*2;
 }
 
 .showcase {
   background: $brand-primary;
   color: #fff;
-  border-bottom-left-radius: $base*2;
-  border-bottom-right-radius: $base*2;
-  position: relative;
-  margin-bottom: $base*6;
-
-  &:after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 16px;
-    width: 0;
-    height: 0;
-    border: 124px solid transparent;
-    border-top: 26px solid $brand-primary;
-  }
+  border-radius: 6px;
 }
 
 .showcase__content {

@@ -6005,6 +6005,23 @@ a {
   font-size: 2.5rem;
   font-weight: 700; }
 
+.heading--featured {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Roboto Slab", sans-serif;
+  color: #534f97;
+  font-size: 3rem; }
+
+.heading--mleft {
+  margin-left: -15px; }
+
+.heading--featured-small {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Roboto Slab", sans-serif;
+  color: #534f97;
+  font-size: 2.2rem; }
+
 .notification {
   background: #E89D21;
   color: #fff;
@@ -6383,7 +6400,6 @@ hr {
 
 .wrapper--horizaccordion {
   background: #534f97;
-  margin-top: 10px;
   padding: 60px 0 20px; }
   .wrapper--horizaccordion .container {
     box-sizing: content-box; }

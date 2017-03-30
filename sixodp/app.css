@@ -5896,7 +5896,24 @@ a {
   font-size: 2.5rem;
   font-weight: 700; }
 
-.wrapper, .wrapper--showcase {
+.heading--featured {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Roboto Slab", sans-serif;
+  color: #534f97;
+  font-size: 3rem; }
+
+.heading--mleft {
+  margin-left: -15px; }
+
+.heading--featured-small {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Roboto Slab", sans-serif;
+  color: #534f97;
+  font-size: 2.2rem; }
+
+.wrapper, .wrapper--featured, .wrapper--showcase {
   padding: 40px 0; }
 
 .material-icons {
@@ -6310,7 +6327,6 @@ hr {
 
 .wrapper--horizaccordion {
   background: #534f97;
-  margin-top: 10px;
   padding: 60px 0 20px; }
   .wrapper--horizaccordion .container {
     box-sizing: content-box; }
@@ -6706,6 +6722,9 @@ hr {
   border-width: 8px;
   margin-left: 50px; }
 
+.wrapper--featured {
+  background: #f5f5f5; }
+
 .stats {
   display: none;
   margin-top: 20px;
@@ -6857,24 +6876,13 @@ hr {
   float: left;
   width: 300px;
   padding-left: 10px;
-  padding-right: 10px; }
+  padding-right: 10px;
+  margin-bottom: 20px; }
 
 .showcase {
   background: #534f97;
   color: #fff;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  position: relative;
-  margin-bottom: 60px; }
-  .showcase:after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 16px;
-    width: 0;
-    height: 0;
-    border: 124px solid transparent;
-    border-top: 26px solid #534f97; }
+  border-radius: 6px; }
 
 .showcase__content {
   padding: 20px; }
@@ -7017,3 +7025,51 @@ hr {
   height: 0;
   overflow: visible;
   padding-top: 56.25%; }
+
+.banner {
+  padding: 40px;
+  background: darkblue; }
+
+.banner__title {
+  font-size: 2rem;
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 0; }
+
+.banner__subtitle {
+  font-size: 1.5rem;
+  color: #fff; }
+
+.banner__buttons .btn {
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px; }
+  .banner__buttons .btn i {
+    margin-right: 0; }
+
+.cards {
+  display: flex;
+  margin-bottom: 20px; }
+
+.card {
+  border-radius: 6px;
+  background: white;
+  padding: 20px;
+  margin: 10px;
+  border: 1px solid #e7e7e7; }
+  .card:first-child {
+    margin-left: 0; }
+  .card:last-child {
+    margin-right: 0; }
+
+.card__title {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Roboto Slab", sans-serif;
+  color: #534f97;
+  border-bottom: 1px solid #e7e7e7;
+  padding-bottom: 10px;
+  margin-bottom: 10px; }
+
+.card__meta {
+  margin-bottom: 15px; }
