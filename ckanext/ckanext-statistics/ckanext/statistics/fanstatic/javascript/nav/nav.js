@@ -33,24 +33,60 @@ function StatisticsNav (params) {
     self.inputsD3[key] = d3.select(self.inputs[key].get(0))
   }
 
+  function fixDatepicker(inputField) {
+    var container = $('.js-statistics-filter-datespan-fields')
+
+    var datepicker = $('.datepicker')
+    datepicker.removeClass('datepicker-orient-top')
+    datepicker.addClass('datepicker-orient-bottom')
+    var width = datepicker.css('width')
+
+    var detached = datepicker.detach()
+    detached.appendTo(container)
+    detached.css({
+      top: inputField.position().top + 18,
+      left: inputField.position().left,
+      width: width,
+    })
+    detached.find('.day').click(function () {
+      setTimeout(function () {
+        datepicker.remove()
+      }, 100)
+    })
+  }
+  self.inputs.startDateFilter.click(function () {
+    fixDatepicker(self.inputs.startDateFilter)
+  })
+  self.inputs.endDateFilter.click(function () {
+    fixDatepicker(self.inputs.endDateFilter)
+  })
+
   self.dateRangeQuicklinks = {
     all: [0, 0],
     lastYear: [0, 0],
     last3months: [0, 0],
     lastMonth: [0, 0],
   }
-  self.element.find('.js-statistics-filter-datespan-all').click(function () {
-    self._setDateRange(self.dateRangeQuicklinks.all)
-  })
-  self.element.find('.js-statistics-filter-datespan-year').click(function () {
-    self._setDateRange(self.dateRangeQuicklinks.lastYear)
-  })
-  self.element.find('.js-statistics-filter-datespan-3months').click(function () {
-    self._setDateRange(self.dateRangeQuicklinks.last3months)
-  })
-  self.element.find('.js-statistics-filter-datespan-month').click(function () {
-    self._setDateRange(self.dateRangeQuicklinks.lastMonth)
-  })
+  self.element.find('.js-statistics-filter-datespan-all')
+    .text(self.texts.wholeDatespan)
+    .click(function () {
+      self._setDateRange(self.dateRangeQuicklinks.all)
+    })
+  self.element.find('.js-statistics-filter-datespan-year')
+    .text(self.texts.lastYear)
+    .click(function () {
+      self._setDateRange(self.dateRangeQuicklinks.lastYear)
+    })
+  self.element.find('.js-statistics-filter-datespan-3months')
+    .text(self.texts.last3months)
+    .click(function () {
+      self._setDateRange(self.dateRangeQuicklinks.last3months)
+    })
+  self.element.find('.js-statistics-filter-datespan-month')
+    .text(self.texts.lastMonth)
+    .click(function () {
+      self._setDateRange(self.dateRangeQuicklinks.lastMonth)
+    })
 
   self._autoScrolling = params.autoScrolling
   self._setHashState = params.setHashState
@@ -72,7 +108,6 @@ function StatisticsNav (params) {
     organizations: undefined,
     categories: undefined,
   }
-  // self._setDateRange([moment.utc().subtract(1, 'years'), moment.utc()])
   self.onResize()
 }
 
@@ -88,13 +123,12 @@ StatisticsNav.prototype.onHashChange = function (hash) {
   }
 }
 
-StatisticsNav.prototype.updateData = function (dateRange, organizations, categories) {
+StatisticsNav.prototype.update = function (params) {
   var self = this
-  self._setDateRange(dateRange)
-  self._updateDateRangeQuicklinks(dateRange)
-  self._onOrganizationUpdates(organizations)
-  self._setCategories(categories)
-
+  self._setDateRange(params.dateRange)
+  self._updateDateRangeQuicklinks(params.dateRange)
+  self._onOrganizationUpdates(params.organizations)
+  self._setCategories(params.categories)
   self._updateSectionPositions()
 }
 StatisticsNav.prototype.onResize = function () {
@@ -229,12 +263,13 @@ StatisticsNav.prototype._updateActiveSection = function (item) {
   self._setHashState(self.activeSection)
 
   // Filters
-  if (self.activeSection === 'datasets' || self.activeSection === 'summary' || self.activeSection === '') {
-    self.inputs.organizationFilter.slideDown() // css('visibility', 'visible')
-    self.inputs.categoryFilter.slideDown() // .css('visibility', 'visible')
+  //  || self.activeSection === 'summary' || self.activeSection === ''
+  if (self.activeSection === 'datasets') {
+    self.inputs.organizationFilter.fadeIn()
+    self.inputs.categoryFilter.fadeIn()
   } else {
-    self.inputs.organizationFilter.slideUp() // .css('visibility', 'hidden')
-    self.inputs.categoryFilter.slideUp() // .css('visibility', 'hidden')
+    self.inputs.organizationFilter.fadeOut()
+    self.inputs.categoryFilter.fadeOut()
   }
 }
 
@@ -261,7 +296,7 @@ StatisticsNav.prototype._updateSectionPositions = function () {
      }
    })
 
-   $('.js-front-section').css('margin-top', self.height + 'px')
+   $('.js-summary-section').css('margin-top', self.height + 'px')
 
   // Section positions
   self.items.forEach(function (item, i) {

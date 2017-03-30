@@ -1,51 +1,51 @@
-var AppSection = function (statistics) {
+var AppSection = function (params) {
   var self = this
-  self.statistics = statistics
+  self._texts = params.texts
 
-  self.element = d3.select('.js-statistics-apps-section')
+  self._element = d3.select('.js-statistics-apps-section')
 
   self.totalsTimeline = new TotalsTimeline({
     id: 'appCount',
-    element: self.element.select('.js-app-totals-timeline'),
+    element: self._element.select('.js-app-totals-timeline'),
     texts: {
-      title: self.statistics.translations.appsPublishedTitle[self.statistics.config.locale],
-      amount: self.statistics.translations.amount[self.statistics.config.locale],
+      title: self._texts.timelineTitle,
+      amount: self._texts.amount,
     },
-    width: parseInt(self.statistics.styles.contentWidth),
-    height: 360,
-    margin: {top: 15, right: 50, bottom: 30, left: 1},
-    schema: {
-      nameField: 'name',
-      dateField: 'metadata_created',
-      skip: function (app) {
-        return false
-      },
-    },
+    width: params.width,
+    height: params.visHeight,
+    margin: params.visMargins,
+    schema: params.schema,
     settings: {
       organizations: false
     },
-    locale: self.statistics.config.locale,
+    locale: params.locale,
   })
+
+  d3.select('.js-statistics-apps-section-title')
+    .text(self._texts.sectionTitle)
 }
 
-AppSection.prototype.update = function () {
-  var self = this
-  self.totalsTimeline.setData(self.statistics.data.apps)
-}
 
-AppSection.prototype.onContentResize = function () {
+AppSection.prototype.setData = function (data) {
   var self = this
-  self.totalsTimeline.resize()
-}
-
-AppSection.prototype.setDateFilter = function (dates) {
-  var self = this
-  self.totalsTimeline.setDateFilter(dates)
+  self.totalsTimeline.setData(data)
 }
 
 
 // Filter all the visualizations in this section by the given dates
 AppSection.prototype.setDateRange = function (dates) {
   var self = this
-  self.totalsTimeline.setDateFilter(dates)
+  self.totalsTimeline.setDateRange(dates)
+}
+
+
+AppSection.prototype.setMaxDateRange = function (dates) {
+  var self = this
+  self.totalsTimeline.setMaxDateRange(dates)
+}
+
+
+AppSection.prototype.onContentResize = function (width, height = undefined) {
+  var self = this
+  self.totalsTimeline.resize(width, height)
 }

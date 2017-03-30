@@ -1,25 +1,26 @@
-var Api = function (dashboard) {
+var Api = function (params) {
   var self = this
-  self.dashboard = dashboard
+  self._baseUrl = params.baseUrl
 }
 
 Api.prototype.getAllData = function (callback) {
   var self = this
+  var data = {}
 
-  self.get('organizations',
-  // 'organization_list?all_fields=true&include_extras=true',
-  'group_tree',
-  function () {
+  self.get('group_tree', function (result) {
+    data.organizations = result
 
-    self.get('categories',
-    // 'organization_list?all_fields=true&include_extras=true',
-    'group_list?all_fields=true',
-    function () {
+    self.get('group_list?all_fields=true', function (result) {
+      data.categories = result
 
-      // Get all data from APIs, one after another
-      self.get('datasets', 'current_package_list_with_resources?limit=1000', function () {
+      self.get('current_package_list_with_resources?limit=1000', function (result) {
+        data.datasets = result
 
-        self.get('apps', 'ckanext_showcase_list', callback)
+        self.get('ckanext_showcase_list', function (result) {
+          data.apps = result
+
+          callback(data)
+        })
       })
     })
   })
@@ -27,21 +28,20 @@ Api.prototype.getAllData = function (callback) {
 
 
 // url = api + 'package_search?rows=20'
-Api.prototype.get = function (dataId, endPoint, callback) {
+Api.prototype.get = function (endPoint, callback) {
   var self = this
-  url = self.dashboard.config.api.baseUrl + endPoint
+  url = self._baseUrl + endPoint
   d3.json(url)
   // .header('Authorization', config.api.key)
   .get(function (error, response) {
+    var result = []
     if (error) {
-      console.log('[ERROR] in dashboard fetching API, ', dataId, ' url:', url, 'error:', error)
-      self.dashboard.data[dataId] = []
+      console.log('[ERROR] in fetching API for statistics:', url, 'error:', error)
       throw error
     } else {
-      // console.log('Dashboard api.get', dataId, 'url:', url, 'response:', response)
-      self.dashboard.data[dataId] = response.result
+      result = response.result
     }
-    callback()
+    callback(result)
   })
 }
 

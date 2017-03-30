@@ -15,6 +15,8 @@
   }
 }
 
+
+
 // Nav
 
 .statistics-nav {
@@ -69,6 +71,9 @@
     width: 100px;
   }
 }
+.js-statistics-filter-datespan-fields {
+  position: relative;
+}
 .statistics-filter-datespan-quicklinks {
   > a {
     cursor: pointer;
@@ -84,9 +89,29 @@
   padding: 60px;
   position: relative;
 }
+
 .statistics-section-content {
-  margin: auto;
+  // Copy-pasted from .container styles in /shared/scss/base/common/layout.scss
+  margin: 0 auto;
   padding: 0;
+  width: 100%;
+
+  @media (min-width: $width-sm) {
+    padding-left: $padding-base-horizontal*0.5;
+    padding-right: $padding-base-horizontal*0.5;
+  }
+
+  @media (min-width: $width-md) {
+    width: 960px;
+  }
+
+  @media (min-width: $width-lg) {
+    width: 1180px;
+  }
+
+  @media (min-width: $width-xl) {
+    width: 1380px;
+  }
 }
 
 .statistics-footer {
@@ -98,14 +123,15 @@
   font-size: 12px;
 }
 
-// Front section
-.front-section {
+// Summary section
+.summary-section {
   background-color: $white;
   color: $text-color;
   min-height: 400px;
-  padding-top: 100px;
+  padding-top: 150px;
+  padding-bottom: 100px;
 }
-.front-section .statistics-section-content {
+.summary-section .statistics-section-content {
   padding: 0px;
 }
 
@@ -208,18 +234,27 @@
   margin-top: 50px;
   text-align: center;
 }
-.attention-numbers > * {
+.attention-number {
   display: inline-block;
   padding: 8px;
   width: 25%;
 }
-.attention-numbers > * > *:first-child {
+.attention-number-title {
+  font-size: $font-size;
+  font-weight: bold;
+}
+.attention-number-value {
   font-family: $font-heading;
   font-size: $font-size-base * 4.0;
 }
-.attention-numbers > * > *:last-child {
+.attention-number-detail {
   font-size: $font-size;
 }
+.attention-number-detail-text {
+}
+.attention-number-detail-value {
+}
+
 
 // UI components
 

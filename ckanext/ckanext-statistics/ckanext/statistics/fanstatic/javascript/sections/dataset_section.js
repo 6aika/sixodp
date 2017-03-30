@@ -1,35 +1,32 @@
-var DatasetSection = function (statistics) {
+var DatasetSection = function (params) {
   var self = this
-  self.statistics = statistics
+  self._texts = params.texts
 
-  self.element = d3.select('.js-statistics-datasets-section')
+  self._element = d3.select('.js-statistics-datasets-section')
 
   self.totalsTimeline = new TotalsTimeline({
     id: 'datasetCount',
-    element: self.element.select('.js-dataset-totals-timeline'),
+    element: self._element.select('.js-dataset-totals-timeline'),
     texts: {
-      title: self.statistics.translations.datasetsOpenedTitle[self.statistics.config.locale],
-      amount: self.statistics.translations.amount[self.statistics.config.locale],
+      title: self._texts.timelineTitle,
+      amount: self._texts.amount,
     },
-    width: parseInt(self.statistics.styles.contentWidth),
-    height: 360,
-    margin: {top: 15, right: 50, bottom: 30, left: 1},
-    schema: {
-      nameField: 'title_translated',
-      dateField: 'date_released',
-      skip: function (dataset) {
-        return !!dataset.private
-      },
-    },
+    width: params.width,
+    height: params.visHeight,
+    margin: params.visMargins,
+    schema: params.schema,
     settings: {
       organizations: true
     },
-    locale: self.statistics.config.locale,
+    locale: params.locale,
   })
+
+  d3.select('.js-statistics-datasets-section-title')
+    .text(self._texts.sectionTitle)
 
   // self.organizationDatasets = new TopHistogram({
   //   id: 'organizationDatasets',
-  //   element: self.element.select('.js-organization-dataset-counts'),
+  //   element: self._element.select('.js-organization-dataset-counts'),
   //   texts: {
   //     title: self.statistics.translations.topPublishersTitle[self.statistics.config.locale],
   //   },
@@ -43,37 +40,39 @@ var DatasetSection = function (statistics) {
   // })
 }
 
-DatasetSection.prototype.update = function () {
+DatasetSection.prototype.setData = function (data) {
   var self = this
-  self.totalsTimeline.setDateFilter(self.statistics.data.dateRange)
-  self.totalsTimeline.setData(self.statistics.data.datasets, self.statistics.data.organizations)
+  self.totalsTimeline.setData(data)
   // self.organizationDatasets.setData(self.statistics.data.organizations)
 }
 
 
-DatasetSection.prototype.onContentResize = function (content) {
+DatasetSection.prototype.onContentResize = function (width, height = undefined) {
   var self = this
-  self.totalsTimeline.resize(parseInt(self.statistics.styles.contentWidth))
-  // self.organizationDatasets.resize(parseInt(self.statistics.styles.contentWidth))
+  self.totalsTimeline.resize(width, height)
+  // self.organizationDatasets.resize(width, height))
 }
 
 
 // Filter all the visualizations in this section by the given dates
 DatasetSection.prototype.setDateRange = function (dates) {
   var self = this
-  self.totalsTimeline.setDateFilter(dates)
+  self.totalsTimeline.setDateRange(dates)
   // self.organizationDatasets.setDateFilter(dates)
 }
 
+DatasetSection.prototype.setMaxDateRange = function (dates) {
+  var self = this
+  self.totalsTimeline.setMaxDateRange(dates)
+  // self.organizationDatasets.setMaxDateRange(dates)
+}
 
 // Filter all the visualizations in this section by the given organization
 DatasetSection.prototype.setOrganization = function (organization) {
   var self = this
-  self.totalsTimeline.setOrganizationFilter(organization)
 }
 
 // Filter all the visualizations in this section by the given category
 DatasetSection.prototype.setCategory = function (category) {
   var self = this
-  self.totalsTimeline.setCategoryFilter(category)
 }

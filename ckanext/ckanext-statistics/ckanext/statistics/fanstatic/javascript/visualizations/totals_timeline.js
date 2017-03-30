@@ -22,6 +22,7 @@ function TotalsTimeline (params) {
       height: params.height - self._props.margin.top - self._props.margin.bottom
     },
     dateRange: [moment.utc().subtract(1, 'years'), moment.utc()],
+    maxDateRange: [moment.utc().subtract(1, 'years'), moment.utc()],
     organization: '',
     category: '',
     locale: params.locale,
@@ -35,11 +36,11 @@ function TotalsTimeline (params) {
 
 
 // Update all: language, data visuals, input elements, etc.
-TotalsTimeline.prototype.setData = function (data, organizations = undefined) {
+TotalsTimeline.prototype.setData = function (data) {
   var self = this
   self._data.raw = data
-  self._data.organizations = organizations
   self._data.line = self._transformLineData(data)
+
   self._helpers.xScale.domain(self._getXExtent())
   self._helpers.yScale.domain(self._getYExtent())
 
@@ -50,29 +51,17 @@ TotalsTimeline.prototype.setData = function (data, organizations = undefined) {
 
 
 // Limit the view to these dates (doesn't change the data given to this element)
-TotalsTimeline.prototype.setDateFilter = function (dates) {
+TotalsTimeline.prototype.setDateRange = function (dates) {
   var self = this
   self._state.dateRange = dates
   self._resizeAxis('x')
-  self._resizeAxis('y')
+  // self._resizeAxis('y')
 }
 
 
-TotalsTimeline.prototype.setOrganizationFilter = function (organization) {
+TotalsTimeline.prototype.setMaxDateRange = function (dates) {
   var self = this
-  self._state.organization = organization
-  self._data.line = self._transformLineData(self._data.raw)
-  self._renderLine()
-  self._resizeAxis('y')
-}
-
-
-TotalsTimeline.prototype.setCategoryFilter = function (category) {
-  var self = this
-  self._state.category = category
-  self._data.line = self._transformLineData(self._data.raw)
-  self._renderLine()
-  self._resizeAxis('y')
+  self._state.maxDateRange = dates
 }
 
 
@@ -121,8 +110,8 @@ TotalsTimeline.prototype._transformLineData = function (data) {
   var result = {}
 
   // First, create an empty data table with the correct datespan
-  var dateToAdd = moment.utc(self._state.dateRange[0])
-  while (dateToAdd.isSameOrBefore(self._state.dateRange[1])) {
+  var dateToAdd = moment.utc(self._state.maxDateRange[0])
+  while (dateToAdd.isSameOrBefore(self._state.maxDateRange[1])) {
     var dateString = moment.utc(dateToAdd).format('YYYY-MM-DD')
     result[dateString] = {
       date: dateToAdd.toDate(),
@@ -133,54 +122,9 @@ TotalsTimeline.prototype._transformLineData = function (data) {
     dateToAdd.add(1, 'days')
   }
 
-  function findSelectedOrganizations (branch, isChildOfSelected = false) {
-    var result = []
-
-    // Each org in this branch
-    for (i in branch) {
-      // This is the selected?
-      var organization = branch[i]
-
-      if (isChildOfSelected || self._state.organization === organization.id) {
-        result.push(organization.id)
-        result = result.concat(findSelectedOrganizations(organization.children, true))
-      } else {
-        result = result.concat(findSelectedOrganizations(organization.children, false))
-      }
-    }
-    return result
-  }
-
-  var selectedOrganizations = undefined
-  if (self._state.organization !== '') {
-    selectedOrganizations = findSelectedOrganizations(self._data.organizations)
-  }
-
   // Add each item to its creation date
   data.forEach(function(item) {
     var itemDate = moment.utc(item[self._schema.dateField]).format('YYYY-MM-DD')
-
-    if (
-      // Skip item for customized reason?
-      self._schema.skip(item) ||
-
-      // Date before datespan?
-      itemDate < self._state.dateRange[0].format('YYYY-MM-DD') ||
-
-      // Date after datespan?
-      itemDate > self._state.dateRange[1].format('YYYY-MM-DD') ||
-
-      // Organization filtered out?
-      (self._state.organization !== '' &&
-      selectedOrganizations.indexOf(item.organization.id) === -1) ||
-
-      // Category filtered out?
-      (self._state.category !== '' && !item.groups.find(function (group) {
-        return group.id === self._state.category
-      }))
-    ) {
-      return true
-    }
 
     // Add creation of this item
     var itemName = item[self._schema.nameField]
@@ -194,9 +138,9 @@ TotalsTimeline.prototype._transformLineData = function (data) {
   //   result[item.date_modified].removed.push(item.title_translated[config.locale])
 
   // Calculate cumulative values
-  dateToCumulate = moment.utc(self._state.dateRange[0])
+  dateToCumulate = moment.utc(self._state.maxDateRange[0])
   cumulativeValue = 0
-  while (dateToCumulate.isSameOrBefore(self._state.dateRange[1])) {
+  while (dateToCumulate.isSameOrBefore(self._state.maxDateRange[1])) {
     dateString = dateToCumulate.format('YYYY-MM-DD')
     cumulativeValue = cumulativeValue + result[dateString].added.length - result[dateString].removed.length
     result[dateString].value = cumulativeValue

@@ -2,7 +2,7 @@
 
 {% block pre_primary %}
   <div class="statistics-page">
-    <h1 class="page-heading">Dataportaalin tilastot</h1>
+    <h1 class="page-heading js-statistics-main-title"></h1>
     <nav class="statistics-nav" data-spy="affix" data-offset-top="280" data-offset-bottom="900">
       <ul class="statistics-nav-items">
         <li><a href="#summary"></a></li>
@@ -13,36 +13,36 @@
 
       <div class="statistics-nav-filters">
         <select class="js-statistics-filter-organization">
-          <option>Kaikki julkaisijat</option>
+          <option>-</option>
         </select>
         <div class="statistics-filter-datespan">
           <div class="statistics-filter-datespan-quicklinks">
-            <a class="js-statistics-filter-datespan-all">Kaikki</a>
-            <a class="js-statistics-filter-datespan-year">Vuosi</a>
-            <a class="js-statistics-filter-datespan-3months">3 kk</a>
-            <a class="js-statistics-filter-datespan-month">1 kk</a>
+            <a class="js-statistics-filter-datespan-all"></a>
+            <a class="js-statistics-filter-datespan-year"></a>
+            <a class="js-statistics-filter-datespan-3months"></a>
+            <a class="js-statistics-filter-datespan-month"></a>
           </div>
-          <div>
+          <div class="js-statistics-filter-datespan-fields">
             <input class="js-statistics-filter-start-date" type="date" />
             -
             <input class="js-statistics-filter-end-date" type="date" />
           </div>
         </div>
         <select class="js-statistics-filter-category">
-          <option>Kaikki kategoriat</option>
+          <option>-</option>
         </select>
       </div>
     </nav>
 
-    <div class="statistics-section front-section js-statistics-summary-section">
+    <div class="statistics-section summary-section js-statistics-summary-section">
       <div class="statistics-section-content">
-        <div class="js-front-attention-numbers"></div>
+        <div class="js-summary-attention-numbers"></div>
       </div>
     </div>
 
     <div class="statistics-section statistics-dataset-section js-statistics-datasets-section">
       <div class="statistics-section-content">
-        <h2>Tietoaineistot</h2>
+        <h2 class="js-statistics-datasets-section-title"></h2>
         <div class="js-dataset-totals-timeline"></div>
         <!-- <div class="js-organization-dataset-counts"></div> -->
       </div>
@@ -50,7 +50,7 @@
 
     <div class="statistics-section statistics-app-section js-statistics-apps-section">
       <div class="statistics-section-content">
-        <h2>Sovellukset</h2>
+        <h2 class="js-statistics-apps-section-title"></h2>
         <div class="js-app-totals-timeline"></div>
       </div>
     </div>
@@ -60,10 +60,6 @@
         <h2>Artikkelit</h2>
       </div>
     </div> -->
-
-    <!-- <div class="statistics-footer"> -->
-      <!-- <a href="">Tekniset raportit</a> -->
-    <!-- </div> -->
 
   </div>
 {% endblock %}
