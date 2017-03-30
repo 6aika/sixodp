@@ -11,7 +11,7 @@ truncate_title - The length to truncate the title to (default: 80).
 
 Example:
 
-{% snippet 'snippets/package_list.html', packages=c.datasets %}
+{% snippet 'snippets/package_list.html', packages=c.datasets, current=package.id %}
 
 #}
 {% block package_list %}
@@ -19,8 +19,10 @@ Example:
   <ul class="{{ list_class or 'dataset-list unstyled' }}">
     {% block package_list_inner %}
       {% for package in packages %}
-        {% snippet 'sixodp_showcase/snippets/related_item.html', package=package, item_class=item_class, hide_resources=hide_resources, banner=banner, truncate=truncate, truncate_title=truncate_title, show_rating=show_rating %}
-      {% endfor %}
+        {% if current != package.id %}
+          {% snippet 'sixodp_showcase/snippets/related_item.html', package=package, item_class=item_class, hide_resources=hide_resources, banner=banner, truncate=truncate, truncate_title=truncate_title, show_rating=show_rating %}
+        {% endif %}
+    {% endfor %}
     {% endblock %}
   </ul>
   {% endif %}

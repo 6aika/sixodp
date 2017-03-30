@@ -16,20 +16,30 @@ Example:
 {% set truncate = truncate or 180 %}
 {% set truncate_title = truncate_title or 80 %}
 {% set title = package.title or package.name %}
-{% set categories = h.get_groups_for_package(package.id) %}
-{% set notes = h.markdown_extract(h.get_translated(package, 'notes'), extract_length=truncate) %}
 
 {% block package_item %}
 <li class="dataset-item">
   <div class="row">
     {% block content %}
     <div class="{% if show_rating %}col-md-8 {% endif %} col-sm-12 dataset-col-left">
-      <div class="dataset-content">
+      <div class="secondary-heading-container">
         {% block heading %}
           <a href="{{ h.url_for(controller='ckanext.sixodp_showcase.controller:Sixodp_ShowcaseController', action='read', id=package.name) }}">
-            <h3 class="dataset-heading">
-              <span>{{title}}</span>
-            </h3>
+
+            {% if package.icon_display_url %}
+              <div class="heading-icon">
+                <img src="{{ package.icon_display_url }}">
+              </div>
+            {% endif %}
+
+            <div class="headings-wrapper">
+              <h3 class="heading">
+                <span>{{title}}</span>
+              </h3>
+              {% block rating %}
+                {% snippet "rating/snippets/stars_inactive.html", package=package %}
+              {% endblock %}
+            </div>
           </a>
         {% endblock %}
       </div>

@@ -182,7 +182,7 @@
     {% if author_showcases %}
       <section class="module module-narrow">
         <h2 class="module-heading">{{ _('More from the author') }}</h2>
-        {{ h.snippet('sixodp_showcase/snippets/related_list.html', packages=author_showcases) }}
+        {{ h.snippet('sixodp_showcase/snippets/related_list.html', packages=author_showcases, current=pkg.id) }}
       </section>
     {% endif %}
   {% endblock %}
