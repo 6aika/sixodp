@@ -7048,8 +7048,10 @@ hr {
     margin-right: 0; }
 
 .cards {
-  display: flex;
   margin-bottom: 20px; }
+  @media (min-width: 768px) {
+    .cards {
+      display: flex; } }
 
 .card {
   border-radius: 6px;
@@ -7057,10 +7059,11 @@ hr {
   padding: 20px;
   margin: 10px;
   border: 1px solid #e7e7e7; }
-  .card:first-child {
-    margin-left: 0; }
-  .card:last-child {
-    margin-right: 0; }
+  @media (min-width: 768px) {
+    .card:first-child {
+      margin-left: 0; }
+    .card:last-child {
+      margin-right: 0; } }
 
 .card__title {
   font-size: 18px;
