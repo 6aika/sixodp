@@ -120,6 +120,18 @@ if(function_exists("register_field_group"))
         'formatting' => 'html',
         'maxlength' => '',
       ),
+      array (
+        'key' => 'field_58d0f3bd42154',
+        'label' => 'Frontpage background',
+        'name' => 'frontpage_background',
+        'type' => 'image',
+        'default_value' => '',
+        'placeholder' => '',
+        'prepend' => '',
+        'append' => '',
+        'formatting' => 'html',
+        'maxlength' => '',
+      ),
     ),
     'location' => array (
       array (
@@ -141,6 +153,19 @@ if(function_exists("register_field_group"))
     'menu_order' => 0,
   ));
 }
+
+$image_field = array(
+  'return_format' => 'array',
+  'preview_size' => 'thumbnail',
+  'library' => 'all',
+  'min_width' => 0,
+  'min_height' => 0,
+  'min_size' => 0,
+  'max_width' => 0,
+  'max_height' => 0,
+  'max_size' => 0,
+  'mime_types' => '',
+);
 
 function register_notifications() {
 

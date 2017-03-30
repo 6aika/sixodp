@@ -6001,7 +6001,9 @@ a {
       height: 60px; }
 
 .hero {
-  padding: 40px 0 0; }
+  padding: 40px 0 0;
+  background-size: cover;
+  background-position: center center; }
 
 .hero .input-group {
   display: block; }
@@ -6016,13 +6018,18 @@ a {
       margin-top: 0;
       margin-bottom: 0; } }
 
-.hero .heading {
-  margin: 20px auto 0; }
+.hero .heading--main, .hero .fluidtable__heading {
+  margin: 20px auto 0;
+  color: #fff;
+  font-size: 5rem;
+  text-shadow: 1px 3px 6px rgba(0, 0, 0, 0.8); }
 
 .hero .subheading {
   margin: 0 auto 20px;
-  color: #534f97;
-  font-weight: 300; }
+  font-weight: 300;
+  color: #fff;
+  font-size: 3rem;
+  text-shadow: 1px 3px 6px rgba(0, 0, 0, 0.5); }
 
 .site-footer {
   padding-top: 60px;
@@ -6690,7 +6697,7 @@ hr {
   color: #fff; }
   @media (min-width: 768px) {
     .stats {
-      display: block; } }
+      display: flex; } }
 
 .stat__wrapper {
   text-align: center;
@@ -6702,12 +6709,14 @@ hr {
   .stat__wrapper:first-child {
     border-left: none; }
   .stat__wrapper:last-child {
-    border-left: none; }
+    border-left: none;
+    margin-left: auto; }
 
 .stat {
   display: inline-block;
   text-align: center;
-  padding-left: 20px; }
+  padding-left: 20px;
+  padding-right: 20px; }
   .stat > div {
     display: inline-block;
     vertical-align: middle;
@@ -6718,25 +6727,22 @@ hr {
   font-family: "Roboto Slab", sans-serif;
   font-size: 5rem; }
 
-.wrapper--categories {
-  background: url("/assets/images/siluetti@2x.png") repeat-x center bottom;
-  background-size: auto 100%; }
-
 .categories {
   display: flex;
   flex-wrap: wrap;
-  padding-top: 300px;
-  padding-bottom: 40px; }
-  @media (min-width: 768px) {
-    .categories {
-      padding-bottom: 0; } }
+  padding-top: 50px; }
+
+.category__wrapper {
+  width: 195px;
+  padding-left: 10px;
+  padding-bottom: 10px; }
 
 .category {
+  border-radius: 2px;
   background: #fff;
-  margin: 10px;
   margin-left: 0;
-  padding: 15px 25px;
-  width: 200px; }
+  padding: 15px 20px;
+  height: 100%; }
 
 .category__link {
   display: flex;
