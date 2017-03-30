@@ -70,6 +70,18 @@ h3, h4, h5, h6, .module-heading {
 .secondary-heading-container {
   text-align: center;
 
+  a {
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      color: $link-color;
+    }
+  }
+
+  .rating-star {
+    color: $brand-success;
+  }
+
   .heading-icon {
     display: inline-block;
     margin: auto;
