@@ -42,9 +42,6 @@
       </div>
     </div>
   </div>
-</div>
-
-<div class="wrapper">
   <div class="container">
     <div class="row text-right">
       <button type="button" class="btn btn-lg btn-secondary btn--ajankohtaista">

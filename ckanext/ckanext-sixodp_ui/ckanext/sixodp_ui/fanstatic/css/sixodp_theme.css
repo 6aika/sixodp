@@ -6384,7 +6384,7 @@ hr {
 .wrapper--horizaccordion {
   background: #534f97;
   margin-top: 10px;
-  padding: 60px 0; }
+  padding: 60px 0 20px; }
   .wrapper--horizaccordion .container {
     box-sizing: content-box; }
 
@@ -6557,6 +6557,9 @@ hr {
 .btn--sovellukset {
   position: relative;
   z-index: 1; }
+
+.btn--ajankohtaista {
+  margin-top: 20px; }
 
 .image-slider-wrapper {
   text-align: center;
