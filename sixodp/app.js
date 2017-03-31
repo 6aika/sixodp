@@ -65,6 +65,10 @@ var App = {
     }, 150);
   });
 
+  $('.btn[data-trigger="popper"]').on('click', function() {
+    $('.popper').toggleClass('open');
+  });
+
   App.resizeArticleContent($('.article iframe'));
 
 })( jQuery );
