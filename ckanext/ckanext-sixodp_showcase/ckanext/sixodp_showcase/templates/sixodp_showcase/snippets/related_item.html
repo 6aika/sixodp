@@ -18,7 +18,7 @@ Example:
 {% set title = package.title or package.name %}
 
 {% block package_item %}
-<li class="dataset-item">
+<li class="dataset-item dataset-item-borderless">
   <div class="row">
     {% block content %}
     <div class="{% if show_rating %}col-md-8 {% endif %} col-sm-12 dataset-col-left">
