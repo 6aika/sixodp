@@ -7078,14 +7078,35 @@ hr {
   margin-bottom: 15px; }
 
 .wrapper--latest {
-  background: #eee;
+  background: #534f97;
+  /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #413d76 0%, #534f97 56%, #6d69b0 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, #413d76 0%, #534f97 56%, #6d69b0 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #413d76 0%, #534f97 56%, #6d69b0 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   padding: 40px 0; }
+  .wrapper--latest .heading--mleft {
+    color: #fff; }
 
 .card--latest, .card--showcase {
-  width: 48%; }
+  width: 48%;
+  padding: 0;
+  border: 0; }
 
 .card__title--latest {
   border-bottom: 0; }
+
+.card__body {
+  padding: 20px; }
+
+.card__meta--latest {
+  padding: 10px;
+  background: #a55efa;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  color: #fff; }
 
 .card--showcase {
   background: #534f97;

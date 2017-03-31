@@ -426,6 +426,13 @@ function parse_date($date) {
   return $d->format('d.m.Y');
 }
 
+function get_days_ago($date) {
+  $date = parse_date($date);
+  $now = new DateTime();
+  $interval = $date->diff($now);
+  return $interval->format('%R%a days');
+}
+
 function get_notes_excerpt($str) {
   return explode(".", $str)[0] . '. ';
 }

@@ -41,8 +41,15 @@
 // Secondary cards
 
 .wrapper--latest {
-  background: #eee;
+  background: $brand-primary; /* Old browsers */
+  background: -moz-linear-gradient(-45deg, $brand-primary-dark 0%, $brand-primary 56%, $brand-primary-light 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, $brand-primary-dark 0%, $brand-primary 56%, $brand-primary-light 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, $brand-primary-dark 0%, $brand-primary 56%, $brand-primary-light 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   padding: $base*4 0;
+
+  .heading--mleft {
+    color: #fff;
+  }
 }
 
 .cards--latest {
@@ -52,11 +59,25 @@
 .card--latest {
   @extend .card;
   width: 48%;
+  padding: 0;
+  border: 0;
 }
 
 .card__title--latest {
   @extend .card__title;
   border-bottom: 0;
+}
+
+.card__body {
+  padding: $base*2;
+}
+
+.card__meta--latest {
+  padding: $base;
+  background: $brand-secondary;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  color: #fff;
 }
 
 

@@ -12,34 +12,22 @@
 
   <div class="container">
     <div class="row cards--latest">
-      <div class="card--latest">
-        <h3 class="card__title--latest">Lolds</h3>
-        <div class="card__meta">
-          <span class="card__timestamp">12.08.2017</span>
-          <a href="#" class="card__categorylink">Tietoaineistot</a>
-        </div>
-      </div>
-      <div class="card--latest">
-        <h3 class="card__title--latest">Lolds</h3>
-        <div class="card__meta">
-          <span class="card__timestamp">12.08.2017</span>
-          <a href="#" class="card__categorylink">Tietoaineistot</a>
-        </div>
-      </div>
-      <div class="card--latest">
-        <h3 class="card__title--latest">Lolds</h3>
-        <div class="card__meta">
-          <span class="card__timestamp">12.08.2017</span>
-          <a href="#" class="card__categorylink">Tietoaineistot</a>
-        </div>
-      </div>
-      <div class="card--latest">
-        <h3 class="card__title--latest">Lolds</h3>
-        <div class="card__meta">
-          <span class="card__timestamp">12.08.2017</span>
-          <a href="#" class="card__categorylink">Tietoaineistot</a>
-        </div>
-      </div>
+      <?php
+        foreach ( get_datasets() as $dataset ) : ?>
+          <div class="card--latest">
+            <div class="card__meta--latest">
+              <?php //echo get_days_ago($dataset['date_released']); ?>
+              <span>3</span> päivää, <span>20</span> tuntia sitten
+            </div>
+            <div class="card__body">
+              <h3 class="card__title--latest"><?php echo $dataset["title"]; ?></h3>
+              <div class="card__meta">
+                <span class="card__timestamp">12.08.2017</span>
+                <a href="#" class="card__categorylink">Tietoaineistot</a>
+              </div>
+            </div>
+          </div><?php
+        endforeach; ?>
     </div>
   </div>
 
