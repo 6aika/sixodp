@@ -24,14 +24,14 @@
   }
 
   .pre-primary {
-    padding: 0 $padding-large-horizontal;
-
-    @media(min-width: $width-md) {
-      padding: 0;
-    }
+    padding: 0;
 
     .page-heading-container {
-      padding: 0 $padding-large-horizontal;
+      padding: 0 10px;
+
+      @media(min-width: $width-md) {
+        padding: 0;
+      }
     }
   }
 

@@ -29,82 +29,84 @@
 {% block breadcrumb_content_selected %} class="active"{% endblock %}
 
 {% block breadcrumb_content %}
-    {% set showcase = pkg.title or pkg.name %}
-    <li>{{ h.nav_link(_('Showcases'), controller='ckanext.showcase.controller:ShowcaseController', action='search', highlight_actions = 'new index') }}</li>
-    <li{{ self.breadcrumb_content_selected() }}>{% link_for showcase|truncate(30), controller='ckanext.showcase.controller:ShowcaseController', action='read', id=pkg.name %}</li>
+  {% set showcase = pkg.title or pkg.name %}
+  <li>{{ h.nav_link(_('Showcases'), controller='ckanext.showcase.controller:ShowcaseController', action='search', highlight_actions = 'new index') }}</li>
+  <li{{ self.breadcrumb_content_selected() }}>{% link_for showcase|truncate(30), controller='ckanext.showcase.controller:ShowcaseController', action='read', id=pkg.name %}</li>
 {% endblock %}
 
 {% block page_header %}
 {% endblock %}
 
 {% block pre_primary %}
-  <div class="page-heading-container">
-    {% if pkg.icon_display_url %}
-      <div class="heading-icon">
-        <img src="{{ pkg.icon_display_url }}">
-      </div>
-    {% endif %}
+  <div class="container">
+    <div class="page-heading-container">
+      {% if pkg.icon_display_url %}
+        <div class="heading-icon">
+          <img src="{{ pkg.icon_display_url }}">
+        </div>
+      {% endif %}
 
-    <div class="headings-wrapper">
-      <h1 class="page-heading">
-        {% block page_heading %}
-          {{ name }}
-          {% if pkg.state.startswith('draft') %}
-            [{{ _('Draft') }}]
-          {% endif %}
-        {% endblock %}
-      </h1>
-      {% block page_subheading %}
-        {% set lang = h.get_current_lang() %}
-        <h2 class="page-subheading">
-          {# Todo uncomment this when categories are fixed
-          {% set showcase_categories = pkg.category.get(lang) %}
-          <span class="subheading-section">
-            {% for category in showcase_categories %}
-             {{ category }}{% if not loop.last %}, {% endif %}
-            {% endfor %}
-          </span>
-          #}
-
-          {% set showcase_keywords = pkg.keywords.get(lang) %}
-          {% if showcase_keywords %}
-            {% if showcase_categories %}<span> - </span>{% endif %}
+      <div class="headings-wrapper">
+        <h1 class="page-heading">
+          {% block page_heading %}
+            {{ name }}
+            {% if pkg.state.startswith('draft') %}
+              [{{ _('Draft') }}]
+            {% endif %}
+          {% endblock %}
+        </h1>
+        {% block page_subheading %}
+          {% set lang = h.get_current_lang() %}
+          <h2 class="page-subheading">
+            {# Todo uncomment this when categories are fixed
+            {% set showcase_categories = pkg.category.get(lang) %}
             <span class="subheading-section">
-              {% for keyword in showcase_keywords %}
-               {{ keyword }}{% if not loop.last %}, {% endif %}
+              {% for category in showcase_categories %}
+               {{ category }}{% if not loop.last %}, {% endif %}
               {% endfor %}
             </span>
-          {% endif %}
-        </h2>
+            #}
 
-        <h2 class="page-subheading">
-          {% if pkg.author %}
-            <span class="subheading-section">{{ pkg.author }}</span>
+            {% set showcase_keywords = pkg.keywords.get(lang) %}
+            {% if showcase_keywords %}
+              {% if showcase_categories %}<span> - </span>{% endif %}
+              <span class="subheading-section">
+                {% for keyword in showcase_keywords %}
+                 {{ keyword }}{% if not loop.last %}, {% endif %}
+                {% endfor %}
+              </span>
+            {% endif %}
+          </h2>
+
+          <h2 class="page-subheading">
+            {% if pkg.author %}
+              <span class="subheading-section">{{ pkg.author }}</span>
+              <span> - </span>
+            {% endif %}
+            <span class="subheading-section">{{ _('Published') }} {{ h.render_datetime(pkg.metadata_created, '%-d.%-m.%Y') }}</span>
             <span> - </span>
-          {% endif %}
-          <span class="subheading-section">{{ _('Published') }} {{ h.render_datetime(pkg.metadata_created, '%-d.%-m.%Y') }}</span>
-          <span> - </span>
-          <span class="subheading-section">{{ _('updated') }} {{ h.render_datetime(pkg.metadata_modified, '%-d.%-m.%Y') }}</span>
-        </h2>
-      {% endblock %}
+            <span class="subheading-section">{{ _('updated') }} {{ h.render_datetime(pkg.metadata_modified, '%-d.%-m.%Y') }}</span>
+          </h2>
+        {% endblock %}
+      </div>
+      <div class="heading-rating-wrapper">
+        {% block rating %}
+          {% snippet "rating/snippets/rating_single.html", package=pkg, enable_input="true" %}
+        {% endblock %}
+      </div>
     </div>
-    <div class="heading-rating-wrapper">
-      {% block rating %}
-        {% snippet "rating/snippets/rating_single.html", package=pkg, enable_input="true" %}
-      {% endblock %}
+
+    <div class="image-slider-wrapper">
+      <ol class="image-slider">
+        {% if pkg.image_1_display_url %}<li><img class="image-modal-open" src="{{ pkg.image_1_display_url }}"></li>{% endif %}
+        {% if pkg.image_2_display_url %}<li><img class="image-modal-open" src="{{ pkg.image_2_display_url }}"></li>{% endif %}
+        {% if pkg.image_3_display_url %}<li><img class="image-modal-open" src="{{ pkg.image_3_display_url }}"></li>{% endif %}
+        {% if pkg.image_4_display_url %}<li><img class="image-modal-open" src="{{ pkg.image_4_display_url }}"></li>{% endif %}
+      </ol>
     </div>
-  </div>
 
-  <div class="image-slider-wrapper">
-    <ol class="image-slider">
-      {% if pkg.image_1_display_url %}<li><img class="image-modal-open" src="{{ pkg.image_1_display_url }}"></li>{% endif %}
-      {% if pkg.image_2_display_url %}<li><img class="image-modal-open" src="{{ pkg.image_2_display_url }}"></li>{% endif %}
-      {% if pkg.image_3_display_url %}<li><img class="image-modal-open" src="{{ pkg.image_3_display_url }}"></li>{% endif %}
-      {% if pkg.image_4_display_url %}<li><img class="image-modal-open" src="{{ pkg.image_4_display_url }}"></li>{% endif %}
-    </ol>
+    {% snippet 'snippets/image_modal.html' %}
   </div>
-
-  {% snippet 'snippets/image_modal.html' %}
 {% endblock %}
 
 {% block primary_content_inner %}
