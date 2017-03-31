@@ -11,6 +11,7 @@
 
   .search-form {
     padding-bottom: $padding-large-vertical*4;
+    margin: auto;
     width: 100%;
 
     @media(min-width: $width-md) {

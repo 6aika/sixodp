@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_showcase 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-24 07:29+0000\n"
+"POT-Creation-Date: 2017-03-28 09:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Mikko Nieminen <mikko.nieminen@gofore.com>, 2017\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
@@ -20,13 +20,46 @@ msgstr ""
 "Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ckanext/sixodp_showcase/controller.py:47
+#: ckanext/sixodp_showcase/controller.py:54
 msgid "Showcase not found"
 msgstr "Sovellusta ei löytynyt"
 
-#: ckanext/sixodp_showcase/controller.py:49
+#: ckanext/sixodp_showcase/controller.py:56
 msgid "Unauthorized to read showcase"
 msgstr "Ei oikeuksia lukea sovellusta"
+
+#: ckanext/sixodp_showcase/controller.py:87
+msgid "Not authorized to see this page"
+msgstr "Ei oikeuksia nähdä tätä sivua"
+
+#: ckanext/sixodp_showcase/controller.py:181
+msgid "Organizations"
+msgstr "Organisaatiot"
+
+#: ckanext/sixodp_showcase/controller.py:182
+msgid "Groups"
+msgstr "Ryhmät"
+
+#: ckanext/sixodp_showcase/controller.py:183
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:33
+msgid "Tags"
+msgstr "Avainsanat"
+
+#: ckanext/sixodp_showcase/controller.py:184
+msgid "Formats"
+msgstr "Tiedostomuodot"
+
+#: ckanext/sixodp_showcase/controller.py:185
+msgid "Licenses"
+msgstr "Lisenssit"
+
+#: ckanext/sixodp_showcase/controller.py:235
+msgid "Invalid search query: {error_message}"
+msgstr "Virheellinen haku: {error_message}"
+
+#: ckanext/sixodp_showcase/controller.py:252
+msgid "Parameter \"{parameter_name}\" is not an integer"
+msgstr "Parametri \"{parameter_name}\" ei ole kokonaisluku"
 
 #: ckanext/sixodp_showcase/templates/scheming/package/snippets/package_form.html:4
 msgid "Next: Add Data"
@@ -64,10 +97,6 @@ msgstr "Kuvaus"
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:28
 msgid "eg. Some useful notes about the data"
 msgstr "esim. datan sanallinen kuvaus"
-
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:33
-msgid "Tags"
-msgstr "Avainsanat"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:33
 msgid "eg. economy, mental health, government"
@@ -153,7 +182,7 @@ msgid "There are no Datasets in this Showcase"
 msgstr "Sovellukseen ei liity tietoaineistoja"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:13
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:47
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:50
 msgid "Search showcases..."
 msgstr "Etsi sovelluksia..."
 
@@ -162,24 +191,36 @@ msgid "Add Showcase"
 msgstr "Lisää sovellus"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:40
+msgid "Newest first"
+msgstr "Uusin ensin"
+
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:41
+msgid "Oldest first"
+msgstr "Vanhin ensin"
+
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:42
+msgid "Popular"
+msgstr "Suositut"
+
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:43
 msgid "Relevance"
 msgstr "Relevanssi"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:41
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:44
 msgid "Name Ascending"
 msgstr "Nimen mukaan nousevasti"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:42
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:45
 msgid "Name Descending"
 msgstr "Nimen mukaan laskevasti"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:43
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:46
 msgid "Last Modified"
 msgstr "Viimeksi muokattu"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:44
-msgid "Popular"
-msgstr "Suositut"
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:47
+msgid "Top rating"
+msgstr "Paras arvosana"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/snippets/showcase_item.html:32
 msgid "This showcase has no description"
