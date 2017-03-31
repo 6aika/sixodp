@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_showcase 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-31 05:35+0000\n"
+"POT-Creation-Date: 2017-03-31 12:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -151,42 +151,55 @@ msgstr ""
 msgid "Showcases"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:53
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:54
 msgid "Draft"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:85
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:86
 msgid "Published"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:87
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:88
 msgid "updated"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:114
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:116
 msgid "Manage"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:126
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:128
 msgid "Private"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:143
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:145
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/snippets/showcase_info.html:22
 msgid "Launch website"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:149
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:151
 msgid "Used datasets"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:153
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:155
 msgid "There are no Datasets in this Showcase"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:161
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:188
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:163
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:207
 msgid "More from the author"
+msgstr ""
+
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:165
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:209
+msgid "Show all from this author"
+msgstr ""
+
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:190
+msgid "Application website"
+msgstr ""
+
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:196
+msgid "Author website"
 msgstr ""
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:13
