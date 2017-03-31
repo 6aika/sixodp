@@ -4,6 +4,8 @@ from ckanext.showcase.plugin import ShowcasePlugin
 from ckanext.showcase.logic import action as showcase_action
 from logic.action import create, update
 from ckan.common import _
+from ckan.lib import i18n
+import json
 
 import ckan.lib.helpers as h
 
@@ -13,6 +15,9 @@ try:
     from collections import OrderedDict  # 2.7
 except ImportError:
     from sqlalchemy.util import OrderedDict
+
+import logging
+log = logging.getLogger(__name__)
 
 class Sixodp_ShowcasePlugin(ShowcasePlugin):
     plugins.implements(plugins.IConfigurer)
@@ -78,8 +83,11 @@ class Sixodp_ShowcasePlugin(ShowcasePlugin):
     def dataset_facets(self, facets_dict, package_type):
         if(package_type == 'showcase'):
             facets_dict = OrderedDict()
-            facets_dict.update({'category': _('Category')})
-            facets_dict.update({'platform': _('Platform')})
+
+            lang = i18n.get_lang()
+            facets_dict['vocab_category_' + lang] = _('Category')
+
+            facets_dict.update({'vocab_platform': _('Platform')})
 
         return facets_dict
 
@@ -156,3 +164,21 @@ class Sixodp_ShowcasePlugin(ShowcasePlugin):
                 data_dict.pop('notifier_email')
 
         return self._add_to_pkg_dict(context, data_dict)
+
+    def before_index(self, data_dict):
+
+        if data_dict.get('platform'):
+            data_dict['vocab_platform'] = [tag for tag in json.loads(data_dict['platform'])]
+
+        keywords = data_dict.get('category')
+        if keywords:
+            keywords_json = json.loads(keywords)
+            if keywords_json.get('fi'):
+                data_dict['vocab_category_fi'] = [tag for tag in keywords_json['fi']]
+            if keywords_json.get('sv'):
+                data_dict['vocab_category_sv'] = [tag for tag in keywords_json['sv']]
+            if keywords_json.get('en'):
+                data_dict['vocab_category_en'] = [tag for tag in keywords_json['en']]
+
+
+        return data_dict
