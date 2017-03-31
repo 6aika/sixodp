@@ -13,17 +13,17 @@
   <div class="container">
     <div class="row cards--latest">
       <?php
-        foreach ( get_datasets() as $dataset ) : ?>
+        foreach ( get_recent_content() as $index => $dataset ) : ?>
+          <?php if ($index === 4) echo '</div><div class="row cards--latest">'; ?> 
           <div class="card--latest">
             <div class="card__meta--latest">
-              <?php //echo get_days_ago($dataset['date_released']); ?>
-              <span>3</span> päivää, <span>20</span> tuntia sitten
+              <?php echo get_days_ago($dataset['metadata_created']); ?>
             </div>
             <div class="card__body">
-              <h3 class="card__title--latest"><?php echo $dataset["title"]; ?></h3>
+              <a href="#" class="card__categorylink">Tietoaineistot</a>
+              <h3 class="card__title--latest"><?php echo $dataset["title_translated"][get_current_locale()]; ?></h3>
               <div class="card__meta">
-                <span class="card__timestamp">12.08.2017</span>
-                <a href="#" class="card__categorylink">Tietoaineistot</a>
+                <span class="card__timestamp"><?php echo parse_date($dataset['metadata_created']); ?></span>
               </div>
             </div>
           </div><?php

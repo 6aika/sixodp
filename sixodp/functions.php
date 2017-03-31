@@ -356,7 +356,7 @@ function get_popular_tags() {
 }
 
 function get_recent_content() {
-  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_released%20desc&rows=5');
+  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_released%20asc&rows=8');
   return $data['result']['results'];
 }
 
@@ -427,10 +427,10 @@ function parse_date($date) {
 }
 
 function get_days_ago($date) {
-  $date = parse_date($date);
+  $date = new DateTime($date);
   $now = new DateTime();
-  $interval = $date->diff($now);
-  return $interval->format('%R%a days');
+  $interval = $now->diff($date);
+  return $interval->format('%d päivää, %h tuntia sitten');
 }
 
 function get_notes_excerpt($str) {
