@@ -35,3 +35,49 @@
 .card__meta {
   margin-bottom: $base*1.5;
 }
+
+
+
+// Secondary cards
+
+.wrapper--latest {
+  background: #eee;
+  padding: $base*4 0;
+}
+
+.cards--latest {
+  @extend .cards;
+}
+
+.card--latest {
+  @extend .card;
+  width: 48%;
+}
+
+.card__title--latest {
+  @extend .card__title;
+  border-bottom: 0;
+}
+
+
+
+// Showcase cards
+
+.cards--showcase {
+  @extend .cards--latest;
+}
+
+.card--showcase {
+  @extend .card--latest;
+  background: $brand-primary;
+  padding: 0;
+}
+
+.card__img {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.showcase__footer p {
+  color: #fff;
+}

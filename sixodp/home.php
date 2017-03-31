@@ -23,6 +23,7 @@ get_header(); ?>
 			get_template_part( 'partials/categories' );
 			get_template_part( 'partials/horizaccordion' );
 			get_template_part( 'partials/featured-content' );
+      get_template_part( 'partials/latest-updates' );
 
 		?>
 
