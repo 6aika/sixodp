@@ -158,7 +158,7 @@
 
   {% block package_info_mobile_only %}
     <div class="mobile-only">
-      {% set author_showcases = h.get_showcases_by_author(pkg.author) %}
+      {% set author_showcases = h.get_showcases_by_author(pkg.author, 3, pkg.id) %}
       {% if author_showcases %}
         <h2 class="module-heading">{{ _('More from the author') }}</h2>
         {{ h.snippet('sixodp_showcase/snippets/related_list.html', packages=author_showcases, current=pkg.id) }}
@@ -201,7 +201,7 @@
   {% endblock %}
 
   {% block more_from_author %}
-    {% set author_showcases = h.get_showcases_by_author(pkg.author) %}
+    {% set author_showcases = h.get_showcases_by_author(pkg.author, 3, pkg.id) %}
     {% if author_showcases %}
       <section class="module module-narrow">
         <h2 class="module-heading">{{ _('More from the author') }}</h2>
