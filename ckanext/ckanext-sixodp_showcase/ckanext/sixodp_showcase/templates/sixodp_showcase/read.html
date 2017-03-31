@@ -181,6 +181,22 @@
 {% block secondary_content %}
   {% block secondary_help_content %}{% endblock %}
 
+  {% block application_website_link %}
+    <section class="module module-narrow">
+      <a class="btn btn-block btn-transparent--inverse btn-list-item" href="{{pkg.application_website}}">
+        {{ _('Application website') }}
+        <i class="material-icons">arrow_forward</i>
+      </a>
+
+      {% if pkg.author_website %}
+        <a class="btn btn-block btn-transparent--inverse btn-list-item" href="{{pkg.author_website}}">
+          {{ _('Author website') }}
+          <i class="material-icons">arrow_forward</i>
+        </a>
+      {% endif %}
+    </section>
+  {% endblock %}
+
   {% block more_from_author %}
     {% set author_showcases = h.get_showcases_by_author(pkg.author) %}
     {% if author_showcases %}
