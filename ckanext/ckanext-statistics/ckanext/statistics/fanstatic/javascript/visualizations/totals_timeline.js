@@ -6,9 +6,17 @@ function TotalsTimeline (params) {
   self._props = {
     id: params.id,
     margin: params.margin,
+    dateFormat: 'YYYY-MM-DD', // Used in the data, not screen
   }
   self._elem = {}
-  self._helpers = {}
+  self._helpers = {
+    isYearChangeDate: function (date) {
+      return (
+        (date.month() === 0 && date.date() === 1)
+        || (date.month() === 11 && date.date() === 31 && date.hour() > 20)
+      )
+    },
+  }
   self._schema = params.schema
 
   // Mutable
@@ -41,8 +49,8 @@ TotalsTimeline.prototype.setData = function (data) {
   self._data.raw = data
   self._data.line = self._transformLineData(data)
 
-  self._helpers.xScale.domain(self._getXExtent())
-  self._helpers.yScale.domain(self._getYExtent())
+  self._helpers.xScale.domain(self._getXExtent()).nice()
+  self._helpers.yScale.domain(self._getYExtent()).nice()
 
   self._renderLine()
   self._renderFocusPoint()
@@ -55,7 +63,7 @@ TotalsTimeline.prototype.setDateRange = function (dates) {
   var self = this
   self._state.dateRange = dates
   self._resizeAxis('x')
-  // self._resizeAxis('y')
+  self._resizeAxis('y')
 }
 
 
@@ -90,6 +98,10 @@ TotalsTimeline.prototype.resize = function (contentWidth, contentHeight = undefi
     .attr('width', self._state.dataArea.width + 2)
     .attr('height', self._state.dataArea.height + 1)
 
+  self._elem.focusPointClipper
+    .attr('width', self._state.dataArea.width + 2 + 5)
+    .attr('height', self._state.dataArea.height + 1)
+
   self._elem.mouseEvents
     .attr('width', self._state.dataArea.width)
     .attr('height', self._state.dataArea.height + 25)
@@ -112,7 +124,7 @@ TotalsTimeline.prototype._transformLineData = function (data) {
   // First, create an empty data table with the correct datespan
   var dateToAdd = moment.utc(self._state.maxDateRange[0])
   while (dateToAdd.isSameOrBefore(self._state.maxDateRange[1])) {
-    var dateString = moment.utc(dateToAdd).format('YYYY-MM-DD')
+    var dateString = moment.utc(dateToAdd).format(self._props.dateFormat)
     result[dateString] = {
       date: dateToAdd.toDate(),
       added: [],
@@ -124,7 +136,7 @@ TotalsTimeline.prototype._transformLineData = function (data) {
 
   // Add each item to its creation date
   data.forEach(function(item) {
-    var itemDate = moment.utc(item[self._schema.dateField]).format('YYYY-MM-DD')
+    var itemDate = moment.utc(item[self._schema.dateField]).format(self._props.dateFormat)
 
     // Add creation of this item
     var itemName = item[self._schema.nameField]
@@ -141,7 +153,7 @@ TotalsTimeline.prototype._transformLineData = function (data) {
   dateToCumulate = moment.utc(self._state.maxDateRange[0])
   cumulativeValue = 0
   while (dateToCumulate.isSameOrBefore(self._state.maxDateRange[1])) {
-    dateString = dateToCumulate.format('YYYY-MM-DD')
+    dateString = dateToCumulate.format(self._props.dateFormat)
     cumulativeValue = cumulativeValue + result[dateString].added.length - result[dateString].removed.length
     result[dateString].value = cumulativeValue
     dateToCumulate.add(1, 'days')
@@ -149,6 +161,12 @@ TotalsTimeline.prototype._transformLineData = function (data) {
 
   // Turn into array
   var resultArray = []
+  // {
+  //   date: moment.utc([0, 0, 1]),
+  //   added: [],
+  //   removed: [],
+  //   value: 0,
+  // }
   for (i in result) {
     resultArray.push(result[i])
   }
@@ -190,11 +208,25 @@ TotalsTimeline.prototype._renderBase = function (container) {
   // Graphs, cropped by data area
   self._elem.lineCanvas = self._elem.dataCanvas.append('g')
 
+
   // Axes, legends, titles etc. in front of data items
   self._elem.frontLayer = self._elem.svgCanvas.append('g')
 
+  // Cut a bit larger area than data canvas
+  self._elem.focusPointCanvas = self._elem.frontLayer.append('g')
+
+  // Cuts out the data elements outside the axes
+  self._elem.focusPointClipper = self._elem.svgCanvas
+    .append('clipPath')
+      .attr('transform', 'translate(-1, -1)')
+      .attr('id', 'js-statistics-totals-timeline-focus-point-clipper-' + self._props.id)
+    .append('rect')
+
+  self._elem.focusPointCanvas.attr('clip-path', 'url(#js-statistics-totals-timeline-focus-point-clipper-' + self._props.id + ')')
+
+
   // Axis scales
-  self._helpers.xScale = d3.scaleTime()
+  self._helpers.xScale = d3.scaleUtc()
   self._helpers.yScale = d3.scaleLinear()
 
   // Function to get a dot in a line plot
@@ -206,7 +238,7 @@ TotalsTimeline.prototype._renderBase = function (container) {
     .classed('statistics-line statistics-totals-timeline-line', true)
 
   // Focus point on the graph, changed by mouseover
-  self._elem.focusPoint = self._elem.frontLayer.append('g')
+  self._elem.focusPoint = self._elem.focusPointCanvas.append('g')
     .classed('statistics-focus-point', true)
   self._elem.focusPoint.append('circle')
     .attr('r', 4.5)
@@ -234,7 +266,7 @@ TotalsTimeline.prototype._renderBase = function (container) {
       var i = bisectDate(self._data.line, x0, 1)
       var d0 = self._data.line[i - 1]
       var d1 = self._data.line[i]
-      if (!d1) {
+      if (!d0 || !d1) {
         return
       }
       var d = x0 - d0.date > d1.date - x0 ? d1 : d0
@@ -242,7 +274,7 @@ TotalsTimeline.prototype._renderBase = function (container) {
     })
 
   // X axis
-  self._helpers.xAxisGenerator = d3.axisBottom(self._helpers.xScale)
+  self._updateXAxisGenerator()
   self._elem.xAxis = self._elem.frontLayer.append('g')
     .classed('statistics-axis', true)
     .attr('transform', 'translate(0,' + self._state.dataArea.height + ')')
@@ -315,10 +347,11 @@ TotalsTimeline.prototype._resizeAxis = function (axis) {
   } else {
     currentExtent = self._helpers.yScale.domain()
     newExtent = self._getYExtent()
+  }
 
-    // Update ticks for y axis
-    self._updateYAxisGenerator()
-    self._elem.yAxis.call(self._helpers.yAxisGenerator)
+  if (axis === 'y') {
+    self._elem.xAxis
+      .attr('transform', 'translate(0,' + self._state.dataArea.height + ')')
   }
 
   clearTimeout(self._state['resizeAxisTimeout' + axis])
@@ -343,20 +376,46 @@ TotalsTimeline.prototype._resizeAxis = function (axis) {
         self._renderFocusPoint()
       }
     })
+    .on('end', function () {
+      // Update ticks for axis
+      if (axis === 'x') {
+        self._updateXAxisGenerator()
+        self._elem.xAxis.call(self._helpers.xAxisGenerator)
+      } else {
+        self._updateYAxisGenerator()
+        self._elem.yAxis.call(self._helpers.yAxisGenerator)
+      }
+    })
   }, 100)
 }
 
 TotalsTimeline.prototype._updateYAxisGenerator = function () {
   var self = this
   self._helpers.yAxisGenerator = function (g) {
-    g.call(d3.axisRight(self._helpers.yScale)
-      .tickSize(self._state.dataArea.width)
-      .tickValues(d3.range(self._helpers.yScale.domain().slice(-1)[0] + 1))
-      .tickFormat(function(d) {
-        return this.parentNode.nextSibling
+
+    // Around 5 reference lines. Use only integers.
+    var tickCount = Math.min(4, self._helpers.yScale.domain().slice(-1)[0])
+
+    // Start from a stock axis
+    g.call(
+      // Create generator for a stock axis
+      d3.axisRight(self._helpers.yScale)
+
+        // Make ticks full width
+        .tickSize(self._state.dataArea.width)
+
+        // Set which levels are shown
+        // .tickValues(tickValues)
+        .ticks(tickCount, 'x')
+
+        .tickPadding(7)
+
+        // Add text to top-most tick number
+        .tickFormat(function(d) {
+          return this.parentNode.nextSibling
             ? '\xa0' + d
-            : d + ' ' + self._texts.amount;
-      })
+            : d + ' ' + self._texts.amount
+        })
     )
 
     // Remove vertical line
@@ -366,6 +425,66 @@ TotalsTimeline.prototype._updateYAxisGenerator = function () {
     g.selectAll(".tick text")
       .attr("x", self._state.dataArea.width + 2)
       .attr("dy", 2)
+  }
+}
+
+
+TotalsTimeline.prototype._updateXAxisGenerator = function () {
+  var self = this
+  var xDomain = self._helpers.xScale.domain()
+  var daysBetween = moment.utc(xDomain[1]).diff(moment.utc(xDomain[0]), 'days')
+
+  // Show months or dates depending on the date range
+  var format
+  if (daysBetween > 116) {
+    format = d3.timeFormat('%b')
+  } else {
+    format = d3.timeFormat('%d.%m.')
+  }
+  var formatYear = d3.timeFormat('%Y')
+
+  self._helpers.xAxisGenerator = function (g) {
+
+    var tickValues = self._helpers.xScale.ticks(8)
+    // Show tick in the beginning also
+    if (tickValues.indexOf(xDomain[0]) === -1) {
+      tickValues = tickValues.concat(xDomain[0])
+    }
+    // Show tick at the end if it is the end of a month
+    if (moment.utc(xDomain[1]).add(1, 'days').date() === 1) {
+      tickValues = tickValues.concat(xDomain[1])
+    }
+
+    g.call(
+      d3.axisBottom(self._helpers.xScale)
+
+        .tickValues(tickValues)
+
+        // Show year if this is the first tick of the year
+        .tickFormat(function (d) {
+          // Show last tick's year/date from the following year/date
+          var nextDay = moment.utc(d).add(1, 'days')
+          if (d === xDomain[1] && nextDay.date() === 1) {
+            d = nextDay.toDate()
+          }
+          var date = moment.utc(d)
+          if (self._helpers.isYearChangeDate(date)) {
+            return formatYear(d)
+          }
+          return format(d)
+        })
+    )
+    g.selectAll('.tick')
+      .filter(function(d) {
+        var nextDay = moment.utc(d).add(1, 'days')
+        if (d === xDomain[1] && nextDay.date() === 1) {
+          d = nextDay.toDate()
+        }
+        var date = moment.utc(d)
+        return self._helpers.isYearChangeDate(date)
+      })
+      .select('text')
+      .classed('statistics-tick-year', true)
   }
 }
 
@@ -383,10 +502,21 @@ TotalsTimeline.prototype._getXExtent = function () {
 // Calculate proper data range for the y axis based on current data
 TotalsTimeline.prototype._getYExtent = function () {
   var self = this
-  return [
+  var firstShownDate = self._state.dateRange[0]
+  var lastShownDate = self._state.dateRange[1]
+
+  var iStart = self._data.line.findIndex(function(dateItem) {
+    return moment.utc(dateItem.date).isSame(firstShownDate)
+  })
+  var iEnd = self._data.line.findIndex(function(dateItem) {
+    return moment.utc(dateItem.date).isSame(lastShownDate)
+  })
+  var shownData = self._data.line.slice(iStart, iEnd)
+  var result = [
     // Y min = 0 or lower
-    Math.min(0, Math.round(d3.min(self._data.line, function(d) { return d.value }) * 1.25 + 1)),
+    Math.min(0, Math.round(d3.min(shownData, function(d) { return d.value }) * 1.25 + 1)),
     // Y max = max value + some margin
-    Math.round(d3.max(self._data.line, function(d) { return d.value }) * 1.25 + 1)
+    Math.round(d3.max(shownData, function(d) { return d.value }) * 1.25 + 1)
   ]
+  return result
 }

@@ -24,11 +24,7 @@
   }
 
   .pre-primary {
-    padding: 0 $padding-large-horizontal;
-
-    @media(min-width: $width-md) {
-      padding: 0;
-    }
+    padding: 0;
   }
 
   .secondary {
@@ -126,7 +122,7 @@
       }
     }
   }
-  
+
   .page-highlight {
     margin-bottom: $margin-large-vertical*4;
   }

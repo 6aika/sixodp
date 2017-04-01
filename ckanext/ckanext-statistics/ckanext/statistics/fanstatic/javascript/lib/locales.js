@@ -5,6 +5,50 @@ Locales = {
     en: 'Data Portal Statistics',
   },
 
+  // Loading
+  loading: {
+    fi: 'Ladataan',
+    sv: '',
+    en: 'Loading',
+  },
+  loadWebpage: {
+    fi: 'Ladataan verkkosivu',
+    sv: '',
+    en: 'Loading web page',
+  },
+  loadOrganizations: {
+    fi: 'Ladataan organisaatiot',
+    sv: '',
+    en: 'Loading organizations',
+  },
+  loadCategories: {
+    fi: 'Ladataan kategoriat',
+    sv: '',
+    en: 'Loading categories',
+  },
+  loadDatasets: {
+    fi: 'Ladataan tietoaineistot',
+    sv: '',
+    en: 'Loading datasets',
+  },
+  loadApps: {
+    fi: 'Ladataan sovellukset',
+    sv: '',
+    en: 'Loading apps',
+  },
+  loadRendering: {
+    fi: 'Piirretään',
+    sv: '',
+    en: 'Rendering',
+  },
+  loadDone: {
+    fi: ' ',
+    sv: ' ',
+    en: ' ',
+  },
+
+
+  // Summary
 
   summarySectionTitle: {
     fi: 'Yhteenveto',
@@ -12,9 +56,9 @@ Locales = {
     en: 'Summary',
   },
   summarySectionDetailText: {
-    fi: 'Viime 365 pv',
+    fi: 'Viim. 3kk',
     sv: '',
-    en: 'Last 365d',
+    en: 'Last 3m',
   },
 
   datasetSectionTitle: {
@@ -48,21 +92,6 @@ Locales = {
     fi: 'Kaikki',
     sv: '',
     en: 'All',
-  },
-  lastYear: {
-    fi: '1 v',
-    sv: '',
-    en: '1y',
-  },
-  last3months: {
-    fi: '3 kk',
-    sv: '',
-    en: '3m',
-  },
-  lastMonth: {
-    fi: '1 kk',
-    sv: '',
-    en: '1m',
   },
 
   // Summary section

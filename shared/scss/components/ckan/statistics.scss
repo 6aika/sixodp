@@ -15,14 +15,81 @@
   }
 }
 
+// Loading
 
+
+.statistics-loading {
+  background-color: $brand-primary;
+  color: $white;
+  height: 100vh;
+  width: 100vw;
+  left: 0;
+  padding: 30% 0%;
+  position: fixed;
+  text-align: center;
+  top: 0px;
+  z-index: 2;
+  h1 {
+    font-family: $font-heading;
+  }
+}
+@keyframes statistics-loading-bg {
+  0%   {background-color: $brand-primary;}
+  50%  {background-color: $brand-primary-dark;}
+  100% {background-color: $brand-primary;}
+}
+
+.statistics-loading-steps {
+  background-color: $brand-primary;
+  animation-name: statistics-loading-bg;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+
+  border: solid $white 1px;
+  // display: none;
+  height: 20px;
+  line-height: 1;
+  overflow: hidden;
+  margin: auto;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+
+  @media (min-width: $width-sm) {
+  }
+
+  @media (min-width: $width-md) {
+    width: 960px;
+  }
+
+  @media (min-width: $width-lg) {
+    width: 1180px;
+  }
+
+  @media (min-width: $width-xl) {
+    width: 1380px;
+  }
+}
+
+
+.statistics-loading-loaded {
+  background-color: $white;
+  height: 100%;
+  display: block;
+  width: 3%;
+}
+.statistics-loading-text {
+  margin-top: $margin-large-vertical;
+  font-size: $font-size-large;
+  font-family: $font;
+}
 
 // Nav
 
 .statistics-nav {
   background-color: $white;
   border-bottom: solid $brand-primary 1px;
-  height: 120px;
+  height: 200px;
   padding: $padding-base-vertical $padding-base-horizontal;
   text-align: center;
   width: 100%;
@@ -57,10 +124,30 @@
 }
 
 .statistics-nav-filters {
+  width: 100%;
   > * {
-    vertical-align: bottom;
+    display: inline-block;
+    width: 100%;
   }
 }
+@media(min-width: $width-md) {
+  .statistics-nav {
+    height: 120px;
+  }
+
+  .statistics-nav-filters > * {
+    vertical-align: bottom;
+    width: 32%;
+  }
+  .statistics-filter-organization {
+    float: left;
+  }
+  .statistics-filter-category {
+    float: right;
+  }
+}
+
+
 .statistics-filter-datespan {
   display: inline-block;
   input {
@@ -79,6 +166,19 @@
     cursor: pointer;
     display: inline-block;
     margin: 0px $margin-base-horizontal;
+
+    border-bottom: solid transparent 2px;
+    &.statistics-active {
+      border-color: $brand-primary;
+    }
+  }
+}
+
+.statistics-filter-datespan-datespan-fields, .statistics-filter-datespan-quicklinks, .statistics-filter-organization, .statistics-filter-categorys {
+  margin-bottom: $margin-base-vertical;
+  margin-top: $margin-base-vertical;
+  @media(min-width: $width-md) {
+    margin-bottom: 0;
   }
 }
 
@@ -90,7 +190,7 @@
   position: relative;
 }
 
-.statistics-section-content {
+.statistics-section-content, .statistics-nav-content {
   // Copy-pasted from .container styles in /shared/scss/base/common/layout.scss
   margin: 0 auto;
   padding: 0;
@@ -114,22 +214,13 @@
   }
 }
 
-.statistics-footer {
-  padding: 30px;
-  text-align: center;
-}
-.statistics-footer a {
-  color: inherit;
-  font-size: 12px;
-}
-
 // Summary section
 .summary-section {
-  background-color: $white;
+  background-color: $gray-lighter;
   color: $text-color;
   min-height: 400px;
-  padding-top: 150px;
-  padding-bottom: 100px;
+  padding-top: 200px;
+  padding-bottom: 150px;
 }
 .summary-section .statistics-section-content {
   padding: 0px;
@@ -149,8 +240,8 @@
   background-color: $datavis-color-1-dark;
 }
 .statistics-article-section {
-  color: $text-color;
   background-color: $white;
+  color: $text-color;
 }
 
 // Visualization elements
@@ -162,18 +253,18 @@
 .statistics-line {
   fill: none;
   stroke: $white;
-  stroke-width: 3px;
-  stroke-linejoin: 'round';
   stroke-linecap: 'round';
+  stroke-linejoin: 'round';
+  stroke-width: 3px;
 }
-/*.datavis-scale-line {
-  stroke: #555;
-  stroke-dasharray: '2,2';
-}*/
+.statistics-tick-year {
+  font-size: 12px;
+  font-weight: bold;
+}
 
 .statistics-focus-point {
-  opacity: 0.9;
   fill: $white;
+  opacity: 0.9;
   stroke: $white;
 
   circle {
@@ -234,10 +325,14 @@
   margin-top: 50px;
   text-align: center;
 }
+
 .attention-number {
   display: inline-block;
   padding: 8px;
-  width: 25%;
+  width: 32%;
+  @media (min-width: $width-md) {
+    width: 24%;
+  }
 }
 .attention-number-title {
   font-size: $font-size;
@@ -280,13 +375,12 @@
 }
 .statistics-page .statistics-input-date {
   text-align: center;
-  width: 100px;
+  width: 45%;
 }
 
 .statistics-page select {
-  width: 450px;
   background: $white;
-  color: $datavis-color-1;
+  color: $brand-primary;
   outline: 0px;
 }
 .statistics-page option {

@@ -2,35 +2,45 @@
 
 {% block pre_primary %}
   <div class="statistics-page">
-    <h1 class="page-heading js-statistics-main-title"></h1>
-    <nav class="statistics-nav" data-spy="affix" data-offset-top="280" data-offset-bottom="900">
-      <ul class="statistics-nav-items">
-        <li><a href="#summary"></a></li>
-        <li><a href="#datasets"></a></li>
-        <li><a href="#apps"></a></li>
-        <!-- <li><a href="#articles"></a></li> -->
-      </ul>
-
-      <div class="statistics-nav-filters">
-        <select class="js-statistics-filter-organization">
-          <option>-</option>
-        </select>
-        <div class="statistics-filter-datespan">
-          <div class="statistics-filter-datespan-quicklinks">
-            <a class="js-statistics-filter-datespan-all"></a>
-            <a class="js-statistics-filter-datespan-year"></a>
-            <a class="js-statistics-filter-datespan-3months"></a>
-            <a class="js-statistics-filter-datespan-month"></a>
-          </div>
-          <div class="js-statistics-filter-datespan-fields">
-            <input class="js-statistics-filter-start-date" type="date" />
-            -
-            <input class="js-statistics-filter-end-date" type="date" />
-          </div>
+    <div class="js-statistics-loading statistics-loading">
+      <!-- <h1 class="js-statistics-loading-title"></h1> -->
+      <div class="js-statistics-loading-steps statistics-loading-steps">
+        <div class="js-statistics-loading-loaded statistics-loading-loaded">
         </div>
-        <select class="js-statistics-filter-category">
-          <option>-</option>
-        </select>
+      </div>
+      <p class="js-statistics-loading-text statistics-loading-text">Ladataan</p>
+    </div>
+    <h1 class="page-heading js-statistics-main-title"></h1>
+    <nav class="statistics-nav">
+      <div class="statistics-nav-content">
+        <ul class="statistics-nav-items">
+          <li><a href="#summary"></a></li>
+          <li><a href="#datasets"></a></li>
+          <li><a href="#apps"></a></li>
+          <!-- <li><a href="#articles"></a></li> -->
+        </ul>
+
+        <div class="statistics-nav-filters">
+          <div class="statistics-filter-datespan">
+            <div class="statistics-filter-datespan-quicklinks">
+              <a class="js-statistics-filter-datespan-all"></a>
+              <a class="js-statistics-filter-datespan-back-2-years"></a>
+              <a class="js-statistics-filter-datespan-back-1-year"></a>
+              <a class="js-statistics-filter-datespan-this-year"></a>
+            </div>
+            <div class="js-statistics-filter-datespan-fields">
+              <input class="js-statistics-filter-start-date" type="date" />
+              -
+              <input class="js-statistics-filter-end-date" type="date" />
+            </div>
+          </div>
+          <select class="js-statistics-filter-organization statistics-filter-organization">
+            <option>-</option>
+          </select>
+          <select class="js-statistics-filter-category statistics-filter-category">
+            <option>-</option>
+          </select>
+        </div>
       </div>
     </nav>
 

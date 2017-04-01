@@ -3,10 +3,11 @@ var Statistics = function () {
 
   // Basic styles for data visualizations
   self._styles = {
-    contentWidth: d3.select('.statistics-section-content:first-child').style('width'),
-    visMargins: {top: 15, right: 50, bottom: 30, left: 1},
+    contentWidth: parseInt(d3.select('.statistics-section-content:first-child').style('width')),
+    visMargins: {top: 15, right: 50, bottom: 30, left: 15},
     visHeight: 360,
   }
+  self._styles.visHeight = self._getVisHeight(self._styles.contentWidth)
 
   // Schemas for different data types
   self._schemas = {
@@ -81,13 +82,21 @@ Statistics.prototype._createNav = function () {
       allPublishers: self._localeData.allPublishers[self._config.locale],
       allCategories: self._localeData.allCategories[self._config.locale],
       wholeDatespan: self._localeData.wholeDatespan[self._config.locale],
-      lastYear: self._localeData.lastYear[self._config.locale],
-      last3months: self._localeData.last3months[self._config.locale],
-      lastMonth: self._localeData.lastMonth[self._config.locale],
+    },
+
+    // Disable scroll events for a moment when scrolling automatically
+    setAutoscrolling: function (value) {
+      if (value) {
+        window.onscroll = undefined
+      } else {
+        setTimeout(function () {
+          window.onscroll = self._onScroll
+        }, 100)
+      }
     },
 
     // Change the hash (and fire hash change event to change system state)
-    setHashState: function (hash) {
+    broadcastHashState: function (hash) {
       hash = '#' + hash
       if(history.replaceState) {
           history.replaceState(null, null, hash)
@@ -101,27 +110,16 @@ Statistics.prototype._createNav = function () {
       }
     },
 
-    // Disable scroll events for a moment when scrolling automatically
-    autoScrolling: function (value) {
-      if (value) {
-        window.onscroll = undefined
-      } else {
-        setTimeout(function () {
-          window.onscroll = self._onScroll
-        }, 100)
-      }
-    },
-
-    onDateRangeUpdate: (function (dates) {
+    broadcastDateRange: (function (dates) {
       var self = this
       self._state.dateRangeFilter = dates
-      self._summarySection.setLastDate(dates[1])
+      self._summarySection.setDateRange(dates)
       self._datasetSection.setDateRange(dates)
       self._appSection.setDateRange(dates)
       // self.articleSection.setDateRange(dates)
     }).bind(self),
 
-    onOrganizationUpdate: function(value) {
+    broadcastOrganization: function(value) {
       self._state.organization = value
       self._data = self._filterAllData(self._data.raw)
 
@@ -134,7 +132,7 @@ Statistics.prototype._createNav = function () {
       self._datasetSection.setData(self._data.datasets)
     },
 
-    onCategoryUpdate: function(value) {
+    broadcastCategory: function(value) {
       self._state.category = value
       self._data = self._filterAllData(self._data.raw)
 
@@ -172,7 +170,7 @@ Statistics.prototype._createSections = function () {
       timelineTitle: self._localeData.datasetsOpenedTitle[self._config.locale],
       amount: self._localeData.amount[self._config.locale],
     },
-    width: parseInt(self._styles.contentWidth),
+    width: self._styles.contentWidth,
     visMargins: self._styles.visMargins,
     visHeight: self._styles.visHeight,
     schema: self._schemas.datasets,
@@ -186,7 +184,7 @@ Statistics.prototype._createSections = function () {
       timelineTitle: self._localeData.appsPublishedTitle[self._config.locale],
       amount: self._localeData.amount[self._config.locale],
     },
-    width: parseInt(self._styles.contentWidth),
+    width: self._styles.contentWidth,
     visMargins: self._styles.visMargins,
     visHeight: self._styles.visHeight,
     schema: self._schemas.apps,
@@ -216,17 +214,18 @@ Statistics.prototype._bindEvents = function () {
   }
   window.onhashchange = self._onHashChange
 
-  // Init system state from current hash
-  self._onHashChange()
-
   // Resize elements on window resize
   window.onresize = function () {
-    self._styles.contentWidth = d3.select('.statistics-section-content:first-child').style('width')
-
     self._nav.onResize()
-    self._summarySection.onContentResize(self._styles.contentWidth)
-    self._datasetSection.onContentResize(self._styles.contentWidth)
-    self._appSection.onContentResize(self._styles.contentWidth)
+
+    var newWidth = parseInt(d3.select('.statistics-section-content:first-child').style('width'))
+    self._styles.visHeight = self._getVisHeight(self._styles.contentWidth)
+    if (newWidth !== self._styles.contentWidth) {
+      self._styles.contentWidth = newWidth
+      self._summarySection.onContentResize(self._styles.contentWidth)
+      self._datasetSection.onContentResize(self._styles.contentWidth, self._styles.visHeight)
+      self._appSection.onContentResize(self._styles.contentWidth, self._styles.visHeight)
+    }
   }
 }
 
@@ -234,9 +233,22 @@ Statistics.prototype._bindEvents = function () {
 // Get all data for statistics from APIs and send it to sub items
 Statistics.prototype._loadDataToPage = function () {
   var self = this
-  self._api = new Api({baseUrl: self._config.api.baseUrl})
+  self._api = new Api({
+    baseUrl: self._config.api.baseUrl,
+    width: self._styles.contentWidth,
+    texts: {
+      loading: self._localeData.loading[self._config.locale],
+      loadWebpage: self._localeData.loadWebpage[self._config.locale],
+      loadOrganizations: self._localeData.loadOrganizations[self._config.locale],
+      loadCategories: self._localeData.loadCategories[self._config.locale],
+      loadDatasets: self._localeData.loadDatasets[self._config.locale],
+      loadApps: self._localeData.loadApps[self._config.locale],
+      loadRendering: self._localeData.loadRendering[self._config.locale],
+      loadDone: self._localeData.loadDone[self._config.locale],
+    },
+  })
   self._api.getAllData(function (result) {
-    console.log('Fetched all data from APIs:', result)
+    console.log(result)
     self._data = result
 
     // Get maximum possible date range for unfiltered data
@@ -248,18 +260,11 @@ Statistics.prototype._loadDataToPage = function () {
     // General data transformations for the whole statistics
     self._data = self._filterAllData(self._data)
 
-    // Init all data visualizations with the updated data
-    self._nav.update({
-      organizations: self._data.organizations,
-      categories: self._data.categories,
-      dateRange: self._state.dateRangeFilter,
-    })
-
     // Update summary section (show non-filtered counts)
-    self._summarySection.setLastDate(self._state.dateRangeFilter[1])
+    self._summarySection.setDateRange(self._state.dateRangeFilter)
     self._summarySection.setData({
-      datasets: self._data.raw.datasets,
-      apps: self._data.raw.apps,
+      datasets: self._data.datasets,
+      apps: self._data.apps,
     })
 
     // Update dataset section
@@ -273,7 +278,16 @@ Statistics.prototype._loadDataToPage = function () {
     self._appSection.setMaxDateRange(self._state.maxDateRange)
     self._appSection.setDateRange(self._state.dateRangeFilter)
     self._appSection.setData(self._data.apps)
-  })
+
+    // Update nav scroll positions and filters etc.
+    self._nav.dataLoaded({
+      organizations: self._data.organizations,
+      categories: self._data.categories,
+      dateRange: self._state.dateRangeFilter,
+      maxDateRange: self._state.maxDateRange,
+      hash: location.hash.substring(1),
+    })
+  }, 300)
 }
 
 
@@ -380,6 +394,16 @@ Statistics.prototype._filterItems = function (params) {
 
   return result
 }
+
+
+Statistics.prototype._getVisHeight = function (contentWidth) {
+  if (contentWidth < 720) {
+    return 240
+  } else {
+    return 360
+  }
+}
+
 
 
 // 1 second margin time to wait that the ckan language setting is updated

@@ -1,225 +1,282 @@
 // Class for navigation/filter tool on the statistics dashboard
 function StatisticsNav (params) {
   var self = this
-  self.element = params.element
-  self.texts = params.texts
-  self.navItems = self.element.find('.statistics-nav-items')
-  self.items = params.items
-  self.items.forEach(function (item) {
-    item.element = $('.js-statistics-' + item.id + '-section')
-    item.navLink = self.navItems.find('a[href="#' + item.id + '"]')
-    item.navLink.html(item.title)
-    item.navLink.click(function () {
-      if (item.id == self.activeSection) {
-        self._scroll(item)
+  self._texts = params.texts
+
+  self._props = {
+    dateFormatMoment: 'D.M.YYYY',
+    dateFormatBootstrap: 'd.m.yyyy',
+  }
+
+  self._elem = {}
+  self._elem.container = params.element
+  self._elem.navItems = self._elem.container.find('.statistics-nav-items')
+
+  self._sections = params.items
+  self._sections.forEach(function (section) {
+    section.element = $('.js-statistics-' + section.id + '-section')
+    section.navLink = self._elem.navItems.find('a[href="#' + section.id + '"]')
+    section.navLink.html(section.title)
+    section.navLink.click(function () {
+      if (section.id == self._state.selectedSectionId) {
+        self._scrollToSection(section)
       }
     })
   })
-  self.items.unshift({
+  self._sections.unshift({
     id: '',
     element: $('body'),
-    navLink: self.items[0].navLink
+    navLink: self._sections[0].navLink
   })
-  self.activeSection = self.items[0].id
 
-  self.inputs = {
+  // State
+  self._state = {}
+  self._state.selectedSectionId = self._sections[0].id
+  self._state.height = self._elem.container.outerHeight(true)
+  self._state.filters = {
+    dateRange: undefined,
+    organizations: undefined,
+    categories: undefined,
+  }
+
+  // Set up input elements
+  self._elem.inputs = {
     organizationFilter: $('.js-statistics-filter-organization'),
     categoryFilter: $('.js-statistics-filter-category'),
     startDateFilter: $('.js-statistics-filter-start-date'),
     endDateFilter: $('.js-statistics-filter-end-date'),
   }
-  self.inputsD3 = {}
-  for (key in self.inputs) {
-    self.inputsD3[key] = d3.select(self.inputs[key].get(0))
+  self._elem.inputsD3 = {}
+  for (key in self._elem.inputs) {
+    self._elem.inputsD3[key] = d3.select(self._elem.inputs[key].get(0))
   }
 
-  function fixDatepicker(inputField) {
-    var container = $('.js-statistics-filter-datespan-fields')
-
-    var datepicker = $('.datepicker')
-    datepicker.removeClass('datepicker-orient-top')
-    datepicker.addClass('datepicker-orient-bottom')
-    var width = datepicker.css('width')
-
-    var detached = datepicker.detach()
-    detached.appendTo(container)
-    detached.css({
-      top: inputField.position().top + 18,
-      left: inputField.position().left,
-      width: width,
-    })
-    detached.find('.day').click(function () {
-      setTimeout(function () {
-        datepicker.remove()
-      }, 100)
-    })
-  }
-  self.inputs.startDateFilter.click(function () {
-    fixDatepicker(self.inputs.startDateFilter)
+  self._elem.inputs.organizationFilter.change(function () {
+    self._callbacks.broadcastOrganization(self._elem.inputsD3.organizationFilter.node().value)
   })
-  self.inputs.endDateFilter.click(function () {
-    fixDatepicker(self.inputs.endDateFilter)
+  self._elem.inputs.categoryFilter.change(function () {
+    self._callbacks.broadcastCategory(self._elem.inputsD3.categoryFilter.node().value)
   })
+  self._elem.inputs.startDateFilter.change(function () { self._broadcastDateInputValues() })
+  self._elem.inputs.endDateFilter.change(function () { self._broadcastDateInputValues() })
 
-  self.dateRangeQuicklinks = {
-    all: [0, 0],
-    lastYear: [0, 0],
-    last3months: [0, 0],
-    lastMonth: [0, 0],
-  }
-  self.element.find('.js-statistics-filter-datespan-all')
-    .text(self.texts.wholeDatespan)
-    .click(function () {
-      self._setDateRange(self.dateRangeQuicklinks.all)
-    })
-  self.element.find('.js-statistics-filter-datespan-year')
-    .text(self.texts.lastYear)
-    .click(function () {
-      self._setDateRange(self.dateRangeQuicklinks.lastYear)
-    })
-  self.element.find('.js-statistics-filter-datespan-3months')
-    .text(self.texts.last3months)
-    .click(function () {
-      self._setDateRange(self.dateRangeQuicklinks.last3months)
-    })
-  self.element.find('.js-statistics-filter-datespan-month')
-    .text(self.texts.lastMonth)
-    .click(function () {
-      self._setDateRange(self.dateRangeQuicklinks.lastMonth)
-    })
+  self._fixDatepickers()
 
-  self._autoScrolling = params.autoScrolling
-  self._setHashState = params.setHashState
-  self._onOrganizationUpdate = params.onOrganizationUpdate
-  self._onCategoryUpdate = params.onCategoryUpdate
-  self._onDateRangeUpdate = params.onDateRangeUpdate
-
-  self.inputs.organizationFilter.change(function () {
-    self._onOrganizationUpdate(self.inputsD3.organizationFilter.node().value)
-  })
-  self.inputs.categoryFilter.change(function () {
-    self._onCategoryUpdate(self.inputsD3.categoryFilter.node().value)
-  })
-  self.inputs.startDateFilter.change(function () { self._readDates(self) })
-  self.inputs.endDateFilter.change(function () { self._readDates(self) })
-
-  self.data = {
-    dateRange: undefined,
-    organizations: undefined,
-    categories: undefined,
-  }
-  self.onResize()
+  // Callbacks to main
+  self._callbacks = {}
+  self._callbacks.setAutoscrolling = params.setAutoscrolling
+  self._callbacks.broadcastHashState = params.broadcastHashState
+  self._callbacks.broadcastOrganization = params.broadcastOrganization
+  self._callbacks.broadcastCategory = params.broadcastCategory
+  self._callbacks.broadcastDateRange = params.broadcastDateRange
 }
 
+
+// Called by main when browser hash is changed. Scrolls to the given section and selects it in nav
 StatisticsNav.prototype.onHashChange = function (hash) {
   var self = this
-  var item = self.items.find(function (item) {
-    return item.id == hash
-  })
-  if (item) {
-    self._scroll(item)
-  } else {
+
+  var section = self._getSectionByHash(hash)
+  if (!section) {
     return false
   }
+
+  self._scrollToSection(section)
+  self._highlightSection(section)
+  self._updateFilterVisibility(section.id)
+  self._state.selectedSectionId = section.id
 }
 
-StatisticsNav.prototype.update = function (params) {
+
+// Called from main when the data is loaded
+StatisticsNav.prototype.dataLoaded = function (params) {
   var self = this
+  self._state.maxDateRange = params.maxDateRange
+
   self._setDateRange(params.dateRange)
-  self._updateDateRangeQuicklinks(params.dateRange)
-  self._onOrganizationUpdates(params.organizations)
+  self._updateDateRangeQuicklinks(params.maxDateRange)
+
+  self._setOrganizations(params.organizations)
   self._setCategories(params.categories)
+
+  // After new data on screen, scroll positions of sections may have changed
   self._updateSectionPositions()
+
+  // Get section by browser's hash, scroll to it, highlight it, update filter visibility and select the section
+  self.onHashChange(params.hash)
 }
+
+
 StatisticsNav.prototype.onResize = function () {
   var self = this
+  self._state.height = self._elem.container.outerHeight(true)
   self._updateSectionPositions()
 }
+
 
 // Highlight the active nav link + update url #hashtag
 StatisticsNav.prototype.onScroll = function (y) {
   var self = this
-  var newActiveSection = self.items[0]
-  var margin = 200 + self.height
-  self.items.forEach(function (item, i) {
+  var margin = 100 + self._state.height
+  var newActiveSection = self._sections[0]
+  self._sections.forEach(function (section, i) {
     var useMargin = margin
     if (i == 0) {
       useMargin = 0
     }
-    if (item.position < y + useMargin) {
-      newActiveSection = item
+    if (section.position < y + useMargin) {
+      newActiveSection = section
     } else {
       return false
     }
   })
 
-  if (self.activeSection !== newActiveSection.id) {
-    self._updateActiveSection(newActiveSection)
+  if (self._state.selectedSectionId !== newActiveSection.id) {
+    self._highlightSection(newActiveSection)
+    self._updateFilterVisibility(newActiveSection.id)
+    self._state.selectedSectionId = newActiveSection.id
+    self._callbacks.broadcastHashState(newActiveSection.id)
   }
 }
 
+
+StatisticsNav.prototype._getSectionByHash = function (hash) {
+  var self = this
+  var section = self._sections.find(function (section) {
+    return section.id == hash
+  })
+  return section
+}
+
+
+// Overwrite date input texts and broadcast values
 StatisticsNav.prototype._setDateRange = function (dates) {
   var self = this
-  self.inputs.startDateFilter.val(dates[0].format('YYYY-MM-DD'))
-  self.inputs.endDateFilter.val(dates[1].format('YYYY-MM-DD'))
-  self._onDateRangeUpdate(dates)
+  self._elem.inputs.startDateFilter.val(dates[0].format(self._props.dateFormatMoment))
+  self._elem.inputs.endDateFilter.val(dates[1].format(self._props.dateFormatMoment))
+  self._highlightDateQuicklink()
+  self._callbacks.broadcastDateRange(dates)
 }
 
-StatisticsNav.prototype._readDates = function (self) {
-  var dates = [
-    moment.utc(self.inputs.startDateFilter.val(), 'YYYY-MM-DD'),
-    moment.utc(self.inputs.endDateFilter.val(), 'YYYY-MM-DD'),
-  ]
-  if (dates[0].toDate() > dates[1].toDate()) {
-    return false
-  }
-  self._onDateRangeUpdate(dates)
-}
 
-StatisticsNav.prototype._updateDateRangeQuicklinks = function (totalDateRange) {
+// Broadcast input values if they are valid
+StatisticsNav.prototype._broadcastDateInputValues = function () {
   var self = this
-  self.dateRangeQuicklinks.all = totalDateRange
-
-  var lastYear = totalDateRange[1].year() - 1
-  self.dateRangeQuicklinks.lastYear = [
-    moment.utc({year: lastYear, month: 0, day: 1}),
-    moment.utc({year: lastYear, month: 11, day: 31}),
+  var dates = [
+    moment.utc(self._elem.inputs.startDateFilter.val(), self._props.dateFormatMoment),
+    moment.utc(self._elem.inputs.endDateFilter.val(), self._props.dateFormatMoment),
   ]
-
-  var lastMonth = moment.utc(totalDateRange[1]).subtract(1, 'months')
-  var lastMonthFirst = moment.utc({year: lastMonth.year(), month: lastMonth.month(), day: 1})
-  var lastMonthLast = moment.utc(lastMonthFirst).add(1, 'months').subtract(1, 'days')
-  self.dateRangeQuicklinks.lastMonth = [
-    lastMonthFirst,
-    lastMonthLast,
-  ]
-
-  var before3m = moment.utc(totalDateRange[1]).subtract(3, 'months')
-  var before3mFirst = moment.utc({year: before3m.year(), month: before3m.month(), day: 1})
-  self.dateRangeQuicklinks.last3months = [
-    before3mFirst,
-    lastMonthLast,
-  ]
+  if (
+    !dates[0].isValid()
+    || !dates[1].isValid()
+    || dates[0].isBefore(self._state.maxDateRange[0])
+    || dates[0].isAfter(self._state.maxDateRange[1])
+    || dates[1].isBefore(dates[0])
+  ) {
+    return false
+  } else {
+    self._highlightDateQuicklink()
+    self._callbacks.broadcastDateRange(dates)
+  }
 }
 
-StatisticsNav.prototype._onOrganizationUpdates = function (organizations) {
+
+StatisticsNav.prototype._updateDateRangeQuicklinks = function (maxDateRange) {
+  var self = this
+  var thisYear = maxDateRange[1].year()
+  var firstYear = maxDateRange[0].year()
+
+  self._quicklinks = {
+    all: {
+      elem: self._elem.container.find('.js-statistics-filter-datespan-all'),
+      title: self._texts.wholeDatespan,
+      dates: maxDateRange,
+    },
+    thisYear: {
+      elem: self._elem.container.find('.js-statistics-filter-datespan-this-year'),
+      title: thisYear,
+      dates: [
+        moment.utc([thisYear, 0, 1]),
+        moment.utc([thisYear, 11, 31])
+      ],
+    },
+    back1year: {
+      elem: self._elem.container.find('.js-statistics-filter-datespan-back-1-year'),
+      title: thisYear - 1,
+      dates: [
+        moment.utc([thisYear - 1, 0, 1]),
+        moment.utc([thisYear - 1, 11, 31])
+      ],
+    },
+    back2years: {
+      elem: self._elem.container.find('.js-statistics-filter-datespan-back-2-years'),
+      title: thisYear - 2,
+      dates: [
+        moment.utc([thisYear - 2, 0, 1]),
+        moment.utc([thisYear - 2, 11, 31])
+      ],
+    },
+  }
+
+  for (id in self._quicklinks) {
+    var quicklink = self._quicklinks[id]
+    if (
+      quicklink.title === self._texts.wholeDatespan
+      || firstYear <= quicklink.title
+    ) {
+      quicklink.elem.text(quicklink.title)
+      quicklink.elem.click({dates: quicklink.dates}, function (e) {
+        self._setDateRange(e.data.dates)
+      })
+    } else {
+      quicklink.elem.remove()
+    }
+  }
+  self._highlightDateQuicklink()
+}
+
+
+StatisticsNav.prototype._highlightDateQuicklink = function () {
+  var self = this
+  if (!self._quicklinks) {
+    return
+  }
+  var startDate = self._elem.inputs.startDateFilter.val()
+  var endDate = self._elem.inputs.endDateFilter.val()
+
+  for (id in self._quicklinks) {
+    var quicklink = self._quicklinks[id]
+    if (
+      quicklink.dates[0].format(self._props.dateFormatMoment) === startDate
+      && quicklink.dates[1].format(self._props.dateFormatMoment) === endDate
+    ) {
+      quicklink.elem.addClass('statistics-active')
+    } else {
+      quicklink.elem.removeClass('statistics-active')
+    }
+  }
+}
+
+
+StatisticsNav.prototype._setOrganizations = function (organizations) {
   var self = this
 
   // List whole hierarchy as options
-  self.data.organizations = organizations
+  self._state.filters.organizations = organizations
   var optionData = [{
     value: '',
-    label: self.texts.allPublishers,
-  }].concat(self._addOrganizationsWithChildren(self.data.organizations))
+    label: self._texts.allPublishers,
+  }].concat(self._addOrganizationsWithChildren(self._state.filters.organizations))
 
-  self.inputsD3.organizationFilter.selectAll('option').remove()
-  var options = self.inputsD3.organizationFilter.selectAll('option')
+  self._elem.inputsD3.organizationFilter.selectAll('option').remove()
+  var options = self._elem.inputsD3.organizationFilter.selectAll('option')
     .data(optionData)
 
   options.enter().append('option')
     .text(function (d) { return d.label })
     .attr('value', function (d) { return d.value })
 }
+
 
 StatisticsNav.prototype._addOrganizationsWithChildren = function (organizations, parentText = '') {
   var self = this
@@ -234,17 +291,18 @@ StatisticsNav.prototype._addOrganizationsWithChildren = function (organizations,
   return result
 }
 
+
 StatisticsNav.prototype._setCategories = function (categories) {
   var self = this
-  self.data.categories = categories
+  self._state.filters.categories = categories
 
   var optionData = [{
     id: '',
-    display_name: self.texts.allCategories,
-  }].concat(self.data.categories)
+    display_name: self._texts.allCategories,
+  }].concat(self._state.filters.categories)
 
-  self.inputsD3.categoryFilter.selectAll('option').remove()
-  var options = self.inputsD3.categoryFilter.selectAll('option')
+  self._elem.inputsD3.categoryFilter.selectAll('option').remove()
+  var options = self._elem.inputsD3.categoryFilter.selectAll('option')
     .data(optionData)
 
   options.enter().append('option').text(function (d) {
@@ -255,56 +313,88 @@ StatisticsNav.prototype._setCategories = function (categories) {
   })
 }
 
-StatisticsNav.prototype._updateActiveSection = function (item) {
-  var self = this
-  self.navItems.find('a').removeClass('active')
-  item.navLink.addClass('active')
-  self.activeSection = item.id
-  self._setHashState(self.activeSection)
 
+StatisticsNav.prototype._highlightSection = function (section) {
+  var self = this
+  self._elem.navItems.find('a').removeClass('active')
+  section.navLink.addClass('active')
+}
+
+
+StatisticsNav.prototype._updateFilterVisibility = function (sectionId) {
+  var self = this
   // Filters
-  //  || self.activeSection === 'summary' || self.activeSection === ''
-  if (self.activeSection === 'datasets') {
-    self.inputs.organizationFilter.fadeIn()
-    self.inputs.categoryFilter.fadeIn()
+  //  || self._state.selectedSectionId === 'summary' || self._state.selectedSectionId === ''
+  if (sectionId === 'datasets') {
+    self._elem.inputs.organizationFilter.slideDown()
+    self._elem.inputs.categoryFilter.slideDown()
   } else {
-    self.inputs.organizationFilter.fadeOut()
-    self.inputs.categoryFilter.fadeOut()
+    self._elem.inputs.organizationFilter.slideUp()
+    self._elem.inputs.categoryFilter.slideUp()
   }
 }
 
-StatisticsNav.prototype._scroll = function (item) {
+
+StatisticsNav.prototype._scrollToSection = function (section) {
   var self = this
-  self._updateActiveSection(item)
-  self._autoScrolling(true)
-  $('html, body').stop().animate({scrollTop: item.position - self.height}, 500, 'swing', function() {
-    self._autoScrolling(false)
+  self._callbacks.setAutoscrolling(true)
+  $('html, body').stop().animate({scrollTop: section.position - self._state.height}, 500, 'swing', function() {
+    self._callbacks.setAutoscrolling(false)
   })
 }
+
 
 // Update positions of each section on page
 StatisticsNav.prototype._updateSectionPositions = function () {
   var self = this
 
   // Calibrate affix nav
-  var heading = $('.statistics-page > .page-heading')
-  self.height = self.element.outerHeight(true)
-  self.element.affix({
-      offset: {
-         top: heading.offset().top + heading.outerHeight(false) + parseInt(heading.css('margin-bottom')),
-        //  bottom: $('.js-app-section').outerHeight(true) + $('.js-article-section').outerHeight(true) + $('.site-footer').outerHeight(true) + self.height * 2,
-     }
-   })
-
-   $('.js-summary-section').css('margin-top', self.height + 'px')
-
-  // Section positions
-  self.items.forEach(function (item, i) {
-    if (i == 0) {
-      item.position = 0
-    } else {
-      item.position = item.element.offset().top
+  self._elem.container.affix({
+    offset: {
+      top: $('.statistics-nav').offset().top,
     }
   })
-  self.onScroll()
+
+  $('.js-summary-section').css('margin-top', self._state.height + 'px')
+
+  // Section positions
+  self._sections.forEach(function (section, i) {
+    if (i == 0) {
+      section.position = 0
+    } else {
+      section.position = section.element.offset().top
+    }
+  })
+}
+
+
+StatisticsNav.prototype._fixDatepickers = function () {
+  var self = this
+  var container = $('.js-statistics-filter-datespan-fields')
+
+  function fixDatepicker(inputField) {
+    inputField.datepicker({
+      format: self._props.dateFormatBootstrap,
+    })
+
+    var datepicker = $('.datepicker')
+    var width = datepicker.css('width')
+    if (datepicker.hasClass('datepicker-orient-bottom')) {
+      var detached = datepicker.detach()
+      detached.appendTo(container)
+      detached.css({
+        top: inputField.position().top + 18,
+        left: inputField.position().left,
+        width: width,
+      })
+    }
+  }
+
+  self._elem.inputs.startDateFilter.click(function () {
+    fixDatepicker(self._elem.inputs.startDateFilter)
+  })
+
+  self._elem.inputs.endDateFilter.click(function () {
+    fixDatepicker(self._elem.inputs.endDateFilter)
+  })
 }

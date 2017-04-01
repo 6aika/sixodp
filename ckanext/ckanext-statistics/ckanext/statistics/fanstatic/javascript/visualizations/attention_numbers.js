@@ -36,7 +36,9 @@ function AttentionNumbers (element, numbers) {
   }
 
   self._data = {}
-  self._lastDate = moment.utc()
+  self._state = {
+    dateRange: [moment.utc(), moment.utc()],
+  }
 }
 
 
@@ -47,9 +49,9 @@ AttentionNumbers.prototype.setData = function (data) {
 }
 
 
-AttentionNumbers.prototype.setLastDate = function (date) {
+AttentionNumbers.prototype.setDateRange = function (dates) {
   var self = this
-  self._lastDate = date
+  self._state.dateRange = dates
   self._updateView(self._data)
 }
 
@@ -60,12 +62,19 @@ AttentionNumbers.prototype._updateView = function (data) {
     var numberDataset = data[id]
     var numberObj = self._numbers[id]
 
-    var tresholdDate = moment.utc(self._lastDate).subtract(1, 'years')
+    var lastDate = moment.utc()
+    if (self._state.dateRange[1].isBefore(lastDate)) {
+      lastDate = self._state.dateRange[1]
+    }
+    var tresholdDate = moment.utc(lastDate).subtract(3, 'months')
     var mainValue = 0
     var detailValue = 0
     for (i in numberDataset) {
       var itemDate = moment.utc(numberDataset[i][numberObj.schema.dateField], 'YYYY-MM-DD')
-      if (itemDate.isSameOrBefore(self._lastDate)) {
+      if (
+        itemDate.isSameOrAfter(self._state.dateRange[0]) &&
+        itemDate.isSameOrBefore(self._state.dateRange[1])
+      ) {
         mainValue ++
         if (moment.utc(itemDate).isSameOrAfter(tresholdDate)) {
           detailValue ++

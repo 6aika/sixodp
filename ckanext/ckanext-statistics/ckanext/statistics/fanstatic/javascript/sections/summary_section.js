@@ -28,9 +28,9 @@ SummarySection.prototype.setData = function (data) {
 }
 
 
-SummarySection.prototype.setLastDate = function (date) {
+SummarySection.prototype.setDateRange = function (dates) {
   var self = this
-  self._attentionNumbers.setLastDate(date)
+  self._attentionNumbers.setDateRange(dates)
 }
 
 
