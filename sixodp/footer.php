@@ -15,12 +15,36 @@
 		<footer id="colophon" class="site-footer bgcolor-primary" role="contentinfo">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-1">
+					<div class="col-md-4 pull-right text-right">
+						<div class="popper">
+							<ul class="popper__list">
+								<li class="popper__item">
+									<a href="/data/user/login" class="popper__link">Dataportaali <i class="material-icons">arrow_forward</i></a>
+								</li>
+								<li class="popper__item">
+									<a href="/admin" class="popper__link">Sisällönhallinta <i class="material-icons">arrow_forward</i></a>
+								</li>
+							</ul>
+						</div>
+						<button type="button" class="btn btn-lg btn-transparent" data-trigger="popper">Kirjaudu</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2">
 						<div class="footer-logo-wrapper">
-							<img class="footer-logo" src="<?php echo site_url(); ?>/wp-content/themes/sixodp/images/6aika_logo_w.png" alt="6Aika logo">
+							<img class="footer-logo" src="<?php echo assets_url(); ?>/images/main_logo_w.png" alt="6Aika logo">
 						</div>
 					</div>
-					<div class="col-md-5 pull-right">
+					<div class="col-md-4">
+						<div class="row">
+						  <div class="col-xs-12">
+						    <div class="footer-follow-links">
+						      <?php dynamic_sidebar( 'footer_content' ); ?>
+						    </div>
+						  </div>
+						</div>
+					</div>
+					<div class="col-md-6 pull-right">
 						<?php
 							get_template_part( 'partials/social_links' );
 						?>
@@ -32,9 +56,13 @@
 			    <div class="col-md-12 footer-section footer-section--links">
 						<ul class="footer-links">
 							<?php
-								foreach ( wp_get_nav_menu_items("primary_$pagename") as $navItem ) {
-									echo '<li class="footer__item"><a href="'.$navItem->url.'" class="footer__link" title="'.$navItem->title.'">'.$navItem->title.'</a></li>';
-								}
+			          foreach ( get_nav_menu_items("primary") as $navItem ) {
+			            $class = '';
+			            if ( $navItem["title"] === get_current_locale() ) {
+			              $class = 'active';
+			            }
+			            echo '<li class="'.$class.'"><a href="'.$navItem["url"].'" title="'.$navItem["title"].'" class="nav-link">'.$navItem["title"].'</a></li>';
+			          }
 			        ?>
 						</ul>
 			    </div>

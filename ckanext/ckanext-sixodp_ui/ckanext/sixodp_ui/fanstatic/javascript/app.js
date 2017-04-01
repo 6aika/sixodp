@@ -24,7 +24,8 @@ $(function ($) {
     jQuery('input[type=date]').datepicker({
       format: 'd.m.yyyy',
       weekStart: 1,
-      language: language
+      language: language,
+      todayHighlight: true
     });
 
     // hide .navbar first
@@ -72,11 +73,14 @@ $(function ($) {
     $(".show-more").on("click", function() {
         var $this = $(this);
         var $content = $this.prev("div.show-more-content");
+        var $fadeout = $content.find(".fadeout");
 
         if($(this).children(".show-more-link").css('display') !== 'none'){
+            $fadeout.hide();
             $content.addClass("show-content");
             $content.removeClass("hide-content");
         } else {
+            $fadeout.show();
             $content.addClass("hide-content");
             $content.removeClass("show-content");
         }
@@ -96,6 +100,17 @@ $(function ($) {
         closeModal.onclick = function() {
             modal.style.display = "none";
         }
+    });
+
+    // Toggle horizaccordion collapse button text
+    $("#horizaccordion-collapse-btn").click(function() {
+        if ( $(this).hasClass("collapsed") ) {
+            $(this).find("#show-text").hide();
+            $(this).find("#close-text").show();
+            return;
+        }
+        $(this).find("#show-text").show();
+        $(this).find("#close-text").hide();
     });
   });
 }(jQuery));

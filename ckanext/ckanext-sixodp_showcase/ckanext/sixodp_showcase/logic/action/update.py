@@ -12,16 +12,23 @@ def showcase_update(context, data_dict):
     # If get_uploader is available (introduced for IUploader in CKAN 2.5), use
     # it, otherwise use the default uploader.
     # https://github.com/ckan/ckan/pull/2510
-    try:
-        upload = uploader.get_uploader('showcase', data_dict['icon'])
-    except AttributeError:
-        upload = uploader.Upload('showcase', data_dict['icon'])
 
-    log.debug(data_dict)
-    upload.update_data_dict(data_dict, 'iconl',
-                            'icon_upload', 'clear_icon_upload')
-    log.debug(data_dict)
-    upload.upload(uploader.get_max_image_size())
+
+
+    # schema images
+    imgs = ['icon', 'featured_image', 'image_1', 'image_2', 'image_3']
+    for image in imgs:
+        if data_dict[image]:
+            try:
+                upload = uploader.get_uploader('showcase', data_dict[image])
+            except AttributeError:
+                upload = uploader.Upload('showcase', data_dict[image])
+
+            upload.update_data_dict(data_dict, image,
+                                    image+'_upload', 'clear_'+ image + '_upload')
+
+            upload.upload(uploader.get_max_image_size())
+
 
     pkg = toolkit.get_action('package_update')(context, data_dict)
 

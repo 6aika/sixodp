@@ -134,10 +134,6 @@
       {% block resource_additional_information_inner %}
         {{ super() }}
       {% endblock %}
-
-      {% block api_link %}
-        <a class="api-link" href="{{ h.url_for('/', locale='default', qualified=true) }}api/action/resource_show?id={{c.resource.id}}">{{ _('API metadata') }}</a>
-      {% endblock %}
     </section>
   {% endblock %}
 
@@ -146,7 +142,7 @@
 {% block secondary_content %}
   {% block back_link %}
     <div class="module module-narrow module-shallow context-info">
-      <a class="btn btn-primary" href="{{ h.url_for(controller='package', action='read', id=pkg.id) }}">
+      <a class="btn btn-block btn-transparent" href="{{ h.url_for(controller='package', action='read', id=pkg.id) }}">
         <span class="icon icon-long-arrow-left"></span>
         {{ _('Back to dataset') }}
       </a>

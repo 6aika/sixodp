@@ -18,11 +18,11 @@
     </div>
     <div class="col-xs-1 hidden-xs resource-col">
       {% block resource_item_explore %}
-      {% if not url_is_edit and res.has_views %}
-        <a href="{{ res.url }}" class="resource-action">
-          <span class="icon icon-download"></span>
-        </a>
-      {% endif %}
+        {% if not url_is_edit %}
+          <a href="{{ res.url }}" class="resource-action">
+            <span class="icon icon-download"></span>
+          </a>
+        {% endif %}
       {% endblock %}
     </div>
   </div>

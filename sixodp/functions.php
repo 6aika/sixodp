@@ -76,15 +76,76 @@ if ( !function_exists('sixodp_theme_setup') ) :
     create_primary_menus();
     create_default_pages();
     create_secondary_menus();
-    
+    create_footer_menus();
+
   }
 endif; // twentysixteen_setup
 add_action( 'after_setup_theme', 'sixodp_theme_setup' );
 
+function footer_widgets_init() {
+	register_sidebar( array(
+		'name'          => 'Footer widget sidebar',
+		'id'            => 'footer_widgets',
+		'before_widget' => '',
+		'after_widget'  => '',
+		'before_title'  => '<h4 class="rounded">',
+		'after_title'   => '</h4>',
+	) );
+    register_sidebar( array(
+		'name'          => 'Footer content sidebar',
+		'id'            => 'footer_content',
+		'before_widget' => '<div class="footer-content-widget">',
+		'after_widget'  => '</div>',
+		'before_title'  => '',
+		'after_title'   => '',
+	) );
+}
+add_action( 'widgets_init', 'footer_widgets_init' );
+
+if(function_exists("register_field_group"))
+{
+  register_field_group(array (
+    'id' => 'acf_page-fields',
+    'title' => 'Page fields',
+    'fields' => array (
+      array (
+        'key' => 'field_58d0f3bd42153',
+        'label' => 'Page description',
+        'name' => 'page_description',
+        'type' => 'text',
+        'default_value' => '',
+        'placeholder' => '',
+        'prepend' => '',
+        'append' => '',
+        'formatting' => 'html',
+        'maxlength' => '',
+      ),
+    ),
+    'location' => array (
+      array (
+        array (
+          'param' => 'post_type',
+          'operator' => '==',
+          'value' => 'page',
+          'order_no' => 0,
+          'group_no' => 0,
+        ),
+      ),
+    ),
+    'options' => array (
+      'position' => 'normal',
+      'layout' => 'no_box',
+      'hide_on_screen' => array (
+      ),
+    ),
+    'menu_order' => 0,
+  ));
+}
+
 function register_notifications() {
- 
+
    //labels array added inside the function and precedes args array
- 
+
    $labels = array(
     'name'               => _x( 'Notifications', 'post type general name' ),
     'singular_name'      => _x( 'Notification', 'post type singular name' ),
@@ -100,9 +161,9 @@ function register_notifications() {
     'parent_item_colon'  => '',
     'menu_name'          => 'Notifications'
   );
- 
+
          // args array
- 
+
    $args = array(
     'labels'        => $labels,
     'description'   => 'Notifications',
@@ -111,10 +172,16 @@ function register_notifications() {
     'has_archive'   => false,
     'show_in_rest'  => true
   );
- 
+
   register_post_type( 'notification', $args );
 }
 add_action( 'init', 'register_notifications' );
+
+
+function add_custom_fields_support_for_pages() {
+	add_post_type_support( 'page', 'custom-fields' );
+}
+add_action( 'init', 'add_custom_fields_support_for_pages' );
 
 function create_primary_menus() {
   create_menu_i18n('primary_fi', PRIMARY_MENU_ITEMS_FI, 'primary');
@@ -126,6 +193,12 @@ function create_secondary_menus() {
   create_menu_i18n('secondary_fi', SECONDARY_MENU_ITEMS_FI, 'secondary');
   create_menu_i18n('secondary_en', SECONDARY_MENU_ITEMS_EN, 'secondary');
   create_menu_i18n('secondary_sv', SECONDARY_MENU_ITEMS_SV, 'secondary');
+}
+
+function create_footer_menus() {
+  create_menu_i18n('footer_fi', FOOTER_MENU_ITEMS_FI, 'footer_menu');
+  create_menu_i18n('footer_en', FOOTER_MENU_ITEMS_EN, 'footer_menu');
+  create_menu_i18n('footer_sv', FOOTER_MENU_ITEMS_SV, 'footer_menu');
 }
 
 function create_menu_i18n($menu_name, $itemsArr, $location) {
@@ -185,19 +258,12 @@ function sixodp_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'sixodp_scripts' );
 
-
-function get_menu_items($page_name) {
-  $menuLocations = get_nav_menu_locations();
-  $menuID = $menuLocations["primary"];
-  return wp_get_nav_menu_items($menuID);
-}
-
 function get_nav_menu_items($menu) {
   return wp_get_menu_array($menu . '_' . get_current_locale());
 }
 
 function wp_get_menu_array($current_menu) {
- 
+
     $array_menu = wp_get_nav_menu_items($current_menu);
     $menu = array();
     foreach ($array_menu as $m) {
@@ -232,13 +298,22 @@ function wp_get_menu_array($current_menu) {
         }
     }
     return $menu;
-     
+
 }
 
 function is_active_menu_item($menu_item) {
   $req_url = 'https://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
   $menu_url = $menu_item->url;
   return ( $req_url == $menu_url.'/' || $req_url == $menu_url );
+}
+
+function get_tuki_links() {
+  // Set up the objects needed
+  $my_wp_query = new WP_Query();
+  $all_wp_pages = $my_wp_query->query(array('post_type' => 'page', 'posts_per_page' => '-1'));
+
+  $tuki_page          = get_page_by_title('Tuki');
+  return get_page_children( $tuki_page->ID, $all_wp_pages );
 }
 
 function get_current_locale() {
@@ -288,7 +363,7 @@ function get_ckan_categories() {
 }
 
 /*
-* Returns package rating 
+* Returns package rating
 *
 * Example data below
 *
@@ -314,7 +389,7 @@ function get_stars($package_id) {
   $package_rating = get_ckan_package_rating($package_id);
   $count = $package_rating['ratings_count'];
   $rating = $package_rating['rating'];
-  
+
   /*$i = 5;
   while ( $i < 0 ) {
     array_push($i);
