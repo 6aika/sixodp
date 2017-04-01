@@ -38,12 +38,18 @@
   <div class="container">
     <div class="row cards--showcase">
       <?php
-        $i = 0;
-        while($i < 4) {
-          $imgUrl = site_url()."/wp-content/themes/sixodp/images/article_bg".($i+1).".jpg";
-          $packageId = (rand(1, 4))*3;
+        $showcases = get_items('ckanext_showcase');
+        foreach ($showcases as $showcase) {
+          $imgUrl = "https://generic-qa.dataportaali.com/data/uploads/showcase/".$showcase['extras'][6]['value'];
+          $packageId = $showcase['id'];
+          foreach ( $showcase['extras'] as $extra ) {
+            if ( $extra['key'] == 'icon' ) {
+              $imgUrl = "https://generic-qa.dataportaali.com/data/uploads/showcase/".$extra['value'];
+            } else if ( $extra['key'] == 'notes_translated' ) {
+              $notes = json_decode($extra['value'], true)[get_current_locale()];
+            }
+          }
           include(locate_template( 'partials/showcase.php' ));
-          $i++;
         }
       ?>
     </div>
@@ -63,39 +69,19 @@
 
   <div class="container">
     <div class="row cards">
-      <div class="card">
-        <h3 class="card__title">Helsingin jalankulun ja pyöräilyn talvihoito</h3>
-        <div class="card__meta">
-          <span class="card__timestamp">12.8.2016</span>
-          *
-          <a href="#" class="card__categorylink">Tietoaineisto</a>
-        </div>
-        <div class="card__body">
-          <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean eu leo quam.</p>
-        </div>
-      </div>
-      <div class="card">
-        <h3 class="card__title">Helsingin jalankulun ja pyöräilyn talvihoito</h3>
-        <div class="card__meta">
-          <span class="card__timestamp">12.8.2016</span>
-          *
-          <a href="#" class="card__categorylink">Tietoaineisto</a>
-        </div>
-        <div class="card__body">
-          <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean eu leo quam.</p>
-        </div>
-      </div>
-      <div class="card">
-        <h3 class="card__title">Helsingin jalankulun ja pyöräilyn talvihoito</h3>
-        <div class="card__meta">
-          <span class="card__timestamp">12.8.2016</span>
-          *
-          <a href="#" class="card__categorylink">Tietoaineisto</a>
-        </div>
-        <div class="card__body">
-          <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean eu leo quam.</p>
-        </div>
-      </div>
+      <?php foreach ( get_recent_datasets() as $dataset ) : ?>
+        <div class="card">
+          <h3 class="card__title"><?php echo $dataset["title_translated"][get_current_locale()]; ?></h3>
+          <div class="card__meta">
+            <span class="card__timestamp"><?php echo parse_date($dataset['metadata_created']); ?></span>
+            *
+            <a href="#" class="card__categorylink"><?php echo $dataset['type']; ?></a>
+          </div>
+          <div class="card__body">
+            <p><?php echo get_notes_excerpt($dataset['notes_translated'][get_current_locale()]); ?></p>
+          </div>
+        </div><?php
+      endforeach; ?>
     </div>
   </div>
 

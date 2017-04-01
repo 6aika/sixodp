@@ -13,6 +13,8 @@ $darken-intensity: 20%;
 $brand-primary: #534f97;
 $brand-primary-light: lighten($brand-primary, 10%);
 $brand-primary-dark: darken($brand-primary, 10%);
+$brand-primary-extralight: lighten($brand-primary, 15%);
+$brand-primary-extradark: darken($brand-primary, 15%);
 
 $brand-secondary: #a55efa;
 $brand-secondary-light: lighten($brand-secondary, 10%);

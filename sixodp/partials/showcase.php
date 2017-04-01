@@ -5,15 +5,14 @@
   */
 ?>
 <div class="card--showcase">
-  <a href="<?php echo site_url(); ?>" class="showcase__img--link">
-    <img class="card__img" src="<?php echo $imgUrl; ?>" alt="showcase">
-  </a>
+  <a href="<?php echo site_url(); ?>" class="showcase__img--link"
+    style="text-align: center; display: block; height: 120px; background-image: url(<?php echo $imgUrl; ?>); background-size: cover; background-position: center center;"></a>
   <div class="showcase__content">
     <h4 class="showcase__title">
-      <a class="showcase__link" href="<?php echo site_url(); ?>">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</a>
+      <a class="showcase__link" href="<?php echo site_url(); ?>"><?php echo $showcase['title']; ?></a>
     </h4>
     <div class="showcase__text">
-      <p>Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <p><?php echo $notes; ?></p>
     </div>
     <div class="showcase__footer">
       <?php

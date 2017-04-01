@@ -13,18 +13,17 @@
   <div class="container">
     <div class="row cards--latest">
       <?php
+        // @TODO: get data from different sources
         foreach ( get_recent_content() as $index => $dataset ) : ?>
           <?php if ($index === 4) echo '</div><div class="row cards--latest">'; ?> 
           <div class="card--latest">
             <div class="card__meta--latest">
               <?php echo get_days_ago($dataset['metadata_created']); ?>
             </div>
-            <div class="card__body">
-              <a href="#" class="card__categorylink">Tietoaineistot</a>
+            <div class="card__body--latest">
+              <a href="#" class="card__categorylink--latest"><?php echo $dataset['type']; ?></a>
               <h3 class="card__title--latest"><?php echo $dataset["title_translated"][get_current_locale()]; ?></h3>
-              <div class="card__meta">
-                <span class="card__timestamp"><?php echo parse_date($dataset['metadata_created']); ?></span>
-              </div>
+              <p class="card__description"><?php echo get_notes_excerpt($dataset['notes_translated'][get_current_locale()]); ?></p>
             </div>
           </div><?php
         endforeach; ?>

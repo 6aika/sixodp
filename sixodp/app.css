@@ -7058,7 +7058,8 @@ hr {
   background: white;
   padding: 20px;
   margin: 10px;
-  border: 1px solid #e7e7e7; }
+  border: 1px solid #e7e7e7;
+  width: 33%; }
   @media (min-width: 768px) {
     .card:first-child, .card--latest:first-child, .card--showcase:first-child {
       margin-left: 0; }
@@ -7080,11 +7081,11 @@ hr {
 .wrapper--latest {
   background: #534f97;
   /* Old browsers */
-  background: -moz-linear-gradient(-45deg, #413d76 0%, #534f97 56%, #6d69b0 100%);
+  background: -moz-linear-gradient(-45deg, #373565 0%, #534f97 56%, #7d79b9 100%);
   /* FF3.6-15 */
-  background: -webkit-linear-gradient(-45deg, #413d76 0%, #534f97 56%, #6d69b0 100%);
+  background: -webkit-linear-gradient(-45deg, #373565 0%, #534f97 56%, #7d79b9 100%);
   /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(135deg, #413d76 0%, #534f97 56%, #6d69b0 100%);
+  background: linear-gradient(135deg, #373565 0%, #534f97 56%, #7d79b9 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   padding: 40px 0; }
   .wrapper--latest .heading--mleft {
@@ -7096,10 +7097,14 @@ hr {
   border: 0; }
 
 .card__title--latest {
-  border-bottom: 0; }
+  border-bottom: 0;
+  margin-top: 10px;
+  font-weight: 700;
+  padding-bottom: 0; }
 
-.card__body {
-  padding: 20px; }
+.card__body--latest {
+  padding: 20px;
+  color: #534f97; }
 
 .card__meta--latest {
   padding: 10px;
@@ -7107,6 +7112,10 @@ hr {
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
   color: #fff; }
+
+.card__categorylink--latest {
+  text-transform: uppercase;
+  font-size: 12px; }
 
 .card--showcase {
   background: #534f97;

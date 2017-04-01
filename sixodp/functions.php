@@ -360,6 +360,11 @@ function get_recent_content() {
   return $data['result']['results'];
 }
 
+function get_recent_datasets() {
+  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_released%20asc&rows=3');
+  return $data['result']['results'];
+}
+
 function get_datasets() {
   $data = get_ckan_data(CKAN_API_URL.'/action/package_search');
   return $data['result'];
@@ -367,6 +372,11 @@ function get_datasets() {
 
 function get_dataset_count() {
   return get_datasets()['count'];
+}
+
+function get_items($type) {
+  $data = get_ckan_data(CKAN_API_URL."/action/".$type."_list");
+  return $data['result'];
 }
 
 function get_showcases_count() {

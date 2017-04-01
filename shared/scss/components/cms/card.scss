@@ -12,6 +12,7 @@
   padding: $base*2;
   margin: $base;
   border: 1px solid #e7e7e7;
+  width: 33%;
 
   @media (min-width: $width-sm) {
 
@@ -38,13 +39,14 @@
 
 
 
+
 // Secondary cards
 
 .wrapper--latest {
   background: $brand-primary; /* Old browsers */
-  background: -moz-linear-gradient(-45deg, $brand-primary-dark 0%, $brand-primary 56%, $brand-primary-light 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(-45deg, $brand-primary-dark 0%, $brand-primary 56%, $brand-primary-light 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(135deg, $brand-primary-dark 0%, $brand-primary 56%, $brand-primary-light 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: -moz-linear-gradient(-45deg, $brand-primary-extradark 0%, $brand-primary 56%, $brand-primary-extralight 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, $brand-primary-extradark 0%, $brand-primary 56%, $brand-primary-extralight 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, $brand-primary-extradark 0%, $brand-primary 56%, $brand-primary-extralight 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   padding: $base*4 0;
 
   .heading--mleft {
@@ -66,10 +68,14 @@
 .card__title--latest {
   @extend .card__title;
   border-bottom: 0;
+  margin-top: $base;
+  font-weight: 700;
+  padding-bottom: 0;
 }
 
-.card__body {
+.card__body--latest {
   padding: $base*2;
+  color: $brand-primary;
 }
 
 .card__meta--latest {
@@ -78,6 +84,11 @@
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
   color: #fff;
+}
+
+.card__categorylink--latest {
+  text-transform: uppercase;
+  font-size: $base*1.2;
 }
 
 
