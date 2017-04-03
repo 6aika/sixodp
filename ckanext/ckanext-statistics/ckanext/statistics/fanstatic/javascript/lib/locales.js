@@ -98,7 +98,7 @@ Locales = {
   datasetsOpened: {
     fi: 'Tietoaineistoja avattu',
     sv: '',
-    en: 'datasets opened',
+    en: 'Datasets opened',
   },
   users: {
     fi: 'uniikkia käyttäjää',
@@ -108,7 +108,7 @@ Locales = {
   apps: {
     fi: 'Sovelluksia tehty',
     sv: '',
-    en: 'apps created',
+    en: 'Apps created',
   },
 
   // Datasets section
