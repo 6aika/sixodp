@@ -5,18 +5,18 @@
         <a class="nav-link" href="{{item.url}}">
           {{ _(item.title) }}
         </a>
+        {% if item.children %}
+          <ul class="nav navbar-nav subnav">
+            {% for child_menu in item.children %}
+              <li class="{{ 'active' if h.menu_is_active(child_menu.url, request.path ) }}">
+                <a class="nav-link" href="{{child_menu.url}}">
+                  {{ _(child_menu.title) }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
       </li>
-      {% if item.children %}
-        <ul class="nav navbar-nav subnav">
-          {% for child_menu in item.children %}
-            <li class="{{ 'active' if h.menu_is_active(child_menu.url, request.path ) }}">
-              <a class="nav-link" href="{{child_menu.url}}">
-                {{ _(child_menu.title) }}
-              </a>
-            </li>
-          {% endfor %}
-        </ul>
-      {% endif %}
     {% endfor %}
 
     {{ h.build_nav_main() }}
