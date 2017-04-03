@@ -83,11 +83,17 @@ class Sixodp_ShowcasePlugin(ShowcasePlugin):
 
     # IFacets #
 
+    _LOCALE_ALIASES = {'en_GB': 'en'}
+
     def dataset_facets(self, facets_dict, package_type):
         if(package_type == 'showcase'):
             facets_dict = OrderedDict()
 
             lang = i18n.get_lang()
+
+            if lang in self._LOCALE_ALIASES:
+                lang = self._LOCALE_ALIASES[lang]
+
             facets_dict['vocab_category_' + lang] = _('Category')
 
             facets_dict.update({'vocab_platform': _('Platform')})
