@@ -10,7 +10,7 @@
  get_header(); ?>
 
  <div id="primary" class="content-area">
- 	<main id="main" class="site-main site-main--home" role="main">
+ 	<main id="main" class="site-main site-main--search" role="main">
 		<h1 class="page-title">Hae sivustolta</h1>
         <?php get_search_form(); ?>
         <?php get_template_part( 'partials/search-content' ); ?>

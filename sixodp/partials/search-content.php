@@ -1,34 +1,36 @@
 <?php
   /**
-  * Search content box on.
+  * search-content content box on.
   */
 ?>
 <div class="container">
   <div class="row">
-      <div class="col-md-4 datasets">
-
+      <div class="col-md-4 search-content">
+        <div class="results-container"></div>
       </div>
-      <div class="col-md-8 datasets">
-        <h3 class="heading">Viimeisimmät päivitykset</h3>
-            <ul class="dataset__list">
+      <div class="col-md-8 search-content">
+          <?php global $wp_query; ?>
+
+        <h3 class="heading">Hakutuloksia <?php echo $wp_query->found_posts; ?> kappaletta</h3>
+            <ul class="search-content__list">
               <?php
               // Start the loop.
               while ( have_posts() ) : the_post(); ?>
-              <li class="dataset">
-                <div class="dataset__content">
-                  <span class="dataset__type"><?php echo $item['type']; ?></span>
-                  <h4 class="dataset__title">
-                    <a class="dataset__link" href="<?php the_permalink(); ?>">
+              <li class="search-content">
+                <div class="search-content__content">
+                  <span class="search-content__type"><?php echo $item['type']; ?></span>
+                  <h4 class="search-content__title">
+                    <a class="search-content__link" href="<?php the_permalink(); ?>">
                       <?php the_title(); ?>
                     </a>
                   </h4>
-                  <div class="dataset__body">
+                  <div class="search-content__body">
                     <div class="metadata">
                         <span class="time">
                             <?php echo get_the_date();?>
                         </span>
                     </div>
-                    <p class="dataset__info"><?php the_excerpt(); ?></p>
+                    <p class="search-content__info"><?php the_excerpt(); ?></p>
                   </div>
                 </div>
               </li>
