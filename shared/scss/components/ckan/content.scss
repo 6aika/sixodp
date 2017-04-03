@@ -24,10 +24,14 @@
   }
 
   .pre-primary {
-    padding: 0 $padding-large-horizontal;
+    padding: 0;
 
-    @media(min-width: $width-md) {
-      padding: 0;
+    .page-heading-container {
+      padding: 0 10px;
+
+      @media(min-width: $width-md) {
+        padding: 0;
+      }
     }
   }
 
@@ -128,7 +132,7 @@
       }
     }
   }
-  
+
   .page-highlight {
     margin-bottom: $margin-large-vertical*4;
   }
