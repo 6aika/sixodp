@@ -24,26 +24,64 @@ var DatasetSection = function (params) {
   d3.select('.js-statistics-datasets-section-title')
     .text(self._texts.sectionTitle)
 
-  // self.organizationDatasets = new TopHistogram({
-  //   id: 'organizationDatasets',
-  //   element: self._element.select('.js-organization-dataset-counts'),
-  //   texts: {
-  //     title: self.statistics.translations.topPublishersTitle[self.statistics.config.locale],
-  //   },
-  //   width: parseInt(self.statistics.styles.contentWidth),
-  //   height: 360,
-  //   margin: {top: 15, right: 50, bottom: 30, left: 1},
-  //   schema: {
-  //     labelField: 'title',
-  //     valueField: 'dataset_count',
-  //   }
-  // })
+  self.organizationDatasets = new TopHistogram({
+    id: 'organizationDatasets',
+    element: self._element.select('.js-organization-dataset-counts'),
+    texts: {
+      title: self._texts.topPublishersTitle,
+    },
+    legend: [
+      {
+        title: 'A series',
+      },
+      {
+        title: 'B series',
+      },
+    ],
+    limit: 10, // Before show more button is used
+
+    width: params.width,
+    margin: params.visMargins,
+    schema: {
+      labelField: 'name',
+      valueField: 'all',
+      valueSpecificField: 'specific',
+    }
+  })
 }
 
 DatasetSection.prototype.setData = function (data) {
   var self = this
   self.totalsTimeline.setData(data)
-  // self.organizationDatasets.setData(self.statistics.data.organizations)
+  self.organizationDatasets.setData(
+    [
+      {
+        name: 'Nokia',
+        all: 359,
+        specific: 192,
+        allRight: 24,
+        specificRight: 5,
+        icon: '',
+      },
+      {
+        name: 'Tampere',
+        all: 432,
+        specific: 8,
+        allRight: 23,
+        specificRight: 9,
+        icon: '',
+      },
+      {
+        name: 'Ylöjärvi',
+        all: 259,
+        specific: 142,
+        allRight: 34,
+        specificRight: 2,
+        icon: '',
+      },
+    ]
+    // data.organizations
+  )
 }
 
 

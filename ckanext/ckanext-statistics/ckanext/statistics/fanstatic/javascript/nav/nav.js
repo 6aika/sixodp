@@ -4,8 +4,8 @@ function StatisticsNav (params) {
   self._texts = params.texts
 
   self._props = {
-    dateFormatMoment: 'D.M.YYYY',
-    dateFormatBootstrap: 'd.m.yyyy',
+    dateFormatMoment: 'YYYY-MM-DD', // 'D.M.YYYY',
+    dateFormatBootstrap: 'yyyy-mm-dd', // 'd.m.yyyy',
   }
 
   self._elem = {}

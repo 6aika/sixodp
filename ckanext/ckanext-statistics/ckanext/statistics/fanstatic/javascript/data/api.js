@@ -33,7 +33,7 @@ Api.prototype.getAllData = function (callback, delay) {
 
         self.get('ckanext_showcase_list', function (result) {
           data.apps = result
-          self._stepLoaded(self._texts.loadRendering, 99)
+          self._stepLoaded(self._texts.loadRendering, 99.9)
 
           // https://developer.wordpress.org/rest-api/reference/posts/
           // wp-json/wp/v2/posts

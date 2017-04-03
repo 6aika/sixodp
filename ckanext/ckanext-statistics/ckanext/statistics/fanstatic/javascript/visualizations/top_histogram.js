@@ -7,22 +7,37 @@ function TopHistogram (params) {
   self._props = {
     id: params.id,
     margin: params.margin,
+    dateFormat: 'YYYY-MM-DD', // Used in the data, not screen
   }
   self._elem = {}
   self._helpers = {}
   self._schema = params.schema
 
   // Mutable
+  var barHeight = params.barHeight || 20 // Default height
+  var barCount = 10
+  var contentHeight = params.barHeight * barCount
   self._state = {
-    contentArea: {},
-    dataArea: {},
+    barCount: barCount,
+    barHeight: barHeight,
+    contentArea: {
+      width: params.width,
+      height: contentHeight,
+    },
+    dataArea: {
+      width: params.width - self._props.margin.left - self._props.margin.right,
+      height: contentHeight - self._props.margin.top - self._props.margin.bottom
+    },
     dateRange: [moment.utc().subtract(1, 'days'), moment.utc()],
+    maxDateRange: [moment.utc().subtract(1, 'years'), moment.utc()],
+    organization: '',
+    category: '',
   }
 
   self._data = {}
 
   self._renderBase(params.element)
-  self.resize(params.width, params.height)
+  self.resize(params.width, self._state.barHeight)
 }
 
 
@@ -32,13 +47,25 @@ TopHistogram.prototype.setData = function (data) {
   self._data.raw = data
   self._data.histogram = self._transformData(data)
 
+  console.log('data histogram', self._data.histogram)
+
   // Update x and y domain ranges based on histgram bar data
-  self._helpers.xScale.domain(
+  self._helpers.xScale.domain([0, d3.max(self._data.histogram, function(d) { return d[self._schema.valueField] })])
+  self._helpers.yScale.domain(
     d3.map(self._data.histogram, function(d) { return d[self._schema.labelField] }).keys()
   )
-  self._helpers.yScale.domain([0, d3.max(self._data.histogram, function(d) { return d[self._schema.valueField] })])
 
+  self._barCount = self._data.histogram.length
   self._renderHistogram(self._data.histogram)
+  self.resize(self._state.contentArea.width)
+
+  self._resizeAxisX()
+}
+
+
+// Press button to show all items
+TopHistogram.prototype.showMore = function () {
+
 }
 
 
@@ -55,15 +82,21 @@ TopHistogram.prototype.setDateFilter = function (dates) {
 
 
 // Resize the visualization to a new pixel size on the screen
-TopHistogram.prototype.resize = function (contentWidth, contentHeight = undefined) {
+TopHistogram.prototype.resize = function (contentWidth, barHeight = undefined) {
   var self = this
 
   self._state.contentArea.width = contentWidth
+  self._props.margin.left = contentWidth * 0.1
+
   self._elem.svg.attr('width', self._state.contentArea.width)
-  if (typeof contentHeight !== 'undefined') {
-    self._state.contentArea.height = contentHeight
-    self._elem.svg.attr('height', self._state.contentArea.height)
+  if (typeof barHeight !== 'undefined') {
+    self._state.barHeight = barHeight
   }
+  self._state.contentArea.height = self._state.barHeight * self._state.barCount
+
+
+
+  self._elem.svg.attr('height', self._state.contentArea.height)
 
   self._state.dataArea = {
     width: self._state.contentArea.width - self._props.margin.left - self._props.margin.right,
@@ -77,9 +110,15 @@ TopHistogram.prototype.resize = function (contentWidth, contentHeight = undefine
     .attr('width', self._state.dataArea.width)
     .attr('height', self._state.dataArea.height)
 
+  self._elem.dataClipper
+    .attr('width', self._state.dataArea.width + 2)
+    .attr('height', self._state.dataArea.height + 1)
+
   // Update pixel ranges for x and y dimension
+  self._helpers.yScale.rangeRound([0, self._state.dataArea.height])
   self._helpers.xScale.rangeRound([0, self._state.dataArea.width])
-  self._helpers.yScale.rangeRound([self._state.dataArea.height, 0])
+
+  self._resizeAxisX()
 }
 
 
@@ -102,7 +141,7 @@ TopHistogram.prototype._renderBase = function (container) {
   var self = this
 
   self._elem.container = container
-  self._elem.container.classed('statistics-vis top-histogram', true)
+  self._elem.container.classed('statistics-vis statistics-top-histogram', true)
 
   self._elem.title = self._elem.container.append('h3')
     .classed('statistics-vis-title', true)
@@ -110,34 +149,39 @@ TopHistogram.prototype._renderBase = function (container) {
 
   self._elem.svg = self._elem.container.append('svg')
   self._elem.svgCanvas = self._elem.svg.append('g')
+    .attr('transform', 'translate(' + self._props.margin.left + ',' + self._props.margin.top + ')')
 
   self._elem.backLayer = self._elem.svgCanvas.append('g')
 
   self._elem.dataCanvas = self._elem.svgCanvas.append('g')
+
+  // Cuts out the data elements outside the axes
+  self._elem.dataClipper = self._elem.svgCanvas
+    .append('clipPath')
+      .attr('transform', 'translate(-1, -1)')
+      .attr('id', 'js-statistics-top-histogram-data-clipper-' + self._props.id)
+    .append('rect')
+
+  self._elem.dataCanvas.attr('clip-path', 'url(#js-statistics-totals-timeline-data-clipper-' + self._props.id + ')')
+
   self._elem.histogramCanvas = self._elem.dataCanvas.append('g')
 
   self._elem.frontLayer = self._elem.svgCanvas.append('g')
 
-  self._helpers.xScale = d3.scaleBand().padding(0.1)
-  self._helpers.yScale = d3.scaleLinear()
+  self._helpers.xScale = d3.scaleLinear()
+  self._helpers.yScale = d3.scaleBand().padding(0.25)
 
   // X axis
-  self._elem.xAxis = self._elem.frontLayer.append('g')
-    .classed('statistics-axis', true)
-    .attr('transform', 'translate(0,' + self._state.dataArea.height + ')')
-    .call(d3.axisBottom(self._helpers.xScale))
+  self._updateXAxisGenerator()
 
-  // Y axis
-  self._elem.yAxis = self._elem.frontLayer.append('g')
-      .classed('statistics-axis', true)
-      .call(d3.axisLeft(self._helpers.yScale).ticks(10, '%'))
+  self._elem.xAxis = self._elem.backLayer.append('g')
+    .classed('statistics-axis', true)
+    // .attr('transform', 'translate(0,' + self._state.dataArea.height + ')')
+    .call(self._helpers.xAxisGenerator)
+
+  // No Y axis
+
   self._elem.yAxis
-    .append('text')
-      .attr('transform', 'rotate(-90)')
-      .attr('y', 6)
-      .attr('dy', '0.75em')
-      .attr('text-anchor', 'end')
-      .text('Kpl')
 }
 
 
@@ -160,40 +204,115 @@ TopHistogram.prototype._renderHistogram = function (histogramData) {
 
   // Bars added to the previous data (added to the end)
   var barsToAdd = self._elem.histogramBars.enter().append('g')
-    .classed('bar', true)
-    .attr('transform', function(d, i) { return (
-      'translate(' + self._helpers.xScale(d[self._schema.labelField]) + ',' + self._helpers.yScale(d[self._schema.valueField]) + ')'
+    .classed('statistics-bar', true)
+    .attr('transform', function(d, i) {
+      // console.log('append bar', d)
+      return (
+      'translate(0,' + self._helpers.yScale(d[self._schema.labelField]) + ')'
     )})
 
   // Bar itself
   barsToAdd.append('rect')
+    .classed('statistics-bar-main', true)
     .attr('x', 1)
-    .attr('width', self._helpers.xScale.bandwidth())
-    .attr('height', function (d) { return (
-      self._state.dataArea.height - self._helpers.yScale(d[self._schema.valueField])
+    .attr('y', 1)
+    .attr('height', self._helpers.yScale.bandwidth())
+    .attr('width', function (d) { return (
+      self._helpers.xScale(d[self._schema.valueField] - 1)
+    )})
+
+  // Shorter bar
+  barsToAdd.append('rect')
+    .classed('statistics-bar-portion', true)
+    .attr('x', 1)
+    .attr('y', 1)
+    .attr('height', self._helpers.yScale.bandwidth())
+    .attr('width', function (d) { return (
+      self._helpers.xScale(d[self._schema.valueSpecificField])
     )})
 
   // Value text
-  barsToAdd.append('text')
-    .attr('dy', '.75em')
-    .attr('y', -12)
-    .attr('x', self._helpers.xScale.bandwidth() / 2)
-    .attr('text-anchor', 'middle')
-    .text(function (d) { return d[self._schema.valueField] })
+  // barsToAdd.append('text')
+  //   .attr('dy', '.75em')
+  //   .attr('y', self._helpers.yScale.bandwidth() / 2)
+  //   .attr('x', -12)
+  //   .attr('text-anchor', 'right')
+  //   .text(function (d) { return d[self._schema.valueField] })
 
   // Label text
   barsToAdd.append('text')
-    .attr('dy', '.75em')
-    .attr('y', function(d) { return (
-       self._state.dataArea.height
-       - self._helpers.yScale(d[self._schema.valueField])
-       + 6
-    )})
-    .attr('x', self._helpers.xScale.bandwidth() / 2)
-    .attr('text-anchor', 'middle')
+    // .attr('dy', '.75em')
+    .attr('x', -12)
+    // function(d) { return (
+    //    self._helpers.xScale(d[self._schema.valueField])
+    //    + 6
+    // )})
+    .attr('y', self._helpers.yScale.bandwidth() / 2)
+    .attr('text-anchor', 'end')
+    .attr('width', self._props.margin.left)
     .text(function(d) { return d[self._schema.labelField] })
 
   // Bars from previous data to leave out
   var barsToRemove = self._elem.histogramBars.exit()
   barsToRemove.remove()
+}
+
+
+TopHistogram.prototype._resizeAxisX = function () {
+  var self = this
+  if (!self._data.histogram) {
+    return
+  }
+  currentExtent = self._helpers.xScale.domain()
+  newExtent = self._getXExtent()
+
+  clearTimeout(self._state.resizeAxisTimeout)
+  self._state.resizeAxisTimeout = setTimeout(function () {
+    self._elem.xAxis.transition().duration(800)
+    .tween('resizeAxisTween', function (d, i) {
+      var axisScaleInterpolator = d3.interpolate(currentExtent, newExtent)
+      return function (t) {
+        self._helpers.xScale.domain(axisScaleInterpolator(t))
+        self._elem.xAxis.call(self._helpers.xAxisGenerator)
+        self._renderHistogram(self._data.histogram)
+      }
+    })
+    .on('end', function () {
+      self._updateXAxisGenerator()
+      self._elem.xAxis.call(self._helpers.xAxisGenerator)
+    })
+  }, 100)
+}
+
+
+TopHistogram.prototype._updateXAxisGenerator = function () {
+  var self = this
+  self._helpers.xAxisGenerator = function (g) {
+
+    g.call(
+      d3.axisTop(self._helpers.xScale)
+      .tickSize(self._state.dataArea.width)
+      .ticks(5)
+      // .tickPadding(7)
+      // .tickFormat(function (d) {
+      //   return this.parentNode.nextSibling ? '\xa0' + d : d + ' ' + self._texts.amount
+      // })
+    )
+
+    g.classed('statistics-axis', true)
+      .attr('transform', 'translate(0, ' + (self._state.dataArea.height) + ')')
+
+    g.select('.domain').remove()
+
+    g.selectAll('.tick text')
+      .attr('dy', 2)
+
+    g.selectAll('.tick line')
+      .attr('height', self._state.dataArea.height)
+  }
+}
+
+TopHistogram.prototype._getXExtent = function () {
+  var self = this
+  return [0, Math.round(d3.max(self._data.histogram, function(d) { return d[self._schema.valueField]}) * 1.25 + 1)]
 }

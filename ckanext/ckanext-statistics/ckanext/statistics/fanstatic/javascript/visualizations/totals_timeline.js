@@ -208,7 +208,6 @@ TotalsTimeline.prototype._renderBase = function (container) {
   // Graphs, cropped by data area
   self._elem.lineCanvas = self._elem.dataCanvas.append('g')
 
-
   // Axes, legends, titles etc. in front of data items
   self._elem.frontLayer = self._elem.svgCanvas.append('g')
 

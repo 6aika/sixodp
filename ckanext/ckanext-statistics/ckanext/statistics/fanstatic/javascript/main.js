@@ -164,6 +164,7 @@ Statistics.prototype._createSections = function () {
       sectionTitle: self._localeData.datasetSectionTitle[self._config.locale],
       timelineTitle: self._localeData.datasetsOpenedTitle[self._config.locale],
       amount: self._localeData.amount[self._config.locale],
+      topPublishersTitle: self._localeData.topPublishersTitle[self._config.locale],
     },
     width: self._styles.contentWidth,
     visMargins: self._styles.visMargins,

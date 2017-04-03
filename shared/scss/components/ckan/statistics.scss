@@ -306,14 +306,19 @@
     fill: $white;
   }
 }
-.statistics-axis-y {
+.statistics-axis {
   .tick:not(:first-of-type) line {
     stroke-dasharray: 2,2;
   }
 }
 
-.bar {
-  rect {
+.statistics-bar {
+  .statistics-bar-main {
+    fill: $datavis-color-1;
+    stroke: $datavis-color-2;
+    stroke-width: 2px;
+  }
+  .statistics-bar-portion {
     fill: $datavis-color-2;
   }
   text {
@@ -355,6 +360,14 @@
 .attention-number-detail-text {
 }
 .attention-number-detail-value {
+}
+
+// Top histogram
+
+.statistics-top-histogram {
+  .statistics-bar text {
+    font-size: $font-size-base;
+  }
 }
 
 
