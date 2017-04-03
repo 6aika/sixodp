@@ -430,17 +430,21 @@ function assets_url() {
   return site_url().'/assets';
 }
 
+function sort_results($arr) {
+  $temp = array();
+  foreach ($arr as $key => $row)
+  {
+      $temp[$key] = $row['metadata_created'];
+  }
+  array_multisort($temp, SORT_DESC, $arr);
+
+  return $arr;
+}
+
 function get_all_recent_data() {
   $datasets   = get_recent_content();
   $showcases  = get_recent_showcases();
   $arr = array_merge($datasets, $showcases);
 
-  $dates = array();
-  foreach ($arr as $key => $row)
-  {
-      $dates[$key] = $row['metadata_created'];
-  }
-  array_multisort($dates, SORT_DESC, $arr);
-
-  return $arr;
+  return sort_results($arr);
 }
