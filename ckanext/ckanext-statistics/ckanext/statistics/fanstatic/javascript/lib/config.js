@@ -1,7 +1,12 @@
 // Currently selected language (fi / sv / en)
-var Config = {
-  locale: 'fi',
-  api: {},
+var Config = function () {
+  var result = {
+    locale: window.ckan.i18n.options.locale_data.ckan[''].lang,
+    api: {},
+  }
+
+  result.api.domain = 'https://' + window.location.hostname + '/'
+  result.api.baseUrl = result.api.domain + 'data/api/3/action/'
+
+  return result
 }
-Config.api.domain = 'https://' + window.location.hostname + '/'
-Config.api.baseUrl = Config.api.domain + 'data/api/3/action/'

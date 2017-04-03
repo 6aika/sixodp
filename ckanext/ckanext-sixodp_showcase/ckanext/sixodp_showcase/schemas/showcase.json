@@ -23,7 +23,7 @@
       "label": "Category",
       "form_placeholder":"eg. visualization",
       "preset": "fluent_vocabulary_with_autocomplete",
-      "validators": "ignore_missing fluent_tags create_tags(category)",
+      "validators": "fluent_tags create_fluent_tags(category)",
       "form_attrs": {
         "data-module": "autocomplete",
         "data-module-tags": "",

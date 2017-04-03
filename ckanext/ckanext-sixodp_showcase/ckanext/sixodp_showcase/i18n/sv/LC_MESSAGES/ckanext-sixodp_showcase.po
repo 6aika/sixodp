@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_showcase 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-28 09:43+0000\n"
+"POT-Creation-Date: 2017-03-31 12:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Language-Team: Swedish (https://www.transifex.com/6aika-dataportal/teams/68018/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -27,37 +27,45 @@ msgstr ""
 msgid "Unauthorized to read showcase"
 msgstr ""
 
-#: ckanext/sixodp_showcase/controller.py:87
+#: ckanext/sixodp_showcase/controller.py:86
 msgid "Not authorized to see this page"
 msgstr ""
 
-#: ckanext/sixodp_showcase/controller.py:181
+#: ckanext/sixodp_showcase/controller.py:180
 msgid "Organizations"
 msgstr ""
 
-#: ckanext/sixodp_showcase/controller.py:182
+#: ckanext/sixodp_showcase/controller.py:181
 msgid "Groups"
 msgstr ""
 
-#: ckanext/sixodp_showcase/controller.py:183
+#: ckanext/sixodp_showcase/controller.py:182
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:33
 msgid "Tags"
 msgstr ""
 
-#: ckanext/sixodp_showcase/controller.py:184
+#: ckanext/sixodp_showcase/controller.py:183
 msgid "Formats"
 msgstr ""
 
-#: ckanext/sixodp_showcase/controller.py:185
+#: ckanext/sixodp_showcase/controller.py:184
 msgid "Licenses"
 msgstr ""
 
-#: ckanext/sixodp_showcase/controller.py:235
+#: ckanext/sixodp_showcase/controller.py:234
 msgid "Invalid search query: {error_message}"
 msgstr ""
 
-#: ckanext/sixodp_showcase/controller.py:252
+#: ckanext/sixodp_showcase/controller.py:251
 msgid "Parameter \"{parameter_name}\" is not an integer"
+msgstr ""
+
+#: ckanext/sixodp_showcase/plugin.py:84
+msgid "Category"
+msgstr ""
+
+#: ckanext/sixodp_showcase/plugin.py:85
+msgid "Platform"
 msgstr ""
 
 #: ckanext/sixodp_showcase/templates/scheming/package/snippets/package_form.html:4
@@ -139,85 +147,100 @@ msgstr ""
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:6
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:33
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:69
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:4
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:7
 msgid "Showcases"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:53
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:54
 msgid "Draft"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:63
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:86
 msgid "Published"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:65
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:88
 msgid "updated"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:105
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:116
 msgid "Manage"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:117
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:128
 msgid "Private"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:134
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:145
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/snippets/showcase_info.html:22
 msgid "Launch website"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:141
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:170
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:151
 msgid "Used datasets"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:145
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:174
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:155
 msgid "There are no Datasets in this Showcase"
 msgstr ""
 
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:163
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:207
+msgid "More from the author"
+msgstr ""
+
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:165
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:209
+msgid "Show all from this author"
+msgstr ""
+
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:190
+msgid "Application website"
+msgstr ""
+
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:196
+msgid "Author website"
+msgstr ""
+
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:13
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:50
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:53
 msgid "Search showcases..."
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:26
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:29
 msgid "Add Showcase"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:40
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:43
 msgid "Newest first"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:41
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:44
 msgid "Oldest first"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:42
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:45
 msgid "Popular"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:43
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:46
 msgid "Relevance"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:44
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:47
 msgid "Name Ascending"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:45
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:48
 msgid "Name Descending"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:46
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:49
 msgid "Last Modified"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:47
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:50
 msgid "Top rating"
 msgstr ""
 

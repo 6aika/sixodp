@@ -1,32 +1,51 @@
-var AppSection = function (statistics) {
+var AppSection = function (params) {
   var self = this
-  self.statistics = statistics
+  self._texts = params.texts
 
-  self.element = d3.select('.js-app-section')
+  self._element = d3.select('.js-statistics-apps-section')
 
-  self.totalsTimeline = new TotalsTimeline(
-    self.statistics,
-    self.element.select('.js-app-totals-timeline'),
-    self.statistics.translations.appsPublishedTitle,
-    {
-      nameField: 'name',
-      dateField: 'metadata_created',
-      skip: function (app) {
-        return false
-      },
+  self.totalsTimeline = new TotalsTimeline({
+    id: 'appCount',
+    element: self._element.select('.js-app-totals-timeline'),
+    texts: {
+      title: self._texts.timelineTitle,
+      amount: self._texts.amount,
     },
-    {
+    width: params.width,
+    height: params.visHeight,
+    margin: params.visMargins,
+    schema: params.schema,
+    settings: {
       organizations: false
-    }
-  )
+    },
+    locale: params.locale,
+  })
+
+  d3.select('.js-statistics-apps-section-title')
+    .text(self._texts.sectionTitle)
 }
 
-AppSection.prototype.update = function (firstDataLoad = false) {
+
+AppSection.prototype.setData = function (data) {
   var self = this
-  self.totalsTimeline.updateAll(self.statistics.data.apps, firstDataLoad)
+  self.totalsTimeline.setData(data)
 }
 
-AppSection.prototype.onContentResize = function () {
+
+// Filter all the visualizations in this section by the given dates
+AppSection.prototype.setDateRange = function (dates) {
   var self = this
-  self.totalsTimeline.onAreaResize()
+  self.totalsTimeline.setDateRange(dates)
+}
+
+
+AppSection.prototype.setMaxDateRange = function (dates) {
+  var self = this
+  self.totalsTimeline.setMaxDateRange(dates)
+}
+
+
+AppSection.prototype.onContentResize = function (width, height = undefined) {
+  var self = this
+  self.totalsTimeline.resize(width, height)
 }
