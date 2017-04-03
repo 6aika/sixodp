@@ -1,0 +1,19 @@
+---
+- name: Create symbolic link to {{ item }} plugin
+  file:
+    src: /vagrant/wordpress/{{ item }}
+    dest: /opt/wordpress/wp-content/plugins/{{ item }}
+    state: link
+  when: deployment_environment_id == "vagrant"
+
+- name: Synchronize {{ item }} plugin
+  synchronize:
+    src: ../wordpress/{{ item }}/
+    dest: /opt/wordpress/wp-content/plugins/{{ item }}/
+    delete: true
+  when: deployment_environment_id != "vagrant"
+
+- name: Activate {{ item }} plugin
+  command: wp plugin activate {{ item }} --path=/opt/wordpress
+  become: yes
+  become_user: www-data
