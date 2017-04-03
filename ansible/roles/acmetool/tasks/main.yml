@@ -47,6 +47,11 @@
     - /var/lib/acme/conf
     - /var/run/acme
 
+- name: Create tmpfiles.d configuration
+  copy:
+    src: tmpfiles.conf
+    dest: /etc/tmpfiles.d/acmetool.conf
+
 - block:
     - name: Copy response file
       copy:
