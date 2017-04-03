@@ -25,6 +25,14 @@
 
   .pre-primary {
     padding: 0;
+
+    .page-heading-container {
+      padding: 0 10px;
+
+      @media(min-width: $width-md) {
+        padding: 0;
+      }
+    }
   }
 
   .secondary {
