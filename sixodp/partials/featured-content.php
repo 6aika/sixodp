@@ -57,9 +57,9 @@
 
   <div class="container">
     <div class="row text-right">
-      <button type="button" class="btn btn-lg btn-secondary btn--sovellukset">
+      <a href="<?php echo CKAN_BASE_URL; ?>/data/showcase" class="btn btn-lg btn-secondary btn--sovellukset">
         Kaikki sovellukset <i class="material-icons">arrow_forward</i>
-      </button>
+      </a>
     </div>
   </div>
 
@@ -87,9 +87,9 @@
 
   <div class="container">
     <div class="row text-right">
-      <button type="button" class="btn btn-lg btn-secondary btn--sovellukset">
+      <a href="<?php echo CKAN_BASE_URL; ?>/data/<?php echo get_current_locale(); ?>/dataset" class="btn btn-lg btn-secondary btn--sovellukset">
         Kaikki tietoaineistot <i class="material-icons">arrow_forward</i>
-      </button>
+      </a>
     </div>
   </div>
 
