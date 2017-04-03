@@ -30,11 +30,11 @@
     </div>
   </div>
 
-  <div class="container">
+  <div class="container" style="display: none;">
     <div class="row text-right">
-      <button type="button" class="btn btn-lg btn-secondary btn--sovellukset">
-        Kaikki tietoaineistot <i class="material-icons">arrow_forward</i>
-      </button>
+      <a href="/data/<?php echo get_current_locale(); ?>/datasets/" class="btn btn-lg btn-secondary btn--sovellukset">
+        Lisää päivityksiä <i class="material-icons">arrow_forward</i>
+      </a>
     </div>
   </div>
 
