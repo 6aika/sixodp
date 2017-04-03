@@ -383,13 +383,17 @@ function get_showcases_count() {
   return get_count('ckanext_showcase');
 }
 
+function get_recent_showcases() {
+  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_released%20asc&fq=dataset_type:showcase');
+  return $data['result']['results'];
+}
+
 function get_organizations_count() {
   return get_count('organization');
 }
 
 function get_count($type) {
-  $data = get_ckan_data(CKAN_API_URL."/action/".$type."_list");
-  return count($data['result']);
+  return count(get_items($type));
 }
 
 function get_ckan_categories() {
@@ -397,20 +401,6 @@ function get_ckan_categories() {
   return $data['result'];
 }
 
-/*
-* Returns package rating
-*
-* Example data below
-*
-*  {
-*    help: "https://generic-qa.dataportaali.com/data/api/3/action/help_show?name=rating_showcase_get",
-*    success: true,
-*    result: {
-*      rating: 0,
-*      ratings_count: 0
-*    }
-*  }
-*/
 function get_ckan_package_rating($package_id) {
   $data = get_ckan_data(CKAN_API_URL.'/action/rating_showcase_get?package_id='.$package_id);
   $res = $data['result'];
@@ -418,17 +408,6 @@ function get_ckan_package_rating($package_id) {
     'rating' => $res['rating'],
     'ratings_count' => $res['ratings_count']
   );
-}
-
-function get_stars($package_id) {
-  $package_rating = get_ckan_package_rating($package_id);
-  $count = $package_rating['ratings_count'];
-  $rating = $package_rating['rating'];
-
-  /*$i = 5;
-  while ( $i < 0 ) {
-    array_push($i);
-  }*/
 }
 
 function parse_date($date) {
@@ -449,4 +428,11 @@ function get_notes_excerpt($str) {
 
 function assets_url() {
   return site_url().'/assets';
+}
+
+function get_all_recent_data() {
+  $datasets   = get_recent_content();
+  $showcases  = get_recent_showcases();
+  $arr = array_merge($datasets, $showcases);
+  return $arr;
 }

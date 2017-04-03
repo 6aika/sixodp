@@ -14,8 +14,8 @@
     <div class="row cards--latest">
       <?php
         // @TODO: get data from different sources
-        foreach ( get_recent_content() as $index => $dataset ) : ?>
-          <?php if ($index === 4) echo '</div><div class="row cards--latest">'; ?> 
+        foreach ( get_all_recent_data() as $index => $dataset ) : ?>
+          <?php if ($index === 4 || $index === 8) echo '</div><div class="row cards--latest">'; ?> 
           <div class="card--latest">
             <div class="card__meta--latest">
               <?php echo get_days_ago($dataset['metadata_created']); ?>
