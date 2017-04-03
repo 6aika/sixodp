@@ -51,10 +51,21 @@
     </tr>
   {% endif %}
 
+  {% set lang = h.get_lang_prefix() %}
   {%- for field in schema.dataset_fields -%}
     {%- if field.field_name not in exclude_fields
         and field.display_snippet is not none 
         and pkg_dict[field.field_name] -%}
+
+      {% set empty_list = False %}
+      {%- if pkg_dict[field.field_name] is iterable and pkg_dict[field.field_name] is not string and pkg_dict[field.field_name] is not mapping -%}
+        {% if pkg_dict[field.field_name] | first == "" %}
+          {% set empty_list = True %}
+        {% endif %}
+      {% elif pkg_dict[field.field_name] is mapping and lang not in pkg_dict[field.field_name] %}
+        {% set empty_list = True %}
+      {% endif %}
+      {% if empty_list == False %}
       <tr>
         <th scope="row" class="dataset-label">{{
           h.scheming_language_text(field.label) }}</th>
@@ -63,6 +74,7 @@
           }}"{% endif %}>{%- snippet 'scheming/snippets/display_field.html',
           field=field, data=pkg_dict, schema=schema -%}</td>
       </tr>
+    {% endif %}
     {%- endif -%}
   {%- endfor -%}
 
