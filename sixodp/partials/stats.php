@@ -26,7 +26,7 @@
         </div>
       </div>
       <div class="stat__wrapper">
-        <button type="button" class="btn btn-lg btn-secondary">Kaikki aineistot</button>
+        <a href="<?php echo CKAN_BASE_URL; ?>/data/<?php echo get_current_locale(); ?>/dataset" class="btn btn-lg btn-secondary">Kaikki aineistot</a>
       </div>
     </div>
   </div>
