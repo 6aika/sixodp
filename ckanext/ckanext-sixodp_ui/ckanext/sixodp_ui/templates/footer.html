@@ -1,62 +1,47 @@
 {% ckan_extends %}
 
 {% block footer_content %}
-  <div class="row">
-    <div class="col-xs-12 footer-section">
-      <div class="footer-follow-links">
-        <span class="footer-follow-title">Seuraa meitä</span>
-        <a href="" class="footer-follow-link"><i class="icon-facebook-sign icon-2x"></i></a>
-        <a href="https://twitter.com/Kuutosaika" class="footer-follow-link"><i class="icon-twitter-sign icon-2x"></i></a>
-        <a href="https://www.youtube.com/channel/UCsLZoojXkJIsqgVt5Q2iw9Q" class="footer-follow-link"><i class="icon-youtube-sign icon-2x"></i></a>
+
+  <footer id="colophon" class="site-footer bgcolor-primary" role="contentinfo">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <div class="footer-logo-wrapper">
+            <img class="footer-logo" src="/assets/images/main_logo_w.png" alt="Site logo">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <!-- Placeholder for additional city logos -->
+        </div>
+        <div class="col-md-6 pull-right">
+          <div class="row">
+            <div class="col-xs-12 text-right">
+              <div class="footer-follow-links">
+                <span class="footer-follow-title">Seuraa meitä</span>
+                <a href="" class="footer-follow-link"><i class="icon-facebook-sign icon-2x"></i></a>
+                <a href="https://twitter.com/Kuutosaika" class="footer-follow-link"><i class="icon-twitter-sign icon-2x"></i></a>
+                <a href="https://www.youtube.com/channel/UCsLZoojXkJIsqgVt5Q2iw9Q" class="footer-follow-link"><i class="icon-youtube-sign icon-2x"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+      <div class="row">
+        <div class="col-md-12 footer-section footer-section--links">
+          <ul class="footer-links">
+            {% for item in h.get_footer_navigation_items() %}
+              <li class="footer__item"><a href="{{item.url}}" class="footer__link" title="{{item.title}}">{{item.title}}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <hr />
+      <div class="copyrights">
+        © 6Aika
       </div>
     </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-md-1 footer-section">
-      <div class="footer-logo">
-        <img class="footer-logo" src="/assets/images/main_logo_w.png" alt="Site logo" />
-      </div>
-    </div>
-    <div class="col-md-11 footer-section">
-      <ul class="footer-links">
-        {% block footer_nav %}
-        <li class="footer__item">
-          <a class="footer__link" href="/">Yhteystiedot</a>
-        </li>
-        <li class="footer__item">
-          <a class="footer__link" href="/">Organisaatio</a>
-        </li>
-        <li class="footer__item">
-          <a class="footer__link" href="/">Käyttöehdot</a>
-        </li>
-        <li class="footer__item">
-          <a class="footer__link" href="/">Tapahtumat</a>
-        </li>
-        <li class="footer__item">
-          <a class="footer__link" href="/">Rekisteriseloste</a>
-        </li>
-        <li class="footer__item">
-          <a class="footer__link" href="/">Palaute</a>
-        </li>
-        {% endblock %}
-      </ul>
-    </div>
-  </div>
-  <hr />
-  <div class="row" style="display:none;">
-    <div class="header-logos">
-      <div class="logo">
-        <img src="/assets/images/EU_ERDF_FI.png" alt="European Regional Development Fund logo">
-      </div>
-      <div class="logo">
-        <img src="/assets/images/LeverageEU_FI.png" alt="Leverage with EU logo">
-      </div>
-      <div class="flag-ends"></div>
-    </div>
-  </div>
-  <hr style="display:none;">
-  <div class="row text-center footer-section">
-    <span class="copyrights">&copy; 6Aika</span>
-  </div>
+  </footer>
+
 {% endblock %}

@@ -16,5 +16,8 @@
     "eslint": "^3.5.0",
     "npm-run-all": "^3.0.0",
     "watch": "^0.19.2"
+  },
+  "dependencies": {
+    "browserify": "^14.1.0"
   }
 }

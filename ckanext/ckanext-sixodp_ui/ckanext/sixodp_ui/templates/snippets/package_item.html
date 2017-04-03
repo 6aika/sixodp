@@ -23,7 +23,7 @@ Example:
   <li class="dataset-item">
     <div class="row">
       {% block content %}
-        <div class="col-md-8 col-sm-12 dataset-col-left">
+        <div class="{% if show_rating %}col-md-8 {% endif %} col-sm-12 dataset-col-left">
           <div class="dataset-content">
             {% block heading %}
             <a href="{{ h.url_for(controller='package', action='read', id=package.name) }}">
