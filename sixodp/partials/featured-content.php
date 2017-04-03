@@ -71,11 +71,15 @@
     <div class="row cards">
       <?php foreach ( get_recent_datasets() as $dataset ) : ?>
         <div class="card">
-          <h3 class="card__title"><?php echo $dataset["title_translated"][get_current_locale()]; ?></h3>
+          <h3 class="card__title">
+            <a href="<?php echo CKAN_BASE_URL.'/data/'.get_current_locale().'/dataset/'.$dataset['name']; ?>">
+              <?php echo $dataset["title_translated"][get_current_locale()]; ?>
+            </a>
+          </h3>
           <div class="card__meta">
             <span class="card__timestamp"><?php echo parse_date($dataset['metadata_created']); ?></span>
-            *
-            <a href="#" class="card__categorylink"><?php echo $dataset['type']; ?></a>
+            <span style="margin-left: 2px; margin-right: 2px;">&bull;</span>
+            <a href="<?php echo CKAN_BASE_URL; ?>/data/<?php echo get_current_locale(); ?>/<?php echo $dataset['type']; ?>" class="card__categorylink"><?php echo $dataset['type']; ?></a>
           </div>
           <div class="card__body">
             <p><?php echo get_notes_excerpt($dataset['notes_translated'][get_current_locale()]); ?></p>
