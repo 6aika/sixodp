@@ -21,7 +21,7 @@
               <?php echo get_days_ago($dataset['metadata_created']); ?>
             </div>
             <div class="card__body--latest">
-              <a href="#" class="card__categorylink--latest"><?php echo $dataset['type']; ?></a>
+              <a href="<?php echo CKAN_BASE_URL; ?>/data/<?php echo get_current_locale(); ?>/<?php echo $dataset['type']; ?>" class="card__categorylink--latest"><?php echo $dataset['type']; ?></a>
               <h3 class="card__title--latest"><?php echo $dataset["title_translated"][get_current_locale()]; ?></h3>
               <p class="card__description"><?php echo get_notes_excerpt($dataset['notes_translated'][get_current_locale()]); ?></p>
             </div>
