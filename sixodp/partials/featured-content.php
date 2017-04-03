@@ -31,7 +31,7 @@
     </div>
   </div>
 
-  <div class="container">
+  <div class="container container--heading">
     <h3 class="heading--featured-small">Uusimmat sovellukset</h3>
   </div>
 
@@ -63,7 +63,7 @@
     </div>
   </div>
 
-  <div class="container">
+  <div class="container container--heading">
     <h3 class="heading--featured-small">Uusimmat tietoaineistot</h3>
   </div>
 
