@@ -14,23 +14,26 @@ Api.prototype.getAllData = function (callback, delay) {
   var self = this
   var data = {}
   self._elem.stepContainer.style('display', 'block')
-  self._stepLoaded(self._texts.loadOrganizations, 33.4) // 21.3
+  var width = self._elem.loaded.style('width')
+  self._elem.loaded.style('animation', 'none')
+  self._elem.loaded.style('width', width)
+  self._stepLoaded(self._texts.loadOrganizations, 66.1) // 33.4) // 21.3
 
   self.get('group_tree', function (result) {
     data.organizations = result
-    self._stepLoaded(self._texts.loadCategories, 48.5)
+    self._stepLoaded(self._texts.loadCategories, 73.8) // 48.5)
 
     self.get('group_list?all_fields=true', function (result) {
       data.categories = result
-      self._stepLoaded(self._texts.loadDatasets, 64.2)
+      self._stepLoaded(self._texts.loadDatasets, 81.8) // 64.2)
 
       self.get('current_package_list_with_resources?limit=1000', function (result) {
         data.datasets = result
-        self._stepLoaded(self._texts.loadApps, 77.9)
+        self._stepLoaded(self._texts.loadApps, 88.8) // 77.9)
 
         self.get('ckanext_showcase_list', function (result) {
           data.apps = result
-          self._stepLoaded(self._texts.loadRendering, 98)
+          self._stepLoaded(self._texts.loadRendering, 99)
 
           // https://developer.wordpress.org/rest-api/reference/posts/
           // wp-json/wp/v2/posts

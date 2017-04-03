@@ -71,12 +71,19 @@
   }
 }
 
+@keyframes statistics-loading-webpage {
+  0%   {width: 0%;}
+  100% {width: 60%;}
+}
 
 .statistics-loading-loaded {
+  animation-name: statistics-loading-webpage;
+  animation-duration: 10s;
+
   background-color: $white;
   height: 100%;
   display: block;
-  width: 3%;
+  width: 60%;
 }
 .statistics-loading-text {
   margin-top: $margin-large-vertical;

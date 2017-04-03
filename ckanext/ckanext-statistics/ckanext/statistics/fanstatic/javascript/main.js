@@ -40,17 +40,12 @@ var Statistics = function () {
   // Settings
   self._localeData = Locales
   self._config = Config()
+  self._config.locale = 'fi' // This gets updated after data is loaded
   d3.timeFormatDefaultLocale(self._localeData.timeFormats[self._config.locale])
 
   // Some clean up
   d3.select('#js-bootstrap-offcanvas, .container').style('display', 'none')
 
-  // Build the page contents
-  d3.select('.js-statistics-main-title')
-    .text(self._localeData.statisticsMainTitle[self._config.locale])
-  self._createNav()
-  self._createSections()
-  self._bindEvents()
   self._loadDataToPage()
 }
 
@@ -248,8 +243,18 @@ Statistics.prototype._loadDataToPage = function () {
     },
   })
   self._api.getAllData(function (result) {
-    console.log(result)
     self._data = result
+
+    // Update language
+    self._config = Config()
+
+    // Build the page contents
+    d3.select('.js-statistics-main-title')
+      .text(self._localeData.statisticsMainTitle[self._config.locale])
+
+    self._createNav()
+    self._createSections()
+    self._bindEvents()
 
     // Get maximum possible date range for unfiltered data
     self._state.maxDateRange = self._getMaxDateRange(self._data)
@@ -287,7 +292,8 @@ Statistics.prototype._loadDataToPage = function () {
       maxDateRange: self._state.maxDateRange,
       hash: location.hash.substring(1),
     })
-  }, 300)
+
+  }, 400)
 }
 
 
@@ -410,5 +416,5 @@ Statistics.prototype._getVisHeight = function (contentWidth) {
 $(document).ready(function () {
   setTimeout(function () {
     statistics = new Statistics()
-  }, 1000)
+  }, 10)
 })
