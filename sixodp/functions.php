@@ -419,7 +419,7 @@ function get_days_ago($date) {
   $date = new DateTime($date);
   $now = new DateTime();
   $interval = $now->diff($date);
-  return $interval->format('%d päivää, %h tuntia sitten');
+  return $interval->days . $interval->format(' päivää, %h tuntia sitten');
 }
 
 function get_notes_excerpt($str) {
