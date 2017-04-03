@@ -448,7 +448,3 @@ function get_all_recent_data() {
 
   return sort_results($arr);
 }
-
-function is_sixodp_user_logged_in() {
-  return is_user_logged_in();
-}

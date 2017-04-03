@@ -14,22 +14,20 @@
 
 		<footer id="colophon" class="site-footer bgcolor-primary" role="contentinfo">
 			<div class="container">
-				<div class="row">
-					<?php if (!is_sixodp_user_logged_in()) : ?>
-						<div class="col-md-4 pull-right text-right">
-							<div class="popper">
-								<ul class="popper__list">
-									<li class="popper__item">
-										<a href="/data/user/login" class="popper__link">Dataportaali <i class="material-icons">arrow_forward</i></a>
-									</li>
-									<li class="popper__item">
-										<a href="/admin" class="popper__link">Sisällönhallinta <i class="material-icons">arrow_forward</i></a>
-									</li>
-								</ul>
-							</div>
-							<button type="button" class="btn btn-lg btn-transparent" data-trigger="popper">Kirjaudu</button>
+				<div class="row">		
+					<div class="col-md-4 pull-right text-right">
+						<div class="popper">
+							<ul class="popper__list">
+								<li class="popper__item">
+									<a href="/data/user/login" class="popper__link">Dataportaali <i class="material-icons">arrow_forward</i></a>
+								</li>
+								<li class="popper__item">
+									<a href="/admin" class="popper__link">Sisällönhallinta <i class="material-icons">arrow_forward</i></a>
+								</li>
+							</ul>
 						</div>
-					<?php endif; ?>
+						<button type="button" class="btn btn-lg btn-transparent" data-trigger="popper">Kirjaudu</button>
+					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-2">
