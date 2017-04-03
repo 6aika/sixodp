@@ -10,17 +10,6 @@
   }
 }
 
-.btn-transparent {
-  background-color: transparent;
-  color: $brand-primary;
-  border: 1px solid $brand-primary;
-
-  &:hover, &:focus, &:active {
-    background-color: $brand-primary;
-    color: #ffffff;
-  }
-}
-
 .btn-secondary {
   background-color: $brand-secondary;
   color: #fff;
@@ -70,4 +59,10 @@
 .btn--sovellukset {
   position: relative;
   z-index: 1;
+}
+
+.btn-list-item {
+  text-align: left;
+  padding-left: $padding-large-horizontal;
+  padding-right: $padding-large-horizontal;
 }
