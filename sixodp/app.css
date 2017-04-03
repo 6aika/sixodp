@@ -6482,7 +6482,8 @@ hr {
 
 .btn-transparent {
   background: transparent;
-  border: 1px solid white; }
+  border: 1px solid white;
+  color: #fff; }
   .btn-transparent:hover, .btn-transparent:focus, .btn-transparent:active {
     background: transparent;
     color: #eee;
