@@ -5,14 +5,16 @@
     &.icon {
       color: $rating-stars-color;
       padding: 0 5px;
-
-      &.rating-star-hover {
-        color: $rating-stars-color-hover;
-      }
     }
   }
 }
 
 .rating-wrapper {
   color: $rating-text-color;
+
+  .input-enabled {
+    &.rating-star-hover {
+      color: $rating-stars-color-hover;
+    }
+  }
 }
