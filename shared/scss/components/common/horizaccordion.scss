@@ -5,6 +5,14 @@
   .container {
     box-sizing: content-box;
   }
+
+  .page-template-ajankohtaista & {
+    padding: $base*4 0;
+
+    .btn--ajankohtaista {
+      display: none;
+    }
+  }
 }
 
 .wrapper--horizaccordion-inner {
