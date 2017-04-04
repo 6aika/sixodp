@@ -28,7 +28,7 @@
         <div class="col-md-8 col-md-offset-2">
           <div class="input-group">
             <div class="input-group-btn">
-              <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <button type="button" class="btn btn-secondary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span id="selected-domain" data-value="/data/dataset">Tietoaineistot</span> <span class="caret"></span>
               </button>
               <ul class="dropdown-menu dropdown-menu-right">
@@ -42,7 +42,7 @@
             </div><!-- /btn-group -->
             <input type="text" id="q" class="form-control input-lg" aria-label="...">
             <span class="input-group-btn">
-              <button id="search" class="btn btn-lg btn-primary" type="button">Hae</button>
+              <button id="search" class="btn btn-lg btn-secondary" type="button">Hae</button>
             </span>
           </div><!-- /input-group -->    
         </div>
