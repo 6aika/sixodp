@@ -210,19 +210,19 @@ add_action( 'init', 'add_custom_fields_support_for_pages' );
 
 function create_primary_menus() {
   create_menu_i18n('primary_fi', PRIMARY_MENU_ITEMS_FI, 'primary');
-  create_menu_i18n('primary_en', PRIMARY_MENU_ITEMS_EN, 'primary');
+  create_menu_i18n('primary_en_GB', PRIMARY_MENU_ITEMS_EN, 'primary');
   create_menu_i18n('primary_sv', PRIMARY_MENU_ITEMS_SV, 'primary');
 }
 
 function create_secondary_menus() {
   create_menu_i18n('secondary_fi', SECONDARY_MENU_ITEMS_FI, 'secondary');
-  create_menu_i18n('secondary_en', SECONDARY_MENU_ITEMS_EN, 'secondary');
+  create_menu_i18n('secondary_en_GB', SECONDARY_MENU_ITEMS_EN, 'secondary');
   create_menu_i18n('secondary_sv', SECONDARY_MENU_ITEMS_SV, 'secondary');
 }
 
 function create_footer_menus() {
   create_menu_i18n('footer_fi', FOOTER_MENU_ITEMS_FI, 'footer_menu');
-  create_menu_i18n('footer_en', FOOTER_MENU_ITEMS_EN, 'footer_menu');
+  create_menu_i18n('footer_en_GB', FOOTER_MENU_ITEMS_EN, 'footer_menu');
   create_menu_i18n('footer_sv', FOOTER_MENU_ITEMS_SV, 'footer_menu');
 }
 
@@ -247,7 +247,7 @@ function create_menu_i18n($menu_name, $itemsArr, $location) {
 }
 
 function create_default_pages() {
-  foreach( ['fi', 'en', 'sv'] as $locale ) {
+  foreach( ['fi', 'en_GB', 'sv'] as $locale ) {
     insert_default_page($locale);
   }
 }
