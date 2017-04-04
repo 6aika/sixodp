@@ -1,5 +1,5 @@
 ### Table of contents
 
 #### AWS architecture
-![AWS architecture](/doc/images/AWS architecture.png)
+![AWS architecture](/doc/images/AWS%20architecture.png)
 

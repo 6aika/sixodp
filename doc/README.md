@@ -1,4 +1,4 @@
 
 ## Architecture
 
-![AWS Architecture](/doc/images/AWS architecture.png)
+![AWS Architecture](/doc/images/AWS%20architecture.png)
