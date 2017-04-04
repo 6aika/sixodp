@@ -13,7 +13,8 @@
   color: $rating-text-color;
 
   .input-enabled {
-    &.rating-star-hover {
+    .rating-star-hover,
+    .rating-star-hover:hover {
       color: $rating-stars-color-hover;
     }
   }
