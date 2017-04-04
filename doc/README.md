@@ -1,4 +1,4 @@
 
 ## Architecture
 
-![Architecture](/doc/images/architecture.png)
+![AWS Architecture](/doc/images/AWS architecture.png)

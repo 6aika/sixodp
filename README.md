@@ -16,8 +16,11 @@ Clone the repository and its submodules, and start Vagrant:
     git clone https://github.com/6aika/sixodp.git
     cd sixodp/
     git submodule update --init --recursive
+    npm install
+    npm run build
     vagrant up
 
+Vagrant installs ansible inside the virtual machine so that Windows users can also automate local builds. 
 After [Ansible](http://www.ansible.com/) provisions the system, the service will be running in the virtual machine and is available from your host machine at https://10.106.10.10/
 
 User credentials for an administrator are `admin:admin`, and `test:test` for a regular user.
@@ -44,6 +47,21 @@ With Vagrant, the host machine shares the working directory into the virtual mac
 - If you edit styles in /shared you need to compile the modified SASS-files (`npm run dev`).
 - If you edit Python code of the extensions, you need to restart the WSGI server (`vagrant ssh` and `sudo service apache2 restart`).
 - If you edit Javascript, you need to run the frontend build to compile and minify files (`vagrant ssh`, `cd /vagrant/ansible` and `ansible-playbook -v -i inventories/vagrant frontend-build.yml`).
+
+#### Pulling updates
+
+If there have been updates to submodules, run following commands:
+
+    git submodule sync (for making sure that submodule points at the corrent repository in the case that the repository has been forked)
+    git submodule update --init --recursive
+
+### SSL certificates
+
+By default environments use self-signed certificates for HTTPS. To enable [Let's Encrypt](https://letsencrypt.org/) certificate add following to `environment-specific vars` ([Example](https://github.com/6aika/sixodp/blob/master/ansible/vars/environment-specific/generic-qa.yml#L35))
+
+    acmetool_hostnames:
+        - "{{ public_facing_hostname }}"
+        - some_alternative_example_domain
 
 ### Repository structure
 
