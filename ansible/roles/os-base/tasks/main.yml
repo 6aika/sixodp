@@ -54,4 +54,17 @@
     - "{{ server_path }}"
     - "{{ cache_path }}"
 
+- name: Copy environment update script
+  template:
+    src: sixodp-update.j2
+    dest: /usr/local/bin/sixodp-update
+    mode: 0755
+
+- name: Create cron job for update script
+  cron:
+    name: sixodp-update
+    special_time: daily
+    job: /usr/local/bin/sixodp-update
+    state: "{{ 'present' if automatic_updates else 'absent' }}"
+
 - include: pip.yml
