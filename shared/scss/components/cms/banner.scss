@@ -1,6 +1,23 @@
 .banner {
   padding: $base*4;
-  background: darkblue;
+  background: $brand-primary;
+  position: relative;
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    background-image: url('/assets/images/dataset-pattern2.png');
+  }
+
+  .row {
+    position: relative;
+    z-index: 1;
+  }
 }
 
 .banner__title {
