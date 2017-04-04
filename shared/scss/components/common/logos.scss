@@ -14,8 +14,12 @@
 }
 
 .logo--brand {
-  width: $base*20;
+  width: $base*10;
   float: left;
+
+  @media (min-width: $width-sm) {
+    width: $base*20;
+  }
 }
 
 .logos--eu {
@@ -33,12 +37,20 @@
 
   .logo--erdf, .logo--eu {
     width: auto;
-    height: $base*6;
+    height: $base*4;
     display: inline-block;
 
     img {
       width: auto;
+      height: $base*4;
+    }
+
+    @media(min-width: $width-sm) {
       height: $base*6;
+
+      img {
+        height: $base*6;
+      }
     }
   }
 }
