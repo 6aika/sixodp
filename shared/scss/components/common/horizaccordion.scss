@@ -61,6 +61,7 @@
     border-left: 1px solid rgba(255,255,255,0.6);
 
     .horizaccordion__text,
+    .horizaccordion__meta,
     .horizaccordion__footer .btn {
       opacity: 0;
       display: block;
@@ -81,6 +82,7 @@
           }
 
           .horizaccordion__text,
+          .horizaccordion__meta,
           .horizaccordion__footer .btn {
             opacity: 1;
             transition: opacity .3s ease-in-out .1s;
@@ -130,8 +132,34 @@
   }
 }
 
+.horizaccordion__meta {
+  color: $brand-secondary;
+  margin-bottom: $base*2;
+  z-index: 2;
+  position: relative;
+}
 
+.horizaccordion__meta {
 
+  * {
+    color: $brand-secondary;
+  }
+
+  span {
+    margin-right: $base*0.5;
+  }
+
+  a {
+    margin: 0 $base*0.5;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+      color: $brand-secondary-light;
+      border-color: $brand-secondary-light;
+    }
+  }
+}
 
 .horizaccordion__title {
   font-size: 2rem;
