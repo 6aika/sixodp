@@ -5,8 +5,7 @@
   */
 ?>
 <div class="card--showcase">
-  <a href="<?php echo site_url(); ?>" class="showcase__img--link"
-    style="text-align: center; display: block; height: 120px; background-image: url(<?php echo $imgUrl; ?>); background-size: cover; background-position: center center;"></a>
+  <a href="<?php echo site_url(); ?>" class="showcase__img--link" style="background-image: url(<?php echo $imgUrl; ?>);"></a>
   <div class="showcase__content">
     <h4 class="showcase__title">
       <a class="showcase__link" href="<?php echo site_url(); ?>"><?php echo $showcase['title']; ?></a>

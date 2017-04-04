@@ -40,19 +40,55 @@
 
 .showcase__content {
   padding: $base*2;
+  height: calc(100% - 180px);
+  position: relative;
 }
 
 .showcase__title {
   text-align: center;
   font-family: $font-heading;
+  font-size: 2.2rem;
+  font-weight: 600;
 }
 
 .showcase__text {
   color: #fff;
+  height: $base*12;
+  position: relative;
+  overflow: hidden;
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba($brand-primary, 0.1);
+    background: -moz-linear-gradient(rgba($brand-primary, 0) 40%, rgba($brand-primary, 0.2) 70%, rgba($brand-primary, 1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(rgba($brand-primary, 0) 40%, rgba($brand-primary, 0.2) 70%, rgba($brand-primary, 1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(rgba($brand-primary, 0) 40%, rgba($brand-primary, 0.2) 70%, rgba($brand-primary, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  }
+}
+
+.showcase__img--link {
+  text-align: center;
+  display: block;
+  background-size: cover;
+  background-position: center center;
+  height: $base*18;
 }
 
 .showcase__link {
   color: #fff;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+
+  &:hover {
+    color: #fff;
+    border-bottom: 2px solid white;
+  }
 }
 
 .showcase__footer {
