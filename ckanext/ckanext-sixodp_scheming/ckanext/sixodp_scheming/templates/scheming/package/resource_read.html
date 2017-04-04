@@ -54,20 +54,34 @@
             'description_translated'
             ] -%}
 
+          {%- set lang = h.get_lang_prefix() -%}
           {%- for field in schema.resource_fields -%}
             {%- if field.field_name not in exclude_fields
               and field.display_snippet is not none 
               and res[field.field_name] -%}
-              <tr>
-                <th scope="row">
-                  {{- h.scheming_language_text(field.label) -}}
-                </th>
-                <td>
-                  {%- snippet 'scheming/snippets/display_field.html',
-                      field=field, data=res, entity_type='dataset',
-                      object_type=dataset_type -%}
-                </td>
-              </tr>
+
+              {% set empty_list = False %}
+              {%- if res[field.field_name] is iterable and res[field.field_name] is not string and res[field.field_name] is not mapping -%}
+                {%- if res[field.field_name] | first == "" -%}
+                  {%- set empty_list = True -%}
+                {%- endif -%}
+              {%- elif res[field.field_name] is mapping and lang not in res[field.field_name] -%}
+                {%- set empty_list = True -%}
+              {%- endif -%}
+
+              {%- if empty_list == False -%}
+
+                <tr>
+                  <th scope="row">
+                    {{- h.scheming_language_text(field.label) -}}
+                  </th>
+                  <td>
+                    {%- snippet 'scheming/snippets/display_field.html',
+                        field=field, data=res, entity_type='dataset',
+                        object_type=dataset_type -%}
+                  </td>
+                </tr>
+              {%- endif -%}
             {%- endif -%}
           {%- endfor -%}
         {%- endblock -%}
