@@ -1,0 +1,43 @@
+.banner {
+  padding: $base*4;
+  background: $brand-primary;
+  position: relative;
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    background-image: url('/assets/images/dataset-pattern2.png');
+  }
+
+  .row {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.banner__title {
+  font-size: 2rem;
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.banner__subtitle {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.banner__buttons .btn {
+  color: white;
+  padding-left: $base*2;
+  padding-right: $base*2;
+
+  i {
+    margin-right: 0;
+  }
+}
