@@ -38,7 +38,7 @@ hr {
   width: 25%;
   margin: auto;
 
-  @media (min-width: $width-lg) {
+  @media (min-width: $width-md) {
     width: 100%;
   }
 }

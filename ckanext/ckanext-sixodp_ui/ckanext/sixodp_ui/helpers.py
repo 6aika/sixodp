@@ -53,7 +53,7 @@ def get_navigation_items_by_menu_location(wp_menu_location):
     response_data = get_wp_api_content(menu_endpoint, 'menus/' + wp_menu_location + '_' + i18n.get_lang())
 
     navigation_items = []
-    if(response_data.get('items')):
+    if(response_data and response_data.get('items')):
         for item in response_data['items']:
             navigation_items.append({
                 'title': item.get('title'),

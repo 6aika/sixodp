@@ -5,6 +5,10 @@
   .dataset-item {
     @include list-item();
 
+    &.dataset-item-borderless {
+      border: none;
+    }
+
     > a {
       color: $text-color;
     }

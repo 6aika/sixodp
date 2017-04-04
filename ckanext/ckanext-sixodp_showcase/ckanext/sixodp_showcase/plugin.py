@@ -1,9 +1,13 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 from ckanext.showcase.plugin import ShowcasePlugin
+import ckanext.showcase.logic.helpers as showcase_helpers
 from ckanext.showcase.logic import action as showcase_action
 from logic.action import create, update
+from ckanext.sixodp_showcase import helpers
 from ckan.common import _
+from ckan.lib import i18n
+import json
 
 import ckan.lib.helpers as h
 
@@ -14,10 +18,14 @@ try:
 except ImportError:
     from sqlalchemy.util import OrderedDict
 
+import logging
+log = logging.getLogger(__name__)
+
 class Sixodp_ShowcasePlugin(ShowcasePlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IDatasetForm)
     plugins.implements(plugins.IActions)
+    plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IFacets)
     plugins.implements(plugins.IPackageController, inherit=True)
 
@@ -75,11 +83,20 @@ class Sixodp_ShowcasePlugin(ShowcasePlugin):
 
     # IFacets #
 
+    _LOCALE_ALIASES = {'en_GB': 'en'}
+
     def dataset_facets(self, facets_dict, package_type):
         if(package_type == 'showcase'):
             facets_dict = OrderedDict()
-            facets_dict.update({'category': _('Category')})
-            facets_dict.update({'platform': _('Platform')})
+
+            lang = i18n.get_lang()
+
+            if lang in self._LOCALE_ALIASES:
+                lang = self._LOCALE_ALIASES[lang]
+
+            facets_dict['vocab_category_' + lang] = _('Category')
+
+            facets_dict.update({'vocab_platform': _('Platform')})
 
         return facets_dict
 
@@ -114,6 +131,16 @@ class Sixodp_ShowcasePlugin(ShowcasePlugin):
         }
         return action_functions
 
+    # ITemplateHelpers
+
+    def get_helpers(self):
+        return {
+            'facet_remove_field': showcase_helpers.facet_remove_field,
+            'get_site_statistics': showcase_helpers.get_site_statistics,
+            'get_featured_showcases': helpers.get_featured_showcases,
+            'get_showcases_by_author': helpers.get_showcases_by_author
+        }
+
     def _add_to_pkg_dict(self, context, pkg_dict):
         '''
         Add key/values to pkg_dict and return it.
@@ -125,7 +152,7 @@ class Sixodp_ShowcasePlugin(ShowcasePlugin):
         # Add a image urls for the Showcase image to the pkg dict so template
         # has access to it.
 
-        imgs = ['icon', 'image_1', 'image_2', 'image_3', 'image_4']
+        imgs = ['icon', 'featured_image', 'image_1', 'image_2', 'image_3']
         for image in imgs:
             image_url = pkg_dict.get(image)
             pkg_dict[image +'_display_url'] = image_url
@@ -156,3 +183,21 @@ class Sixodp_ShowcasePlugin(ShowcasePlugin):
                 data_dict.pop('notifier_email')
 
         return self._add_to_pkg_dict(context, data_dict)
+
+    def before_index(self, data_dict):
+
+        if data_dict.get('platform'):
+            data_dict['vocab_platform'] = [tag for tag in json.loads(data_dict['platform'])]
+
+        keywords = data_dict.get('category')
+        if keywords:
+            keywords_json = json.loads(keywords)
+            if keywords_json.get('fi'):
+                data_dict['vocab_category_fi'] = [tag for tag in keywords_json['fi']]
+            if keywords_json.get('sv'):
+                data_dict['vocab_category_sv'] = [tag for tag in keywords_json['sv']]
+            if keywords_json.get('en'):
+                data_dict['vocab_category_en'] = [tag for tag in keywords_json['en']]
+
+
+        return data_dict
