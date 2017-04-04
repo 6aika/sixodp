@@ -109,6 +109,8 @@
   </div>
 {% endblock %}
 
+{% block offcanvas_button %}{% endblock %}
+
 {% block primary_content_inner %}
 
 {% if h.check_access('ckanext_showcase_update', {'id':pkg.id }) %}
