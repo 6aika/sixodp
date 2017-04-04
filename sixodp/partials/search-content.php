@@ -2,15 +2,22 @@
   /**
   * search-content content box on.
   */
+
+  global $wp_query;
 ?>
 <div class="container">
   <div class="row">
       <div class="col-md-4 search-content">
-        <div class="results-container"></div>
+        <div class="results-container">
+            <div class="heading">
+                <span>Hakutuloksia ryhmissä</span>
+            </div>
+            <div class="result">
+                
+            </div>
+        </div>
       </div>
       <div class="col-md-8 search-content">
-          <?php global $wp_query; ?>
-
         <h3 class="heading">Hakutuloksia <?php echo $wp_query->found_posts; ?> kappaletta</h3>
             <ul class="search-content__list">
               <?php
