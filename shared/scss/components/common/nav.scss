@@ -6,13 +6,13 @@
 .navbar-nav li {
   position: static;
 
-  a {
+  > a {
     border-top: $base/2 solid transparent;
     border-bottom: $base/2 solid transparent;
   }
 
   &.active {
-    a {
+    > a {
       border-bottom-color: $navbar-active-link-border-color;
       background: transparent !important;    
     }
