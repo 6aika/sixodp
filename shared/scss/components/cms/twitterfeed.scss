@@ -25,7 +25,7 @@
     margin-left: 0;
     background: $brand-primary;
     color: #fff;
-    padding: $base/2;
+    padding: $base;
 
     .ctf-author-box-link {
       display: block;
@@ -33,7 +33,7 @@
       a {
         display: inline-block;
         vertical-align: middle;
-        line-height: 48px;
+        line-height: 32px;
         margin-top: 0;
         color: #fff !important;
       }
@@ -42,7 +42,17 @@
     .ctf-author-avatar {
       margin: 0;
       float: none;
-      overflow: none;
+      height: 32px;
+      width: 32px;
+
+      img {
+        height: 32px;
+      }
+    }
+
+    .ctf-author-name {
+      margin-left: $base;
+      margin-right: 0;
     }
   }
 
