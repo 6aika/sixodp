@@ -1,7 +1,6 @@
 ---
 
 clear_all_cache: false
-
 timezone: UTC
 
 # Apt repository configuration

@@ -28,6 +28,16 @@
                       <?php the_title(); ?>
                     </a>
                   </h4>
+                  <div class="horizaccordion__meta">
+                    <span><?php echo parse_date(get_the_date()); ?></span>
+                      <?php 
+                        if ( count(get_the_category()) > 0 ) {
+                          foreach ( get_the_category() as $cat ) { ?>
+                            | <a href="<?php echo $cat->slug; ?>"><?php echo $cat->name; ?></a><?php
+                          }
+                        }
+                      ?>
+                  </div>
                   <div class="horizaccordion__text">
                     <?php the_excerpt(); ?>
                   </div>
