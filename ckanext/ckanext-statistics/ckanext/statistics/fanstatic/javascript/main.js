@@ -5,6 +5,7 @@ var Statistics = function () {
   self._styles = {
     contentWidth: parseInt(d3.select('.statistics-section-content:first-child').style('width')),
     visMargins: {top: 15, right: 50, bottom: 30, left: 15},
+    visMarginsWithTop: {top: 50, right: 15, bottom: 30, left: 15},
     visHeight: 360,
   }
   self._styles.visHeight = self._getVisHeight(self._styles.contentWidth)

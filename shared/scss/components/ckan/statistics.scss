@@ -24,7 +24,7 @@
   height: 100vh;
   width: 100vw;
   left: 0;
-  padding: 30% 0%;
+  padding: 30% 10px;
   position: fixed;
   text-align: center;
   top: 0px;
@@ -315,11 +315,11 @@
 .statistics-bar {
   .statistics-bar-main {
     fill: $datavis-color-1;
-    stroke: $datavis-color-2;
+    stroke: $white;
     stroke-width: 2px;
   }
   .statistics-bar-portion {
-    fill: $datavis-color-2;
+    fill: $white;
   }
   text {
     fill: $white;

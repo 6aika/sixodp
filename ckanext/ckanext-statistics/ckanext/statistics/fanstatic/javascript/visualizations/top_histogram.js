@@ -14,9 +14,10 @@ function TopHistogram (params) {
   self._schema = params.schema
 
   // Mutable
-  var barHeight = params.barHeight || 20 // Default height
+  var barHeight = params.barHeight || 50 // Default height
   var barCount = 10
-  var contentHeight = params.barHeight * barCount
+  var contentHeight = barHeight * barCount + self._props.margin.top + self._props.margin.bottom
+
   self._state = {
     barCount: barCount,
     barHeight: barHeight,
@@ -46,20 +47,17 @@ TopHistogram.prototype.setData = function (data) {
   var self = this
   self._data.raw = data
   self._data.histogram = self._transformData(data)
-
-  console.log('data histogram', self._data.histogram)
+  self._state.barCount = self._data.histogram.length
 
   // Update x and y domain ranges based on histgram bar data
   self._helpers.xScale.domain([0, d3.max(self._data.histogram, function(d) { return d[self._schema.valueField] })])
+
   self._helpers.yScale.domain(
     d3.map(self._data.histogram, function(d) { return d[self._schema.labelField] }).keys()
   )
 
-  self._barCount = self._data.histogram.length
+  self.resize()
   self._renderHistogram(self._data.histogram)
-  self.resize(self._state.contentArea.width)
-
-  self._resizeAxisX()
 }
 
 
@@ -69,42 +67,46 @@ TopHistogram.prototype.showMore = function () {
 }
 
 
-TopHistogram.prototype.setDateFilter = function (dates) {
+// When window is resized
+TopHistogram.prototype.setDateRange = function (dates) {
   var self = this
   self._state.dateRange = dates
-  // console.log('Top histogram set date', dates)
-  // self._data.histogram = self._transformData(self._data.raw)
-
-  // TODO:
-  // Re-render histogram with new data
-  // Resize x axis
+  self._resizeAxisX()
 }
 
 
 // Resize the visualization to a new pixel size on the screen
-TopHistogram.prototype.resize = function (contentWidth, barHeight = undefined) {
+TopHistogram.prototype.resize = function (contentWidth = undefined, barHeight = undefined) {
   var self = this
 
-  self._state.contentArea.width = contentWidth
-  self._props.margin.left = contentWidth * 0.1
-
+  // Image width
+  if (typeof contentWidth !== 'undefined') {
+    self._state.contentArea.width = contentWidth
+  }
   self._elem.svg.attr('width', self._state.contentArea.width)
+
+  // Space for bar labels
+  self._props.margin.left = Math.max(self._state.contentArea.width * 0.1, 120)
+
+  // Height per bar + spacing in between
   if (typeof barHeight !== 'undefined') {
     self._state.barHeight = barHeight
   }
-  self._state.contentArea.height = self._state.barHeight * self._state.barCount
 
-
+  // Image height, based on current amount of bars
+  self._state.contentArea.height = self._state.barHeight * self._state.barCount + self._props.margin.top + self._props.margin.bottom
 
   self._elem.svg.attr('height', self._state.contentArea.height)
 
+  // Move whole image
+  self._elem.svgCanvas
+  .attr('transform', 'translate(' + self._props.margin.left + ',' + self._props.margin.top + ')')
+
+  // Area for data
   self._state.dataArea = {
     width: self._state.contentArea.width - self._props.margin.left - self._props.margin.right,
     height: self._state.contentArea.height - self._props.margin.top - self._props.margin.bottom,
   }
-
-  self._elem.svgCanvas
-    .attr('transform', 'translate(' + self._props.margin.left + ',' + self._props.margin.top + ')')
 
   self._elem.dataCanvas
     .attr('width', self._state.dataArea.width)
@@ -118,6 +120,7 @@ TopHistogram.prototype.resize = function (contentWidth, barHeight = undefined) {
   self._helpers.yScale.rangeRound([0, self._state.dataArea.height])
   self._helpers.xScale.rangeRound([0, self._state.dataArea.width])
 
+  // Redraw everything basd on new x axis size
   self._resizeAxisX()
 }
 
@@ -180,8 +183,8 @@ TopHistogram.prototype._renderBase = function (container) {
     .call(self._helpers.xAxisGenerator)
 
   // No Y axis
+  // self._elem.yAxis
 
-  self._elem.yAxis
 }
 
 
@@ -190,24 +193,33 @@ TopHistogram.prototype._renderHistogram = function (histogramData) {
   var self = this
 
   // Join new data
-  self._elem.histogramBars = self._elem.histogramCanvas.selectAll('.bar')
-      .data(histogramData)
+  self._elem.histogramBars = self._elem.histogramCanvas.selectAll('.statistics-bar')
+    .data(histogramData)
+
+  self._elem.histogramBars.selectAll('.statistics-bar-main')
+    .attr('width', function (d) { return (
+      self._helpers.xScale(d[self._schema.valueField] - 1)
+    )})
+
+  self._elem.histogramBars.selectAll('.statistics-bar-portion')
+    .attr('width', function (d) { return (
+      self._helpers.xScale(d[self._schema.valueSpecificField])
+    )})
+
+  // Sort
+  // self._elem.histogramBars.sort(function (a, b) {
+  //   return a[self._schema.valueField] < b[self._schema.valueField]
+  // })
+  // Draw the histogram based on data
 
   // Updated, remaining bars: Nothing to do
   // self._elem.histogramBars
   //   . ...
 
-  // Sort
-  self._elem.histogramBars.sort(function (a, b) {
-    return a[self._schema.valueField] < b[self._schema.valueField]
-  })
-
   // Bars added to the previous data (added to the end)
   var barsToAdd = self._elem.histogramBars.enter().append('g')
     .classed('statistics-bar', true)
-    .attr('transform', function(d, i) {
-      // console.log('append bar', d)
-      return (
+    .attr('transform', function(d, i) { return (
       'translate(0,' + self._helpers.yScale(d[self._schema.labelField]) + ')'
     )})
 
@@ -231,22 +243,9 @@ TopHistogram.prototype._renderHistogram = function (histogramData) {
       self._helpers.xScale(d[self._schema.valueSpecificField])
     )})
 
-  // Value text
-  // barsToAdd.append('text')
-  //   .attr('dy', '.75em')
-  //   .attr('y', self._helpers.yScale.bandwidth() / 2)
-  //   .attr('x', -12)
-  //   .attr('text-anchor', 'right')
-  //   .text(function (d) { return d[self._schema.valueField] })
-
   // Label text
   barsToAdd.append('text')
-    // .attr('dy', '.75em')
-    .attr('x', -12)
-    // function(d) { return (
-    //    self._helpers.xScale(d[self._schema.valueField])
-    //    + 6
-    // )})
+    .attr('x', -6)
     .attr('y', self._helpers.yScale.bandwidth() / 2)
     .attr('text-anchor', 'end')
     .attr('width', self._props.margin.left)
@@ -255,6 +254,7 @@ TopHistogram.prototype._renderHistogram = function (histogramData) {
   // Bars from previous data to leave out
   var barsToRemove = self._elem.histogramBars.exit()
   barsToRemove.remove()
+
 }
 
 
@@ -293,21 +293,26 @@ TopHistogram.prototype._updateXAxisGenerator = function () {
       d3.axisTop(self._helpers.xScale)
       .tickSize(self._state.dataArea.width)
       .ticks(5)
-      // .tickPadding(7)
-      // .tickFormat(function (d) {
-      //   return this.parentNode.nextSibling ? '\xa0' + d : d + ' ' + self._texts.amount
-      // })
+      .tickPadding(7)
+      .tickFormat(function (d) {
+        return this.parentNode.nextSibling ? '\xa0' + d : d + ' ' + self._texts.amount
+      })
     )
 
     g.classed('statistics-axis', true)
-      .attr('transform', 'translate(0, ' + (self._state.dataArea.height) + ')')
+      // .attr('transform', 'translate(0, ' + (self._state.dataArea.height) + ')')
 
     g.select('.domain').remove()
 
-    g.selectAll('.tick text')
-      .attr('dy', 2)
+    g.selectAll('.tick')
 
+    g.selectAll('.tick text')
+      .attr('y', -5)
+      // .attr('transform', 'translate(0,0)')
+
+    // console.log('height', self._state.dataArea.height)
     g.selectAll('.tick line')
+      .attr('y2', self._state.dataArea.height)
       .attr('height', self._state.dataArea.height)
   }
 }

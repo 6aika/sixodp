@@ -29,6 +29,7 @@ var DatasetSection = function (params) {
     element: self._element.select('.js-organization-dataset-counts'),
     texts: {
       title: self._texts.topPublishersTitle,
+      amount :self._texts.amount,
     },
     legend: [
       {
@@ -88,7 +89,7 @@ DatasetSection.prototype.setData = function (data) {
 DatasetSection.prototype.onContentResize = function (width, height = undefined) {
   var self = this
   self.totalsTimeline.resize(width, height)
-  // self.organizationDatasets.resize(width, height))
+  self.organizationDatasets.resize(width)
 }
 
 
@@ -96,7 +97,7 @@ DatasetSection.prototype.onContentResize = function (width, height = undefined) 
 DatasetSection.prototype.setDateRange = function (dates) {
   var self = this
   self.totalsTimeline.setDateRange(dates)
-  // self.organizationDatasets.setDateFilter(dates)
+  self.organizationDatasets.setDateRange(dates)
 }
 
 DatasetSection.prototype.setMaxDateRange = function (dates) {
