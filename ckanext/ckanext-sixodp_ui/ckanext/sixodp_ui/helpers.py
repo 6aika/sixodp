@@ -167,7 +167,7 @@ def build_nav_main():
 
     def construct_menu_tree(menu):
         active = check_if_active(menu)
-        children = ''
+        children = None
 
         if(menu.get('children')):
             for child_item in menu.get('children'):
@@ -177,7 +177,11 @@ def build_nav_main():
 
                 children = construct_menu_tree(child_item)
 
-        return make_menu_item(menu, active) + literal('<ul class="nav navbar-nav subnav">') + children + literal('</ul></li>')
+        if(children):
+            return make_menu_item(menu, active) + literal('<ul class="nav navbar-nav subnav">') + children + literal('</ul></li>')
+        else:
+            return make_menu_item(menu, active)
+
 
     navigation_html = ''
     for menu in navigation_tree:

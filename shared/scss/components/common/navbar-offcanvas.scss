@@ -1,7 +1,7 @@
 .navbar-offcanvas {
   z-index: 1002;
   
-  @media screen and (max-width: $width-sm - 1) {
+  @media screen and (max-width: $width-md - 1) {
     position: fixed !important;
     height: 0;
     max-height: initial !important;
@@ -62,7 +62,7 @@
 
 }
 
-@media (max-width: 767px) {
+@media (max-width: $width-md - 1) {
   .offcanvas-stop-scrolling {
     height: 100%;
     overflow: hidden;
@@ -85,7 +85,7 @@
     padding-left: 15px;
     padding-right: 15px;
     z-index: 999;
-    overflow: scroll;
+    overflow: auto;
     -webkit-transition: all 0.15s ease-in;
     transition: all 0.15s ease-in;
 
@@ -233,7 +233,12 @@
 }
 
 .offcanvas-button-row {
+  display: block;
   height: 55px;
   padding-left: 80px;
   margin: 0;
+
+  @media(min-width: $width-md) {
+    display: none;
+  }
 }
