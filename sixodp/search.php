@@ -13,7 +13,11 @@
  	<main id="main" class="site-main site-main--search" role="main">
 		<h1 class="page-title">Hae sivustolta</h1>
         <?php get_search_form(); ?>
-        <?php get_template_part( 'partials/search-content' ); ?>
+        <?php if(isset($_GET['datasearch'])) {
+            get_template_part( 'partials/search-content-data' );
+        } else {
+            get_template_part( 'partials/search-content' );
+        } ?>
  	</main><!-- .site-main -->
  </div><!-- .content-area -->
  <?php get_footer(); ?>
