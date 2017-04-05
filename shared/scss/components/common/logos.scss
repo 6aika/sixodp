@@ -27,14 +27,6 @@
   height: $base*12;
   text-align: center;
 
-  .logo {
-    margin-right: $margin-large-vertical;
-
-    &:last-of-type {
-      margin-right: 0;
-    }
-  }
-
   .logo--erdf, .logo--eu {
     width: auto;
     height: $base*4;
