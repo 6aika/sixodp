@@ -1,0 +1,68 @@
+{% import 'macros/form.html' as form %}
+<form class="dataset-form form-horizontal" method="post" action="submit-data" data-module="basic-form" novalidate>
+  {% block errors %}{{ form.errors(error_summary) }}{% endblock %}
+
+  {% call form.input(
+  'title_translated-fi',
+  id='field-title_translated-fi',
+  label=h.scheming_language_text('Title'),
+  placeholder=h.scheming_language_text('eg. A descriptive title'),
+  value='',
+  error='',
+  classes=['control-full'],
+  attrs={},
+  is_required=true
+  )
+  %}
+  {% endcall %}
+
+  {% call form.textarea(
+  'notes_translated-fi',
+  id='field-notes_translated-fi',
+  label=h.scheming_language_text('Description'),
+  placeholder='',
+  value='',
+  error='',
+  classes=['control-full'],
+  attrs={},
+  is_required=false
+  )
+  %}
+  {% endcall %}
+
+  {% call form.input(
+  'maintainer',
+  id='maintainer',
+  label=_('Name or organization of the submitter'),
+  placeholder='',
+  value='',
+  error='',
+  classes=['control-medium'],
+  attrs={},
+  is_required=false
+  )
+  %}
+  {% endcall %}
+
+  {% call form.input(
+  'maintainer-email',
+  id='maintainer-email',
+  label=_('Submitter email'),
+  placeholder='',
+  value='',
+  error='',
+  classes=['control-medium'],
+  attrs={},
+  is_required=false
+  )
+  %}
+  {% endcall %}
+
+  {% block form_actions %}
+    <div class="form-actions">
+      <button class="btn btn-primary" type="submit" name="save">
+        {% block save_button_text %}{{ _('Submit') }}{% endblock %}
+      </button>
+    </div>
+  {% endblock %}
+</form>
