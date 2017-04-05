@@ -32,6 +32,10 @@ server {
     rewrite ^/qa/(.*)$ /qa/index.php?qa-rewrite=$1 last;
   }
 
+  location = /qa {
+    return 302 /qa/;
+  }
+
   location /qa/ {
     alias /opt/question2answer/;
     try_files $uri $uri/ @qa;
