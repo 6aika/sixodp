@@ -1,11 +1,10 @@
 .twitterfeed {
-  @extend .wrapper;
 
   .ctf-tweets {
     @extend .container;
     display: flex;
     flex-wrap: wrap;
-    padding-bottom: $base*8;
+    padding-bottom: $base*10;
   }
 }
 
@@ -48,13 +47,13 @@
   }
 
   .ctf-tweet-content {
-    padding: $base;
+    padding: $base*2 $base*2 $base;
     margin: 0;
     margin-bottom: $base;
   }
 
   .ctf-tweet-actions {
-    padding: $base;
+    padding: $base $base*2;
     margin: 0;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -75,7 +74,7 @@
   }
 
   .ctf-quoted-tweet {
-    margin: 7px 10px 24px 10px;
+    margin: 7px 20px 24px 20px;
   }
 
   .ctf-twitterlink, 

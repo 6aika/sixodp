@@ -21,7 +21,8 @@ get_header(); ?>
 
       echo '<div class="container"><h1 class="heading--main">Ajankohtaista</h1></div>';
       get_template_part( 'partials/horizaccordion' );
-      get_template_part( 'partials/ajankohtaista-links'); 
+      get_template_part( 'partials/ajankohtaista-links');
+      echo '<div class="wrapper" style="padding-bottom: 0;"><div class="container"><h1 class="heading--main" style="margin-bottom:-20px;">Twitter</h1></div></div>';
       echo do_shortcode('[custom-twitter-feeds num=8 class="twitterfeed" screenname="tomdale"]');
 
     ?>
