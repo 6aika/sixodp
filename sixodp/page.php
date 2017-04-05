@@ -13,17 +13,20 @@
 get_header(); ?>
 
 <div id="primary" class="content-area">
-	<main id="main" class="site-main" role="main">
-		<?php
-		// Start the loop.
-		while ( have_posts() ) : the_post();
+	<main id="main" class="site-main wrapper" role="main">
+		<div class="page__hero"></div>
+		<div class="page__content container">
+			<?php
+			// Start the loop.
+			while ( have_posts() ) : the_post();
 
-			// Include the page content template.
-			echo '<h1>Page template</h1>';
+				// Include the page content template.
+				get_template_part('partials/page-content');
 
-			// End of the loop.
-		endwhile;
-		?>
+				// End of the loop.
+			endwhile;
+			?>
+		</div>
 
 	</main><!-- .site-main -->
 

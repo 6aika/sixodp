@@ -1,0 +1,52 @@
+.page__hero {
+  height: $base*32;
+  background: #ccc;
+}
+
+.page__content {
+  margin-top: -$base*24;
+  background: #fff;
+}
+
+.page__text {
+  padding-left: $base*10;
+  padding-right: $base*10;
+}
+
+.page__content .heading--main {
+  padding-left: $base*10;
+  padding-right: $base*10;
+}
+
+.page__breadcrumb-wrapper {
+  padding-right: $base*10;
+  padding-left: $base*10;
+}
+
+.page__breadcrumb {
+  margin: 0;
+  border-bottom: 1px solid #e7e7e7;
+  height: $base*4;
+  padding-left: 0;
+
+  li {
+    list-style: none;
+    display: inline-block;
+    font-family: $font-heading;
+    font-size: 1.4rem;
+    color: $brand-primary;
+    height: $base*4;
+    line-height: $base*4;
+
+    &:after {
+      content: '>';
+      display: inline-block;
+      margin: 0 $base;
+    }
+
+    &:last-child:after {
+      content: '';
+      margin: 0;
+    }
+  }
+}

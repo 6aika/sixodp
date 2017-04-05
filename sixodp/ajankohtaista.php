@@ -24,7 +24,7 @@ get_header(); ?>
       get_template_part( 'partials/ajankohtaista-links');
       echo '<div class="wrapper--twitterfeed">';
       echo '<div class="container"><h1 class="heading--main" style="margin-bottom:-20px;">Twitter</h1></div>';
-      echo do_shortcode('[custom-twitter-feeds num=12 class="twitterfeed" screenname="tomdale"]');
+      echo do_shortcode('[custom-twitter-feeds num=12 class="twitterfeed" screenname="tomdale" showheader=false showbutton=false]');
       echo '</div>';
 
     ?>
