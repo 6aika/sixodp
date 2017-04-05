@@ -1,17 +1,17 @@
 ---
 
-public_facing_hostname: demo.dataportaali.com
-internal_hostname: sixodp-demo
+public_facing_hostname: tampere.dataportaali.com
+internal_hostname: sixodp-{{ deployment_environment_id }}
 ckan_site_name: Dataportaali
 ckan_featured_orgs:
 automatic_updates: false
 
 postgres:
   server:
-    installed_locally: true
-    host: 127.0.0.1
-    admin_user: postgres
-    admin_password:
+    installed_locally: false
+    host: sixodp-{{ deployment_environment_id }}-ckan.{{ rds_domain_common_part }}
+    admin_user: ckan_admin
+    admin_password: "{{ secret.database_ckan_admin_password }}"
     trusted_ip_range: 127.0.0.1/32
   users:
     ckan:
@@ -30,11 +30,17 @@ postgres:
 
 nginx:
   use_ssl_certificate: true
-  use_selfsigned_certificate: false
+  use_selfsigned_certificate: true
   fqdn_common_part: dataportaali.com
 
 acmetool_hostnames:
-  - demo.dataportaali.com
+  - "{{ public_facing_hostname }}"
+
+wordpress_database_host: sixodp-{{ deployment_environment_id }}-wordpress.{{ rds_domain_common_part }}
+wordpress_database_admin_user: ckan_admin
+wordpress_database_admin_password: "{{ secret.database_ckan_admin_password }}"
+wordpress_database_password: "{{ secret.wordpress_database_password }}"
+wordpress_admin_password: "{{ secret.wordpress_admin_password }}"
 
 solr:
   host: 127.0.0.1
@@ -78,5 +84,5 @@ debug_enabled: false
 AWS:
   enabled: true
   use_iam_role: true
-  ckan_s3_bucket: sixodp-testi-ampari
+  ckan_s3_bucket: sixodp-{{ deployment_environment_id }}-datasets
   region: S3_EU_WEST

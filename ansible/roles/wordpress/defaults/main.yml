@@ -6,6 +6,10 @@ wordpress_database_user: wordpress
 wordpress_database_host: localhost
 wordpress_admin_user: admin
 wordpress_admin_email: admin@localhost.localdomain
+wordpress_local_plugins:
+  - wp-trello
+  - wp-api-menus
+  - contact-widgets
 wordpress_plugins:
   - advanced-custom-fields
 

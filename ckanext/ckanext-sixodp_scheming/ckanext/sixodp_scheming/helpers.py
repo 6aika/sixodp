@@ -64,6 +64,13 @@ def get_package_groups_by_type(package_id, group_type):
 
 _LOCALE_ALIASES = {'en_GB': 'en'}
 
+def get_lang_prefix():
+    language = i18n.get_lang()
+    if language in _LOCALE_ALIASES:
+        language = _LOCALE_ALIASES[language]
+
+    return language
+
 def get_translated_or_default_locale(data_dict, field):
     language = i18n.get_lang()
     if language in _LOCALE_ALIASES:

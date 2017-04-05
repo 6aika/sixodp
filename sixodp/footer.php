@@ -14,7 +14,7 @@
 
 		<footer id="colophon" class="site-footer bgcolor-primary" role="contentinfo">
 			<div class="container">
-				<div class="row">
+				<div class="row">		
 					<div class="col-md-4 pull-right text-right">
 						<div class="popper">
 							<ul class="popper__list">

@@ -22,8 +22,8 @@ get_header(); ?>
       get_template_part( 'partials/hero' );
 			get_template_part( 'partials/categories' );
 			get_template_part( 'partials/horizaccordion' );
-			get_template_part( 'partials/featured-apps' );
-			get_template_part( 'partials/featured-datasets' );
+			get_template_part( 'partials/featured-content' );
+      get_template_part( 'partials/latest-updates' );
 
 		?>
 

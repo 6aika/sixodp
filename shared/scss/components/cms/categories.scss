@@ -1,27 +1,22 @@
-.wrapper--categories {
-  background: url('/assets/images/siluetti@2x.png') repeat-x center bottom;
-  background-size: auto 100%;
-}
-
 .categories {
   display: flex;
   flex-wrap: wrap;
-  padding-top: $base*30;
-  padding-bottom: $base*4;
+  padding-top: $base*5;
+}
 
-  @media (min-width: $width-sm) {
-    padding-bottom: 0;
-  }
+.category__wrapper {
+  width: $base*19.5;
+  padding-left: $base;
+  padding-bottom: $base;
 }
 
 .category {
   @extend %box;
-
+  border-radius: 2px;
   background: #fff;
-  margin: $base;
   margin-left: 0;
-  padding: $base*1.5 $base*2.5;
-  width: $base*20;
+  padding: $base*1.5 $base*2;
+  height: 100%;
 }
 
 .category__link {

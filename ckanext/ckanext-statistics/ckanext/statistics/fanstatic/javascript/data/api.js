@@ -1,43 +1,80 @@
-var Api = function (dashboard) {
+var Api = function (params) {
   var self = this
-  self.dashboard = dashboard
+  self._baseUrl = params.baseUrl
+  self._width = params.width
+  self._texts = params.texts
+  self._elem = {}
+  self._elem.container = $('.js-statistics-loading')
+  self._elem.stepContainer = d3.select('.js-statistics-loading-steps')
+  self._elem.loaded = d3.select('.js-statistics-loading-loaded')
+  self._elem.text = d3.select('.js-statistics-loading-text')
 }
 
-Api.prototype.getAllData = function (callback) {
+Api.prototype.getAllData = function (callback, delay) {
   var self = this
+  var data = {}
+  self._elem.stepContainer.style('display', 'block')
+  var width = self._elem.loaded.style('width')
+  self._elem.loaded.style('animation', 'none')
+  self._elem.loaded.style('width', width)
+  self._stepLoaded(self._texts.loadOrganizations, 66.1) // 33.4) // 21.3
 
-  // Get all data from APIs, one after another
-  self.get('datasets', 'current_package_list_with_resources?limit=1000', function () {
+  self.get('group_tree', function (result) {
+    data.organizations = result
+    self._stepLoaded(self._texts.loadCategories, 73.8) // 48.5)
 
-    self.get('organizations',
-    // 'organization_list?all_fields=true&include_extras=true',
-    'group_tree',
-    function () {
+    self.get('group_list?all_fields=true', function (result) {
+      data.categories = result
+      self._stepLoaded(self._texts.loadDatasets, 81.8) // 64.2)
 
-      self.get('apps', 'ckanext_showcase_list', callback)
+      self.get('current_package_list_with_resources?limit=1000', function (result) {
+        data.datasets = result
+        self._stepLoaded(self._texts.loadApps, 88.8) // 77.9)
+
+        self.get('ckanext_showcase_list', function (result) {
+          data.apps = result
+          self._stepLoaded(self._texts.loadRendering, 99)
+
+          // https://developer.wordpress.org/rest-api/reference/posts/
+          // wp-json/wp/v2/posts
+
+          callback(data)
+
+          // Hide loading screen
+          setTimeout(function () {
+            self._stepLoaded(self._texts.loadDone, 100)
+            self._elem.container.fadeOut(200, function () {
+              self._elem.container.remove()
+            })
+          }, delay)
+        })
+      })
     })
   })
 }
 
 
 // url = api + 'package_search?rows=20'
-Api.prototype.get = function (dataId, endPoint, callback) {
+Api.prototype.get = function (endPoint, callback) {
   var self = this
-  url = self.dashboard.config.api.baseUrl + endPoint
+  url = self._baseUrl + endPoint
   d3.json(url)
   // .header('Authorization', config.api.key)
   .get(function (error, response) {
+    var result = []
     if (error) {
-      console.log('[ERROR] in dashboard fetching API, ', dataId, ' url:', url, 'error:', error)
-      self.dashboard.data[dataId] = []
+      console.log('[ERROR] in fetching API for statistics:', url, 'error:', error)
       throw error
     } else {
-      // console.log('Dashboard api.get', dataId, 'url:', url, 'response:', response)
-      self.dashboard.data[dataId] = response.result
+      result = response.result
     }
-    callback()
+    callback(result)
   })
 }
 
-// https://developer.wordpress.org/rest-api/reference/posts/
-// wp-json/wp/v2/posts
+
+Api.prototype._stepLoaded = function (id, percentage) {
+  var self = this
+  self._elem.loaded.transition().duration(600).style('width', (percentage / 100 * self._width) + 'px')
+  self._elem.text.text(id[0].toUpperCase() + id.substring(1).toLowerCase())
+}
