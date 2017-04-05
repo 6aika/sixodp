@@ -43,6 +43,18 @@
     args:
       creates: /opt/wordpress/index.php
 
+  - name: Check if EFS is available
+    stat:
+      path: /mnt/wp-uploads
+    register: stat_result
+
+  - name: Create symbolic link to EFS for uploads
+    file:
+      src: /mnt/wp-uploads
+      path: /opt/wordpress/wp-content/uploads
+      state: link
+    when: stat_result.stat.exists
+
   - name: Configure WordPress
     command: >
       wp core config
