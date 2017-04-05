@@ -22,7 +22,7 @@ get_header(); ?>
       echo '<div class="container"><h1 class="heading--main">Ajankohtaista</h1></div>';
       get_template_part( 'partials/horizaccordion' );
       get_template_part( 'partials/ajankohtaista-links'); 
-      echo do_shortcode('[custom-twitter-feeds]');
+      echo do_shortcode('[custom-twitter-feeds num=8 class="twitterfeed" screenname="tomdale"]');
 
     ?>
 

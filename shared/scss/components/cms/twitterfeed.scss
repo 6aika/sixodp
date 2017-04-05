@@ -1,0 +1,88 @@
+.twitterfeed {
+  @extend .wrapper;
+
+  .ctf-tweets {
+    @extend .container;
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: $base*8;
+  }
+}
+
+#ctf {
+  
+  .ctf-item {
+    width: 32%;
+    border-radius: 5px;
+    border: 1px solid #e7e7e7;
+    margin-right: 1%;
+    margin-top: $base*4;
+    padding: 0;
+    position: relative;
+    overflow: visible;
+  }
+
+  .ctf-author-box {
+    margin-left: 0;
+    background: $brand-primary;
+    color: #fff;
+    padding: $base/2;
+
+    .ctf-author-box-link {
+      display: block;
+
+      a {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 48px;
+        margin-top: 0;
+        color: #fff !important;
+      }
+    }
+
+    .ctf-author-avatar {
+      margin: 0;
+      float: none;
+      overflow: none;
+    }
+  }
+
+  .ctf-tweet-content {
+    padding: $base;
+    margin: 0;
+    margin-bottom: $base;
+  }
+
+  .ctf-tweet-actions {
+    padding: $base;
+    margin: 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 1px solid #e7e7e7;
+    border-top: 0;
+    position: absolute;
+      bottom: -24px;
+      right: -1px;
+      left: -1px;
+    z-index: 1;
+    background: #fff;
+
+    &:after {
+      content: '';
+      clear: both;
+      display: block;
+    }
+  }
+
+  .ctf-quoted-tweet {
+    margin: 7px 10px 24px 10px;
+  }
+
+  .ctf-twitterlink, 
+  .ctf-screename-sep,
+  .ctf-context,
+  .ctf-verified,
+  .ctf-tweet-meta {
+    display: none;
+  }
+}
