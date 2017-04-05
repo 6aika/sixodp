@@ -26,8 +26,12 @@
   float: left;
   max-width: 0;
   width: 100%;
-  overflow: hidden;
+  overflow: scroll;
   max-height: 0;
+
+  @media (min-width: $width-sm) {
+    overflow: hidden;
+  }
 
   @media (max-width: ($width-md)-1 ) {
     padding: 0;
