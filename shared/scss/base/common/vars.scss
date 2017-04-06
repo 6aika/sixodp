@@ -100,6 +100,8 @@ $secondary-bg: $navbar-background-color;
 // Links
 $link-color: $brand-primary;
 $link-color-active: lighten($link-color, 20%);
+$link-color-secondary: $brand-success;
+$link-color-secondary-active: lighten($link-color-secondary, 20%);
 
 // Rating (ckan extension)
 $rating-stars-color: $brand-success;

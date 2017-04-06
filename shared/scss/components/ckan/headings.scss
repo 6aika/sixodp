@@ -9,7 +9,7 @@
   margin-top: 0;
 
   a {
-    color: $brand-success;
+    color: $link-color-secondary;
   }
 }
 
@@ -85,7 +85,7 @@ h3, h4, h5, h6, .module-heading {
   }
 
   .rating-star {
-    color: $brand-success;
+    color: $rating-stars-color;
   }
 
   .heading-icon {
