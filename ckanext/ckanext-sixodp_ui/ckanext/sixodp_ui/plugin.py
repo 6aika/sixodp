@@ -239,11 +239,11 @@ class Sixodp_UiPlugin(plugins.SingletonPlugin, DefaultTranslation):
                 'get_qa_openness': get_qa_openness,
                 'dataset_display_name': helpers.dataset_display_name,
                 'get_navigation_items_by_menu_location': helpers.get_navigation_items_by_menu_location,
-                'get_main_navigation_items': helpers.get_main_navigation_items,
                 'get_footer_navigation_items': helpers.get_footer_navigation_items,
                 'get_groups_for_package': helpers.get_groups_for_package,
                 'scheming_language_text_or_empty': helpers.scheming_language_text_or_empty,
                 'resource_display_name': helpers.resource_display_name,
                 'get_notifications': helpers.get_notifications,
                 'menu_is_active': helpers.menu_is_active,
+                'build_nav_main': helpers.build_nav_main
                 }

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_showcase 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-31 12:37+0000\n"
+"POT-Creation-Date: 2017-04-04 10:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Language-Team: Swedish (https://www.transifex.com/6aika-dataportal/teams/68018/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -60,12 +60,36 @@ msgstr ""
 msgid "Parameter \"{parameter_name}\" is not an integer"
 msgstr ""
 
-#: ckanext/sixodp_showcase/plugin.py:84
+#: ckanext/sixodp_showcase/plugin.py:91
 msgid "Category"
 msgstr ""
 
-#: ckanext/sixodp_showcase/plugin.py:85
+#: ckanext/sixodp_showcase/plugin.py:93
 msgid "Platform"
+msgstr ""
+
+#: ckanext/sixodp_showcase/templates/package/dataset_showcase_list.html:3
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:6
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:33
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:4
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:7
+msgid "Showcases"
+msgstr ""
+
+#: ckanext/sixodp_showcase/templates/package/dataset_showcase_list.html:13
+msgid "Associate this showcase with this dataset"
+msgstr ""
+
+#: ckanext/sixodp_showcase/templates/package/dataset_showcase_list.html:13
+msgid "Add to showcase"
+msgstr ""
+
+#: ckanext/sixodp_showcase/templates/package/dataset_showcase_list.html:17
+msgid "Showcases featuring {dataset_name}"
+msgstr ""
+
+#: ckanext/sixodp_showcase/templates/package/dataset_showcase_list.html:22
+msgid "There are no showcases that feature this dataset"
 msgstr ""
 
 #: ckanext/sixodp_showcase/templates/scheming/package/snippets/package_form.html:4
@@ -145,11 +169,8 @@ msgstr ""
 msgid "Update Showcase"
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:6
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:33
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:4
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:7
-msgid "Showcases"
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:52
+msgid "Archived"
 msgstr ""
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:54

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_showcase 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-31 12:37+0000\n"
+"POT-Creation-Date: 2017-04-04 10:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Mikko Nieminen <mikko.nieminen@gofore.com>, 2017\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
@@ -61,13 +61,37 @@ msgstr "Virheellinen haku: {error_message}"
 msgid "Parameter \"{parameter_name}\" is not an integer"
 msgstr "Parametri \"{parameter_name}\" ei ole kokonaisluku"
 
-#: ckanext/sixodp_showcase/plugin.py:84
+#: ckanext/sixodp_showcase/plugin.py:91
 msgid "Category"
 msgstr "Kategoria"
 
-#: ckanext/sixodp_showcase/plugin.py:85
+#: ckanext/sixodp_showcase/plugin.py:93
 msgid "Platform"
 msgstr "Alusta"
+
+#: ckanext/sixodp_showcase/templates/package/dataset_showcase_list.html:3
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:6
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:33
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:4
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:7
+msgid "Showcases"
+msgstr "Sovellukset"
+
+#: ckanext/sixodp_showcase/templates/package/dataset_showcase_list.html:13
+msgid "Associate this showcase with this dataset"
+msgstr "Liitä tietoaineisto tähän sovellukseen"
+
+#: ckanext/sixodp_showcase/templates/package/dataset_showcase_list.html:13
+msgid "Add to showcase"
+msgstr "Liitä sovellukseen"
+
+#: ckanext/sixodp_showcase/templates/package/dataset_showcase_list.html:17
+msgid "Showcases featuring {dataset_name}"
+msgstr "Sovellukset joihin liittyy tietoaineisto {dataset_name}"
+
+#: ckanext/sixodp_showcase/templates/package/dataset_showcase_list.html:22
+msgid "There are no showcases that feature this dataset"
+msgstr "Tietoaineisto ei liity yhteenkään sovellukseen"
 
 #: ckanext/sixodp_showcase/templates/scheming/package/snippets/package_form.html:4
 msgid "Next: Add Data"
@@ -146,12 +170,9 @@ msgstr "Poista"
 msgid "Update Showcase"
 msgstr "Päivitä sovellus"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:6
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:33
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:4
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:7
-msgid "Showcases"
-msgstr "Sovellukset"
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:52
+msgid "Archived"
+msgstr "Arkistoitu"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:54
 msgid "Draft"
