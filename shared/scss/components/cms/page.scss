@@ -1,42 +1,50 @@
+%pagew {
+  padding-left: 0;
+  padding-right: 0;
+
+  @media (min-width: $width-sm) {
+    padding-left: $base*4;
+    padding-right: $base*4;
+  }
+
+  @media (min-width: $width-md) {
+    padding-left: $base*10;
+    padding-right: $base*10;
+  }
+}
+
 .page__hero {
   height: $base*32;
-  background: #ccc;
+  background: #eee;
 }
 
 .page__content {
+  @extend %pagew;
   margin-top: -$base*24;
   background: #fff;
 }
 
-.page__text {
-  padding-left: $base*10;
-  padding-right: $base*10;
-}
+.page__content {
 
-.page__content .heading--main {
-  padding-left: $base*10;
-  padding-right: $base*10;
-}
-
-.page__breadcrumb-wrapper {
-  padding-right: $base*10;
-  padding-left: $base*10;
+  @media (min-width: 1200px) {
+    width: $base*97;
+  }
 }
 
 .page__breadcrumb {
   margin: 0;
   border-bottom: 1px solid #e7e7e7;
-  height: $base*4;
+  height: $base*6;
   padding-left: 0;
 
   li {
     list-style: none;
     display: inline-block;
     font-family: $font-heading;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     color: $brand-primary;
-    height: $base*4;
-    line-height: $base*4;
+    height: $base*6;
+    line-height: $base*6;
 
     &:after {
       content: '>';
@@ -49,4 +57,9 @@
       margin: 0;
     }
   }
+}
+
+.page__body {
+  position: relative;
+  padding-top: $base*6;
 }

@@ -14,6 +14,11 @@ get_header(); ?>
 
 <div id="primary" class="content-area">
 	<main id="main" class="site-main wrapper" role="main">
+		
+		<?php
+			get_template_part('partials/header-logos');
+		?>
+
 		<div class="page__hero"></div>
 		<div class="page__content container">
 			<?php

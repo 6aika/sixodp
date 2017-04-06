@@ -82,6 +82,21 @@ if ( !function_exists('sixodp_theme_setup') ) :
 endif; // twentysixteen_setup
 add_action( 'after_setup_theme', 'sixodp_theme_setup' );
 
+// add tag support to pages
+function tags_support_all() {
+  register_taxonomy_for_object_type('post_tag', 'page');
+}
+
+// ensure all tags are included in queries
+function tags_support_query($wp_query) {
+  if ($wp_query->get('tag')) $wp_query->set('post_type', 'any');
+}
+
+// tag hooks
+add_action('init', 'tags_support_all');
+add_action('pre_get_posts', 'tags_support_query');
+
+
 function footer_widgets_init() {
 	register_sidebar( array(
 		'name'          => 'Footer widget sidebar',
