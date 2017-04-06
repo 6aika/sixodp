@@ -5,24 +5,24 @@
         &.today {
           background-image: none;
           background-color: $brand-primary;
-          color: $white;
+          color: $brand-white;
 
           &:hover:hover {
             background-image: none;
             background-color: $brand-secondary;
-            color: $white;
+            color: $brand-white;
           }
         }
 
         &.active.active {
           background-image: none;
           background-color: $brand-secondary;
-          color: $white;
+          color: $brand-white;
 
           &:hover:hover {
             background-image: none;
             background-color: $brand-secondary;
-            color: $white;
+            color: $brand-white;
           }
         }
       }

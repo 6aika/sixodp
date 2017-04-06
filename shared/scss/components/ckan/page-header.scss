@@ -29,7 +29,7 @@
 
   .nav-tabs {
     li {
-      background: $white;
+      background: $brand-white;
       color: $brand-primary;
       width: 100%;
 
@@ -41,7 +41,7 @@
 
       &.active {
         background: $brand-primary;
-        color: $white;
+        color: $brand-white;
       }
 
       @media (min-width: $width-lg) {
