@@ -4,10 +4,10 @@
 
     &.active {
       background: $brand-primary;
-      color: $white;
+      color: $brand-white;
 
       * {
-        color: $white;
+        color: $brand-white;
       }
 
       .plusglyph {
