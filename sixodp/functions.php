@@ -299,12 +299,19 @@ function sixodp_scripts() {
 add_action( 'wp_enqueue_scripts', 'sixodp_scripts' );
 
 function get_nav_menu_items($menu) {
-  return wp_get_menu_array($menu . '_' . get_current_locale());
+  return wp_get_menu_array($menu);
 }
 
 function wp_get_menu_array($current_menu) {
-
-    $array_menu = wp_get_nav_menu_items($current_menu);
+    //var_dump(!in_array(get_current_locale().'', array("fi", "en_GB", "sv")));
+    if ( !in_array(get_current_locale().'', array("fi", "en_GB", "sv")) ) {
+      $array_menu = wp_get_nav_menu_items($current_menu . '_fi');
+      //echo 'SHIT?';
+    } else {
+      $array_menu = wp_get_nav_menu_items($current_menu . '_' . get_current_locale());
+      //echo 'NO SHIT?';
+    }
+    
     $menu = array();
     foreach ($array_menu as $m) {
         if (empty($m->menu_item_parent)) {

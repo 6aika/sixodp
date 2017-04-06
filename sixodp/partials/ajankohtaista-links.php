@@ -9,7 +9,7 @@
     <div class="row boxlinks">
       <?php
         foreach ( get_child_pages('Ajankohtaista') as $child_page ) :
-          $boxlink_url      = $child_page->post_name;
+          $boxlink_url      = get_permalink($child_page);
           $boxlink_heading  = $child_page->post_title;
           $bg = wp_get_attachment_image_src( get_post_thumbnail_id($child_page->ID), 'page')[0];
           
