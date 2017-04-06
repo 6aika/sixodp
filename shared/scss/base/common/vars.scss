@@ -30,10 +30,8 @@ $brand-info: #446eb5;
 $brand-warning: #f0ad4e;
 $brand-danger: #d9534f;
 
-$brand-background: #ffffff;
-$body-background: #f5f5f5;
-
-$gray-base: #57575b;
+$brand-gray: #57575b;
+$gray-base: $brand-gray;
 $gray-darker:            darken($gray-base, $darken-intensity*2);
 $gray-dark:              darken($gray-base, $darken-intensity);
 $gray:                   lighten($gray-base, $lighten-intensity*1.5);
@@ -43,6 +41,7 @@ $gray-lighter:           lighten($gray-base, $lighten-intensity*6);
 $black: #000;
 $text-color: #000;
 $brand-white: #ffffff;
+$brand-background: #ffffff;
 
 // Button
 $btn-font-weight: 100;
