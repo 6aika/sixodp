@@ -5,6 +5,14 @@
   .container {
     box-sizing: content-box;
   }
+
+  .page-template-ajankohtaista & {
+    padding: $base*4 0;
+
+    .btn--ajankohtaista {
+      display: none;
+    }
+  }
 }
 
 .wrapper--horizaccordion-inner {
@@ -19,7 +27,7 @@
 
   .horizaccordion__container {
     width: 100%;
-    max-width: $base*44;
+    max-width: $base*41;
     margin-left: auto;
     margin-right: auto;
     position: relative;
