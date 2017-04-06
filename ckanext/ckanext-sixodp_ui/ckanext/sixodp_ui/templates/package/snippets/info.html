@@ -17,7 +17,8 @@ Example:
         {% block package_info_inner %}
           {% block follow_button %}{% endblock %}
           {% block rating %}
-            {% snippet "rating/snippets/rating.html", package=pkg %}
+            <h2 class="module-heading">{{ _('Rating') }}</h2>
+            {% snippet "rating/snippets/rating_single_flat.html", package=pkg, enable_input=true %}
           {% endblock %}
         {% endblock %}
       </div>

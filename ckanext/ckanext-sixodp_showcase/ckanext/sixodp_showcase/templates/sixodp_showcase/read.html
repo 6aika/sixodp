@@ -49,7 +49,7 @@
       <div class="headings-wrapper">
         <h1 class="page-heading">
           {% block page_heading %}
-            {{ name }}
+            {{ name }} {% if pkg.archived %}<span class="heading-extra">({{ _('Archived') }})</span>{% endif %}
             {% if pkg.state.startswith('draft') %}
               [{{ _('Draft') }}]
             {% endif %}
@@ -108,6 +108,8 @@
     {% snippet 'snippets/image_modal.html' %}
   </div>
 {% endblock %}
+
+{% block offcanvas_button %}{% endblock %}
 
 {% block primary_content_inner %}
 
