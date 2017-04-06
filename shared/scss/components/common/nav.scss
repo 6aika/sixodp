@@ -1,6 +1,6 @@
 .navbar {
-  background: $navbar-bg;
   border-radius: 0;
+  background: $navbar-background-color;
 }
 
 .navbar-nav li {
@@ -27,15 +27,32 @@
   text-transform: uppercase;
 }
 
-.navbar-default > .navbar-nav > li > a {
-  color: #000;
+.navbar-default .navbar-nav li {
+  > a,
+  > a:focus {
+    color: $navbar-link-color;
+  }
+
+  &:hover {
+    > a {
+      color: $navbar-link-color-hover;
+    }
+  }
+
+  &.active {
+    > a {
+      color: $navbar-link-color-active;
+    }
+  }
 }
+
+
 
 .navbar-secondary {
   background: none;
   
   .navbar-nav {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid $navbar-border-color;
     width: 100%;
 
     li {
@@ -61,16 +78,33 @@
 .navbar-default .navbar-nav.subnav {
   margin: 0;
   position: relative;
-  background: $brand-primary;
+  background: $navbar-secondary-background-color;
   max-height: 0;
   transition: max-height .1s ease-in-out;
   overflow: hidden;
   padding-left: $base*3;
 
-  & > li > a {
-    color: #fff;
-    padding-top: $base/2;
-    padding-bottom: $base/2;
+  & > li {
+    > a,
+    > a:focus {
+      color: $navbar-secondary-link-color;
+      padding-top: $base/2;
+      padding-bottom: $base/2;
+    }
+
+    &:hover {
+      > a {
+        color: $navbar-secondary-link-color-hover;
+      }
+    }
+
+    &.active {
+      border-bottom-color: $navbar-secondary-active-link-border-color;
+
+      > a {
+        color: $navbar-secondary-link-color-active;
+      }
+    }
   }
 
   @media(min-width: $width-md) {
