@@ -112,10 +112,11 @@ $datavis-color-1-dark: $brand-primary-dark;
 $datavis-color-2: $brand-success;
 
 // Footer
-$footer-background: transparent;
+$footer-background-color: $brand-primary;
 $footer-text-color: $brand-white;
 $footer-link-color: $brand-white;
 $footer-link-color-active: $gray-lighter;
+$footer-link-color-hover: $gray-lighter;
 
 // Tag-list
 $tag-background-color: $brand-primary;
