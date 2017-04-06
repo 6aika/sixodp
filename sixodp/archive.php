@@ -24,13 +24,8 @@ get_header(); ?>
       <?php
       // Start the loop.
       while ( have_posts() ) : the_post();
-        global $post;
-        $post_slug=$post->post_name;
-
-        //var_dump($post);
-
         // Include the page content template.
-        echo '<h1><a href="'.get_the_permalink().'">'.get_the_title().'</a></h1>';
+        get_template_part('partials/archive-item');
 
         // End of the loop.
       endwhile;
