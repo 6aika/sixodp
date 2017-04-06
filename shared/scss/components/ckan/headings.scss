@@ -43,6 +43,12 @@ h3, h4, h5, h6, .module-heading {
     display: inline-block;
     overflow: hidden;
 
+    .heading-extra {
+      color: $navbar-link-color;
+      font-weight: normal;
+      font-size: $font-size-large;
+    }
+
     > * {
       margin: 0;
       display: block;
@@ -106,5 +112,12 @@ h3, h4, h5, h6, .module-heading {
       display: block;
       width: 100%;
     }
+  }
+}
+
+.main-content {
+  h1 {
+    @include heading;
+    font-size: $font-size-xlarge;
   }
 }
