@@ -1,7 +1,7 @@
 .wrapper--twitterfeed {
   @extend .wrapper;
   padding-bottom: 0;
-  max-width: 440px;
+  max-width: $base*44;
   margin: 0 auto;
 
   @media (min-width: $width-sm) {
@@ -24,8 +24,8 @@
   
   .ctf-item {
     width: 100%;
-    border-radius: 5px;
-    border: 1px solid #e7e7e7;
+    border-radius: $base/2;
+    border: 1px solid $gray-lighter;
     margin-top: $base*4;
     padding: 0;
     position: relative;
@@ -45,7 +45,7 @@
   .ctf-author-box {
     margin-left: 0 !important;
     background: $brand-primary;
-    color: #fff;
+    color: $white;
     padding: $base;
 
     .ctf-author-box-link {
@@ -54,20 +54,20 @@
       a {
         display: inline-block;
         vertical-align: middle;
-        line-height: 32px;
+        line-height: $base*3;
         margin-top: 0;
-        color: #fff !important;
+        color: $white !important;
       }
     }
 
     .ctf-author-avatar {
       margin: 0 !important;
       float: none;
-      height: 32px;
-      width: 32px;
+      height: $base*3;
+      width: $base*3;
 
       img {
-        height: 32px;
+        height: $base*3;
       }
     }
 
@@ -85,16 +85,16 @@
   .ctf-tweet-actions {
     padding: $base $base*2 !important;
     margin: 0 !important;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border: 1px solid #e7e7e7;
+    border-bottom-left-radius: $base/2;
+    border-bottom-right-radius: $base/2;
+    border: 1px solid $gray-lighter;
     border-top: 0;
     position: absolute;
-      bottom: -24px;
-      right: -1px;
-      left: -1px;
+      bottom: -$base*2.4;
+      right: -$base*0.1;
+      left: -$base*0.1;
     z-index: 1;
-    background: #fff;
+    background: $white;
 
     &:after {
       content: '';
@@ -104,7 +104,7 @@
   }
 
   .ctf-quoted-tweet {
-    margin: 7px 20px 24px 20px !important;
+    margin: $base*0.7 $base*2 $base*2.4 $base*2 !important;
   }
 
   .ctf-twitterlink, 
