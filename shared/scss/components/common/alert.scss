@@ -14,17 +14,17 @@
   &.alert {
     &-error {
       background-color: $brand-danger;
-      color: $white;
+      color: $brand-white;
     }
 
     &-success {
       background-color: $brand-success;
-      color: $white;
+      color: $brand-white;
     }
 
     &-info {
       background-color: $brand-info;
-      color: $white;
+      color: $brand-white;
     }
   }
 }
