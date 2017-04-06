@@ -45,7 +45,7 @@
   .ctf-author-box {
     margin-left: 0 !important;
     background: $brand-primary;
-    color: $white;
+    color: $brand-white;
     padding: $base;
 
     .ctf-author-box-link {
@@ -56,7 +56,7 @@
         vertical-align: middle;
         line-height: $base*3;
         margin-top: 0;
-        color: $white !important;
+        color: $brand-white !important;
       }
     }
 
@@ -94,7 +94,7 @@
       right: -$base*0.1;
       left: -$base*0.1;
     z-index: 1;
-    background: $white;
+    background: $brand-white;
 
     &:after {
       content: '';

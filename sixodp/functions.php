@@ -363,13 +363,13 @@ function get_tuki_links() {
   return get_page_children( $tuki_page->ID, $all_wp_pages );
 }
 
-function get_child_pages($page_title) {
+function get_child_pages($page_title, $limit = 6) {
   // Set up the objects needed
   $my_wp_query = new WP_Query();
   $all_wp_pages = $my_wp_query->query(array('post_type' => 'page', 'posts_per_page' => '-1'));
 
   $parent_page          = get_page_by_title($page_title);
-  return get_page_children( $parent_page->ID, $all_wp_pages );
+  return array_slice(get_page_children( $parent_page->ID, $all_wp_pages ), 0, $limit);
 }
 
 function get_current_locale() {
