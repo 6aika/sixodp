@@ -5,6 +5,7 @@
 
 .page-subheading {
   @include heading;
+  color: $headings-secondary-color;
   font-size: $font-size;
   margin-top: 0;
 

@@ -54,6 +54,7 @@
 
       .module-heading {
         @include heading;
+        color: $navbar-secondary-heading-color;
         padding: 0;
         margin: 0;
 
@@ -80,7 +81,7 @@
         }
 
         .nums {
-          color: $brand-primary;
+          color: $navbar-secondary-heading-color;
         }
       }
 
@@ -103,7 +104,7 @@
 
         .module-heading {
           font-size: $font-size;
-          color: $brand-primary;
+          color: $navbar-secondary-heading-color;
           font-weight: bold;
           font-family: $font;
         }

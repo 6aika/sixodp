@@ -39,10 +39,14 @@ $gray-light:             lighten($gray-base, $lighten-intensity*3);
 $gray-lighter:           lighten($gray-base, $lighten-intensity*6);
 
 $black: #000;
-$text-color: #000;
 $brand-white: #ffffff;
 $brand-background: #ffffff;
 $brand-secondary-background: #f8f8f8;
+
+$text-color: #000;
+$headings-color: $brand-primary;
+$headings-small-color: $brand-primary;
+$headings-secondary-color: $text-color;
 
 // Button
 $btn-font-weight: 100;
@@ -82,6 +86,7 @@ $navbar-link-color-active: $brand-primary;
 $navbar-secondary-link-color: $brand-white;
 $navbar-secondary-link-color-hover: $brand-white;
 $navbar-secondary-link-color-active: $brand-white;
+$navbar-secondary-heading-color: $brand-primary;
 $navbar-toggle-color: $brand-primary;
 $navbar-toggle-color-active: lighten($navbar-toggle-color, 30%);
 
