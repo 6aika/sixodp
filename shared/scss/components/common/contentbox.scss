@@ -20,8 +20,8 @@
 }
 
 .wrapper--inner-contentbox {
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
+  border-top: 1px solid $brand-white;
+  border-bottom: 1px solid $brand-white;
   position: relative;
   z-index: 1;
 
@@ -37,10 +37,10 @@
   max-width: $base*40;
   margin: 0 auto;
   text-align: center;
-  border-right: 1px solid white;
-  border-left: 1px solid white;
-  border-top: 1px solid white;
-  color: #fff;
+  border-right: 1px solid $brand-white;
+  border-left: 1px solid $brand-white;
+  border-top: 1px solid $brand-white;
+  color: $brand-white;
   padding-top: $base*2;
   padding-bottom: $base*2;
 
@@ -61,7 +61,7 @@
     padding-bottom: $base*4;
 
     &:nth-child(1) {
-      border-left: 1px solid white;
+      border-left: 1px solid $brand-white;
     }
   }
 }
@@ -72,10 +72,10 @@
 }
 
 .contentbox__link {
-  color: #fff;
+  color: $brand-white;
 
   &:hover {
-    color: #eee;
+    color: $brand-gray;
     text-decoration: underline;
   }
 }
@@ -92,5 +92,5 @@
 }
 
 .contentbox__body {
-  color: #fff;
+  color: $brand-white;
 }
