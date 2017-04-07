@@ -1,0 +1,31 @@
+.datepicker {
+  table {
+    tr {
+      td {
+        &.today {
+          background-image: none;
+          background-color: $brand-primary;
+          color: $brand-white;
+
+          &:hover:hover {
+            background-image: none;
+            background-color: $brand-secondary;
+            color: $brand-white;
+          }
+        }
+
+        &.active.active {
+          background-image: none;
+          background-color: $brand-secondary;
+          color: $brand-white;
+
+          &:hover:hover {
+            background-image: none;
+            background-color: $brand-secondary;
+            color: $brand-white;
+          }
+        }
+      }
+    }
+  }
+}

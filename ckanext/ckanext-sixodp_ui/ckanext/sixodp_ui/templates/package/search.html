@@ -27,7 +27,8 @@
         'remove_field': c.remove_field }
         %}
         {% set sorting = [
-        (_('Last Created'), 'date_released desc'),
+        (_('Newest first'), 'date_released desc'),
+        (_('Oldest first'), 'date_released asc'),
         (_('Popular'), 'views_recent desc') if g.tracking_enabled else (false, false),
         (_('Relevance'), 'score desc, metadata_modified desc'),
         (_('Name Ascending'), 'title_string asc'),
@@ -41,7 +42,7 @@
       {% endblock %}
 
       {% block package_search_results_list %}
-        {{ h.snippet('snippets/package_list.html', packages=c.page.items, show_rating=true) }}
+        {{ h.snippet('snippets/package_list.html', packages=c.page.items, show_rating=h.show_rating_in_type('dataset')) }}
       {% endblock %}
     </div>
 

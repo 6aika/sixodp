@@ -22,9 +22,10 @@ $(function ($) {
     // Attempt to get the user language, datepicker will default to en-US if not successful
     var language = window.navigator.userLanguage || window.navigator.language;
     jQuery('input[type=date]').datepicker({
-      format: 'yyyy-mm-dd',
+      format: 'd.m.yyyy',
       weekStart: 1,
-      language: language
+      language: language,
+      todayHighlight: true
     });
 
     // hide .navbar first
@@ -72,11 +73,14 @@ $(function ($) {
     $(".show-more").on("click", function() {
         var $this = $(this);
         var $content = $this.prev("div.show-more-content");
+        var $fadeout = $content.find(".fadeout");
 
         if($(this).children(".show-more-link").css('display') !== 'none'){
+            $fadeout.hide();
             $content.addClass("show-content");
             $content.removeClass("hide-content");
         } else {
+            $fadeout.show();
             $content.addClass("hide-content");
             $content.removeClass("show-content");
         }

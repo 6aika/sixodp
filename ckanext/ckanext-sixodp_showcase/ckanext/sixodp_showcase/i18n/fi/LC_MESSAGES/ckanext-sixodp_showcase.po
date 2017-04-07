@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_showcase 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-24 07:29+0000\n"
+"POT-Creation-Date: 2017-04-04 10:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Mikko Nieminen <mikko.nieminen@gofore.com>, 2017\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
@@ -20,13 +20,78 @@ msgstr ""
 "Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ckanext/sixodp_showcase/controller.py:47
+#: ckanext/sixodp_showcase/controller.py:54
 msgid "Showcase not found"
 msgstr "Sovellusta ei löytynyt"
 
-#: ckanext/sixodp_showcase/controller.py:49
+#: ckanext/sixodp_showcase/controller.py:56
 msgid "Unauthorized to read showcase"
 msgstr "Ei oikeuksia lukea sovellusta"
+
+#: ckanext/sixodp_showcase/controller.py:86
+msgid "Not authorized to see this page"
+msgstr "Ei oikeuksia nähdä tätä sivua"
+
+#: ckanext/sixodp_showcase/controller.py:180
+msgid "Organizations"
+msgstr "Organisaatiot"
+
+#: ckanext/sixodp_showcase/controller.py:181
+msgid "Groups"
+msgstr "Ryhmät"
+
+#: ckanext/sixodp_showcase/controller.py:182
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:33
+msgid "Tags"
+msgstr "Avainsanat"
+
+#: ckanext/sixodp_showcase/controller.py:183
+msgid "Formats"
+msgstr "Tiedostomuodot"
+
+#: ckanext/sixodp_showcase/controller.py:184
+msgid "Licenses"
+msgstr "Lisenssit"
+
+#: ckanext/sixodp_showcase/controller.py:234
+msgid "Invalid search query: {error_message}"
+msgstr "Virheellinen haku: {error_message}"
+
+#: ckanext/sixodp_showcase/controller.py:251
+msgid "Parameter \"{parameter_name}\" is not an integer"
+msgstr "Parametri \"{parameter_name}\" ei ole kokonaisluku"
+
+#: ckanext/sixodp_showcase/plugin.py:91
+msgid "Category"
+msgstr "Kategoria"
+
+#: ckanext/sixodp_showcase/plugin.py:93
+msgid "Platform"
+msgstr "Alusta"
+
+#: ckanext/sixodp_showcase/templates/package/dataset_showcase_list.html:3
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:6
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:33
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:4
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:7
+msgid "Showcases"
+msgstr "Sovellukset"
+
+#: ckanext/sixodp_showcase/templates/package/dataset_showcase_list.html:13
+msgid "Associate this showcase with this dataset"
+msgstr "Liitä tietoaineisto tähän sovellukseen"
+
+#: ckanext/sixodp_showcase/templates/package/dataset_showcase_list.html:13
+msgid "Add to showcase"
+msgstr "Liitä sovellukseen"
+
+#: ckanext/sixodp_showcase/templates/package/dataset_showcase_list.html:17
+msgid "Showcases featuring {dataset_name}"
+msgstr "Sovellukset joihin liittyy tietoaineisto {dataset_name}"
+
+#: ckanext/sixodp_showcase/templates/package/dataset_showcase_list.html:22
+msgid "There are no showcases that feature this dataset"
+msgstr "Tietoaineisto ei liity yhteenkään sovellukseen"
 
 #: ckanext/sixodp_showcase/templates/scheming/package/snippets/package_form.html:4
 msgid "Next: Add Data"
@@ -64,10 +129,6 @@ msgstr "Kuvaus"
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:28
 msgid "eg. Some useful notes about the data"
 msgstr "esim. datan sanallinen kuvaus"
-
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:33
-msgid "Tags"
-msgstr "Avainsanat"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:33
 msgid "eg. economy, mental health, government"
@@ -109,77 +170,101 @@ msgstr "Poista"
 msgid "Update Showcase"
 msgstr "Päivitä sovellus"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:6
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:33
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:69
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:4
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:7
-msgid "Showcases"
-msgstr "Sovellukset"
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:52
+msgid "Archived"
+msgstr "Arkistoitu"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:53
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:54
 msgid "Draft"
 msgstr "Luonnos"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:63
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:86
 msgid "Published"
 msgstr "Julkaistu"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:65
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:88
 msgid "updated"
 msgstr "päivitetty"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:105
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:116
 msgid "Manage"
 msgstr "Hallinnoi"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:117
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:128
 msgid "Private"
 msgstr "Yksityinen"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:134
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:145
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/snippets/showcase_info.html:22
 msgid "Launch website"
 msgstr "Avaa sivu"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:141
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:170
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:151
 msgid "Used datasets"
 msgstr "Käytetyt tietoaineistot"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:145
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:174
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:155
 msgid "There are no Datasets in this Showcase"
 msgstr "Sovellukseen ei liity tietoaineistoja"
 
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:163
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:207
+msgid "More from the author"
+msgstr "Lisää samalta tekijältä"
+
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:165
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:209
+msgid "Show all from this author"
+msgstr "Näytä kaikki tältä tekijältä"
+
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:190
+msgid "Application website"
+msgstr "Sovelluksen verkkosivusto"
+
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:196
+msgid "Author website"
+msgstr "Tekijän verkkosivusto"
+
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:13
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:47
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:53
 msgid "Search showcases..."
 msgstr "Etsi sovelluksia..."
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:26
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:29
 msgid "Add Showcase"
 msgstr "Lisää sovellus"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:40
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:43
+msgid "Newest first"
+msgstr "Uusin ensin"
+
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:44
+msgid "Oldest first"
+msgstr "Vanhin ensin"
+
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:45
+msgid "Popular"
+msgstr "Suositut"
+
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:46
 msgid "Relevance"
 msgstr "Relevanssi"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:41
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:47
 msgid "Name Ascending"
 msgstr "Nimen mukaan nousevasti"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:42
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:48
 msgid "Name Descending"
 msgstr "Nimen mukaan laskevasti"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:43
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:49
 msgid "Last Modified"
 msgstr "Viimeksi muokattu"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:44
-msgid "Popular"
-msgstr "Suositut"
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:50
+msgid "Top rating"
+msgstr "Paras arvosana"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/snippets/showcase_item.html:32
 msgid "This showcase has no description"

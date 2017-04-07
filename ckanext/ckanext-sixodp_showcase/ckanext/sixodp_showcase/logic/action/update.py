@@ -16,7 +16,7 @@ def showcase_update(context, data_dict):
 
 
     # schema images
-    imgs = ['icon', 'image_1', 'image_2', 'image_3', 'image_4']
+    imgs = ['icon', 'featured_image', 'image_1', 'image_2', 'image_3']
     for image in imgs:
         if data_dict[image]:
             try:

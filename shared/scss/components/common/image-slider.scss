@@ -7,10 +7,15 @@
     width: 100%;
     overflow-x: auto;
     list-style: none;
-    background: $navbar-bg;
+    background: $image-slider-background-color;
     padding: $padding-large-vertical;
-    margin: $margin-large-vertical*2 0;
+    margin-top: $margin-large-vertical*2;
+    margin-bottom: $margin-large-vertical*2;
     display: block;
+
+    @media(min-width: $width-md) {
+      margin-bottom: 0;
+    }
 
     li,
     .image-slider-item {

@@ -22,7 +22,9 @@
 @import "components/common/icon-link";
 @import "components/common/contactbanner";
 @import "components/common/author";
+@import "components/common/popper";
 
+@import "components/cms/featured";
 @import "components/cms/stats";
 @import "components/cms/categories";
 @import "components/cms/datasets";
@@ -32,4 +34,12 @@
 @import "components/cms/headingbar";
 @import "components/cms/sidebar";
 @import "components/cms/article";
+
 @import "components/cms/search";
+@import "components/cms/banner";
+@import "components/cms/card";
+@import "components/cms/boxlink";
+@import "components/cms/twitterfeed";
+@import "components/cms/page";
+@import "components/cms/addthis";
+

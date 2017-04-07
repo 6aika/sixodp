@@ -5,11 +5,12 @@
 
 .page-subheading {
   @include heading;
+  color: $headings-secondary-color;
   font-size: $font-size;
   margin-top: 0;
 
   a {
-    color: $brand-success;
+    color: $link-color-secondary;
   }
 }
 
@@ -43,6 +44,12 @@ h3, h4, h5, h6, .module-heading {
     display: inline-block;
     overflow: hidden;
 
+    .heading-extra {
+      color: $navbar-link-color;
+      font-weight: normal;
+      font-size: $font-size-large;
+    }
+
     > * {
       margin: 0;
       display: block;
@@ -67,5 +74,51 @@ h3, h4, h5, h6, .module-heading {
   }
 }
 
+.secondary-heading-container {
+  text-align: center;
 
+  a {
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      color: $link-color;
+    }
+  }
 
+  .rating-star {
+    color: $rating-stars-color;
+  }
+
+  .heading-icon {
+    display: inline-block;
+    margin: auto;
+
+    img {
+      object-fit: cover;
+      width: 96px;
+      height: 96px;
+    }
+  }
+
+  .headings-wrapper {
+    width: auto;
+    display: block;
+
+    .heading {
+      font-size: $font-size-large;
+    }
+
+    > * {
+      margin: 0;
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+.main-content {
+  h1 {
+    @include heading;
+    font-size: $font-size-xlarge;
+  }
+}
