@@ -5,11 +5,6 @@
 
 {% block subtitle %}{{ pkg.title or pkg.name }} - {{ _('Showcases') }}{% endblock %}
 
-{% block styles %}
-  {{ super() }}
-  <link rel="stylesheet" href="{{ g.site_url }}/ckanext_showcase.css" />
-{% endblock %}
-
 {% block links -%}
   {{ super() }}
   <link rel="alternate" type="application/rdf+xml" href="{{ h.url_for(controller='ckanext.showcase.controller:ShowcaseController', action='read', id=pkg.id, format='rdf', qualified=True) }}"/>

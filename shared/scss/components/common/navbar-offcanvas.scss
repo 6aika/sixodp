@@ -16,7 +16,8 @@
 
       &.active {
         a {
-          background-color: $link-color;
+          background-color: $navbar-offcanvas-link-background-color-active;
+          color: $navbar-offcanvas-link-color-active;
         }
       }
 
@@ -26,8 +27,8 @@
         margin: 0;
 
         &:hover {
-          background-color: $link-color-active;
-          color: $button-text-color-active;
+          background-color: $navbar-offcanvas-link-background-color-hover;
+          color: $navbar-offcanvas-link-color-hover;
         }
       }
     }
@@ -42,8 +43,8 @@
       &.active,
       &:focus {
         a {
-          background-color: $brand-primary;
-          color: $brand-white;
+          background-color: $navbar-offcanvas-link-background-color-active;
+          color: $navbar-offcanvas-link-color-active;
         }
       }
 
@@ -53,8 +54,8 @@
         width: 100%;
 
         &:hover {
-          background-color: $link-color-active;
-          color: $button-text-color-active;
+          background-color: $navbar-offcanvas-link-background-color-hover;
+          color: $navbar-offcanvas-link-color-active;
         }
       }
     }
@@ -69,11 +70,11 @@
   }
 
   .navbar-default .navbar-offcanvas {
-    background-color: #f8f8f8;
+    background-color: $navbar-offcanvas-background-color;
   }
 
   .navbar-inverse .navbar-offcanvas {
-    background-color: #222;
+    background-color: $black;
   }
 
   .navbar-offcanvas {
@@ -183,7 +184,7 @@
     border-radius: 0;
     border: none;
     width: 100%;
-    border-bottom: 1px solid #d9d9d9;
+    border-bottom: 1px solid $gray-light;
 
     > span {
       float: right;
@@ -197,13 +198,12 @@
   font-style: italic;
 }
 .offcanvas-toggle {
-  background: #f8f8f8;
+  background: $navbar-offcanvas-toggle-background-color;
   margin: 10px 0 10px -20px;
-  border-radius: 4px;
-  border: 2px solid #989c9f;
+  border: none;
 
   .icon-bar {
-    background: #000;
+    background: $navbar-offcanvas-toggle-icon-color;
     -webkit-transition: all 0.25s ease-in-out;
     transition: all 0.25s ease-in-out;
   }
