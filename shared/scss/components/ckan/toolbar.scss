@@ -3,6 +3,14 @@
 
   .breadcrumb {
     text-align: left;
+
+    a {
+      color: $breadcrumb-link-color;
+    }
+
+    li:before {
+      color: $breadcrumb-link-separator-color;
+    }
   }
 
   @media(min-width: $width-md) {

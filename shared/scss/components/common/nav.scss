@@ -1,4 +1,5 @@
 .navbar {
+  border: none;
   border-radius: 0;
   background: $navbar-background-color;
 }
@@ -9,6 +10,8 @@
   > a {
     border-top: $base/2 solid transparent;
     border-bottom: $base/2 solid transparent;
+    padding-top: $navbar-height/4;
+    padding-bottom: $navbar-height/4;
   }
 
   &.active {
@@ -109,7 +112,7 @@
 
   @media(min-width: $width-md) {
     position: absolute;
-    top: $base*5;
+    top: $navbar-height;
     left: 0;
     right: 0;
   }
