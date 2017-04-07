@@ -42,6 +42,7 @@ $black: #000;
 $text-color: #000;
 $brand-white: #ffffff;
 $brand-background: #ffffff;
+$brand-secondary-background: #f8f8f8;
 
 // Button
 $btn-font-weight: 100;
@@ -95,8 +96,6 @@ $nav-tabs-active-link-hover-bg:             $brand-primary;
 $nav-tabs-active-link-hover-color:          $brand-white;
 $nav-tabs-active-link-hover-border-color:   $brand-primary;
 
-$secondary-bg: $navbar-background-color;
-
 // Links
 $link-color: $brand-primary;
 $link-color-active: lighten($link-color, 20%);
@@ -140,6 +139,7 @@ $badge-background-color-active: $brand-primary;
 $image-slider-background-color: $navbar-background-color;
 $label-text-color: $brand-success;
 $label-background-color: $navbar-background-color;
+$media-item-background-color: $brand-background;
 $table-border-color: #dddddd;
 $topic-list-background-color: $gray-lighter;
 
@@ -178,6 +178,7 @@ $margin-small-vertical: 5px;
 $margin-small-horizontal: 5px;
 
 $line-height-computed: 20px;
+$input-background-color: $brand-background;
 $input-height-base: ($line-height-computed + ($padding-base-vertical * 2) - 1);
 $input-height-large: (ceil($font-size-large * $line-height-large) + ($padding-large-vertical * 2) - 1);
 $input-height-small: (floor($font-size-small * $line-height-small) + ($padding-small-vertical * 2) - 1);
