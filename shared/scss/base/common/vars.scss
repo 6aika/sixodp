@@ -96,6 +96,17 @@ $nav-tabs-active-link-hover-bg:             $brand-primary;
 $nav-tabs-active-link-hover-color:          $brand-white;
 $nav-tabs-active-link-hover-border-color:   $brand-primary;
 
+// Navbar offcanvas
+$navbar-offcanvas-toggle-background-color: $navbar-background-color;
+$navbar-offcanvas-toggle-icon-color: $black;
+$navbar-offcanvas-background-color: $navbar-background-color;
+$navbar-offcanvas-link-background-color: transparent;
+$navbar-offcanvas-link-background-color-hover: $brand-primary-light;
+$navbar-offcanvas-link-background-color-active: $brand-primary-light;
+$navbar-offcanvas-link-color: $brand-primary;
+$navbar-offcanvas-link-color-hover: $brand-white;
+$navbar-offcanvas-link-color-active: $brand-white;
+
 // Links
 $link-color: $brand-primary;
 $link-color-active: lighten($link-color, 20%);
