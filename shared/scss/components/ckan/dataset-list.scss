@@ -43,10 +43,10 @@
       }
 
       .dataset-metadata {
-        font-size: $font-size-small;
+        font-size: $font-size-base;
 
         .dataset-created {
-          color: $text-color;
+          color: $headings-secondary-color;
         }
         .dataset-category-link {
           color: $label-text-color;

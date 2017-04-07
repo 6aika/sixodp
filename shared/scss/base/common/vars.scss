@@ -30,10 +30,8 @@ $brand-info: #446eb5;
 $brand-warning: #f0ad4e;
 $brand-danger: #d9534f;
 
-$brand-background: #ffffff;
-$body-background: #f5f5f5;
-
-$gray-base: #57575b;
+$brand-gray: #57575b;
+$gray-base: $brand-gray;
 $gray-darker:            darken($gray-base, $darken-intensity*2);
 $gray-dark:              darken($gray-base, $darken-intensity);
 $gray:                   lighten($gray-base, $lighten-intensity*1.5);
@@ -41,10 +39,17 @@ $gray-light:             lighten($gray-base, $lighten-intensity*3);
 $gray-lighter:           lighten($gray-base, $lighten-intensity*6);
 
 $black: #000;
-$text-color: #000;
 $brand-white: #ffffff;
 $brand-gray: #e7e7e7;
 $brand-lightgray: #f5f5f5;
+
+$brand-background: #ffffff;
+$brand-secondary-background: #f8f8f8;
+
+$text-color: #000;
+$headings-color: $brand-primary;
+$headings-small-color: $brand-primary;
+$headings-secondary-color: $brand-primary;
 
 // Button
 $btn-font-weight: 100;
@@ -72,7 +77,7 @@ $navbar-secondary-background-color: $brand-primary;
 $navbar-active-link-border-color: $brand-secondary;
 $navbar-secondary-active-link-border-color: $brand-secondary;
 
-$navbar-height: 40px;
+$navbar-height: 60px;
 $navbar-margin-bottom: 0;
 $nav-link-hover-bg: transparent;
 
@@ -98,11 +103,24 @@ $nav-tabs-active-link-hover-bg:             $brand-primary;
 $nav-tabs-active-link-hover-color:          $brand-white;
 $nav-tabs-active-link-hover-border-color:   $brand-primary;
 
-$secondary-bg: $navbar-background-color;
+// Navbar offcanvas
+$navbar-offcanvas-toggle-background-color: $brand-primary;
+$navbar-offcanvas-toggle-icon-color: $brand-white;
+$navbar-offcanvas-background-color: $navbar-background-color;
+$navbar-offcanvas-link-background-color: transparent;
+$navbar-offcanvas-link-background-color-hover: $brand-primary-light;
+$navbar-offcanvas-link-background-color-active: $brand-primary-light;
+$navbar-offcanvas-link-color: $brand-primary;
+$navbar-offcanvas-link-color-hover: $brand-white;
+$navbar-offcanvas-link-color-active: $brand-white;
+$navbar-offcanvas-border-color: $brand-primary;
+$navbar-offcanvas-heading-color: $brand-primary;
 
 // Links
 $link-color: $brand-primary;
 $link-color-active: lighten($link-color, 20%);
+$link-color-secondary: $brand-success;
+$link-color-secondary-active: lighten($link-color-secondary, 20%);
 
 // Rating (ckan extension)
 $rating-stars-color: $brand-success;
@@ -115,10 +133,11 @@ $datavis-color-1-dark: $brand-primary-dark;
 $datavis-color-2: $brand-success;
 
 // Footer
-$footer-background: transparent;
+$footer-background-color: $brand-primary;
 $footer-text-color: $brand-white;
 $footer-link-color: $brand-white;
 $footer-link-color-active: $gray-lighter;
+$footer-link-color-hover: $gray-lighter;
 
 // Tag-list
 $tag-background-color: $brand-primary;
@@ -137,9 +156,12 @@ $stages-text-color-filled: $brand-white;
 // Misc component colors
 $badge-background-color: $brand-primary;
 $badge-background-color-active: $brand-primary;
+$breadcrumb-link-color: $brand-gray;
+$breadcrumb-link-separator-color: $brand-primary;
 $image-slider-background-color: $navbar-background-color;
 $label-text-color: $brand-success;
 $label-background-color: $navbar-background-color;
+$media-item-background-color: $brand-background;
 $table-border-color: #dddddd;
 $topic-list-background-color: $gray-lighter;
 
@@ -178,6 +200,7 @@ $margin-small-vertical: 5px;
 $margin-small-horizontal: 5px;
 
 $line-height-computed: 20px;
+$input-background-color: $brand-background;
 $input-height-base: ($line-height-computed + ($padding-base-vertical * 2) - 1);
 $input-height-large: (ceil($font-size-large * $line-height-large) + ($padding-large-vertical * 2) - 1);
 $input-height-small: (floor($font-size-small * $line-height-small) + ($padding-small-vertical * 2) - 1);
