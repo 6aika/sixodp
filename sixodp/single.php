@@ -38,6 +38,10 @@ get_header(); ?>
         // End of the loop.
       endwhile;
       ?>
+      <div class="addthis_toolbox">
+        <a class="addthis_button_facebook_like at300b"></a>
+        <a class="addthis_button_tweet at300b"></a>
+      </div>
     </div>
 
   </main><!-- .site-main -->
