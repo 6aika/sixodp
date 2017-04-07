@@ -86,7 +86,6 @@ $navbar-link-color-active: $brand-primary;
 $navbar-secondary-link-color: $brand-white;
 $navbar-secondary-link-color-hover: $brand-white;
 $navbar-secondary-link-color-active: $brand-white;
-$navbar-secondary-heading-color: $brand-primary;
 $navbar-toggle-color: $brand-primary;
 $navbar-toggle-color-active: lighten($navbar-toggle-color, 30%);
 
@@ -102,8 +101,8 @@ $nav-tabs-active-link-hover-color:          $brand-white;
 $nav-tabs-active-link-hover-border-color:   $brand-primary;
 
 // Navbar offcanvas
-$navbar-offcanvas-toggle-background-color: $navbar-background-color;
-$navbar-offcanvas-toggle-icon-color: $black;
+$navbar-offcanvas-toggle-background-color: $brand-primary;
+$navbar-offcanvas-toggle-icon-color: $brand-white;
 $navbar-offcanvas-background-color: $navbar-background-color;
 $navbar-offcanvas-link-background-color: transparent;
 $navbar-offcanvas-link-background-color-hover: $brand-primary-light;
@@ -111,6 +110,8 @@ $navbar-offcanvas-link-background-color-active: $brand-primary-light;
 $navbar-offcanvas-link-color: $brand-primary;
 $navbar-offcanvas-link-color-hover: $brand-white;
 $navbar-offcanvas-link-color-active: $brand-white;
+$navbar-offcanvas-border-color: $brand-primary;
+$navbar-offcanvas-heading-color: $brand-primary;
 
 // Links
 $link-color: $brand-primary;
