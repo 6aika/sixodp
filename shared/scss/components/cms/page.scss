@@ -15,7 +15,8 @@
 
 .page__hero {
   height: $base*32;
-  background: #eee;
+  background: url('/assets/images/blog_bgr.png') no-repeat center center;
+  background-size: cover;
 }
 
 .page__content {
