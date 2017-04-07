@@ -82,6 +82,21 @@ if ( !function_exists('sixodp_theme_setup') ) :
 endif; // twentysixteen_setup
 add_action( 'after_setup_theme', 'sixodp_theme_setup' );
 
+// add tag support to pages
+function tags_support_all() {
+  register_taxonomy_for_object_type('post_tag', 'page');
+}
+
+// ensure all tags are included in queries
+function tags_support_query($wp_query) {
+  if ($wp_query->get('tag')) $wp_query->set('post_type', 'any');
+}
+
+// tag hooks
+add_action('init', 'tags_support_all');
+add_action('pre_get_posts', 'tags_support_query');
+
+
 function footer_widgets_init() {
 	register_sidebar( array(
 		'name'          => 'Footer widget sidebar',
@@ -284,12 +299,19 @@ function sixodp_scripts() {
 add_action( 'wp_enqueue_scripts', 'sixodp_scripts' );
 
 function get_nav_menu_items($menu) {
-  return wp_get_menu_array($menu . '_' . get_current_locale());
+  return wp_get_menu_array($menu);
 }
 
 function wp_get_menu_array($current_menu) {
-
-    $array_menu = wp_get_nav_menu_items($current_menu);
+    //var_dump(!in_array(get_current_locale().'', array("fi", "en_GB", "sv")));
+    if ( !in_array(get_current_locale().'', array("fi", "en_GB", "sv")) ) {
+      $array_menu = wp_get_nav_menu_items($current_menu . '_fi');
+      //echo 'SHIT?';
+    } else {
+      $array_menu = wp_get_nav_menu_items($current_menu . '_' . get_current_locale());
+      //echo 'NO SHIT?';
+    }
+    
     $menu = array();
     foreach ($array_menu as $m) {
         if (empty($m->menu_item_parent)) {
@@ -339,6 +361,15 @@ function get_tuki_links() {
 
   $tuki_page          = get_page_by_title('Tuki');
   return get_page_children( $tuki_page->ID, $all_wp_pages );
+}
+
+function get_child_pages($page_title, $limit = 6) {
+  // Set up the objects needed
+  $my_wp_query = new WP_Query();
+  $all_wp_pages = $my_wp_query->query(array('post_type' => 'page', 'posts_per_page' => '-1'));
+
+  $parent_page          = get_page_by_title($page_title);
+  return array_slice(get_page_children( $parent_page->ID, $all_wp_pages ), 0, $limit);
 }
 
 function get_current_locale() {
