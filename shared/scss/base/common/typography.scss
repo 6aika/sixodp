@@ -59,3 +59,8 @@ a {
   @include heading();
   font-size: 2.2rem;
 }
+
+.heading--archive {
+  @extend .heading--main;
+  margin-top: $base*6;
+}

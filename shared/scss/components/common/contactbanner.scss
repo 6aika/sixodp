@@ -2,7 +2,7 @@
   background: $brand-secondary;
   margin: $base*4 auto;
   padding-bottom: $base*2;
-  color: #fff;
+  color: $brand-white;
   position: relative;
 }
 
@@ -29,7 +29,7 @@
 .contactbanner .heading,
 .contactbanner div {
   text-align: center;
-  color: #fff;
+  color: $brand-white;
 }
 
 .contactbanner .btn-transparent {

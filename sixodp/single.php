@@ -30,8 +30,10 @@ get_header(); ?>
         //var_dump($post);
 
         // Include the page content template.
-        echo '<h1>'.get_the_title().'</h1>';
-        echo '<div class"article__wrapper"><article class="article">' . get_the_content() . '</article></div>';
+        echo '<h1 class="heading--main">'.get_the_title().'</h1>';
+        echo '<article class="article">' . get_the_content() . '</article>';
+        include( locate_template('partials/article-footer.php') );
+
 
         // End of the loop.
       endwhile;

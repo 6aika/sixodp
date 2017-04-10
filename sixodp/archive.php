@@ -21,16 +21,12 @@ get_header(); ?>
 
     <div class="page__hero"></div>
     <div class="page__content container">
+      <h1 class="heading--archive"><?php echo get_post_type_object(get_post_type())->labels->name; ?></h1>
       <?php
       // Start the loop.
       while ( have_posts() ) : the_post();
-        global $post;
-        $post_slug=$post->post_name;
-
-        //var_dump($post);
-
         // Include the page content template.
-        echo '<h1><a href="'.get_the_permalink().'">'.get_the_title().'</a></h1>';
+        get_template_part('partials/archive-item');
 
         // End of the loop.
       endwhile;

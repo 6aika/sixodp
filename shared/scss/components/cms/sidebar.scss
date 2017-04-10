@@ -14,7 +14,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  background: #f7f7f7;
+  background: $brand-lightgray;
 }
 
 .sidebar__item {
@@ -34,7 +34,7 @@
 .sidebar__item--heading {
   padding: $base*1.5 $base*2;
   background: $brand-primary;
-  color: #fff;
+  color: $brand-white;
 }
 
 .sidebar__link {
@@ -60,11 +60,11 @@
 
 .sidebar__link--block {
   display: block;
-  color: #fff;
+  color: $brand-white;
   position: relative;
 
   &:hover {
-    color: #ccc;
+    color: $gray-light;
   }
 }
 
@@ -89,7 +89,7 @@
     background: $brand-primary;
 
     i {
-      color: #fff;
+      color: $brand-white;
     }
   }
 }

@@ -20,7 +20,7 @@
 
 .icon-link__link {
   background: $brand-secondary;
-  color: #fff;
+  color: $brand-white;
 }
 
 .icon-link__link--round {
@@ -40,7 +40,7 @@
     background: $brand-primary;
 
     i {
-      color: #fff;
+      color: $brand-white;
     }
   }
 }
