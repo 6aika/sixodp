@@ -37,14 +37,20 @@
   }
 
   &:hover {
-    > a {
+    > a,
+    > a:focus{
       color: $navbar-link-color-hover;
     }
   }
 
   &.active {
-    > a {
+    > a,
+    > a:focus {
       color: $navbar-link-color-active;
+
+      &:hover {
+        color: $navbar-link-color-active-hover;
+      }
     }
   }
 }
