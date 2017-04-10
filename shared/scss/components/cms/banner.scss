@@ -22,18 +22,18 @@
 
 .banner__title {
   font-size: 2rem;
-  color: #fff;
+  color: $brand-white;
   margin-top: 0;
   margin-bottom: 0;
 }
 
 .banner__subtitle {
   font-size: 1.5rem;
-  color: #fff;
+  color: $brand-white;
 }
 
 .banner__buttons .btn {
-  color: white;
+  color: $brand-white;
   padding-left: $base*2;
   padding-right: $base*2;
 

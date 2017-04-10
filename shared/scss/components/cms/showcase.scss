@@ -1,21 +1,21 @@
 .wrapper--showcase {
   @extend .wrapper;
-  background: #f5f5f5;
+  background: $brand-lightgray;
 
   .container {
-    width: 300px;
+    width: $base*30;
     margin: 0 auto;
 
     @media (min-width: $width-sm) {
-      width: 600px;
+      width: $base*60;
     }
 
     @media (min-width: $width-md) {
-      width: 600px;
+      width: $base*60;
     }
 
     @media (min-width: $width-lg) {
-      width: 1200px;
+      width: $base*120;
     }
   }
 
@@ -34,8 +34,8 @@
 
 .showcase {
   background: $brand-primary;
-  color: #fff;
-  border-radius: 6px;
+  color: $brand-white;
+  border-radius: $base/2;
 }
 
 .showcase__content {
@@ -52,7 +52,7 @@
 }
 
 .showcase__text {
-  color: #fff;
+  color: $brand-white;
   height: $base*12;
   position: relative;
   overflow: hidden;
@@ -61,10 +61,10 @@
     content: '';
     display: block;
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
     background: rgba($brand-primary, 0.1);
     background: -moz-linear-gradient(rgba($brand-primary, 0) 40%, rgba($brand-primary, 0.2) 70%, rgba($brand-primary, 1) 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(rgba($brand-primary, 0) 40%, rgba($brand-primary, 0.2) 70%, rgba($brand-primary, 1) 100%); /* Chrome10-25,Safari5.1-6 */
@@ -81,13 +81,13 @@
 }
 
 .showcase__link {
-  color: #fff;
-  padding-bottom: 2px;
-  border-bottom: 2px solid transparent;
+  color: $brand-white;
+  padding-bottom: $base/5;
+  border-bottom: $base/5 solid transparent;
 
   &:hover {
-    color: #fff;
-    border-bottom: 2px solid white;
+    color: $brand-white;
+    border-bottom: $base/5 solid white;
   }
 }
 
