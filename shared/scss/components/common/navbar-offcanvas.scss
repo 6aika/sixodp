@@ -4,7 +4,9 @@
   @media screen and (max-width: $width-md - 1) {
     position: fixed !important;
     height: 0;
+    max-height: none !important;
     max-height: initial !important;
+    max-width: none !important;
     max-width: initial !important;
   }
 
