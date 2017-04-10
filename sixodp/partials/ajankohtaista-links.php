@@ -17,7 +17,7 @@
           if ( $bg && $count < 3 ) {
             echo '<div class="boxlink" style="background-image: url('.$bg.');"><div class="boxlink__footer"><h2 class="heading">';
             echo '<a href="'.$boxlink_url.'">'.$boxlink_heading.'</a></h2>';
-            echo '<span class="round"><i class="material-icons">arrow_forward</i></span>';
+            echo '<a href="'.$boxlink_url.'" class="round"><i class="material-icons">arrow_forward</i></a>';
             echo '</div></div>';
             $count++;
           }

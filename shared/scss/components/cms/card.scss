@@ -7,11 +7,11 @@
 }
 
 .card {
-  border-radius: 6px;
+  border-radius: $base/2;
   background: white;
   padding: $base*2;
   margin: $base;
-  border: 1px solid #e7e7e7;
+  border: 1px solid $brand-gray;
   width: 33%;
 
   @media (min-width: $width-sm) {
@@ -28,7 +28,7 @@
 
 .card__title {
   @include heading();
-  border-bottom: 1px solid #e7e7e7;
+  border-bottom: 1px solid $brand-gray;
   padding-bottom: $base;
   margin-bottom: $base;
   font-size: 2.2rem;
@@ -55,7 +55,7 @@
   padding: $base*4 0;
 
   .heading--mleft {
-    color: #fff;
+    color: $brand-white;
   }
 }
 
@@ -87,9 +87,9 @@
 .card__meta--latest {
   padding: $base;
   background: $brand-secondary;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  color: #fff;
+  border-top-left-radius: $base/2;
+  border-top-right-radius: $base/2;
+  color: $brand-white;
 }
 
 .card__categorylink--latest {
@@ -112,10 +112,10 @@
 }
 
 .card__img {
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
+  border-top-left-radius: $base/2;
+  border-top-right-radius: $base/2;
 }
 
 .showcase__footer p {
-  color: #fff;
+  color: $brand-white;
 }

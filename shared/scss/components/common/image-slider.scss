@@ -25,7 +25,7 @@
       img {
         object-fit: cover;
         width: auto;
-        height: 300px;
+        height: $base*30;
 
         &:hover {
           opacity: 0.8;

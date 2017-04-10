@@ -15,16 +15,34 @@
 
 .page__hero {
   height: $base*32;
-  background: #eee;
+  background: url('/assets/images/blog_bgr.png') no-repeat center center;
+  background-size: cover;
 }
 
 .page__content {
   @extend %pagew;
   margin-top: -$base*24;
-  background: #fff;
+  background: $brand-white;
 }
 
 .page__content {
+
+  .single & {
+    padding: $base*4 $base*2;
+
+    @media (min-width: $width-sm) {
+      padding: $base*4;
+    }
+
+    @media (min-width: $width-md) {
+      padding: $base*6;
+    }
+
+    @media (min-width: 1200px) {
+      padding: $base*6 $base*10;
+      width: $base*97;
+    }
+  }
 
   @media (min-width: 1200px) {
     width: $base*97;
@@ -33,7 +51,7 @@
 
 .page__breadcrumb {
   margin: 0;
-  border-bottom: 1px solid #e7e7e7;
+  border-bottom: 1px solid $gray-lighter;
   height: $base*6;
   padding-left: 0;
 
