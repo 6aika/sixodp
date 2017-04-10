@@ -27,26 +27,50 @@ Api.prototype.getAllData = function (callback, delay) {
       data.categories = result
       self._stepLoaded(self._texts.loadDatasets, 81.8) // 64.2)
 
-      self.get('current_package_list_with_resources?limit=1000', function (result) {
+      self.get('current_package_list_with_resources', function (result) {
         data.datasets = result
         self._stepLoaded(self._texts.loadApps, 88.8) // 77.9)
 
         self.get('ckanext_showcase_list', function (result) {
           data.apps = result
-          self._stepLoaded(self._texts.loadRendering, 99.9)
 
-          // https://developer.wordpress.org/rest-api/reference/posts/
-          // wp-json/wp/v2/posts
+          if (data.apps.length === 0) {
+            finishedAppDatasets()
+          } else {
+            self._stepLoaded(self._texts.loadAppDatasetRelations, 95.0)
+            var receivedCount = 0
+            for (i in data.apps) {
+              self.get('ckanext_showcase_package_list?showcase_id=' + data.apps[i].id, function (result) {
+                data.apps[i].datasets = result
 
-          callback(data)
+                receivedCount ++
+                if (receivedCount >= data.apps.length) {
+                  finishedAppDatasets()
+                }
+              })
+            }
+          }
 
-          // Hide loading screen
-          setTimeout(function () {
-            self._stepLoaded(self._texts.loadDone, 100)
-            self._elem.container.fadeOut(200, function () {
-              self._elem.container.remove()
-            })
-          }, delay)
+          function finishedAppDatasets () {
+            self._stepLoaded(self._texts.loadPreprocessing, 97.0)
+
+            // https://developer.wordpress.org/rest-api/reference/posts/
+            // wp-json/wp/v2/posts
+
+            data = self._preprocess(data)
+            self._stepLoaded(self._texts.loadRendering, 99.9)
+
+            console.log('Data', data)
+            callback(data)
+
+            // Hide loading screen
+            setTimeout(function () {
+              self._stepLoaded(self._texts.loadDone, 100.0)
+              self._elem.container.fadeOut(200, function () {
+                self._elem.container.remove()
+              })
+            }, delay)
+          }
         })
       })
     })
@@ -70,6 +94,30 @@ Api.prototype.get = function (endPoint, callback) {
     }
     callback(result)
   })
+}
+
+
+Api.prototype._preprocess = function (data) {
+  // Add app information to datasets
+  for (i in data.datasets) {
+    data.datasets[i].apps = []
+  }
+  for (i in data.apps) {
+    for (j in data.apps[i].datasets) {
+      var datasetId = data.apps[i].datasets[j].id
+      for (k in data.datasets) {
+        if (data.datasets[k].id === datasetId) {
+          data.datasets[k].apps.push({
+            id: data.apps[i].id,
+            title: data.apps[i].title,
+          })
+          break
+        }
+      }
+    }
+  }
+
+  return data
 }
 
 

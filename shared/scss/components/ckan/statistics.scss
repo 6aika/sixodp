@@ -238,6 +238,7 @@
   color: $white;
   h1, h2, .statistics-vis-title {
     color: $white;
+    margin-bottom: 25px;
   }
 }
 .statistics-dataset-section {
@@ -254,7 +255,8 @@
 // Visualization elements
 
 .statistics-vis {
-  margin-bottom: 50px;
+  padding-top: 25px;
+  padding-bottom: 75px;
 }
 
 .statistics-line {

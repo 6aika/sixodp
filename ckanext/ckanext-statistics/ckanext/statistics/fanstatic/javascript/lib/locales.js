@@ -36,6 +36,16 @@ Locales = {
     sv: '',
     en: 'Loading apps',
   },
+  loadAppDatasetRelations: {
+    fi: 'Ladataan relaatiot',
+    sv: '',
+    en: 'Loading relations',
+  },
+  loadPreprocessing: {
+    fi: 'Esikäsitellään',
+    sv: '',
+    en: 'Preprocessing',
+  },
   loadRendering: {
     fi: 'Piirretään',
     sv: '',
@@ -113,9 +123,9 @@ Locales = {
 
   // Datasets section
   datasetsOpenedTitle: {
-    fi: 'Avattuja tietoaineistoja',
+    fi: 'Aikajana',
     sv: '',
-    en: 'Opened datasets',
+    en: 'Timeline',
   },
   topPublishersTitle: {
     fi: 'Julkaisijat', // 'Eniten julkaisseet',
@@ -125,9 +135,9 @@ Locales = {
 
   // Apps section
   appsPublishedTitle: {
-    fi: 'Sovelluksia tehty',
+    fi: 'Aikajana',
     sv: '',
-    en: 'Apps created',
+    en: 'Timeline',
   },
 
   // Visualizations

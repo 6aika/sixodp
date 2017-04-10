@@ -71,7 +71,9 @@ TopHistogram.prototype.showMore = function () {
 TopHistogram.prototype.setDateRange = function (dates) {
   var self = this
   self._state.dateRange = dates
-  self._resizeAxisX()
+  if (self._data.raw) {
+    self.setData(self._data.raw)
+  }
 }
 
 
@@ -126,14 +128,19 @@ TopHistogram.prototype.resize = function (contentWidth = undefined, barHeight = 
 
 
 // Turn data input format into the internal format used in visualizing the data
-TopHistogram.prototype._transformData = function (data) {
+TopHistogram.prototype._transformData = function (rawData) {
   var self = this
 
+  // Filter by date
+  if (!rawData) {
+    return rawData
+  }
+  var result = rawData.slice()
+
   // Sort
-  var result = data.slice()
-  result = result.sort(function(a, b) {
-    return parseFloat(a[self._schema.valueFied]) - parseFloat(b[self._schema.valueFied])
-  })
+  // result = result.sort(function(a, b) {
+  //   return parseFloat(a[self._schema.valueFied]) - parseFloat(b[self._schema.valueFied])
+  // })
 
   return result
 }
@@ -191,20 +198,27 @@ TopHistogram.prototype._renderBase = function (container) {
 // Draw or update the histogram bars with the given data
 TopHistogram.prototype._renderHistogram = function (histogramData) {
   var self = this
-
   // Join new data
   self._elem.histogramBars = self._elem.histogramCanvas.selectAll('.statistics-bar')
-    .data(histogramData)
+    .data(histogramData, function (d) {
+      return d.id
+    })
 
   self._elem.histogramBars.selectAll('.statistics-bar-main')
+    .data(histogramData, function(d) { return d ? d.name : this.id })
     .attr('width', function (d) { return (
-      self._helpers.xScale(d[self._schema.valueField] - 1)
+      self._helpers.xScale(d[self._schema.valueField]) - 1
     )})
 
   self._elem.histogramBars.selectAll('.statistics-bar-portion')
+    .data(histogramData, function(d) { return d ? d.name : this.id })
     .attr('width', function (d) { return (
       self._helpers.xScale(d[self._schema.valueSpecificField])
     )})
+
+  self._elem.histogramBars.selectAll('text')
+    .data(histogramData, function(d) { return d ? d.name : this.id })
+    .text(function(d, i) { return d[self._schema.labelField] })
 
   // Sort
   // self._elem.histogramBars.sort(function (a, b) {
@@ -229,9 +243,6 @@ TopHistogram.prototype._renderHistogram = function (histogramData) {
     .attr('x', 1)
     .attr('y', 1)
     .attr('height', self._helpers.yScale.bandwidth())
-    .attr('width', function (d) { return (
-      self._helpers.xScale(d[self._schema.valueField] - 1)
-    )})
 
   // Shorter bar
   barsToAdd.append('rect')
@@ -239,9 +250,6 @@ TopHistogram.prototype._renderHistogram = function (histogramData) {
     .attr('x', 1)
     .attr('y', 1)
     .attr('height', self._helpers.yScale.bandwidth())
-    .attr('width', function (d) { return (
-      self._helpers.xScale(d[self._schema.valueSpecificField])
-    )})
 
   // Label text
   barsToAdd.append('text')
@@ -249,7 +257,6 @@ TopHistogram.prototype._renderHistogram = function (histogramData) {
     .attr('y', self._helpers.yScale.bandwidth() / 2)
     .attr('text-anchor', 'end')
     .attr('width', self._props.margin.left)
-    .text(function(d) { return d[self._schema.labelField] })
 
   // Bars from previous data to leave out
   var barsToRemove = self._elem.histogramBars.exit()
@@ -310,7 +317,6 @@ TopHistogram.prototype._updateXAxisGenerator = function () {
       .attr('y', -5)
       // .attr('transform', 'translate(0,0)')
 
-    // console.log('height', self._state.dataArea.height)
     g.selectAll('.tick line')
       .attr('y2', self._state.dataArea.height)
       .attr('height', self._state.dataArea.height)

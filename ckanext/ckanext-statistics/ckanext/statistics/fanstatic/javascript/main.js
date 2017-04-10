@@ -110,35 +110,44 @@ Statistics.prototype._createNav = function () {
       var self = this
       self._state.dateRangeFilter = dates
       self._summarySection.setDateRange(dates)
-      self._datasetSection.setDateRange(dates)
+      self._datasetSection.setDateRange(
+        dates,
+        self._createOrganizationDatasets(
+          self._data.filtered.datasets,
+          self._data.filtered.organizations,
+          self._state.dateRangeFilter
+        )
+      )
       self._appSection.setDateRange(dates)
       // self.articleSection.setDateRange(dates)
     }).bind(self),
 
     broadcastOrganization: function(value) {
       self._state.organization = value
-      self._data = self._filterAllData(self._data.raw)
-
-      // self._summarySection.update({
-      //   datasets: self._data.datasets,
-      //   apps: self._data.apps,
-      // })
-
+      self._data.filtered = self._filterAllData(self._data.all)
       self._datasetSection.setOrganization(self._state.organization)
-      self._datasetSection.setData(self._data.datasets)
+      self._datasetSection.setData(
+        self._data.filtered.datasets,
+        self._createOrganizationDatasets(
+          self._data.filtered.datasets,
+          self._data.filtered.organizations,
+          self._state.dateRangeFilter
+        )
+      )
     },
 
     broadcastCategory: function(value) {
       self._state.category = value
-      self._data = self._filterAllData(self._data.raw)
-
-      // self._summarySection.update({
-      //   datasets: self._data.datasets,
-      //   apps: self._data.apps,
-      // })
-
+      self._data.filtered = self._filterAllData(self._data.all)
       self._datasetSection.setCategory(self._state.category)
-      self._datasetSection.setData(self._data.datasets)
+      self._datasetSection.setData(
+        self._data.filtered.datasets,
+        self._createOrganizationDatasets(
+          self._data.filtered.datasets,
+          self._data.filtered.organizations,
+          self._state.dateRangeFilter
+        )
+      )
     },
   })
 }
@@ -240,13 +249,13 @@ Statistics.prototype._loadDataToPage = function () {
       loadCategories: self._localeData.loadCategories[self._config.locale],
       loadDatasets: self._localeData.loadDatasets[self._config.locale],
       loadApps: self._localeData.loadApps[self._config.locale],
+      loadAppDatasetRelations: self._localeData.loadAppDatasetRelations[self._config.locale],
+      loadPreprocessing: self._localeData.loadPreprocessing[self._config.locale],
       loadRendering: self._localeData.loadRendering[self._config.locale],
       loadDone: self._localeData.loadDone[self._config.locale],
     },
   })
   self._api.getAllData(function (result) {
-    self._data = result
-
     // Update language
     self._config = Config()
 
@@ -259,19 +268,22 @@ Statistics.prototype._loadDataToPage = function () {
     self._bindEvents()
 
     // Get maximum possible date range for unfiltered data
-    self._state.maxDateRange = self._getMaxDateRange(self._data)
+    self._state.maxDateRange = self._getMaxDateRange(result)
 
     // Initially use max start or end date
     self._state.dateRangeFilter = self._state.maxDateRange
 
     // General data transformations for the whole statistics
-    self._data = self._filterAllData(self._data)
+    self._data.all = result
+
+    // Apply global filters
+    self._data.filtered = self._filterAllData(self._data.all)
 
     // Update summary section (show non-filtered counts)
     self._summarySection.setDateRange(self._state.dateRangeFilter)
     self._summarySection.setData({
-      datasets: self._data.datasets,
-      apps: self._data.apps,
+      datasets: self._data.filtered.datasets,
+      apps: self._data.filtered.apps,
     })
 
     // Update dataset section
@@ -279,17 +291,23 @@ Statistics.prototype._loadDataToPage = function () {
     self._datasetSection.setDateRange(self._state.dateRangeFilter)
     self._datasetSection.setOrganization(self._state.organization)
     self._datasetSection.setCategory(self._state.category)
-    self._datasetSection.setData(self._data.datasets)
+    self._datasetSection.setData(
+      self._data.filtered.datasets, self._createOrganizationDatasets(
+        self._data.filtered.datasets,
+        self._data.filtered.organizations,
+        self._state.dateRangeFilter
+      )
+    )
 
     // Update app section
     self._appSection.setMaxDateRange(self._state.maxDateRange)
     self._appSection.setDateRange(self._state.dateRangeFilter)
-    self._appSection.setData(self._data.apps)
+    self._appSection.setData(self._data.filtered.apps)
 
     // Update nav scroll positions and filters etc.
     self._nav.dataLoaded({
-      organizations: self._data.organizations,
-      categories: self._data.categories,
+      organizations: self._data.filtered.organizations,
+      categories: self._data.filtered.categories,
       dateRange: self._state.dateRangeFilter,
       maxDateRange: self._state.maxDateRange,
       hash: location.hash.substring(1),
@@ -303,7 +321,7 @@ Statistics.prototype._filterAllData = function (data) {
   var self = this
   var result = {}
 
-  result.raw = data
+  result.all = data
   result.organizations = data.organizations
   result.categories = data.categories
 
@@ -323,17 +341,16 @@ Statistics.prototype._filterAllData = function (data) {
       organization: false,
       category: false,
   })
-
   return result
 }
 
 
-Statistics.prototype._getMaxDateRange = function (rawData) {
+Statistics.prototype._getMaxDateRange = function (allData) {
   var self = this
 
   // eg. start date of the whole portal = 1.1. on the year of first dataset/app/article
-  var firstDateDataset = d3.min(rawData.datasets, function (d) { return d.date_released })
-  var firstDateApp = d3.min(rawData.apps, function (d) { return d.metadata_created })
+  var firstDateDataset = d3.min(allData.datasets, function (d) { return d.date_released })
+  var firstDateApp = d3.min(allData.apps, function (d) { return d.metadata_created })
 
   // Default value if no data exists
   var firstDate = moment.utc().year() + '-01-01'
@@ -359,24 +376,31 @@ Statistics.prototype._filterItems = function (params) {
   var self = this
   var result = []
 
-  function findSelectedOrganizations (branch, isChildOfSelected = false) {
+  // Returns all child and grand child organizations plus the given organization
+  function findOrganizationChildren (searchedOrganizationId, branch, isChildOfSelected = false) {
+    var self = this
     var result = []
     // Each org in this branch
     for (i in branch) {
       // This is the selected?
       var organization = branch[i]
-      if (isChildOfSelected || self._state.organization === organization.id) {
+      if (isChildOfSelected || searchedOrganizationId === organization.id) {
         result.push(organization.id)
-        result = result.concat(findSelectedOrganizations(organization.children, true))
+        if (organization.children.length > 0) {
+          result = result.concat(findOrganizationChildren(searchedOrganizationId, organization.children, true))
+        }
       } else {
-        result = result.concat(findSelectedOrganizations(organization.children, false))
+        if (organization.children.length > 0) {
+          result = result.concat(findOrganizationChildren(searchedOrganizationId, organization.children, false))
+        }
       }
     }
     return result
   }
+
   var selectedOrganizations = undefined
   if (self._state.organization !== '') {
-    selectedOrganizations = findSelectedOrganizations(params.organizations)
+    selectedOrganizations = findOrganizationChildren(self._state.organization, params.organizations)
   }
 
   // Add each item to its creation date
@@ -412,6 +436,139 @@ Statistics.prototype._getVisHeight = function (contentWidth) {
   }
 }
 
+
+// Also filters by date
+Statistics.prototype._createOrganizationDatasets = function (datasets, allOrganizations, dateRange) {
+  var self = this
+
+  function recursive (selectedOrganization, organizations, allOrganizations) {
+    // Remains false if the currently active organization has no children
+    var children = undefined
+    var result = false
+
+    // No org selected?
+    if (!selectedOrganization) {
+      children = organizations
+
+    // Some org is selected?
+    } else {
+      // Each of the orgs on the current recursion level
+      for (var i in organizations) {
+
+        // This is the active org?
+        if (selectedOrganization === organizations[i].id) {
+
+          // Active org has children?
+          if (organizations[i].children.length > 0) {
+            // Create org datasets for this item's children
+            children = organizations[i].children
+
+          // Active org has no children?
+          } else {
+            // Create org datasets from the selected org only
+            children = [organizations[i]]
+          }
+
+          break
+
+        // This is not the active org?
+        } else {
+          if (organizations[i].children.length > 0) {
+            result = recursive(selectedOrganization, organizations[i].children, allOrganizations)
+
+            // Result was created deeper in this branch?
+            if (result) {
+              break
+            }
+          }
+        }
+      }
+    }
+
+    // Result was created deeper in these given organizations, or there was no result at all from this branch (result=false)
+    if (typeof children === 'undefined') {
+      return result
+
+    // Set of children to show on screen was found on this level of recursion?
+    } else {
+      // Create result from these children
+      result = []
+
+      // Zero number first for each org
+      for (iChild in children) {
+        // Create a result organization item for this shown child
+        var resultItem = {
+          id: children[iChild].id,
+          name: children[iChild].title,
+          all: 0,
+          specific: 0, // Datasets with apps
+          // allRight: 0, // User counts
+          // specificRight: 0, // Users who downloaded
+          // icon:
+        }
+
+        // Go through all datasets
+        for (iDataset in datasets) {
+          var releaseDate = moment.utc(datasets[iDataset][self._schemas.datasets.dateField], 'YYYY-MM-DD')
+          if (
+            releaseDate.isBefore(dateRange[0]) ||
+            releaseDate.isAfter(dateRange[1])
+          ) {
+            continue
+          }
+
+          // Organization and its parents that this dataset belongs to
+          var parentChain = findParentChain(datasets[iDataset].organization.id, allOrganizations)
+
+          // The result org item is the org or parent org of this dataset?
+          if (parentChain.indexOf(resultItem.id) !== -1) {
+            resultItem.all ++
+
+            // The dataset has one or more apps also?
+            if (datasets[iDataset].apps.length > 0) {
+              resultItem.specific ++
+            }
+          }
+        }
+
+
+        result.push(resultItem)
+      }
+
+      return result
+    }
+  }
+
+  function findParentChain (searchedOrganizationId, branch) {
+    var self = this
+    var result = []
+    // Each org in this branch
+    for (i in branch) {
+      var organization = branch[i]
+      // This is the selected?
+      if (searchedOrganizationId === organization.id) {
+        result.push(organization.id)
+
+      // This is not the selected
+      } else {
+        if (organization.children.length > 0) {
+          // Add if any child is
+          selectedChild = findParentChain(searchedOrganizationId, organization.children)
+
+          if (selectedChild.length > 0) {
+            result = selectedChild
+            result.push(organization.id)
+          }
+        }
+      }
+    }
+    return result
+  }
+
+  var result = recursive(self._state.organization, allOrganizations, allOrganizations)
+
+  return result
+}
 
 
 // 1 second margin time to wait that the ckan language setting is updated

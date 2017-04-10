@@ -51,38 +51,10 @@ var DatasetSection = function (params) {
   })
 }
 
-DatasetSection.prototype.setData = function (data) {
+DatasetSection.prototype.setData = function (datasets, organizationDatasets) {
   var self = this
-  self.totalsTimeline.setData(data)
-  self.organizationDatasets.setData(
-    [
-      {
-        name: 'Nokia',
-        all: 359,
-        specific: 192,
-        allRight: 24,
-        specificRight: 5,
-        icon: '',
-      },
-      {
-        name: 'Tampere',
-        all: 432,
-        specific: 8,
-        allRight: 23,
-        specificRight: 9,
-        icon: '',
-      },
-      {
-        name: 'Ylöjärvi',
-        all: 259,
-        specific: 142,
-        allRight: 34,
-        specificRight: 2,
-        icon: '',
-      },
-    ]
-    // data.organizations
-  )
+  self.totalsTimeline.setData(datasets)
+  self.organizationDatasets.setData(organizationDatasets)
 }
 
 
@@ -94,10 +66,13 @@ DatasetSection.prototype.onContentResize = function (width, height = undefined) 
 
 
 // Filter all the visualizations in this section by the given dates
-DatasetSection.prototype.setDateRange = function (dates) {
+DatasetSection.prototype.setDateRange = function (dates, organizationDatasets) {
   var self = this
   self.totalsTimeline.setDateRange(dates)
   self.organizationDatasets.setDateRange(dates)
+  if (organizationDatasets) {
+    self.organizationDatasets.setData(organizationDatasets)
+  }
 }
 
 DatasetSection.prototype.setMaxDateRange = function (dates) {
