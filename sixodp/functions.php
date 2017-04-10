@@ -402,6 +402,11 @@ function get_datasets() {
   return $data['result'];
 }
 
+function get_datasets_search($search) {
+  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?q='.$search);
+  return $data['result'];
+}
+
 function get_dataset_count() {
   return get_datasets()['count'];
 }
