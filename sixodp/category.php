@@ -27,7 +27,8 @@ get_header(); ?>
       $args = array ( 'category' => get_queried_object()->term_id, 'posts_per_page' => -1, 'post_type' => 'page');
       $myposts = get_posts( $args );
       foreach( $myposts as $post ) :  setup_postdata($post);
-        echo '<h1><a href="'.get_the_permalink().'">'.the_title().'</a></h1>';
+        echo get_template_part('partials/archive-item');
+        //echo '<h1><a href="'.get_the_permalink().'">'.the_title().'</a></h1>';
       endforeach;
       ?>
     </div>

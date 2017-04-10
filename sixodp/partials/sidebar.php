@@ -48,8 +48,8 @@
     <ul class="sidebar__list--heading">
       <?php foreach ( $categories as $cat ) : ?>
         <li class="sidebar__item--heading">
-          <a href="#" class="sidebar__link--block">
-          <i class="material-icons">settings</i>
+          <a href="<?php echo get_category_link($cat); ?>" class="sidebar__link--block">
+            <i class="material-icons">settings</i>
             <?php echo $cat->cat_name; ?>
             <span class="sidebar__icon-wrapper">
               <i class="material-icons">arrow_forward</i>
