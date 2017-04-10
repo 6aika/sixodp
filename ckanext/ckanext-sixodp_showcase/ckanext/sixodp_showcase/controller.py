@@ -33,6 +33,9 @@ log = logging.getLogger(__name__)
 
 class Sixodp_ShowcaseController(ShowcaseController):
 
+    def manage_showcase_admins(self):
+        return super(Sixodp_ShowcaseController, self).manage_showcase_admins()
+
     def new(self, data=None, errors=None, error_summary=None):
         log.info("In sixodp showcase controller new")
         return super(Sixodp_ShowcaseController, self).new(data=data, errors=errors,
