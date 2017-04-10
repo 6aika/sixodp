@@ -179,7 +179,7 @@
 .horizaccordion__item {
   height: 100%;
   padding: $base $base*2 $base*2;
-  color: #fff;
+  color: $brand-white;
   border-right: 1px solid rgba(255,255,255,0.6);
 }
 
@@ -188,12 +188,12 @@
 }
 
 .horizaccordion__link {
-  color: #fff;
+  color: $brand-white;
   position: relative;
   z-index: 1;
 
   &:hover {
-    color: #eee;
+    color: $brand-gray;
   }
 }
 

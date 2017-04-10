@@ -21,27 +21,16 @@ get_header(); ?>
 
     <div class="page__hero"></div>
     <div class="page__content container">
+
       <?php
-      // Start the loop.
-      while ( have_posts() ) : the_post();
-        global $post;
-        $post_slug=$post->post_name;
-
-        //var_dump($post);
-
-        // Include the page content template.
-        echo '<h1 class="heading--main">'.get_the_title().'</h1>';
-        echo '<article class="article">' . get_the_content() . '</article>';
-        include( locate_template('partials/article-footer.php') );
-
-
-        // End of the loop.
-      endwhile;
+      
+      $args = array ( 'category' => get_queried_object()->term_id, 'posts_per_page' => -1, 'post_type' => 'page');
+      $myposts = get_posts( $args );
+      foreach( $myposts as $post ) :  setup_postdata($post);
+        echo get_template_part('partials/archive-item');
+        //echo '<h1><a href="'.get_the_permalink().'">'.the_title().'</a></h1>';
+      endforeach;
       ?>
-      <div class="addthis_toolbox">
-        <a class="addthis_button_facebook_like at300b"></a>
-        <a class="addthis_button_tweet at300b"></a>
-      </div>
     </div>
 
   </main><!-- .site-main -->

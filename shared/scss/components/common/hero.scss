@@ -28,8 +28,8 @@
   display: block;
 
   .form-control {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: $base;
+    margin-bottom: $base;
   }
 
   @media (min-width: $width-xs) {
@@ -47,7 +47,7 @@
 
 .hero .heading--main {
   margin: $base*2 auto 0;
-  color: #fff;
+  color: $brand-white;
   font-size: 5rem;
   text-shadow: 1px 3px 6px rgba(0,0,0,0.8);
 }
@@ -55,7 +55,7 @@
 .hero .subheading {
   margin: 0 auto $base*2;
   font-weight: 300;
-  color: #fff;
+  color: $brand-white;
   font-size: 3rem;
   text-shadow: 1px 3px 6px rgba(0,0,0,0.5);
 }

@@ -1,7 +1,7 @@
 .toolbar {
   position: relative;
   margin: $base 0;
-  padding: 5px 0;
+  padding: $base/2 0;
 }
 
 .breadcrumb {
@@ -11,7 +11,7 @@
   li {
     +li:before {
       content: "/ ";
-      padding: 0 5px;
+      padding: 0 $base/2;
       color: $gray-light;
     }
   }

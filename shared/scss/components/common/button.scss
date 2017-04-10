@@ -12,11 +12,11 @@
 
 .btn-secondary {
   background-color: $brand-secondary;
-  color: #fff;
+  color: $brand-white;
 
   &:hover, &:focus, &:active {
     background-color: $brand-secondary-light;
-    color: #fff;
+    color: $brand-white;
   }
 }
 
@@ -36,12 +36,12 @@
 .btn-transparent {
   background: transparent;
   border: 1px solid white;
-  color: #fff;
+  color: $brand-white;
 
   &:hover, &:focus, &:active {
     background: transparent;
-    color: #eee;
-    border-color: #eee;
+    color: $brand-gray;
+    border-color: $brand-gray;
   }
 }
 
