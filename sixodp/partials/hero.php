@@ -8,7 +8,7 @@
   <div class="container">
     <div class="row">
       <h1 class="heading--main text-center">6Aika Open Data Portal</h1>
-      <h3 class="subheading text-center">Avointa dataa vapaasti hyödynnettäväksesi</h3>  
+      <h3 class="subheading text-center">Avointa dataa vapaasti hyödynnettäväksesi</h3>
 
       <div class="col-md-8 col-md-offset-2">
         <div class="input-group">
@@ -22,14 +22,14 @@
               <li><a data-value="/data/collection">Aineistokokonaisuudet</a></li>
               <li><a data-value="/posts">Artikkelit</a></li>
               <li role="separator" class="divider"></li>
-              <li><a>Muut</a></li>
+              <li><a data-value="/posts">Muut</a></li>
             </ul>
           </div><!-- /btn-group -->
           <input type="text" id="q" class="form-control input-lg" aria-label="...">
           <span class="input-group-btn">
             <button id="search" class="btn btn-lg btn-primary" type="button">Hae</button>
           </span>
-        </div><!-- /input-group -->    
+        </div><!-- /input-group -->
       </div>
 
     </div>
