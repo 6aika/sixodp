@@ -6,7 +6,7 @@ function TopHistogram (params) {
   self._texts = params.texts
   self._props = {
     id: params.id,
-    margin: params.margin,
+    margin: $.extend({}, params.margin),
     dateFormat: 'YYYY-MM-DD', // Used in the data, not screen
   }
   self._elem = {}
@@ -88,7 +88,7 @@ TopHistogram.prototype.resize = function (contentWidth = undefined, barHeight = 
   self._elem.svg.attr('width', self._state.contentArea.width)
 
   // Space for bar labels
-  self._props.margin.left = Math.max(self._state.contentArea.width * 0.1, 120)
+  self._props.margin.left = Math.max(self._state.contentArea.width * 0.2, 120)
 
   // Height per bar + spacing in between
   if (typeof barHeight !== 'undefined') {
@@ -216,9 +216,45 @@ TopHistogram.prototype._renderHistogram = function (histogramData) {
       self._helpers.xScale(d[self._schema.valueSpecificField])
     )})
 
+  // https://bl.ocks.org/mbostock/7555321
+  function wrap(text, width, yMiddle) {
+    text.each(function() {
+      var text = d3.select(this)
+      var words = text.text().split(/\s+/).reverse()
+      var word
+      var line = []
+      var lineNumber = 0
+      var lineHeight = 1.1 // ems
+      var dy = 1.25
+      var tspan = text.text(null).append('tspan')
+        .attr('x', -6)
+        .attr('y', '0.25em')
+        .attr('dy', dy + 'em')
+      while (word = words.pop()) {
+        line.push(word)
+        tspan.text(line.join(" "))
+        if (tspan.node().getComputedTextLength() > width) {
+          line.pop()
+          tspan.text(line.join(' '))
+          line = [word]
+          tspan = text.append('tspan')
+            .attr('x', -6)
+            .attr('dy', ++lineNumber * lineHeight + dy + 'em')
+            .text(word)
+          var offset = -0.2
+          if (lineNumber > 1) {
+            offset = -0.75
+          }
+          text.selectAll('tspan').attr('y', offset + 'em')
+        }
+      }
+    })
+  }
+
   self._elem.histogramBars.selectAll('text')
     .data(histogramData, function(d) { return d ? d.name : this.id })
     .text(function(d, i) { return d[self._schema.labelField] })
+    .call(wrap, self._props.margin.left, self._helpers.yScale.bandwidth() / 2)
 
   // Sort
   // self._elem.histogramBars.sort(function (a, b) {
