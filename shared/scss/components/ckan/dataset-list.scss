@@ -5,6 +5,10 @@
   .dataset-item {
     @include list-item();
 
+    &.dataset-item-borderless {
+      border: none;
+    }
+
     > a {
       color: $text-color;
     }
@@ -39,10 +43,10 @@
       }
 
       .dataset-metadata {
-        font-size: $font-size-small;
+        font-size: $font-size-base;
 
         .dataset-created {
-          color: $text-color;
+          color: $headings-secondary-color;
         }
         .dataset-category-link {
           color: $label-text-color;
@@ -55,7 +59,6 @@
 
       .label {
         display: inline-block;
-        background-color: $gray-lighter;
         padding: $padding-small-vertical $padding-small-horizontal;
       }
     }

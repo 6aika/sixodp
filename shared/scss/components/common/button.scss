@@ -12,11 +12,11 @@
 
 .btn-secondary {
   background-color: $brand-secondary;
-  color: #fff;
+  color: $brand-white;
 
   &:hover, &:focus, &:active {
     background-color: $brand-secondary-light;
-    color: #fff;
+    color: $brand-white;
   }
 }
 
@@ -36,11 +36,12 @@
 .btn-transparent {
   background: transparent;
   border: 1px solid white;
+  color: $brand-white;
 
   &:hover, &:focus, &:active {
     background: transparent;
-    color: #eee;
-    border-color: #eee;
+    color: $brand-gray;
+    border-color: $brand-gray;
   }
 }
 
@@ -59,4 +60,14 @@
 .btn--sovellukset {
   position: relative;
   z-index: 1;
+}
+
+.btn--ajankohtaista {
+  margin-top: $base*2;
+}
+
+.btn-list-item {
+  text-align: left;
+  padding-left: $padding-large-horizontal;
+  padding-right: $padding-large-horizontal;
 }

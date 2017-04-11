@@ -7,6 +7,7 @@
 
 - name: Extract Question2Answer
   unarchive:
+    remote_src: yes
     src: "{{ cache_path }}/question2answer-{{ question2answer_version }}.zip"
     dest: /opt
     creates: /opt/question2answer-{{ question2answer_version }}

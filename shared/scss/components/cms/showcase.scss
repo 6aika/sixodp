@@ -1,21 +1,21 @@
 .wrapper--showcase {
   @extend .wrapper;
-  background: #f5f5f5;
+  background: $brand-lightgray;
 
   .container {
-    width: 300px;
+    width: $base*30;
     margin: 0 auto;
 
     @media (min-width: $width-sm) {
-      width: 600px;
+      width: $base*60;
     }
 
     @media (min-width: $width-md) {
-      width: 600px;
+      width: $base*60;
     }
 
     @media (min-width: $width-lg) {
-      width: 1200px;
+      width: $base*120;
     }
   }
 
@@ -29,43 +29,66 @@
   width: $base*30;
   padding-left: $base;
   padding-right: $base;
+  margin-bottom: $base*2;
 }
 
 .showcase {
   background: $brand-primary;
-  color: #fff;
-  border-bottom-left-radius: $base*2;
-  border-bottom-right-radius: $base*2;
-  position: relative;
-  margin-bottom: $base*6;
-
-  &:after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 16px;
-    width: 0;
-    height: 0;
-    border: 124px solid transparent;
-    border-top: 26px solid $brand-primary;
-  }
+  color: $brand-white;
+  border-radius: $base/2;
 }
 
 .showcase__content {
   padding: $base*2;
+  height: calc(100% - 180px);
+  position: relative;
 }
 
 .showcase__title {
   text-align: center;
   font-family: $font-heading;
+  font-size: 2.2rem;
+  font-weight: 600;
 }
 
 .showcase__text {
-  color: #fff;
+  color: $brand-white;
+  height: $base*12;
+  position: relative;
+  overflow: hidden;
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    background: rgba($brand-primary, 0.1);
+    background: -moz-linear-gradient(rgba($brand-primary, 0) 40%, rgba($brand-primary, 0.2) 70%, rgba($brand-primary, 1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(rgba($brand-primary, 0) 40%, rgba($brand-primary, 0.2) 70%, rgba($brand-primary, 1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(rgba($brand-primary, 0) 40%, rgba($brand-primary, 0.2) 70%, rgba($brand-primary, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  }
+}
+
+.showcase__img--link {
+  text-align: center;
+  display: block;
+  background-size: cover;
+  background-position: center center;
+  height: $base*18;
 }
 
 .showcase__link {
-  color: #fff;
+  color: $brand-white;
+  padding-bottom: $base/5;
+  border-bottom: $base/5 solid transparent;
+
+  &:hover {
+    color: $brand-white;
+    border-bottom: $base/5 solid white;
+  }
 }
 
 .showcase__footer {

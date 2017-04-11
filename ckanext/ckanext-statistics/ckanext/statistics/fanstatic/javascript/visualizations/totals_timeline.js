@@ -1,675 +1,570 @@
-function TotalsTimeline (statistics, element, title, schema, settings) {
+function TotalsTimeline (params) {
   var self = this
-  self.statistics = statistics
-  self.element = element
-  self.schema = schema
-  self.settings = settings
 
-  // Data specifically formatted for the Totals timeline visualization
-  self.data = {
-    raw: [],
-    line: [],
-    histogram: {
-      monthly: [],
-      yearly: [],
+  // Immutable
+  self._texts = params.texts
+  self._props = {
+    id: params.id,
+    margin: params.margin,
+    dateFormat: 'YYYY-MM-DD', // Used in the data, not screen
+  }
+  self._elem = {}
+  self._helpers = {
+    isYearChangeDate: function (date) {
+      return (
+        (date.month() === 0 && date.date() === 1)
+        || (date.month() === 11 && date.date() === 31 && date.hour() > 20)
+      )
     },
   }
+  self._schema = params.schema
 
-  self.visual = {}
-  self.visual.histogramType = 'monthly'
-
-  self.size = {
-    image: {},
-    data: {},
+  // Mutable
+  self._state = {
+    contentArea: {
+      width: params.width,
+      height: params.height
+    },
+    dataArea: {
+      width: params.width - self._props.margin.left - self._props.margin.right,
+      height: params.height - self._props.margin.top - self._props.margin.bottom
+    },
+    dateRange: [moment.utc().subtract(1, 'years'), moment.utc()],
+    maxDateRange: [moment.utc().subtract(1, 'years'), moment.utc()],
+    organization: '',
+    category: '',
+    locale: params.locale,
   }
 
-  self.renderBase(title)
-  self.renderInputs()
+  self._data = {}
+
+  self._renderBase(params.element)
+  self.resize(params.width, params.height)
 }
 
 
 // Update all: language, data visuals, input elements, etc.
-TotalsTimeline.prototype.updateAll = function (items, firstDataLoad = false) {
+TotalsTimeline.prototype.setData = function (data) {
   var self = this
-  self.data.raw = items
-  if (self.settings.organizations) {
-    self.updateOrganizationSelector()
-  }
-  self.transformLineData()
-  if (firstDataLoad) {
-    self.renderAxisX()
-    self.renderAxisY()
-    self.resizeAxis('x', self.statistics.data.dateRange)
-    self.initValues()
-    self.renderFocus()
-    self.eventListeners()
-  }
-  self.transformHistogramData()
-  self.renderData()
+  self._data.raw = data
+  self._data.line = self._transformLineData(data)
+
+  self._helpers.xScale.domain(self._getXExtent()).nice()
+  self._helpers.yScale.domain(self._getYExtent()).nice()
+
+  self._renderLine()
+  self._renderFocusPoint()
+  self._resizeAxis('y')
 }
 
 
-TotalsTimeline.prototype.updateOrganizationSelector = function () {
+// Limit the view to these dates (doesn't change the data given to this element)
+TotalsTimeline.prototype.setDateRange = function (dates) {
+  var self = this
+  self._state.dateRange = dates
+  self._resizeAxis('x')
+  self._resizeAxis('y')
+}
+
+
+TotalsTimeline.prototype.setMaxDateRange = function (dates) {
+  var self = this
+  self._state.maxDateRange = dates
+}
+
+
+// Resize the visualization to a new pixel size on the screen
+TotalsTimeline.prototype.resize = function (contentWidth, contentHeight) {
+  if (!contentHeight)
+    contentHeight = undefined
+
   var self = this
 
-  // Remove all existing options
-  self.inputs.organization.selectAll('option').remove()
-
-  // Refresh organization options
-  self.inputs.organization.append('option')
-    .text(self.statistics.translations.all[self.statistics.config.locale])
-    .attr('value', '')
-
-  for (i in self.statistics.data.organizations) {
-    self.inputs.organization.append('option')
-      .text(self.statistics.data.organizations[i].title)
-      .attr('value', self.statistics.data.organizations[i].id)
+  self._state.contentArea.width = contentWidth
+  if (typeof contentHeight !== 'undefined') {
+    self._state.contentArea.height = contentHeight
   }
+  self._elem.svg
+    .attr('width', self._state.contentArea.width)
+    .attr('height', self._state.contentArea.height)
+
+  self._state.dataArea = {
+    width: self._state.contentArea.width - self._props.margin.left - self._props.margin.right,
+    height: self._state.contentArea.height - self._props.margin.top - self._props.margin.bottom,
+  }
+
+  self._elem.dataCanvas
+    .attr('width', self._state.dataArea.width)
+    .attr('height', self._state.dataArea.height)
+
+  self._elem.dataClipper
+    .attr('width', self._state.dataArea.width + 2)
+    .attr('height', self._state.dataArea.height + 1)
+
+  self._elem.focusPointClipper
+    .attr('width', self._state.dataArea.width + 2 + 5)
+    .attr('height', self._state.dataArea.height + 1)
+
+  self._elem.mouseEvents
+    .attr('width', self._state.dataArea.width)
+    .attr('height', self._state.dataArea.height + 25)
+
+  // Update pixel ranges for x and y dimension
+  self._helpers.xScale.rangeRound([0, self._state.dataArea.width])
+  self._helpers.yScale.rangeRound([self._state.dataArea.height, 0])
+
+  self._resizeAxis('x')
+  self._resizeAxis('y')
 }
 
 
 // Turns a list of items with publishing dates (datasets, apps, etc.) into a list of dates with cumulative number of published items on each date
-TotalsTimeline.prototype.transformAllData = function () {
+// Used when new data is loaded and when a filter is changed (organization or category)
+TotalsTimeline.prototype._transformLineData = function (data) {
   var self = this
-  self.transformLineData()
-  self.transformHistogramData()
-}
+  var result = {}
 
-
-TotalsTimeline.prototype.transformLineData = function () {
-  var self = this
-  if (self.settings.organizations) {
-    var organization = self.inputs.organization.property('value') || ''
-  } else {
-    organization = ''
-  }
-
-  result = {}
-
-  startDate = moment.utc(self.statistics.data.dateRange[0]).toDate()
-  endDate = moment.utc(self.statistics.data.dateRange[1]).toDate()
-
-  // First, create an empty datatable with the correct datespan
-  dateToAdd = startDate
-  while (dateToAdd <= endDate) {
-    dateString = moment.utc(dateToAdd).format('YYYY-MM-DD')
+  // First, create an empty data table with the correct datespan
+  var dateToAdd = moment.utc(self._state.maxDateRange[0])
+  while (dateToAdd.isSameOrBefore(self._state.maxDateRange[1])) {
+    var dateString = moment.utc(dateToAdd).format(self._props.dateFormat)
     result[dateString] = {
-      date: dateToAdd,
+      date: dateToAdd.toDate(),
       added: [],
       removed: [],
       value: undefined,
     }
-    dateToAdd = moment.utc(dateToAdd).add(1, 'days').toDate()
+    dateToAdd.add(1, 'days')
   }
 
   // Add each item to its creation date
-  self.data.raw.forEach(function(item) {
-    // Skip private items completely
-    if (
-      self.schema.skip(item) ||
-      item[self.schema.dateField] > moment.utc(endDate).format('YYYY-MM-DD') ||
-      (organization !== '' && organization !== item.organization.id)
-    ) {
-      return true
-    }
-    itemDate = moment.utc(item[self.schema.dateField]).format('YYYY-MM-DD')
+  data.forEach(function(item) {
+    var itemDate = moment.utc(item[self._schema.dateField]).format(self._props.dateFormat)
+
     // Add creation of this item
-    result[itemDate].added.push(item[self.schema.nameField][self.statistics.config.locale])
+    var itemName = item[self._schema.nameField]
+    if (typeof(itemName) === 'object') {
+      itemName = itemName[self._state.locale]
+    }
+    result[itemDate].added.push(itemName)
   })
 
   // TODO: Get data from removed items
   //   result[item.date_modified].removed.push(item.title_translated[config.locale])
 
   // Calculate cumulative values
-  dateToCumulate = startDate
+  dateToCumulate = moment.utc(self._state.maxDateRange[0])
   cumulativeValue = 0
-  while (dateToCumulate <= endDate) {
-    dateString = moment.utc(dateToCumulate).format('YYYY-MM-DD')
+  while (dateToCumulate.isSameOrBefore(self._state.maxDateRange[1])) {
+    dateString = dateToCumulate.format(self._props.dateFormat)
     cumulativeValue = cumulativeValue + result[dateString].added.length - result[dateString].removed.length
     result[dateString].value = cumulativeValue
-    dateToCumulate = moment.utc(dateToCumulate).add(1, 'days').toDate()
+    dateToCumulate.add(1, 'days')
   }
 
   // Turn into array
-  resultFormatted = []
+  var resultArray = []
+  // {
+  //   date: moment.utc([0, 0, 1]),
+  //   added: [],
+  //   removed: [],
+  //   value: 0,
+  // }
   for (i in result) {
-    resultFormatted.push(result[i])
+    resultArray.push(result[i])
   }
-  self.data.line = resultFormatted
+  return resultArray
 }
 
 
-TotalsTimeline.prototype.transformHistogramData = function () {
-  var self = this
-  self.data.histogram = {
-    yearly: [],
-    monthly: [],
-  }
-  var lastDate = self.statistics.data.dateRange[1]
-  if (self.settings.organizations) {
-    var organization = self.inputs.organization.property('value') || ''
-  } else {
-    organization = ''
-  }
-
-  // var bisectDate = d3.bisector(function(d) {
-  //   return moment(d[self.schema.dateField]).format('YYYY-MM-DD')
-  // }).left
-  // Function to create monthly/yearly histogram bins
-  function createHistogramBins(id, first, second, last, getNext) {
-    var current = first
-    var next = second
-    while (current.toDate() < last.toDate()) {
-      var value = 0
-
-      // Calculate items in this histogram bin
-      for (i in self.data.raw) {
-        item = self.data.raw[i]
-        if (
-          moment.utc(item[self.schema.dateField]).toDate() >= current.toDate()
-          && moment.utc(item[self.schema.dateField]).toDate() < next.toDate()
-          && !self.schema.skip(item)
-          && (organization === '' || organization === item.organization.id)
-        ) {
-          value++
-        }
-      }
-
-      self.data.histogram[id].push({
-        x0: current.toDate(),
-        x1: next.toDate(),
-        length: value,
-      })
-      current = next
-      next = getNext(next)
-      if (next > last) {
-        next = last
-      }
-    }
-  }
-
-  // Monthly histogram
-  createHistogramBins(
-    'monthly',
-    self.statistics.data.dateRange[0],
-    moment.utc([
-      self.statistics.data.dateRange[0].year(),
-      self.statistics.data.dateRange[0].month(),
-      1
-    ]).add(1, 'months'),
-    lastDate,
-    function (date) {
-      return moment.utc(date).add(1, 'months')
-    }
-  )
-  // Yearly histogram
-  createHistogramBins(
-    'yearly',
-    self.statistics.data.dateRange[0],
-    moment.utc([self.statistics.data.dateRange[0].year() + 1, 0, 1]),
-    lastDate,
-    function (date) {
-      return moment.utc(date).add(1, 'years')
-    }
-  )
-}
-
-
-TotalsTimeline.prototype.renderBase = function (title) {
+// Add HTML and SVG elements that can be drawn without data and just altered on data updates and window resizes
+TotalsTimeline.prototype._renderBase = function (container) {
   var self = this
 
-  self.element.classed('statistics-vis totals-timeline', true)
+  self._elem.container = container
+  self._elem.container.classed('statistics-vis totals-timeline', true)
 
   // Add HTML elements
-  self.title = self.element.append('h3')
-    .text(title[self.statistics.config.locale])
+  self._elem.title = self._elem.container.append('h3')
     .classed('statistics-vis-title', true)
-
-  // Space needed on the page
-  self.size.image.width = parseInt(self.statistics.styles.contentWidth)
-  self.size.image.height = 360
-
-  // Space for drawing the actual data
-  self.size.margin = {top: 15, right: 50, bottom: 30, left: 1}
-  self.size.data.width = self.size.image.width - self.size.margin.left - self.size.margin.right
-  self.size.data.height = self.size.image.height - self.size.margin.top - self.size.margin.bottom
+    .text(self._texts.title)
 
   // For SVG items
-  self.visual.svg = self.element.append('svg')
-    .attr('width', self.size.image.width)
-    .attr('height', self.size.image.height)
+  self._elem.svg = self._elem.container.append('svg')
+  self._elem.svgCanvas = self._elem.svg.append('g')
+    .attr('transform', 'translate(' + self._props.margin.left + ',' + self._props.margin.top + ')')
 
   // Behind data items: ticks
-  // Not clipped outside data area
-  self.visual.extrasBackLayer = self.visual.svg.append('g')
-    .attr('transform', 'translate(' + self.size.margin.left + ',' + self.size.margin.top + ')')
+  self._elem.backLayer = self._elem.svgCanvas.append('g')
 
-  // Data lines, bars, etc. - clipped if go outside data area
-  self.visual.dataCanvas = self.visual.svg.append('g')
-    .attr('transform', 'translate(' + self.size.margin.left + ',' + self.size.margin.top + ')')
-    .attr('clip-path', 'url(#totals-timeline-data-clipper)')
+  self._elem.dataCanvas = self._elem.svgCanvas.append('g')
 
   // Cuts out the data elements outside the axes
-  self.visual.dataClipper = self.visual.dataCanvas
+  self._elem.dataClipper = self._elem.svgCanvas
     .append('clipPath')
       .attr('transform', 'translate(-1, -1)')
-      .attr('id', 'totals-timeline-data-clipper')
+      .attr('id', 'js-statistics-totals-timeline-data-clipper-' + self._props.id)
     .append('rect')
-      .attr('width', self.size.data.width + 1)
-      .attr('height', self.size.data.height + 1)
 
-  self.visual.histogramCanvas = self.visual.dataCanvas.append('g')
-  self.visual.lineCanvas = self.visual.dataCanvas.append('g')
+  self._elem.dataCanvas.attr('clip-path', 'url(#js-statistics-totals-timeline-data-clipper-' + self._props.id + ')')
+
+  // Graphs, cropped by data area
+  self._elem.lineCanvas = self._elem.dataCanvas.append('g')
+
 
   // Axes, legends, titles etc. in front of data items
-  // And not clipped outside data area
-  self.visual.extrasFrontLayer = self.visual.svg.append('g')
-    .attr('transform', 'translate(' + self.size.margin.left + ',' + self.size.margin.top + ')')
+  self._elem.frontLayer = self._elem.svgCanvas.append('g')
 
-  // For HTML items
-  // self.visual.html = self.element.append('div')
-  //   .attr('width', self.size.image.width)
-  //   .attr('height', self.size.image.height)
+  // Cut a bit larger area than data canvas
+  self._elem.focusPointCanvas = self._elem.frontLayer.append('g')
 
-}
+  // Cuts out the data elements outside the axes
+  self._elem.focusPointClipper = self._elem.svgCanvas
+    .append('clipPath')
+      .attr('transform', 'translate(-1, -1)')
+      .attr('id', 'js-statistics-totals-timeline-focus-point-clipper-' + self._props.id)
+    .append('rect')
 
-
-TotalsTimeline.prototype.initValues = function () {
-  var self = this
-  // Draws the line when given data
-  self.visual.lineDrawer = d3.line()
-    .x(function(d) { return self.visual.xScale(d.date) })
-    .y(function(d) { return self.visual.yScale(d.value) })
-
-  self.inputs.startDate
-    .property('value', self.statistics.data.dateRange[0].format('D.M.YYYY'))
-  self.inputs.endDate
-    .property('value', self.statistics.data.dateRange[1].format('D.M.YYYY'))
-}
+  self._elem.focusPointCanvas.attr('clip-path', 'url(#js-statistics-totals-timeline-focus-point-clipper-' + self._props.id + ')')
 
 
-TotalsTimeline.prototype.renderInputs = function () {
-  var self = this
+  // Axis scales
+  self._helpers.xScale = d3.scaleUtc()
+  self._helpers.yScale = d3.scaleLinear()
 
-  self.inputs = {}
-  self.inputs.startDate = self.element.append('input')
-    // .attr('type', 'date')
-    .classed('statistics-input-date', true)
-    .attr('placeholder', self.statistics.translations.datePlaceholder[self.statistics.config.locale])
+  // Function to get a dot in a line plot
+  self._helpers.lineDrawer = d3.line()
+    .x(function(d) { return self._helpers.xScale(d.date) })
+    .y(function(d) { return self._helpers.yScale(d.value) })
 
-  self.inputs.endDate = self.element.append('input')
-  // .attr('type', 'date')
-  .classed('statistics-input-date', true)
-  .attr('placeholder', self.statistics.translations.datePlaceholder[self.statistics.config.locale])
+  self._elem.line = self._elem.lineCanvas.append('path')
+    .classed('statistics-line statistics-totals-timeline-line', true)
 
-  // self.inputs.downloadButton = self.element.append('button')
-  //   .text(self.statistics.translations.downloadButton[self.statistics.config.locale])
-  //   .classed('statistics-download-button', true)
-
-  if (self.settings.organizations) {
-    self.inputs.organization = self.element.append('select')
-    .classed('choose-organization', true)
-  }
-}
-
-
-TotalsTimeline.prototype.renderAxisX = function () {
-  var self = this
-  self.visual.xExtent = self.statistics.data.dateRange
-  self.visual.xScale = d3.scaleTime()
-    .domain(self.visual.xExtent)
-    .rangeRound([0, self.size.data.width])
-
-  self.visual.xAxisGenerator = d3.axisBottom(self.visual.xScale)
-  self.visual.xAxis = self.visual.extrasFrontLayer.append('g')
-    .attr('transform', 'translate(0,' + self.size.data.height + ')')
-    .attr('class', 'statistics-axis')
-    .call(self.visual.xAxisGenerator)
-}
-
-
-TotalsTimeline.prototype.renderAxisY = function () {
-  var self = this
-  self.visual.yExtent = [
-    // Y min = 0 or lower
-    Math.min(0, Math.round(d3.min(self.data.line, function(d) { return d.value }) * 1.25)),
-    // Y max = max value + some margin
-    Math.round(d3.max(self.data.line, function(d) { return d.value }) * 1.25 + 1)
-  ]
-  self.visual.yScale = d3.scaleLinear()
-    .domain(self.visual.yExtent)
-    .rangeRound([self.size.data.height, 0])
-
-  self.visual.yAxisGeneratorBasis = d3.axisRight(self.visual.yScale)
-    .tickSize(self.size.data.width)
-    .tickValues(d3.range(self.visual.yScale.domain().slice(-1)[0] + 1))
-    .tickFormat(function(d) {
-      return this.parentNode.nextSibling
-          ? '\xa0' + d
-          : d + ' ' + self.statistics.translations.amount[self.statistics.config.locale];
-    })
-
-  self.visual.yAxisGenerator = function (g) {
-    g.call(self.visual.yAxisGeneratorBasis)
-
-    // Remove vertical line
-    g.select('.domain').remove()
-
-    g.selectAll('.tick:not(:first-of-type) line')
-      .attr('stroke-dasharray', '2,2')
-
-    // Move texts to the right side of the graph
-    g.selectAll(".tick text").attr("x", self.size.data.width + 2).attr("dy", 2)
-  }
-
-  self.visual.yAxis = self.visual.extrasBackLayer.append("g")
-    .attr('class', 'statistics-axis')
-    .call(self.visual.yAxisGenerator)
-}
-
-
-TotalsTimeline.prototype.renderFocus = function () {
-  var self = this
   // Focus point on the graph, changed by mouseover
-  self.visual.focus = self.visual.extrasFrontLayer.append('g')
-    .attr('class', 'focus')
-    .attr('opacity', 0.9)
-    .attr('fill', 'white')
-    .attr('stroke', 'white')
-
-  self.visual.focus.append('circle')
+  self._elem.focusPoint = self._elem.focusPointCanvas.append('g')
+    .classed('statistics-focus-point', true)
+  self._elem.focusPoint.append('circle')
     .attr('r', 4.5)
-    .attr({
-      fill: 'white',
-      stroke: 'white'
-    })
-
-  self.visual.focus.append('line')
-    .classed('y', true)
-    .attr({
-      fill: 'none',
-      'stroke': 'white',
-      'stroke-width': '1.5px',
-      'stroke-dasharray': '3 3'
-    })
-
-  self.visual.focus.append('text')
-    .attr('class', 'js-datavis-count')
+  self._elem.focusPoint.append('line')
+  self._elem.focusPoint.append('text')
+    .classed('js-statistics-count statistics-count', true)
     .attr('x', -80)
     .attr('dy', '-30px')
-    .style('font-size', '24px')
-
-  self.visual.focus.append('text')
-    .attr('class', 'js-datavis-date')
+  self._elem.focusPoint.append('text')
+    .classed('js-statistics-date statistics-date', true)
     .attr('x', -80)
     .attr('dy', '-12px')
-    .style('font-size', '12px')
-
   var bisectDate = d3.bisector(function(d) { return d.date }).left
-
-  var updateFocus = function () {
-    var x0 = self.visual.xScale.invert(d3.mouse(this)[0])
-    var i = bisectDate(self.data.line, x0, 1)
-    var d0 = self.data.line[i - 1]
-    var d1 = self.data.line[i]
-    if (!d1) {
-      return
-    }
-    var d = x0 - d0.date > d1.date - x0 ? d1 : d0
-    self.setFocusDate(d)
-  }
-
-  self.visual.mouseEvents = self.visual.svg
-    .append('rect')
-    .attr('width', self.size.data.width)
-    .attr('height', self.size.data.height + 25)
+  self._elem.mouseEvents = self._elem.svgCanvas.append('rect')
     .attr('fill', 'none')
     .attr('pointer-events', 'all')
     .on('mouseout', function () {
-      return self.setFocusDate()
+      return self._renderFocusPoint()
     })
-    .on('mousemove', updateFocus)
+    .on('mousemove', function () {
+      var x0 = self._helpers.xScale.invert(d3.mouse(this)[0])
+      if (!self._data.line) {
+        return
+      }
+      var i = bisectDate(self._data.line, x0, 1)
+      var d0 = self._data.line[i - 1]
+      var d1 = self._data.line[i]
+      if (!d0 || !d1) {
+        return
+      }
+      var d = x0 - d0.date > d1.date - x0 ? d1 : d0
+      self._renderFocusPoint(d)
+    })
 
-  self.setFocusDate()
+  // X axis
+  self._updateXAxisGenerator()
+  self._elem.xAxis = self._elem.frontLayer.append('g')
+    .classed('statistics-axis', true)
+    .attr('transform', 'translate(0,' + self._state.dataArea.height + ')')
+    .call(self._helpers.xAxisGenerator)
+
+  // Y axis
+  self._updateYAxisGenerator()
+  self._elem.yAxis = self._elem.backLayer.append('g')
+    .classed('statistics-axis statistics-axis-y', true)
+    .call(self._helpers.yAxisGenerator)
 }
 
 
-TotalsTimeline.prototype.setFocusDate = function (d) {
+// Set new data for the line plot
+TotalsTimeline.prototype._renderLine = function () {
+  var self = this
+  self._elem.line
+    .datum(self._data.line)
+    .attr('d', self._helpers.lineDrawer)
+}
+
+
+// Renders highlight and details on the given date d. If no d is given, d is the last visible date
+TotalsTimeline.prototype._renderFocusPoint = function (d) {
   var self = this
 
+  // Choose last date if no date is given as parameter
   if (!d) {
-    if (self.data.line.length > 0) {
-      var endDate = self.statistics.helpers.validDate(self.inputs.endDate.property('value'))
-
-      if (!endDate) {
-        d = self.data.line[self.data.line.length - 1]
-      } else {
-        var bisector =
-        d = self.data.line[
-          d3.bisector(function (point) {
-            return point.date
-          }).left(self.data.line, endDate)
-        ]
-        if (!d) {
-          d = self.data.line[self.data.line.length - 1]
-        }
-      }
-    } else {
+    if (!self._data.line || self._data.line.length <= 0) {
       return
+    }
+    if (!self._state.dateRange[1]) {
+      d = self._data.line[self._data.line.length - 1]
+    } else {
+      var bisector =
+      d = self._data.line[
+        d3.bisector(function (point) {
+          return point.date
+        }).left(self._data.line, self._state.dateRange[1].toDate())
+      ]
+      if (!d) {
+        d = self._data.line[self._data.line.length - 1]
+      }
     }
   }
 
-  self.visual.focus.attr('transform', 'translate(' + self.visual.xScale(d.date) + ', ' +  self.visual.yScale(d.value) + ')')
-  self.visual.focus.select('line.y')
+  // Draw the point
+  self._elem.focusPoint.attr('transform', 'translate(' + self._helpers.xScale(d.date) + ', ' +  self._helpers.yScale(d.value) + ')')
+  self._elem.focusPoint.select('line')
     .attr('x1', 0)
     .attr('x2', 0)
-    .attr('y1', -self.visual.yScale(d.value))
-    .attr('y2', -self.visual.yScale(d.value) + self.size.data.height);
-'transform', 'translate(' + self.visual.xScale(d.date) + ', ' +  self.visual.yScale(d.value) + ')'
-  self.visual.focus.select('.js-datavis-count').html(d.value)
-  self.visual.focus.select('.js-datavis-date').html(moment.utc(d.date).format('D.M.YYYY'))
+    .attr('y1', -self._helpers.yScale(d.value))
+    .attr('y2', -self._helpers.yScale(d.value) + self._state.dataArea.height)
+  self._elem.focusPoint.select('.js-statistics-count').html(d.value)
+  self._elem.focusPoint.select('.js-statistics-date').html(moment.utc(d.date).format('D.M.YYYY'))
 }
 
 
-// Update data-dependent visual elements eg. line or bars
-// Run on page load and after changing organization filter
-TotalsTimeline.prototype.renderData = function () {
+// Animate new size of y or x axis based on new date filter or organization/category filter
+TotalsTimeline.prototype._resizeAxis = function (axis) {
   var self = this
-  self.renderHistogram()
-  self.renderLine()
-}
-
-// Create histogram bars
-TotalsTimeline.prototype.renderHistogram = function () {
-  var self = this
-  if (self.visual.histogramBars) {
-    self.visual.histogramBars.remove()
+  if (!self._data.line) {
+    return
+  }
+  var currentExtent
+  var newExtent
+  if (axis === 'x') {
+    currentExtent = self._helpers.xScale.domain()
+    newExtent = self._getXExtent()
+  } else {
+    currentExtent = self._helpers.yScale.domain()
+    newExtent = self._getYExtent()
   }
 
-  self.visual.histogramBars = self.visual.histogramCanvas.selectAll('.bar')
-      .data(self.data.histogram[self.visual.histogramType])
-    .enter().append('g') // '.statistics-totals-timeline-line'
-      .attr('class', 'bar')
-      .attr('transform', function(d) { return 'translate(' + self.visual.xScale(d.x0) + ',' + self.visual.yScale(d.length) + ')' })
-
-  // self.visual.histogramBars.exit().remove()
-
-  self.visual.histogramBars.append('rect')
-    .attr('x', 1)
-    .attr(
-      'width', function (d) {
-        return self.visual.xScale(d.x1) - self.visual.xScale(d.x0) - 1
-      }
-    )
-    .attr('height', function(d) { return self.size.data.height - self.visual.yScale(d.length) })
-
-  self.visual.histogramBars.append('text')
-    .attr('dy', '.75em')
-    .attr('y', 6)
-    .attr('x', function (d) {
-      return (self.visual.xScale(d.x1) - self.visual.xScale(d.x0)) / 2
-    })
-    .attr('text-anchor', 'middle')
-    .text(function(d) {
-      return d.length > 0 ? ('+' + d.length) : d.length
-    })
-}
-
-// Create the line
-TotalsTimeline.prototype.renderLine = function () {
-  var self = this
-  if (self.visual.line) {
-    self.visual.line.remove()
+  if (axis === 'y') {
+    self._elem.xAxis
+      .attr('transform', 'translate(0,' + self._state.dataArea.height + ')')
   }
-  self.visual.line = self.visual.lineCanvas.append("path")
-    .datum(self.data.line)
-    .attr('d', self.visual.lineDrawer)
-    .classed('statistics-line', true)
-    .classed('statistics-totals-timeline-line', true)
-}
 
-
-TotalsTimeline.prototype.resizeAxis = function (axis, newExtent) {
-  var self = this
-
-  clearTimeout(self.visual['resizeAxisTimeout' + axis])
-  self.visual['resizeAxisTimeout' + axis] = setTimeout(function () {
+  clearTimeout(self._state['resizeAxisTimeout' + axis])
+  self._state['resizeAxisTimeout' + axis] = setTimeout(function () {
 
     // Init transition for each selected item (= only one axis)
-    self.visual[axis + 'Axis'].transition().duration(800)
+    self._elem[axis + 'Axis'].transition().duration(800)
     .tween('resizeAxisTween', function (d, i) {
-      self.visual.yAxis.select('.domain').remove()
-
-      var axisScaleInterpolator = d3.interpolate(self.visual[axis + 'Extent'], newExtent)
-
-      self.visual[axis + 'Extent'] = newExtent
-
-      // Change histogram between monthly/yearly if necessary
-      var duration = moment.utc(newExtent[1]).diff(moment.utc(newExtent[0]), 'years', true)
-      if (duration >= 2.5 && self.visual.histogramType == 'monthly') {
-        self.visual.histogramType = 'yearly'
-        self.renderHistogram()
-        // self.visual.histogramBars.data(self.data.histogram[self.visual.histogramType])
-
-      } else if (duration < 2.5 && self.visual.histogramType == 'yearly') {
-        self.visual.histogramType = 'monthly'
-        self.renderHistogram()
-        // self.visual.histogramBars.data(self.data.histogram[self.visual.histogramType])
-      }
-
-      // What to do on each step
+      // self._elem.yAxis.select('.domain').remove()
+      var axisScaleInterpolator = d3.interpolate(currentExtent, newExtent)
+      // What to do on each animation frame
       return function (t) {
         // Update scale
-        self.visual[axis + 'Scale'].domain(axisScaleInterpolator(t))
+        self._helpers[axis + 'Scale'].domain(axisScaleInterpolator(t))
 
-        // Redraw axis
-        self.visual[axis + 'Axis'].call(self.visual[axis + 'AxisGenerator'])
+        // Redraw axis with new scale
+        self._elem[axis + 'Axis'].call(self._helpers[axis + 'AxisGenerator'])
+        // Redraw the line with new scale
+        self._elem.line.attr('d', self._helpers.lineDrawer)
 
-        // Redraw the line (will use the new y or x scale)
-        self.visual.line.attr('d', self.visual.lineDrawer)
-
-        // Redraw histogram
-        self.visual.histogramBars
-            .attr('transform', function(d) { return 'translate(' + self.visual.xScale(d.x0) + ',' + self.visual.yScale(d.length) + ')' });
-
-        self.visual.histogramBars.select('rect')
-          .attr(
-            'width', function (d) {
-              return self.visual.xScale(d.x1) - self.visual.xScale(d.x0) - 1
-            }
-          )
-          .attr('height', function(d) { return self.size.data.height - self.visual.yScale(d.length) })
-
-        self.visual.histogramBars.select('text')
-          .attr('x', function (d) {
-            return (self.visual.xScale(d.x1) - self.visual.xScale(d.x0)) / 2
-          })
-
-        // Focus point
-        self.setFocusDate()
+        // Redraw point with new scale
+        self._renderFocusPoint()
+      }
+    })
+    .on('end', function () {
+      // Update ticks for axis
+      if (axis === 'x') {
+        self._updateXAxisGenerator()
+        self._elem.xAxis.call(self._helpers.xAxisGenerator)
+      } else {
+        self._updateYAxisGenerator()
+        self._elem.yAxis.call(self._helpers.yAxisGenerator)
       }
     })
   }, 100)
 }
 
-
-TotalsTimeline.prototype.onAreaResize = function () {
+TotalsTimeline.prototype._updateYAxisGenerator = function () {
   var self = this
-  self.size.image.width = parseInt(self.statistics.styles.contentWidth)
+  self._helpers.yAxisGenerator = function (g) {
 
-  self.size.image.height = 360
-  self.size.data.width = self.size.image.width - self.size.margin.left - self.size.margin.right
-  self.size.data.height = self.size.image.height - self.size.margin.top - self.size.margin.bottom
-  self.visual.svg
-    .attr('width', self.size.image.width)
-    .attr('height', self.size.image.height)
+    // Around 5 reference lines. Use only integers.
+    var tickCount = Math.min(4, self._helpers.yScale.domain().slice(-1)[0])
 
-  self.visual.extrasBackLayer
-    .attr('transform', 'translate(' + self.size.margin.left + ',' + self.size.margin.top + ')')
+    // Start from a stock axis
+    g.call(
+      // Create generator for a stock axis
+      d3.axisRight(self._helpers.yScale)
 
-  // Data lines, bars, etc. - clipped if go outside data area
-  self.visual.dataCanvas
-    .attr('transform', 'translate(' + self.size.margin.left + ',' + self.size.margin.top + ')')
+        // Make ticks full width
+        .tickSize(self._state.dataArea.width)
 
-  // Cuts out the data elements outside the axes
-  self.visual.dataClipper
-    .attr('width', self.size.data.width + 1)
-    .attr('height', self.size.data.height + 1)
+        // Set which levels are shown
+        // .tickValues(tickValues)
+        .ticks(tickCount, 'x')
 
-  self.visual.extrasFrontLayer
-    .attr('transform', 'translate(' + self.size.margin.left + ',' + self.size.margin.top + ')')
+        .tickPadding(7)
 
-  self.updateAll(self.data.raw)
+        // Add text to top-most tick number
+        .tickFormat(function(d) {
+          return this.parentNode.nextSibling
+            ? '\xa0' + d
+            : d + ' ' + self._texts.amount
+        })
+    )
+
+    // Remove vertical line
+    g.select('.domain').remove()
+
+    // Move texts to the right side of the graph
+    g.selectAll(".tick text")
+      .attr("x", self._state.dataArea.width + 2)
+      .attr("dy", 2)
+  }
 }
 
 
-// USER INTERACTIONS
-
-TotalsTimeline.prototype.eventListeners = function () {
+TotalsTimeline.prototype._updateXAxisGenerator = function () {
   var self = this
+  var xDomain = self._helpers.xScale.domain()
+  var daysBetween = moment.utc(xDomain[1]).diff(moment.utc(xDomain[0]), 'days')
 
-  var readDateInputs = function () {
-    var startDate = ''
-    if (self.inputs.startDate.property('value') == '') {
-      startDate = self.statistics.data.dateRange[0]
-    } else {
-      startDate = self.statistics.helpers.validDate(self.inputs.startDate.property('value'))
-      if (!startDate) {
-        return false
-      }
-    }
-    var endDate = ''
-    if (self.inputs.endDate.property('value') == '') {
-      endDate = self.statistics.data.dateRange[1]
-    } else {
-      endDate = self.statistics.helpers.validDate(self.inputs.endDate.property('value'))
-      if (!endDate) {
-        return false
-      }
-    }
-    if (startDate > endDate) {
-      return false
-    }
-    self.resizeAxis('x', [startDate.toDate(), endDate.toDate()])
+  // Show months or dates depending on the date range
+  var format
+  if (daysBetween > 116) {
+    format = d3.timeFormat('%b')
+  } else {
+    format = d3.timeFormat('%d.%m.')
   }
-  self.inputs.startDate.on('keyup', readDateInputs)
-  self.inputs.endDate.on('keyup', readDateInputs)
+  var formatYear = d3.timeFormat('%Y')
 
-  if (self.settings.organizations) {
-    self.inputs.organization.on('change', function () {
-      var organization = self.inputs.organization.property('value')
-      self.transformAllData()
-      self.renderData()
-      self.resizeAxis('y', [
-        // Y min = 0 or lower
-        Math.min(0, Math.round(d3.min(self.data.line, function(d) { return d.value }) * 1.25 + 1)),
-        // Y max = max value + some margin
-        Math.round(d3.max(self.data.line, function(d) { return d.value }) * 1.25 + 1)
-      ])
-    })
+  self._helpers.xAxisGenerator = function (g) {
+
+    var tickValues = self._helpers.xScale.ticks(8)
+    // Show tick in the beginning also
+    if (tickValues.indexOf(xDomain[0]) === -1) {
+      tickValues = tickValues.concat(xDomain[0])
+    }
+    // Show tick at the end if it is the end of a month
+    if (moment.utc(xDomain[1]).add(1, 'days').date() === 1) {
+      tickValues = tickValues.concat(xDomain[1])
+    }
+
+    g.call(
+      d3.axisBottom(self._helpers.xScale)
+
+        .tickValues(tickValues)
+
+        // Show year if this is the first tick of the year
+        .tickFormat(function (d) {
+          // Show last tick's year/date from the following year/date
+          var nextDay = moment.utc(d).add(1, 'days')
+          if (d === xDomain[1] && nextDay.date() === 1) {
+            d = nextDay.toDate()
+          }
+          var date = moment.utc(d)
+          if (self._helpers.isYearChangeDate(date)) {
+            return formatYear(d)
+          }
+          return format(d)
+        })
+    )
+    g.selectAll('.tick')
+      .filter(function(d) {
+        var nextDay = moment.utc(d).add(1, 'days')
+        if (d === xDomain[1] && nextDay.date() === 1) {
+          d = nextDay.toDate()
+        }
+        var date = moment.utc(d)
+        return self._helpers.isYearChangeDate(date)
+      })
+      .select('text')
+      .classed('statistics-tick-year', true)
   }
+}
 
-  // self.inputs.downloadButton.on('click', function () {
-  //   console.log('clicked download')
-  // })
+
+// Calculate proper data range for the x axis based on current data
+TotalsTimeline.prototype._getXExtent = function () {
+  var self = this
+  return [
+    self._state.dateRange[0].toDate(),
+    self._state.dateRange[1].toDate(),
+  ]
+}
+
+
+// Calculate proper data range for the y axis based on current data
+TotalsTimeline.prototype._getYExtent = function () {
+  var self = this
+  var firstShownDate = self._state.dateRange[0]
+  var lastShownDate = self._state.dateRange[1]
+
+  var iStart = self._data.line.findIndex(function(dateItem) {
+    return moment.utc(dateItem.date).isSame(firstShownDate)
+  })
+  var iEnd = self._data.line.findIndex(function(dateItem) {
+    return moment.utc(dateItem.date).isSame(lastShownDate)
+  })
+  var shownData = self._data.line.slice(iStart, iEnd)
+  var result = [
+    // Y min = 0 or lower
+    Math.min(0, Math.round(d3.min(shownData, function(d) { return d.value }) * 1.25 + 1)),
+    // Y max = max value + some margin
+    Math.round(d3.max(shownData, function(d) { return d.value }) * 1.25 + 1)
+  ]
+  return result
+}
+
+// https://tc39.github.io/ecma262/#sec-array.prototype.findIndex
+if (!Array.prototype.findIndex) {
+    Object.defineProperty(Array.prototype, 'findIndex', {
+        value: function(predicate) {
+            // 1. Let O be ? ToObject(this value).
+            if (this == null) {
+                throw new TypeError('"this" is null or not defined');
+            }
+
+            var o = Object(this);
+
+            // 2. Let len be ? ToLength(? Get(O, "length")).
+            var len = o.length >>> 0;
+
+            // 3. If IsCallable(predicate) is false, throw a TypeError exception.
+            if (typeof predicate !== 'function') {
+                throw new TypeError('predicate must be a function');
+            }
+
+            // 4. If thisArg was supplied, let T be thisArg; else let T be undefined.
+            var thisArg = arguments[1];
+
+            // 5. Let k be 0.
+            var k = 0;
+
+            // 6. Repeat, while k < len
+            while (k < len) {
+                // a. Let Pk be ! ToString(k).
+                // b. Let kValue be ? Get(O, Pk).
+                // c. Let testResult be ToBoolean(? Call(predicate, T, « kValue, k, O »)).
+                // d. If testResult is true, return k.
+                var kValue = o[k];
+                if (predicate.call(thisArg, kValue, k, o)) {
+                    return k;
+                }
+                // e. Increase k by 1.
+                k++;
+            }
+
+            // 7. Return -1.
+            return -1;
+        }
+    });
 }

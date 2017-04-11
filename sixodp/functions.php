@@ -82,6 +82,22 @@ if ( !function_exists('sixodp_theme_setup') ) :
 endif; // twentysixteen_setup
 add_action( 'after_setup_theme', 'sixodp_theme_setup' );
 
+// add tag support to pages
+function tags_categories_support_all() {
+  register_taxonomy_for_object_type('post_tag', 'page');
+  register_taxonomy_for_object_type('category', 'page');
+}
+
+// ensure all tags are included in queries
+function tags_support_query($wp_query) {
+  if ($wp_query->get('tag')) $wp_query->set('post_type', 'any');
+}
+
+// tag hooks
+add_action('init', 'tags_categories_support_all');
+add_action('pre_get_posts', 'tags_support_query');
+
+
 function footer_widgets_init() {
 	register_sidebar( array(
 		'name'          => 'Footer widget sidebar',
@@ -120,6 +136,18 @@ if(function_exists("register_field_group"))
         'formatting' => 'html',
         'maxlength' => '',
       ),
+      array (
+        'key' => 'field_58d0f3bd42154',
+        'label' => 'Frontpage background',
+        'name' => 'frontpage_background',
+        'type' => 'image',
+        'default_value' => '',
+        'placeholder' => '',
+        'prepend' => '',
+        'append' => '',
+        'formatting' => 'html',
+        'maxlength' => '',
+      ),
     ),
     'location' => array (
       array (
@@ -141,6 +169,19 @@ if(function_exists("register_field_group"))
     'menu_order' => 0,
   ));
 }
+
+$image_field = array(
+  'return_format' => 'array',
+  'preview_size' => 'thumbnail',
+  'library' => 'all',
+  'min_width' => 0,
+  'min_height' => 0,
+  'min_size' => 0,
+  'max_width' => 0,
+  'max_height' => 0,
+  'max_size' => 0,
+  'mime_types' => '',
+);
 
 function register_notifications() {
 
@@ -185,19 +226,19 @@ add_action( 'init', 'add_custom_fields_support_for_pages' );
 
 function create_primary_menus() {
   create_menu_i18n('primary_fi', PRIMARY_MENU_ITEMS_FI, 'primary');
-  create_menu_i18n('primary_en', PRIMARY_MENU_ITEMS_EN, 'primary');
+  create_menu_i18n('primary_en_GB', PRIMARY_MENU_ITEMS_EN, 'primary');
   create_menu_i18n('primary_sv', PRIMARY_MENU_ITEMS_SV, 'primary');
 }
 
 function create_secondary_menus() {
   create_menu_i18n('secondary_fi', SECONDARY_MENU_ITEMS_FI, 'secondary');
-  create_menu_i18n('secondary_en', SECONDARY_MENU_ITEMS_EN, 'secondary');
+  create_menu_i18n('secondary_en_GB', SECONDARY_MENU_ITEMS_EN, 'secondary');
   create_menu_i18n('secondary_sv', SECONDARY_MENU_ITEMS_SV, 'secondary');
 }
 
 function create_footer_menus() {
   create_menu_i18n('footer_fi', FOOTER_MENU_ITEMS_FI, 'footer_menu');
-  create_menu_i18n('footer_en', FOOTER_MENU_ITEMS_EN, 'footer_menu');
+  create_menu_i18n('footer_en_GB', FOOTER_MENU_ITEMS_EN, 'footer_menu');
   create_menu_i18n('footer_sv', FOOTER_MENU_ITEMS_SV, 'footer_menu');
 }
 
@@ -222,7 +263,7 @@ function create_menu_i18n($menu_name, $itemsArr, $location) {
 }
 
 function create_default_pages() {
-  foreach( ['fi', 'en', 'sv'] as $locale ) {
+  foreach( ['fi', 'en_GB', 'sv'] as $locale ) {
     insert_default_page($locale);
   }
 }
@@ -259,12 +300,19 @@ function sixodp_scripts() {
 add_action( 'wp_enqueue_scripts', 'sixodp_scripts' );
 
 function get_nav_menu_items($menu) {
-  return wp_get_menu_array($menu . '_' . get_current_locale());
+  return wp_get_menu_array($menu);
 }
 
 function wp_get_menu_array($current_menu) {
-
-    $array_menu = wp_get_nav_menu_items($current_menu);
+    //var_dump(!in_array(get_current_locale().'', array("fi", "en_GB", "sv")));
+    if ( !in_array(get_current_locale().'', array("fi", "en_GB", "sv")) ) {
+      $array_menu = wp_get_nav_menu_items($current_menu . '_fi');
+      //echo 'SHIT?';
+    } else {
+      $array_menu = wp_get_nav_menu_items($current_menu . '_' . get_current_locale());
+      //echo 'NO SHIT?';
+    }
+    
     $menu = array();
     foreach ($array_menu as $m) {
         if (empty($m->menu_item_parent)) {
@@ -316,6 +364,15 @@ function get_tuki_links() {
   return get_page_children( $tuki_page->ID, $all_wp_pages );
 }
 
+function get_child_pages($page_title, $limit = 6) {
+  // Set up the objects needed
+  $my_wp_query = new WP_Query();
+  $all_wp_pages = $my_wp_query->query(array('post_type' => 'page', 'posts_per_page' => '-1'));
+
+  $parent_page          = get_page_by_title($page_title);
+  return array_slice(get_page_children( $parent_page->ID, $all_wp_pages ), 0, $limit);
+}
+
 function get_current_locale() {
   $path = explode('/', $_SERVER['REQUEST_URI']);
   return $path[1];
@@ -331,7 +388,12 @@ function get_popular_tags() {
 }
 
 function get_recent_content() {
-  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_released%20desc&rows=5');
+  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_released%20asc&rows=8');
+  return $data['result']['results'];
+}
+
+function get_recent_datasets() {
+  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_released%20asc&rows=3');
   return $data['result']['results'];
 }
 
@@ -349,8 +411,18 @@ function get_dataset_count() {
   return get_datasets()['count'];
 }
 
+function get_items($type) {
+  $data = get_ckan_data(CKAN_API_URL."/action/".$type."_list");
+  return $data['result'];
+}
+
 function get_showcases_count() {
   return get_count('ckanext_showcase');
+}
+
+function get_recent_showcases() {
+  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_released%20asc&fq=dataset_type:showcase');
+  return $data['result']['results'];
 }
 
 function get_organizations_count() {
@@ -358,8 +430,7 @@ function get_organizations_count() {
 }
 
 function get_count($type) {
-  $data = get_ckan_data(CKAN_API_URL."/action/".$type."_list");
-  return count($data['result']);
+  return count(get_items($type));
 }
 
 function get_ckan_categories() {
@@ -367,43 +438,25 @@ function get_ckan_categories() {
   return $data['result'];
 }
 
-/*
-* Returns package rating
-*
-* Example data below
-*
-*  {
-*    help: "https://generic-qa.dataportaali.com/data/api/3/action/help_show?name=rating_showcase_get",
-*    success: true,
-*    result: {
-*      rating: 0,
-*      ratings_count: 0
-*    }
-*  }
-*/
 function get_ckan_package_rating($package_id) {
   $data = get_ckan_data(CKAN_API_URL.'/action/rating_showcase_get?package_id='.$package_id);
-  $rating = ($package_id*0.5);
-  if ( $rating > 5 ) {
-    $rating = 5;
-  }
-  return array('rating' => $rating, 'ratings_count' => ($package_id*2)); //return $data['result'];
-}
-
-function get_stars($package_id) {
-  $package_rating = get_ckan_package_rating($package_id);
-  $count = $package_rating['ratings_count'];
-  $rating = $package_rating['rating'];
-
-  /*$i = 5;
-  while ( $i < 0 ) {
-    array_push($i);
-  }*/
+  $res = $data['result'];
+  return array(
+    'rating' => $res['rating'],
+    'ratings_count' => $res['ratings_count']
+  );
 }
 
 function parse_date($date) {
   $d = new DateTime($date);
   return $d->format('d.m.Y');
+}
+
+function get_days_ago($date) {
+  $date = new DateTime($date);
+  $now = new DateTime();
+  $interval = $now->diff($date);
+  return $interval->days . $interval->format(' päivää, %h tuntia sitten');
 }
 
 function get_notes_excerpt($str) {
@@ -412,4 +465,23 @@ function get_notes_excerpt($str) {
 
 function assets_url() {
   return site_url().'/assets';
+}
+
+function sort_results($arr) {
+  $temp = array();
+  foreach ($arr as $key => $row)
+  {
+      $temp[$key] = $row['metadata_created'];
+  }
+  array_multisort($temp, SORT_DESC, $arr);
+
+  return $arr;
+}
+
+function get_all_recent_data() {
+  $datasets   = get_recent_content();
+  $showcases  = get_recent_showcases();
+  $arr = array_merge($datasets, $showcases);
+
+  return sort_results($arr);
 }

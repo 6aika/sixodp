@@ -1,0 +1,12 @@
+.archive-item {
+  border-bottom: 1px solid $brand-gray;
+  padding: $base*4 0;
+}
+
+.archive-item__meta {
+  font-size: 1.2rem;
+}
+
+.archive-item__title {
+  margin-top: $base;
+}

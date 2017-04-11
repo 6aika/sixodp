@@ -22,7 +22,6 @@ a {
   font-size: $font-size-large;
   font-weight: $headings-font-weight;
   font-family: $font-heading;
-  color: $brand-primary;
 }
 
 .heading {
@@ -45,4 +44,23 @@ a {
   @include heading();
   font-size: 2.5rem;
   font-weight: 700;
+}
+
+.heading--featured {
+  @include heading();
+  font-size: 3rem;
+}
+
+.heading--mleft {
+  margin-left: -$base*1.5;
+}
+
+.heading--featured-small {
+  @include heading();
+  font-size: 2.2rem;
+}
+
+.heading--archive {
+  @extend .heading--main;
+  margin-top: $base*6;
 }

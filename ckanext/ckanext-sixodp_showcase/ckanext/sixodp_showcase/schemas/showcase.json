@@ -5,33 +5,47 @@
   "about_url": "http://github.com/6aika/sixodp",
   "dataset_fields": [
     {
-      "field_name": "title_translated",
+      "field_name": "title",
       "label": "Title",
-      "preset": "fluent_core_title_translated",
-      "form_languages": ["fi", "en", "sv"],
+      "preset": "title",
       "form_placeholder":"eg. A descriptive title",
-      "only_default_lang_required": true,
-      "description": "A short and descriptive title for the showcase."
+      "description": "A short and descriptive title for the showcase.",
+      "required": true
     },
     {
       "field_name": "name",
       "label": "URL",
       "preset": "dataset_slug_ex",
       "form_placeholder": "eg. my-dataset",
-      "description": "An URL-address which refers to the dataset. The automatically filled option derived from the title is the best option in most cases."
+      "description": "An URL-address which refers to the dataset. The automatically filled option derived from the title is the best option in most cases.",
+      "required": true
     },
     {
       "field_name": "category",
       "label": "Category",
       "form_placeholder":"eg. visualization",
-      "preset": "vocabulary_with_autocomplete",
-      "validators": "ignore_missing convert_to_list create_tags(category)",
+      "preset": "fluent_vocabulary_with_autocomplete",
+      "validators": "fluent_tags create_fluent_tags(category)",
       "form_attrs": {
         "data-module": "autocomplete",
         "data-module-tags": "",
-        "data-module-source": "/api/2/util/tag/autocomplete?incomplete=?&vocabulary_id=vategory"
+        "data-module-source": "/api/2/util/tag/autocomplete?incomplete=?&vocabulary_id=category"
       },
       "description": "Category which represents showcase."
+    },
+    {
+      "field_name": "platform",
+      "label": "Platform",
+      "form_placeholder":"eg. android",
+      "preset": "vocabulary_with_autocomplete",
+      "validators": "not_empty convert_to_list create_tags(platform)",
+      "form_attrs": {
+        "data-module": "autocomplete",
+        "data-module-tags": "",
+        "data-module-source": "/api/2/util/tag/autocomplete?incomplete=?&vocabulary_id=platform"
+      },
+      "description": "Platforms of the showcase.",
+      "required": true
     },
     {
       "field_name": "keywords",
@@ -67,7 +81,7 @@
     },
     {
       "field_name": "application_website",
-      "label": "Applcation Website",
+      "label": "Application Website",
       "form_placeholder": "http://www.example.com",
       "display_snippet": "link.html",
       "required": true
@@ -79,16 +93,34 @@
       "form_blanks": 1,
       "display_snippet": "repeating_link.html",
       "form_snippet": "repeating.html",
-      "description": "Links to stores"
+      "description": "Links to stores",
+      "validators": "not_empty repeating_text"
     },
     {
-      "field_name": "description_translated",
+      "field_name": "notes_translated",
       "label": "Description",
       "preset": "fluent_core_markdown_translated",
-      "validators": "fluent_text",
       "form_placeholder": "eg. A detailed description",
       "form_languages": ["fi", "en", "sv"],
-      "description": "An universal, compact and easy to understand description of the added resource."
+      "description": "An universal, compact and easy to understand description of the added resource.",
+      "only_default_lang_required": true
+    },
+    {
+      "field_name": "featured",
+      "label": "Featured",
+      "preset": "select",
+      "choices":[
+        {
+          "value": "false",
+          "label": "No"
+        },
+        {
+          "value": "true",
+          "label": "Yes"
+        }
+      ],
+      "required": true,
+      "validators": "boolean_validator"
     },
     {
       "field_name": "icon",
@@ -98,6 +130,16 @@
       "upload_field": "icon_upload",
       "upload_clear": "clear_icon_upload",
       "upload_label": "Icon"
+    },
+    {
+      "field_name": "featured_image",
+      "label": "Featured Image",
+      "preset": "showcase_url_upload",
+      "form_placeholder": "http://example.com/my-camel-photo.jpg",
+      "upload_field": "featured_image_upload",
+      "upload_clear": "clear_featured_image_upload",
+      "upload_label": "Featured Image",
+      "description": "Image size xx times xx."
     },
     {
       "field_name": "image_1",
@@ -127,13 +169,33 @@
       "upload_label": "Image 3"
     },
     {
-      "field_name": "image_4",
-      "label": "Image 4",
-      "preset": "showcase_url_upload",
-      "form_placeholder": "http://example.com/my-camel-photo.jpg",
-      "upload_field": "image_4_upload",
-      "upload_clear": "clear_image_4_upload",
-      "upload_label": "Image 4"
+      "field_name": "archived",
+      "label": "Archived",
+      "preset": "select",
+      "choices":[
+        {
+          "value": "false",
+          "label": "No"
+        },
+        {
+          "value": "true",
+          "label": "Yes"
+        }
+      ],
+      "required": true,
+      "validators": "boolean_validator"
+    },
+    {
+      "field_name": "notifier",
+      "label": "Notifier",
+      "form_placeholder": "Joe Bloggs",
+      "display_snippet": null
+    },
+    {
+      "field_name": "notifier_email",
+      "label": "Notifier Email",
+      "form_placeholder": "joe@example.com",
+      "display_snippet": null
     }
 
   ]

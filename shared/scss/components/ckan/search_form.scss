@@ -11,10 +11,18 @@
 
   .search-form {
     padding-bottom: $padding-large-vertical*4;
+    margin: auto;
     width: 100%;
 
     @media(min-width: $width-md) {
       max-width: $width-sm;
     }
+  }
+}
+
+.search-form {
+  h1, h2, h3, h4, h5, h6 {
+    line-height: $input-height-base;
+    vertical-align: middle;
   }
 }

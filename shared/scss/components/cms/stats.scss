@@ -2,17 +2,17 @@
   display: none;
   margin-top: $base*2;
   padding-bottom: $base*6;
-  color: #fff;
+  color: $brand-white;
 
   @media (min-width: $width-sm) {
-    display: block;
+    display: flex;
   }
 }
 
 .stat__wrapper {
   text-align: center;
   margin-top: $base*2;
-  border-left: 1px solid white;
+  border-left: 1px solid $brand-white;
 
   @media (min-width: $width-md) {
     text-align: left;
@@ -24,6 +24,7 @@
 
   &:last-child {
     border-left: none;
+    margin-left: auto;
   }
 }
 
@@ -31,6 +32,7 @@
   display: inline-block;
   text-align: center;
   padding-left: $base*2;
+  padding-right: $base*2;
 
   & > div {
     display: inline-block;

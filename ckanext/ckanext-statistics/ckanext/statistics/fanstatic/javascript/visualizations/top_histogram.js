@@ -3,7 +3,7 @@ function TopHistogram (params) {
   var self = this
 
   // Immutable
-  self._translations = params.translations
+  self._texts = params.texts
   self._props = {
     id: params.id,
     margin: params.margin,
@@ -14,57 +14,61 @@ function TopHistogram (params) {
 
   // Mutable
   self._state = {
-    locale: undefined,
     contentArea: {},
     dataArea: {},
-    isDataInited: false,
+    dateRange: [moment.utc().subtract(1, 'days'), moment.utc()],
   }
 
   self._data = {}
 
   self._renderBase(params.element)
   self.resize(params.width, params.height)
-  self._renderAxisX()
-  self._renderAxisY()
-  self.setLocale(params.locale)
 }
 
 
 // Whenever new data arrives
 TopHistogram.prototype.setData = function (data) {
   var self = this
-  console.log('TopHistogram.setData', data)
-  self._data = self._transformData(data)
-  self._state.isDataInited = true
+  self._data.raw = data
+  self._data.histogram = self._transformData(data)
 
   // Update x and y domain ranges based on histgram bar data
   self._helpers.xScale.domain(
     d3.map(self._data.histogram, function(d) { return d[self._schema.labelField] }).keys()
   )
-
   self._helpers.yScale.domain([0, d3.max(self._data.histogram, function(d) { return d[self._schema.valueField] })])
 
   self._renderHistogram(self._data.histogram)
 }
 
 
-// Change language and units according to given locale
-TopHistogram.prototype.setLocale = function (locale) {
+TopHistogram.prototype.setDateFilter = function (dates) {
   var self = this
-  self._state.locale = locale
-  self._elem.title.text(self._translations.title[self._state.locale])
+  self._state.dateRange = dates
+  // console.log('Top histogram set date', dates)
+  // self._data.histogram = self._transformData(self._data.raw)
+
+  // TODO:
+  // Re-render histogram with new data
+  // Resize x axis
 }
 
 
 // Resize the visualization to a new pixel size on the screen
-TopHistogram.prototype.resize = function (contentWidth, contentHeight = undefined) {
+TopHistogram.prototype.resize = function (contentWidth, contentHeight) {
+  if (!contentHeight)
+    contentHeight = undefined
+
+
   var self = this
+
   self._state.contentArea.width = contentWidth
   self._elem.svg.attr('width', self._state.contentArea.width)
   if (typeof contentHeight !== 'undefined') {
     self._state.contentArea.height = contentHeight
     self._elem.svg.attr('height', self._state.contentArea.height)
   }
+
   self._state.dataArea = {
     width: self._state.contentArea.width - self._props.margin.left - self._props.margin.right,
     height: self._state.contentArea.height - self._props.margin.top - self._props.margin.bottom,
@@ -72,6 +76,10 @@ TopHistogram.prototype.resize = function (contentWidth, contentHeight = undefine
 
   self._elem.svgCanvas
     .attr('transform', 'translate(' + self._props.margin.left + ',' + self._props.margin.top + ')')
+
+  self._elem.dataCanvas
+    .attr('width', self._state.dataArea.width)
+    .attr('height', self._state.dataArea.height)
 
   // Update pixel ranges for x and y dimension
   self._helpers.xScale.rangeRound([0, self._state.dataArea.width])
@@ -89,15 +97,11 @@ TopHistogram.prototype._transformData = function (data) {
     return parseFloat(a[self._schema.valueFied]) - parseFloat(b[self._schema.valueFied])
   })
 
-  console.log('*** result', result)
-
-  return {
-    histogram: result
-  }
+  return result
 }
 
 
-// Render things that don't change when receiving the first data, updating the data, changing the locale or resizing the content area
+// Render things that don't change when receiving the first data, updating the data or resizing the content area
 TopHistogram.prototype._renderBase = function (container) {
   var self = this
 
@@ -106,6 +110,7 @@ TopHistogram.prototype._renderBase = function (container) {
 
   self._elem.title = self._elem.container.append('h3')
     .classed('statistics-vis-title', true)
+    .text(self._texts.title)
 
   self._elem.svg = self._elem.container.append('svg')
   self._elem.svgCanvas = self._elem.svg.append('g')
@@ -119,26 +124,17 @@ TopHistogram.prototype._renderBase = function (container) {
 
   self._helpers.xScale = d3.scaleBand().padding(0.1)
   self._helpers.yScale = d3.scaleLinear()
-}
 
-
-// Draw X axis
-TopHistogram.prototype._renderAxisX = function () {
-  var self = this
+  // X axis
   self._elem.xAxis = self._elem.frontLayer.append('g')
-    // .classed('statistics-axis statistics-axis-x', true)
+    .classed('statistics-axis', true)
     .attr('transform', 'translate(0,' + self._state.dataArea.height + ')')
     .call(d3.axisBottom(self._helpers.xScale))
-}
 
-
-// Draw Y axis
-TopHistogram.prototype._renderAxisY = function () {
-  var self = this
+  // Y axis
   self._elem.yAxis = self._elem.frontLayer.append('g')
-      // .classed('statistics-axis statistics-axis-y', true)
+      .classed('statistics-axis', true)
       .call(d3.axisLeft(self._helpers.yScale).ticks(10, '%'))
-
   self._elem.yAxis
     .append('text')
       .attr('transform', 'rotate(-90)')

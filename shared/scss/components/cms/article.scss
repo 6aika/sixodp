@@ -19,7 +19,7 @@
 .article {
   line-height: 1.6;
   font-size: 1.6rem;
-  color: #333;
+  color: $gray-dark;
 }
 
 .article p {
@@ -32,4 +32,17 @@
   overflow: visible;
   // This is a fallback, JS calculates the value based on iframe props
   padding-top: 56.25%;
+}
+
+.article__tags {
+
+  ul {
+    padding-left: 0;
+  }
+
+  li {
+    list-style: none;
+    display: inline-block;
+    margin: $base;
+  }
 }

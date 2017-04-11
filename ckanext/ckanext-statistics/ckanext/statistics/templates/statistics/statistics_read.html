@@ -2,40 +2,74 @@
 
 {% block pre_primary %}
   <div class="statistics-page">
+    <div class="js-statistics-loading statistics-loading">
+      <!-- <h1 class="js-statistics-loading-title"></h1> -->
+      <div class="js-statistics-loading-steps statistics-loading-steps">
+        <div class="js-statistics-loading-loaded statistics-loading-loaded">
+        </div>
+      </div>
+      <p class="js-statistics-loading-text statistics-loading-text">Ladataan verkkosivu</p>
+    </div>
+    <h1 class="page-heading js-statistics-main-title"></h1>
+    <nav class="statistics-nav">
+      <div class="statistics-nav-content">
+        <ul class="statistics-nav-items">
+          <li><a href="#summary"></a></li>
+          <li><a href="#datasets"></a></li>
+          <li><a href="#apps"></a></li>
+          <!-- <li><a href="#articles"></a></li> -->
+        </ul>
 
-    <div class="statistics-section front-section js-front-section">
+        <div class="statistics-nav-filters">
+          <div class="statistics-filter-datespan">
+            <div class="statistics-filter-datespan-quicklinks">
+              <a class="js-statistics-filter-datespan-all"></a>
+              <a class="js-statistics-filter-datespan-back-2-years"></a>
+              <a class="js-statistics-filter-datespan-back-1-year"></a>
+              <a class="js-statistics-filter-datespan-this-year"></a>
+            </div>
+            <div class="js-statistics-filter-datespan-fields">
+              <input class="js-statistics-filter-start-date" type="date" />
+              -
+              <input class="js-statistics-filter-end-date" type="date" />
+            </div>
+          </div>
+          <select class="js-statistics-filter-organization statistics-filter-organization">
+            <option>-</option>
+          </select>
+          <select class="js-statistics-filter-category statistics-filter-category">
+            <option>-</option>
+          </select>
+        </div>
+      </div>
+    </nav>
+
+    <div class="statistics-section summary-section js-statistics-summary-section">
       <div class="statistics-section-content">
-        <h1>
-          <div>Tilastot</div>
-        </h1>
-        <div class="js-front-attention-numbers"></div>
+        <div class="js-summary-attention-numbers"></div>
       </div>
     </div>
 
-    <div class="statistics-section js-dataset-section">
+    <div class="statistics-section statistics-dataset-section js-statistics-datasets-section">
       <div class="statistics-section-content">
-        <h2>Tietoaineistot</h2>
+        <h2 class="js-statistics-datasets-section-title"></h2>
         <div class="js-dataset-totals-timeline"></div>
-        <div class="js-organization-dataset-counts"></div>
+        <!-- <div class="js-organization-dataset-counts"></div> -->
       </div>
     </div>
 
-    <div class="statistics-section js-app-section">
+    <div class="statistics-section statistics-app-section js-statistics-apps-section">
       <div class="statistics-section-content">
-        <h2>Sovellukset</h2>
+        <h2 class="js-statistics-apps-section-title"></h2>
         <div class="js-app-totals-timeline"></div>
       </div>
     </div>
 
-    <!-- <div class="statistics-section js-app-section">
+    <!-- <div class="statistics-section js-statistics-articles-section">
       <div class="statistics-section-content">
-        <h2>Käyttäjät</h2>
+        <h2>Artikkelit</h2>
       </div>
     </div> -->
-
-    <!-- <div class="statistics-footer"> -->
-      <!-- <a href="">Tekniset raportit</a> -->
-    <!-- </div> -->
 
   </div>
 {% endblock %}

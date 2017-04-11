@@ -30,13 +30,13 @@
     .table-selected {
       td {
         background-color: $brand-primary;
-        color: $white;
+        color: $brand-white;
       }
     }
 
     .module-content {
       padding: $padding-base-vertical $padding-base-horizontal;
-      background: $white;
+      background: $brand-white;
     }
   }
 }

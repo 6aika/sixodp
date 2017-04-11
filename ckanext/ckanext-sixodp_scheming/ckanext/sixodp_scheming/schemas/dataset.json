@@ -163,7 +163,8 @@
       "field_name": "search_synonyms",
       "label": "Search Synonyms",
       "display_snippet": null,
-      "description": "Synonyms for package search"
+      "description": "Synonyms for package search",
+      "form_snippet": "textarea.html"
     }
   ],
   "resource_fields": [

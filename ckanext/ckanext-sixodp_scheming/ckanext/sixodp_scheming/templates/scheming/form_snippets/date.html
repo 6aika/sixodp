@@ -4,10 +4,10 @@
     id='field-' + field.field_name,
     label=h.scheming_language_text(field.label),
     placeholder=h.scheming_language_text(field.form_placeholder),
-    type='date',
+    type='text',
     value=data.get(field.field_name, '').split()[0],
     error=errors[field.field_name],
-    classes=['control-medium'],
+    classes=['control-medium has-datepicker'],
     attrs=field.form_attrs if 'form_attrs' in field else {},
     is_required=h.scheming_field_required(field)
     )

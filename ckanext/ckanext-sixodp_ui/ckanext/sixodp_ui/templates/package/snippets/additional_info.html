@@ -1,5 +1,14 @@
 <section class="additional-info">
   <h3>{{ _('Additional Info') }}</h3>
+
+  {% block api_link %}
+    <div class="api-link">
+      <a class="btn btn-block btn-transparent--inverse" href="{{ h.url_for('/', locale='default', qualified=true) }}api/action/package_show?id={{c.pkg_dict.name}}">
+        {{ _('Metadata API') }} <i class="material-icons">arrow_forward</i>
+      </a>
+    </div>
+  {% endblock %}
+
   <table class="table table-condensed table-borderless table-striped">
     <thead> </thead>
     <tbody>
@@ -78,8 +87,4 @@
       {% endblock %}
     </tbody>
   </table>
-
-  {% block api_link %}
-    <a class="api-link" href="{{ h.url_for('/', locale='default', qualified=true) }}api/action/package_show?id={{pkg_dict.name}}">{{ _('API metadata') }}</a>
-  {% endblock %}
 </section>

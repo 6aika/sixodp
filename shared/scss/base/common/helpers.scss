@@ -75,7 +75,7 @@
   color: $brand-primary;
 
   &:focus, &:active, &:hover {
-    background-color: $white;
+    background-color: $brand-white;
     color: $brand-primary-light;
   }
 }
@@ -83,11 +83,11 @@
 %button-primary {
   @extend %button;
   background-color: $brand-primary;
-  color: $white;
+  color: $brand-white;
 
   &:focus, &:active, &:hover {
     background-color: $brand-primary-light;
-    color: $white;
+    color: $brand-white;
   }
 }
 
