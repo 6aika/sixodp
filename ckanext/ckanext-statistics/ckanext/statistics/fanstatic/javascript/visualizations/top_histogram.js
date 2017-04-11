@@ -55,7 +55,11 @@ TopHistogram.prototype.setDateFilter = function (dates) {
 
 
 // Resize the visualization to a new pixel size on the screen
-TopHistogram.prototype.resize = function (contentWidth, contentHeight = undefined) {
+TopHistogram.prototype.resize = function (contentWidth, contentHeight) {
+  if (!contentHeight)
+    contentHeight = undefined
+
+
   var self = this
 
   self._state.contentArea.width = contentWidth
