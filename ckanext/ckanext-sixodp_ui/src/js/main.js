@@ -1,3 +1,5 @@
+var objectFitImages = require('object-fit-images');
+
 $(function() {
 
   $('body').on('click', '.dropdown-toggle', function() {
@@ -125,5 +127,9 @@ $(function ($) {
       $('#horizaccordion').removeClass('in');
       showOpenHorizaccordionButton($('#horizaccordion'));
     }
+
+    // Polyfill object-fit
+    objectFitImages();
+
   });
 }(jQuery));
