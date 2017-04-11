@@ -23,12 +23,18 @@
             <div class="card__body--latest">
               <a href="<?php echo CKAN_BASE_URL; ?>/data/<?php echo get_current_locale(); ?>/<?php echo $dataset['type']; ?>" class="card__categorylink--latest"><?php echo $dataset['type']; ?></a>
               <h3 class="card__title--latest">
-                <a href="<?php echo CKAN_BASE_URL.'/data/'.get_current_locale().'/dataset/'.$dataset['name']; ?>"><?php echo $dataset["title"]; ?></a>
+                <?php if ( $dataset['title_translated'][get_current_locale()] ) { ?>
+                  <a href="<?php echo CKAN_BASE_URL.'/data/'.get_current_locale().'/dataset/'.$dataset['name']; ?>"><?php echo $dataset["title_translated"][get_current_locale()]; ?></a>
+                <?php } else if ( $dataset['title'] ) { ?>
+                  <a href="<?php echo CKAN_BASE_URL.'/data/'.get_current_locale().'/dataset/'.$dataset['name']; ?>"><?php echo $dataset["title"]; ?></a>
+                <?php } else { ?>
+                  <a class="btn btn-transparent--inverse" href="<?php echo CKAN_BASE_URL.'/data/'.get_current_locale().'/dataset/'.$dataset['name']; ?>">Lue lisää <i class="material-icons">arrow_forward</i></a>
+                <?php } ?>
               </h3>
-              <?php if ( $dataset['notes'] ) { ?>
-                <p class="card__description"><?php echo get_notes_excerpt($dataset['notes']); ?></p>
-              <?php } else if ( $dataset['notes_translated'][get_current_locale()] ) { ?>
+              <?php if ( $dataset['notes_translated'][get_current_locale()] ) { ?>
                 <p class="card__description"><?php echo get_notes_excerpt($dataset['notes_translated'][get_current_locale()]); ?></p>
+              <?php } else if ( $dataset['notes'] ) { ?>
+                <p class="card__description"><?php echo get_notes_excerpt($dataset['notes']); ?></p>
               <?php } ?>
             </div>
           </div><?php
