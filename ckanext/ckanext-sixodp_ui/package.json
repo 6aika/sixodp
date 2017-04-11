@@ -18,6 +18,7 @@
     "watch": "^0.19.2"
   },
   "dependencies": {
-    "browserify": "^14.1.0"
+    "browserify": "^14.1.0",
+    "object-fit-images": "^3.1.3"
   }
 }

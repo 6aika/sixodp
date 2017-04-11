@@ -1,3 +1,5 @@
+var objectFitImages = require('object-fit-images');
+
 $(function() {
 
   $('body').on('click', '.dropdown-toggle', function() {
@@ -111,5 +113,8 @@ $(function ($) {
         $(this).find("#show-text").show();
         $(this).find("#close-text").hide();
     });
+
+    // Polyfill object-fit
+    objectFitImages();
   });
 }(jQuery));
