@@ -4,16 +4,19 @@
   "description": "",
   "scripts": {
     "test": "sudo nosetests --ckan --with-pylons=/etc/ckan/default/test-core.ini ckan ckanext",
+    "watch-js": "watch 'npm run browserify' ckanext/ckanext-sixodp_ui/src/js",
+    "browserify": "browserify ckanext/ckanext-sixodp_ui/src/js/main.js -o ckanext/ckanext-sixodp_ui/ckanext/sixodp_ui/fanstatic/javascript/app.js",
     "watch-sass": "watch 'npm run build' ./shared/scss",
-    "build": "run-p build:*",
+    "build": "run-p build:* browserify",
     "build:ckan": "node-sass ./shared/scss/main.scss ckanext/ckanext-sixodp_ui/ckanext/sixodp_ui/fanstatic/css/sixodp_theme.css",
     "build:cms": "node-sass ./shared/scss/cms.scss sixodp/app.css",
-    "dev": "run-p watch-sass",
-    "postinstall": "run-p build"
+    "dev": "run-p watch-sass watch-js",
+    "postinstall": "run-p build browserify"
   },
   "author": "Mikko Nieminen",
   "license": "ISC",
   "devDependencies": {
+    "browserify": "^14.1.0",
     "node-sass": "^3.8.0",
     "npm-run-all": "^3.1.2",
     "watch": "^0.19.2"
