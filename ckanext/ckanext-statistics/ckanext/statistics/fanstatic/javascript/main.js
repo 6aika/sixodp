@@ -357,7 +357,10 @@ Statistics.prototype._filterItems = function (params) {
   var self = this
   var result = []
 
-  function findSelectedOrganizations (branch, isChildOfSelected = false) {
+  function findSelectedOrganizations (branch, isChildOfSelected) {
+    if (!isChildOfSelected)
+      isChildOfSelected = false
+
     var result = []
     // Each org in this branch
     for (i in branch) {
