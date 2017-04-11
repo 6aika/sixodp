@@ -18,7 +18,11 @@ def get_featured_showcases():
 
     query = get_action('package_search')(context, data_dict)
 
-    return query['results']
+    results = []
+    for item in query['results']:
+        results.append(get_action('package_show')(context, { 'id': item['id'] }))
+
+    return results
 
 def get_showcases_by_author(author, limit, exclude_id):
     context = {'model': model, 'user': c.user, 'auth_user_obj': c.userobj}
