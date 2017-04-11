@@ -47,7 +47,9 @@ DatasetSection.prototype.setData = function (data) {
 }
 
 
-DatasetSection.prototype.onContentResize = function (width, height = undefined) {
+DatasetSection.prototype.onContentResize = function (width, height) {
+  if (!height)
+    height = undefined
   var self = this
   self.totalsTimeline.resize(width, height)
   // self.organizationDatasets.resize(width, height))
