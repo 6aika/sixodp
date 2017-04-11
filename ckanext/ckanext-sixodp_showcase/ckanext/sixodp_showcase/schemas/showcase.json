@@ -136,7 +136,7 @@
       "label": "Featured Image",
       "preset": "showcase_url_upload",
       "form_placeholder": "http://example.com/my-camel-photo.jpg",
-      "upload_field": "feature_image_upload",
+      "upload_field": "featured_image_upload",
       "upload_clear": "clear_featured_image_upload",
       "upload_label": "Featured Image",
       "description": "Image size xx times xx."
