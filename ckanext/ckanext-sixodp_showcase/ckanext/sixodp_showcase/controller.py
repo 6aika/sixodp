@@ -281,3 +281,9 @@ class Sixodp_ShowcaseController(ShowcaseController):
 
         return render(self._search_template(package_type),
                       extra_vars={'dataset_type': package_type})
+
+    def _package_form(self, package_type=None):
+        if package_type == 'showcase':
+            return "sixodp_showcase/package_form.html"
+        else:
+            return super(Sixodp_ShowcaseController, self)._package_form(package_type)
