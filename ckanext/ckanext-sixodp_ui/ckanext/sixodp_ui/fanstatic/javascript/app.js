@@ -229,6 +229,13 @@ hijackAttributes();
 module.exports = fix;
 
 },{}],2:[function(require,module,exports){
+$(function ($) {
+  $('.btn[data-trigger="popper"]').on('click', function () {
+    $('.popper').toggleClass('open');
+  });
+});
+},{}],3:[function(require,module,exports){
+require('./components/popper');
 var objectFitImages = require('object-fit-images');
 
 $(function() {
@@ -365,4 +372,4 @@ $(function ($) {
   });
 }(jQuery));
 
-},{"object-fit-images":1}]},{},[2]);
+},{"./components/popper":2,"object-fit-images":1}]},{},[3]);
