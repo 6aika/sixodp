@@ -388,12 +388,12 @@ function get_popular_tags() {
 }
 
 function get_recent_content() {
-  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_released%20asc&rows=8');
+  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_released%20desc&rows=8');
   return $data['result']['results'];
 }
 
 function get_recent_datasets() {
-  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_released%20asc&rows=3');
+  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_released%20desc&rows=3');
   return $data['result']['results'];
 }
 
@@ -421,7 +421,7 @@ function get_showcases_count() {
 }
 
 function get_recent_showcases() {
-  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_released%20asc&fq=dataset_type:showcase');
+  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_released%20desc&fq=dataset_type:showcase');
   return $data['result']['results'];
 }
 
