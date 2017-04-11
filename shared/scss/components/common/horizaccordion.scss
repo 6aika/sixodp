@@ -33,6 +33,7 @@
     position: relative;
     transition: all .2s ease-in-out;
     margin-top: $base*2;
+    box-sizing: border-box;
 
     &:after {
       content: '';
