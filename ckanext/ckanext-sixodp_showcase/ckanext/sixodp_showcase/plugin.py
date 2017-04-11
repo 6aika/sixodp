@@ -47,8 +47,8 @@ class Sixodp_ShowcasePlugin(ShowcasePlugin):
     def read_template(self):
         return "sixodp_showcase/read.html"
 
-    #def new_template(self):
-    #    return 'sixodp_showcase/new.html'
+    def edit_template(self):
+        return 'sixodp_showcase/edit.html'
 
     def before_map(self, map):
 
