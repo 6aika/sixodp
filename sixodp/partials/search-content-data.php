@@ -27,10 +27,10 @@
                       <nav>
                           <ul class="unstyled nav nav-simple nav-facet filtertype-res_format">
                               <li class="nav-item">
-                                  <a href="<?php echo get_site_url(); ?>?s=<?php echo $searchterm;?>&datasearch" title=""> <span>Tietoaineistot (<?php echo $data_dataset['count']; ?>)</span></a>
+                                  <a href="<?php echo get_site_url(); ?>?s=<?php echo $searchterm;?>&datasearch" title="" class="<?php if(isset($_GET['datasearch']) && !isset($_GET['showcase'])){echo 'active';}?>"> <span>Tietoaineistot (<?php echo $data_dataset['count']; ?>)</span></a>
                               </li>
                               <li class="nav-item">
-                                  <a href="<?php echo get_site_url(); ?>?s=<?php echo $searchterm;?>&datasearch&showcase" title=""> <span>Sovellukset (<?php echo $data_showcase['count']; ?>)</span></a>
+                                  <a href="<?php echo get_site_url(); ?>?s=<?php echo $searchterm;?>&datasearch&showcase" title="" class="<?php if(isset($_GET['datasearch']) && isset($_GET['showcase'])){echo 'active';}?>"> <span>Sovellukset (<?php echo $data_showcase['count']; ?>)</span></a>
                               </li>
                               <li class="nav-item">
                                   <a href="<?php echo get_site_url(); ?>?s=<?php echo $searchterm;?>" title=""> <span>Muut (<?php  echo $searchcount; ?>)</span></a>
