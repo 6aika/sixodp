@@ -5,10 +5,10 @@
   */
 ?>
 <div class="card--showcase">
-  <a href="<?php echo site_url(); ?>" class="showcase__img--link" style="background-image: url(<?php echo $imgUrl; ?>);"></a>
+  <a href="<?php echo CKAN_BASE_URL.'/data/'.get_current_locale().'/showcase/'.$showcase['id']; ?>" class="showcase__img--link" style="background-image: url(<?php echo $imgUrl; ?>);"></a>
   <div class="showcase__content">
     <h4 class="showcase__title">
-      <a class="showcase__link" href="<?php echo site_url(); ?>"><?php echo $showcase['title']; ?></a>
+      <a class="showcase__link" href="<?php echo CKAN_BASE_URL.'/data/'.get_current_locale().'/showcase/'.$showcase['id']; ?>"><?php echo $showcase['title']; ?></a>
     </h4>
     <div class="showcase__text">
       <p><?php echo $notes; ?></p>
