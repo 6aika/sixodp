@@ -48,12 +48,9 @@ TotalsTimeline.prototype.setData = function (data) {
   var self = this
   self._data.raw = data
   self._data.line = self._transformLineData(data)
-
-  self._helpers.xScale.domain(self._getXExtent()).nice()
-  // self._helpers.yScale.domain(self._getYExtent()).nice()
-
   self._renderLine()
   self._renderFocusPoint()
+  self._resizeAxis('x')
   self._resizeAxis('y')
 }
 
