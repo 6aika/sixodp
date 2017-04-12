@@ -98,6 +98,7 @@ Api.prototype.get = function (endPoint, callback) {
 
 
 Api.prototype._preprocess = function (data) {
+
   // Add app information to datasets
   for (i in data.datasets) {
     data.datasets[i].apps = []
@@ -116,6 +117,28 @@ Api.prototype._preprocess = function (data) {
       }
     }
   }
+
+  // Create file formats
+  data.formats = []
+  for (iDataset in data.datasets) {
+    var dataset = data.datasets[iDataset]
+    for (iResource in dataset.resources) {
+      var resource = dataset.resources[iResource]
+      if (data.formats.indexOf(resource.format) === -1) {
+        // TODO: Alphabetically
+        data.formats.push(resource.format)
+      }
+    }
+  }
+  data.formats.sort(function(a, b) {
+    if (a === '') {
+      return true
+    }
+    if (b === '') {
+      return false
+    }
+    return a > b
+  })
 
   return data
 }

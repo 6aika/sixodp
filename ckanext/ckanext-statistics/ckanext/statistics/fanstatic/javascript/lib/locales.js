@@ -137,6 +137,11 @@ Locales = {
     sv: '',
     en: 'Categories',
   },
+  formatsTitle: {
+    fi: 'Tiedostomuodot',
+    sv: '',
+    en: 'File formats',
+  },
 
   // Apps section
   appsPublishedTitle: {

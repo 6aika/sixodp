@@ -29,7 +29,33 @@ var DatasetSection = function (params) {
     element: self._element.select('.js-category-dataset-counts'),
     texts: {
       title: self._texts.categoriesTitle,
-      amount :self._texts.amount,
+      amount: self._texts.amount,
+    },
+    legend: [
+      {
+        title: 'A series',
+      },
+      {
+        title: 'B series',
+      },
+    ],
+    limit: 10, // Before show more button is used
+
+    width: params.width,
+    margin: params.visMargins,
+    schema: {
+      labelField: 'name',
+      valueField: 'all',
+      valueSpecificField: 'specific',
+    }
+  })
+
+  self.formatDatasets = new TopHistogram({
+    id: 'formatDatasets',
+    element: self._element.select('.js-format-dataset-counts'),
+    texts: {
+      title: self._texts.formatsTitle,
+      amount: self._texts.amount,
     },
     legend: [
       {
@@ -55,7 +81,7 @@ var DatasetSection = function (params) {
     element: self._element.select('.js-organization-dataset-counts'),
     texts: {
       title: self._texts.topPublishersTitle,
-      amount :self._texts.amount,
+      amount: self._texts.amount,
     },
     legend: [
       {
@@ -77,10 +103,11 @@ var DatasetSection = function (params) {
   })
 }
 
-DatasetSection.prototype.setData = function (datasets, categoryDatasets, organizationDatasets) {
+DatasetSection.prototype.setData = function (datasets, categoryDatasets, formatDatasets, organizationDatasets) {
   var self = this
   self.totalsTimeline.setData(datasets)
   self.categoryDatasets.setData(categoryDatasets)
+  self.formatDatasets.setData(formatDatasets)
   self.organizationDatasets.setData(organizationDatasets)
 }
 
@@ -89,18 +116,26 @@ DatasetSection.prototype.onContentResize = function (width, height = undefined) 
   var self = this
   self.totalsTimeline.resize(width, height)
   self.categoryDatasets.resize(width)
+  self.formatDatasets.resize(width)
   self.organizationDatasets.resize(width)
 }
 
 
 // Filter all the visualizations in this section by the given dates
-DatasetSection.prototype.setDateRange = function (dates, categoryDatasets, organizationDatasets) {
+DatasetSection.prototype.setDateRange = function (dates, categoryDatasets, formatDatasets, organizationDatasets) {
   var self = this
   self.totalsTimeline.setDateRange(dates)
+
   self.categoryDatasets.setDateRange(dates)
   if (categoryDatasets) {
     self.categoryDatasets.setData(categoryDatasets)
   }
+
+  self.formatDatasets.setDateRange(dates)
+  if (formatDatasets) {
+    self.formatDatasets.setData(formatDatasets)
+  }
+
   self.organizationDatasets.setDateRange(dates)
   if (organizationDatasets) {
     self.organizationDatasets.setData(organizationDatasets)

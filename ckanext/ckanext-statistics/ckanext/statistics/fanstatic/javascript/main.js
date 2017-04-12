@@ -117,6 +117,11 @@ Statistics.prototype._createNav = function () {
           self._data.filtered.categories,
           self._state.dateRangeFilter
         ),
+        self._createFormatDatasets(
+          self._data.filtered.datasets,
+          self._data.filtered.formats,
+          self._state.dateRangeFilter
+        ),
         self._createOrganizationDatasets(
           self._data.filtered.datasets,
           self._data.filtered.organizations,
@@ -138,6 +143,11 @@ Statistics.prototype._createNav = function () {
           self._data.filtered.categories,
           self._state.dateRangeFilter
         ),
+        self._createFormatDatasets(
+          self._data.filtered.datasets,
+          self._data.filtered.formats,
+          self._state.dateRangeFilter
+        ),
         self._createOrganizationDatasets(
           self._data.filtered.datasets,
           self._data.filtered.organizations,
@@ -155,6 +165,11 @@ Statistics.prototype._createNav = function () {
         self._createCategoryDatasets(
           self._data.filtered.datasets,
           self._data.filtered.categories,
+          self._state.dateRangeFilter
+        ),
+        self._createFormatDatasets(
+          self._data.filtered.datasets,
+          self._data.filtered.formats,
           self._state.dateRangeFilter
         ),
         self._createOrganizationDatasets(
@@ -191,6 +206,7 @@ Statistics.prototype._createSections = function () {
       amount: self._localeData.amount[self._config.locale],
       topPublishersTitle: self._localeData.topPublishersTitle[self._config.locale],
       categoriesTitle: self._localeData.categoriesTitle[self._config.locale],
+      formatsTitle: self._localeData.formatsTitle[self._config.locale],
     },
     width: self._styles.contentWidth,
     visMargins: self._styles.visMargins,
@@ -314,6 +330,11 @@ Statistics.prototype._loadDataToPage = function () {
         self._data.filtered.categories,
         self._state.dateRangeFilter
       ),
+      self._createFormatDatasets(
+        self._data.filtered.datasets,
+        self._data.filtered.formats,
+        self._state.dateRangeFilter
+      ),
       self._createOrganizationDatasets(
         self._data.filtered.datasets,
         self._data.filtered.organizations,
@@ -346,6 +367,7 @@ Statistics.prototype._filterAllData = function (data) {
   result.all = data
   result.organizations = data.organizations
   result.categories = data.categories
+  result.formats = data.formats
 
   // Filter out datasets from wrong organization or category
   result.datasets = self._filterItems({
@@ -598,7 +620,6 @@ Statistics.prototype._createCategoryDatasets = function (datasets, categories, d
   var self = this
   var result = []
   for (iCategory in categories) {
-    // Create a result organization item for this shown child
     var resultItem = {
       id: categories[iCategory].id,
       name: categories[iCategory].title,
@@ -633,7 +654,47 @@ Statistics.prototype._createCategoryDatasets = function (datasets, categories, d
     }
     result.push(resultItem)
   }
-  console.log('category datasets', result)
+  return result
+}
+
+
+// Also filters by date
+Statistics.prototype._createFormatDatasets = function (datasets, formats, dateRange) {
+  var self = this
+  var result = []
+  for (iFormat in formats) {
+    var resultItem = {
+      id: formats[iFormat],
+      name: formats[iFormat],
+      all: 0,
+      specific: 0, // Datasets with apps
+      // allRight: 0, // User counts
+      // specificRight: 0, // Users who downloaded
+      // icon:
+    }
+
+    // Go through all datasets
+    for (iDataset in datasets) {
+      var releaseDate = moment.utc(datasets[iDataset][self._schemas.datasets.dateField], 'YYYY-MM-DD')
+      if (
+        releaseDate.isBefore(dateRange[0]) ||
+        releaseDate.isAfter(dateRange[1])
+      ) {
+        continue
+      }
+      for (iResource in datasets[iDataset].resources) {
+        if (datasets[iDataset].resources[iResource].format === formats[iFormat]) {
+          resultItem.all ++
+          // The dataset has one or more apps also?
+          if (datasets[iDataset].apps.length > 0) {
+            resultItem.specific ++
+          }
+          break
+        }
+      }
+    }
+    result.push(resultItem)
+  }
   return result
 }
 
