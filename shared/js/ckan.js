@@ -1,8 +1,6 @@
 var objectFitImages = require('object-fit-images');
 
 // Common js
-require('./components/common/dropdown-menu');
-require('./components/common/navbar');
 require('./components/common/popper');
 
 // CKAN specific js

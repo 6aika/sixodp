@@ -232,8 +232,6 @@ module.exports = fix;
 var objectFitImages = require('object-fit-images');
 
 // Common js
-require('./components/common/dropdown-menu');
-require('./components/common/navbar');
 require('./components/common/popper');
 
 // CKAN specific js
@@ -250,7 +248,7 @@ $(function ($) {
   });
 }(jQuery));
 
-},{"./components/ckan/datepicker":3,"./components/ckan/form-action-loading-indicator":4,"./components/ckan/horizaccordion":5,"./components/ckan/image-modal":6,"./components/ckan/show-more":7,"./components/common/dropdown-menu":8,"./components/common/navbar":9,"./components/common/popper":10,"object-fit-images":1}],3:[function(require,module,exports){
+},{"./components/ckan/datepicker":3,"./components/ckan/form-action-loading-indicator":4,"./components/ckan/horizaccordion":5,"./components/ckan/image-modal":6,"./components/ckan/show-more":7,"./components/common/popper":8,"object-fit-images":1}],3:[function(require,module,exports){
 $(function ($) {
   $(document).ready(function() {
     // Attempt to get the user language, datepicker will default to en-US if not successful
@@ -367,43 +365,6 @@ $(function ($) {
   });
 });
 },{}],8:[function(require,module,exports){
-$(function() {
-  $(document).ready(function() {
-    $('body').on('click', '.dropdown-toggle', function () {
-      var $dd = $('#' + $(this).attr('data-toggle'));
-      var closed = !$dd.hasClass('opened');
-
-      $('.dropdown-menu').removeClass('opened');
-      $('.dropdown-toggle').removeClass('active');
-      $('.dropdown-toggle').attr('aria-expanded', 'false');
-      if (closed) {
-        $dd.addClass('opened');
-        $(this).addClass('active');
-        $(this).attr('aria-expanded', 'true');
-      }
-    });
-  });
-});
-},{}],9:[function(require,module,exports){
-$(function() {
-  $(document).ready(function(){
-    // hide .navbar first
-    $('.navbar-fixed-top').hide();
-
-    // fade in .navbar
-    $(function () {
-      $(window).scroll(function () {
-        // set distance user needs to scroll before we fadeIn navbar
-        if ($(this).scrollTop() > 300) {
-          $('.navbar-fixed-top').fadeIn();
-        } else {
-          $('.navbar-fixed-top').fadeOut();
-        }
-      });
-    });
-  });
-});
-},{}],10:[function(require,module,exports){
 $(function() {
   $(document).ready(function() {
     $('.btn[data-trigger="popper"]').on('click', function () {
