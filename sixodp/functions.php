@@ -77,6 +77,7 @@ if ( !function_exists('sixodp_theme_setup') ) :
     create_default_pages();
     create_secondary_menus();
     create_footer_menus();
+    create_social_media_menus();
 
   }
 endif; // twentysixteen_setup
@@ -240,6 +241,9 @@ function create_footer_menus() {
   create_menu_i18n('footer_fi', FOOTER_MENU_ITEMS_FI, 'footer_menu');
   create_menu_i18n('footer_en_GB', FOOTER_MENU_ITEMS_EN, 'footer_menu');
   create_menu_i18n('footer_sv', FOOTER_MENU_ITEMS_SV, 'footer_menu');
+}
+function create_social_media_menus() {
+  create_menu_i18n('socialmedia',null,null);
 }
 
 function create_menu_i18n($menu_name, $itemsArr, $location) {
