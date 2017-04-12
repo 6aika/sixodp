@@ -40,11 +40,11 @@
       <?php
         $showcases = get_items('ckanext_showcase');
         foreach ($showcases as $showcase) {
-          $imgUrl = "https://generic-qa.dataportaali.com/data/uploads/showcase/".$showcase['extras'][6]['value'];
+          $imgUrl = CKAN_BASE_URL . "/data/uploads/showcase/".$showcase['extras'][6]['value'];
           $packageId = $showcase['id'];
           foreach ( $showcase['extras'] as $extra ) {
             if ( $extra['key'] == 'icon' ) {
-              $imgUrl = "https://generic-qa.dataportaali.com/data/uploads/showcase/".$extra['value'];
+              $imgUrl = CKAN_BASE_URL ."/data/uploads/showcase/".$extra['value'];
             } else if ( $extra['key'] == 'notes_translated' ) {
               $notes = json_decode($extra['value'], true)[get_current_locale()];
             }
