@@ -26,7 +26,7 @@
                 <li><a data-value="/data/collection">Aineistokokonaisuudet</a></li>
                 <li><a data-value="/posts">Artikkelit</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a>Muut</a></li>
+                <li><a data-value="/posts">Muut</a></li>
               </ul>
             </div><!-- /btn-group -->
             <input type="text" id="q" class="form-control input-lg" aria-label="...">
@@ -35,6 +35,5 @@
             </span>
           </div><!-- /input-group -->    
         </div>
-
       </div>
     </div>
