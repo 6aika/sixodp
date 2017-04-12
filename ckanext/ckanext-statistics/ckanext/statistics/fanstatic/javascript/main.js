@@ -112,6 +112,11 @@ Statistics.prototype._createNav = function () {
       self._summarySection.setDateRange(dates)
       self._datasetSection.setDateRange(
         dates,
+        self._createCategoryDatasets(
+          self._data.filtered.datasets,
+          self._data.filtered.categories,
+          self._state.dateRangeFilter
+        ),
         self._createOrganizationDatasets(
           self._data.filtered.datasets,
           self._data.filtered.organizations,
@@ -128,6 +133,11 @@ Statistics.prototype._createNav = function () {
       self._datasetSection.setOrganization(self._state.organization)
       self._datasetSection.setData(
         self._data.filtered.datasets,
+        self._createCategoryDatasets(
+          self._data.filtered.datasets,
+          self._data.filtered.categories,
+          self._state.dateRangeFilter
+        ),
         self._createOrganizationDatasets(
           self._data.filtered.datasets,
           self._data.filtered.organizations,
@@ -142,6 +152,11 @@ Statistics.prototype._createNav = function () {
       self._datasetSection.setCategory(self._state.category)
       self._datasetSection.setData(
         self._data.filtered.datasets,
+        self._createCategoryDatasets(
+          self._data.filtered.datasets,
+          self._data.filtered.categories,
+          self._state.dateRangeFilter
+        ),
         self._createOrganizationDatasets(
           self._data.filtered.datasets,
           self._data.filtered.organizations,
@@ -175,6 +190,7 @@ Statistics.prototype._createSections = function () {
       timelineTitle: self._localeData.datasetsOpenedTitle[self._config.locale],
       amount: self._localeData.amount[self._config.locale],
       topPublishersTitle: self._localeData.topPublishersTitle[self._config.locale],
+      categoriesTitle: self._localeData.categoriesTitle[self._config.locale],
     },
     width: self._styles.contentWidth,
     visMargins: self._styles.visMargins,
@@ -292,7 +308,13 @@ Statistics.prototype._loadDataToPage = function () {
     self._datasetSection.setOrganization(self._state.organization)
     self._datasetSection.setCategory(self._state.category)
     self._datasetSection.setData(
-      self._data.filtered.datasets, self._createOrganizationDatasets(
+      self._data.filtered.datasets,
+      self._createCategoryDatasets(
+        self._data.filtered.datasets,
+        self._data.filtered.categories,
+        self._state.dateRangeFilter
+      ),
+      self._createOrganizationDatasets(
         self._data.filtered.datasets,
         self._data.filtered.organizations,
         self._state.dateRangeFilter
@@ -567,6 +589,51 @@ Statistics.prototype._createOrganizationDatasets = function (datasets, allOrgani
 
   var result = recursive(self._state.organization, allOrganizations, allOrganizations)
 
+  return result
+}
+
+
+// Also filters by date
+Statistics.prototype._createCategoryDatasets = function (datasets, categories, dateRange) {
+  var self = this
+  var result = []
+  for (iCategory in categories) {
+    // Create a result organization item for this shown child
+    var resultItem = {
+      id: categories[iCategory].id,
+      name: categories[iCategory].title,
+      all: 0,
+      specific: 0, // Datasets with apps
+      // allRight: 0, // User counts
+      // specificRight: 0, // Users who downloaded
+      // icon:
+    }
+
+    // Go through all datasets
+    for (iDataset in datasets) {
+      var releaseDate = moment.utc(datasets[iDataset][self._schemas.datasets.dateField], 'YYYY-MM-DD')
+      if (
+        releaseDate.isBefore(dateRange[0]) ||
+        releaseDate.isAfter(dateRange[1])
+      ) {
+        continue
+      }
+
+      // The category is the category of this dataset?
+      for (iDatasetCategory in datasets[iDataset].groups) {
+        if (datasets[iDataset].groups[iDatasetCategory].id === categories[iCategory].id) {
+          resultItem.all ++
+          // The dataset has one or more apps also?
+          if (datasets[iDataset].apps.length > 0) {
+            resultItem.specific ++
+          }
+          break
+        }
+      }
+    }
+    result.push(resultItem)
+  }
+  console.log('category datasets', result)
   return result
 }
 

@@ -128,9 +128,14 @@ Locales = {
     en: 'Timeline',
   },
   topPublishersTitle: {
-    fi: 'Julkaisijat', // 'Eniten julkaisseet',
+    fi: 'Julkaisijat',
     sv: '',
     en: 'Publishers',
+  },
+  categoriesTitle: {
+    fi: 'Kategoriat',
+    sv: '',
+    en: 'Categories',
   },
 
   // Apps section

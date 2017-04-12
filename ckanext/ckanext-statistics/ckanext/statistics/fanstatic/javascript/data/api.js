@@ -17,19 +17,19 @@ Api.prototype.getAllData = function (callback, delay) {
   var width = self._elem.loaded.style('width')
   self._elem.loaded.style('animation', 'none')
   self._elem.loaded.style('width', width)
-  self._stepLoaded(self._texts.loadOrganizations, 66.1) // 33.4) // 21.3
+  self._stepLoaded(self._texts.loadOrganizations, 66.1)
 
   self.get('group_tree', function (result) {
     data.organizations = result
-    self._stepLoaded(self._texts.loadCategories, 73.8) // 48.5)
+    self._stepLoaded(self._texts.loadCategories, 73.8)
 
     self.get('group_list?all_fields=true', function (result) {
       data.categories = result
-      self._stepLoaded(self._texts.loadDatasets, 81.8) // 64.2)
+      self._stepLoaded(self._texts.loadDatasets, 81.8)
 
       self.get('current_package_list_with_resources', function (result) {
         data.datasets = result
-        self._stepLoaded(self._texts.loadApps, 88.8) // 77.9)
+        self._stepLoaded(self._texts.loadApps, 88.8)
 
         self.get('ckanext_showcase_list', function (result) {
           data.apps = result
