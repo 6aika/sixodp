@@ -6,16 +6,19 @@ import json
 import ckan.lib.i18n as i18n
 import ckan.logic as logic
 import ckan.model as model
+import ckan.plugins.toolkit as tk
 from ckan.model.package import Package
 from ckan.lib.dictization.model_dictize import group_list_dictize
 
 from pylons.i18n import gettext
 from ckanext.scheming.helpers import lang
 from ckan.common import _
+from webhelpers.html import literal
 
 
 NotFound = logic.NotFound
 abort = base.abort
+request = tk.request
 
 log = logging.getLogger(__name__)
 
@@ -62,10 +65,6 @@ def get_navigation_items_by_menu_location(wp_menu_location):
             })
 
     return navigation_items
-
-
-def get_main_navigation_items():
-    return get_navigation_items_by_menu_location(config.get('ckanext.sixodp_ui.wp_main_menu_location'))
 
 
 def get_footer_navigation_items():
@@ -157,3 +156,42 @@ def resource_display_name(resource_dict):
 
     else:
         return resource_dict['name']
+
+def check_if_active(menu):
+    return request.environ['CKAN_CURRENT_URL'] in menu.get('url')
+
+
+def build_nav_main():
+
+    navigation_tree = get_navigation_items_by_menu_location(config.get('ckanext.sixodp_ui.wp_main_menu_location'))
+
+    def construct_menu_tree(menu):
+        active = check_if_active(menu)
+        children = ''
+
+        if(menu.get('children')):
+            for child_item in menu.get('children'):
+                # Parent will be set as active if any of its children is active
+                if (check_if_active(child_item)):
+                    active = True
+
+                children += construct_menu_tree(child_item)
+
+        if(len(children) > 0):
+            return make_menu_item(menu, active) + literal('<ul class="nav navbar-nav subnav">') + children + literal('</ul></li>')
+        else:
+            return make_menu_item(menu, active)
+
+    navigation_html = ''
+    for menu in navigation_tree:
+        navigation_html += construct_menu_tree(menu)
+
+    return navigation_html
+
+
+def make_menu_item(menu_item, active):
+    link = literal('<a href="') + menu_item.get('url') + literal('">') + menu_item.get('title') + literal('</a>')
+
+    if active:
+        return literal('<li class="active">') + link
+    return literal('<li>') + link

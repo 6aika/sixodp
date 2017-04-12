@@ -109,7 +109,7 @@
             <div class="prose notes show-more-content hide-content" property="rdfs:label">
               <div class="text-content">
                 {% if res.description %}
-                  {{ h.render_markdown(res.description) }}
+                  {{ h.render_markdown(h.get_translated(res, 'description')) }}
                 {% endif %}
                   {% if not res.description and c.package.notes %}
                   <h3>{{ _('From the dataset abstract') }}</h3>

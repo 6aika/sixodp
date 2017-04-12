@@ -9,14 +9,16 @@
       "label": "Title",
       "preset": "title",
       "form_placeholder":"eg. A descriptive title",
-      "description": "A short and descriptive title for the showcase."
+      "description": "A short and descriptive title for the showcase.",
+      "required": true
     },
     {
       "field_name": "name",
       "label": "URL",
       "preset": "dataset_slug_ex",
       "form_placeholder": "eg. my-dataset",
-      "description": "An URL-address which refers to the dataset. The automatically filled option derived from the title is the best option in most cases."
+      "description": "An URL-address which refers to the dataset. The automatically filled option derived from the title is the best option in most cases.",
+      "required": true
     },
     {
       "field_name": "category",
@@ -91,7 +93,8 @@
       "form_blanks": 1,
       "display_snippet": "repeating_link.html",
       "form_snippet": "repeating.html",
-      "description": "Links to stores"
+      "description": "Links to stores",
+      "validators": "not_empty repeating_text"
     },
     {
       "field_name": "notes_translated",
@@ -133,7 +136,7 @@
       "label": "Featured Image",
       "preset": "showcase_url_upload",
       "form_placeholder": "http://example.com/my-camel-photo.jpg",
-      "upload_field": "feature_image_upload",
+      "upload_field": "featured_image_upload",
       "upload_clear": "clear_featured_image_upload",
       "upload_label": "Featured Image",
       "description": "Image size xx times xx."

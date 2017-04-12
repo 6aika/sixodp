@@ -5,11 +5,12 @@
 
 .page-subheading {
   @include heading;
+  color: $headings-secondary-color;
   font-size: $font-size;
   margin-top: 0;
 
   a {
-    color: $brand-success;
+    color: $link-color-secondary;
   }
 }
 
@@ -32,6 +33,7 @@ h3, h4, h5, h6, .module-heading {
 
     img {
       object-fit: cover;
+      font-family: 'object-fit: cover;';
       width: 96px;
       height: 96px;
     }
@@ -42,6 +44,12 @@ h3, h4, h5, h6, .module-heading {
     width: auto;
     display: inline-block;
     overflow: hidden;
+
+    .heading-extra {
+      color: $headings-extra-color;
+      font-weight: normal;
+      font-size: $font-size-large;
+    }
 
     > * {
       margin: 0;
@@ -79,7 +87,7 @@ h3, h4, h5, h6, .module-heading {
   }
 
   .rating-star {
-    color: $brand-success;
+    color: $rating-stars-color;
   }
 
   .heading-icon {
@@ -88,6 +96,7 @@ h3, h4, h5, h6, .module-heading {
 
     img {
       object-fit: cover;
+      font-family: 'object-fit: cover;';
       width: 96px;
       height: 96px;
     }
@@ -106,5 +115,12 @@ h3, h4, h5, h6, .module-heading {
       display: block;
       width: 100%;
     }
+  }
+}
+
+.main-content {
+  h1 {
+    @include heading;
+    font-size: $font-size-xlarge;
   }
 }

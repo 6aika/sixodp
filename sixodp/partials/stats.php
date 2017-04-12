@@ -4,28 +4,30 @@
   */
 ?>
 
-<div class="container stats">
+<div class="container">
   <div class="row">
-    <div class="col-sm-3 stat__wrapper">
-      <div class="stat">
-        <div class="stat__value"><?php echo get_dataset_count(); ?></div>
-        <div class="stat__description">Tietoaineistoa</div>
+    <div class="stats">
+      <div class="stat__wrapper">
+        <div class="stat">
+          <div class="stat__value"><?php echo get_dataset_count(); ?></div>
+          <div class="stat__description">Tietoaineistoa</div>
+        </div>
       </div>
-    </div>
-    <div class="col-sm-3 stat__wrapper">
-      <div class="stat">
-        <div class="stat__value"><?php echo get_showcases_count(); ?></div>
-        <div class="stat__description">Sovellusta</div>
+      <div class="stat__wrapper">
+        <div class="stat">
+          <div class="stat__value"><?php echo get_showcases_count(); ?></div>
+          <div class="stat__description">Sovellusta</div>
+        </div>
       </div>
-    </div>
-    <div class="col-sm-3 stat__wrapper">
-      <div class="stat">
-        <div class="stat__value"><?php echo get_organizations_count(); ?></div>
-        <div class="stat__description">Julkaisijaa</div>
+      <div class="stat__wrapper">
+        <div class="stat">
+          <div class="stat__value"><?php echo get_organizations_count(); ?></div>
+          <div class="stat__description">Julkaisijaa</div>
+        </div>
       </div>
-    </div>
-    <div class="col-sm-3 stat__wrapper btn-wrapper--right">
-      <button type="button" class="btn btn-lg btn-secondary">Kaikki aineistot</button>
+      <div class="stat__wrapper">
+        <a href="<?php echo CKAN_BASE_URL; ?>/data/<?php echo get_current_locale(); ?>/dataset" class="btn btn-lg btn-secondary">Kaikki aineistot</a>
+      </div>
     </div>
   </div>
 </div>

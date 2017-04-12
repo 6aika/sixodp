@@ -1,5 +1,7 @@
 .list-group {
   .list-group-item {
+    border: none;
+    color: $brand-primary;
     margin-bottom: $margin-large-vertical;
 
     .image-wrapper {

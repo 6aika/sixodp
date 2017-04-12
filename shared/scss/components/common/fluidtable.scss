@@ -14,7 +14,7 @@
 }
 
 .fluidtable__row {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid $brand-gray;
   padding: $base*4 0;
 
   @media (min-width: $width-md) {

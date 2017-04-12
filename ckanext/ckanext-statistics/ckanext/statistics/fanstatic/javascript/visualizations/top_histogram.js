@@ -76,7 +76,7 @@ TopHistogram.prototype.setDateRange = function (dates) {
 
 
 // Resize the visualization to a new pixel size on the screen
-TopHistogram.prototype.resize = function (contentWidth = undefined, barHeight = undefined) {
+TopHistogram.prototype.resize = function (contentWidth, barHeight) {
   var self = this
 
   // Image width

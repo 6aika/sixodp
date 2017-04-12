@@ -2,6 +2,7 @@
 // Label-element can be found under form.scss
 
 .label {
+  background-color: $label-background-color;
   color: $label-text-color;
   font-size: $font-size-small;
   padding: $padding-small-vertical $padding-large-horizontal $padding-small-vertical 0;

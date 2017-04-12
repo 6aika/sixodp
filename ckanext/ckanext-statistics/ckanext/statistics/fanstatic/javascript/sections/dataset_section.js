@@ -112,7 +112,9 @@ DatasetSection.prototype.setData = function (datasets, categoryDatasets, formatD
 }
 
 
-DatasetSection.prototype.onContentResize = function (width, height = undefined) {
+DatasetSection.prototype.onContentResize = function (width, height) {
+  if (!height)
+    height = undefined
   var self = this
   self.totalsTimeline.resize(width, height)
   self.categoryDatasets.resize(width)

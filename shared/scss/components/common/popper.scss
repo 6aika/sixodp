@@ -7,7 +7,7 @@
   max-height: 0;
   overflow: hidden;
   box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-
+  z-index: 1;
 
   &.open {
     max-height: $base*10;
@@ -22,7 +22,7 @@
 }
 
 .popper__item {
-  background: #fff;
+  background: $brand-white;
   color: $brand-primary;
 }
 
@@ -37,7 +37,7 @@
   }
 
   &:hover {
-    background: #eee;
+    background: $brand-gray;
   }
 }
 
@@ -54,13 +54,13 @@
 
 .popper:after {
   border-color: rgba(0, 0, 0, 0);
-  border-top-color: #fff;
-  border-width: 5px;
+  border-top-color: $brand-white;
+  border-width: $base/2;
   margin-left: $base*5;
 }
 .popper:before {
   border-color: rgba(0, 0, 0, 0);
-  border-top-color: #fff;
+  border-top-color: $brand-white;
   border-width: 8px;
   margin-left: $base*5;
 }

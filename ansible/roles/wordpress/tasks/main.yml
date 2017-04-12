@@ -43,6 +43,18 @@
     args:
       creates: /opt/wordpress/index.php
 
+  - name: Check if EFS is available
+    stat:
+      path: /mnt/wp-uploads
+    register: stat_result
+
+  - name: Create symbolic link to EFS for uploads
+    file:
+      src: /mnt/wp-uploads
+      path: /opt/wordpress/wp-content/uploads
+      state: link
+    when: stat_result.stat.exists
+
   - name: Configure WordPress
     command: >
       wp core config
@@ -95,64 +107,13 @@
     delete: true
   when: deployment_environment_id != "vagrant"
 
+- name: Copy ckan-config to theme
+  template: src="ckan-config.php.j2" dest="/opt/wordpress/wp-content/themes/sixodp/ckan-config.php" mode=0644 owner=www-data group=www-data
+
 - name: Activate sixodp theme
   command: wp theme activate sixodp --path=/opt/wordpress
   become: yes
   become_user: www-data
 
-- name: Create symbolic link to wp-trello plugin
-  file:
-    src: /vagrant/wordpress/wp-trello
-    dest: /opt/wordpress/wp-content/plugins/wp-trello
-    state: link
-  when: deployment_environment_id == "vagrant"
-
-- name: Synchronize wp-trello plugin
-  synchronize:
-    src: ../wordpress/wp-trello/
-    dest: /opt/wordpress/wp-content/plugins/wp-trello/
-    delete: true
-  when: deployment_environment_id != "vagrant"
-
-- name: Activate wp-trello plugin
-  command: wp plugin activate wp-trello --path=/opt/wordpress
-  become: yes
-  become_user: www-data
-
-- name: Create symbolic link to wp-api-menus plugin
-  file:
-    src: /vagrant/wordpress/wp-api-menus
-    dest: /opt/wordpress/wp-content/plugins/wp-api-menus
-    state: link
-  when: deployment_environment_id == "vagrant"
-
-- name: Synchronize wp-api-menus plugin
-  synchronize:
-    src: ../wordpress/wp-api-menus/
-    dest: /opt/wordpress/wp-content/plugins/wp-api-menus/
-    delete: true
-  when: deployment_environment_id != "vagrant"
-
-- name: Activate wp-api-menus plugin
-  command: wp plugin activate wp-api-menus --path=/opt/wordpress
-  become: yes
-  become_user: www-data
-
-- name: Create symbolic link to contact-widgets plugin
-  file:
-    src: /vagrant/wordpress/contact-widgets
-    dest: /opt/wordpress/wp-content/plugins/contact-widgets
-    state: link
-  when: deployment_environment_id == "vagrant"
-
-- name: Synchronize contact-widgets plugin
-  synchronize:
-    src: ../wordpress/contact-widgets/
-    dest: /opt/wordpress/wp-content/plugins/contact-widgets/
-    delete: true
-  when: deployment_environment_id != "vagrant"
-
-- name: Activate contact-widgets plugin
-  command: wp plugin activate contact-widgets --path=/opt/wordpress
-  become: yes
-  become_user: www-data
+- include: local_plugin.yml
+  with_items: "{{ wordpress_local_plugins }}"

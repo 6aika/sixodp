@@ -439,8 +439,11 @@ Statistics.prototype._filterItems = function (params) {
   var result = []
 
   // Returns all child and grand child organizations plus the given organization
-  function findOrganizationChildren (searchedOrganizationId, branch, isChildOfSelected = false) {
+  function findOrganizationChildren (searchedOrganizationId, branch, isChildOfSelected) {
     var self = this
+    if (typeof isChildOfSelected === 'undefined') {
+      isChildOfSelected = false
+    }
     var result = []
     // Each org in this branch
     for (i in branch) {

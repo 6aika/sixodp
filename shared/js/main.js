@@ -1,3 +1,5 @@
+var objectFitImages = require('object-fit-images');
+
 $(function() {
 
   $('body').on('click', '.dropdown-toggle', function() {
@@ -20,7 +22,7 @@ $(function ($) {
 
     // Attempt to get the user language, datepicker will default to en-US if not successful
     var language = window.navigator.userLanguage || window.navigator.language;
-    jQuery('input[type=date]').datepicker({
+    jQuery('.has-datepicker input').datepicker({
       format: 'yyyy-mm-dd',
       weekStart: 1,
       language: language,
@@ -101,15 +103,33 @@ $(function ($) {
         }
     });
 
+    var showOpenHorizaccordionButton = function(horizaccordionElement) {
+      horizaccordionElement.find("#show-text").show();
+      horizaccordionElement.find("#close-text").hide();
+    }
+
+    var showCloseHorizaccordionButton = function(horizaccordionElement) {
+      horizaccordionElement.find("#show-text").hide();
+      horizaccordionElement.find("#close-text").show();
+    }
+
     // Toggle horizaccordion collapse button text
     $("#horizaccordion-collapse-btn").click(function() {
-        if ( $(this).hasClass("collapsed") ) {
-            $(this).find("#show-text").hide();
-            $(this).find("#close-text").show();
-            return;
-        }
-        $(this).find("#show-text").show();
-        $(this).find("#close-text").hide();
+      if ( $(this).hasClass("collapsed") ) {
+          return showCloseHorizaccordionButton($(this));
+      }
+      showOpenHorizaccordionButton($(this));
     });
+
+    // Close horizaccordion if query parameters present
+    if(window.location.search) {
+      $('#horizaccordion').addClass('collapsed');
+      $('#horizaccordion').removeClass('in');
+      showOpenHorizaccordionButton($('#horizaccordion'));
+    }
+
+    // Polyfill object-fit
+    objectFitImages();
+
   });
 }(jQuery));
