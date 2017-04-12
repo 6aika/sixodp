@@ -259,6 +259,25 @@
   padding-bottom: 75px;
 }
 
+.statistics-legend {
+}
+.statistics-legend-coloring {
+  fill: $white;
+  stroke: $white;
+  stroke-linecap: 'round';
+  stroke-linejoin: 'round';
+  stroke-width: 1px;
+}
+.statistics-legend-row {
+  &:nth-child(2) .statistics-legend-coloring {
+    fill: none;
+  }
+}
+.statistics-legend-text {
+  fill: $white;
+  font-family: $font;
+}
+
 .statistics-line {
   fill: none;
   stroke: $white;

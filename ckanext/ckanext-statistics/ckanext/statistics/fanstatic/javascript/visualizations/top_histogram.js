@@ -7,8 +7,10 @@ function TopHistogram (params) {
   self._props = {
     id: params.id,
     margin: $.extend({}, params.margin),
+    legend: params.legend,
     dateFormat: 'YYYY-MM-DD', // Used in the data, not screen
   }
+  self._props.margin.top = 90
   self._elem = {}
   self._helpers = {}
   self._schema = params.schema
@@ -170,6 +172,31 @@ TopHistogram.prototype._renderBase = function (container) {
     .classed('statistics-axis', true)
     .call(self._helpers.xAxisGenerator)
   // No Y axis
+
+  // Legend
+  self._elem.legend = self._elem.frontLayer.append('g')
+    .classed('statistics-legend', true)
+    .attr('transform', 'translate(0, -90)')
+
+  self._props.legend.forEach(function(rowData, i) {
+    var row = self._elem.legend.append('g')
+      .attr('transform', 'translate(0, ' + (i * 25) + ')')
+      .classed('statistics-legend-row', true)
+      // .attr('x', 1)
+      // .attr('y', 1)
+
+    row.append('rect')
+      .classed('statistics-legend-coloring', true)
+      .attr('height', 15)
+      .attr('width', 15)
+
+    row.append('text')
+      .text(rowData.title)
+      .classed('statistics-legend-text', true)
+      .attr('transform', 'translate(25, 12.5)')
+      .attr('width', self._state.dataArea.width - self._props.margin.left)
+  })
+
 }
 
 

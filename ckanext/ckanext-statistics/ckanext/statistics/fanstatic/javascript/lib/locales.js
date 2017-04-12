@@ -142,6 +142,16 @@ Locales = {
     sv: '',
     en: 'File formats',
   },
+  usedInApp: {
+    fi: 'Käytetty sovelluksessa',
+    sv: '',
+    en: 'Used in an app',
+  },
+  notUsedInApp: {
+    fi: 'Ei ole käytetty sovelluksessa',
+    sv: '',
+    en: 'Not used in any app',
+  },
 
   // Apps section
   appsPublishedTitle: {

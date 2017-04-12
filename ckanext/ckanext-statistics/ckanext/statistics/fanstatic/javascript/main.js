@@ -207,6 +207,8 @@ Statistics.prototype._createSections = function () {
       topPublishersTitle: self._localeData.topPublishersTitle[self._config.locale],
       categoriesTitle: self._localeData.categoriesTitle[self._config.locale],
       formatsTitle: self._localeData.formatsTitle[self._config.locale],
+      usedInApp: self._localeData.usedInApp[self._config.locale],
+      notUsedInApp: self._localeData.notUsedInApp[self._config.locale],
     },
     width: self._styles.contentWidth,
     visMargins: self._styles.visMargins,

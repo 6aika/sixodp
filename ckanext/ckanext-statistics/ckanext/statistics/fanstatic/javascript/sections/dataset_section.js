@@ -33,10 +33,10 @@ var DatasetSection = function (params) {
     },
     legend: [
       {
-        title: 'A series',
+        title: self._texts.usedInApp,
       },
       {
-        title: 'B series',
+        title: self._texts.notUsedInApp,
       },
     ],
     limit: 10, // Before show more button is used
@@ -59,10 +59,10 @@ var DatasetSection = function (params) {
     },
     legend: [
       {
-        title: 'A series',
+        title: self._texts.usedInApp,
       },
       {
-        title: 'B series',
+        title: self._texts.notUsedInApp,
       },
     ],
     limit: 10, // Before show more button is used
@@ -85,10 +85,10 @@ var DatasetSection = function (params) {
     },
     legend: [
       {
-        title: 'A series',
+        title: self._texts.usedInApp,
       },
       {
-        title: 'B series',
+        title: self._texts.notUsedInApp,
       },
     ],
     limit: 10, // Before show more button is used
