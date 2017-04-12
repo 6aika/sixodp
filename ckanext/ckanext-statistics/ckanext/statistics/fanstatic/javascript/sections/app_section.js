@@ -74,4 +74,5 @@ AppSection.prototype.setMaxDateRange = function (dates) {
 AppSection.prototype.onContentResize = function (width, height = undefined) {
   var self = this
   self.totalsTimeline.resize(width, height)
+  self.categoryApps.resize(width)
 }
