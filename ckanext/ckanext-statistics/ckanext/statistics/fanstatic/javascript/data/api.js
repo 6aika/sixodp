@@ -118,19 +118,18 @@ Api.prototype._preprocess = function (data) {
     }
   }
 
-  // Create file formats
+  // Create file formats list
   data.formats = []
   for (iDataset in data.datasets) {
     var dataset = data.datasets[iDataset]
     for (iResource in dataset.resources) {
       var resource = dataset.resources[iResource]
       if (data.formats.indexOf(resource.format) === -1) {
-        // TODO: Alphabetically
         data.formats.push(resource.format)
       }
     }
   }
-  data.formats.sort(function(a, b) {
+  function alphabeticsOrder (a, b) {
     if (a === '') {
       return true
     }
@@ -138,7 +137,36 @@ Api.prototype._preprocess = function (data) {
       return false
     }
     return a > b
-  })
+  }
+  data.formats.sort(alphabeticsOrder)
+
+  // Create app category list
+  data.appCategories = {}
+  for (iApp in data.apps) {
+    var app = data.apps[iApp]
+    for (iExtra in app.extras) {
+      var extra = app.extras[iExtra]
+      if (extra.key === 'category') {
+        eval('var categoryLists = ' + extra.value)
+        for (lang in categoryLists) {
+          data.appCategories[lang] = []
+          for (iCategory in categoryLists[lang]) {
+            var categoryName = categoryLists[lang][iCategory]
+            if (data.appCategories[lang].indexOf(categoryName) === -1) {
+              data.appCategories[lang].push(categoryName)
+            }          }
+        }
+
+        // var ca
+        // if (data.appCategories.indexOf(category) === -1) {
+        //   data.appCategories.push(category)
+        // }
+      }
+    }
+  }
+  for (lang in data.appCategories) {
+    data.appCategories[lang].sort(alphabeticsOrder)
+  }
 
   return data
 }

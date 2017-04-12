@@ -4,6 +4,9 @@ var DatasetSection = function (params) {
 
   self._element = d3.select('.js-statistics-datasets-section')
 
+  d3.select('.js-statistics-datasets-section-title')
+    .text(self._texts.sectionTitle)
+
   self.totalsTimeline = new TotalsTimeline({
     id: 'datasetCount',
     element: self._element.select('.js-dataset-totals-timeline'),
@@ -20,9 +23,6 @@ var DatasetSection = function (params) {
     },
     locale: params.locale,
   })
-
-  d3.select('.js-statistics-datasets-section-title')
-    .text(self._texts.sectionTitle)
 
   self.categoryDatasets = new TopHistogram({
     id: 'categoryDatasets',

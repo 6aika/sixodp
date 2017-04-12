@@ -128,7 +128,14 @@ Statistics.prototype._createNav = function () {
           self._state.dateRangeFilter
         )
       )
-      self._appSection.setDateRange(dates)
+      self._appSection.setDateRange(
+        dates,
+        self._createCategoryApps(
+          self._data.filtered.apps,
+          self._data.filtered.appCategories[self._config.locale],
+          self._state.dateRangeFilter
+        )
+      )
       // self.articleSection.setDateRange(dates)
     }).bind(self),
 
@@ -222,6 +229,7 @@ Statistics.prototype._createSections = function () {
     texts: {
       sectionTitle: self._localeData.appSectionTitle[self._config.locale],
       timelineTitle: self._localeData.appsPublishedTitle[self._config.locale],
+      categoriesTitle: self._localeData.categoriesTitle[self._config.locale],
       amount: self._localeData.amount[self._config.locale],
     },
     width: self._styles.contentWidth,
@@ -347,7 +355,14 @@ Statistics.prototype._loadDataToPage = function () {
     // Update app section
     self._appSection.setMaxDateRange(self._state.maxDateRange)
     self._appSection.setDateRange(self._state.dateRangeFilter)
-    self._appSection.setData(self._data.filtered.apps)
+    self._appSection.setData(
+      self._data.filtered.apps,
+      self._createCategoryApps(
+        self._data.filtered.apps,
+        self._data.filtered.appCategories[self._config.locale],
+        self._state.dateRangeFilter
+      )
+    )
 
     // Update nav scroll positions and filters etc.
     self._nav.dataLoaded({
@@ -370,6 +385,7 @@ Statistics.prototype._filterAllData = function (data) {
   result.organizations = data.organizations
   result.categories = data.categories
   result.formats = data.formats
+  result.appCategories = data.appCategories
 
   // Filter out datasets from wrong organization or category
   result.datasets = self._filterItems({
@@ -689,6 +705,44 @@ Statistics.prototype._createFormatDatasets = function (datasets, formats, dateRa
           resultItem.all ++
           // The dataset has one or more apps also?
           if (datasets[iDataset].apps.length > 0) {
+            resultItem.specific ++
+          }
+          break
+        }
+      }
+    }
+    result.push(resultItem)
+  }
+  return result
+}
+
+
+// Also filters by date
+Statistics.prototype._createCategoryApps = function (apps, categories, dateRange) {
+  var self = this
+  var result = []
+  for (iCategory in categories) {
+    var resultItem = {
+      id: categories[iCategory],
+      name: categories[iCategory],
+      all: 0,
+      specific: 0,
+    }
+    for (iApp in apps) {
+      var releaseDate = moment.utc(apps[iApp][self._schemas.apps.dateField], 'YYYY-MM-DD')
+      if (
+        releaseDate.isBefore(dateRange[0]) ||
+        releaseDate.isAfter(dateRange[1])
+      ) {
+        continue
+      }
+
+      for (iExtra in apps[iApp].extras) {
+        var extra = apps[iApp].extras[iExtra]
+        if (extra.key === 'category') {
+          eval('var categoryLists = ' + extra.value)
+          if (categoryLists[self._config.locale].indexOf(categories[iCategory]) !== -1) {
+            resultItem.all ++
             resultItem.specific ++
           }
           break

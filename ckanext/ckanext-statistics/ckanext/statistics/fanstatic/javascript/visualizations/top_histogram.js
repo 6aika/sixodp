@@ -10,7 +10,9 @@ function TopHistogram (params) {
     legend: params.legend,
     dateFormat: 'YYYY-MM-DD', // Used in the data, not screen
   }
-  self._props.margin.top = 90
+  if (params.legend.length > 0) {
+    self._props.margin.top = 90
+  }
   self._elem = {}
   self._helpers = {}
   self._schema = params.schema

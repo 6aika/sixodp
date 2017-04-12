@@ -4,6 +4,9 @@ var AppSection = function (params) {
 
   self._element = d3.select('.js-statistics-apps-section')
 
+  d3.select('.js-statistics-apps-section-title')
+    .text(self._texts.sectionTitle)
+
   self.totalsTimeline = new TotalsTimeline({
     id: 'appCount',
     element: self._element.select('.js-app-totals-timeline'),
@@ -21,21 +24,44 @@ var AppSection = function (params) {
     locale: params.locale,
   })
 
-  d3.select('.js-statistics-apps-section-title')
-    .text(self._texts.sectionTitle)
+  self.categoryApps = new TopHistogram({
+    id: 'categoryApps',
+    element: self._element.select('.js-category-app-counts'),
+    texts: {
+      title: self._texts.categoriesTitle,
+      amount: self._texts.amount,
+    },
+    legend: [
+    ],
+    limit: 10, // Before show more button is used
+
+    width: params.width,
+    margin: params.visMargins,
+    schema: {
+      labelField: 'name',
+      valueField: 'all',
+      valueSpecificField: 'specific',
+    }
+  })
 }
 
 
-AppSection.prototype.setData = function (data) {
+AppSection.prototype.setData = function (data, categoryApps) {
   var self = this
   self.totalsTimeline.setData(data)
+  self.categoryApps.setData(categoryApps)
 }
 
 
 // Filter all the visualizations in this section by the given dates
-AppSection.prototype.setDateRange = function (dates) {
+AppSection.prototype.setDateRange = function (dates, categoryApps) {
   var self = this
   self.totalsTimeline.setDateRange(dates)
+
+  self.categoryApps.setDateRange(dates)
+  if (categoryApps) {
+    self.categoryApps.setData(categoryApps)
+  }
 }
 
 
