@@ -101,6 +101,9 @@
                display: none;
            }
        }
+       .active {
+           font-weight: bold;
+       }
        .module-content {
            .heading {
                 font-size: 18px;
