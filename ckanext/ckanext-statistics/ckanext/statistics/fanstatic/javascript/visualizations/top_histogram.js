@@ -200,10 +200,11 @@ TopHistogram.prototype._renderHistogram = function (histogramData) {
   var self = this
   // Join new data
   self._elem.histogramBars = self._elem.histogramCanvas.selectAll('.statistics-bar')
-    .data(histogramData, function (d) {
-      return d.id
-    })
-
+    .data(histogramData, function(d) { return d ? d.name : this.id })
+    .attr('transform', function(d, i) { return (
+      'translate(0,' + self._helpers.yScale(d[self._schema.labelField]) + ')'
+    )})
+    // .data(histogramData, function (d) { return d.id })
   self._elem.histogramBars.selectAll('.statistics-bar-main')
     .data(histogramData, function(d) { return d ? d.name : this.id })
     .attr('width', function (d) { return (
@@ -269,9 +270,6 @@ TopHistogram.prototype._renderHistogram = function (histogramData) {
   // Bars added to the previous data (added to the end)
   var barsToAdd = self._elem.histogramBars.enter().append('g')
     .classed('statistics-bar', true)
-    .attr('transform', function(d, i) { return (
-      'translate(0,' + self._helpers.yScale(d[self._schema.labelField]) + ')'
-    )})
 
   // Bar itself
   barsToAdd.append('rect')
