@@ -30,17 +30,17 @@ $brand-info: #006b9f;
 $brand-warning: #fbba00;
 $brand-danger: #d54b0b;
 
+$brand-black: #000000;
+$brand-white: #ffffff;
 $brand-gray: #9c9b9b;
+$brand-lightgray: #f5f5f5;
+
 $gray-base: #4A4A4A;
 $gray-darker:            darken($gray-base, $darken-intensity*2);
 $gray-dark:              darken($gray-base, $darken-intensity);
 $gray:                   lighten($gray-base, $lighten-intensity*1.5);
 $gray-light:             lighten($gray-base, $lighten-intensity*3);
 $gray-lighter:           lighten($gray-base, $lighten-intensity*6);
-
-$black: #000;
-$brand-white: #ffffff;
-$brand-lightgray: #f5f5f5;
 
 $brand-background: #ffffff;
 $brand-secondary-background: #f8f8f8;
@@ -58,10 +58,6 @@ $btn-border-radius-small: $border-radius-small;
 $btn-border-radius-large: $border-radius-large;
 $btn-padding-small: 6px 6px;
 $btn-padding-large: 8px 12px;
-$button-background-color: $brand-primary;
-$button-background-color-active: lighten($button-background-color, 20%);
-$button-text-color: $brand-white;
-$button-text-color-active: $brand-white;
 
 // Card
 $card-background-color: $brand-white;

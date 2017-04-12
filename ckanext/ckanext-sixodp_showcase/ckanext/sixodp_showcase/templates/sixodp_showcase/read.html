@@ -44,7 +44,7 @@
       <div class="headings-wrapper">
         <h1 class="page-heading">
           {% block page_heading %}
-            {{ name }} {% if pkg.archived %}<span class="heading-extra">({{ _('Archived') }})</span>{% endif %}
+            {{ name }} {% if pkg.archived == 'true' %}<span class="heading-extra">({{ _('Archived') }})</span>{% endif %}
             {% if pkg.state.startswith('draft') %}
               [{{ _('Draft') }}]
             {% endif %}
