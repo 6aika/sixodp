@@ -229,9 +229,8 @@ hijackAttributes();
 module.exports = fix;
 
 },{}],2:[function(require,module,exports){
-var objectFitImages = require('object-fit-images');
-
 // Common js
+require('./components/common/polyfills');
 require('./components/common/popper');
 
 // CKAN specific js
@@ -241,14 +240,7 @@ require('./components/ckan/horizaccordion');
 require('./components/ckan/image-modal');
 require('./components/ckan/show-more');
 
-$(function ($) {
-  $(document).ready(function(){
-    // Polyfill object-fit
-    objectFitImages();
-  });
-}(jQuery));
-
-},{"./components/ckan/datepicker":3,"./components/ckan/form-action-loading-indicator":4,"./components/ckan/horizaccordion":5,"./components/ckan/image-modal":6,"./components/ckan/show-more":7,"./components/common/popper":8,"object-fit-images":1}],3:[function(require,module,exports){
+},{"./components/ckan/datepicker":3,"./components/ckan/form-action-loading-indicator":4,"./components/ckan/horizaccordion":5,"./components/ckan/image-modal":6,"./components/ckan/show-more":7,"./components/common/polyfills":8,"./components/common/popper":9}],3:[function(require,module,exports){
 $(function ($) {
   $(document).ready(function() {
     // Attempt to get the user language, datepicker will default to en-US if not successful
@@ -365,6 +357,15 @@ $(function ($) {
   });
 });
 },{}],8:[function(require,module,exports){
+var objectFitImages = require('object-fit-images');
+
+$(function ($) {
+  $(document).ready(function(){
+    // Polyfill object-fit
+    objectFitImages();
+  });
+}(jQuery));
+},{"object-fit-images":1}],9:[function(require,module,exports){
 $(function() {
   $(document).ready(function() {
     $('.btn[data-trigger="popper"]').on('click', function () {
