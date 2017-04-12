@@ -224,6 +224,7 @@ TopHistogram.prototype._renderHistogram = function (histogramData) {
     )})
 
   function wrap(text, width, yMiddle) {
+    width = width - 10
     text.each(function() {
       var text = d3.select(this)
       var words = text.text().split(/\s+/).reverse()
