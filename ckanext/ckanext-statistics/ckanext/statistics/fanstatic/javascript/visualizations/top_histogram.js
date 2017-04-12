@@ -294,10 +294,12 @@ TopHistogram.prototype._resizeAxisX = function () {
 TopHistogram.prototype._updateXAxisGenerator = function () {
   var self = this
   self._helpers.xAxisGenerator = function (g) {
+    // Around 5 reference lines. Use only integers.
+    var tickCount = Math.min(4, self._helpers.xScale.domain().slice(-1)[0])
     g.call(
       d3.axisTop(self._helpers.xScale)
       .tickSize(self._state.dataArea.width)
-      .ticks(5)
+      .ticks(tickCount)
       .tickPadding(7)
       .tickFormat(function (d) {
         return this.parentNode.nextSibling ? '\xa0' + d : d + ' ' + self._texts.amount

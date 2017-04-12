@@ -392,16 +392,11 @@ TotalsTimeline.prototype._updateYAxisGenerator = function () {
     g.call(
       // Create generator for a stock axis
       d3.axisRight(self._helpers.yScale)
-
         // Make ticks full width
         .tickSize(self._state.dataArea.width)
-
         // Set which levels are shown
-        // .tickValues(tickValues)
         .ticks(tickCount, 'x')
-
         .tickPadding(7)
-
         // Add text to top-most tick number
         .tickFormat(function(d) {
           return this.parentNode.nextSibling
