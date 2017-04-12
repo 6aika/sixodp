@@ -49,21 +49,15 @@ TopHistogram.prototype.setData = function (data) {
   self._data.histogram = self._transformData(data)
   self._state.barCount = self._data.histogram.length
 
-  // Update x and y domain ranges based on histgram bar data
-  self._helpers.xScale.domain([0, d3.max(self._data.histogram, function(d) { return d[self._schema.valueField] })])
-
+  // Update y domain range based on amount of histgram bars
   self._helpers.yScale.domain(
     d3.map(self._data.histogram, function(d) { return d[self._schema.labelField] }).keys()
   )
 
   self.resize()
+
+  // This will also update x domain range
   self._renderHistogram(self._data.histogram)
-}
-
-
-// Press button to show all items
-TopHistogram.prototype.showMore = function () {
-
 }
 
 
@@ -130,19 +124,7 @@ TopHistogram.prototype.resize = function (contentWidth = undefined, barHeight = 
 // Turn data input format into the internal format used in visualizing the data
 TopHistogram.prototype._transformData = function (rawData) {
   var self = this
-
-  // Filter by date
-  if (!rawData) {
-    return rawData
-  }
-  var result = rawData.slice()
-
-  // Sort
-  // result = result.sort(function(a, b) {
-  //   return parseFloat(a[self._schema.valueFied]) - parseFloat(b[self._schema.valueFied])
-  // })
-
-  return result
+  return rawData
 }
 
 
@@ -186,12 +168,8 @@ TopHistogram.prototype._renderBase = function (container) {
 
   self._elem.xAxis = self._elem.backLayer.append('g')
     .classed('statistics-axis', true)
-    // .attr('transform', 'translate(0,' + self._state.dataArea.height + ')')
     .call(self._helpers.xAxisGenerator)
-
   // No Y axis
-  // self._elem.yAxis
-
 }
 
 
@@ -204,7 +182,6 @@ TopHistogram.prototype._renderHistogram = function (histogramData) {
     .attr('transform', function(d, i) { return (
       'translate(0,' + self._helpers.yScale(d[self._schema.labelField]) + ')'
     )})
-    // .data(histogramData, function (d) { return d.id })
   self._elem.histogramBars.selectAll('.statistics-bar-main')
     .data(histogramData, function(d) { return d ? d.name : this.id })
     .attr('width', function (d) { return (
@@ -217,7 +194,6 @@ TopHistogram.prototype._renderHistogram = function (histogramData) {
       self._helpers.xScale(d[self._schema.valueSpecificField])
     )})
 
-  // https://bl.ocks.org/mbostock/7555321
   function wrap(text, width, yMiddle) {
     text.each(function() {
       var text = d3.select(this)
@@ -257,28 +233,18 @@ TopHistogram.prototype._renderHistogram = function (histogramData) {
     .text(function(d, i) { return d[self._schema.labelField] })
     .call(wrap, self._props.margin.left, self._helpers.yScale.bandwidth() / 2)
 
-  // Sort
-  // self._elem.histogramBars.sort(function (a, b) {
-  //   return a[self._schema.valueField] < b[self._schema.valueField]
-  // })
-  // Draw the histogram based on data
-
-  // Updated, remaining bars: Nothing to do
-  // self._elem.histogramBars
-  //   . ...
-
   // Bars added to the previous data (added to the end)
   var barsToAdd = self._elem.histogramBars.enter().append('g')
     .classed('statistics-bar', true)
 
-  // Bar itself
+  // Main bar itself
   barsToAdd.append('rect')
     .classed('statistics-bar-main', true)
     .attr('x', 1)
     .attr('y', 1)
     .attr('height', self._helpers.yScale.bandwidth())
 
-  // Shorter bar
+  // Shorter portion bar
   barsToAdd.append('rect')
     .classed('statistics-bar-portion', true)
     .attr('x', 1)
@@ -295,7 +261,6 @@ TopHistogram.prototype._renderHistogram = function (histogramData) {
   // Bars from previous data to leave out
   var barsToRemove = self._elem.histogramBars.exit()
   barsToRemove.remove()
-
 }
 
 
@@ -304,8 +269,8 @@ TopHistogram.prototype._resizeAxisX = function () {
   if (!self._data.histogram) {
     return
   }
-  currentExtent = self._helpers.xScale.domain()
-  newExtent = self._getXExtent()
+  var currentExtent = self._helpers.xScale.domain()
+  var newExtent = self._getXExtent()
 
   clearTimeout(self._state.resizeAxisTimeout)
   self._state.resizeAxisTimeout = setTimeout(function () {
@@ -329,7 +294,6 @@ TopHistogram.prototype._resizeAxisX = function () {
 TopHistogram.prototype._updateXAxisGenerator = function () {
   var self = this
   self._helpers.xAxisGenerator = function (g) {
-
     g.call(
       d3.axisTop(self._helpers.xScale)
       .tickSize(self._state.dataArea.width)
@@ -339,23 +303,17 @@ TopHistogram.prototype._updateXAxisGenerator = function () {
         return this.parentNode.nextSibling ? '\xa0' + d : d + ' ' + self._texts.amount
       })
     )
-
     g.classed('statistics-axis', true)
-      // .attr('transform', 'translate(0, ' + (self._state.dataArea.height) + ')')
-
     g.select('.domain').remove()
-
     g.selectAll('.tick')
-
     g.selectAll('.tick text')
       .attr('y', -5)
-      // .attr('transform', 'translate(0,0)')
-
     g.selectAll('.tick line')
       .attr('y2', self._state.dataArea.height)
       .attr('height', self._state.dataArea.height)
   }
 }
+
 
 TopHistogram.prototype._getXExtent = function () {
   var self = this

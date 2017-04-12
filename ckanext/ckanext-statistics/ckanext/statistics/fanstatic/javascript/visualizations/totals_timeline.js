@@ -50,7 +50,7 @@ TotalsTimeline.prototype.setData = function (data) {
   self._data.line = self._transformLineData(data)
 
   self._helpers.xScale.domain(self._getXExtent()).nice()
-  self._helpers.yScale.domain(self._getYExtent()).nice()
+  // self._helpers.yScale.domain(self._getYExtent()).nice()
 
   self._renderLine()
   self._renderFocusPoint()
@@ -161,12 +161,6 @@ TotalsTimeline.prototype._transformLineData = function (data) {
 
   // Turn into array
   var resultArray = []
-  // {
-  //   date: moment.utc([0, 0, 1]),
-  //   added: [],
-  //   removed: [],
-  //   value: 0,
-  // }
   for (i in result) {
     resultArray.push(result[i])
   }
@@ -359,7 +353,6 @@ TotalsTimeline.prototype._resizeAxis = function (axis) {
     // Init transition for each selected item (= only one axis)
     self._elem[axis + 'Axis'].transition().duration(800)
     .tween('resizeAxisTween', function (d, i) {
-      // self._elem.yAxis.select('.domain').remove()
       var axisScaleInterpolator = d3.interpolate(currentExtent, newExtent)
       // What to do on each animation frame
       return function (t) {
