@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_scheming 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-03 08:13+0000\n"
+"POT-Creation-Date: 2017-04-13 10:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Mikko Nieminen <mikko.nieminen@gofore.com>, 2017\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
@@ -19,6 +19,10 @@ msgstr ""
 "Generated-By: Babel 2.3.4\n"
 "Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ckanext/sixodp_scheming/helpers.py:61
+msgid "Dataset not found"
+msgstr "Tietoaineistoa ei löytynyt"
 
 #: ckanext/sixodp_scheming/translations.py:4
 msgid ""
@@ -104,6 +108,7 @@ msgstr "Ylläpitäjän verkkosivusto"
 msgid "http://www.example.com"
 msgstr "http://www.example.com"
 
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:34
 #: ckanext/sixodp_scheming/translations.py:20
 msgid "Created"
 msgstr "Luotu"
@@ -133,6 +138,7 @@ msgstr "esim. joka toinen viikko"
 msgid "A short description of how frequently the dataset will get updated."
 msgstr "Lyhyt sanallinen kuvaus siitä miten usein tietoaineistoa päivitetään."
 
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:94
 #: ckanext/sixodp_scheming/translations.py:27
 msgid "License"
 msgstr "Lisenssi"
@@ -292,75 +298,69 @@ msgstr "Yksityinen"
 msgid "Public"
 msgstr "Julkinen"
 
+#: ckanext/sixodp_scheming/templates/scheming/package/read.html:18
+msgid "Show more"
+msgstr "Näytä lisää"
+
+#: ckanext/sixodp_scheming/templates/scheming/package/read.html:19
+msgid "Show less"
+msgstr "Näytä vähemmän"
+
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:5
+msgid "Additional Information"
+msgstr "Lisätiedot"
+
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:9
+msgid "Metadata API"
+msgstr "Metadata API"
+
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:16
+msgid "Field"
+msgstr "Kenttä"
+
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:17
-msgid "From the dataset abstract"
-msgstr "Tietoaineiston yhteenvedosta"
+msgid "Value"
+msgstr "Arvo"
 
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:19
-#, python-format
-msgid "Source: <a \t\t\t     href=\"%(url)s\">%(dataset)s</a>"
-msgstr "Lähde: <a href=\"%(url)s\">%(dataset)s</a>"
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:23
+msgid "Last updated"
+msgstr "Viimeksi päivitetty"
 
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:60
-msgid "There are no views created for this resource yet."
-msgstr "Resurssille ei ole luotu vielä yhtään näkymää."
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:28
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:36
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:43
+msgid "unknown"
+msgstr "tuntematon"
 
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:64
-msgid "Not seeing the views you were expecting?"
-msgstr "Et näe odottamiasi näkymiä?"
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:42
+msgid "Format"
+msgstr "Muoto"
 
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:66
-msgid "Click here for more information."
-msgstr "Klikkaa tästä saadaksesi lisätietoa..."
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:26
+msgid "Groups"
+msgstr "Kategoriat"
 
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:69
-msgid "Here are some reasons you may not be seeing expected views:"
-msgstr "Tässä joitakin syitä, jos et näe odottamiasi näkymiä:"
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:41
+msgid "Collections"
+msgstr "Aineistokokonaisuudet"
 
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:71
-msgid "No view has been created that is suitable for this resource"
-msgstr "Tälle resurssille ei ole luotu yhtään sopivaa näkymää"
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:82
+msgid "Openness"
+msgstr "Avoimuusaste"
 
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:72
-msgid "The site administrators may not have enabled the relevant view plugins"
-msgstr ""
-"Voi olla, ettei ylläpitäjä ole ottanut käyttöön tarvittavia liitännäisiä"
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:88
+msgid "Rating"
+msgstr "Arvosana"
 
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:73
-msgid ""
-"If a view requires the DataStore, the DataStore plugin may not be enabled, "
-"or the data may not have been pushed to the DataStore, or the DataStore "
-"hasn't finished processing the data yet"
-msgstr ""
-"Jos näkymä vaatii DataStoren, voi olla, ettei DataStore-liitännäistä ole "
-"otettu käyttöön, tai ettei tietoja ole tallennettu DataStoreen, tai ettei "
-"DataStore ole vielä saanut prosessointia valmiiksi"
-
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:89
-msgid "Manage"
-msgstr "Hallitse"
-
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:95
-msgid "View"
-msgstr "Näkymä"
-
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:98
-msgid "API Endpoint"
-msgstr "API-osoite"
-
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:101
-msgid "Download"
-msgstr "Lataa"
-
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:30
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:100
 msgid "State"
 msgstr "Tila"
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:36
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:107
 msgid "How to reference"
 msgstr "Viittaustapa"
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:38
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:109
 msgid ""
 "{title}: The dataset's maintainer is {maintainer} and the original author is"
 " {author}. The dataset has been downloaded from the {site_title} service "

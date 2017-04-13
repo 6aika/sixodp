@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_ui 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-04-11 09:59+0000\n"
+"POT-Creation-Date: 2017-04-13 10:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Mikko Nieminen <mikko.nieminen@gofore.com>, 2017\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ckanext/sixodp_ui/helpers.py:88
+#: ckanext/sixodp_ui/helpers.py:89
 msgid "Dataset not found"
 msgstr "Tietoaineistoa ei löytynyt"
 
@@ -469,6 +469,11 @@ msgstr "Viimeksi muokattu"
 msgid "Search datasets..."
 msgstr "Etsi tietoaineistoista..."
 
+#: ckanext/sixodp_ui/templates/package/activity.html:3
+#: ckanext/sixodp_ui/templates/package/read_base.html:33
+msgid "Activity Stream"
+msgstr "Aktiivisuusvirta"
+
 #: ckanext/sixodp_ui/templates/package/edit.html:9
 #: ckanext/sixodp_ui/templates/package/resource_edit.html:9
 msgid "Locked fields"
@@ -493,10 +498,6 @@ msgstr "Tietoaineisto"
 #: ckanext/sixodp_ui/templates/showcase/edit_base.html:16
 msgid "Showcases"
 msgstr "Sovellukset"
-
-#: ckanext/sixodp_ui/templates/package/read_base.html:33
-msgid "Activity Stream"
-msgstr "Aktiivisuusvirta"
 
 #: ckanext/sixodp_ui/templates/package/read_base.html:56
 #: ckanext/sixodp_ui/templates/package/resource_read.html:165

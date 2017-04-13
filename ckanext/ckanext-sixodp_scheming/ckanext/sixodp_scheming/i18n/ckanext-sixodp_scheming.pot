@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_scheming 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-03 08:13+0000\n"
+"POT-Creation-Date: 2017-04-13 10:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.3.4\n"
+
+#: ckanext/sixodp_scheming/helpers.py:61
+msgid "Dataset not found"
+msgstr ""
 
 #: ckanext/sixodp_scheming/translations.py:4
 msgid ""
@@ -92,6 +96,7 @@ msgstr ""
 msgid "http://www.example.com"
 msgstr ""
 
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:34
 #: ckanext/sixodp_scheming/translations.py:20
 msgid "Created"
 msgstr ""
@@ -120,6 +125,7 @@ msgstr ""
 msgid "A short description of how frequently the dataset will get updated."
 msgstr ""
 
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:94
 #: ckanext/sixodp_scheming/translations.py:27
 msgid "License"
 msgstr ""
@@ -264,71 +270,69 @@ msgstr ""
 msgid "Public"
 msgstr ""
 
+#: ckanext/sixodp_scheming/templates/scheming/package/read.html:18
+msgid "Show more"
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/package/read.html:19
+msgid "Show less"
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:5
+msgid "Additional Information"
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:9
+msgid "Metadata API"
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:16
+msgid "Field"
+msgstr ""
+
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:17
-msgid "From the dataset abstract"
+msgid "Value"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:19
-#, python-format
-msgid "Source: <a \t\t\t     href=\"%(url)s\">%(dataset)s</a>"
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:23
+msgid "Last updated"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:60
-msgid "There are no views created for this resource yet."
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:28
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:36
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:43
+msgid "unknown"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:64
-msgid "Not seeing the views you were expecting?"
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:42
+msgid "Format"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:66
-msgid "Click here for more information."
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:26
+msgid "Groups"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:69
-msgid "Here are some reasons you may not be seeing expected views:"
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:41
+msgid "Collections"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:71
-msgid "No view has been created that is suitable for this resource"
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:82
+msgid "Openness"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:72
-msgid "The site administrators may not have enabled the relevant view plugins"
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:88
+msgid "Rating"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:73
-msgid ""
-"If a view requires the DataStore, the DataStore plugin may not be enabled, or"
-" the data may not have been pushed to the DataStore, or the DataStore hasn't "
-"finished processing the data yet"
-msgstr ""
-
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:89
-msgid "Manage"
-msgstr ""
-
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:95
-msgid "View"
-msgstr ""
-
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:98
-msgid "API Endpoint"
-msgstr ""
-
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:101
-msgid "Download"
-msgstr ""
-
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:30
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:100
 msgid "State"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:36
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:107
 msgid "How to reference"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:38
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:109
 msgid ""
 "{title}: The dataset's maintainer is {maintainer} and the original author is "
 "{author}. The dataset has been downloaded from the {site_title} service "
