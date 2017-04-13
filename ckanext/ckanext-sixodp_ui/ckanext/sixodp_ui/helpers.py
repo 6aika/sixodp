@@ -51,9 +51,13 @@ def get_notifications():
     return notifications
 
 
-def get_navigation_items_by_menu_location(wp_menu_location):
+def get_navigation_items_by_menu_location(wp_menu_location, localized):
     menu_endpoint = config.get('ckanext.sixodp_ui.wp_api_menus_base_url')
-    response_data = get_wp_api_content(menu_endpoint, 'menus/' + wp_menu_location + '_' + i18n.get_lang())
+
+    if (localized == True):
+        response_data = get_wp_api_content(menu_endpoint, 'menus/' + wp_menu_location + '_' + i18n.get_lang())
+    else:
+        response_data = get_wp_api_content(menu_endpoint, 'menus/' + wp_menu_location)
 
     navigation_items = []
     if(response_data and response_data.get('items')):
@@ -68,7 +72,34 @@ def get_navigation_items_by_menu_location(wp_menu_location):
 
 
 def get_footer_navigation_items():
-    return get_navigation_items_by_menu_location(config.get('ckanext.sixodp_ui.wp_footer_menu_location'))
+    return get_navigation_items_by_menu_location(config.get('ckanext.sixodp_ui.wp_footer_menu_location'), True)
+
+
+def get_social_links():
+    return get_navigation_items_by_menu_location(config.get('ckanext.sixodp_ui.wp_social_menu_location'), False)
+
+
+def get_social_link_icon_class(item):
+    if(item.get('title').lower() == 'facebook'):
+        return 'icon-facebook-sign'
+    elif(item.get('title').lower() == 'twitter'):
+        return 'icon-twitter-sign'
+    elif(item.get('title').lower() == 'youtube'):
+        return 'icon-youtube-sign'
+    elif(item.get('title').lower() == 'rss'):
+        return 'icon-rss-sign'
+    elif(item.get('title').lower() == 'tumblr'):
+        return 'icon-tumblr-sign'
+    elif(item.get('title').lower() == 'github'):
+        return 'icon-github-sign'
+    elif(item.get('title').lower() == 'instagram'):
+        return 'icon-instagram'
+    elif(item.get('title').lower() == 'linkedin'):
+        return 'icon-linkedin-sign'
+    elif(item.get('title').lower() == 'flickr'):
+        return 'icon-flickr'
+    else:
+        return 'icon-external-link-sign'
 
 
 def menu_is_active(menu_url, current_path):
@@ -163,7 +194,7 @@ def check_if_active(menu):
 
 def build_nav_main():
 
-    navigation_tree = get_navigation_items_by_menu_location(config.get('ckanext.sixodp_ui.wp_main_menu_location'))
+    navigation_tree = get_navigation_items_by_menu_location(config.get('ckanext.sixodp_ui.wp_main_menu_location'), True)
 
     def construct_menu_tree(menu):
         active = check_if_active(menu)
