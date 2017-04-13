@@ -42,7 +42,6 @@ Api.prototype.getAllData = function (callback, delay) {
             for (i in data.apps) {
               self.get('ckanext_showcase_package_list?showcase_id=' + data.apps[i].id, function (result) {
                 data.apps[i].datasets = result
-
                 receivedCount ++
                 if (receivedCount >= data.apps.length) {
                   finishedAppDatasets()
@@ -53,16 +52,9 @@ Api.prototype.getAllData = function (callback, delay) {
 
           function finishedAppDatasets () {
             self._stepLoaded(self._texts.loadPreprocessing, 97.0)
-
-            // https://developer.wordpress.org/rest-api/reference/posts/
-            // wp-json/wp/v2/posts
-
             data = self._preprocess(data)
             self._stepLoaded(self._texts.loadRendering, 99.9)
-
-            console.log('Data', data)
             callback(data)
-
             // Hide loading screen
             setTimeout(function () {
               self._stepLoaded(self._texts.loadDone, 100.0)
@@ -97,20 +89,28 @@ Api.prototype.get = function (endPoint, callback) {
 }
 
 
+// Adds related app data to each dataset, and creates a list of all existing file formats and app categories
 Api.prototype._preprocess = function (data) {
 
-  // Add app information to datasets
-  for (i in data.datasets) {
+  // Add data about related apps into each dataset on the dataset listing
+  // First add empty container for each dataset's related apps
+  for (iDataset in data.datasets) {
     data.datasets[i].apps = []
   }
-  for (i in data.apps) {
-    for (j in data.apps[i].datasets) {
-      var datasetId = data.apps[i].datasets[j].id
-      for (k in data.datasets) {
-        if (data.datasets[k].id === datasetId) {
-          data.datasets[k].apps.push({
-            id: data.apps[i].id,
-            title: data.apps[i].title,
+  // Go through all apps
+  for (iApp in data.apps) {
+    // Go through each dataset that is related to the inspected app
+    for (iAppsDataset in data.apps[iApp].datasets) {
+      var idOfAppsDataset = data.apps[iApp].datasets[iAppsDataset].id
+
+      // Go through all datasets in the dataset listing to find the dataset found on the app's data structure
+      for (iDatasetList in data.datasets) {
+        if (data.datasets[iDatasetList].id === idOfAppsDataset) {
+          // When the correct dataset in the dataset listing is found, add the app to the dataset's list of apps.
+          data.datasets[iDatasetList].apps.push({
+            // Just id and title are needed when using apps in visualizations
+            id: data.apps[iApp].id,
+            title: data.apps[iApp].title,
           })
           break
         }
@@ -120,10 +120,12 @@ Api.prototype._preprocess = function (data) {
 
   // Create file formats list
   data.formats = []
+  // Go through all resources of all listed datasets
   for (iDataset in data.datasets) {
     var dataset = data.datasets[iDataset]
     for (iResource in dataset.resources) {
       var resource = dataset.resources[iResource]
+      // Add the file format of the resource into the list of formats if it's not there yet
       if (data.formats.indexOf(resource.format) === -1) {
         data.formats.push(resource.format)
       }
@@ -140,34 +142,34 @@ Api.prototype._preprocess = function (data) {
   }
   data.formats.sort(alphabeticsOrder)
 
-  // Create app category list
+  // Create app category list. Separate list of each language because of the structure of the api response.
   data.appCategories = {}
+  // Go through all apps
   for (iApp in data.apps) {
     var app = data.apps[iApp]
+    // Go through all extra fields of the app, because category information is there
     for (iExtra in app.extras) {
       var extra = app.extras[iExtra]
+      // Only use the 'category' extra fields
       if (extra.key === 'category') {
+        // The value of category is saved as a string of JS array statement
         eval('var categoryLists = ' + extra.value)
+        // Add categories of each language's list
         for (lang in categoryLists) {
           data.appCategories[lang] = []
           for (iCategory in categoryLists[lang]) {
             var categoryName = categoryLists[lang][iCategory]
             if (data.appCategories[lang].indexOf(categoryName) === -1) {
               data.appCategories[lang].push(categoryName)
-            }          }
+            }
+          }
         }
-
-        // var ca
-        // if (data.appCategories.indexOf(category) === -1) {
-        //   data.appCategories.push(category)
-        // }
       }
     }
   }
   for (lang in data.appCategories) {
     data.appCategories[lang].sort(alphabeticsOrder)
   }
-
   return data
 }
 
