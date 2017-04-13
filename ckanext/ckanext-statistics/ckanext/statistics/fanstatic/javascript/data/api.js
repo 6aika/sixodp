@@ -95,7 +95,7 @@ Api.prototype._preprocess = function (data) {
   // Add data about related apps into each dataset on the dataset listing
   // First add empty container for each dataset's related apps
   for (iDataset in data.datasets) {
-    data.datasets[i].apps = []
+    data.datasets[iDataset].apps = []
   }
   // Go through all apps
   for (iApp in data.apps) {
