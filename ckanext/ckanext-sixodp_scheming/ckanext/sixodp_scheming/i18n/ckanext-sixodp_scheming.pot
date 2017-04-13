@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_scheming 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-04-13 10:40+0000\n"
+"POT-Creation-Date: 2017-04-13 11:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,125 +23,184 @@ msgid "Dataset not found"
 msgstr ""
 
 #: ckanext/sixodp_scheming/translations.py:4
+msgid "Title"
+msgstr ""
+
+#: ckanext/sixodp_scheming/translations.py:5
 msgid ""
 "A short and descriptive title for the dataset. Do not utilize dates in the "
 "title but instead add multiple time-specific resources to the dataset in the "
 "next stage."
 msgstr ""
 
-#: ckanext/sixodp_scheming/translations.py:5
+#: ckanext/sixodp_scheming/translations.py:7
+#: ckanext/sixodp_scheming/translations.py:72
+msgid "URL"
+msgstr ""
+
+#: ckanext/sixodp_scheming/translations.py:8
 msgid ""
 "An URL-address which refers to the dataset. The automatically filled option "
 "derived from the title is the best option in most cases."
 msgstr ""
 
-#: ckanext/sixodp_scheming/translations.py:6
-msgid "The origin of the dataset."
+#: ckanext/sixodp_scheming/translations.py:10
+msgid "Tags"
 msgstr ""
 
-#: ckanext/sixodp_scheming/translations.py:7
+#: ckanext/sixodp_scheming/translations.py:11
 msgid ""
 "Keywords or tags through which users are able to find this dataset easily "
 "through the search page or other datasets which have the same tag."
 msgstr ""
 
-#: ckanext/sixodp_scheming/translations.py:8
+#: ckanext/sixodp_scheming/translations.py:13
+msgid "Geographical Coverage"
+msgstr ""
+
+#: ckanext/sixodp_scheming/translations.py:14
+msgid "eg. tampere"
+msgstr ""
+
+#: ckanext/sixodp_scheming/translations.py:15
 msgid "Select the municipalities from which the dataset contains data."
 msgstr ""
 
-#: ckanext/sixodp_scheming/translations.py:9
+#: ckanext/sixodp_scheming/translations.py:17
+#: ckanext/sixodp_scheming/translations.py:81
+msgid "Description"
+msgstr ""
+
+#: ckanext/sixodp_scheming/translations.py:18
 msgid "eg. A detailed description"
 msgstr ""
 
-#: ckanext/sixodp_scheming/translations.py:10
+#: ckanext/sixodp_scheming/translations.py:19
 msgid ""
 "An universal, compact and easy to understand description of the added "
 "dataset. Use as confining terms as possible to assist the user to understand "
 "what types of data, meters and dimensions the dataset contains."
 msgstr ""
 
-#: ckanext/sixodp_scheming/translations.py:11
+#: ckanext/sixodp_scheming/translations.py:21
 msgid "Links to additional information"
 msgstr ""
 
-#: ckanext/sixodp_scheming/translations.py:12
+#: ckanext/sixodp_scheming/translations.py:22
 msgid "Links to additional information concerning the dataset."
 msgstr ""
 
-#: ckanext/sixodp_scheming/translations.py:13
-msgid "The organization which owns the dataset."
-msgstr ""
-
-#: ckanext/sixodp_scheming/translations.py:14
-msgid "Maintainer"
-msgstr ""
-
-#: ckanext/sixodp_scheming/translations.py:15
-msgid "Joe Bloggs"
-msgstr ""
-
-#: ckanext/sixodp_scheming/translations.py:16
-msgid "Maintainer Email"
-msgstr ""
-
-#: ckanext/sixodp_scheming/translations.py:17
-msgid "joe@example.com"
-msgstr ""
-
-#: ckanext/sixodp_scheming/translations.py:18
-msgid "Maintainer Website"
-msgstr ""
-
-#: ckanext/sixodp_scheming/translations.py:19
-msgid "http://www.example.com"
-msgstr ""
-
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:34
-#: ckanext/sixodp_scheming/translations.py:20
-msgid "Created"
-msgstr ""
-
-#: ckanext/sixodp_scheming/translations.py:21
-msgid "The date which will be shown as the publish date for this dataset."
-msgstr ""
-
-#: ckanext/sixodp_scheming/translations.py:22
-msgid "Updated"
-msgstr ""
-
-#: ckanext/sixodp_scheming/translations.py:23
-msgid "The date which will be shown as the last modified date for this dataset."
-msgstr ""
-
 #: ckanext/sixodp_scheming/translations.py:24
-msgid "Update Frequency"
+msgid "Organization"
 msgstr ""
 
 #: ckanext/sixodp_scheming/translations.py:25
+msgid "The organization which owns the dataset."
+msgstr ""
+
+#: ckanext/sixodp_scheming/translations.py:28
+msgid "The origin of the dataset."
+msgstr ""
+
+#: ckanext/sixodp_scheming/translations.py:30
+msgid "Maintainer"
+msgstr ""
+
+#: ckanext/sixodp_scheming/translations.py:31
+msgid "Joe Bloggs"
+msgstr ""
+
+#: ckanext/sixodp_scheming/translations.py:33
+msgid "Maintainer Email"
+msgstr ""
+
+#: ckanext/sixodp_scheming/translations.py:34
+msgid "joe@example.com"
+msgstr ""
+
+#: ckanext/sixodp_scheming/translations.py:36
+msgid "Maintainer Website"
+msgstr ""
+
+#: ckanext/sixodp_scheming/translations.py:37
+msgid "http://www.example.com"
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/form_snippets/private.html:3
+#: ckanext/sixodp_scheming/translations.py:39
+msgid "Visibility"
+msgstr ""
+
+#: ckanext/sixodp_scheming/translations.py:40
+msgid ""
+"Private datasets will only be seen by the logged in users of the dataset's "
+"organization. Public datasets will be listed publicly through the search."
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:34
+#: ckanext/sixodp_scheming/translations.py:42
+msgid "Created"
+msgstr ""
+
+#: ckanext/sixodp_scheming/translations.py:43
+msgid "The date which will be shown as the publish date for this dataset."
+msgstr ""
+
+#: ckanext/sixodp_scheming/translations.py:45
+msgid "Updated"
+msgstr ""
+
+#: ckanext/sixodp_scheming/translations.py:46
+msgid "The date which will be shown as the last modified date for this dataset."
+msgstr ""
+
+#: ckanext/sixodp_scheming/translations.py:48
+msgid "Update Frequency"
+msgstr ""
+
+#: ckanext/sixodp_scheming/translations.py:49
 msgid "eg. every second week"
 msgstr ""
 
-#: ckanext/sixodp_scheming/translations.py:26
+#: ckanext/sixodp_scheming/translations.py:50
 msgid "A short description of how frequently the dataset will get updated."
 msgstr ""
 
 #: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:94
-#: ckanext/sixodp_scheming/translations.py:27
+#: ckanext/sixodp_scheming/translations.py:52
 msgid "License"
 msgstr ""
 
-#: ckanext/sixodp_scheming/translations.py:28
+#: ckanext/sixodp_scheming/translations.py:54
 msgid "Reminder date"
 msgstr ""
 
-#: ckanext/sixodp_scheming/translations.py:29
+#: ckanext/sixodp_scheming/translations.py:55
 msgid ""
 "A date when a reminder will be sent to a specified email address reminding to"
 " check this dataset. The email address can be changed in the CKAN admin "
 "config page."
 msgstr ""
 
-#: ckanext/sixodp_scheming/translations.py:30
+#: ckanext/sixodp_scheming/translations.py:57
+msgid "Global ID"
+msgstr ""
+
+#: ckanext/sixodp_scheming/translations.py:58
+msgid ""
+"An Id that is used in other services, so that this dataset can be matched to "
+"dataset in other service."
+msgstr ""
+
+#: ckanext/sixodp_scheming/translations.py:60
+msgid "Search Synonyms"
+msgstr ""
+
+#: ckanext/sixodp_scheming/translations.py:61
+msgid "Synonyms for package search"
+msgstr ""
+
+#: ckanext/sixodp_scheming/translations.py:63
 msgid ""
 "The <i>data license</i> you select above only applies to the contents of any "
 "resource files that you add to this dataset. By submitting this form, you "
@@ -150,72 +209,79 @@ msgid ""
 "Database License</a>."
 msgstr ""
 
-#: ckanext/sixodp_scheming/translations.py:35
+#: ckanext/sixodp_scheming/translations.py:69
+msgid "Name"
+msgstr ""
+
+#: ckanext/sixodp_scheming/translations.py:70
 msgid "A short and descriptive name for the resource."
 msgstr ""
 
-#: ckanext/sixodp_scheming/translations.py:36
+#: ckanext/sixodp_scheming/translations.py:73
 msgid "A file or url which describes the location of the desired resource file."
 msgstr ""
 
-#: ckanext/sixodp_scheming/translations.py:37
+#: ckanext/sixodp_scheming/translations.py:75
+msgid "Size"
+msgstr ""
+
+#: ckanext/sixodp_scheming/translations.py:76
 msgid ""
 "Size of the added resouce file in bytes. Will be automatically filled when "
 "the file is uploaded."
 msgstr ""
 
-#: ckanext/sixodp_scheming/translations.py:38
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:42
+#: ckanext/sixodp_scheming/translations.py:78
+msgid "Format"
+msgstr ""
+
+#: ckanext/sixodp_scheming/translations.py:79
 msgid "File format of the selected resource."
 msgstr ""
 
-#: ckanext/sixodp_scheming/translations.py:39
+#: ckanext/sixodp_scheming/translations.py:82
 msgid ""
 "An universal, compact and easy to understand description of the added "
 "resource."
 msgstr ""
 
-#: ckanext/sixodp_scheming/translations.py:40
+#: ckanext/sixodp_scheming/translations.py:84
 msgid "Position coordinates"
 msgstr ""
 
-#: ckanext/sixodp_scheming/translations.py:41
+#: ckanext/sixodp_scheming/translations.py:85
 msgid ""
 "Coordinates which describe the area which the added resource is associated "
 "with."
 msgstr ""
 
-#: ckanext/sixodp_scheming/translations.py:42
+#: ckanext/sixodp_scheming/translations.py:87
 msgid "Time series start"
 msgstr ""
 
-#: ckanext/sixodp_scheming/translations.py:43
+#: ckanext/sixodp_scheming/translations.py:88
 msgid "A moment in time after which the data is relevant."
 msgstr ""
 
-#: ckanext/sixodp_scheming/translations.py:44
+#: ckanext/sixodp_scheming/translations.py:90
 msgid "Time series end"
 msgstr ""
 
-#: ckanext/sixodp_scheming/translations.py:45
+#: ckanext/sixodp_scheming/translations.py:91
 msgid "A moment in time after which the data is no longer relevant."
 msgstr ""
 
-#: ckanext/sixodp_scheming/translations.py:46
+#: ckanext/sixodp_scheming/translations.py:93
 msgid "Time Series Precision"
 msgstr ""
 
-#: ckanext/sixodp_scheming/translations.py:47
+#: ckanext/sixodp_scheming/translations.py:94
 msgid "eg. 2 weeks"
 msgstr ""
 
-#: ckanext/sixodp_scheming/translations.py:48
+#: ckanext/sixodp_scheming/translations.py:95
 msgid "A string which describes the precision of the entered time series."
-msgstr ""
-
-#: ckanext/sixodp_scheming/translations.py:49
-msgid ""
-"An Id that is used in other services, so that this dataset can be matched to "
-"dataset in other service."
 msgstr ""
 
 #: ckanext/sixodp_scheming/validators.py:57
@@ -258,10 +324,6 @@ msgstr ""
 msgid "No organization"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/form_snippets/private.html:3
-msgid "Visibility"
-msgstr ""
-
 #: ckanext/sixodp_scheming/templates/scheming/form_snippets/private.html:6
 msgid "Private"
 msgstr ""
@@ -302,10 +364,6 @@ msgstr ""
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:36
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:43
 msgid "unknown"
-msgstr ""
-
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:42
-msgid "Format"
 msgstr ""
 
 #: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:26
