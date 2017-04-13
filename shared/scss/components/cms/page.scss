@@ -38,13 +38,13 @@
       padding: $base*6;
     }
 
-    @media (min-width: 1200px) {
+    @media (min-width: $width-lg) {
       padding: $base*6 $base*10;
       width: $base*97;
     }
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: $width-lg) {
     width: $base*97;
   }
 }

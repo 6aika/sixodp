@@ -22,8 +22,10 @@
 }
 
 .popper__item {
-  background: $brand-white;
-  color: $brand-primary;
+  a {
+    background: $brand-white;
+    color: $brand-primary;
+  }
 }
 
 .popper__link {
