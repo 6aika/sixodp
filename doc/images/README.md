@@ -1,7 +1,7 @@
 ### Table of contents
 
-#### Top-level architecture
-![Top-level architecture](/doc/images/architecture.png)
+#### AWS architecture
+![AWS architecture](/doc/images/AWS%20architecture.png)
 
-#### Custom data model
-![Custom data model](/doc/images/datamodel.png)
+#### Application architecture
+![Application architecture](/doc/images/Application%20architecture.png)

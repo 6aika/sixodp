@@ -14,6 +14,7 @@ from pylons.i18n import gettext
 from ckanext.scheming.helpers import lang
 from ckan.common import _
 from webhelpers.html import literal
+import ckan.lib.helpers as helpers
 
 
 NotFound = logic.NotFound
@@ -188,8 +189,9 @@ def resource_display_name(resource_dict):
     else:
         return resource_dict['name']
 
+
 def check_if_active(menu):
-    return request.environ['CKAN_CURRENT_URL'] in menu.get('url')
+    return helpers.full_current_url() == menu.get('url')
 
 
 def build_nav_main():
@@ -211,7 +213,7 @@ def build_nav_main():
         if(len(children) > 0):
             return make_menu_item(menu, active) + literal('<ul class="nav navbar-nav subnav">') + children + literal('</ul></li>')
         else:
-            return make_menu_item(menu, active)
+            return make_menu_item(menu, active) + literal('</li>')
 
     navigation_html = ''
     for menu in navigation_tree:

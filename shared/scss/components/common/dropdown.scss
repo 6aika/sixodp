@@ -1,0 +1,15 @@
+.dropdown {
+
+  .dropdown-toggle {
+    border-color: transparent;
+  }
+
+  &.open {
+    .dropdown-toggle,
+    .dropdown-toggle:focus,
+    .dropdown-toggle:hover {
+      border-top-color: transparent;
+      border-bottom-color: $navbar-active-link-border-color;
+    }
+  }
+}
