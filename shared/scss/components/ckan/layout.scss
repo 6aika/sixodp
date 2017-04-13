@@ -14,10 +14,6 @@
   @media (min-width: $width-lg) {
     width: $base*84;
   }
-
-  @media (min-width: $width-xl) {
-    width: $base*102;
-  }
 }
 
 .secondary {
@@ -44,10 +40,6 @@
     max-height: initial;
   }
 
-  @media (min-width: $width-xl) {
-    max-width: $base*32;
-  }
-
   &.open {
     max-width: $base*32;
     max-height: none;
@@ -62,8 +54,13 @@
 
 // Fix width issue with BS3 in mobile.
 .row {
-  margin-left: 0px;
-  margin-right: 0px;
+  margin-left: 0;
+  margin-right: 0;
+
+  @media(min-width: $width-md) {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
 }
 
 ul {
