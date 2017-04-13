@@ -1,10 +1,19 @@
 .site-footer {
   padding-top: $base*6;
-  background: $brand-primary;
-  color: #fff;
+  background: $footer-background-color;
+  color: $footer-text-color;
 
-  a {
-    color: currentColor;
+  a,
+  a:focus {
+    color: $footer-link-color;
+
+    &:hover {
+      color: $footer-link-color-hover;
+    }
+
+    &.active {
+      color: $footer-link-color-active;
+    }
   }
 }
 

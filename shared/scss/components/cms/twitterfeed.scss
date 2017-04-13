@@ -1,0 +1,117 @@
+.wrapper--twitterfeed {
+  @extend .wrapper;
+  padding-bottom: 0;
+  max-width: $base*44;
+  margin: 0 auto;
+
+  @media (min-width: $width-sm) {
+    max-width: none;
+    margin: auto;
+  }
+}
+
+.twitterfeed {
+
+  .ctf-tweets {
+    @extend .container;
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: $base*10;
+  }
+}
+
+#ctf {
+  
+  .ctf-item {
+    width: 100%;
+    border-radius: $base/2;
+    border: 1px solid $gray-lighter;
+    margin-top: $base*4;
+    padding: 0;
+    position: relative;
+    overflow: visible;
+
+    @media (min-width: $width-sm) {
+      width: 49%;
+      margin-right: 1%;
+    }
+
+    @media (min-width: $width-md) {
+      width: 32%;
+      margin-right: 1%;
+    }
+  }
+
+  .ctf-author-box {
+    margin-left: 0 !important;
+    background: $brand-primary;
+    color: $brand-white;
+    padding: $base;
+
+    .ctf-author-box-link {
+      display: block;
+
+      a {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: $base*3;
+        margin-top: 0;
+        color: $brand-white !important;
+      }
+    }
+
+    .ctf-author-avatar {
+      margin: 0 !important;
+      float: none;
+      height: $base*3;
+      width: $base*3;
+
+      img {
+        height: $base*3;
+      }
+    }
+
+    .ctf-author-name {
+      margin-left: $base;
+      margin-right: 0;
+    }
+  }
+
+  .ctf-tweet-content {
+    padding: $base*2 $base*2 $base !important;
+    margin: 0 0 $base 0 !important;
+  }
+
+  .ctf-tweet-actions {
+    padding: $base $base*2 !important;
+    margin: 0 !important;
+    border-bottom-left-radius: $base/2;
+    border-bottom-right-radius: $base/2;
+    border: 1px solid $gray-lighter;
+    border-top: 0;
+    position: absolute;
+      bottom: -$base*2.4;
+      right: -$base*0.1;
+      left: -$base*0.1;
+    z-index: 1;
+    background: $brand-white;
+
+    &:after {
+      content: '';
+      clear: both;
+      display: block;
+    }
+  }
+
+  .ctf-quoted-tweet {
+    margin: $base*0.7 $base*2 $base*2.4 $base*2 !important;
+  }
+
+  .ctf-twitterlink, 
+  .ctf-screename-sep,
+  .ctf-context,
+  .ctf-verified,
+  .ctf-tweet-meta {
+    display: none;
+  }
+}

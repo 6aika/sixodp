@@ -77,10 +77,27 @@ if ( !function_exists('sixodp_theme_setup') ) :
     create_default_pages();
     create_secondary_menus();
     create_footer_menus();
+    create_social_media_menus();
 
   }
 endif; // twentysixteen_setup
 add_action( 'after_setup_theme', 'sixodp_theme_setup' );
+
+// add tag support to pages
+function tags_categories_support_all() {
+  register_taxonomy_for_object_type('post_tag', 'page');
+  register_taxonomy_for_object_type('category', 'page');
+}
+
+// ensure all tags are included in queries
+function tags_support_query($wp_query) {
+  if ($wp_query->get('tag')) $wp_query->set('post_type', 'any');
+}
+
+// tag hooks
+add_action('init', 'tags_categories_support_all');
+add_action('pre_get_posts', 'tags_support_query');
+
 
 function footer_widgets_init() {
 	register_sidebar( array(
@@ -225,6 +242,9 @@ function create_footer_menus() {
   create_menu_i18n('footer_en_GB', FOOTER_MENU_ITEMS_EN, 'footer_menu');
   create_menu_i18n('footer_sv', FOOTER_MENU_ITEMS_SV, 'footer_menu');
 }
+function create_social_media_menus() {
+  create_menu_i18n('socialmedia',null,null);
+}
 
 function create_menu_i18n($menu_name, $itemsArr, $location) {
 
@@ -284,12 +304,19 @@ function sixodp_scripts() {
 add_action( 'wp_enqueue_scripts', 'sixodp_scripts' );
 
 function get_nav_menu_items($menu) {
-  return wp_get_menu_array($menu . '_' . get_current_locale());
+  return wp_get_menu_array($menu);
 }
 
 function wp_get_menu_array($current_menu) {
-
-    $array_menu = wp_get_nav_menu_items($current_menu);
+    //var_dump(!in_array(get_current_locale().'', array("fi", "en_GB", "sv")));
+    if ( !in_array(get_current_locale().'', array("fi", "en_GB", "sv")) ) {
+      $array_menu = wp_get_nav_menu_items($current_menu . '_fi');
+      //echo 'SHIT?';
+    } else {
+      $array_menu = wp_get_nav_menu_items($current_menu . '_' . get_current_locale());
+      //echo 'NO SHIT?';
+    }
+    
     $menu = array();
     foreach ($array_menu as $m) {
         if (empty($m->menu_item_parent)) {
@@ -341,6 +368,15 @@ function get_tuki_links() {
   return get_page_children( $tuki_page->ID, $all_wp_pages );
 }
 
+function get_child_pages($page_title, $limit = 6) {
+  // Set up the objects needed
+  $my_wp_query = new WP_Query();
+  $all_wp_pages = $my_wp_query->query(array('post_type' => 'page', 'posts_per_page' => '-1'));
+
+  $parent_page          = get_page_by_title($page_title);
+  return array_slice(get_page_children( $parent_page->ID, $all_wp_pages ), 0, $limit);
+}
+
 function get_current_locale() {
   $path = explode('/', $_SERVER['REQUEST_URI']);
   return $path[1];
@@ -356,17 +392,22 @@ function get_popular_tags() {
 }
 
 function get_recent_content() {
-  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_released%20asc&rows=8');
+  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_released%20desc&rows=8');
   return $data['result']['results'];
 }
 
 function get_recent_datasets() {
-  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_released%20asc&rows=3');
+  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_released%20desc&rows=3');
   return $data['result']['results'];
 }
 
 function get_datasets() {
   $data = get_ckan_data(CKAN_API_URL.'/action/package_search');
+  return $data['result'];
+}
+
+function get_datasets_search($search) {
+  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?q='.$search);
   return $data['result'];
 }
 
@@ -384,7 +425,7 @@ function get_showcases_count() {
 }
 
 function get_recent_showcases() {
-  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_released%20asc&fq=dataset_type:showcase');
+  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_released%20desc&fq=dataset_type:showcase');
   return $data['result']['results'];
 }
 

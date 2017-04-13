@@ -33,10 +33,20 @@ log = logging.getLogger(__name__)
 
 class Sixodp_ShowcaseController(ShowcaseController):
 
+    def manage_showcase_admins(self):
+        return super(Sixodp_ShowcaseController, self).manage_showcase_admins()
+
     def new(self, data=None, errors=None, error_summary=None):
         log.info("In sixodp showcase controller new")
         return super(Sixodp_ShowcaseController, self).new(data=data, errors=errors,
                                                           error_summary=error_summary)
+
+    def _new_template(self, package_type):
+        if package_type == 'showcase':
+            return "sixodp_showcase/new.html"
+        else:
+            return super(Sixodp_ShowcaseController, self)._new_template(package_type)
+
     def read(self, id, format='html'):
         '''
         Detail view for a single showcase, listing its associated datasets.
@@ -71,7 +81,16 @@ class Sixodp_ShowcaseController(ShowcaseController):
         return 'showcase'
 
     def _search_template(self, package_type):
-        return "sixodp_showcase/search.html"
+        if package_type == 'showcase':
+            return "sixodp_showcase/search.html"
+        else:
+            return super(Sixodp_ShowcaseController, self)._search_template(package_type)
+
+    def _edit_template(self, package_type):
+        if package_type == 'showcase':
+            return "sixodp_showcase/edit.html"
+        else:
+            return super(Sixodp_ShowcaseController, self)._edit_template(package_type)
 
     def search(self):
         from ckan.lib.search import SearchError, SearchQueryError
@@ -262,3 +281,9 @@ class Sixodp_ShowcaseController(ShowcaseController):
 
         return render(self._search_template(package_type),
                       extra_vars={'dataset_type': package_type})
+
+    def _package_form(self, package_type=None):
+        if package_type == 'showcase':
+            return "sixodp_showcase/package_form.html"
+        else:
+            return super(Sixodp_ShowcaseController, self)._package_form(package_type)

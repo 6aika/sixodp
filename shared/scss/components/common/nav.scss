@@ -1,16 +1,22 @@
 .navbar {
-  background: $navbar-bg;
+  border: none;
+  border-radius: 0;
+  background: $navbar-background-color;
 }
 
 .navbar-nav li {
-  border-top: $base/2 solid transparent;
-  border-bottom: $base/2 solid transparent;
   position: static;
 
-  &.active {
-    border-bottom-color: $navbar-active-link-border-color;
+  > a {
+    border-top: $base/2 solid transparent;
+    border-bottom: $base/2 solid transparent;
+    padding-top: $navbar-height/4;
+    padding-bottom: $navbar-height/4;
+  }
 
-    a {
+  &.active {
+    > a {
+      border-bottom-color: $navbar-active-link-border-color;
       background: transparent !important;    
     }
 
@@ -24,15 +30,38 @@
   text-transform: uppercase;
 }
 
-.navbar-default > .navbar-nav > li > a {
-  color: #000;
+.navbar-default .navbar-nav li {
+  > a,
+  > a:focus {
+    color: $navbar-link-color;
+  }
+
+  &:hover {
+    > a,
+    > a:focus{
+      color: $navbar-link-color-hover;
+    }
+  }
+
+  &.active {
+    > a,
+    > a:focus {
+      color: $navbar-link-color-active;
+
+      &:hover {
+        color: $navbar-link-color-active-hover;
+      }
+    }
+  }
 }
+
+
 
 .navbar-secondary {
   background: none;
   
   .navbar-nav {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid $navbar-border-color;
     width: 100%;
 
     li {
@@ -56,19 +85,42 @@
 }
 
 .navbar-default .navbar-nav.subnav {
-  position: absolute;
-  top: $base*5;
-  left: 0;
-  right: 0;
-  background: $brand-primary;
-  padding-left: $base*3;
+  margin: 0;
+  position: relative;
+  background: $navbar-secondary-background-color;
   max-height: 0;
-  overflow: hidden;
   transition: max-height .1s ease-in-out;
+  overflow: hidden;
+  padding-left: $base*3;
 
-  & > li > a {
-    color: #fff;
-    padding-top: $base/2;
-    padding-bottom: $base/2;
+  & > li {
+    > a,
+    > a:focus {
+      color: $navbar-secondary-link-color;
+      padding-top: $base/2;
+      padding-bottom: $base/2;
+    }
+
+    &:hover {
+      > a {
+        color: $navbar-secondary-link-color-hover;
+      }
+    }
+
+    &.active {
+      border-bottom-color: $navbar-secondary-active-link-border-color;
+
+      > a {
+        color: $navbar-secondary-link-color-active;
+      }
+    }
   }
+
+  @media(min-width: $width-md) {
+    position: absolute;
+    top: $navbar-height;
+    left: 0;
+    right: 0;
+  }
+
 }

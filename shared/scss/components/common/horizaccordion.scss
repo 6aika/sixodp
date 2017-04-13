@@ -5,6 +5,14 @@
   .container {
     box-sizing: content-box;
   }
+
+  .page-template-ajankohtaista & {
+    padding: $base*4 0;
+
+    .btn--ajankohtaista {
+      display: none;
+    }
+  }
 }
 
 .wrapper--horizaccordion-inner {
@@ -19,12 +27,13 @@
 
   .horizaccordion__container {
     width: 100%;
-    max-width: $base*44;
+    max-width: $base*41;
     margin-left: auto;
     margin-right: auto;
     position: relative;
     transition: all .2s ease-in-out;
     margin-top: $base*2;
+    box-sizing: border-box;
 
     &:after {
       content: '';
@@ -61,6 +70,7 @@
     border-left: 1px solid rgba(255,255,255,0.6);
 
     .horizaccordion__text,
+    .horizaccordion__meta,
     .horizaccordion__footer .btn {
       opacity: 0;
       display: block;
@@ -81,6 +91,7 @@
           }
 
           .horizaccordion__text,
+          .horizaccordion__meta,
           .horizaccordion__footer .btn {
             opacity: 1;
             transition: opacity .3s ease-in-out .1s;
@@ -130,8 +141,34 @@
   }
 }
 
+.horizaccordion__meta {
+  color: $brand-secondary;
+  margin-bottom: $base*2;
+  z-index: 2;
+  position: relative;
+}
 
+.horizaccordion__meta {
 
+  * {
+    color: $brand-secondary;
+  }
+
+  span {
+    margin-right: $base*0.5;
+  }
+
+  a {
+    margin: 0 $base*0.5;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+      color: $brand-secondary-light;
+      border-color: $brand-secondary-light;
+    }
+  }
+}
 
 .horizaccordion__title {
   font-size: 2rem;
@@ -143,7 +180,7 @@
 .horizaccordion__item {
   height: 100%;
   padding: $base $base*2 $base*2;
-  color: #fff;
+  color: $brand-white;
   border-right: 1px solid rgba(255,255,255,0.6);
 }
 
@@ -152,12 +189,12 @@
 }
 
 .horizaccordion__link {
-  color: #fff;
+  color: $brand-white;
   position: relative;
   z-index: 1;
 
   &:hover {
-    color: #eee;
+    color: $brand-gray;
   }
 }
 

@@ -1,12 +1,17 @@
 // Base
 $base: 10px;
 
+// Borders
+$border-radius-base: 6px;
+$border-radius-large: 10px;
+$border-radius-small: 3px;
+$border-base: $border-radius-base;
+
 // Typography
 $font: 'Open Sans',sans-serif;
 $font-heading: 'Roboto Slab',sans-serif;
 
-// Colors
-
+// Brand-colors
 $lighten-intensity: 10%;
 $darken-intensity: 20%;
 
@@ -22,109 +27,29 @@ $brand-secondary-dark: darken($brand-secondary, 10%);
 
 $brand-success: #97ba54;
 $brand-info: #446eb5;
-$brand-warning: #f0ad4e; // Bootstrap default color
-$brand-danger: #d9534f; // Bootstrap default color
+$brand-warning: #f0ad4e;
+$brand-danger: #d9534f;
 
-$brand-background: #fff;
-$body-background: #f5f5f5;
+$brand-black: #000000;
+$brand-white: #ffffff;
+$brand-gray: #57575b;
+$brand-lightgray: #f5f5f5;
 
-$gray-base: #57575b;
+$gray-base: $brand-gray;
 $gray-darker:            darken($gray-base, $darken-intensity*2);
 $gray-dark:              darken($gray-base, $darken-intensity);
 $gray:                   lighten($gray-base, $lighten-intensity*1.5);
 $gray-light:             lighten($gray-base, $lighten-intensity*3);
 $gray-lighter:           lighten($gray-base, $lighten-intensity*6);
 
-$black: #000;
+$brand-background: #ffffff;
+$brand-secondary-background: #f8f8f8;
+
 $text-color: #000;
-$white: #ffffff;
-$table-border-color: #dddddd;
-$rating-stars-color: $brand-success;
-$rating-stars-color-hover: #cccc00;
-
-// Datavis colors
-$datavis-color-1: $brand-primary;
-$datavis-color-1-dark: $brand-primary-dark;
-$datavis-color-2: $brand-success;
-
-
-// New input heights based on BS defaults
-$line-height-computed: 20px;
-
-$padding-base-vertical: 6px;
-$padding-base-horizontal: 6px;
-$margin-base-vertical: 6px;
-$margin-base-horizontal: 6px;
-
-$font-size-base: 14px !default;
-$font-size: $font-size-base;
-$font-size-xlarge: ceil(($font-size-base * 2.0)) !default; // ~21px
-$font-size-large: ceil(($font-size-base * 1.25)) !default; // ~18px
-$font-size-small: ceil(($font-size-base * 0.85)) !default; // ~12px
-
-$padding-large-vertical: 10px !default;
-$padding-large-horizontal: 10px !default;
-$margin-large-vertical: 10px !default;
-$margin-large-horizontal: 10px !default;
-
-$line-height-base:  1.428571429 !default; // 20/14
-$line-height-large: 1.3333333 !default; // extra decimals for Win 8.1 Chrome
-$line-height-small: 1.5 !default;
-
-$padding-small-vertical: 5px !default;
-$padding-small-horizontal: 5px !default;
-$margin-small-vertical: 5px !default;
-$margin-small-horizontal: 5px !default;
-
-$input-height-base: ($line-height-computed + ($padding-base-vertical * 2) - 1);
-$input-height-large: (ceil($font-size-large * $line-height-large) + ($padding-large-vertical * 2) - 1);
-$input-height-small: (floor($font-size-small * $line-height-small) + ($padding-small-vertical * 2) - 1);
-$input-border-focus: $brand-secondary-light;
-
-// Borders
-$border-radius-base: 6px;
-$border-radius-large: 10px;
-$border-radius-small: 3px;
-$border-base: $border-radius-base;
-
-// Navigation
-$navbar-height: 40px;
-$navbar-margin-bottom: 0;
-$nav-link-hover-bg: transparent;
-
-$navbar-bg: #f8f8f8;
-$navbar-active-link-border-color: $brand-secondary;
-
-$navbar-logos-background-color: white;
-$navbar-link-color: $gray-base;
-$navbar-link-color-active: $brand-primary;
-$navbar-toggle-color: $brand-primary;
-$navbar-toggle-color-active: lighten($navbar-toggle-color, 30%);
-
-$nav-tabs-background: transparent;
-$nav-tabs-background-active: $brand-primary;
-$nav-tabs-text-color: $text-color;
-$nav-tabs-text-color-active: white;
-
-$nav-tabs-border-color:                     transparent !default;
-$nav-tabs-link-hover-border-color:          transparent !default;
-$nav-tabs-active-link-hover-bg:             $brand-primary !default;
-$nav-tabs-active-link-hover-color:          #fff !default;
-$nav-tabs-active-link-hover-border-color:   $brand-primary !default;
-
-$secondary-bg: $navbar-bg;
-
-// Breakpoints
-$width-xs: 480px;
-$width-xs-sm: 600px;
-$width-sm: 768px;
-$width-md: 992px;
-$width-lg: 1248px;
-$width-xl: 1400px;
-
-$grid-float-breakpoint: 992px; // Navbar collapse point
-
-$transition: all .2s ease-in-out;
+$headings-color: $brand-primary;
+$headings-small-color: $brand-primary;
+$headings-secondary-color: $brand-primary;
+$headings-extra-color: $brand-gray;
 
 // Button
 $btn-font-weight: 100;
@@ -133,45 +58,150 @@ $btn-border-radius-small: $border-radius-small;
 $btn-border-radius-large: $border-radius-large;
 $btn-padding-small: 6px 6px;
 $btn-padding-large: 8px 12px;
-$button-background-color: $brand-primary;
-$button-background-color-active: lighten($button-background-color, 20%);
-$button-text-color: $white;
-$button-text-color-active: $white;
 
 // Card
-$card-background-color: white;
-$card-background-color-active: white;
+$card-background-color: $brand-white;
+$card-background-color-active: $brand-white;
 $card-text-color: $text-color;
 $card-text-color-active: $text-color;
 $card-border-highlight-color: $brand-primary;
 $card-border-highlight-color-active: $brand-success;
 
+// Navigation
+$navbar-background-color: #f8f8f8;
+$navbar-secondary-background-color: $brand-primary;
+$navbar-active-link-border-color: $brand-secondary;
+$navbar-secondary-active-link-border-color: $brand-secondary;
+
+$navbar-height: 60px;
+$navbar-margin-bottom: 0;
+$nav-link-hover-bg: transparent;
+
+$navbar-border-color: $gray-base;
+$navbar-logos-background-color: $brand-white;
+$navbar-link-color: $gray-base;
+$navbar-link-color-hover: $brand-primary;
+$navbar-link-color-active: $brand-primary;
+$navbar-link-color-active-hover: $brand-primary;
+$navbar-secondary-link-color: $brand-white;
+$navbar-secondary-link-color-hover: $brand-white;
+$navbar-secondary-link-color-active: $brand-white;
+$navbar-toggle-color: $brand-primary;
+$navbar-toggle-color-active: lighten($navbar-toggle-color, 30%);
+
+$nav-tabs-background: transparent;
+$nav-tabs-background-active: $brand-primary;
+$nav-tabs-text-color: $text-color;
+$nav-tabs-text-color-active: $brand-white;
+
+$nav-tabs-border-color:                     transparent;
+$nav-tabs-link-hover-border-color:          transparent;
+$nav-tabs-active-link-hover-bg:             $brand-primary;
+$nav-tabs-active-link-hover-color:          $brand-white;
+$nav-tabs-active-link-hover-border-color:   $brand-primary;
+
+// Navbar offcanvas
+$navbar-offcanvas-toggle-background-color: $brand-primary;
+$navbar-offcanvas-toggle-icon-color: $brand-white;
+$navbar-offcanvas-background-color: $navbar-background-color;
+$navbar-offcanvas-link-background-color: transparent;
+$navbar-offcanvas-link-background-color-hover: $brand-primary-light;
+$navbar-offcanvas-link-background-color-active: $brand-primary-light;
+$navbar-offcanvas-link-color: $brand-primary;
+$navbar-offcanvas-link-color-hover: $brand-white;
+$navbar-offcanvas-link-color-active: $brand-white;
+$navbar-offcanvas-border-color: $brand-primary;
+$navbar-offcanvas-heading-color: $brand-primary;
+
+// Links
+$link-color: $brand-primary;
+$link-color-active: lighten($link-color, 20%);
+$link-color-secondary: $brand-success;
+$link-color-secondary-active: lighten($link-color-secondary, 20%);
+
+// Rating (ckan extension)
+$rating-stars-color: $brand-success;
+$rating-stars-color-hover: #cccc00;
+$rating-text-color: $brand-primary;
+
+// Datavis colors
+$datavis-color-1: $brand-primary;
+$datavis-color-1-dark: $brand-primary-dark;
+$datavis-color-2: $brand-success;
+
 // Footer
-$footer-background: transparent;
-$footer-text-color: white;
-$footer-link-color: white;
+$footer-background-color: $brand-primary;
+$footer-text-color: $brand-white;
+$footer-link-color: $brand-white;
 $footer-link-color-active: $gray-lighter;
+$footer-link-color-hover: $gray-lighter;
 
 // Tag-list
 $tag-background-color: $brand-primary;
 $tag-background-color-active: lighten($tag-background-color, 20%);
-$tag-text-color: #fff;
-$tag-text-color-active: #fff;
+$tag-text-color: $brand-white;
+$tag-text-color-active: $brand-white;
 
 // Stages
 $stages-background-color: $gray-lighter;
 $stages-background-color-active: $brand-primary;
 $stages-background-color-filled: $gray-light;
 $stages-text-color: $text-color;
-$stages-text-color-active: white;
-$stages-text-color-filled: white;
+$stages-text-color-active: $brand-white;
+$stages-text-color-filled: $brand-white;
 
-// Label
-$label-text-color: $brand-success;
-
-// Other component colors
-$link-color: $brand-primary;
-$link-color-active: lighten($link-color, 20%);
+// Misc component colors
 $badge-background-color: $brand-primary;
 $badge-background-color-active: $brand-primary;
+$breadcrumb-link-color: $brand-gray;
+$breadcrumb-link-separator-color: $brand-primary;
+$image-slider-background-color: $navbar-background-color;
+$label-text-color: $brand-success;
+$label-background-color: $navbar-background-color;
+$media-item-background-color: $brand-background;
+$table-border-color: #dddddd;
 $topic-list-background-color: $gray-lighter;
+
+// Breakpoints
+$width-xs: 480px;
+$width-xs-sm: 600px;
+$width-sm: 768px;
+$width-md: 992px;
+$width-lg: 1248px;
+$width-xl: 1400px;
+$grid-float-breakpoint: $width-md; // Navbar collapse point
+
+$padding-base-vertical: 6px;
+$padding-base-horizontal: 6px;
+$margin-base-vertical: 6px;
+$margin-base-horizontal: 6px;
+
+$font-size-base: 14px;
+$font-size: $font-size-base;
+$font-size-xlarge: ceil(($font-size-base * 2.0)); // ~21px
+$font-size-large: ceil(($font-size-base * 1.25)); // ~18px
+$font-size-small: ceil(($font-size-base * 0.85)); // ~12px
+
+$padding-large-vertical: 10px;
+$padding-large-horizontal: 10px;
+$margin-large-vertical: 10px;
+$margin-large-horizontal: 10px;
+
+$line-height-base:  1.428571429; // 20/14
+$line-height-large: 1.3333333; // extra decimals for Win 8.1 Chrome
+$line-height-small: 1.5;
+
+$padding-small-vertical: 5px;
+$padding-small-horizontal: 5px;
+$margin-small-vertical: 5px;
+$margin-small-horizontal: 5px;
+
+$line-height-computed: 20px;
+$input-background-color: $brand-background;
+$input-height-base: ($line-height-computed + ($padding-base-vertical * 2) - 1);
+$input-height-large: (ceil($font-size-large * $line-height-large) + ($padding-large-vertical * 2) - 1);
+$input-height-small: (floor($font-size-small * $line-height-small) + ($padding-small-vertical * 2) - 1);
+$input-border-focus: $brand-secondary-light;
+
+// Animations
+$transition: all .2s ease-in-out;

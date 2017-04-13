@@ -18,7 +18,7 @@
       margin-bottom: $margin-large-vertical*2;
 
       a {
-        color: $brand-success;
+        color: $link-color-secondary;
       }
     }
   }
@@ -29,19 +29,12 @@
 
   .nav-tabs {
     li {
-      background: $white;
-      color: $brand-primary;
       width: 100%;
 
       a {
         i {
           display: none;
         }
-      }
-
-      &.active {
-        background: $brand-primary;
-        color: $white;
       }
 
       @media (min-width: $width-lg) {
