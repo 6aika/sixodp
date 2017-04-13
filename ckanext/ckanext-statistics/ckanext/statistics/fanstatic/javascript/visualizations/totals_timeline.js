@@ -48,12 +48,9 @@ TotalsTimeline.prototype.setData = function (data) {
   var self = this
   self._data.raw = data
   self._data.line = self._transformLineData(data)
-
-  self._helpers.xScale.domain(self._getXExtent()).nice()
-  self._helpers.yScale.domain(self._getYExtent()).nice()
-
   self._renderLine()
   self._renderFocusPoint()
+  self._resizeAxis('x')
   self._resizeAxis('y')
 }
 
@@ -164,12 +161,6 @@ TotalsTimeline.prototype._transformLineData = function (data) {
 
   // Turn into array
   var resultArray = []
-  // {
-  //   date: moment.utc([0, 0, 1]),
-  //   added: [],
-  //   removed: [],
-  //   value: 0,
-  // }
   for (i in result) {
     resultArray.push(result[i])
   }
@@ -210,7 +201,6 @@ TotalsTimeline.prototype._renderBase = function (container) {
 
   // Graphs, cropped by data area
   self._elem.lineCanvas = self._elem.dataCanvas.append('g')
-
 
   // Axes, legends, titles etc. in front of data items
   self._elem.frontLayer = self._elem.svgCanvas.append('g')
@@ -363,7 +353,6 @@ TotalsTimeline.prototype._resizeAxis = function (axis) {
     // Init transition for each selected item (= only one axis)
     self._elem[axis + 'Axis'].transition().duration(800)
     .tween('resizeAxisTween', function (d, i) {
-      // self._elem.yAxis.select('.domain').remove()
       var axisScaleInterpolator = d3.interpolate(currentExtent, newExtent)
       // What to do on each animation frame
       return function (t) {
@@ -403,16 +392,11 @@ TotalsTimeline.prototype._updateYAxisGenerator = function () {
     g.call(
       // Create generator for a stock axis
       d3.axisRight(self._helpers.yScale)
-
         // Make ticks full width
         .tickSize(self._state.dataArea.width)
-
         // Set which levels are shown
-        // .tickValues(tickValues)
         .ticks(tickCount, 'x')
-
         .tickPadding(7)
-
         // Add text to top-most tick number
         .tickFormat(function(d) {
           return this.parentNode.nextSibling
