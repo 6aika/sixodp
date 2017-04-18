@@ -1,7 +1,6 @@
 <div class="row">
   <div class="col-xs-12">
     <div class="footer-follow-links">
-      <?php dynamic_sidebar( 'footer_widgets' ); ?>
       <span class="footer-follow-title">Seuraa meitä</span>
        <?php
             foreach(wp_get_nav_menu_items('socialmedia') as $item) {
