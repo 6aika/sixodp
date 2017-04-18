@@ -36,6 +36,16 @@ Locales = {
     sv: '',
     en: 'Loading apps',
   },
+  loadAppDatasetRelations: {
+    fi: 'Ladataan relaatiot',
+    sv: '',
+    en: 'Loading relations',
+  },
+  loadPreprocessing: {
+    fi: 'Esikäsitellään',
+    sv: '',
+    en: 'Preprocessing',
+  },
   loadRendering: {
     fi: 'Piirretään',
     sv: '',
@@ -98,7 +108,7 @@ Locales = {
   datasetsOpened: {
     fi: 'Tietoaineistoja avattu',
     sv: '',
-    en: 'datasets opened',
+    en: 'Datasets opened',
   },
   users: {
     fi: 'uniikkia käyttäjää',
@@ -108,26 +118,46 @@ Locales = {
   apps: {
     fi: 'Sovelluksia tehty',
     sv: '',
-    en: 'apps created',
+    en: 'Apps created',
   },
 
   // Datasets section
   datasetsOpenedTitle: {
-    fi: 'Avattuja tietoaineistoja',
+    fi: 'Aikajana',
     sv: '',
-    en: 'Opened datasets',
+    en: 'Timeline',
   },
   topPublishersTitle: {
-    fi: 'Julkaisijat', // 'Eniten julkaisseet',
+    fi: 'Julkaisijat',
     sv: '',
     en: 'Publishers',
+  },
+  categoriesTitle: {
+    fi: 'Kategoriat',
+    sv: '',
+    en: 'Categories',
+  },
+  formatsTitle: {
+    fi: 'Tiedostomuodot',
+    sv: '',
+    en: 'File formats',
+  },
+  usedInApp: {
+    fi: 'Käytetty sovelluksessa',
+    sv: '',
+    en: 'Used in an app',
+  },
+  notUsedInApp: {
+    fi: 'Ei ole käytetty sovelluksessa',
+    sv: '',
+    en: 'Not used in any app',
   },
 
   // Apps section
   appsPublishedTitle: {
-    fi: 'Sovelluksia tehty',
+    fi: 'Aikajana',
     sv: '',
-    en: 'Apps created',
+    en: 'Timeline',
   },
 
   // Visualizations

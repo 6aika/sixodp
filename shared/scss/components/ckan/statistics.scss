@@ -24,7 +24,7 @@
   height: 100vh;
   width: 100vw;
   left: 0;
-  padding: 30% 0%;
+  padding: 30% 10px;
   position: fixed;
   text-align: center;
   top: 0px;
@@ -237,6 +237,7 @@
 .statistics-dataset-section, .statistics-app-section {
   color: $brand-white;
   h1, h2, .statistics-vis-title {
+    margin-bottom: 25px;
     color: $brand-white;
   }
 }
@@ -254,7 +255,27 @@
 // Visualization elements
 
 .statistics-vis {
-  margin-bottom: 50px;
+  padding-top: 25px;
+  padding-bottom: 75px;
+}
+
+.statistics-legend {
+}
+.statistics-legend-coloring {
+  fill: $brand-white;
+  stroke: $brand-white;
+  stroke-linecap: 'round';
+  stroke-linejoin: 'round';
+  stroke-width: 1px;
+}
+.statistics-legend-row {
+  &:nth-child(2) .statistics-legend-coloring {
+    fill: none;
+  }
+}
+.statistics-legend-text {
+  fill: $brand-white;
+  font-family: $font;
 }
 
 .statistics-line {
@@ -306,15 +327,20 @@
     fill: $brand-white;
   }
 }
-.statistics-axis-y {
+.statistics-axis {
   .tick:not(:first-of-type) line {
     stroke-dasharray: 2,2;
   }
 }
 
-.bar {
-  rect {
-    fill: $datavis-color-2;
+.statistics-bar {
+  .statistics-bar-main {
+    fill: $datavis-color-1;
+    stroke: $brand-white;
+    stroke-width: 2px;
+  }
+  .statistics-bar-portion {
+    fill: $brand-white;
   }
   text {
     fill: $brand-white;
@@ -355,6 +381,14 @@
 .attention-number-detail-text {
 }
 .attention-number-detail-value {
+}
+
+// Top histogram
+
+.statistics-top-histogram {
+  .statistics-bar text {
+    font-size: $font-size-base;
+  }
 }
 
 
