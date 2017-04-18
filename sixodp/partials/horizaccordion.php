@@ -42,7 +42,7 @@
                     <?php the_excerpt(); ?>
                   </div>
                   <div class="horizaccordion__footer">
-                    <button type="button" class="btn btn-secondary">Lue lisää</button>
+                    <a type="button" href="<?php the_permalink(); ?>" class="btn btn-secondary">Lue lisää</a>
                   </div>
                 </div>
               </div>
@@ -54,9 +54,9 @@
   </div>
   <div class="container">
     <div class="row text-right">
-      <button type="button" class="btn btn-lg btn-secondary btn--ajankohtaista">
+      <a type="button" href="/ajankohtaista" class="btn btn-lg btn-secondary btn--ajankohtaista">
         Ajankohtaista <i class="material-icons">arrow_forward</i>
-      </button>
+      </a>
     </div>
   </div>
 </div>
