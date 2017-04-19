@@ -462,7 +462,11 @@ function get_days_ago($date) {
 }
 
 function get_notes_excerpt($str) {
-  return explode(".", $str)[0] . '. ';
+  $truncatedNotes = explode(".", $str)[0];
+  if($truncatedNotes) {
+    $truncatedNotes = $truncatedNotes.'.';
+  }
+  return $truncatedNotes;
 }
 
 function assets_url() {

@@ -30,7 +30,12 @@
                   ?>
                 </a>
               </h3>
-              <p class="card__description"><?php echo get_notes_excerpt($dataset['notes_translated'][get_current_locale()]); ?></p>
+              <p class="card__description">
+                <?php
+                  $itemNotes = (isset($dataset["notes_translated"][get_current_locale()]) ? $dataset["notes_translated"][get_current_locale()] : null);
+                  echo get_notes_excerpt($itemNotes);
+                ?>
+              </p>
             </div>
           </div><?php
         endforeach; ?>
