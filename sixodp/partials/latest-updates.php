@@ -23,7 +23,12 @@
             <div class="card__body--latest">
               <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale(); ?>/<?php echo $dataset['type']; ?>" class="card__categorylink--latest"><?php echo $dataset['type']; ?></a>
               <h3 class="card__title--latest">
-                <a href="<?php echo CKAN_BASE_URL.'/'.get_current_locale().'/dataset/'.$dataset['name']; ?>"><?php echo $dataset["title_translated"][get_current_locale()]; ?></a>
+                <a href="<?php echo CKAN_BASE_URL.'/'.get_current_locale().'/'.$dataset['type'].'/'.$dataset['name']; ?>">
+                  <?php
+                    $itemTitle = (isset($dataset["title_translated"][get_current_locale()]) ? $dataset["title_translated"][get_current_locale()] : $dataset["title"]);
+                    echo $itemTitle
+                  ?>
+                </a>
               </h3>
               <p class="card__description"><?php echo get_notes_excerpt($dataset['notes_translated'][get_current_locale()]); ?></p>
             </div>
