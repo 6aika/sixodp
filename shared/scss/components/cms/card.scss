@@ -10,11 +10,12 @@
   border-radius: $base/2;
   background: white;
   padding: $base*2;
-  margin: $base;
+  margin: $base auto;
   border: 1px solid $brand-gray;
   width: 33%;
 
   @media (min-width: $width-sm) {
+    margin: $base;
 
     &:first-child {
       margin-left: 0;
