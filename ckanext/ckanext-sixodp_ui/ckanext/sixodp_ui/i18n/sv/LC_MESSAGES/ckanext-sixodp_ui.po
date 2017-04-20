@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_ui 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-04-11 09:59+0000\n"
+"POT-Creation-Date: 2017-04-13 10:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Language-Team: Swedish (https://www.transifex.com/6aika-dataportal/teams/68018/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ckanext/sixodp_ui/helpers.py:88
+#: ckanext/sixodp_ui/helpers.py:89
 msgid "Dataset not found"
 msgstr ""
 
@@ -466,6 +466,11 @@ msgstr ""
 msgid "Search datasets..."
 msgstr ""
 
+#: ckanext/sixodp_ui/templates/package/activity.html:3
+#: ckanext/sixodp_ui/templates/package/read_base.html:33
+msgid "Activity Stream"
+msgstr ""
+
 #: ckanext/sixodp_ui/templates/package/edit.html:9
 #: ckanext/sixodp_ui/templates/package/resource_edit.html:9
 msgid "Locked fields"
@@ -487,10 +492,6 @@ msgstr ""
 #: ckanext/sixodp_ui/templates/showcase/edit_base.html:12
 #: ckanext/sixodp_ui/templates/showcase/edit_base.html:16
 msgid "Showcases"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/package/read_base.html:33
-msgid "Activity Stream"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/read_base.html:56

@@ -311,10 +311,8 @@ function wp_get_menu_array($current_menu) {
     //var_dump(!in_array(get_current_locale().'', array("fi", "en_GB", "sv")));
     if ( !in_array(get_current_locale().'', array("fi", "en_GB", "sv")) ) {
       $array_menu = wp_get_nav_menu_items($current_menu . '_fi');
-      //echo 'SHIT?';
     } else {
       $array_menu = wp_get_nav_menu_items($current_menu . '_' . get_current_locale());
-      //echo 'NO SHIT?';
     }
     
     $menu = array();
@@ -464,7 +462,11 @@ function get_days_ago($date) {
 }
 
 function get_notes_excerpt($str) {
-  return explode(".", $str)[0] . '. ';
+  $truncatedNotes = explode(".", $str)[0];
+  if($truncatedNotes) {
+    $truncatedNotes = $truncatedNotes.'.';
+  }
+  return $truncatedNotes;
 }
 
 function assets_url() {
