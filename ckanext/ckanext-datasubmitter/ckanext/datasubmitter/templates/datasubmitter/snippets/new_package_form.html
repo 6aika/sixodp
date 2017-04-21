@@ -5,8 +5,8 @@
   {% call form.input(
   'title_translated-fi',
   id='field-title_translated-fi',
-  label=h.scheming_language_text('Title'),
-  placeholder=h.scheming_language_text('eg. A descriptive title'),
+  label=_('Title'),
+  placeholder=_('A descriptive title for the dataset'),
   value='',
   error='',
   classes=['control-full'],
@@ -19,7 +19,7 @@
   {% call form.textarea(
   'notes_translated-fi',
   id='field-notes_translated-fi',
-  label=h.scheming_language_text('Description'),
+  label=_('Description'),
   placeholder='',
   value='',
   error='',
