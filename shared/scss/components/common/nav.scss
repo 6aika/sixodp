@@ -21,7 +21,11 @@
     }
 
     .subnav {
-      max-height: $base*4;
+      max-height: 100%;
+
+      @media(min-width: $grid-float-breakpoint) {
+        max-height: $base*4;
+      }
     }
   }
 }

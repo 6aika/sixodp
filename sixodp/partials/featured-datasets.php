@@ -10,9 +10,6 @@
       <div class="col-md-7">
         <h3 class="heading">Tietoaineistot</h3>
         <br><br>
-        <!-- TEMP SHIT -->
-        <img src="/assets/images/datapie.png" style="width: 80%; height: auto;">
-        <!-- END TEMP SHIT -->
       </div>
 
       <div class="col-md-5 datasets">
@@ -32,12 +29,14 @@
               <div class="dataset__content">
                 <span class="dataset__type"><?php echo $item['type']; ?></span>
                 <h4 class="dataset__title">
-                  <a class="dataset__link" href="/data/dataset/<?php echo $item['name']; ?>">
+                  <a class="dataset__link" href="<?php echo CKAN_BASE_URL . '/dataset/' . echo $item['name']; ?>">
                     <?php echo $item['title']; ?>
                   </a>
                 </h4>
                 <div class="dataset__body">
-                  <p class="dataset__info"><?php echo get_notes_excerpt($item['notes']); ?> <a href="/data/dataset/<?php echo $item['name']; ?>"><i class="material-icons">arrow_forward</i></a></p>
+                  <p class="dataset__info"><?php echo get_notes_excerpt($item['notes']); ?>
+                    <a href="<?php echo CKAN_BASE_URL . '/dataset/' . echo $item['name']; ?>"><i class="material-icons">arrow_forward</i></a>
+                  </p>
                 </div>
               </div>
             </li>

@@ -57,7 +57,7 @@
                 <div class="search-content__content">
                   <span class="search-content__type"><?php echo $item['type']; ?></span>
                   <h4 class="search-content__title">
-                    <a class="search-content__link" href="/data/dataset/<?php echo $result['name']; ?>">
+                    <a class="search-content__link" href="/dataset/<?php echo $result['name']; ?>">
                       <?php echo $result['name']; ?>
                     </a>
                   </h4>
