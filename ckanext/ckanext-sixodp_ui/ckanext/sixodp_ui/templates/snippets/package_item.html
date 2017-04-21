@@ -36,7 +36,7 @@ Example:
                     </span>
                   {% endif %}
                 {% endblock %}
-                <span>{{ title[h.get_lang_prefix()] or title.get('fi') or title }}</span>
+                <span>{{ title[h.get_lang_prefix()] or title['fi'] or title }}</span>
                 {% block heading_meta %}
                   {% if package.get('state', '').startswith('draft') %}
                     <span class="label label-info">{{ _('Draft') }}</span>
