@@ -2,67 +2,87 @@
 <form class="dataset-form form-horizontal" method="post" action="submit-data" data-module="basic-form" novalidate>
   {% block errors %}{{ form.errors(error_summary) }}{% endblock %}
 
-  {% call form.input(
-  'title_translated-fi',
-  id='field-title_translated-fi',
-  label=_('Title'),
-  placeholder=_('A descriptive title for the dataset'),
-  value='',
-  error='',
-  classes=['control-full'],
-  attrs={},
-  is_required=true
-  )
-  %}
-  {% endcall %}
-
-  {% call form.textarea(
-  'notes_translated-fi',
-  id='field-notes_translated-fi',
-  label=_('Description'),
-  placeholder='',
-  value='',
-  error='',
-  classes=['control-full'],
-  attrs={},
-  is_required=false
-  )
-  %}
-  {% endcall %}
-
-  {% call form.input(
-  'maintainer',
-  id='maintainer',
-  label=_('Name or organization of the submitter'),
-  placeholder='',
-  value='',
-  error='',
-  classes=['control-medium'],
-  attrs={},
-  is_required=false
-  )
-  %}
-  {% endcall %}
-
-  {% call form.input(
-  'maintainer-email',
-  id='maintainer-email',
-  label=_('Submitter email'),
-  placeholder='',
-  value='',
-  error='',
-  classes=['control-medium'],
-  attrs={},
-  is_required=false
-  )
-  %}
-  {% endcall %}
-
-  {% block form_actions %}
-    <div class="form-actions">
-      <button class="btn btn-primary" type="submit" name="save">
-        {% block save_button_text %}{{ _('Submit') }}{% endblock %}
-      </button>
+  <div class="row row-compensate">
+    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-12">
+      {% call form.input(
+      'title_translated-fi',
+      id='field-title_translated-fi',
+      label=_('Title'),
+      placeholder=_('A descriptive title for the dataset'),
+      value='',
+      error='',
+      classes=['control-full'],
+      attrs={},
+      is_required=true
+      )
+      %}
+      {% endcall %}
     </div>
-  {% endblock %}
+  </div>
+
+  <div class="row row-compensate">
+    <div class="col-lg-10 col-md-12 col-sm-10 col-xs-12">
+      {% call form.textarea(
+      'notes_translated-fi',
+      id='field-notes_translated-fi',
+      label=_('Description'),
+      placeholder='',
+      value='',
+      error='',
+      classes=['control-full'],
+      attrs={},
+      is_required=false
+      )
+      %}
+      {% endcall %}
+    </div>
+  </div>
+
+  <div class="row row-compensate">
+    <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12">
+      {% call form.input(
+      'maintainer',
+      id='maintainer',
+      label=_('Name or organization of the submitter'),
+      placeholder='',
+      value='',
+      error='',
+      classes=['control-medium'],
+      attrs={},
+      is_required=false
+      )
+      %}
+      {% endcall %}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12">
+      {% call form.input(
+      'maintainer-email',
+      id='maintainer-email',
+      label=_('Submitter email'),
+      placeholder='',
+      value='',
+      error='',
+      classes=['control-medium'],
+      attrs={},
+      is_required=false
+      )
+      %}
+      {% endcall %}
+    </div>
+  </div>
+
+  <div class="row row-compensate">
+    <div class="col-xs-12">
+      {% block form_actions %}
+        <div class="form-actions">
+          <button class="btn btn-primary" type="submit" name="save">
+            {% block save_button_text %}{{ _('Submit') }}{% endblock %}
+          </button>
+        </div>
+      {% endblock %}
+    </div>
+  </div>
 </form>
