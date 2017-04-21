@@ -7,7 +7,7 @@
 <div class="wrapper--featured">
   
   <div class="container">
-    <h1 class="heading--featured heading--mleft">Tietoaineistot ja sovellukset</h1>
+    <h1 class="heading--featured">Tietoaineistot ja sovellukset</h1>
   </div>
 
   <div class="container banner">
@@ -57,7 +57,7 @@
   </div>
 
   <div class="container">
-    <div class="row text-right">
+    <div class="row featured-btn-container">
       <a href="<?php echo CKAN_BASE_URL; ?>/showcase" class="btn btn-lg btn-secondary btn--sovellukset">
         Kaikki sovellukset <i class="material-icons">arrow_forward</i>
       </a>
@@ -91,7 +91,7 @@
   </div>
 
   <div class="container">
-    <div class="row text-right">
+    <div class="row featured-btn-container">
       <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale(); ?>/dataset" class="btn btn-lg btn-secondary btn--sovellukset">
         Kaikki tietoaineistot <i class="material-icons">arrow_forward</i>
       </a>

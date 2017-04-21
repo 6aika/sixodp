@@ -53,7 +53,7 @@
     </div>
   </div>
   <div class="container">
-    <div class="row text-right">
+    <div class="row horizaccordion__btn-container">
       <a type="button" href="/ajankohtaista" class="btn btn-lg btn-secondary btn--ajankohtaista">
         Ajankohtaista <i class="material-icons">arrow_forward</i>
       </a>
