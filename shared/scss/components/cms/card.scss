@@ -56,8 +56,13 @@
   background: linear-gradient(135deg, $brand-primary-extradark 0%, $brand-primary 56%, $brand-primary-extralight 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   padding: $base*4 0;
 
-  .heading--mleft {
+  .heading--featured {
     color: $brand-white;
+    text-align: center;
+
+    @media(min-width: $width-sm) {
+      text-align: left;
+    }
   }
 }
 
