@@ -20,6 +20,8 @@ get_header(); ?>
 
 		<?php
 
+      get_template_part('partials/header-logos');
+
 			// Get the board id for retrieving the lists
 			$board_id = get_option('wptsettings_settings')['wptsettings_helper_boards'];
 			

@@ -19,6 +19,8 @@ get_header(); ?>
   <main id="main" class="site-main site-main--home" role="main">
     <?php
 
+      get_template_part('partials/header-logos');
+
       echo '<div class="container"><h1 class="heading--main">Ajankohtaista</h1></div>';
       get_template_part( 'partials/horizaccordion' );
       get_template_part( 'partials/ajankohtaista-links');
