@@ -210,7 +210,7 @@ function register_notifications() {
     'labels'        => $labels,
     'description'   => 'Notifications',
     'public'        => true,
-    'supports'      => array( 'title', 'editor' ),
+    'supports'      => array( 'title', 'editor', 'custom-fields' ),
     'has_archive'   => false,
     'show_in_rest'  => true
   );
@@ -224,6 +224,7 @@ function add_custom_fields_support_for_pages() {
 	add_post_type_support( 'page', 'custom-fields' );
 }
 add_action( 'init', 'add_custom_fields_support_for_pages' );
+
 
 function create_primary_menus() {
   create_menu_i18n('primary_fi', PRIMARY_MENU_ITEMS_FI, 'primary');
@@ -314,7 +315,7 @@ function wp_get_menu_array($current_menu) {
     } else {
       $array_menu = wp_get_nav_menu_items($current_menu . '_' . get_current_locale());
     }
-    
+
     $menu = array();
     foreach ($array_menu as $m) {
         if (empty($m->menu_item_parent)) {
