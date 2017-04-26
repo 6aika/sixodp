@@ -3,6 +3,22 @@
   color: #fff;
   padding: $base $base;
 
+  &.info {
+      background: $brand-info;
+      .material-icons {
+          display: none;
+      }
+  }
+  &.danger {
+      background: $brand-danger;
+  }
+  &.neutral {
+      background: $brand-success;
+      .material-icons {
+          display: none;
+      }
+  }
+
   @media (min-width: $width-md) {
     padding: $base $base*4.5;
   }

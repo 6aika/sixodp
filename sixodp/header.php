@@ -28,7 +28,15 @@
 <body <?php body_class(); ?>>
 	<?php $notifications = get_posts(array('post_type' => 'notification')); ?>
 	<?php if ( count($notifications) > 0 && ($notifications[0]->post_title !== '' || $notifications[0]->post_content !== '') ) : ?>
-	<div class="notification">
+	<?php
+		$type = get_post_meta( $notifications[0]->ID, 'type', true );
+		// Check if the custom field has a value.
+		$notificationclass = '';
+		if ( ! empty( $type ) ) {
+		    $notificationclass = $type;
+		}
+	?>
+	<div class="notification <?php echo $notificationclass; ?>">
 		<p class="notification__text">
 			<i class="material-icons">warning</i>
 			<?php foreach (get_posts(array('post_type' => 'notification')) as $notification) : ?>
