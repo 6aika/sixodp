@@ -47,7 +47,7 @@
     margin-left: auto;
     margin-right: auto;
     position: relative;
-    transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out 0.2s;
     margin-top: $base*2;
     box-sizing: border-box;
 
@@ -107,7 +107,7 @@
 
           .horizaccordion__text,
           .horizaccordion__meta,
-          .horizaccordion__footer .btn {
+          .horizaccordion__footer a {
             opacity: 1;
             transition: opacity .3s ease-in-out .1s;
           }
@@ -157,7 +157,7 @@
 }
 
 .horizaccordion__meta {
-  color: $brand-secondary;
+  color: $brand-secondary-light;
   margin-bottom: $base*2;
   z-index: 2;
   position: relative;
@@ -166,7 +166,7 @@
 .horizaccordion__meta {
 
   * {
-    color: $brand-secondary;
+    color: $brand-secondary-light;
   }
 
   span {
@@ -181,6 +181,7 @@
     &:hover {
       color: $brand-secondary-light;
       border-color: $brand-secondary-light;
+      text-decoration: under
     }
   }
 }
@@ -203,13 +204,15 @@
   width: 100%;
 }
 
-.horizaccordion__link {
+.horizaccordion__link,
+.horizaccordion__link:focus {
   color: $brand-white;
   position: relative;
   z-index: 1;
+  text-decoration: none;
 
   &:hover {
-    color: $brand-gray;
+    color: $brand-lightgray;
   }
 }
 

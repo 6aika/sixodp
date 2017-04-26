@@ -12,9 +12,10 @@
   padding: $base*2;
   margin: $base auto;
   border: 1px solid $brand-gray;
-  width: 33%;
+  width: 75%;
 
   @media (min-width: $width-sm) {
+    width: 33%;
     margin: $base;
 
     &:first-child {
@@ -55,8 +56,13 @@
   background: linear-gradient(135deg, $brand-primary-extradark 0%, $brand-primary 56%, $brand-primary-extralight 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   padding: $base*4 0;
 
-  .heading--mleft {
+  .heading--featured {
     color: $brand-white;
+    text-align: center;
+
+    @media(min-width: $width-sm) {
+      text-align: left;
+    }
   }
 }
 
@@ -66,9 +72,14 @@
 
 .card--latest {
   @extend .card;
-  width: 48%;
+  width: 75%;
   padding: 0;
   border: 0;
+
+
+  @media(min-width: $width-sm) {
+    width: 48%;
+  }
 }
 
 .card__title--latest {

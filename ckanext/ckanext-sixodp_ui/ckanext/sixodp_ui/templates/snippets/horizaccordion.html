@@ -11,7 +11,7 @@
               <div class="horizaccordion__container">
                 <div class="horizaccordion__item" style="background-image: url({{item[image_identifier]}});">
                   <h4 class="horizaccordion__title">
-                    <a class="horizaccordion__link" href="">
+                    <a class="horizaccordion__link" href="{{ h.url_for(controller=controller, action='read', id=item.name) }}">
                       {{ h.get_translated(item, 'title') }}
                     </a>
                   </h4>
@@ -32,7 +32,7 @@
                   {% endif %}
                   <div class="horizaccordion__footer">
                     <a type="button" class="btn btn-secondary"
-                      href="{{ h.url_for(controller=controller, action='read', id=item.id) }}">
+                      href="{{ h.url_for(controller=controller, action='read', id=item.name) }}">
                       {{ _('Read more') }}
                     </a>
                   </div>

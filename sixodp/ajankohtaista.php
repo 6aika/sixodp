@@ -19,12 +19,14 @@ get_header(); ?>
   <main id="main" class="site-main site-main--home" role="main">
     <?php
 
+      get_template_part('partials/header-logos');
+
       echo '<div class="container"><h1 class="heading--main">Ajankohtaista</h1></div>';
       get_template_part( 'partials/horizaccordion' );
       get_template_part( 'partials/ajankohtaista-links');
       echo '<div class="wrapper--twitterfeed">';
       echo '<div class="container"><h1 class="heading--main" style="margin-bottom:-20px;">Twitter</h1></div>';
-      echo do_shortcode('[custom-twitter-feeds num=12 class="twitterfeed" screenname="tomdale" showheader=false showbutton=false]');
+      echo do_shortcode('[custom-twitter-feeds num=12 class="twitterfeed" showheader=false showbutton=false]');
       echo '</div>';
 
     ?>

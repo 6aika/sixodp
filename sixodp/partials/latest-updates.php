@@ -7,7 +7,7 @@
 <div class="wrapper--latest">
   
   <div class="container">
-    <h1 class="heading--featured heading--mleft">Viimeisimmät päivitykset</h1>
+    <h1 class="heading--featured">Viimeisimmät päivitykset</h1>
   </div>
 
   <div class="container">

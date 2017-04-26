@@ -2,6 +2,14 @@
   @extend .wrapper;
   background: $brand-lightgray;
 
+  .heading--featured {
+    text-align: center;
+
+    @media(min-width: $width-sm) {
+      text-align: left;
+    }
+  }
+
   .featured-btn-container {
     text-align: center;
 
