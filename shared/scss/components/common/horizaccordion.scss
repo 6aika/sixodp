@@ -13,6 +13,22 @@
       display: none;
     }
   }
+
+  .horizaccordion__btn-container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+
+    @media (min-width: $width-md) {
+      text-align: right;
+      margin-right: -15px;
+      margin-left: -15px;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
 }
 
 .wrapper--horizaccordion-inner {
@@ -71,9 +87,8 @@
 
     .horizaccordion__text,
     .horizaccordion__meta,
-    .horizaccordion__footer .btn {
+    .horizaccordion__footer a {
       opacity: 0;
-      display: block;
       transition: opacity .0s ease-in-out .0s;
     }
 
@@ -206,7 +221,9 @@
 .horizaccordion__footer {
   margin-top: $base*2;
 
-  .btn {
+  .btn,
+  a {
+    display: inline-block;
     position: relative;
     z-index: 1;
   }

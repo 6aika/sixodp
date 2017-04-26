@@ -8,7 +8,9 @@ Managing translations
 
 **Creating/Updating the base language file and Transifex resource**
 
-To extract all translatable strings in the extension run this command in the extension root directory::
+To extract all translatable strings in the extension run this command in the extension root directory
+(NOTE that sixodp_scheming and sixodp_showcase extension schema translations are extracted from a separate translations.py file.
+Any updates to the schema need to be updated to this file also before running extract_messages)::
 
     python setup.py extract_messages
 

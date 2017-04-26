@@ -128,11 +128,15 @@ Statistics.prototype._createNav = function () {
           self._state.dateRangeFilter
         )
       )
+      var locale = 'fi'
+      if (self._config && self._config.locale) {
+        locale = self._config.locale
+      }
       self._appSection.setDateRange(
         dates,
         self._createCategoryApps(
           self._data.filtered.apps,
-          self._data.filtered.appCategories[self._config.locale],
+          self._data.filtered.appCategories[locale],
           self._state.dateRangeFilter
         )
       )
@@ -355,11 +359,16 @@ Statistics.prototype._loadDataToPage = function () {
     // Update app section
     self._appSection.setMaxDateRange(self._state.maxDateRange)
     self._appSection.setDateRange(self._state.dateRangeFilter)
+
+    var locale = 'fi'
+    if (self._config && self._config.locale) {
+      locale = self._config.locale
+    }
     self._appSection.setData(
       self._data.filtered.apps,
       self._createCategoryApps(
         self._data.filtered.apps,
-        self._data.filtered.appCategories[self._config.locale],
+        self._data.filtered.appCategories[locale],
         self._state.dateRangeFilter
       )
     )
@@ -723,6 +732,11 @@ Statistics.prototype._createFormatDatasets = function (datasets, formats, dateRa
 // Also filters by date
 Statistics.prototype._createCategoryApps = function (apps, categories, dateRange) {
   var self = this
+  var locale = 'fi'
+  if (self._config && self._config.locale) {
+    locale = self._config.locale
+  }
+
   var result = []
   for (iCategory in categories) {
     var resultItem = {
@@ -744,7 +758,7 @@ Statistics.prototype._createCategoryApps = function (apps, categories, dateRange
         var extra = apps[iApp].extras[iExtra]
         if (extra.key === 'category') {
           eval('var categoryLists = ' + extra.value)
-          if (categoryLists[self._config.locale].indexOf(categories[iCategory]) !== -1) {
+          if (categoryLists[locale].indexOf(categories[iCategory]) !== -1) {
             resultItem.all ++
             resultItem.specific ++
           }
