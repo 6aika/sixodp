@@ -46,7 +46,7 @@
 
       OffcanvasTouch.prototype._touchStart = function(e) {
         this.startX = e.originalEvent.touches[0].pageX;
-        return this.element.height($(window).outerHeight());
+        return this.target.css('height', '100vh');
       };
 
       OffcanvasTouch.prototype._touchMove = function(e) {
@@ -182,7 +182,7 @@
 
       Offcanvas.prototype._navbarHeight = function() {
         if (this.target.is('.in')) {
-          return this.target.height($(window).outerHeight());
+          return this.target.css('height', '100vh');
         }
       };
 
