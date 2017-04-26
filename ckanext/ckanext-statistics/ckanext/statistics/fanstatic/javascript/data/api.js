@@ -156,7 +156,7 @@ Api.prototype._preprocess = function (data) {
         eval('var categoryLists = ' + extra.value)
         // Add categories of each language's list
         for (lang in categoryLists) {
-          data.appCategories[lang] = []
+          data.appCategories[lang] = data.appCategories[lang]|| []
           for (iCategory in categoryLists[lang]) {
             var categoryName = categoryLists[lang][iCategory]
             if (data.appCategories[lang].indexOf(categoryName) === -1) {
