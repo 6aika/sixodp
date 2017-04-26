@@ -214,7 +214,7 @@ TopHistogram.prototype._renderHistogram = function (histogramData) {
   self._elem.histogramBars.selectAll('.statistics-bar-main')
     .data(histogramData, function(d) { return d ? d.name : this.id })
     .attr('width', function (d) { return (
-      self._helpers.xScale(d[self._schema.valueField]) - 1
+        d[self._schema.valueField] > 0 ? self._helpers.xScale(d[self._schema.valueField]) - 1 : self._helpers.xScale(d[self._schema.valueField])
     )})
 
   self._elem.histogramBars.selectAll('.statistics-bar-portion')

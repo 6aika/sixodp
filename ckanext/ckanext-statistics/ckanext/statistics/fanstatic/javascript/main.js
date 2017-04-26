@@ -758,7 +758,7 @@ Statistics.prototype._createCategoryApps = function (apps, categories, dateRange
         var extra = apps[iApp].extras[iExtra]
         if (extra.key === 'category') {
           eval('var categoryLists = ' + extra.value)
-          if (categoryLists[locale].indexOf(categories[iCategory]) !== -1) {
+          if (categoryLists[locale] && categoryLists[locale].indexOf(categories[iCategory]) !== -1) {
             resultItem.all ++
             resultItem.specific ++
           }
