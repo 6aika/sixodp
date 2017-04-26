@@ -42,5 +42,5 @@ enabled_ckan_aws_extensions: cloudstorage
 
 redis_harvest_database: 0
 redis_celery_database: 1
-ckan_max_resource_size: 5000
+ckan_max_resource_size: 50000
 ckan_site_id: "default"
