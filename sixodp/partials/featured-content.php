@@ -16,16 +16,16 @@
         <h2 class="banner__title">Onko sinulla valmis sovellus tai tietoainesto?</h2>
         <h4 class="banner__subtitle">Laita se jakoon!</h4>
         <div class="banner__buttons">
-          <button class="btn btn-transparent btn--banner-jaa">Jaa sovellus <i class="material-icons">arrow_forward</i></button>
-          <button class="btn btn-transparent btn--banner-jaa">Jaa aineisto <i class="material-icons">arrow_forward</i></button>
+          <a class="btn btn-transparent btn--banner-jaa">Ilmoita sovellus <i class="material-icons">arrow_forward</i></a>
+          <a href="/data/submit-data" class="btn btn-transparent btn--banner-jaa">Ilmoita tietoaineisto <i class="material-icons">arrow_forward</i></a>
         </div>
       </div>
       <div class="col-md-6">
-        <h2 class="banner__title">Onko sinulla valmis sovellus tai tietoainesto?</h2>
-        <h4 class="banner__subtitle">Laita se jakoon!</h4>
+        <h2 class="banner__title">Onko sinulla aineistotoive tai sovellusidea?</h2>
+        <h4 class="banner__subtitle">Kerro se meille!</h4>
         <div class="banner__buttons">
-          <button class="btn btn-transparent btn--banner-jaa">Jaa sovellus <i class="material-icons">arrow_forward</i></button>
-          <button class="btn btn-transparent btn--banner-jaa">Jaa aineisto <i class="material-icons">arrow_forward</i></button>
+          <a class="btn btn-transparent btn--banner-jaa">Kerro datatoive <i class="material-icons">arrow_forward</i></a>
+          <a class="btn btn-transparent btn--banner-jaa">Kerro sovellusidea <i class="material-icons">arrow_forward</i></a>
         </div>
       </div>
     </div>
