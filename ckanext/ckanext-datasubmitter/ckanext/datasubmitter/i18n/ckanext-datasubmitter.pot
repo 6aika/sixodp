@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-datasubmitter 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-02-02 08:36+0000\n"
+"POT-Creation-Date: 2017-04-21 05:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,6 +44,18 @@ msgid ""
 " A CKAN Dataset is a collection of data resources (such as files), together "
 "with a description and other information, at a fixed URL. Datasets are what "
 "users see when searching for data. "
+msgstr ""
+
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:8
+msgid "Title"
+msgstr ""
+
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:9
+msgid "A descriptive title for the dataset"
+msgstr ""
+
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:22
+msgid "Description"
 msgstr ""
 
 #: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:36

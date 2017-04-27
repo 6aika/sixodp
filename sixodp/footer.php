@@ -56,7 +56,7 @@
 			    <div class="col-md-12 footer-section footer-section--links">
 						<ul class="footer-links">
 							<?php
-			          foreach ( get_nav_menu_items("primary") as $navItem ) {
+			          foreach ( get_nav_menu_items("footer") as $navItem ) {
 			            $class = '';
 			            if ( $navItem["title"] === get_current_locale() ) {
 			              $class = 'active';

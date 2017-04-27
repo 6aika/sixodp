@@ -12,3 +12,4 @@ transifexrc
 ckanext/ckan/
 sixodp/app.css
 sixodp/ckan-config.php
+npm-debug.log

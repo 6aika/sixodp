@@ -58,6 +58,11 @@ a {
 .heading--featured-small {
   @include heading();
   font-size: 2.2rem;
+  text-align: center;
+
+  @media (min-width: $width-sm) {
+    text-align: left;
+  }
 }
 
 .heading--archive {

@@ -7,7 +7,7 @@
 <div class="wrapper--featured">
   
   <div class="container">
-    <h1 class="heading--featured heading--mleft">Tietoaineistot ja sovellukset</h1>
+    <h1 class="heading--featured">Tietoaineistot ja sovellukset</h1>
   </div>
 
   <div class="container banner">
@@ -40,11 +40,12 @@
       <?php
         $showcases = get_items('ckanext_showcase');
         foreach ($showcases as $showcase) {
-          $imgUrl = CKAN_BASE_URL . "/data/uploads/showcase/".$showcase['extras'][6]['value'];
+          $showcaseUrl = CKAN_BASE_URL . "/showcase/" . $showcase['name'];
+          $imgUrl = CKAN_BASE_URL . "/uploads/showcase/".$showcase['extras'][6]['value'];
           $packageId = $showcase['id'];
           foreach ( $showcase['extras'] as $extra ) {
             if ( $extra['key'] == 'icon' ) {
-              $imgUrl = CKAN_BASE_URL ."/data/uploads/showcase/".$extra['value'];
+              $imgUrl = CKAN_BASE_URL ."/uploads/showcase/".$extra['value'];
             } else if ( $extra['key'] == 'notes_translated' ) {
               $notes = json_decode($extra['value'], true)[get_current_locale()];
             }
@@ -56,8 +57,8 @@
   </div>
 
   <div class="container">
-    <div class="row text-right">
-      <a href="<?php echo CKAN_BASE_URL; ?>/data/showcase" class="btn btn-lg btn-secondary btn--sovellukset">
+    <div class="row featured-btn-container">
+      <a href="<?php echo CKAN_BASE_URL; ?>/showcase" class="btn btn-lg btn-secondary btn--sovellukset">
         Kaikki sovellukset <i class="material-icons">arrow_forward</i>
       </a>
     </div>
@@ -72,14 +73,14 @@
       <?php foreach ( get_recent_datasets() as $dataset ) : ?>
         <div class="card">
           <h3 class="card__title">
-            <a href="<?php echo CKAN_BASE_URL.'/data/'.get_current_locale().'/dataset/'.$dataset['name']; ?>">
+            <a href="<?php echo CKAN_BASE_URL.'/'.get_current_locale().'/dataset/'.$dataset['name']; ?>">
               <?php echo $dataset["title_translated"][get_current_locale()]; ?>
             </a>
           </h3>
           <div class="card__meta">
             <span class="card__timestamp"><?php echo parse_date($dataset['metadata_created']); ?></span>
             <span style="margin-left: 2px; margin-right: 2px;">&bull;</span>
-            <a href="<?php echo CKAN_BASE_URL; ?>/data/<?php echo get_current_locale(); ?>/<?php echo $dataset['type']; ?>" class="card__categorylink"><?php echo $dataset['type']; ?></a>
+            <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale(); ?>/<?php echo $dataset['type']; ?>" class="card__categorylink"><?php echo $dataset['type']; ?></a>
           </div>
           <div class="card__body">
             <p><?php echo get_notes_excerpt($dataset['notes_translated'][get_current_locale()]); ?></p>
@@ -90,8 +91,8 @@
   </div>
 
   <div class="container">
-    <div class="row text-right">
-      <a href="<?php echo CKAN_BASE_URL; ?>/data/<?php echo get_current_locale(); ?>/dataset" class="btn btn-lg btn-secondary btn--sovellukset">
+    <div class="row featured-btn-container">
+      <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale(); ?>/dataset" class="btn btn-lg btn-secondary btn--sovellukset">
         Kaikki tietoaineistot <i class="material-icons">arrow_forward</i>
       </a>
     </div>

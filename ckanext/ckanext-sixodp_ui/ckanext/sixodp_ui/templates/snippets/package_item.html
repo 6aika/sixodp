@@ -15,7 +15,7 @@ Example:
 #}
 {% set truncate = truncate or 180 %}
 {% set truncate_title = truncate_title or 80 %}
-{% set title = package.title or package.name %}
+{% set title = package.title_translated or package.name %}
 {% set categories = h.get_groups_for_package(package.id) %}
 {% set notes = h.markdown_extract(h.get_translated(package, 'notes'), extract_length=truncate) %}
 
@@ -36,7 +36,7 @@ Example:
                     </span>
                   {% endif %}
                 {% endblock %}
-                <span>{{title}}</span>
+                <span>{{ title[h.get_lang_prefix()] or title['fi'] or title }}</span>
                 {% block heading_meta %}
                   {% if package.get('state', '').startswith('draft') %}
                     <span class="label label-info">{{ _('Draft') }}</span>

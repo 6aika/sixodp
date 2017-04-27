@@ -1,4 +1,12 @@
 .wrapper--featured {
   @extend .wrapper;
   background: $brand-lightgray;
+
+  .featured-btn-container {
+    text-align: center;
+
+    @media (min-width: $width-sm) {
+      text-align: right;
+    }
+  }
 }
