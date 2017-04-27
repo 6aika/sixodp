@@ -225,6 +225,36 @@ function add_custom_fields_support_for_pages() {
 }
 add_action( 'init', 'add_custom_fields_support_for_pages' );
 
+add_action( 'init', 'my_custom_post_type_rest_support', 25 );
+function my_custom_post_type_rest_support() {
+	global $wp_post_types;
+
+	//be sure to set this to the name of your post type!
+	$post_type_name = 'notification';
+	if( isset( $wp_post_types[ $post_type_name ] ) ) {
+		$wp_post_types[$post_type_name]->show_in_rest = true;
+		$wp_post_types[$post_type_name]->rest_base = $post_type_name;
+		$wp_post_types[$post_type_name]->rest_controller_class = 'WP_REST_Posts_Controller';
+	}
+
+}
+/*
+function register_notification_json() {
+            register_rest_field( 'meta',
+                'type',
+            array(
+                'get_callback' => 'get_notification_meta',
+                'update_callback' => null,
+                'schema' => null,
+            )
+        );
+    }
+    function get_notification_meta($post, $field_name, $request) {
+        return get_post_meta($post->id, 'type');
+    }
+}
+add_action( 'rest_api_init', 'register_notification_json' );
+*/
 
 function create_primary_menus() {
   create_menu_i18n('primary_fi', PRIMARY_MENU_ITEMS_FI, 'primary');
