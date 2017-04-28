@@ -22,8 +22,10 @@
 }
 
 .popper__item {
-  background: #fff;
-  color: $brand-primary;
+  a {
+    background: $brand-white;
+    color: $brand-primary;
+  }
 }
 
 .popper__link {
@@ -37,7 +39,7 @@
   }
 
   &:hover {
-    background: #eee;
+    background: $brand-gray;
   }
 }
 
@@ -54,13 +56,13 @@
 
 .popper:after {
   border-color: rgba(0, 0, 0, 0);
-  border-top-color: #fff;
-  border-width: 5px;
+  border-top-color: $brand-white;
+  border-width: $base/2;
   margin-left: $base*5;
 }
 .popper:before {
   border-color: rgba(0, 0, 0, 0);
-  border-top-color: #fff;
+  border-top-color: $brand-white;
   border-width: 8px;
   margin-left: $base*5;
 }

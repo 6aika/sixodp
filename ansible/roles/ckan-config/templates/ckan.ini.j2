@@ -92,6 +92,7 @@ ckanext.sixodp_ui.wp_api_base_url = /wp-json/wp/v2
 ckanext.sixodp_ui.wp_api_menus_base_url = /wp-json/wp-api-menus/v2
 ckanext.sixodp_ui.wp_main_menu_location = primary
 ckanext.sixodp_ui.wp_footer_menu_location = footer
+ckanext.sixodp_ui.wp_social_menu_location = socialmedia
 
 # Disable sending error emails. Commented out because the default is None, and "None" is interpreted here as a string.
 # email_to = 
@@ -134,7 +135,7 @@ ckan.tracking_enabled = true
 ckan.max_resource_size = {{ ckan_max_resource_size }}
 
 # Rating configuration
-ckanext.rating.enabled_dataset_types = showcase
+ckanext.rating.enabled_dataset_types = dataset showcase
 
 # Reminder configuration
 ckanext.reminder.site_url = https://{{ public_facing_hostname }}/data

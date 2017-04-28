@@ -20,11 +20,11 @@
 
 .statistics-loading {
   background-color: $brand-primary;
-  color: $white;
+  color: $brand-white;
   height: 100vh;
   width: 100vw;
   left: 0;
-  padding: 30% 0%;
+  padding: 30% 10px;
   position: fixed;
   text-align: center;
   top: 0px;
@@ -45,7 +45,7 @@
   animation-duration: 1s;
   animation-iteration-count: infinite;
 
-  border: solid $white 1px;
+  border: solid $brand-white 1px;
   // display: none;
   height: 20px;
   line-height: 1;
@@ -80,7 +80,7 @@
   animation-name: statistics-loading-webpage;
   animation-duration: 10s;
 
-  background-color: $white;
+  background-color: $brand-white;
   height: 100%;
   display: block;
   width: 60%;
@@ -94,7 +94,7 @@
 // Nav
 
 .statistics-nav {
-  background-color: $white;
+  background-color: $brand-white;
   border-bottom: solid $brand-primary 1px;
   height: 200px;
   padding: $padding-base-vertical $padding-base-horizontal;
@@ -235,9 +235,10 @@
 
 // Other sections
 .statistics-dataset-section, .statistics-app-section {
-  color: $white;
+  color: $brand-white;
   h1, h2, .statistics-vis-title {
-    color: $white;
+    margin-bottom: 25px;
+    color: $brand-white;
   }
 }
 .statistics-dataset-section {
@@ -247,19 +248,39 @@
   background-color: $datavis-color-1-dark;
 }
 .statistics-article-section {
-  background-color: $white;
+  background-color: $brand-white;
   color: $text-color;
 }
 
 // Visualization elements
 
 .statistics-vis {
-  margin-bottom: 50px;
+  padding-top: 25px;
+  padding-bottom: 75px;
+}
+
+.statistics-legend {
+}
+.statistics-legend-coloring {
+  fill: $brand-white;
+  stroke: $brand-white;
+  stroke-linecap: 'round';
+  stroke-linejoin: 'round';
+  stroke-width: 1px;
+}
+.statistics-legend-row {
+  &:nth-child(2) .statistics-legend-coloring {
+    fill: none;
+  }
+}
+.statistics-legend-text {
+  fill: $brand-white;
+  font-family: $font;
 }
 
 .statistics-line {
   fill: none;
-  stroke: $white;
+  stroke: $brand-white;
   stroke-linecap: 'round';
   stroke-linejoin: 'round';
   stroke-width: 3px;
@@ -270,18 +291,18 @@
 }
 
 .statistics-focus-point {
-  fill: $white;
+  fill: $brand-white;
   opacity: 0.9;
-  stroke: $white;
+  stroke: $brand-white;
 
   circle {
-    fill: $white;
-    stroke: $white;
+    fill: $brand-white;
+    stroke: $brand-white;
   }
 
   line {
     fill: none;
-    stroke: $white;
+    stroke: $brand-white;
     stroke-width: 1.5px;
     stroke-dasharray: 3 3;
   }
@@ -297,27 +318,32 @@
 
 .statistics-axis {
   line {
-    stroke: $white;
+    stroke: $brand-white;
   }
   path {
-    stroke: $white;
+    stroke: $brand-white;
   }
   text {
-    fill: $white;
+    fill: $brand-white;
   }
 }
-.statistics-axis-y {
+.statistics-axis {
   .tick:not(:first-of-type) line {
     stroke-dasharray: 2,2;
   }
 }
 
-.bar {
-  rect {
-    fill: $datavis-color-2;
+.statistics-bar {
+  .statistics-bar-main {
+    fill: $datavis-color-1;
+    stroke: $brand-white;
+    stroke-width: 2px;
+  }
+  .statistics-bar-portion {
+    fill: $brand-white;
   }
   text {
-    fill: $white;
+    fill: $brand-white;
     font: 10px sans-serif;
   }
   &:hover {
@@ -357,6 +383,14 @@
 .attention-number-detail-value {
 }
 
+// Top histogram
+
+.statistics-top-histogram {
+  .statistics-bar text {
+    font-size: $font-size-base;
+  }
+}
+
 
 // UI components
 
@@ -386,7 +420,7 @@
 }
 
 .statistics-page select {
-  background: $white;
+  background: $brand-white;
   color: $brand-primary;
   outline: 0px;
 }

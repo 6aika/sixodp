@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_ui 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-27 13:49+0000\n"
+"POT-Creation-Date: 2017-04-13 10:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/6aika-dataportal/teams/68018/en_GB/)\n"
 "MIME-Version: 1.0\n"
@@ -23,26 +23,26 @@ msgstr ""
 msgid "Dataset not found"
 msgstr ""
 
-#: ckanext/sixodp_ui/plugin.py:221
+#: ckanext/sixodp_ui/plugin.py:222
 msgid "Formats"
 msgstr ""
 
-#: ckanext/sixodp_ui/plugin.py:222
+#: ckanext/sixodp_ui/plugin.py:223
 msgid "Geographical Coverage"
 msgstr ""
 
-#: ckanext/sixodp_ui/plugin.py:223
+#: ckanext/sixodp_ui/plugin.py:224
 #: ckanext/sixodp_ui/templates/package/read_base.html:35
 msgid "Groups"
 msgstr ""
 
-#: ckanext/sixodp_ui/plugin.py:224
+#: ckanext/sixodp_ui/plugin.py:225
 #: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:41
 #: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:46
 msgid "Maintainer"
 msgstr ""
 
-#: ckanext/sixodp_ui/plugin.py:225
+#: ckanext/sixodp_ui/plugin.py:226
 #: ckanext/sixodp_ui/templates/package/read_base.html:36
 msgid "Collections"
 msgstr ""
@@ -235,7 +235,7 @@ msgstr ""
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/slug-preview.min.js:1
 #: ckanext/sixodp_ui/templates/ckanext_pages/blog.html:12
 #: ckanext/sixodp_ui/templates/organization/bulk_process.html:44
-#: ckanext/sixodp_ui/templates/showcase/edit_base.html:19
+#: ckanext/sixodp_ui/templates/showcase/edit_base.html:14
 msgid "Edit"
 msgstr ""
 
@@ -295,7 +295,7 @@ msgstr ""
 #: ckanext/sixodp_ui/templates/collection/index.html:13
 #: ckanext/sixodp_ui/templates/group/index.html:13
 #: ckanext/sixodp_ui/templates/organization/read.html:15
-#: ckanext/sixodp_ui/templates/package/search.html:33
+#: ckanext/sixodp_ui/templates/package/search.html:34
 #: ckanext/sixodp_ui/templates/showcase/manage_datasets.html:25
 #: ckanext/sixodp_ui/templates/showcase/search.html:13
 #: ckanext/sixodp_ui/templates/snippets/search_form_without_input.html:30
@@ -305,7 +305,7 @@ msgstr ""
 #: ckanext/sixodp_ui/templates/collection/index.html:13
 #: ckanext/sixodp_ui/templates/group/index.html:13
 #: ckanext/sixodp_ui/templates/organization/read.html:16
-#: ckanext/sixodp_ui/templates/package/search.html:34
+#: ckanext/sixodp_ui/templates/package/search.html:35
 #: ckanext/sixodp_ui/templates/showcase/manage_datasets.html:26
 #: ckanext/sixodp_ui/templates/showcase/search.html:14
 #: ckanext/sixodp_ui/templates/snippets/search_form_without_input.html:30
@@ -434,12 +434,11 @@ msgid "Search organizations..."
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/organization/read.html:12
-#: ckanext/sixodp_ui/templates/package/search.html:30
 msgid "Last Created"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/organization/read.html:13
-#: ckanext/sixodp_ui/templates/package/search.html:31
+#: ckanext/sixodp_ui/templates/package/search.html:32
 #: ckanext/sixodp_ui/templates/showcase/manage_datasets.html:28
 #: ckanext/sixodp_ui/templates/showcase/search.html:16
 #: ckanext/sixodp_ui/templates/snippets/package_item.html:67
@@ -447,14 +446,14 @@ msgid "Popular"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/organization/read.html:14
-#: ckanext/sixodp_ui/templates/package/search.html:32
+#: ckanext/sixodp_ui/templates/package/search.html:33
 #: ckanext/sixodp_ui/templates/showcase/manage_datasets.html:24
 #: ckanext/sixodp_ui/templates/showcase/search.html:12
 msgid "Relevance"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/organization/read.html:17
-#: ckanext/sixodp_ui/templates/package/search.html:35
+#: ckanext/sixodp_ui/templates/package/search.html:36
 #: ckanext/sixodp_ui/templates/package/snippets/resource_form.html:51
 #: ckanext/sixodp_ui/templates/showcase/manage_datasets.html:27
 #: ckanext/sixodp_ui/templates/showcase/search.html:15
@@ -465,6 +464,11 @@ msgstr ""
 #: ckanext/sixodp_ui/templates/package/search.html:6
 #: ckanext/sixodp_ui/templates/snippets/search_form_without_input.html:3
 msgid "Search datasets..."
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/package/activity.html:3
+#: ckanext/sixodp_ui/templates/package/read_base.html:33
+msgid "Activity Stream"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/edit.html:9
@@ -485,22 +489,18 @@ msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/read_base.html:32
 #: ckanext/sixodp_ui/templates/showcase/edit_base.html:5
-#: ckanext/sixodp_ui/templates/showcase/edit_base.html:17
-#: ckanext/sixodp_ui/templates/showcase/edit_base.html:21
+#: ckanext/sixodp_ui/templates/showcase/edit_base.html:12
+#: ckanext/sixodp_ui/templates/showcase/edit_base.html:16
 msgid "Showcases"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/read_base.html:33
-msgid "Activity Stream"
-msgstr ""
-
 #: ckanext/sixodp_ui/templates/package/read_base.html:56
-#: ckanext/sixodp_ui/templates/package/resource_read.html:169
+#: ckanext/sixodp_ui/templates/package/resource_read.html:165
 msgid "Openness"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/read_base.html:78
-#: ckanext/sixodp_ui/templates/package/resource_read.html:191
+#: ckanext/sixodp_ui/templates/package/resource_read.html:187
 msgid "Subscribe for dataset updates"
 msgstr ""
 
@@ -567,12 +567,7 @@ msgstr ""
 msgid "Show less"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/resource_read.html:139
-#: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:7
-msgid "Metadata API"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/package/resource_read.html:151
+#: ckanext/sixodp_ui/templates/package/resource_read.html:147
 msgid "Back to dataset"
 msgstr ""
 
@@ -580,26 +575,34 @@ msgstr ""
 msgid "Add Dataset"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/search.html:58
-msgid "API"
+#: ckanext/sixodp_ui/templates/package/search.html:30
+msgid "Newest first"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/package/search.html:31
+msgid "Oldest first"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/search.html:59
+msgid "API"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/package/search.html:60
 msgid "API Docs"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/search.html:61
+#: ckanext/sixodp_ui/templates/package/search.html:62
 msgid "full {format} dump"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/search.html:62
+#: ckanext/sixodp_ui/templates/package/search.html:63
 #, python-format
 msgid ""
 " You can also access this registry using the %(api_link)s (see "
 "%(api_doc_link)s) or download a %(dump_link)s. "
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/search.html:66
+#: ckanext/sixodp_ui/templates/package/search.html:67
 #, python-format
 msgid ""
 " You can also access this registry using the %(api_link)s (see "
@@ -608,6 +611,10 @@ msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:2
 msgid "Additional Info"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:7
+msgid "Metadata API"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:18
@@ -632,8 +639,11 @@ msgid "Last Updated"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:72
-#: ckanext/sixodp_ui/templates/scheming/package/resource_read.html:27
 msgid "Created"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/package/snippets/info.html:20
+msgid "Rating"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/snippets/resource_form.html:24
@@ -661,7 +671,6 @@ msgid "Some useful notes about the data"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/snippets/resource_form.html:37
-#: ckanext/sixodp_ui/templates/scheming/package/resource_read.html:35
 msgid "Format"
 msgstr ""
 
@@ -753,41 +762,19 @@ msgstr ""
 msgid "No results found."
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/scheming/package/resource_read.html:5
-msgid "Additional Information"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/scheming/package/resource_read.html:9
-msgid "Field"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/scheming/package/resource_read.html:10
-msgid "Value"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/scheming/package/resource_read.html:16
-msgid "Last updated"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/scheming/package/resource_read.html:21
-#: ckanext/sixodp_ui/templates/scheming/package/resource_read.html:29
-#: ckanext/sixodp_ui/templates/scheming/package/resource_read.html:36
-msgid "unknown"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/showcase/edit_base.html:22
+#: ckanext/sixodp_ui/templates/showcase/edit_base.html:17
 msgid "Create Showcase"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/showcase/edit_base.html:35
+#: ckanext/sixodp_ui/templates/showcase/edit_base.html:30
 msgid "View showcase"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/showcase/edit_base.html:41
+#: ckanext/sixodp_ui/templates/showcase/edit_base.html:36
 msgid "Edit showcase"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/showcase/edit_base.html:42
+#: ckanext/sixodp_ui/templates/showcase/edit_base.html:37
 msgid "Manage datasets"
 msgstr ""
 
@@ -839,8 +826,16 @@ msgstr ""
 msgid "There are no {facet_type} that match this search"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/snippets/horizaccordion.html:26
+#: ckanext/sixodp_ui/templates/snippets/horizaccordion.html:36
 msgid "Read more"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/snippets/horizaccordion.html:50
+msgid "Close preview"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/snippets/horizaccordion.html:51
+msgid "Show preview"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/snippets/package_item.html:74

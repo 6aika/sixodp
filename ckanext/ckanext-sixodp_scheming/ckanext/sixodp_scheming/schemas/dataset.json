@@ -185,10 +185,7 @@
     },
     {
       "field_name": "file_size",
-      "label": {
-        "en_GB": "Size",
-        "fi": "Koko"
-      },
+      "label": "Size",
       "description": "Size of the added resouce file in bytes. Will be automatically filled when the file is uploaded."
     },
     {

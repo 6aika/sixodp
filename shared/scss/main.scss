@@ -19,6 +19,8 @@
 @import "components/common/image-slider";
 @import "components/common/image-modal";
 @import "components/common/horizontal-list.scss";
+@import "components/common/popper.scss";
+@import "components/common/dropdown.scss";
 
 @import "components/ckan/icons";
 @import "components/ckan/layout";
@@ -57,3 +59,4 @@
 @import "components/ckan/headings";
 @import "components/ckan/datepicker";
 @import "components/ckan/star-rating";
+@import "components/ckan/pagination";

@@ -1,4 +1,20 @@
 .wrapper--featured {
   @extend .wrapper;
-  background: #f5f5f5;
+  background: $brand-lightgray;
+
+  .heading--featured {
+    text-align: center;
+
+    @media(min-width: $width-sm) {
+      text-align: left;
+    }
+  }
+
+  .featured-btn-container {
+    text-align: center;
+
+    @media (min-width: $width-sm) {
+      text-align: right;
+    }
+  }
 }

@@ -5,6 +5,21 @@
   <footer id="colophon" class="site-footer bgcolor-primary" role="contentinfo">
     <div class="container">
       <div class="row">
+        <div class="col-md-4 pull-right text-right">
+          <div class="popper">
+            <ul class="popper__list">
+              <li class="popper__item">
+                <a href="/data/user/login" class="popper__link">Dataportaali <i class="material-icons">arrow_forward</i></a>
+              </li>
+              <li class="popper__item">
+                <a href="/admin" class="popper__link">Sisällönhallinta <i class="material-icons">arrow_forward</i></a>
+              </li>
+            </ul>
+          </div>
+          <button type="button" class="btn btn-lg btn-transparent" data-trigger="popper">Kirjaudu</button>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-md-2">
           <div class="footer-logo-wrapper">
             <img class="footer-logo" src="/assets/images/main_logo_w.png" alt="Site logo">
@@ -14,16 +29,20 @@
           <!-- Placeholder for additional city logos -->
         </div>
         <div class="col-md-6 pull-right">
-          <div class="row">
-            <div class="col-xs-12 text-right">
-              <div class="footer-follow-links">
-                <span class="footer-follow-title">Seuraa meitä</span>
-                <a href="" class="footer-follow-link"><i class="icon-facebook-sign icon-2x"></i></a>
-                <a href="https://twitter.com/Kuutosaika" class="footer-follow-link"><i class="icon-twitter-sign icon-2x"></i></a>
-                <a href="https://www.youtube.com/channel/UCsLZoojXkJIsqgVt5Q2iw9Q" class="footer-follow-link"><i class="icon-youtube-sign icon-2x"></i></a>
+          {% set social_links = h.get_social_links() %}
+          {% if social_links %}
+            <div class="row">
+              <div class="col-xs-12 text-right">
+                <div class="footer-follow-links">
+                  <span class="footer-follow-title">Seuraa meitä</span>
+                  {% for item in social_links %}
+                    {% set icon_class = h.get_social_link_icon_class(item) %}
+                    <a href="{{item.url}}" title="{{item.title}}" class="footer-follow-link"><i class="{{icon_class}} icon-2x"></i></a>
+                  {% endfor %}
+                </div>
               </div>
             </div>
-          </div>
+          {% endif %}
         </div>
       </div>
 

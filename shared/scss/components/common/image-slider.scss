@@ -7,7 +7,7 @@
     width: 100%;
     overflow-x: auto;
     list-style: none;
-    background: $navbar-bg;
+    background: $image-slider-background-color;
     padding: $padding-large-vertical;
     margin-top: $margin-large-vertical*2;
     margin-bottom: $margin-large-vertical*2;
@@ -24,8 +24,9 @@
 
       img {
         object-fit: cover;
+        font-family: 'object-fit: cover;';
         width: auto;
-        height: 300px;
+        height: $base*30;
 
         &:hover {
           opacity: 0.8;

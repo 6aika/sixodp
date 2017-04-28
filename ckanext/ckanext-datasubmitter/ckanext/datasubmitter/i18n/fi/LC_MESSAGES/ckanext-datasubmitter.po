@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-datasubmitter 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-02-02 08:36+0000\n"
+"POT-Creation-Date: 2017-04-21 05:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Mikko Nieminen <mikko.nieminen@gofore.com>, 2017\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
@@ -54,6 +54,18 @@ msgstr ""
 "Tietoaineisto tarkoittaa CKAN:issa kokoelmaa resursseja (esim. tiedostoja) "
 "sekä niihin liittyvää kuvausta ja muuta metatietoa, kuten pysyvää URL-"
 "osoitetta."
+
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:8
+msgid "Title"
+msgstr "Nimi"
+
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:9
+msgid "A descriptive title for the dataset"
+msgstr "Kuvaava otsikko tietoaineistolle"
+
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:22
+msgid "Description"
+msgstr "Kuvaus"
 
 #: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:36
 msgid "Name or organization of the submitter"

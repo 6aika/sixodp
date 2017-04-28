@@ -4,6 +4,9 @@ var DatasetSection = function (params) {
 
   self._element = d3.select('.js-statistics-datasets-section')
 
+  d3.select('.js-statistics-datasets-section-title')
+    .text(self._texts.sectionTitle)
+
   self.totalsTimeline = new TotalsTimeline({
     id: 'datasetCount',
     element: self._element.select('.js-dataset-totals-timeline'),
@@ -21,50 +24,129 @@ var DatasetSection = function (params) {
     locale: params.locale,
   })
 
-  d3.select('.js-statistics-datasets-section-title')
-    .text(self._texts.sectionTitle)
+  self.categoryDatasets = new TopHistogram({
+    id: 'categoryDatasets',
+    element: self._element.select('.js-category-dataset-counts'),
+    texts: {
+      title: self._texts.categoriesTitle,
+      amount: self._texts.amount,
+    },
+    legend: [
+      {
+        title: self._texts.usedInApp,
+      },
+      {
+        title: self._texts.notUsedInApp,
+      },
+    ],
+    limit: 10, // Before show more button is used
 
-  // self.organizationDatasets = new TopHistogram({
-  //   id: 'organizationDatasets',
-  //   element: self._element.select('.js-organization-dataset-counts'),
-  //   texts: {
-  //     title: self.statistics.translations.topPublishersTitle[self.statistics.config.locale],
-  //   },
-  //   width: parseInt(self.statistics.styles.contentWidth),
-  //   height: 360,
-  //   margin: {top: 15, right: 50, bottom: 30, left: 1},
-  //   schema: {
-  //     labelField: 'title',
-  //     valueField: 'dataset_count',
-  //   }
-  // })
+    width: params.width,
+    margin: params.visMargins,
+    schema: {
+      labelField: 'name',
+      valueField: 'all',
+      valueSpecificField: 'specific',
+    }
+  })
+
+  self.formatDatasets = new TopHistogram({
+    id: 'formatDatasets',
+    element: self._element.select('.js-format-dataset-counts'),
+    texts: {
+      title: self._texts.formatsTitle,
+      amount: self._texts.amount,
+    },
+    legend: [
+      {
+        title: self._texts.usedInApp,
+      },
+      {
+        title: self._texts.notUsedInApp,
+      },
+    ],
+    limit: 10, // Before show more button is used
+
+    width: params.width,
+    margin: params.visMargins,
+    schema: {
+      labelField: 'name',
+      valueField: 'all',
+      valueSpecificField: 'specific',
+    }
+  })
+
+  self.organizationDatasets = new TopHistogram({
+    id: 'organizationDatasets',
+    element: self._element.select('.js-organization-dataset-counts'),
+    texts: {
+      title: self._texts.topPublishersTitle,
+      amount: self._texts.amount,
+    },
+    legend: [
+      {
+        title: self._texts.usedInApp,
+      },
+      {
+        title: self._texts.notUsedInApp,
+      },
+    ],
+    limit: 10, // Before show more button is used
+
+    width: params.width,
+    margin: params.visMargins,
+    schema: {
+      labelField: 'name',
+      valueField: 'all',
+      valueSpecificField: 'specific',
+    }
+  })
 }
 
-DatasetSection.prototype.setData = function (data) {
+DatasetSection.prototype.setData = function (datasets, categoryDatasets, formatDatasets, organizationDatasets) {
   var self = this
-  self.totalsTimeline.setData(data)
-  // self.organizationDatasets.setData(self.statistics.data.organizations)
+  self.totalsTimeline.setData(datasets)
+  self.categoryDatasets.setData(categoryDatasets)
+  self.formatDatasets.setData(formatDatasets)
+  self.organizationDatasets.setData(organizationDatasets)
 }
 
 
-DatasetSection.prototype.onContentResize = function (width, height = undefined) {
+DatasetSection.prototype.onContentResize = function (width, height) {
+  if (!height)
+    height = undefined
   var self = this
   self.totalsTimeline.resize(width, height)
-  // self.organizationDatasets.resize(width, height))
+  self.categoryDatasets.resize(width)
+  self.formatDatasets.resize(width)
+  self.organizationDatasets.resize(width)
 }
 
 
 // Filter all the visualizations in this section by the given dates
-DatasetSection.prototype.setDateRange = function (dates) {
+DatasetSection.prototype.setDateRange = function (dates, categoryDatasets, formatDatasets, organizationDatasets) {
   var self = this
   self.totalsTimeline.setDateRange(dates)
-  // self.organizationDatasets.setDateFilter(dates)
+
+  self.categoryDatasets.setDateRange(dates)
+  if (categoryDatasets) {
+    self.categoryDatasets.setData(categoryDatasets)
+  }
+
+  self.formatDatasets.setDateRange(dates)
+  if (formatDatasets) {
+    self.formatDatasets.setData(formatDatasets)
+  }
+
+  self.organizationDatasets.setDateRange(dates)
+  if (organizationDatasets) {
+    self.organizationDatasets.setData(organizationDatasets)
+  }
 }
 
 DatasetSection.prototype.setMaxDateRange = function (dates) {
   var self = this
   self.totalsTimeline.setMaxDateRange(dates)
-  // self.organizationDatasets.setMaxDateRange(dates)
 }
 
 // Filter all the visualizations in this section by the given organization

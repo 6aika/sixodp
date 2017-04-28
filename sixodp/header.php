@@ -19,6 +19,7 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php endif; ?>
 	<?php wp_head(); ?>
+	<script src="https://use.fontawesome.com/4f2a9d3d3d.js"></script>
     <link rel="stylesheet" href="<?php echo site_url(); ?>/wp-content/themes/sixodp/app.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Roboto+Slab:300,400,600" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -27,7 +28,15 @@
 <body <?php body_class(); ?>>
 	<?php $notifications = get_posts(array('post_type' => 'notification')); ?>
 	<?php if ( count($notifications) > 0 && ($notifications[0]->post_title !== '' || $notifications[0]->post_content !== '') ) : ?>
-	<div class="notification">
+	<?php
+		$type = get_post_meta( $notifications[0]->ID, 'type', true );
+		// Check if the custom field has a value.
+		$notificationclass = '';
+		if ( ! empty( $type ) ) {
+		    $notificationclass = $type;
+		}
+	?>
+	<div class="notification <?php echo $notificationclass; ?>">
 		<p class="notification__text">
 			<i class="material-icons">warning</i>
 			<?php foreach (get_posts(array('post_type' => 'notification')) as $notification) : ?>

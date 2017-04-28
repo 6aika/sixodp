@@ -1,42 +1,42 @@
 {% extends "datasubmitter/base.html" %}
 
 {% block primary_content %}
-<section class="module">
-  {% block page_header %}{% endblock %}
-  <div class="module-content main-content">
-    {% block primary_content_inner %}
-      <h1 class="page-heading">{{ _('Open your data') }}</h1>
-      <p>
-        {% trans %}
-        By filling this form you can submit your data to be published on this website.
-        Fill in at least the desired title of your dataset and leave your contact information.
-        The site adminstrator will contact you for further information after a few days.
-        {% endtrans %}
-      </p>
-      {%- snippet 'datasubmitter/snippets/new_package_form.html', c=c, data=data, errors=errors, error_summary=error_summary -%}
-    {% endblock %}
-  </div>
-</section>
+  <section class="module">
+    {% block page_header %}{% endblock %}
+    <div class="module-content main-content">
+      {% block primary_content_inner %}
+        <h1 class="page-heading">{{ _('Open your data') }}</h1>
+        <p>
+          {% trans %}
+            By filling this form you can submit your data to be published on this website.
+            Fill in at least the desired title of your dataset and leave your contact information.
+            The site adminstrator will contact you for further information after a few days.
+          {% endtrans %}
+        </p>
+        {%- snippet 'datasubmitter/snippets/new_package_form.html', c=c, data=data, errors=errors, error_summary=error_summary -%}
+      {% endblock %}
+    </div>
+  </section>
 {% endblock %}
 
 {% block secondary_content %}
-{% block info_module %}
-<section class="module module-narrow module-shallow">
-  <h2 class="module-heading"><i class="fa fa-info-circle"></i> {{ _('What are datasets?') }}</h2>
-  <div class="module-content">
-    <p>
-      {% trans %}
-      A CKAN Dataset is a collection of data resources (such as files),
-      together with a description and other information, at a fixed URL.
-      Datasets are what users see when searching for data.
-      {% endtrans %}
-    </p>
-  </div>
-</section>
-{% endblock %}
+  {% block info_module %}
+    <section class="module module-narrow module-shallow">
+      <h2 class="module-heading"><i class="fa fa-info-circle"></i> {{ _('What are datasets?') }}</h2>
+      <div class="module-content">
+        <p>
+          {% trans %}
+          A CKAN Dataset is a collection of data resources (such as files),
+          together with a description and other information, at a fixed URL.
+          Datasets are what users see when searching for data.
+          {% endtrans %}
+        </p>
+      </div>
+    </section>
+  {% endblock %}
 
-{% block resources_module %}
-{# TODO: Pass in a list of previously created resources and the current package dict #}
-{% snippet "package/snippets/resources.html", pkg={}, action='new_resource' %}
-{% endblock %}
+  {% block resources_module %}
+    {# TODO: Pass in a list of previously created resources and the current package dict #}
+    {% snippet "package/snippets/resources.html", pkg={}, action='new_resource' %}
+  {% endblock %}
 {% endblock %}

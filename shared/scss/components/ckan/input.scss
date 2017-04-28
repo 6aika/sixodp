@@ -1,6 +1,7 @@
 input {
   height: $input-height-small;
   line-height: $line-height-small;
+  background-color: $input-background-color;
 
   &[type="file"] {
     cursor: pointer;

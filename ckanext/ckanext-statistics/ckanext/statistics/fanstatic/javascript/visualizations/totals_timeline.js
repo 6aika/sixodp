@@ -48,12 +48,9 @@ TotalsTimeline.prototype.setData = function (data) {
   var self = this
   self._data.raw = data
   self._data.line = self._transformLineData(data)
-
-  self._helpers.xScale.domain(self._getXExtent()).nice()
-  self._helpers.yScale.domain(self._getYExtent()).nice()
-
   self._renderLine()
   self._renderFocusPoint()
+  self._resizeAxis('x')
   self._resizeAxis('y')
 }
 
@@ -74,7 +71,10 @@ TotalsTimeline.prototype.setMaxDateRange = function (dates) {
 
 
 // Resize the visualization to a new pixel size on the screen
-TotalsTimeline.prototype.resize = function (contentWidth, contentHeight = undefined) {
+TotalsTimeline.prototype.resize = function (contentWidth, contentHeight) {
+  if (!contentHeight)
+    contentHeight = undefined
+
   var self = this
 
   self._state.contentArea.width = contentWidth
@@ -161,12 +161,6 @@ TotalsTimeline.prototype._transformLineData = function (data) {
 
   // Turn into array
   var resultArray = []
-  // {
-  //   date: moment.utc([0, 0, 1]),
-  //   added: [],
-  //   removed: [],
-  //   value: 0,
-  // }
   for (i in result) {
     resultArray.push(result[i])
   }
@@ -207,7 +201,6 @@ TotalsTimeline.prototype._renderBase = function (container) {
 
   // Graphs, cropped by data area
   self._elem.lineCanvas = self._elem.dataCanvas.append('g')
-
 
   // Axes, legends, titles etc. in front of data items
   self._elem.frontLayer = self._elem.svgCanvas.append('g')
@@ -360,7 +353,6 @@ TotalsTimeline.prototype._resizeAxis = function (axis) {
     // Init transition for each selected item (= only one axis)
     self._elem[axis + 'Axis'].transition().duration(800)
     .tween('resizeAxisTween', function (d, i) {
-      // self._elem.yAxis.select('.domain').remove()
       var axisScaleInterpolator = d3.interpolate(currentExtent, newExtent)
       // What to do on each animation frame
       return function (t) {
@@ -400,16 +392,11 @@ TotalsTimeline.prototype._updateYAxisGenerator = function () {
     g.call(
       // Create generator for a stock axis
       d3.axisRight(self._helpers.yScale)
-
         // Make ticks full width
         .tickSize(self._state.dataArea.width)
-
         // Set which levels are shown
-        // .tickValues(tickValues)
         .ticks(tickCount, 'x')
-
         .tickPadding(7)
-
         // Add text to top-most tick number
         .tickFormat(function(d) {
           return this.parentNode.nextSibling
@@ -519,4 +506,49 @@ TotalsTimeline.prototype._getYExtent = function () {
     Math.round(d3.max(shownData, function(d) { return d.value }) * 1.25 + 1)
   ]
   return result
+}
+
+// https://tc39.github.io/ecma262/#sec-array.prototype.findIndex
+if (!Array.prototype.findIndex) {
+    Object.defineProperty(Array.prototype, 'findIndex', {
+        value: function(predicate) {
+            // 1. Let O be ? ToObject(this value).
+            if (this == null) {
+                throw new TypeError('"this" is null or not defined');
+            }
+
+            var o = Object(this);
+
+            // 2. Let len be ? ToLength(? Get(O, "length")).
+            var len = o.length >>> 0;
+
+            // 3. If IsCallable(predicate) is false, throw a TypeError exception.
+            if (typeof predicate !== 'function') {
+                throw new TypeError('predicate must be a function');
+            }
+
+            // 4. If thisArg was supplied, let T be thisArg; else let T be undefined.
+            var thisArg = arguments[1];
+
+            // 5. Let k be 0.
+            var k = 0;
+
+            // 6. Repeat, while k < len
+            while (k < len) {
+                // a. Let Pk be ! ToString(k).
+                // b. Let kValue be ? Get(O, Pk).
+                // c. Let testResult be ToBoolean(? Call(predicate, T, « kValue, k, O »)).
+                // d. If testResult is true, return k.
+                var kValue = o[k];
+                if (predicate.call(thisArg, kValue, k, o)) {
+                    return k;
+                }
+                // e. Increase k by 1.
+                k++;
+            }
+
+            // 7. Return -1.
+            return -1;
+        }
+    });
 }

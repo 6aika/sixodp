@@ -5,6 +5,30 @@
   .container {
     box-sizing: content-box;
   }
+
+  .page-template-ajankohtaista & {
+    padding: $base*4 0;
+
+    .btn--ajankohtaista {
+      display: none;
+    }
+  }
+
+  .horizaccordion__btn-container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+
+    @media (min-width: $width-md) {
+      text-align: right;
+      margin-right: -15px;
+      margin-left: -15px;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
 }
 
 .wrapper--horizaccordion-inner {
@@ -19,12 +43,13 @@
 
   .horizaccordion__container {
     width: 100%;
-    max-width: $base*44;
+    max-width: $base*41;
     margin-left: auto;
     margin-right: auto;
     position: relative;
-    transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out 0.2s;
     margin-top: $base*2;
+    box-sizing: border-box;
 
     &:after {
       content: '';
@@ -61,9 +86,9 @@
     border-left: 1px solid rgba(255,255,255,0.6);
 
     .horizaccordion__text,
-    .horizaccordion__footer .btn {
+    .horizaccordion__meta,
+    .horizaccordion__footer a {
       opacity: 0;
-      display: block;
       transition: opacity .0s ease-in-out .0s;
     }
 
@@ -81,7 +106,8 @@
           }
 
           .horizaccordion__text,
-          .horizaccordion__footer .btn {
+          .horizaccordion__meta,
+          .horizaccordion__footer a {
             opacity: 1;
             transition: opacity .3s ease-in-out .1s;
           }
@@ -111,7 +137,7 @@
     }
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: $width-lg) {
 
     &:hover {
 
@@ -130,8 +156,35 @@
   }
 }
 
+.horizaccordion__meta {
+  color: $brand-secondary-light;
+  margin-bottom: $base*2;
+  z-index: 2;
+  position: relative;
+}
 
+.horizaccordion__meta {
 
+  * {
+    color: $brand-secondary-light;
+  }
+
+  span {
+    margin-right: $base*0.5;
+  }
+
+  a {
+    margin: 0 $base*0.5;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+      color: $brand-secondary-light;
+      border-color: $brand-secondary-light;
+      text-decoration: under
+    }
+  }
+}
 
 .horizaccordion__title {
   font-size: 2rem;
@@ -143,7 +196,7 @@
 .horizaccordion__item {
   height: 100%;
   padding: $base $base*2 $base*2;
-  color: #fff;
+  color: $brand-white;
   border-right: 1px solid rgba(255,255,255,0.6);
 }
 
@@ -151,13 +204,15 @@
   width: 100%;
 }
 
-.horizaccordion__link {
-  color: #fff;
+.horizaccordion__link,
+.horizaccordion__link:focus {
+  color: $brand-white;
   position: relative;
   z-index: 1;
+  text-decoration: none;
 
   &:hover {
-    color: #eee;
+    color: $brand-lightgray;
   }
 }
 
@@ -169,7 +224,9 @@
 .horizaccordion__footer {
   margin-top: $base*2;
 
-  .btn {
+  .btn,
+  a {
+    display: inline-block;
     position: relative;
     z-index: 1;
   }

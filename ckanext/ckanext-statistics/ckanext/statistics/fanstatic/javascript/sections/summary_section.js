@@ -34,5 +34,7 @@ SummarySection.prototype.setDateRange = function (dates) {
 }
 
 
-SummarySection.prototype.onContentResize = function (width, height = undefined) {
+SummarySection.prototype.onContentResize = function (width, height) {
+  if (!height)
+    height = undefined
 }

@@ -12,7 +12,7 @@
               foreach(get_ckan_categories() as $category) : 
                 $display_name = $category['display_name'];
                 $name         = $category['name'];
-                $url          = CKAN_BASE_URL.'/data/groups/'.$name;
+                $url          = CKAN_BASE_URL.'/groups/'.$name;
                 $image_url    = $category['image_display_url']; ?>
                 <div class="category__wrapper">
                   <div class="category">

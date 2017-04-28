@@ -19,6 +19,8 @@ get_header(); ?>
 	<main id="main" class="site-main site-main--home" role="main">
 		<?php
 
+      get_template_part('partials/header-logos');
+
 			echo '<h1 class="heading--tuki">Tuki</h1>';
 			get_template_part( 'partials/tuki-contentbox' );
       

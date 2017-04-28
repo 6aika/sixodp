@@ -5,11 +5,6 @@
 
 {% block subtitle %}{{ pkg.title or pkg.name }} - {{ _('Showcases') }}{% endblock %}
 
-{% block styles %}
-  {{ super() }}
-  <link rel="stylesheet" href="{{ g.site_url }}/ckanext_showcase.css" />
-{% endblock %}
-
 {% block links -%}
   {{ super() }}
   <link rel="alternate" type="application/rdf+xml" href="{{ h.url_for(controller='ckanext.showcase.controller:ShowcaseController', action='read', id=pkg.id, format='rdf', qualified=True) }}"/>
@@ -49,7 +44,7 @@
       <div class="headings-wrapper">
         <h1 class="page-heading">
           {% block page_heading %}
-            {{ name }}
+            {{ name }} {% if pkg.archived == 'true' %}<span class="heading-extra">({{ _('Archived') }})</span>{% endif %}
             {% if pkg.state.startswith('draft') %}
               [{{ _('Draft') }}]
             {% endif %}
@@ -108,6 +103,8 @@
     {% snippet 'snippets/image_modal.html' %}
   </div>
 {% endblock %}
+
+{% block offcanvas_button %}{% endblock %}
 
 {% block primary_content_inner %}
 

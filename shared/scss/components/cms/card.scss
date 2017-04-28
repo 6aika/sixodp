@@ -7,14 +7,16 @@
 }
 
 .card {
-  border-radius: 6px;
+  border-radius: $base/2;
   background: white;
   padding: $base*2;
-  margin: $base;
-  border: 1px solid #e7e7e7;
-  width: 33%;
+  margin: $base auto;
+  border: 1px solid $brand-gray;
+  width: 75%;
 
   @media (min-width: $width-sm) {
+    width: 33%;
+    margin: $base;
 
     &:first-child {
       margin-left: 0;
@@ -28,7 +30,7 @@
 
 .card__title {
   @include heading();
-  border-bottom: 1px solid #e7e7e7;
+  border-bottom: 1px solid $brand-gray;
   padding-bottom: $base;
   margin-bottom: $base;
   font-size: 2.2rem;
@@ -54,8 +56,13 @@
   background: linear-gradient(135deg, $brand-primary-extradark 0%, $brand-primary 56%, $brand-primary-extralight 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   padding: $base*4 0;
 
-  .heading--mleft {
-    color: #fff;
+  .heading--featured {
+    color: $brand-white;
+    text-align: center;
+
+    @media(min-width: $width-sm) {
+      text-align: left;
+    }
   }
 }
 
@@ -65,9 +72,14 @@
 
 .card--latest {
   @extend .card;
-  width: 48%;
+  width: 75%;
   padding: 0;
   border: 0;
+
+
+  @media(min-width: $width-sm) {
+    width: 48%;
+  }
 }
 
 .card__title--latest {
@@ -87,9 +99,9 @@
 .card__meta--latest {
   padding: $base;
   background: $brand-secondary;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  color: #fff;
+  border-top-left-radius: $base/2;
+  border-top-right-radius: $base/2;
+  color: $brand-white;
 }
 
 .card__categorylink--latest {
@@ -112,10 +124,10 @@
 }
 
 .card__img {
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
+  border-top-left-radius: $base/2;
+  border-top-right-radius: $base/2;
 }
 
 .showcase__footer p {
-  color: #fff;
+  color: $brand-white;
 }

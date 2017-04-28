@@ -1,0 +1,11 @@
+.pagination {
+  ul {
+    @extend .pagination;
+    margin: 0;
+  }
+}
+
+.pagination-centered{
+  text-align: center;
+  display: block;
+}

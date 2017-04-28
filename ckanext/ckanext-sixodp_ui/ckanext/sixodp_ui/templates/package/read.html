@@ -33,4 +33,14 @@
     {% snippet "package/snippets/additional_info.html", pkg_dict=pkg %}
   {% endblock %}
 
+  {% block package_info_mobile_only %}
+    <div class="mobile-only">
+      {% snippet "snippets/social.html" %}
+      {% block package_subscribe %}
+        <h2 class="module-heading">{{ _('Subscribe for dataset updates') }}</h2>
+        {% snippet "reminder/snippets/subscription_form.html", package=pkg %}
+      {% endblock %}
+    </div>
+  {% endblock %}
+
 {% endblock %}

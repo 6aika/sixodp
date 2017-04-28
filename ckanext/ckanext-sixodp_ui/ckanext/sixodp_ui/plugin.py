@@ -203,7 +203,8 @@ class Sixodp_UiPlugin(plugins.SingletonPlugin, DefaultTranslation):
         required_keys = [
             'ckanext.sixodp_ui.cms_site_url',
             'ckanext.sixodp_ui.wp_main_menu_location',
-            'ckanext.sixodp_ui.wp_footer_menu_location'
+            'ckanext.sixodp_ui.wp_footer_menu_location',
+            'ckanext.sixodp_ui.wp_social_menu_location',
         ]
 
         for key in required_keys:
@@ -239,11 +240,13 @@ class Sixodp_UiPlugin(plugins.SingletonPlugin, DefaultTranslation):
                 'get_qa_openness': get_qa_openness,
                 'dataset_display_name': helpers.dataset_display_name,
                 'get_navigation_items_by_menu_location': helpers.get_navigation_items_by_menu_location,
-                'get_main_navigation_items': helpers.get_main_navigation_items,
                 'get_footer_navigation_items': helpers.get_footer_navigation_items,
+                'get_social_links': helpers.get_social_links,
+                'get_social_link_icon_class': helpers.get_social_link_icon_class,
                 'get_groups_for_package': helpers.get_groups_for_package,
                 'scheming_language_text_or_empty': helpers.scheming_language_text_or_empty,
                 'resource_display_name': helpers.resource_display_name,
                 'get_notifications': helpers.get_notifications,
                 'menu_is_active': helpers.menu_is_active,
+                'build_nav_main': helpers.build_nav_main
                 }
