@@ -117,3 +117,9 @@
 
 - include: local_plugin.yml
   with_items: "{{ wordpress_local_plugins }}"
+
+- name: Create polylang languages in MySQL
+  shell: mysql -u {{ wordpress_database_user }}  {{ wordpress_database_name }} < {{ role_path }}/files/polylang_config.sql
+  environment:
+    MYSQL_HOST: "{{ wordpress_database_host }}"
+    MYSQL_PWD: "{{ secret.wordpress_database_password }}"
