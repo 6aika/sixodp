@@ -5,96 +5,112 @@
 <form class="dataset-form form-horizontal" method="post" action="submit-showcase" data-module="basic-form" novalidate>
   {% block errors %}{{ form.errors(error_summary) }}{% endblock %}
 
-  {% call form.input(
-  'title',
-  id='field-title',
-  label=h.scheming_language_text('Title'),
-  placeholder=h.scheming_language_text('eg. A descriptive title'),
-  value=data['title'],
-  error=errors['title'],
-  classes=['control-full'],
-  attrs={},
-  is_required=true
-  )
-  %}
-  {% endcall %}
-
-  {% call form.textarea(
-  'notes_translated-fi',
-  id='field-notes_translated-fi',
-  label=h.scheming_language_text('Description'),
-  placeholder='',
-  value=data['notes_translated']['fi'],
-  error=errors['notes_translated'],
-  classes=['control-full'],
-  attrs={},
-  is_required=true
-  )
-  %}
-  {% endcall %}
-
-  {% call form.input(
-  'author',
-  id='field-author',
-  label=_('Name or organization of the author'),
-  placeholder='',
-  value=data['author'],
-  error=errors['author'],
-  classes=['control-medium'],
-  attrs={},
-  is_required=true
-  )
-  %}
-  {% endcall %}
-
-  {% call form.input(
-  'application_website',
-  id='field-application_website',
-  label=_('Application website'),
-  placeholder='',
-  value=data['application_website'],
-  error=errors['application_website'],
-  classes=['control-medium'],
-  attrs={},
-  is_required=true
-  )
-  %}
-  {% endcall %}
-
-  {% call form.input(
-  'platform',
-  id='field-platform',
-  label=_('Platform'),
-  placeholder=_('e.g. android'),
-  value=data['platform'],
-  error=errors['platform'],
-  classes=['control-medium'],
-  attrs={
-    "data-module": "autocomplete",
-    "data-module-tags": "",
-    "data-module-source": "/api/2/util/tag/autocomplete?incomplete=?&vocabulary_id=platform"
-  },
-  is_required=true
-  )
-  %}
-  {% endcall %}
-
-  {{ scheming_form.input_multiple(
-    'store_urls',
-    id='field-store_urls',
-    label=_('Store urls'),
-    value=data['store_urls'],
-    placeholder='',
-    error=errors['store_urls'],
-    attrs={},
-    is_required=true,
-    classes=['control-medium']) }}
-
-  {% block form_actions %}
-    <div class="form-actions">
-      <button class="btn btn-primary" type="submit" name="save">
-        {% block save_button_text %}{{ _('Submit') }}{% endblock %}
-      </button>
+  <div class="row row-compensate">
+    <div class="col-xs-12">
+      {% call form.input(
+        'title',
+        id='field-title',
+        label=h.scheming_language_text('Title'),
+        placeholder=h.scheming_language_text('eg. A descriptive title'),
+        value=data['title'],
+        error=errors['title'],
+        classes=['control-full'],
+        attrs={},
+        is_required=true
+        )
+        %}
+      {% endcall %}
     </div>
-  {% endblock %}
+
+    <div class="col-xs-12">
+      {% call form.textarea(
+        'notes_translated-fi',
+        id='field-notes_translated-fi',
+        label=h.scheming_language_text('Description'),
+        placeholder='',
+        value=data['notes_translated']['fi'],
+        error=errors['notes_translated'],
+        classes=['control-full'],
+        attrs={},
+        is_required=true
+        )
+        %}
+      {% endcall %}
+    </div>
+
+    <div class="col-md-8 col-xs-12">
+      {% call form.input(
+      'author',
+      id='field-author',
+      label=_('Name or organization of the author'),
+      placeholder='',
+      value=data['author'],
+      error=errors['author'],
+      classes=['control-medium'],
+      attrs={},
+      is_required=true
+      )
+      %}
+      {% endcall %}
+    </div>
+
+    <div class="col-md-8 col-xs-12">
+      {% call form.input(
+      'application_website',
+      id='field-application_website',
+      label=_('Application website'),
+      placeholder='',
+      value=data['application_website'],
+      error=errors['application_website'],
+      classes=['control-medium'],
+      attrs={},
+      is_required=true
+      )
+      %}
+      {% endcall %}
+    </div>
+
+    <div class="col-xs-12">
+      {% call form.input(
+      'platform',
+      id='field-platform',
+      label=_('Platform'),
+      placeholder=_('e.g. android'),
+      value=data['platform'],
+      error=errors['platform'],
+      classes=['control-medium'],
+      attrs={
+        "data-module": "autocomplete",
+        "data-module-tags": "",
+        "data-module-source": "/api/2/util/tag/autocomplete?incomplete=?&vocabulary_id=platform"
+      },
+      is_required=true
+      )
+      %}
+      {% endcall %}
+    </div>
+
+    <div class="col-xs-12">
+      {{ scheming_form.input_multiple(
+        'store_urls',
+        id='field-store_urls',
+        label=_('Store urls'),
+        value=data['store_urls'],
+        placeholder='',
+        error=errors['store_urls'],
+        attrs={},
+        is_required=true,
+        classes=['control-medium']) }}
+    </div>
+
+    <div class="col-xs-12">
+      {% block form_actions %}
+        <div class="form-actions">
+          <button class="btn btn-primary" type="submit" name="save">
+            {% block save_button_text %}{{ _('Submit') }}{% endblock %}
+          </button>
+        </div>
+      {% endblock %}
+    </div>
+  </div>
 </form>

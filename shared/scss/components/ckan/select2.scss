@@ -6,9 +6,10 @@
     color: $input-color;
     font-size: $font-size-base;
     padding: 0;
-    border: 1px solid $table-border-color;
+    border: 1px solid $input-border;
     transition: border-color .2s ease-in-out;
     background: $input-background-color;
+    border-radius: $border-radius-base;
 
     input {
       height: $input-height-small;

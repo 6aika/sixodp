@@ -2,6 +2,7 @@ input {
   height: $input-height-small;
   line-height: $line-height-small;
   background-color: $input-background-color;
+  border-radius: $border-radius-base;
 
   &[type="file"] {
     cursor: pointer;
