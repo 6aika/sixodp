@@ -1,0 +1,90 @@
+# Translations template for ckanext-sixodp_showcasesubmit.
+# Copyright (C) 2017 ORGANIZATION
+# This file is distributed under the same license as the
+# ckanext-sixodp_showcasesubmit project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ckanext-sixodp_showcasesubmit 0.0.1\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-05-02 10:33+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ckanext/sixodp_showcasesubmit/controller.py:68
+msgid "Unauthorized to create a package"
+msgstr ""
+
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/base_form_page.html:9
+msgid "Submit a showcase"
+msgstr ""
+
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/base_form_page.html:11
+msgid ""
+" By filling this form you can submit your open-data showcase to be published "
+"on this website. Fill in at least the desired title of your showcase and "
+"leave your contact information. The site adminstrator will contact you for "
+"further information after a few days. "
+msgstr ""
+
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:40
+msgid ""
+" An universal, compact and easy to understand description of the showcase. "
+"E.g. describe what the showcase does or how it utilizes open data. "
+msgstr ""
+
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:51
+msgid "Name or organization of the author"
+msgstr ""
+
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:62
+msgid ""
+" Can be a person's name or the name of the organization which has developed "
+"the showcase. "
+msgstr ""
+
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:72
+msgid "Application website"
+msgstr ""
+
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:83
+msgid " The original source url or a website dedicated for the showcase "
+msgstr ""
+
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:93
+msgid "Platform"
+msgstr ""
+
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:94
+msgid "e.g. android"
+msgstr ""
+
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:108
+msgid ""
+" Type in separately every platform that the showcase supports. First type the"
+" name of the platform and press enter to select it. You can remove platforms "
+"by clicking the remove icon before the platform name or remove the last one "
+"with backspace. "
+msgstr ""
+
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:120
+msgid "Store urls"
+msgstr ""
+
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:128
+msgid ""
+" Enter at least one url to the showcase in platform specific application "
+"stores (e.g. Apple App Store, Google Play or Windows App Store) "
+msgstr ""
+
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:139
+msgid "Submit"
+msgstr ""
+
