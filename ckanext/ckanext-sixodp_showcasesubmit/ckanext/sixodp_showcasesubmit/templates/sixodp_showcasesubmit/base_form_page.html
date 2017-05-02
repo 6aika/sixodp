@@ -3,9 +3,8 @@
 {% block pre_primary %}
 <div class="container">
   <div class="row">
-    <div class="col-lg-8 col-lg-offset-3 col-xs-12">
-      {% block page_header %}{% endblock %}
-      {% block primary_content_inner %}
+    <div class="col-lg-8 col-lg-offset-2 col-xs-12">
+      {% block pre_primary_content %}
         <h1 class="page-heading">{{ _('Submit a showcase') }}</h1>
         <p>
           {% trans %}
@@ -21,8 +20,7 @@
 </div>
 {% endblock %}
 
+{% block breadcrumb %}{% endblock %}
 {% block offcanvas_button %}{% endblock %}
-
-{% block primary_content %}{% endblock %}
-
+{% block primary %}{% endblock %}
 {% block secondary %}{% endblock %}
