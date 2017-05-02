@@ -36,6 +36,12 @@
         )
         %}
       {% endcall %}
+      <div class="field-assistive-text">
+        {% trans %}
+          An universal, compact and easy to understand description of the showcase. E.g. describe what the showcase
+          does or how it utilizes open data.
+        {% endtrans %}
+      </div>
     </div>
 
     <div class="col-md-8 col-xs-12">
@@ -52,6 +58,11 @@
       )
       %}
       {% endcall %}
+      <div class="field-assistive-text">
+        {% trans %}
+          Can be a person's name or the name of the organization which has developed the showcase.
+        {% endtrans %}
+      </div>
     </div>
 
     <div class="col-md-8 col-xs-12">
@@ -68,6 +79,11 @@
       )
       %}
       {% endcall %}
+      <div class="field-assistive-text">
+        {% trans %}
+          The original source url or a website dedicated for the showcase
+        {% endtrans %}
+      </div>
     </div>
 
     <div class="col-xs-12">
@@ -88,6 +104,13 @@
       )
       %}
       {% endcall %}
+      <div class="field-assistive-text">
+        {% trans %}
+          Type in separately every platform that the showcase supports. First type the name of the platform and press
+          enter to select it. You can remove platforms by clicking the remove icon before the platform name or remove
+          the last one with backspace.
+        {% endtrans %}
+      </div>
     </div>
 
     <div class="col-xs-12">
@@ -101,6 +124,12 @@
         attrs={},
         is_required=true,
         classes=['control-medium']) }}
+      <div class="field-assistive-text">
+        {% trans %}
+          Enter at least one url to the showcase in platform specific application stores (e.g. Apple App Store,
+          Google Play or Windows App Store)
+        {% endtrans %}
+      </div>
     </div>
 
     <div class="col-xs-12">
