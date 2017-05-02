@@ -3,17 +3,17 @@
 {% if not data %}{% set data = { 'notes_translated': {} } %}{% endif %}
 {% if not errors %}{% set errors = {} %}{% endif %}
 <form class="dataset-form form-horizontal" method="post" action="submit-showcase" data-module="basic-form" novalidate>
-  {% block errors %}{{ form.errors(error_summary) }}{% endblock %}
+  {% block errors %}{% endblock %}
 
   <div class="row row-compensate">
     <div class="col-xs-12">
       {% call form.input(
         'title',
         id='field-title',
-        label=h.scheming_language_text('Title'),
+        label=h.scheming_language_text('Showcase name'),
         placeholder=h.scheming_language_text('eg. A descriptive title'),
         value=data['title'],
-        error=errors['title'],
+        error=errors['name'],
         classes=['control-full'],
         attrs={},
         is_required=true
@@ -32,7 +32,7 @@
         error=errors['notes_translated'],
         classes=['control-full'],
         attrs={},
-        is_required=true
+        is_required=false
         )
         %}
       {% endcall %}
