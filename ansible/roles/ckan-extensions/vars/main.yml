@@ -28,3 +28,4 @@ ckan_extensions:
   - ckanext-datasubmitter
   - ckanext-statistics
   - ckanext-sixodp_harvester
+  - ckanext-sixodp_showcasesubmit

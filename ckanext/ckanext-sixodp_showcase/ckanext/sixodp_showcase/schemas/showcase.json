@@ -196,7 +196,13 @@
       "label": "Notifier Email",
       "form_placeholder": "joe@example.com",
       "display_snippet": null
+    },
+    {
+      "field_name": "private",
+      "label": "Visibility",
+      "form_snippet": "private.html",
+      "display_snippet": null,
+      "validators": "boolean_validator set_private_if_not_admin"
     }
-
   ]
 }

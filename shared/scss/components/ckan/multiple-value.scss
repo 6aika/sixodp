@@ -3,6 +3,10 @@
     height: $input-height-base;
     margin-bottom: $margin-large-vertical;
 
+    &:last-child {
+      margin-bottom: 0;
+    }
+
     .multiple-value {
       padding-left: 30px;
     }
