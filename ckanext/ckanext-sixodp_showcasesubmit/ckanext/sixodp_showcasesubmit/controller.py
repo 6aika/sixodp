@@ -4,7 +4,6 @@ import ckan.logic as logic
 import ckan.lib.base as base
 import ckan.lib.helpers as h
 import ckan.model as model
-import datetime
 import ckan.lib.navl.dictization_functions as dict_fns
 from ckan.common import _, request, c, response
 from ckan.common import config
@@ -44,12 +43,24 @@ class Sixodp_ShowcasesubmitController(p.toolkit.BaseController):
             parsedParams = dict_fns.unflatten(tuplize_dict(parse_params(
                 request.params)))
 
-            name = parsedParams.get('title_translated-fi').replace(" ", "-").lower()
+            name = parsedParams.get('title').replace(" ", "-").lower()
 
-            # Todo depict the showcase schema here
             data_dict = {
                 'type': 'showcase',
+                'title': parsedParams.get('title'),
                 'name': name,
+                'platform': parsedParams.get('platform'),
+                'author': parsedParams.get('author'),
+                'application_website': parsedParams.get('application_website'),
+                'store_urls': parsedParams.get('store_urls'),
+                'notes_translated': {
+                    'fi': parsedParams.get('notes_translated-fi'),
+                    'en': '',
+                    'sv': ''
+                },
+                'featured': False,
+                'archived': False,
+                'private': True
             }
 
             get_action('package_create')(context, data_dict)
