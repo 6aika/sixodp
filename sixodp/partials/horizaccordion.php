@@ -30,7 +30,7 @@
                   </h4>
                   <div class="horizaccordion__meta">
                     <span><?php echo parse_date(get_the_date()); ?></span>
-                      <?php 
+                      <?php
                         if ( count(get_the_category()) > 0 ) {
                           foreach ( get_the_category() as $cat ) { ?>
                             | <a href="<?php echo $cat->slug; ?>"><?php echo $cat->name; ?></a><?php
@@ -42,11 +42,11 @@
                     <?php the_excerpt(); ?>
                   </div>
                   <div class="horizaccordion__footer">
-                    <a type="button" href="<?php the_permalink(); ?>" class="btn btn-secondary">Lue lisää</a>
+                    <a type="button" href="<?php the_permalink(); ?>" class="btn btn-secondary"><?php _e('Read more');?> </a>
                   </div>
                 </div>
               </div>
-            <?php endforeach; 
+            <?php endforeach;
             wp_reset_postdata();?>
         </div>
       </div>
@@ -55,7 +55,7 @@
   <div class="container">
     <div class="row horizaccordion__btn-container">
       <a type="button" href="/ajankohtaista" class="btn btn-lg btn-secondary btn--ajankohtaista">
-        Ajankohtaista <i class="material-icons">arrow_forward</i>
+        <?php _e('Latest updates');?>  <i class="material-icons">arrow_forward</i>
       </a>
     </div>
   </div>

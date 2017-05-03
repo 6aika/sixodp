@@ -13,7 +13,7 @@
       </h4>
       <p>Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       <div class="card__footer">
-        <button type="button" class="btn btn-primary">Lue lisää</button>
+        <button type="button" class="btn btn-primary"><?php _e('Read more');?></button>
       </div>
     </div>
   </div>

@@ -5,9 +5,9 @@
 ?>
 
 <div class="wrapper--latest">
-  
+
   <div class="container">
-    <h1 class="heading--featured">Viimeisimmät päivitykset</h1>
+    <h1 class="heading--featured"><?php _e('Latest updates');?> </h1>
   </div>
 
   <div class="container">
@@ -15,7 +15,7 @@
       <?php
         // @TODO: get data from different sources
         foreach ( get_all_recent_data() as $index => $dataset ) : ?>
-          <?php if ($index === 4 || $index === 8) echo '</div><div class="row cards--latest">'; ?> 
+          <?php if ($index === 4 || $index === 8) echo '</div><div class="row cards--latest">'; ?>
           <div class="card--latest">
             <div class="card__meta--latest">
               <?php echo get_days_ago($dataset['metadata_created']); ?>
@@ -45,7 +45,7 @@
   <div class="container" style="display: none;">
     <div class="row text-right">
       <a href="/data/<?php echo get_current_locale(); ?>/datasets/" class="btn btn-lg btn-secondary btn--sovellukset">
-        Lisää päivityksiä <i class="material-icons">arrow_forward</i>
+        <?php _e('More updates');?>  <i class="material-icons">arrow_forward</i>
       </a>
     </div>
   </div>
