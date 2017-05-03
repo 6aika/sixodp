@@ -132,6 +132,120 @@
     </div>
 
     <div class="col-xs-12">
+      <hr>
+      <h2>{{ _('Showcase images') }}</h2>
+    </div>
+
+    <div class="col-xs-12">
+      <p>
+        {% trans %}
+          Upload or provide a link for up to three images which will be presented in the showcase info page.
+        {% endtrans %}
+      </p>
+    </div>
+
+    <div class="col-xs-12">
+      {%- set is_upload = (data.url_type == 'upload') -%}
+      {{ form.image_upload(
+        data,
+        errors,
+        field_url='image_1',
+        field_upload='image_1_upload',
+        field_clear='clear_image_1_upload',
+        is_upload_enabled=true,
+        is_url=data['image_1'] and not is_upload,
+        is_upload=is_upload,
+        upload_label=_('Image 1'),
+        url_label=_('Image 1'),
+        placeholder=''
+        )
+      }}
+    </div>
+
+    <div class="col-xs-12">
+      {%- set is_upload = (data.url_type == 'upload') -%}
+      {{ form.image_upload(
+        data,
+        errors,
+        field_url='image_2',
+        field_upload='image_2_upload',
+        field_clear='clear_image_2_upload',
+        is_upload_enabled=true,
+        is_url=data['image_2'] and not is_upload,
+        is_upload=is_upload,
+        upload_label=_('Image 2'),
+        url_label=_('Image 2'),
+        placeholder=''
+        )
+      }}
+    </div>
+
+    <div class="col-xs-12">
+      {%- set is_upload = (data.url_type == 'upload') -%}
+      {{ form.image_upload(
+        data,
+        errors,
+        field_url='image_3',
+        field_upload='image_3_upload',
+        field_clear='clear_image_3_upload',
+        is_upload_enabled=true,
+        is_url=data['image_3'] and not is_upload,
+        is_upload=is_upload,
+        upload_label=_('Image 3'),
+        url_label=_('Image 3'),
+        placeholder=''
+        )
+      }}
+    </div>
+
+    <div class="col-xs-12">
+      {%- set is_upload = (data.url_type == 'upload') -%}
+      {{ form.image_upload(
+        data,
+        errors,
+        field_url='icon',
+        field_upload='icon_upload',
+        field_clear='clear_icon_upload',
+        is_upload_enabled=true,
+        is_url=data['icon'] and not is_upload,
+        is_upload=is_upload,
+        upload_label=_('Icon'),
+        url_label=_('Icon'),
+        placeholder=''
+        )
+      }}
+      <div class="field-assistive-text">
+        {% trans %}
+          Upload or provide a link to an icon image file. This image will be shown as the icon for the showcase.
+        {% endtrans %}
+      </div>
+    </div>
+
+    <div class="col-xs-12">
+      {%- set is_upload = (data.url_type == 'upload') -%}
+      {{ form.image_upload(
+        data,
+        errors,
+        field_url='featured_image',
+        field_upload='featured_image_upload',
+        field_clear='clear_featured_image_upload',
+        is_upload_enabled=true,
+        is_url=data['featured_image'] and not is_upload,
+        is_upload=is_upload,
+        upload_label=_('Featured image'),
+        url_label=_('Featured image'),
+        placeholder=''
+        )
+      }}
+      <div class="field-assistive-text">
+        {% trans %}
+          Upload or provide a link to an image file which will be shown elsewhere in the site as an advert for the showcase.
+        {% endtrans %}
+      </div>
+    </div>
+
+    <div class="col-xs-12">
+      <hr>
       {% block form_actions %}
         {% if message %}
           <div class="alert alert-{{message.class}}">

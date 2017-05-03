@@ -28,7 +28,7 @@ def index_template():
 class Sixodp_ShowcasesubmitController(p.toolkit.BaseController):
 
     def index(self):
-        vars = {'data': {}, 'errors': [],
+        vars = {'data': {}, 'errors': {},
                 'error_summary': {}, 'message': None}
         return render(index_template(), extra_vars=vars)
 
@@ -60,6 +60,11 @@ class Sixodp_ShowcasesubmitController(p.toolkit.BaseController):
                     'en': '',
                     'sv': ''
                 },
+                'icon': parsedParams.get('icon'),
+                'featured_image': parsedParams.get('featured_image'),
+                'image_1': parsedParams.get('image_1'),
+                'image_2': parsedParams.get('image_2'),
+                'image_3': parsedParams.get('image_3'),
                 'featured': False,
                 'archived': False,
                 'private': True
@@ -74,11 +79,11 @@ class Sixodp_ShowcasesubmitController(p.toolkit.BaseController):
             data_dict['state'] = 'none'
             return data_dict, errors, error_summary, None
 
-        return data_dict, [], {}, { 'class': 'success', 'text':  _('Showcase submitted successfully')}
+        return {}, {}, {}, { 'class': 'success', 'text':  _('Showcase submitted successfully')}
 
     def ajax_submit(self):
-        data, errors, error_summary = self._submit()
-        data = flatten_to_string_key({ 'data': data, 'errors': errors, 'error_summary': error_summary })
+        data, errors, error_summary, message = self._submit()
+        data = flatten_to_string_key({ 'data': data, 'errors': errors, 'error_summary': error_summary, 'message': message })
         response.headers['Content-Type'] = 'application/json;charset=utf-8'
         return h.json.dumps(data)
 
