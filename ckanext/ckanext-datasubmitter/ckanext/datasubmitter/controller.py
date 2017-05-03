@@ -29,7 +29,9 @@ def index_template():
 class DatasubmitterController(p.toolkit.BaseController):
 
     def index(self):
-        return render(index_template())
+        vars = {'data': {}, 'errors': [],
+                'error_summary': {}}
+        return render(index_template(), extra_vars=vars)
 
     @staticmethod
     def _submit():
