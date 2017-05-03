@@ -62,6 +62,9 @@ class Sixodp_ShowcasesubmitController(p.toolkit.BaseController):
                 },
                 'icon': parsedParams.get('icon'),
                 'featured_image': parsedParams.get('featured_image'),
+                'image_1_upload': parsedParams.get('image_1_upload'),
+                'image_2_upload': parsedParams.get('image_2_upload'),
+                'image_3_upload': parsedParams.get('image_3_upload'),
                 'image_1': parsedParams.get('image_1'),
                 'image_2': parsedParams.get('image_2'),
                 'image_3': parsedParams.get('image_3'),
@@ -70,7 +73,7 @@ class Sixodp_ShowcasesubmitController(p.toolkit.BaseController):
                 'private': True
             }
 
-            get_action('package_create')(context, data_dict)
+            get_action('ckanext_showcase_create')(context, data_dict)
         except NotAuthorized:
             abort(403, _('Unauthorized to create a package'))
         except ValidationError, e:

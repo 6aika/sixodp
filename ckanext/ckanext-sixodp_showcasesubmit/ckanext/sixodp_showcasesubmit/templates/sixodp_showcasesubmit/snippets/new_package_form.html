@@ -1,7 +1,7 @@
 {% import 'macros/form.html' as form %}
 {% import 'scheming/macros/form.html' as scheming_form %}
 
-<form class="dataset-form form-horizontal" method="post" action="submit-showcase" data-module="basic-form" novalidate>
+<form enctype="multipart/form-data" class="dataset-form form-horizontal" method="post" action="submit-showcase" data-module="basic-form" novalidate>
   {% block errors %}{% endblock %}
 
   <div class="row row-compensate">
