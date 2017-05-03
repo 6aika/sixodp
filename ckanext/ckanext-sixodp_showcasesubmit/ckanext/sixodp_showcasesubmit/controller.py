@@ -29,7 +29,7 @@ class Sixodp_ShowcasesubmitController(p.toolkit.BaseController):
 
     def index(self):
         vars = {'data': {}, 'errors': [],
-                'error_summary': {}}
+                'error_summary': {}, 'message': None}
         return render(index_template(), extra_vars=vars)
 
     @staticmethod
@@ -72,9 +72,9 @@ class Sixodp_ShowcasesubmitController(p.toolkit.BaseController):
             errors = e.error_dict
             error_summary = e.error_summary
             data_dict['state'] = 'none'
-            return data_dict, errors, error_summary
+            return data_dict, errors, error_summary, None
 
-        return data_dict, [], {}
+        return data_dict, [], {}, { 'class': 'success', 'text':  _('Showcase submitted successfully')}
 
     def ajax_submit(self):
         data, errors, error_summary = self._submit()
@@ -83,8 +83,8 @@ class Sixodp_ShowcasesubmitController(p.toolkit.BaseController):
         return h.json.dumps(data)
 
     def submit(self):
-        data, errors, error_summary = self._submit()
+        data, errors, error_summary, message = self._submit()
         vars = {'data': data, 'errors': errors,
-                'error_summary': error_summary}
+                'error_summary': error_summary, 'message': message}
         return render(index_template(), extra_vars=vars)
 
