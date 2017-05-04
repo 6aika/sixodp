@@ -161,7 +161,7 @@ ckanext.sixodp_showcasesubmit.creating_user_username = {{ ckan_users.admin.usern
 disqus.name = sixodp-{{ deployment_environment_id }}
 
 # ckanext-googleanalytics
-{% if google_analytics -%}
+{% if google_analytics is defined %}
 googleanalytics.track_events = true
 googleanalytics.show_downloads = true
 googleanalytics.domain = auto
