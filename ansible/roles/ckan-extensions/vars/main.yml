@@ -29,3 +29,4 @@ ckan_extensions:
   - ckanext-statistics
   - ckanext-sixodp_harvester
   - ckanext-sixodp_showcasesubmit
+  - ckanext-googleanalytics

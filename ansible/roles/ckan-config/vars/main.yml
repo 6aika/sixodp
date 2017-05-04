@@ -38,6 +38,7 @@ enabled_ckan_extensions:
     - csw_harvester
     - sixodp_harvester
     - sixodp_showcasesubmit
+    - googleanalytics
 
 enabled_ckan_aws_extensions: cloudstorage
 
