@@ -79,3 +79,7 @@ AWS:
   secret_access_key: somesecret
   ckan_s3_bucket: sixodp-testi-ampari
   region: S3_EU_WEST
+
+google_analytics:
+  id: UA-98421659-1
+  account: Sixodp

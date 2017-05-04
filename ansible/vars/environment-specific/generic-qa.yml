@@ -87,3 +87,7 @@ AWS:
   use_iam_role: true
   ckan_s3_bucket: sixodp-{{ deployment_environment_id }}-datasets
   region: S3_EU_WEST
+
+google_analytics:
+  id: UA-98421659-1
+  account: Sixodp

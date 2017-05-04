@@ -4,4 +4,4 @@
 [mainserver:vars]
 deployment_environment_id=vagrant
 secrets_file_path="vars/secrets-defaults.yml"
-google_analytics_secrets_file_path="vars/google_analytics_credentials.json"
+google_analytics_secrets_file_path="{{ cache_path}}/google_analytics_credentials.json"
