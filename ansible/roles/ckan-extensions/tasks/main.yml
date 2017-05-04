@@ -27,5 +27,9 @@
 
   when: deployment_environment_id == "vagrant"
 
+- name: Set ckanext-googleanalytics credentials
+  command: ./bin/paster --plugin=ckanext-googleanalytics loadanalytics /root/sixodp-secrets/{{ deployment_environment_id }}/google_analytics_credentials.json "--config={{ ckan_ini }}" chdir={{ virtualenv }}
+  when: deployment_environment_id != "vagrant"
+
 - name: Restart Apache
   service: name=apache2 state=restarted
