@@ -4,3 +4,4 @@ yourserver.example.com ansible_ssh_user=ubuntu ansible_ssh_private_key_file="../
 [mainserver:vars]
 deployment_environment_id=example_singleserver
 secrets_file_path="../../path-to-your-secrets/example_singleserver.yml"
+google_analytics_secrets_file_path="/path-to-your-google-analytics-secrets-json/google_analytics_credentials.json"

@@ -160,6 +160,15 @@ ckanext.sixodp_showcasesubmit.creating_user_username = {{ ckan_users.admin.usern
 # Disqus sites should always be named sixodp-CITY-ENVIRONMENT for the configuration to work properly
 disqus.name = sixodp-{{ deployment_environment_id }}
 
+# ckanext-googleanalytics
+{% if google_analytics is defined %}
+googleanalytics.track_events = true
+googleanalytics.show_downloads = true
+googleanalytics.domain = auto
+googleanalytics.id = {{ google_analytics.id }}
+googleanalytics.account = {{ google_analytics.account }}
+{% endif %}
+
 [loggers]
 
 keys = root, ckan, ckanext
