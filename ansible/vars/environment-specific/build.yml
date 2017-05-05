@@ -63,6 +63,33 @@ ckan_admins:
   - "{{ ckan_users.admin.username }}"
   - "{{ ckan_users.harvest.username }}"
 
+ckan_extensions:
+  - ckanext-sixodp_routes
+  - ckanext-sixodp_scheming
+  - ckanext-sixodp_ui
+  - ckanext-sixodp_showcase
+  - ckanext-scheming
+  - ckanext-showcase
+  - ckanext-fluent
+  - ckanext-pages
+  - ckanext-harvest
+  - ckanext-cloudstorage
+  - ckanext-report
+  - ckanext-qa
+  - ckanext-archiver
+  - ckanext-hierarchy
+  - ckanext-disqus
+  - ckanext-reminder
+  - ckanext-rating
+  - ckanext-editor
+  - ckanext-collection
+  - ckanext-datasetcopy
+  - ckanext-spatial
+  - ckanext-datasubmitter
+  - ckanext-statistics
+  - ckanext-sixodp_harvester
+  - ckanext-sixodp_showcasesubmit
+
 email_domain: "{{ public_facing_hostname }}"
 email:
   smtp_server: localhost
