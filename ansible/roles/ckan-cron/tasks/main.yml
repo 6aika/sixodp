@@ -21,3 +21,4 @@
 
 - name: Ensure googleanalytics loadanalytics cronjob
   cron: name="Load Google Analytics" minute="0" hour="1" job="/usr/lib/ckan/bin/paster --plugin=ckanext-googleanalytics loadanalytics {{ google_analytics_secrets_file_path }} --config={{ ckan_ini }}"
+  when: "'ckanext-googleanalytics' in ckan_extensions"
