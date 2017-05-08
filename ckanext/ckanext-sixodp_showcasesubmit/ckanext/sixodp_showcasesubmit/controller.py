@@ -28,7 +28,7 @@ parse_params = logic.parse_params
 def index_template():
     return 'sixodp_showcasesubmit/base_form_page.html'
 
-def _validateReCaptcha(recaptcha_response):
+def validateReCaptcha(recaptcha_response):
     response_data_dict = {}
     try:
         connection = httplib.HTTPSConnection('google.com')
@@ -37,12 +37,12 @@ def _validateReCaptcha(recaptcha_response):
             'response': recaptcha_response,
             'remoteip': p.toolkit.request.environ.get('REMOTE_ADDR')
         })
-        headers = {"Content-type": "application/x-www-form-urlencoded", "Accept": "text/plain"}
-        connection.request("POST", '/recaptcha/api/siteverify', params, headers)
+        headers = {'Content-type': 'application/x-www-form-urlencoded', 'Accept': 'text/plain'}
+        connection.request('POST', '/recaptcha/api/siteverify', params, headers)
         response_data_dict = json.loads(connection.getresponse().read())
         connection.close()
 
-        if(response_data_dict.get("success") != True):
+        if(response_data_dict.get('success') != True):
             raise ValidationError('Google reCaptcha validation failed')
     except Exception, e:
         log.error('Connection to Google reCaptcha API failed')
@@ -70,7 +70,7 @@ class Sixodp_ShowcasesubmitController(p.toolkit.BaseController):
             parsedParams = dict_fns.unflatten(tuplize_dict(parse_params(
                 request.params)))
 
-            name = parsedParams.get('title').replace(" ", "-").lower()
+            name = parsedParams.get('title').replace(' ', '-').lower()
 
             data_dict = {
                 'type': 'showcase',
@@ -98,7 +98,7 @@ class Sixodp_ShowcasesubmitController(p.toolkit.BaseController):
                 'private': True
             }
 
-            _validateReCaptcha(parsedParams.get('g-recaptcha-response'))
+            validateReCaptcha(parsedParams.get('g-recaptcha-response'))
 
             get_action('ckanext_showcase_create')(context, data_dict)
         except NotAuthorized:

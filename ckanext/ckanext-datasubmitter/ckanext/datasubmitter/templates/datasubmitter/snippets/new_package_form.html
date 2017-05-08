@@ -1,6 +1,12 @@
 {% import 'macros/form.html' as form %}
 
-<form class="dataset-form form-horizontal" method="post" action="submit-data" data-module="basic-form" novalidate>
+<script>
+  function onSubmit() {
+    document.getElementById("submit-dataset-form").submit();
+  }
+</script>
+
+<form id="submit-dataset-form" class="dataset-form form-horizontal" method="post" action="submit-data" data-module="basic-form" novalidate>
 
   <div class="row row-compensate">
     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-12">
@@ -83,7 +89,11 @@
           </div>
         {% endif %}
         <div class="form-actions">
-          <button class="btn btn-primary" type="submit" name="save">
+          <button class="btn btn-primary g-recaptcha"
+                  type="submit"
+                  name="save"
+                  data-sitekey="{{ h.get_recaptcha_sitekey() }}"
+                  data-callback="onSubmit">
             {% block save_button_text %}{{ _('Submit') }}{% endblock %}
           </button>
         </div>

@@ -1,6 +1,7 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 from ckan.lib.plugins import DefaultTranslation
+from ckanext.datasubmitter import helpers
 
 
 class DatasubmitterPlugin(plugins.SingletonPlugin, DefaultTranslation):
@@ -23,7 +24,9 @@ class DatasubmitterPlugin(plugins.SingletonPlugin, DefaultTranslation):
         # Raise an exception if required configs are missing
         required_keys = (
             'ckanext.datasubmitter.creating_user_username',
-            'ckanext.datasubmitter.organization_name_or_id'
+            'ckanext.datasubmitter.organization_name_or_id',
+            'ckanext.datasubmitter.recaptcha_sitekey',
+            'ckanext.datasubmitter.recaptcha_secret',
         )
 
         for key in required_keys:
@@ -52,3 +55,8 @@ class DatasubmitterPlugin(plugins.SingletonPlugin, DefaultTranslation):
                     action='ajax_submit')
 
         return map
+
+    # ITemplateHelpers
+
+    def get_helpers(self):
+        return {'get_recaptcha_sitekey': helpers.get_recaptcha_sitekey}

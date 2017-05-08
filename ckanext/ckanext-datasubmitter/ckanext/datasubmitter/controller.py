@@ -6,6 +6,9 @@ import ckan.lib.helpers as h
 import ckan.model as model
 import datetime
 import ckan.lib.navl.dictization_functions as dict_fns
+import httplib
+import json
+import urllib
 from ckan.common import _, request, c, response
 from ckan.common import config
 
@@ -25,6 +28,26 @@ parse_params = logic.parse_params
 
 def index_template():
     return 'datasubmitter/base_form_page.html'
+
+def validateReCaptcha(recaptcha_response):
+    response_data_dict = {}
+    try:
+        connection = httplib.HTTPSConnection('google.com')
+        params = urllib.urlencode({
+            'secret': config.get('ckanext.datasubmitter.recaptcha_secret'),
+            'response': recaptcha_response,
+            'remoteip': p.toolkit.request.environ.get('REMOTE_ADDR')
+        })
+        headers = {'Content-type': 'application/x-www-form-urlencoded', 'Accept': 'text/plain'}
+        connection.request('POST', '/recaptcha/api/siteverify', params, headers)
+        response_data_dict = json.loads(connection.getresponse().read())
+        connection.close()
+
+        if(response_data_dict.get('success') != True):
+            raise ValidationError('Google reCaptcha validation failed')
+    except Exception, e:
+        log.error('Connection to Google reCaptcha API failed')
+        raise ValidationError('Connection to Google reCaptcha API failed, unable to validate captcha')
 
 class DatasubmitterController(p.toolkit.BaseController):
 
@@ -49,7 +72,7 @@ class DatasubmitterController(p.toolkit.BaseController):
             parsedParams = dict_fns.unflatten(tuplize_dict(parse_params(
                 request.params)))
 
-            name = parsedParams.get('title_translated-fi').replace(" ", "-").lower()
+            name = parsedParams.get('title_translated-fi').replace(' ', '-').lower()
 
             data_dict = {
                 'type': 'dataset',
@@ -65,14 +88,16 @@ class DatasubmitterController(p.toolkit.BaseController):
                     'sv': ''
                 },
                 'owner_org': organization.id,
-                'geographical_coverage': ["update this before publishing"],
-                'date_released': datetime.date.today().strftime("%Y-%m-%d"),
-                'date_updated': datetime.date.today().strftime("%Y-%m-%d"),
+                'geographical_coverage': ['update this before publishing'],
+                'date_released': datetime.date.today().strftime('%Y-%m-%d'),
+                'date_updated': datetime.date.today().strftime('%Y-%m-%d'),
                 'maintainer': parsedParams.get('maintainer'),
                 'maintainer_email': parsedParams.get('maintainer_email'),
                 'license_id': 'other-open',
                 'private': True
             }
+
+            validateReCaptcha(parsedParams.get('g-recaptcha-response'))
 
             get_action('package_create')(context, data_dict)
         except NotAuthorized:
