@@ -5,6 +5,7 @@ internal_hostname: sixodp-demo
 ckan_site_name: Dataportaali
 ckan_featured_orgs:
 automatic_updates: false
+automatic_updates_recipient: root@localhost
 
 postgres:
   server:
