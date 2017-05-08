@@ -5,4 +5,6 @@
 {% block admin_form %}
 {{ super() }}
 {{ form.input('ckanext.datasubmitter.recipient_emails', id='field-ckanext.datasubmitter.recipient_emails', label=_('Dataset submit notification email addresses (separate emails with a space)'), value=data['ckanext.datasubmitter.recipient_emails'], error=errors['ckanext.datasubmitter.recipient_emails']) }}
+
+{{ form.input('ckanext.datasubmitter.organization_name_or_id', id='field-ckanext.datasubmitter.organization_name_or_id', label=_('The organization name (ending in organization\'s url) into which submitted datasets will be added'), value=data['ckanext.datasubmitter.organization_name_or_id'], error=errors['ckanext.datasubmitter.organization_name_or_id']) }}
 {% endblock %}

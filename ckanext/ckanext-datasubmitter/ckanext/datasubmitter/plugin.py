@@ -23,6 +23,7 @@ class DatasubmitterPlugin(plugins.SingletonPlugin, DefaultTranslation):
 
         schema.update({
             'ckanext.datasubmitter.recipient_emails': [ignore_missing, unicode],
+            'ckanext.datasubmitter.organization_name_or_id': [ignore_missing, unicode]
         })
 
         return schema
