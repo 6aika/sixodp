@@ -89,6 +89,11 @@ class Sixodp_ShowcasesubmitController(p.toolkit.BaseController):
                 'type': 'showcase',
                 'title': parsedParams.get('title'),
                 'name': name,
+                'category': {
+                    'fi': ['Ilmoitetut'],
+                    'en': [],
+                    'sv': []
+                },
                 'platform': parsedParams.get('platform'),
                 'author': parsedParams.get('author'),
                 'application_website': parsedParams.get('application_website'),
