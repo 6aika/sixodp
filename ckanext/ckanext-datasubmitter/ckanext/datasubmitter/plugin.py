@@ -18,6 +18,15 @@ class DatasubmitterPlugin(plugins.SingletonPlugin, DefaultTranslation):
         toolkit.add_public_directory(config_, 'public')
         toolkit.add_resource('fanstatic', 'datasubmitter')
 
+    def update_config_schema(self, schema):
+        ignore_missing = toolkit.get_validator('ignore_missing')
+
+        schema.update({
+            'ckanext.datasubmitter.recipient_emails': [ignore_missing, unicode],
+        })
+
+        return schema
+
     # IConfigurable
 
     def configure(self, config):
@@ -27,6 +36,7 @@ class DatasubmitterPlugin(plugins.SingletonPlugin, DefaultTranslation):
             'ckanext.datasubmitter.organization_name_or_id',
             'ckanext.datasubmitter.recaptcha_sitekey',
             'ckanext.datasubmitter.recaptcha_secret',
+            'ckanext.datasubmitter.recipient_emails'
         )
 
         for key in required_keys:

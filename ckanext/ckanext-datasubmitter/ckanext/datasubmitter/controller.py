@@ -11,6 +11,7 @@ import json
 import urllib
 from ckan.common import _, request, c, response
 from ckan.common import config
+from ckan.lib.mailer import mail_recipient
 
 log = logging.getLogger(__name__)
 
@@ -48,6 +49,19 @@ def validateReCaptcha(recaptcha_response):
     except Exception, e:
         log.error('Connection to Google reCaptcha API failed')
         raise ValidationError('Connection to Google reCaptcha API failed, unable to validate captcha')
+
+
+def sendNewDatasetNotifications(package_name):
+    recipient_emails = config.get('ckanext.datasubmitter.recipient_emails').split(' ')
+    dataset_url = config.get('ckan.site_url') + h.url_for(
+        controller='package',
+        action='read', id=package_name)
+
+    message_body = _('A user has submitted a new dataset') + ': ' + dataset_url
+
+    for email in recipient_emails:
+        mail_recipient(email, email, _('New dataset notification'), message_body)
+
 
 class DatasubmitterController(p.toolkit.BaseController):
 
@@ -107,6 +121,8 @@ class DatasubmitterController(p.toolkit.BaseController):
             error_summary = e.error_summary
             data_dict['state'] = 'none'
             return data_dict, errors, error_summary, None
+
+        sendNewDatasetNotifications(name)
 
         return {}, [], {}, {'class': 'success', 'text': _('Dataset submitted successfully')}
 

@@ -1,0 +1,8 @@
+{% ckan_extends %}
+
+{% import 'macros/form.html' as form %}
+
+{% block admin_form %}
+{{ super() }}
+{{ form.input('ckanext.datasubmitter.recipient_emails', id='field-ckanext.datasubmitter.recipient_emails', label=_('Dataset submit notification email addresses (separate emails with a space)'), value=data['ckanext.datasubmitter.recipient_emails'], error=errors['ckanext.datasubmitter.recipient_emails']) }}
+{% endblock %}
