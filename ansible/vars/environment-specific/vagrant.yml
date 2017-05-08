@@ -153,6 +153,8 @@ AWS:
   ckan_s3_bucket: sixodp-testi-ampari
   region: S3_EU_WEST
 
+recaptcha_sitekey: 6LcOXyAUAAAAALCDCcqzCrqRM4fllGmL0KHopKLY
+
 google_analytics:
   id: UA-98421659-1
   account: Sixodp

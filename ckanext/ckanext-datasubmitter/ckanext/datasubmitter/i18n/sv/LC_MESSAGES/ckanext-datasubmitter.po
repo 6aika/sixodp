@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-datasubmitter 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-04-21 05:55+0000\n"
+"POT-Creation-Date: 2017-05-08 12:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Language-Team: Swedish (https://www.transifex.com/6aika-dataportal/teams/68018/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -19,11 +19,34 @@ msgstr ""
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ckanext/datasubmitter/controller.py:77
+#: ckanext/datasubmitter/controller.py:60
+msgid "A user has submitted a new dataset"
+msgstr ""
+
+#: ckanext/datasubmitter/controller.py:63
+msgid "New dataset notification"
+msgstr ""
+
+#: ckanext/datasubmitter/controller.py:118
 msgid "Unauthorized to create a package"
 msgstr ""
 
-#: ckanext/datasubmitter/templates/datasubmitter/base.html:6
+#: ckanext/datasubmitter/controller.py:127
+msgid "Dataset submitted successfully"
+msgstr ""
+
+#: ckanext/datasubmitter/templates/admin/config.html:7
+msgid ""
+"Dataset submit notification email addresses (separate emails with a space)"
+msgstr ""
+
+#: ckanext/datasubmitter/templates/admin/config.html:9
+msgid ""
+"The organization name (ending in organization's url) into which submitted "
+"datasets will be added"
+msgstr ""
+
+#: ckanext/datasubmitter/templates/datasubmitter/base.html:11
 #: ckanext/datasubmitter/templates/datasubmitter/base_form_page.html:8
 msgid "Open your data"
 msgstr ""
@@ -36,37 +59,26 @@ msgid ""
 "information after a few days. "
 msgstr ""
 
-#: ckanext/datasubmitter/templates/datasubmitter/base_form_page.html:25
-msgid "What are datasets?"
-msgstr ""
-
-#: ckanext/datasubmitter/templates/datasubmitter/base_form_page.html:28
-msgid ""
-" A CKAN Dataset is a collection of data resources (such as files), together "
-"with a description and other information, at a fixed URL. Datasets are what "
-"users see when searching for data. "
-msgstr ""
-
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:8
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:16
 msgid "Title"
 msgstr ""
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:9
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:17
 msgid "A descriptive title for the dataset"
 msgstr ""
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:22
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:34
 msgid "Description"
 msgstr ""
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:36
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:52
 msgid "Name or organization of the submitter"
 msgstr ""
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:50
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:70
 msgid "Submitter email"
 msgstr ""
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:64
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:97
 msgid "Submit"
 msgstr ""

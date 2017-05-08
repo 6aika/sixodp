@@ -153,3 +153,5 @@ AWS:
   use_iam_role: true
   ckan_s3_bucket: sixodp-testi-ampari
   region: S3_EU_WEST
+
+recaptcha_sitekey: somesitekey

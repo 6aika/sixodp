@@ -1,0 +1,8 @@
+{% ckan_extends %}
+
+{% import 'macros/form.html' as form %}
+
+{% block admin_form %}
+{{ super() }}
+{{ form.input('ckanext.sixodp_showcasesubmit.recipient_emails', id='field-ckanext.sixodp_showcasesubmit.recipient_emails', label=_('Showcase submit notification email addresses (separate emails with a space)'), value=data['ckanext.sixodp_showcasesubmit.recipient_emails'], error=errors['ckanext.sixodp_showcasesubmit.recipient_emails']) }}
+{% endblock %}

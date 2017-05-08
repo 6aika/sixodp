@@ -1,8 +1,13 @@
 {% import 'macros/form.html' as form %}
 {% import 'scheming/macros/form.html' as scheming_form %}
-{% if not data %}{% set data = { 'notes_translated': {} } %}{% endif %}
-{% if not errors %}{% set errors = {} %}{% endif %}
-<form class="dataset-form form-horizontal" method="post" action="submit-showcase" data-module="basic-form" novalidate>
+
+<script>
+  function onSubmit() {
+    document.getElementById("submit-showcase-form").submit();
+  }
+</script>
+
+<form id="submit-showcase-form" enctype="multipart/form-data" class="dataset-form form-horizontal" method="post" action="submit-showcase" data-module="basic-form" novalidate>
   {% block errors %}{% endblock %}
 
   <div class="row row-compensate">
@@ -28,7 +33,7 @@
         id='field-notes_translated-fi',
         label=h.scheming_language_text('Description'),
         placeholder='',
-        value=data['notes_translated']['fi'],
+        value=data['notes_translated']['fi'] if data['notes_translated'],
         error=errors['notes_translated'],
         classes=['control-full'],
         attrs={},
@@ -133,9 +138,132 @@
     </div>
 
     <div class="col-xs-12">
+      <hr>
+      <h2>{{ _('Showcase images') }}</h2>
+    </div>
+
+    <div class="col-xs-12">
+      <p>
+        {% trans %}
+          Upload or provide a link for up to three images which will be presented in the showcase info page.
+        {% endtrans %}
+      </p>
+    </div>
+
+    <div class="col-xs-12">
+      {%- set is_upload = (data.url_type == 'upload') -%}
+      {{ form.image_upload(
+        data,
+        errors,
+        field_url='image_1',
+        field_upload='image_1_upload',
+        field_clear='clear_image_1_upload',
+        is_upload_enabled=true,
+        is_url=data['image_1'] and not is_upload,
+        is_upload=is_upload,
+        upload_label=_('Image 1'),
+        url_label=_('Image 1'),
+        placeholder=''
+        )
+      }}
+    </div>
+
+    <div class="col-xs-12">
+      {%- set is_upload = (data.url_type == 'upload') -%}
+      {{ form.image_upload(
+        data,
+        errors,
+        field_url='image_2',
+        field_upload='image_2_upload',
+        field_clear='clear_image_2_upload',
+        is_upload_enabled=true,
+        is_url=data['image_2'] and not is_upload,
+        is_upload=is_upload,
+        upload_label=_('Image 2'),
+        url_label=_('Image 2'),
+        placeholder=''
+        )
+      }}
+    </div>
+
+    <div class="col-xs-12">
+      {%- set is_upload = (data.url_type == 'upload') -%}
+      {{ form.image_upload(
+        data,
+        errors,
+        field_url='image_3',
+        field_upload='image_3_upload',
+        field_clear='clear_image_3_upload',
+        is_upload_enabled=true,
+        is_url=data['image_3'] and not is_upload,
+        is_upload=is_upload,
+        upload_label=_('Image 3'),
+        url_label=_('Image 3'),
+        placeholder=''
+        )
+      }}
+    </div>
+
+    <div class="col-xs-12">
+      {%- set is_upload = (data.url_type == 'upload') -%}
+      {{ form.image_upload(
+        data,
+        errors,
+        field_url='icon',
+        field_upload='icon_upload',
+        field_clear='clear_icon_upload',
+        is_upload_enabled=true,
+        is_url=data['icon'] and not is_upload,
+        is_upload=is_upload,
+        upload_label=_('Icon'),
+        url_label=_('Icon'),
+        placeholder=''
+        )
+      }}
+      <div class="field-assistive-text">
+        {% trans %}
+          Upload or provide a link to an icon image file. This image will be shown as the icon for the showcase.
+        {% endtrans %}
+      </div>
+    </div>
+
+    <div class="col-xs-12">
+      {%- set is_upload = (data.url_type == 'upload') -%}
+      {{ form.image_upload(
+        data,
+        errors,
+        field_url='featured_image',
+        field_upload='featured_image_upload',
+        field_clear='clear_featured_image_upload',
+        is_upload_enabled=true,
+        is_url=data['featured_image'] and not is_upload,
+        is_upload=is_upload,
+        upload_label=_('Featured image'),
+        url_label=_('Featured image'),
+        placeholder=''
+        )
+      }}
+      <div class="field-assistive-text">
+        {% trans %}
+          Upload or provide a link to an image file which will be shown elsewhere in the site as an advert for the showcase.
+        {% endtrans %}
+      </div>
+    </div>
+
+    <div class="col-xs-12">
+      <hr>
       {% block form_actions %}
+        {% if message %}
+          <div class="alert alert-{{message.class}}">
+            {{ message.text }}
+          </div>
+        {% endif %}
         <div class="form-actions">
-          <button class="btn btn-primary" type="submit" name="save">
+          <button class="btn btn-primary g-recaptcha"
+                  type="submit"
+                  name="save"
+                  data-sitekey="{{ h.get_recaptcha_sitekey() }}"
+                  data-callback="onSubmit">
             {% block save_button_text %}{{ _('Submit') }}{% endblock %}
           </button>
         </div>
