@@ -1,7 +1,13 @@
 {% import 'macros/form.html' as form %}
 {% import 'scheming/macros/form.html' as scheming_form %}
 
-<form enctype="multipart/form-data" class="dataset-form form-horizontal" method="post" action="submit-showcase" data-module="basic-form" novalidate>
+<script>
+  function onSubmit() {
+    document.getElementById("submit-showcase-form").submit();
+  }
+</script>
+
+<form id="submit-showcase-form" enctype="multipart/form-data" class="dataset-form form-horizontal" method="post" action="submit-showcase" data-module="basic-form" novalidate>
   {% block errors %}{% endblock %}
 
   <div class="row row-compensate">
@@ -253,7 +259,11 @@
           </div>
         {% endif %}
         <div class="form-actions">
-          <button class="btn btn-primary" type="submit" name="save">
+          <button class="btn btn-primary g-recaptcha"
+                  type="submit"
+                  name="save"
+                  data-sitekey="{{ h.get_recaptcha_sitekey() }}"
+                  data-callback="onSubmit">
             {% block save_button_text %}{{ _('Submit') }}{% endblock %}
           </button>
         </div>

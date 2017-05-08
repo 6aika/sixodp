@@ -4,6 +4,9 @@ import ckan.logic as logic
 import ckan.lib.base as base
 import ckan.lib.helpers as h
 import ckan.model as model
+import httplib
+import json
+import urllib
 import ckan.lib.navl.dictization_functions as dict_fns
 from ckan.common import _, request, c, response
 from ckan.common import config
@@ -25,12 +28,34 @@ parse_params = logic.parse_params
 def index_template():
     return 'sixodp_showcasesubmit/base_form_page.html'
 
+def _validateReCaptcha(recaptcha_response):
+    response_data_dict = {}
+    try:
+        connection = httplib.HTTPSConnection('google.com')
+        params = urllib.urlencode({
+            'secret': config.get('ckanext.sixodp_showcasesubmit.recaptcha_secret'),
+            'response': recaptcha_response,
+            'remoteip': p.toolkit.request.environ.get('REMOTE_ADDR')
+        })
+        headers = {"Content-type": "application/x-www-form-urlencoded", "Accept": "text/plain"}
+        connection.request("POST", '/recaptcha/api/siteverify', params, headers)
+        response_data_dict = json.loads(connection.getresponse().read())
+        connection.close()
+
+        if(response_data_dict.get("success") != True):
+            raise ValidationError('Google reCaptcha validation failed')
+    except Exception, e:
+        log.error('Connection to Google reCaptcha API failed')
+        raise ValidationError('Connection to Google reCaptcha API failed, unable to validate captcha')
+
+
 class Sixodp_ShowcasesubmitController(p.toolkit.BaseController):
 
     def index(self):
         vars = {'data': {}, 'errors': {},
                 'error_summary': {}, 'message': None}
         return render(index_template(), extra_vars=vars)
+
 
     @staticmethod
     def _submit():
@@ -72,6 +97,8 @@ class Sixodp_ShowcasesubmitController(p.toolkit.BaseController):
                 'archived': False,
                 'private': True
             }
+
+            _validateReCaptcha(parsedParams.get('g-recaptcha-response'))
 
             get_action('ckanext_showcase_create')(context, data_dict)
         except NotAuthorized:

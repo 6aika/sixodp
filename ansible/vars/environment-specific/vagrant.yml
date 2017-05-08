@@ -79,3 +79,5 @@ AWS:
   secret_access_key: somesecret
   ckan_s3_bucket: sixodp-testi-ampari
   region: S3_EU_WEST
+
+recaptcha_sitekey: 6LcOXyAUAAAAALCDCcqzCrqRM4fllGmL0KHopKLY

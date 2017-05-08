@@ -77,3 +77,5 @@ AWS:
   use_iam_role: false
   ckan_s3_bucket: not_in_use
   region: not_in_use
+
+recaptcha_sitekey: somesitekey
