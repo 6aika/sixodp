@@ -8,8 +8,9 @@ import httplib
 import json
 import urllib
 import ckan.lib.navl.dictization_functions as dict_fns
-from ckan.common import _, request, c, response
+from ckan.common import _, request, response
 from ckan.common import config
+from ckan.lib.mailer import mail_recipient
 
 log = logging.getLogger(__name__)
 
@@ -47,6 +48,18 @@ def validateReCaptcha(recaptcha_response):
     except Exception, e:
         log.error('Connection to Google reCaptcha API failed')
         raise ValidationError('Connection to Google reCaptcha API failed, unable to validate captcha')
+
+
+def sendNewShowcaseNotifications(showcase_name):
+    recipient_emails = config.get('ckanext.sixodp_showcasesubmit.recipient_emails').split(' ')
+    showcase_url = config.get('ckan.site_url') + h.url_for(
+        controller='ckanext.showcase.controller:ShowcaseController',
+        action='read', id=showcase_name)
+
+    message_body = _('A user has submitted a new showcase') + ': ' + showcase_url
+
+    for email in recipient_emails:
+        mail_recipient(email, email, _('New showcase notification'), message_body)
 
 
 class Sixodp_ShowcasesubmitController(p.toolkit.BaseController):
@@ -108,6 +121,8 @@ class Sixodp_ShowcasesubmitController(p.toolkit.BaseController):
             error_summary = e.error_summary
             data_dict['state'] = 'none'
             return data_dict, errors, error_summary, None
+
+        sendNewShowcaseNotifications(name)
 
         return {}, {}, {}, { 'class': 'success', 'text':  _('Showcase submitted successfully')}
 

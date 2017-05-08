@@ -18,6 +18,15 @@ class Sixodp_ShowcasesubmitPlugin(plugins.SingletonPlugin, DefaultTranslation):
         toolkit.add_public_directory(config_, 'public')
         toolkit.add_resource('fanstatic', 'sixodp_showcasesubmit')
 
+    def update_config_schema(self, schema):
+        ignore_missing = toolkit.get_validator('ignore_missing')
+
+        schema.update({
+            'ckanext.sixodp_showcasesubmit.recipient_emails': [ignore_missing, unicode],
+        })
+
+        return schema
+
     # IConfigurable
 
     def configure(self, config):
@@ -26,6 +35,7 @@ class Sixodp_ShowcasesubmitPlugin(plugins.SingletonPlugin, DefaultTranslation):
             'ckanext.sixodp_showcasesubmit.creating_user_username',
             'ckanext.sixodp_showcasesubmit.recaptcha_sitekey',
             'ckanext.sixodp_showcasesubmit.recaptcha_secret',
+            'ckanext.sixodp_showcasesubmit.recipient_emails'
         )
 
         for key in required_keys:
