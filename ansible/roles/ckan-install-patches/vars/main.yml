@@ -12,6 +12,7 @@ ckan_patches:
   - { file: "package_group_list_fix" }
   - { file: "move_rootpathmiddleware" }
   - { file: "fix_fanstatic_urls" }
+  - { file: "add_multilingual_groups" }
 
 files_created_by_patches:
   - { file: '/usr/lib/ckan/default/src/ckan/ckan/lib/csrf_token.py'}
