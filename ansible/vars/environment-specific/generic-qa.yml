@@ -115,6 +115,7 @@ enabled_ckan_extensions:
     - datasetcopy
     - sixodp_scheming
     - scheming_datasets
+    - scheming_groups
     - fluent
     - report
     - tagless_report
