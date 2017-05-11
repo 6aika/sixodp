@@ -81,7 +81,9 @@ this.ckan.module('image-upload', function($, _) {
                 .insertBefore(this.field_url_input);
 
             // Update the main label (this is displayed when no data/image has been uploaded/linked)
-            $('label[for="field-image-upload"]').text(options.upload_label || this.i18n('upload_label'));
+            // This is commented out since this will break the support for multiple image uploads on a form by
+            // setting each label the same. Uncomment to enable support for different labels for the upload and url fields
+            // $('label[for="field-image-upload"]').text(options.upload_label || this.i18n('upload_label'));
 
             // Setup the file input
             this.input
