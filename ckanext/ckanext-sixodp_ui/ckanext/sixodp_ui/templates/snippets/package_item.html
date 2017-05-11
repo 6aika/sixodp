@@ -16,7 +16,7 @@ Example:
 {% set truncate = truncate or 180 %}
 {% set truncate_title = truncate_title or 80 %}
 {% set title = package.title_translated or package.name %}
-{% set categories = h.get_groups_for_package(package.id) %}
+{% set groups = h.get_package_groups(package.id) %}
 {% set notes = h.markdown_extract(h.get_translated(package, 'notes'), extract_length=truncate) %}
 
 {% block package_item %}
@@ -52,11 +52,11 @@ Example:
             {% block metadata %}
               <p class="dataset-metadata">
                 <span class="dataset-created">{{ h.render_datetime(package.date_released, '%-d.%-m.%Y') }}</span>
-                {% if categories %}
+                {% if groups %}
                   <span> - </span>
-                  {% for category in categories %}
-                    <a class="dataset-category-link" href="{{h.url_for(controller='group', action='read', id=category.name)}}">
-                      {{category.display_name}}</a>{% if not loop.last %}, {% endif %}
+                  {% for group in groups %}
+                    <a class="dataset-category-link" href="{{h.url_for(controller='group', action='read', id=group.name)}}">
+                      {{ h.get_translated(group, 'title') or group.name }}</a>{% if not loop.last %}, {% endif %}
                   {% endfor %}
                 {% endif %}
               </p>

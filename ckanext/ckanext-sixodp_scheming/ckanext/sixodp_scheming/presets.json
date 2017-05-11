@@ -175,6 +175,17 @@
         "upload_clear": "clear_upload",
         "upload_label": "File"
       }
+    },
+    {
+      "preset_name": "group_url_upload",
+      "values": {
+        "validators": "ignore_missing unicode remove_whitespace",
+        "form_snippet": "upload.html",
+        "form_placeholder": "http://example.com/my-image.png",
+        "upload_field": "upload",
+        "upload_clear": "clear_upload",
+        "upload_label": "File"
+      }
     }
   ]
 }

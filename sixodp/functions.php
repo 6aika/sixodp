@@ -492,3 +492,21 @@ function get_all_recent_data() {
 
   return sort_results($arr);
 }
+
+const DEFAULT_LANGUAGE = 'fi';
+function get_lang() {
+  $locale = get_locale();
+  $arr = explode("_", $locale, 2);
+  if(count($arr) > 0) {
+    return strtolower($arr[0]);
+  }
+  return DEFAULT_LANGUAGE;
+}
+
+function get_translated($object) {
+  $lang = get_lang();
+  if($object[$lang]) {
+    return $object[$lang];
+  }
+  return $object;
+}
