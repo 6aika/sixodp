@@ -16,7 +16,7 @@
   <div class="media-body">
   {% block title %}
     <div class="media-heading">
-      <strong>{{ group.display_name }}</strong>
+      <strong>{{ h.get_translated(group, 'title') or group.display_name }}</strong>
     </div>
   {% endblock %}
   {% block description %}
@@ -33,8 +33,8 @@
   {% endblock %}
   </div>
   {% block link %}
-  <a href="{{ url }}" title="{{ _('View {name}').format(name=group.display_name) }}" class="media-view">
-    <span>{{ _('View {name}').format(name=group.display_name) }}</span>
+  <a href="{{ url }}" title="{{ _('View {name}').format(name=h.get_translated(group, 'title') or group.display_name) }}" class="media-view">
+    <span>{{ _('View {name}').format(name=h.get_translated(group, 'title') or group.display_name) }}</span>
   </a>
   {% endblock %}
   {% if group.user_member %}
