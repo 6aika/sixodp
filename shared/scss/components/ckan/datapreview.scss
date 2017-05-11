@@ -1,0 +1,12 @@
+.ckanext-datapreview {
+  margin-bottom: 80px;
+
+  @media(min-width: $width-xs) {
+    margin-bottom: 0;
+  }
+
+  .data-view-container {
+    overflow: hidden;
+    max-height:670px;
+  }
+}
