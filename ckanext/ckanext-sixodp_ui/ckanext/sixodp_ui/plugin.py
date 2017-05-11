@@ -243,7 +243,7 @@ class Sixodp_UiPlugin(plugins.SingletonPlugin, DefaultTranslation):
                 'get_footer_navigation_items': helpers.get_footer_navigation_items,
                 'get_social_links': helpers.get_social_links,
                 'get_social_link_icon_class': helpers.get_social_link_icon_class,
-                'get_groups_for_package': helpers.get_groups_for_package,
+                'get_package_groups': helpers.get_package_groups,
                 'scheming_language_text_or_empty': helpers.scheming_language_text_or_empty,
                 'resource_display_name': helpers.resource_display_name,
                 'get_notifications': helpers.get_notifications,
