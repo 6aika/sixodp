@@ -437,7 +437,7 @@ function get_count($type) {
 }
 
 function get_ckan_categories() {
-  $data = get_ckan_data(CKAN_API_URL.'/action/group_list?all_fields=true');
+  $data = get_ckan_data(CKAN_API_URL.'/action/group_list?all_fields=true&include_extras=true');
   return $data['result'];
 }
 
