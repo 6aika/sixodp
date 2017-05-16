@@ -22,18 +22,18 @@
                   <section class="module module-narrow module-shallow">
                       <h2 class="module-heading">
                         <i class="icon-medium icon-filter"></i>
-                        Hakutuloksia ryhmissä
+                        <?php _e('Results in groups');?>
                       </h2>
                       <nav>
                           <ul class="unstyled nav nav-simple nav-facet filtertype-res_format">
                               <li class="nav-item">
-                                  <a href="<?php echo get_site_url(); ?>?s=<?php echo $searchterm;?>&datasearch" title="" class="<?php if(isset($_GET['datasearch']) && !isset($_GET['showcase'])){echo 'active';}?>"> <span>Tietoaineistot (<?php echo $data_dataset['count']; ?>)</span></a>
+                                  <a href="<?php echo get_site_url(); ?>?s=<?php echo $searchterm;?>&datasearch" title="" class="<?php if(isset($_GET['datasearch']) && !isset($_GET['showcase'])){echo 'active';}?>"> <span><?php _e('Datasets');?>  (<?php echo $data_dataset['count']; ?>)</span></a>
                               </li>
                               <li class="nav-item">
-                                  <a href="<?php echo get_site_url(); ?>?s=<?php echo $searchterm;?>&datasearch&showcase" title="" class="<?php if(isset($_GET['datasearch']) && isset($_GET['showcase'])){echo 'active';}?>"> <span>Sovellukset (<?php echo $data_showcase['count']; ?>)</span></a>
+                                  <a href="<?php echo get_site_url(); ?>?s=<?php echo $searchterm;?>&datasearch&showcase" title="" class="<?php if(isset($_GET['datasearch']) && isset($_GET['showcase'])){echo 'active';}?>"> <span><?php _e('Applications');?>  (<?php echo $data_showcase['count']; ?>)</span></a>
                               </li>
                               <li class="nav-item">
-                                  <a href="<?php echo get_site_url(); ?>?s=<?php echo $searchterm;?>" title=""> <span>Muut (<?php  echo $searchcount; ?>)</span></a>
+                                  <a href="<?php echo get_site_url(); ?>?s=<?php echo $searchterm;?>" title=""> <span><?php _e('Others');?>  (<?php  echo $searchcount; ?>)</span></a>
                               </li>
                           </ul>
                       </nav>
@@ -50,7 +50,7 @@
                $results = $data_dataset;
             }
         ?>
-        <h3 class="heading">Hakutuloksia <?php echo $results['count']; ?> kappaletta</h3>
+        <h3 class="heading"><?php echo $results['count']; ?><?php _e('Results');?> </h3>
             <ul class="search-content__list">
               <?php foreach ( $results['results'] as $result ) : ?>
               <li class="search-content">

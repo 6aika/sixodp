@@ -18,22 +18,22 @@
           <div class="input-group">
             <div class="input-group-btn">
               <button type="button" class="btn btn-secondary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span id="selected-domain" data-value="/data/dataset">Tietoaineistot</span> <span class="caret"></span>
+                <span id="selected-domain" data-value="/data/dataset"><?php _e('Datasets');?> </span> <span class="caret"></span>
               </button>
               <ul class="dropdown-menu dropdown-menu-right">
-                <li><a data-value="/data/dataset">Tietoaineistot</a></li>
-                <li><a data-value="/data/showcase">Sovellukset</a></li>
-                <li><a data-value="/data/collection">Aineistokokonaisuudet</a></li>
-                <li><a data-value="/posts">Artikkelit</a></li>
+                <li><a data-value="/data/dataset"><?php _e('Datasets');?> </a></li>
+                <li><a data-value="/data/showcase"><?php _e('Applications');?> </a></li>
+                <li><a data-value="/data/collection"><?php _e('Collections');?> </a></li>
+                <li><a data-value="/posts"><?php _e('Articles');?> </a></li>
                 <li role="separator" class="divider"></li>
-                <li><a data-value="/posts">Muut</a></li>
+                <li><a data-value="/posts"><?php _e('Other');?> </a></li>
               </ul>
             </div><!-- /btn-group -->
             <input type="text" id="q" class="form-control input-lg" aria-label="...">
             <span class="input-group-btn">
-              <button id="search" class="btn btn-lg btn-secondary" type="button">Hae</button>
+              <button id="search" class="btn btn-lg btn-secondary" type="button"><?php _e('Search');?> </button>
             </span>
-          </div><!-- /input-group -->    
+          </div><!-- /input-group -->
         </div>
       </div>
     </div>

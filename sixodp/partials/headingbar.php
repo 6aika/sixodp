@@ -7,10 +7,10 @@
 
 <div class="headingbar">
   <h1 class="heading--main">
-    Tuki
+    <?php _e('Support');?> 
     <i class="material-icons">navigate_next</i>
     <span style="font-size: 2.2rem;">
-      Kuinka aloitan?
+      <?php _e('How to start');?>
     </span>
   </h1>
 </div>

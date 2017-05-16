@@ -273,6 +273,6 @@ class Sixodp_UiPlugin(plugins.SingletonPlugin, DefaultTranslation):
             for i, facet in enumerate(search_results['search_facets']['groups'].get('items', [])):
                 for group in groups_with_extras:
                     if facet['name'] == group['name']:
-                        search_results['search_facets']['groups']['items'][i]['title_translated'] = group['title_translated']
+                        search_results['search_facets']['groups']['items'][i]['title_translated'] = group.get('title_translated')
 
         return search_results
