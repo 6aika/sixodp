@@ -41,6 +41,7 @@
     - curl
     - acl
     - libgeos-c1v5
+    - s-nail
 
 # Note: psycopg2 requires postgresql-server-dev
 
@@ -65,7 +66,7 @@
     name: sixodp-update
     hour: 1
     minute: 30
-    job: /usr/local/bin/sixodp-update
+    job: "/usr/local/bin/sixodp-update 2>&1 | mail -s 'sixodp-update results' {{ automatic_updates_recipient }}"
     state: "{{ 'present' if automatic_updates else 'absent' }}"
 
 - include: pip.yml

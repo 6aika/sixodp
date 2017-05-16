@@ -84,6 +84,8 @@ scheming.presets = ckanext.scheming:presets.json
 scheming.dataset_schemas = ckanext.sixodp_scheming.schemas:dataset.json
                            ckanext.sixodp_showcase.schemas:showcase.json
 
+scheming.group_schemas = ckanext.sixodp_scheming.schemas:group.json
+
 licenses_group_url = file://{{ckanext_sync_path}}/ckanext-sixodp_scheming/ckanext/sixodp_scheming/licenses/licenses.json
 
 ckanext.sixodp_ui.cms_site_url = localhost
@@ -150,13 +152,29 @@ ckanext.editor.enable_collection_editing = true # Use only when ckanext-collecti
 
 ckanext.hierarchy.show_organizations_without_datasets = True
 
-# Todo replace with organization user
 ckanext.datasubmitter.creating_user_username = {{ ckan_users.admin.username }}
-ckanext.datasubmitter.organization_name_or_id = sammakkokaupunki
+ckanext.datasubmitter.organization_name_or_id = replace-with-actual-organization-name
+ckanext.datasubmitter.recaptcha_sitekey = {{ recaptcha_sitekey }}
+ckanext.datasubmitter.recaptcha_secret = {{ secret.recaptcha_secret }}
+ckanext.datasubmitter.recipient_emails = {{ ckan_users.admin.email }}
+
+ckanext.sixodp_showcasesubmit.creating_user_username = {{ ckan_users.admin.username }}
+ckanext.sixodp_showcasesubmit.recaptcha_sitekey = {{ recaptcha_sitekey }}
+ckanext.sixodp_showcasesubmit.recaptcha_secret = {{ secret.recaptcha_secret }}
+ckanext.sixodp_showcasesubmit.recipient_emails = {{ ckan_users.admin.email }}
 
 # Disqus configuration
 # Disqus sites should always be named sixodp-CITY-ENVIRONMENT for the configuration to work properly
 disqus.name = sixodp-{{ deployment_environment_id }}
+
+# ckanext-googleanalytics
+{% if google_analytics is defined %}
+googleanalytics.track_events = true
+googleanalytics.show_downloads = true
+googleanalytics.domain = auto
+googleanalytics.id = {{ google_analytics.id }}
+googleanalytics.account = {{ google_analytics.account }}
+{% endif %}
 
 [loggers]
 

@@ -5,6 +5,7 @@ internal_hostname: sixodp-{{ deployment_environment_id }}
 ckan_site_name: Dataportaali
 ckan_featured_orgs:
 automatic_updates: false
+automatic_updates_recipient: root@localhost
 
 postgres:
   server:
@@ -69,6 +70,79 @@ ckan_admins:
   - "{{ ckan_users.admin.username }}"
   - "{{ ckan_users.harvest.username }}"
 
+ckan_extensions:
+  - ckanext-sixodp_routes
+  - ckanext-sixodp_scheming
+  - ckanext-sixodp_ui
+  - ckanext-sixodp_showcase
+  - ckanext-scheming
+  - ckanext-showcase
+  - ckanext-fluent
+  - ckanext-pages
+  - ckanext-harvest
+  - ckanext-cloudstorage
+  - ckanext-report
+  - ckanext-qa
+  - ckanext-archiver
+  - ckanext-hierarchy
+  - ckanext-disqus
+  - ckanext-reminder
+  - ckanext-rating
+  - ckanext-editor
+  - ckanext-collection
+  - ckanext-datasetcopy
+  - ckanext-spatial
+  - ckanext-datasubmitter
+  - ckanext-statistics
+  - ckanext-sixodp_harvester
+  - ckanext-sixodp_showcasesubmit
+#  - ckanext-googleanalytics
+
+# List of enabled CKAN extensions in load order. Order matters, when templates call super()
+enabled_ckan_extensions:
+    - disqus
+    - datastore
+    - datapusher
+    - text_view
+    - image_view
+    - recline_view
+    - recline_graph_view
+    - recline_grid_view
+    - recline_map_view
+    - sixodp_showcase
+    - sixodp_ui
+    - datasetcopy
+    - sixodp_scheming
+    - scheming_datasets
+    - scheming_groups
+    - fluent
+    - report
+    - tagless_report
+    - pages
+    - sixodp_routes
+    - sixodp_feed
+    - rating
+    - qa
+    - archiver
+    - hierarchy_display
+    - hierarchy_form
+    - reminder
+    - editor
+    - collection
+    - spatial_metadata
+    - spatial_query
+    - datasubmitter
+    - harvest
+    - statistics
+    - csw_harvester
+    - sixodp_harvester
+    - sixodp_showcasesubmit
+#    - googleanalytics
+
+enabled_ckan_aws_extensions: cloudstorage
+
+ckan_site_id: "default"
+
 email_domain: "{{ public_facing_hostname }}"
 email:
   smtp_server: localhost
@@ -86,3 +160,5 @@ AWS:
   use_iam_role: true
   ckan_s3_bucket: sixodp-{{ deployment_environment_id }}-datasets
   region: S3_EU_WEST
+
+recaptcha_sitekey: somesitekey

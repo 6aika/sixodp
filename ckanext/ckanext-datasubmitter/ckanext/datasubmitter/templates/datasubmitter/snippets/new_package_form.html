@@ -1,6 +1,12 @@
 {% import 'macros/form.html' as form %}
-<form class="dataset-form form-horizontal" method="post" action="submit-data" data-module="basic-form" novalidate>
-  {% block errors %}{{ form.errors(error_summary) }}{% endblock %}
+
+<script>
+  function onSubmit() {
+    document.getElementById("submit-dataset-form").submit();
+  }
+</script>
+
+<form id="submit-dataset-form" class="dataset-form form-horizontal" method="post" action="submit-data" data-module="basic-form" novalidate>
 
   <div class="row row-compensate">
     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-12">
@@ -9,8 +15,8 @@
       id='field-title_translated-fi',
       label=_('Title'),
       placeholder=_('A descriptive title for the dataset'),
-      value='',
-      error='',
+      value=data['title_translated']['fi'] if data['title_translated'],
+      error=errors['title_translated']['fi'] if errors['title_translated'] else errors['name'],
       classes=['control-full'],
       attrs={},
       is_required=true
@@ -27,8 +33,8 @@
       id='field-notes_translated-fi',
       label=_('Description'),
       placeholder='',
-      value='',
-      error='',
+      value=data['notes_translated']['fi'] if data['notes_translated'],
+      error=errors['notes_translated'],
       classes=['control-full'],
       attrs={},
       is_required=false
@@ -45,8 +51,8 @@
       id='maintainer',
       label=_('Name or organization of the submitter'),
       placeholder='',
-      value='',
-      error='',
+      value=data['maintainer'],
+      error=errors['maintainer'],
       classes=['control-medium'],
       attrs={},
       is_required=false
@@ -63,8 +69,8 @@
       id='maintainer_email',
       label=_('Submitter email'),
       placeholder='',
-      value='',
-      error='',
+      value=data['maintainer_email'],
+      error=errors['maintainer_email'],
       classes=['control-medium'],
       attrs={},
       is_required=false
@@ -77,8 +83,17 @@
   <div class="row row-compensate">
     <div class="col-xs-12">
       {% block form_actions %}
+        {% if message %}
+          <div class="alert alert-{{message.class}}">
+            {{ message.text }}
+          </div>
+        {% endif %}
         <div class="form-actions">
-          <button class="btn btn-primary" type="submit" name="save">
+          <button class="btn btn-primary g-recaptcha"
+                  type="submit"
+                  name="save"
+                  data-sitekey="{{ h.get_recaptcha_sitekey() }}"
+                  data-callback="onSubmit">
             {% block save_button_text %}{{ _('Submit') }}{% endblock %}
           </button>
         </div>

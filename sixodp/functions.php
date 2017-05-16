@@ -437,7 +437,7 @@ function get_count($type) {
 }
 
 function get_ckan_categories() {
-  $data = get_ckan_data(CKAN_API_URL.'/action/group_list?all_fields=true');
+  $data = get_ckan_data(CKAN_API_URL.'/action/group_list?all_fields=true&include_extras=true');
   return $data['result'];
 }
 
@@ -491,4 +491,22 @@ function get_all_recent_data() {
   $arr = array_merge($datasets, $showcases);
 
   return sort_results($arr);
+}
+
+const DEFAULT_LANGUAGE = 'fi';
+function get_lang() {
+  $locale = get_locale();
+  $arr = explode("_", $locale, 2);
+  if(count($arr) > 0) {
+    return strtolower($arr[0]);
+  }
+  return DEFAULT_LANGUAGE;
+}
+
+function get_translated($object) {
+  $lang = get_lang();
+  if($object[$lang]) {
+    return $object[$lang];
+  }
+  return $object;
 }

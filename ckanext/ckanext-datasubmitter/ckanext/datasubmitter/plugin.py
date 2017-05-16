@@ -1,6 +1,7 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 from ckan.lib.plugins import DefaultTranslation
+from ckanext.datasubmitter import helpers
 
 
 class DatasubmitterPlugin(plugins.SingletonPlugin, DefaultTranslation):
@@ -17,13 +18,26 @@ class DatasubmitterPlugin(plugins.SingletonPlugin, DefaultTranslation):
         toolkit.add_public_directory(config_, 'public')
         toolkit.add_resource('fanstatic', 'datasubmitter')
 
+    def update_config_schema(self, schema):
+        ignore_missing = toolkit.get_validator('ignore_missing')
+
+        schema.update({
+            'ckanext.datasubmitter.recipient_emails': [ignore_missing, unicode],
+            'ckanext.datasubmitter.organization_name_or_id': [ignore_missing, unicode]
+        })
+
+        return schema
+
     # IConfigurable
 
     def configure(self, config):
         # Raise an exception if required configs are missing
         required_keys = (
             'ckanext.datasubmitter.creating_user_username',
-            'ckanext.datasubmitter.organization_name_or_id'
+            'ckanext.datasubmitter.organization_name_or_id',
+            'ckanext.datasubmitter.recaptcha_sitekey',
+            'ckanext.datasubmitter.recaptcha_secret',
+            'ckanext.datasubmitter.recipient_emails'
         )
 
         for key in required_keys:
@@ -52,3 +66,8 @@ class DatasubmitterPlugin(plugins.SingletonPlugin, DefaultTranslation):
                     action='ajax_submit')
 
         return map
+
+    # ITemplateHelpers
+
+    def get_helpers(self):
+        return {'get_recaptcha_sitekey': helpers.get_recaptcha_sitekey}

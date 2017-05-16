@@ -18,5 +18,9 @@
 - include: extension.yml
   with_items: "{{ ckan_extensions }}"
 
+- name: Copy googleanalytics secrets to vagrant
+  copy: src="/{{playbook_dir}}/../sixodp-secrets/google_analytics_credentials.json" dest="{{ google_analytics_secrets_file_path }}"
+  when: deployment_environment_id == "vagrant" and "ckanext-googleanalytics" in ckan_extensions
+
 - name: Restart Apache
   service: name=apache2 state=restarted

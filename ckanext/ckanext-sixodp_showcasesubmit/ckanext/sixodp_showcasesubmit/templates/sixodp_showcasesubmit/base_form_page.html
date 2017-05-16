@@ -1,0 +1,26 @@
+{% extends "sixodp_showcasesubmit/base.html" %}
+
+{% block pre_primary %}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-xs-12">
+      {% block pre_primary_content %}
+        <h1 class="page-heading">{{ _('Submit a showcase') }}</h1>
+        <p>
+          {% trans %}
+            By filling this form you can submit your open-data showcase to be published on this website.
+            Fill in at least the desired title of your showcase and leave your contact information.
+            The site adminstrator will contact you for further information after a few days.
+          {% endtrans %}
+        </p>
+        {%- snippet 'sixodp_showcasesubmit/snippets/new_package_form.html', c=c, data=data, errors=errors, error_summary=error_summary, message=message -%}
+      {% endblock %}
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block breadcrumb %}{% endblock %}
+{% block offcanvas_button %}{% endblock %}
+{% block primary %}{% endblock %}
+{% block secondary %}{% endblock %}

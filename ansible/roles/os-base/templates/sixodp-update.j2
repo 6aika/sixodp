@@ -3,6 +3,8 @@
 set -o errexit
 set -o nounset
 
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
 cd /root/sixodp
 GIT_COMMIT_OLD="$(git rev-parse HEAD)"
 git pull
@@ -13,6 +15,7 @@ if [ "$GIT_COMMIT_NEW" != "$GIT_COMMIT_OLD" ] ; then
 	git submodule update --init --recursive
 
 	aws s3 cp s3://sixodp-secrets/{{ deployment_environment_id }}/secrets.yml /root/sixodp-secrets/{{ deployment_environment_id }}/secrets.yml
+	aws s3 cp s3://sixodp-secrets/{{ deployment_environment_id }}/google_analytics_credentials.json /root/sixodp-secrets/{{ deployment_environment_id }}/google_analytics_credentials.json
 	chmod -R go-rwx /root/sixodp-secrets/*
 
 	cd /root/sixodp/ansible
