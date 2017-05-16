@@ -38,18 +38,12 @@
   <div class="container">
     <div class="row cards--showcase">
       <?php
-        $showcases = get_items('ckanext_showcase');
+        $showcases = get_recent_showcases();
         foreach ($showcases as $showcase) {
           $showcaseUrl = CKAN_BASE_URL . "/showcase/" . $showcase['name'];
-          $imgUrl = CKAN_BASE_URL . "/uploads/showcase/".$showcase['extras'][6]['value'];
+          $imgUrl = CKAN_BASE_URL . "/uploads/showcase/".$showcase['featured_image'];
           $packageId = $showcase['id'];
-          foreach ( $showcase['extras'] as $extra ) {
-            if ( $extra['key'] == 'icon' ) {
-              $imgUrl = CKAN_BASE_URL ."/uploads/showcase/".$extra['value'];
-            } else if ( $extra['key'] == 'notes_translated' ) {
-              $notes = json_decode($extra['value'], true)[get_current_locale()];
-            }
-          }
+          $notes = get_translated($showcase, 'notes');
           include(locate_template( 'partials/showcase.php' ));
         }
       ?>
