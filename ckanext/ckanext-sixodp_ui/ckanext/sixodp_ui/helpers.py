@@ -140,14 +140,16 @@ def get_package_groups(package_id):
 _LOCALE_ALIASES = {'en_GB': 'en'}
 
 def get_translated(data_dict, field):
-    language = i18n.get_lang()
-    if language in _LOCALE_ALIASES:
-        language = _LOCALE_ALIASES[language]
+    if(data_dict.get(field+'_translated')):
+        language = i18n.get_lang()
+        if language in _LOCALE_ALIASES:
+            language = _LOCALE_ALIASES[language]
 
-    try:
-        return data_dict[field+'_translated'][language]
-    except KeyError:
-        return data_dict.get(field, '')
+        try:
+            return data_dict[field+'_translated'][language]
+        except KeyError:
+            return data_dict.get(field, '')
+    return data_dict.get('display_name')
 
 
 def get_current_lang():
