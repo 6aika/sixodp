@@ -1,6 +1,7 @@
 {% ckan_extends %}
 
 {% block links -%}
+  {{ super() }}
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Roboto+Slab:300,400,600" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="shortcut icon" href="/assets/images/favicon.ico" />
@@ -11,6 +12,7 @@
 {% endblock -%}
 
 {% block scripts -%}
+  {{ super() }}
 	<!-- Hotjar Tracking Code -->
   <script>
       (function(h,o,t,j,a,r){
