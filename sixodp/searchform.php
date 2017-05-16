@@ -5,5 +5,5 @@
             value="<?php echo get_search_query() ?>" name="s"
             title="<?php echo esc_attr_x( 'Search for:', 'label' ) ?>" />
     </label>
-    <button type="submit" class="btn btn-lg btn-primary">Hae</button>
+    <button type="submit" class="btn btn-lg btn-primary"><?php _e('Search');?></button>
 </form>
