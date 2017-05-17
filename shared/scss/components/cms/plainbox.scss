@@ -1,0 +1,22 @@
+.plainbox {
+  border: 1px solid $table-border-color;
+  border-radius: $border-radius-small;
+  float: right;
+  font-size: $font-size-small;
+  line-height: $line-height-small;
+  margin: $base*2 0 $base*2 $base*4;
+  padding: $base*2;
+  width: 100%;
+
+  @media(min-width: $width-xs) {
+    max-width: 300px;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+  }
+
+  &.plainbox-icon {
+    background-image: url("/assets/images/infobox_logo.png");
+    background-position: top right;
+    background-repeat: no-repeat;
+  }
+}
