@@ -17,8 +17,8 @@
 }
 
 .article {
-  line-height: 1.6;
-  font-size: 1.6rem;
+  line-height: $line-height-base;
+  font-size: $font-size-base;
   color: $gray-dark;
 
   .alignright {
