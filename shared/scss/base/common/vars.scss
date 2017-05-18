@@ -10,6 +10,7 @@ $border-base: $border-radius-base;
 // Typography
 $font: 'Open Sans',sans-serif;
 $font-heading: 'Roboto Slab',sans-serif;
+$headings-font-family: $font-heading;
 
 // Brand-colors
 $lighten-intensity: 10%;
@@ -182,6 +183,7 @@ $font-size-base: 14px;
 $font-size: $font-size-base;
 $font-size-xlarge: ceil(($font-size-base * 2.0)); // ~21px
 $font-size-large: ceil(($font-size-base * 1.25)); // ~18px
+$font-size-medium: floor(($font-size-base * 1.15)); // ~16px
 $font-size-small: ceil(($font-size-base * 0.85)); // ~12px
 
 $padding-large-vertical: 10px;
