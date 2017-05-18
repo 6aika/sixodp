@@ -20,10 +20,8 @@
     background-repeat: no-repeat;
   }
 
-  &-dark {
-    background-color: $brand-primary-dark;
-    color: $brand-white;
-    border: 1px solid $brand-primary-dark;
+  &-dark,
+  &-light {
     padding-top: 0;
 
     .heading {
@@ -31,10 +29,8 @@
       border-top-right-radius: $border-radius-small;
       height: 50px;
       margin: 0 $base*-2 $base*2 $base*-2;
-      background: $brand-primary-extradark;
 
       h1, h2, h3, h4, h5, h6 {
-        color: $brand-lightgray;
         margin: 0;
         font-size: $font-size-base;
         line-height: 50px;
@@ -48,6 +44,34 @@
         background-image: url("/assets/images/infobox_logo_w.png");
         background-position: top right;
         background-repeat: no-repeat;
+      }
+    }
+  }
+
+  &-dark {
+    background-color: $brand-primary-dark;
+    color: $brand-white;
+    border: 1px solid $brand-primary-dark;
+
+    .heading {
+      background: $brand-primary-extradark;
+
+      * {
+        color: $brand-lightgray;
+      }
+    }
+  }
+
+  &-light {
+    background-color: transparent;
+    color: $text-color;
+    border: 1px solid $brand-primary-dark;
+
+    .heading {
+      background: $brand-lightgray;
+
+      * {
+        color: $text-color;
       }
     }
   }
