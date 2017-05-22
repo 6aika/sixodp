@@ -17,9 +17,17 @@
 }
 
 .article {
-  line-height: 1.6;
-  font-size: 1.6rem;
+  line-height: $line-height-base;
+  font-size: $font-size-base;
   color: $gray-dark;
+
+  .alignright {
+    margin: $base 0 $base $base;
+  }
+
+  .alignleft {
+    margin: $base $base $base 0;
+  }
 }
 
 .article p {

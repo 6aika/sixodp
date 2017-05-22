@@ -10,7 +10,7 @@
           <div class="categories">
             <?php
               foreach(get_ckan_categories() as $category) : 
-                $title     = get_translated($category['title_translated']);
+                $title     = get_translated($category, 'title');
                 $name      = $category['name'];
                 $url       = CKAN_BASE_URL.'/groups/'.$name;
                 $image_url = $category['image_display_url']; ?>
