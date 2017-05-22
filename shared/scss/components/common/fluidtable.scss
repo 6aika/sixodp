@@ -15,7 +15,7 @@
 
 .fluidtable__row {
   border-bottom: 1px solid $brand-gray;
-  padding: $base*4 0;
+  padding: $base*2 0;
 
   @media (min-width: $width-md) {
     display: flex;
@@ -28,22 +28,33 @@
   padding: $base/2 $base;
 
   @media (min-width: $width-sm) {
-    padding: $base/2 $base*4;
+    padding: $base/2 $base*2;
   }
 
   @media (min-width: $width-md) {
-    padding: $base*4 $base;
+    padding: $base*2 $base;
   }
 }
 
 .fluidtable__cell--meta {
+  color: $label-text-color;
+  font-size: $font-size-base;
+  font-weight: normal;
+  font-family: $headings-font-family;
 
   @media (min-width: $width-md) {
     width: 20%;
+    font-size: $font-size-large;
+    line-height: $line-height-large;
   }
 }
 
 .fluidtable__cell--title {
+  .heading {
+    font-family: $headings-font-family;
+    font-size: $font-size-large;
+    line-height: $line-height-large;
+  }
 
   @media (min-width: $width-md) {
     width: 30%;
@@ -51,13 +62,18 @@
 }
 
 .fluidtable__cell--desc {
-  line-height: 1.6;
+  line-height: $line-height-base;
 
   @media (min-width: $width-md) {
     width: 50%;
   }
 }
 
-.fluidtable__cell-content .heading {
-  margin: 0;
+.fluidtable__cell-content {
+  word-break: normal;
+  hyphens: auto;
+
+  .heading {
+    margin: 0;
+  }
 }

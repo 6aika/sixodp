@@ -1,0 +1,11 @@
+select {
+
+  &#label-filter {
+    width: 100%;
+    float: right;
+
+    @media(min-width: $width-xs) {
+      max-width: 200px;
+    }
+  }
+}

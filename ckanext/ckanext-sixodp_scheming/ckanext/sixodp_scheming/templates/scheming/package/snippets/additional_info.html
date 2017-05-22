@@ -21,14 +21,15 @@
     ] -%}
 
 {% block package_additional_info %}
-  {% if h.get_package_groups_by_type(pkg_dict.id, 'group') %}
+  {% set package_groups = h.get_package_groups(pkg_dict.id) %}
+  {% if package_groups %}
     <tr>
       <th scope="row" class="dataset-label">{{ _("Groups") }}</th>
       <td class="dataset-details">
         <section class="tags">
           <ul class="tag-list">
-            {% for group in h.get_package_groups_by_type(pkg_dict.id, 'group') %}
-            <li><a class="tag" href="{{h.url_for(controller='group', action='read', id=group.name)}}">{{ group.display_name }}</a></li>
+            {% for group in package_groups %}
+              <li><a class="tag" href="{{h.url_for(controller='group', action='read', id=group.name)}}">{{ h.get_translated(group, 'title') }}</a></li>
             {% endfor %}
           </ul>
         </section>
@@ -43,7 +44,7 @@
         <section class="tags">
           <ul class="tag-list">
             {% for collection in h.get_package_groups_by_type(pkg_dict.id, 'collection') %}
-            <li><a class="tag" href="{{h.url_for(controller='ckanext.collection.controller:CollectionController', action='read', id=collection.name)}}">{{ collection.display_name }}</a></li>
+              <li><a class="tag" href="{{h.url_for(controller='ckanext.collection.controller:CollectionController', action='read', id=collection.name)}}">{{ collection.display_name }}</a></li>
             {% endfor %}
           </ul>
         </section>
