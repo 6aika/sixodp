@@ -503,10 +503,10 @@ function get_lang() {
   return DEFAULT_LANGUAGE;
 }
 
-function get_translated($object) {
+function get_translated($object, $field) {
   $lang = get_lang();
-  if($object[$lang]) {
-    return $object[$lang];
+  if( $object[$field . '_translated'] ) {
+    return $object[$field . '_translated'][$lang];
   }
-  return $object;
+  return $object[$field];
 }
