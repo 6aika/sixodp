@@ -166,11 +166,6 @@
   font-size: 14px;
 }
 
-img {
-  width: 100%;
-  height: auto;
-}
-
 .mobile-only {
   @media(min-width: $width-md) {
     display: none;

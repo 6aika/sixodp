@@ -8,6 +8,11 @@
     clear: both;
   }
 
+  img {
+    width: 100%;
+    height: auto;
+  }
+
   @media (min-width: $width-md) {
     padding: 0 $base*3.5;
   }
