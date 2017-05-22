@@ -68,9 +68,9 @@
 			    </div>
 			  </div>
 				<hr />
-				<div class="copyrights">
-    			© 6Aika
-  			</div>
+        <div class="copyrights">
+          © 6Aika
+        </div>
 			</div>
 		</footer><!-- .site-footer -->
 	</div><!-- .site-inner -->

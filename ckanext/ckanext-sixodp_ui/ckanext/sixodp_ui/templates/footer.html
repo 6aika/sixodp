@@ -1,7 +1,7 @@
 <footer id="colophon" class="site-footer bgcolor-primary" role="contentinfo">
   <div class="container">
     {% block footer_content %}
-      <div class="row">
+      <div class="row row-compensate">
         <div class="col-md-4 pull-right text-right">
           <div class="popper">
             <ul class="popper__list">
@@ -16,7 +16,7 @@
           <button type="button" class="btn btn-lg btn-transparent" data-trigger="popper">{{ _('Login') }}</button>
         </div>
       </div>
-      <div class="row">
+      <div class="row row-compensate">
         <div class="col-md-2">
           <div class="footer-logo-wrapper">
             <img class="footer-logo" src="/assets/images/main_logo_w.png" alt="Site logo">
@@ -28,7 +28,7 @@
         <div class="col-md-6 pull-right">
           {% set social_links = h.get_social_links() %}
           {% if social_links %}
-            <div class="row">
+            <div class="row row-compensate">
               <div class="col-xs-12 text-right">
                 <div class="footer-follow-links">
                   <span class="footer-follow-title">{{ _('Follow us') }}</span>
@@ -57,7 +57,6 @@
       <div class="copyrights">
         © 6Aika
       </div>
-
     {% endblock %}
   </div>
 </footer>
