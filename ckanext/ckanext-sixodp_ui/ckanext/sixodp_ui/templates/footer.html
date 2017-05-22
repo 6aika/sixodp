@@ -1,22 +1,19 @@
-{% ckan_extends %}
-
-{% block footer_content %}
-
-  <footer id="colophon" class="site-footer bgcolor-primary" role="contentinfo">
-    <div class="container">
+<footer id="colophon" class="site-footer bgcolor-primary" role="contentinfo">
+  <div class="container">
+    {% block footer_content %}
       <div class="row">
         <div class="col-md-4 pull-right text-right">
           <div class="popper">
             <ul class="popper__list">
               <li class="popper__item">
-                <a href="/data/user/login" class="popper__link">Dataportaali <i class="material-icons">arrow_forward</i></a>
+                <a href="/data/user/login" class="popper__link">{{ _('Data portal') }} <i class="material-icons">arrow_forward</i></a>
               </li>
               <li class="popper__item">
-                <a href="/admin" class="popper__link">Sisällönhallinta <i class="material-icons">arrow_forward</i></a>
+                <a href="/admin" class="popper__link">{{ _('Content management') }} <i class="material-icons">arrow_forward</i></a>
               </li>
             </ul>
           </div>
-          <button type="button" class="btn btn-lg btn-transparent" data-trigger="popper">Kirjaudu</button>
+          <button type="button" class="btn btn-lg btn-transparent" data-trigger="popper">{{ _('Login') }}</button>
         </div>
       </div>
       <div class="row">
@@ -34,7 +31,7 @@
             <div class="row">
               <div class="col-xs-12 text-right">
                 <div class="footer-follow-links">
-                  <span class="footer-follow-title">Seuraa meitä</span>
+                  <span class="footer-follow-title">{{ _('Follow us') }}</span>
                   {% for item in social_links %}
                     {% set icon_class = h.get_social_link_icon_class(item) %}
                     <a href="{{item.url}}" title="{{item.title}}" class="footer-follow-link"><i class="{{icon_class}} icon-2x"></i></a>
@@ -60,7 +57,8 @@
       <div class="copyrights">
         © 6Aika
       </div>
-    </div>
-  </footer>
 
-{% endblock %}
+    {% endblock %}
+  </div>
+</footer>
+
