@@ -14,6 +14,7 @@
   {# The content block allows you to replace the content of the page if needed #}
   {%- block content %}
    {% block maintag %}<div role="main">{% endblock %}
+      <div id="mobile-indicator"></div>
       <div id="content">
         {% block main_content %}
           {% block flash %}

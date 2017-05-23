@@ -72,3 +72,13 @@ hr {
   margin: $margin-large-vertical 0;
   border-top: 1px solid $table-border-color;
 }
+
+#mobile-indicator {
+  display: block;
+}
+
+@media (min-width: $grid-float-breakpoint) {
+  #mobile-indicator {
+    display: none;
+  }
+}
