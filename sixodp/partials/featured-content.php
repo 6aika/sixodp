@@ -38,7 +38,7 @@
   <div class="container">
     <div class="row cards--showcase">
       <?php
-        $showcases = get_recent_showcases();
+        $showcases = get_recent_showcases(4);
         foreach ($showcases as $showcase) {
           $showcaseUrl = CKAN_BASE_URL . "/showcase/" . $showcase['name'];
           $imgUrl = CKAN_BASE_URL . "/uploads/showcase/".$showcase['featured_image'];

@@ -34,10 +34,6 @@ form {
       }
     }
 
-    .editor-info-block {
-      display: none;
-    }
-
     .control-group {
       &:first-of-type {
         margin-top: 0;
@@ -60,6 +56,14 @@ form {
 
   .form-actions {
     .action-info {
+      margin: $margin-large-vertical*2 0;
+    }
+
+    .btn {
+      margin-right: $margin-large-horizontal*2;
+    }
+
+    .control-required-message {
       margin: $margin-large-vertical*2 0;
     }
   }
