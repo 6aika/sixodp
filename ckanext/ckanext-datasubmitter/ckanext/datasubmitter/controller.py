@@ -96,13 +96,18 @@ class DatasubmitterController(p.toolkit.BaseController):
                     'en': 'UPDATE THIS BEFORE PUBLISHING',
                     'sv': 'UPDATE THIS BEFORE PUBLISHING'
                 },
+                'keywords': {
+                    'fi': ['UPDATE THIS BEFORE PUBLISHING'],
+                    'en': [],
+                    'sv': []
+                },
+                'geographical_coverage': ['update this before publishing'],
                 'notes_translated': {
                     'fi': parsedParams.get('notes_translated-fi'),
                     'en': '',
                     'sv': ''
                 },
                 'owner_org': organization.id,
-                'geographical_coverage': ['update this before publishing'],
                 'date_released': datetime.date.today().strftime('%Y-%m-%d'),
                 'date_updated': datetime.date.today().strftime('%Y-%m-%d'),
                 'maintainer': parsedParams.get('maintainer'),

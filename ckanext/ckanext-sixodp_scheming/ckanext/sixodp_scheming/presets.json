@@ -182,7 +182,7 @@
         "validators": "ignore_missing unicode remove_whitespace",
         "form_snippet": "upload.html",
         "form_placeholder": "http://example.com/my-image.png",
-        "upload_field": "upload",
+        "upload_field": "image_upload",
         "upload_clear": "clear_upload",
         "upload_label": "File"
       }

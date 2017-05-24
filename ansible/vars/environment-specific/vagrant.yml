@@ -87,7 +87,7 @@ ckan_extensions:
   - ckanext-statistics
   - ckanext-sixodp_harvester
   - ckanext-sixodp_showcasesubmit
-  - ckanext-googleanalytics
+#  - ckanext-googleanalytics
 
 # List of enabled CKAN extensions in load order. Order matters, when templates call super()
 enabled_ckan_extensions:
@@ -128,7 +128,7 @@ enabled_ckan_extensions:
     - csw_harvester
     - sixodp_harvester
     - sixodp_showcasesubmit
-    - googleanalytics
+#    - googleanalytics
 
 enabled_ckan_aws_extensions: cloudstorage
 
@@ -155,7 +155,3 @@ AWS:
   region: S3_EU_WEST
 
 recaptcha_sitekey: 6LcOXyAUAAAAALCDCcqzCrqRM4fllGmL0KHopKLY
-
-google_analytics:
-  id: UA-98421659-1
-  account: Sixodp
