@@ -58,5 +58,13 @@ form {
     .action-info {
       margin: $margin-large-vertical*2 0;
     }
+
+    .btn {
+      margin-right: $margin-large-horizontal*2;
+    }
+
+    .control-required-message {
+      margin: $margin-large-vertical*2 0;
+    }
   }
 }
