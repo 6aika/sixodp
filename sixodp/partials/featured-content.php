@@ -38,18 +38,12 @@
   <div class="container">
     <div class="row cards--showcase">
       <?php
-        $showcases = get_items('ckanext_showcase');
+        $showcases = get_recent_showcases(4);
         foreach ($showcases as $showcase) {
           $showcaseUrl = CKAN_BASE_URL . "/showcase/" . $showcase['name'];
-          $imgUrl = CKAN_BASE_URL . "/uploads/showcase/".$showcase['extras'][6]['value'];
+          $imgUrl = CKAN_BASE_URL . "/uploads/showcase/".$showcase['featured_image'];
           $packageId = $showcase['id'];
-          foreach ( $showcase['extras'] as $extra ) {
-            if ( $extra['key'] == 'icon' ) {
-              $imgUrl = CKAN_BASE_URL ."/uploads/showcase/".$extra['value'];
-            } else if ( $extra['key'] == 'notes_translated' ) {
-              $notes = json_decode($extra['value'], true)[get_current_locale()];
-            }
-          }
+          $notes = get_translated($showcase, 'notes');
           include(locate_template( 'partials/showcase.php' ));
         }
       ?>
@@ -83,7 +77,7 @@
             <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale(); ?>/<?php echo $dataset['type']; ?>" class="card__categorylink"><?php echo $dataset['type']; ?></a>
           </div>
           <div class="card__body">
-            <p><?php echo get_notes_excerpt($dataset['notes_translated'][get_current_locale()]); ?></p>
+            <p><?php echo get_notes_excerpt(get_translated($dataset, 'notes')); ?></p>
           </div>
         </div><?php
       endforeach; ?>

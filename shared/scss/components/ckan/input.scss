@@ -33,3 +33,15 @@ label.checkbox {
     position: absolute;
   }
 }
+
+.input-group {
+  .input-group-btn {
+    .btn {
+      height: $input-height-base;
+    }
+
+    .btn-lg {
+      height: $input-height-large;
+    }
+  }
+}

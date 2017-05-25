@@ -29,7 +29,7 @@
                     </a>
                   </h4>
                   <div class="horizaccordion__meta">
-                    <span><?php echo parse_date(get_the_date()); ?></span>
+                    <span><?php echo parse_date(get_the_date('c')); ?></span>
                       <?php
                         if ( count(get_the_category()) > 0 ) {
                           foreach ( get_the_category() as $cat ) { ?>

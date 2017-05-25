@@ -1,7 +1,13 @@
 .site-footer {
+  margin-top: $base;
   padding-top: $base*6;
   background: $footer-background-color;
   color: $footer-text-color;
+
+  hr {
+    margin: 0;
+    border-top: 1px solid rgba(255,255,255,0.6);
+  }
 
   a,
   a:focus {
@@ -15,10 +21,16 @@
       color: $footer-link-color-active;
     }
   }
+
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
 
 .footer-follow-links {
   padding: $base*2 0;
+  float: right;
 }
 
 .footer-follow-title {
@@ -27,11 +39,6 @@
 
 .footer-follow-link:hover {
   text-decoration: none;
-}
-
-hr {
-  margin: 0;
-  border-top: 1px solid rgba(255,255,255,0.6);
 }
 
 .footer-section {
@@ -74,6 +81,7 @@ hr {
 }
 
 .copyrights {
-  padding: $base*2 0 $base*8;
+  padding-top: $base*2;
+  padding-bottom: $base*2;
   text-align: right;
 }

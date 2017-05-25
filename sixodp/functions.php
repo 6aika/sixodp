@@ -423,8 +423,8 @@ function get_showcases_count() {
   return get_count('ckanext_showcase');
 }
 
-function get_recent_showcases() {
-  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_released%20desc&fq=dataset_type:showcase');
+function get_recent_showcases($limit) {
+  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_released%20desc&fq=dataset_type:showcase&rows=' . $limit);
   return $data['result']['results'];
 }
 
@@ -487,7 +487,7 @@ function sort_results($arr) {
 
 function get_all_recent_data() {
   $datasets   = get_recent_content();
-  $showcases  = get_recent_showcases();
+  $showcases  = get_recent_showcases(20);
   $arr = array_merge($datasets, $showcases);
 
   return sort_results($arr);
@@ -503,10 +503,10 @@ function get_lang() {
   return DEFAULT_LANGUAGE;
 }
 
-function get_translated($object) {
+function get_translated($object, $field) {
   $lang = get_lang();
-  if($object[$lang]) {
-    return $object[$lang];
+  if( $object[$field . '_translated'] ) {
+    return $object[$field . '_translated'][$lang];
   }
-  return $object;
+  return $object[$field];
 }

@@ -2,12 +2,13 @@
   display: flex;
   flex-wrap: wrap;
   padding-top: $base*5;
+  justify-content: center;
 }
 
 .category__wrapper {
-  width: $base*19.5;
-  padding-left: $base;
-  padding-bottom: $base;
+  width: $base*29.25;
+  padding-left: $base*1.5;
+  padding-bottom: $base*1.5;
 }
 
 .category {
@@ -15,7 +16,7 @@
   border-radius: $base/5;
   background: $brand-white;
   margin-left: 0;
-  padding: $base*1.5 $base*2;
+  padding: $base*2 $base*2;
   height: 100%;
 }
 
@@ -35,4 +36,13 @@
 .category__name {
   display: inline-block;
   text-transform: capitalize;
+  padding-right: $base*0.5;
+}
+
+.category__count {
+  display: inline-block;
+  font-weight: normal;
+  padding: 0 7px;
+  border: 1px solid $brand-primary;
+  border-radius: 50%;
 }

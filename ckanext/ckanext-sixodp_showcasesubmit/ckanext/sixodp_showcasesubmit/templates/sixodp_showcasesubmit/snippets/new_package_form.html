@@ -28,7 +28,7 @@
     </div>
 
     <div class="col-xs-12">
-      {% call form.textarea(
+      {% call form.markdown(
         'notes_translated-fi',
         id='field-notes_translated-fi',
         label=h.scheming_language_text('Description'),
@@ -38,8 +38,10 @@
         classes=['control-full'],
         attrs={},
         is_required=false
-        )
-        %}
+        ) %}
+        {%- snippet 'scheming/form_snippets/fluent_help_text.html',
+        field='',
+        lang='fi' -%}
       {% endcall %}
       <div class="field-assistive-text">
         {% trans %}

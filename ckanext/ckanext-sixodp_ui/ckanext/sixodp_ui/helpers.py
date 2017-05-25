@@ -149,7 +149,9 @@ def get_translated(data_dict, field):
             return data_dict[field+'_translated'][language]
         except KeyError:
             return data_dict.get(field, '')
-    return data_dict.get('display_name')
+    if data_dict.get('display_name', None) is not None:
+        return data_dict.get('display_name')
+    return data_dict.get(field)
 
 
 def get_current_lang():

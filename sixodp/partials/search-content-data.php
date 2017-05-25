@@ -67,7 +67,7 @@
                             <?php echo $result['date_updated'];?>
                         </span>
                     </div>
-                    <p class="search-content__info"><?php if(isset($result['notes_translated']['fi'])) {echo $result['notes_translated']['fi']; } ?></p>
+                    <p class="search-content__info"><?php echo get_translated($result, 'notes'); ?></p>
                   </div>
                 </div>
               </li>
