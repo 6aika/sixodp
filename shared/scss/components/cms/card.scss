@@ -109,7 +109,19 @@
   font-size: $base*1.2;
 }
 
+.cards--post {
+  @extend .cards;
+  flex-wrap: wrap;
+}
 
+.card--post {
+  @extend .card;
+  padding: 0;
+  border-color: #ccc;
+  width: 240px;
+  height: 330px;
+  margin: 0 10px 10px 0;
+}
 
 // Showcase cards
 
