@@ -16,6 +16,7 @@ wordpress_plugins:
   - addthis
   - polylang
   - google-analytics-dashboard-for-wp
+  - wpcustom-category-image
 
 polylang_languages: 
   - { name: 'Suomi', code: 'fi', locale: 'fi', flag: 'fi' }
