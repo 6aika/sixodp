@@ -29,7 +29,7 @@
                     </a>
                   </h4>
                   <div class="horizaccordion__meta">
-                    <span><?php echo parse_date(get_the_date()); ?></span>
+                    <span><?php echo parse_date(get_the_date('c')); ?></span>
                       <?php
                         if ( count(get_the_category()) > 0 ) {
                           foreach ( get_the_category() as $cat ) { ?>
@@ -54,6 +54,9 @@
   </div>
   <div class="container">
     <div class="row horizaccordion__btn-container">
+      <a type="button" href="<?php echo get_category_link(get_category_by_slug('ajankohtaista')->term_id); ?>" class="btn btn-lg btn-secondary btn--show-all">
+        <?php _e('Show all');?>  <i class="material-icons">arrow_forward</i>
+      </a>
       <a type="button" href="/ajankohtaista" class="btn btn-lg btn-secondary btn--ajankohtaista">
         <?php _e('Latest updates');?>  <i class="material-icons">arrow_forward</i>
       </a>
