@@ -47,3 +47,7 @@
 - name: Initialize ckanext-googleanalytics database
   command: ./bin/paster --plugin=ckanext-googleanalytics initdb "--config={{ ckan_ini }}" chdir={{ virtualenv }}
   when: "'ckanext-googleanalytics' in ckan_extensions"
+
+- name: Initialize ckanext-cloudstorage database
+  command: ./bin/paster --plugin=ckanext-cloudstorage cloudstorage initdb "--config={{ ckan_ini }}" chdir={{ virtualenv }}
+  when: AWS.enabled

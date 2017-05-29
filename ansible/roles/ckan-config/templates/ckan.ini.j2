@@ -122,12 +122,13 @@ ckan.datapusher.url = http://0.0.0.0:8800/
 {% if AWS.enabled -%}
 ckanext.cloudstorage.driver = {{ AWS.region }}
 ckanext.cloudstorage.container_name = {{ AWS.ckan_s3_bucket }}
+ckanext.cloudstorage.use_secure_urls = 1
 {% if AWS.use_iam_role -%}
 ckanext.cloudstorage.driver_options = {}
 {%- endif %}
 
 {% if not AWS.use_iam_role -%}
-ckanext.cloudstorage.driver_options = {"key": {{ AWS.access_key }}, "secret": {{ AWS.secret_access_key }}}
+ckanext.cloudstorage.driver_options = {"key": "{{ AWS.access_key }}", "secret": "{{ AWS.secret_access_key }}"}
 
 {%- endif %}
 {%- endif %}
