@@ -19,16 +19,20 @@ get_header(); ?>
 	<main id="main" class="site-main site-main--home" role="main">
 		<?php
 
-      get_template_part('partials/header-logos');
+		get_template_part('partials/header-logos');
 
-			echo '<h1 class="heading--tuki">Tuki</h1>';
-			get_template_part( 'partials/tuki-contentbox' );
-      
-      $morelinks_title  = "Teemat";
-      $links            = get_tuki_links();
-      include(locate_template( 'partials/morelinks.php' ));
-      
-      get_template_part( 'partials/tuki-contactbanner' );
+		echo '<h1 class="heading--tuki">Tuki</h1>';
+		get_template_part( 'partials/tuki-contentbox' );
+
+		$morelinks_title  = "Teemat";
+		$tuki_page = get_page_by_title('Tuki');
+		$links = array_slice(array_filter(get_pages(['child_of' => $tuki_page->ID, 'sort_order' => 'asc', 'sort_column' => 'menu_order']), function ($page) use ($tuki_page) { 
+			return $page->post_parent != $tuki_page->ID; 
+		}), 0, 4);
+
+		include(locate_template( 'partials/morelinks.php' ));
+
+		get_template_part( 'partials/tuki-contactbanner' );
 
 		?>
 

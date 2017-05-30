@@ -10,7 +10,8 @@
   <div class="wrapper--inner-contentbox">
     <div class="container">
       <div class="row"><?php
-        foreach ( get_tuki_links() as $tuki_page ) : ?>
+        $tuki_page = get_page_by_title('Tuki');
+        foreach ( get_pages(['parent' => $tuki_page->ID, 'sort_order' => 'asc', 'sort_column' => 'menu_order']) as $tuki_page ) : ?>
           <div class="col-md-4 contentbox">
             <h1 class="heading--main">
               <a class="contentbox__link" href="<?php echo $tuki_page->post_name; ?>">
