@@ -79,7 +79,6 @@ ckan_extensions:
   - ckanext-scheming
   - ckanext-showcase
   - ckanext-fluent
-  - ckanext-pages
   - ckanext-harvest
   - ckanext-cloudstorage
   - ckanext-report
@@ -118,8 +117,6 @@ enabled_ckan_extensions:
     - scheming_groups
     - fluent
     - report
-    - tagless_report
-    - pages
     - sixodp_routes
     - sixodp_feed
     - rating
