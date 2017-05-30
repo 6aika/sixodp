@@ -93,6 +93,31 @@
   become: yes
   become_user: www-data
 
+
+- name: Create WP-CLI directory
+  file:
+    state: directory
+    path: /opt/wp-cli
+    owner: www-data
+    group: www-data
+
+- block:
+  - name: Install polylang-cli
+    command: wp package install git@github.com:diggy/polylang-cli.git
+
+  - name: Add languages to polylang-cli
+    command: wp pll lang create "{{ item.name }}" "{{ item.code }}" "{{ item.locale }}" --flag="{{ item.flag }}" --path=/opt/wordpress
+    with_items: "{{ polylang_languages }}"
+    ignore_errors: true
+
+  become: yes
+  become_user: www-data
+
+  environment:
+    WP_CLI_CACHE_DIR: /opt/wp-cli/cache
+    WP_CLI_CONFIG_PATH: /opt/wp-cli/config.yml
+    WP_CLI_PACKAGES_DIR: /opt/wp-cli/packages
+
 - name: Create symbolic link to sixodp theme
   file:
     src: /vagrant/sixodp
@@ -118,26 +143,3 @@
 - include: local_plugin.yml
   with_items: "{{ wordpress_local_plugins }}"
 
-- name: Create WP-CLI directory
-  file:
-    state: directory
-    path: /opt/wp-cli
-    owner: www-data
-    group: www-data
-
-- block:
-  - name: Install polylang-cli
-    command: wp package install git@github.com:diggy/polylang-cli.git
-
-  - name: Add languages to polylang-cli
-    command: wp pll lang create "{{ item.name }}" "{{ item.code }}" "{{ item.locale }}" --flag="{{ item.flag }}" --path=/opt/wordpress
-    with_items: "{{ polylang_languages }}"
-    ignore_errors: true
-
-  become: yes
-  become_user: www-data
-
-  environment:
-    WP_CLI_CACHE_DIR: /opt/wp-cli/cache
-    WP_CLI_CONFIG_PATH: /opt/wp-cli/config.yml
-    WP_CLI_PACKAGES_DIR: /opt/wp-cli/packages

@@ -268,9 +268,20 @@ function create_menu_i18n($menu_name, $itemsArr, $location) {
 }
 
 function create_default_pages() {
+  $translated_pages = array();
   foreach( ['fi', 'en_GB', 'sv'] as $locale ) {
-    insert_default_page($locale);
+    $locale_pages = insert_default_page($locale);
+
+    foreach ($locale_pages as $key => $id) {
+      if (!isset($translated_pages[$key])) $translated_pages[$key] = array();
+
+      $translated_pages[$key][substr($locale, 0, 2)] = $id;
+    }
   }
+
+  foreach ($translated_pages as $translations) {
+    pll_save_post_translations($translations);
+  } 
 }
 
 function insert_default_page($locale) {
@@ -285,6 +296,7 @@ function insert_default_page($locale) {
     );
 
     $page_id = wp_insert_post( $page );
+    pll_set_post_language( $page_id, $locale );
 
     $roadmap_page = array(
       'post_title'    => 'Roadmap',
@@ -296,7 +308,28 @@ function insert_default_page($locale) {
     );
 
     $roadmap_page = wp_insert_post( $roadmap_page );
+    pll_set_post_language( $roadmap_page, $locale );
+
+    $latest_updates_page = array(
+      'post_title'    => 'Latest updates',
+      'post_content'  => "This is my post",
+      'post_type'     => 'page',
+      'post_parent'   => $page_id,
+      'post_status'   => 'publish',
+      'page_template' => 'ajankohtaista.php'
+    );
+
+    $latest_updates_page = wp_insert_post( $latest_updates_page );
+    pll_set_post_language( $latest_updates_page, $locale );
+
+    return array(
+      'home' => $page_id,
+      'roadmap' => $roadmap_page,
+      'latest_updates' => $latest_updates_page
+    );
   }
+
+  return array();
 }
 
 function sixodp_scripts() {
