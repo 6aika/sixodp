@@ -444,7 +444,8 @@ function get_datasets_search($search) {
 }
 
 function get_dataset_count() {
-  return get_datasets()['count'];
+  $datasets = get_datasets();
+  return $datasets['count'] ? $datasets['count'] : 0;
 }
 
 function get_items($type) {
@@ -463,6 +464,14 @@ function get_recent_showcases($limit) {
 
 function get_organizations_count() {
   return get_count('organization');
+}
+
+function get_api_count() {
+  $api_collection = get_ckan_data(CKAN_API_URL."/action/api_collection_show");
+  if($api_collection['result']['package_count']) {
+    return $api_collection['result']['package_count'];
+  }
+  return 0;
 }
 
 function get_count($type) {
