@@ -1,5 +1,6 @@
 <?php
 require_once(ABSPATH . 'wp-admin/includes/post.php'); 
+require_once(ABSPATH . 'wp-admin/includes/taxonomy.php'); 
 
 load_theme_textdomain('sixodp');
 if ( !function_exists('sixodp_theme_setup') ) :
@@ -77,6 +78,7 @@ if ( !function_exists('sixodp_theme_setup') ) :
 
     create_primary_menus();
     create_default_pages();
+    create_default_categories();
     create_secondary_menus();
     create_footer_menus();
     create_social_media_menus();
@@ -269,6 +271,44 @@ function create_menu_i18n($menu_name, $itemsArr, $location) {
   }
 }
 
+function create_default_categories() {
+  $translated_categories = array();
+  foreach( DEFAULT_CATEGORIES as $lang_data ) {
+
+    $translated_categories = insert_categories($lang_data['categories'], $lang_data['locale'], $lang_data['code'], $translated_categories);
+  }
+
+  foreach ($translated_categories as $translations) {
+    pll_save_term_translations($translations);
+  } 
+}
+
+function insert_categories($categories, $locale, $code, $translated_categories, $parent_id = null) {
+  foreach ($categories as $key => $category) {
+    $category_exists = get_category_by_slug(sanitize_title($category['cat_name']));
+
+    if ($category_exists === false) {
+      $defaults = array(
+        'taxonomy' => 'category'
+      );
+
+      if ($parent_id !== null) $defaults['category_parent'] = $parent_id;
+
+      $category_id = wp_insert_category(array_merge($defaults, $category));
+      pll_set_term_language( $category_id, $locale );
+
+      if (!isset($translated_categories[$key])) $translated_categories[$key] = array();
+      
+      $translated_categories[$key][$code] = $category_id;
+    }
+    else $category_id = $category_exists->term_id;
+
+    if (isset($category['children']))  $translated_categories = insert_categories($category['children'], $locale, $code, $translated_categories, $category_id);
+  }
+
+  return $translated_categories;
+} 
+
 function create_default_pages() {
   $translated_pages = array();
   foreach( DEFAULT_PAGES as $lang_data ) {
@@ -319,6 +359,7 @@ add_action( 'wp_enqueue_scripts', 'sixodp_scripts' );
 function get_nav_menu_items($menu) {
   return wp_get_menu_array($menu);
 }
+
 
 function wp_get_menu_array($current_menu) {
     //var_dump(!in_array(get_current_locale().'', array("fi", "en_GB", "sv")));

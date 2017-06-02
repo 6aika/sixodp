@@ -37,6 +37,51 @@
     ) )
   ) );
 
+  define( 'DEFAULT_CATEGORIES', array(
+    array(
+      'locale' => 'fi',
+      'code' => 'fi',
+      'categories' => array(
+        'latest_updates' => array( 'cat_name' => 'Ajankohtaista', 'category_description' => '', 'children' => array(
+          'blogs' => array ( 'cat_name' => 'Blogit', 'category_description' => '' ),
+          'news' => array ( 'cat_name' => 'Uutiset', 'category_description' => '' )
+        ) ),
+        'support' => array( 'cat_name' => 'Tuki', 'category_description' => '', 'children' => array(
+          'how_to_start' => array ( 'cat_name' => 'Kuinka aloitan?', 'category_description' => 'Kootut ohjeet sivun käyttöön' ),
+          'data_users' => array ( 'cat_name' => 'Aineiston käyttäjälle?', 'category_description' => 'Miten saan eniten irti avoimesta datasta?' ),
+          'data_publishers' => array ( 'cat_name' => 'Aineiston julkaisijalle?', 'category_description' => 'Kuinka julkaisen dataa?' ),
+        ) )
+    ) ),
+    array(
+      'locale' => 'en_GB',
+      'code' => 'en',
+      'categories' => array(
+        'latest_updates' => array( 'cat_name' => 'Latest updates', 'category_description' => '', 'children' => array(
+          'blogs' => array ( 'cat_name' => 'Blogs', 'category_description' => '' ),
+          'news' => array ( 'cat_name' => 'News', 'category_description' => '' )
+        ) ),
+        'support' => array( 'cat_name' => 'Support', 'category_description' => '', 'children' => array(
+          'how_to_start' => array ( 'cat_name' => 'How to start?', 'category_description' => 'Kootut ohjeet sivun käyttöön' ),
+          'data_users' => array ( 'cat_name' => 'Data users', 'category_description' => 'Miten saan eniten irti avoimesta datasta?' ),
+          'data_publishers' => array ( 'cat_name' => 'Data publishers', 'category_description' => 'Kuinka julkaisen dataa?' ),
+        ) )
+    ) ),
+    // array(
+    //   'locale' => 'sv',
+    //   'code' => 'sv',
+    //   'categories' => array(
+    //     'latest_updates' => array( 'cat_name' => 'Ajankohtaista', 'category_description' => '', 'children' => array(
+    //       'blogs' => array ( 'cat_name' => 'Blogit', 'category_description' => '' ),
+    //       'news' => array ( 'cat_name' => 'Uutiset', 'category_description' => '' )
+    //     ) ),
+    //     'support' => array( 'cat_name' => 'Tuki', 'category_description' => '', 'children' => array(
+    //       'how_to_start' => array ( 'cat_name' => 'Kuinka aloitan?', 'category_description' => 'Kootut ohjeet sivun käyttöön' ),
+    //       'data_users' => array ( 'cat_name' => 'Aineiston käyttäjälle?', 'category_description' => 'Miten saan eniten irti avoimesta datasta?' ),
+    //       'data_publishers' => array ( 'cat_name' => 'Aineiston julkaisijalle?', 'category_description' => 'Kuinka julkaisen dataa?' ),
+    //     ) )
+    // ) ),
+  ) );
+
   define( 'PRIMARY_MENU_ITEMS_FI', array(
     array('menu-item-title' => 'Etusivu', 'menu-item-url' => '/fi'),
     array('menu-item-title' => 'Tietoaineistot', 'menu-item-url' => '/data/fi/dataset'),
