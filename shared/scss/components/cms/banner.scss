@@ -21,21 +21,27 @@
 }
 
 .banner__title {
-  font-size: 2rem;
+  font-size: $font-size-large;
   color: $brand-white;
   margin-top: 0;
   margin-bottom: 0;
 }
 
 .banner__subtitle {
-  font-size: 1.5rem;
+  font-size: $font-size-base;
   color: $brand-white;
+  font-weight: normal;
 }
 
 .banner__buttons .btn {
   color: $brand-white;
   padding-left: $base*2;
   padding-right: $base*2;
+  margin-bottom: $base;
+
+  @media(min-width: $width-md) {
+    margin-bottom: 0;
+  }
 
   i {
     margin-right: 0;

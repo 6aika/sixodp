@@ -75,10 +75,11 @@
   width: 75%;
   padding: 0;
   border: 0;
-
+  margin: $base*2 auto;
 
   @media(min-width: $width-sm) {
     width: 48%;
+    margin: $base;
   }
 }
 
@@ -127,12 +128,47 @@
 
 .cards--showcase {
   @extend .cards--latest;
+  flex-wrap: wrap;
 }
 
 .card--showcase {
   @extend .card--latest;
   background: $brand-primary;
   padding: 0;
+
+  @media(min-width: $width-sm) {
+    flex: 1 1 48%;
+    margin: 1%;
+
+    &:nth-child(even) {
+      margin-right: 0;
+    }
+
+    &:nth-child(odd) {
+      margin-left: 0;
+    }
+  }
+
+  @media(min-width: $width-lg) {
+    flex: 1 1 24%;
+    margin: 0.5%;
+
+    &:nth-child(even) {
+      margin-right: 0.5%;
+    }
+
+    &:nth-child(odd) {
+      margin-left: 0.5%;
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }
 
 .card__img {

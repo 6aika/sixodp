@@ -7,7 +7,8 @@
 
 .category__wrapper {
   width: $base*29.25;
-  padding-left: $base*1.5;
+  padding-left: $base;
+  padding-right: $base;
   padding-bottom: $base*1.5;
 }
 
@@ -16,7 +17,7 @@
   border-radius: $base/5;
   background: $brand-white;
   margin-left: 0;
-  padding: $base*2 $base*2;
+  padding: $base*2 $base*1.5;
   height: 100%;
 }
 

@@ -25,19 +25,28 @@
 }
 
 .hero .input-group {
-  display: block;
+  display: table;
+
+  button {
+    font-size: 16px;
+    padding-left: $base;
+    padding-right: $base;
+  }
 
   .form-control {
     margin-top: $base;
     margin-bottom: $base;
   }
 
-  @media (min-width: $width-xs) {
-    display: table;
+  @media(min-width: $width-sm) {
+    button {
+      font-size: $font-size-large;
+      padding-left: $base*2;
+      padding-right: $base*2;
+    }
   }
 
-  @media (min-width: $width-md) {
-
+  @media(min-width: $width-md) {
     .form-control {
       margin-top: 0;
       margin-bottom: 0;

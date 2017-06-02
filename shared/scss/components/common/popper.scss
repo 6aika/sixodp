@@ -2,8 +2,8 @@
   position: absolute;
     top: -$base*11;
     right: $base*1.5;
-  width: 100%;
-  max-width: $base*18;
+  width: auto;
+  max-width: $base*28;
   max-height: 0;
   overflow: hidden;
   box-shadow: 0 1px 3px rgba(0,0,0,0.5);
@@ -22,6 +22,10 @@
 }
 
 .popper__item {
+  display: inline-block;
+  white-space: nowrap;
+  width: 100%;
+
   a {
     background: $brand-white;
     color: $brand-primary;
@@ -34,18 +38,14 @@
   text-align: left;
   padding: $base*1.5;
 
-  .material-icons {
-    float: right;
-  }
-
   &:hover {
     background: $brand-gray;
   }
 }
 
 .popper:after, .popper:before {
-  top: 100%;
-  left: 50%;
+  top: 108%;
+  left: 70%;
   border: solid transparent;
   content: " ";
   height: 0;
