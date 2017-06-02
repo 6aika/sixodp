@@ -6,6 +6,37 @@
 
 <?php
   include('ckan-config.php');
+
+  define( 'DEFAULT_PAGES', array(
+    array(
+      'locale' => 'fi',
+      'code' => 'fi',
+      'pages' => array(
+        'main' => array( 'post_title' => 'fi', 'post_content' => "This is my post", 'page_template' => 'home.php', 'children' => array(
+          'roadmap' => array( 'post_title' => 'Roadmap', 'post_content' => "This is my post", 'page_template' => 'roadmap.php' ),
+          'latest_updates' => array( 'post_title' => 'Ajankohtaista', 'post_content' => "This is my post", 'page_template' => 'ajankohtaista.php' ),
+      ) ),
+    ) ),
+    array(
+      'locale' => 'en_GB',
+      'code' => 'en',
+      'pages' => array(
+        'main' => array( 'post_title' => 'en_GB', 'post_content' => "This is my post", 'page_template' => 'home.php', 'children' => array(
+          'roadmap' => array( 'post_title' => 'Roadmap', 'post_content' => "This is my post", 'page_template' => 'roadmap.php' ),
+          'latest_updates' => array( 'post_title' => 'Latest updates', 'post_content' => "This is my post", 'page_template' => 'ajankohtaista.php' ),
+        ) ),
+    ) ),
+    array(
+      'locale' => 'sv',
+      'code' => 'sv',
+      'pages' => array(
+        'main' => array( 'post_title' => 'sv', 'post_content' => "This is my post", 'page_template' => 'home.php', 'children' => array(
+          'roadmap' => array( 'post_title' => 'Roadmap', 'post_content' => "This is my post", 'page_template' => 'roadmap.php' ),
+          'latest_updates' => array( 'post_title' => 'Latest updates', 'post_content' => "This is my post", 'page_template' => 'ajankohtaista.php' ),
+        ) ),
+    ) )
+  ) );
+
   define( 'PRIMARY_MENU_ITEMS_FI', array(
     array('menu-item-title' => 'Etusivu', 'menu-item-url' => '/fi'),
     array('menu-item-title' => 'Tietoaineistot', 'menu-item-url' => '/data/fi/dataset'),
