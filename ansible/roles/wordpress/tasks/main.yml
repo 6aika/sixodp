@@ -143,3 +143,11 @@
 - include: local_plugin.yml
   with_items: "{{ wordpress_local_plugins }}"
 
+- name: Create symbolic link for wordpress tools includes
+  file:
+    src: /opt/wordpress/
+    dest: /vagrant/src
+    state: link
+    force: yes
+  when: deployment_environment_id == "vagrant"
+
