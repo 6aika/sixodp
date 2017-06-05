@@ -1,8 +1,8 @@
 # Managing Wordpress translations
 
-1. Generate the source language sixodp.pot file by running the following command in the theme directory (/sixodp)
+1. Generate the source language sixodp.pot file by running the following command in the wordpress tools directory (/sixodp/tools)
 ```
-php ./tools/makepot.php wp-theme . ./i18n/sixodp.pot
+php makepot.php wp-theme ../ ../i18n/sixodp.pot
 ```
 
 2. Upload the updated sixodp.pot file to Transifex by hand or with the tx client by running the following command. 
@@ -11,9 +11,7 @@ The Transifex project is configured in /.tx/config so the file should be uploade
 tx push -s
 ```
 
-3. Translate the new source strings in Transifex and get the new language files by running:
+3. Fetch and compile the new translation files
 ```
-tx pull
+./update_wp_translations.sh
 ```
-
-4. Compile the new language files
