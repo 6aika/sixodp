@@ -11,7 +11,7 @@
         <?php echo get_the_category()[0]->cat_name; ?>
       </li>
       <li class="sidebar__item">
-        <a href="#" class="sidebar__link--active"><?php the_title(); ?></a>
+        <a href="<?php the_permalink(); ?>" class="sidebar__link--active"><?php the_title(); ?></a>
       </li>
       <?php
 
@@ -27,8 +27,8 @@
         $product_pages = $my_wp_query->query($product_page_args);
 
         foreach ($product_pages as $product_page){ ?>
-          <li class="sidebar__item--heading">
-            <a href="#" class="sidebar__link">
+          <li class="sidebar__item">
+            <a href="<?php echo get_permalink($product_page); ?>" class="sidebar__link">
               <?php echo $product_page->post_title; ?>  
             </a>
           </li><?php
@@ -40,7 +40,8 @@
     <?php
       $categories=get_categories(array(
         'parent' => get_cat_ID('tuki'), 
-        'exclude' => array(get_the_category()[0]->term_id)
+        'exclude' => array(get_the_category()[0]->term_id),
+        'hide_empty' => false,
       ));
 
       if (count($categories) > 0) {
