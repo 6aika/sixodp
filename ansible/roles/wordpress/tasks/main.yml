@@ -10,6 +10,10 @@
     mode: 0755
     checksum: "{{ wp_cli_checksum }}"
 
+- name: Upgrade WP-cli
+  command:
+    wp cli update --yes --allow-root
+
 - name: Create database
   mysql_db:
     name: wordpress
