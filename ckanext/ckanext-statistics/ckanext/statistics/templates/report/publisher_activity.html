@@ -1,0 +1,87 @@
+{% if options['organization'] == None %}
+
+<ul>
+    <li>Period: Current and previous quarter
+        ({{h.render_datetime(data['period'][0])}} -
+        {{h.render_datetime(data['period'][1])}})</li>
+    {# Don't show totals when including sub orgs because the datasets are double counted for both the org and parent department. #}
+    {% if not options.include_sub_organizations %}
+    <li>Datasets created: {{data['totals']['num created']}}</li>
+    <li>Datasets modified: {{data['totals']['num modified']}}</li>
+    <li>Datasets created or modified: {{data['totals']['total']}}</li>
+    {% endif %}
+</ul>
+<p>Note: some datasets will be created and modified during the period, hence why 'created or modified' is often less than the sum of the 'created' and 'modified' values.</p>
+<table class="table table-bordered table-condensed tablesorter" id="report-table" style="width: 100%; margin-top: 8px;">
+    <thead>
+    <tr>
+        <th style="width: 500px">Publisher</th>
+        <th style="width: 100px">Datasets created</th>
+        <th style="width: 100px">Datasets modified</th>
+        <th style="width: 100px">Created or modified</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in table %}
+    <tr>
+        <td>{{ h.link_to(row['organization title'], h.report__relative_url_for(organization=row['organization name'])) }}
+            {{ h.link_to('(publisher)', h.url_for(controller='organization',action='read',id=row['organization name'])) }}
+        </td>
+        <td>{{ row['num created'] }}</td>
+        <td>{{ row['num modified'] }}</td>
+        <td>{{ row['total'] }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% else %}
+
+{% for quarter in data['quarters'] %}
+<div style="margin-top: 10px; margin-bottom:10px;">
+    <h3>
+        {{quarter.capitalize()}} Quarter
+        ({{h.render_datetime(data['quarters'][quarter][0])}} -
+        {{h.render_datetime(data['quarters'][quarter][1])}})
+    </h3>
+    {% for type_ in ('created', 'modified') %}
+    <div style="margin-top: 10px; margin-bottom:10px;">
+        {% with %}
+        {% set rows = h.report_match_rows(table, type_, quarter) %}
+        <p>{{type_.capitalize()}} ({{rows|length}}):</p>
+
+        {% if rows %}
+        <table class="table table-bordered table-condensed tablesorter" id="report-table" style="width: 100%; margin-top: 8px;">
+            <tr>
+                <th style="width: 500px">Dataset</th>
+                <th style="width: 100px">Notes</th>
+                <th style="width: 100px">{{type_.capitalize()}}</th>
+                <th style="width: 150px">By</th>
+                <th style="width: 100px">Published data</th>
+            </tr>
+            {% for name,title,notes,created_or_modified,quarter_,timestamps,users,pub in rows %}
+            <tr>
+                <td><a href="{{h.url_for(controller='package',action='read',id=name)}}">{{ title }}</a></td>
+                <td>{{notes}}</td>
+                <td>{{ h.literal(', '.join(h.report_timestamps_split(timestamps))) }}</td>
+                <td>{{ h.literal(', '.join(h.report_users_split(users, organization=options['organization']))) }}</td>
+                <td>
+                    {% if pub %}
+                    <span >Yes</span>
+                    {% else %}
+                    <span >No</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p style="font-style: italic; margin-left:20px">None</p>
+        {% endif %}
+        {% endwith %}
+    </div>
+    {% endfor %}
+</div>
+{% endfor %}
+
+{% endif %}
