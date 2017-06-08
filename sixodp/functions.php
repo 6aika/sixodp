@@ -1,5 +1,6 @@
 <?php
 
+load_theme_textdomain('sixodp');
 if ( !function_exists('sixodp_theme_setup') ) :
 
   function sixodp_theme_setup() {

@@ -93,7 +93,6 @@
   become: yes
   become_user: www-data
 
-
 - name: Create WP-CLI directory
   file:
     state: directory

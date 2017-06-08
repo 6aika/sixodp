@@ -20,7 +20,7 @@ wordpress_plugins:
 
 polylang_languages: 
   - { name: 'Suomi', code: 'fi', locale: 'fi', flag: 'fi' }
-  - { name: 'Svenska', code: 'sv', locale: 'sv_SE', flag: 'se' }
+  - { name: 'Svenska', code: 'sv', locale: 'sv', flag: 'se' }
   - { name: 'English', code: 'en', locale: 'en_GB', flag: 'gb' }
 
 wp_cli_version: "1.1.0"

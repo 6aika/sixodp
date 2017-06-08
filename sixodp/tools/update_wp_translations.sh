@@ -14,9 +14,9 @@ in the default path relative to this script: $TRANSLATIONS_PATH/<language>/LC_ME
 
 function compile_translations {
   tx pull -a
-  msgfmt "$TRANSLATIONS_PATH/en_GB/LC_MESSAGES/sixodp.po" -o "$TRANSLATIONS_PATH/en_GB/LC_MESSAGES/sixodp.mo"
-  msgfmt "$TRANSLATIONS_PATH/fi/LC_MESSAGES/sixodp.po" -o "$TRANSLATIONS_PATH/fi/LC_MESSAGES/sixodp.mo"
-  msgfmt "$TRANSLATIONS_PATH/sv/LC_MESSAGES/sixodp.po" -o "$TRANSLATIONS_PATH/sv/LC_MESSAGES/sixodp.mo"
+  msgfmt "$TRANSLATIONS_PATH/en_GB/LC_MESSAGES/sixodp.po" -o "../sixodp-en_GB.mo"
+  msgfmt "$TRANSLATIONS_PATH/fi/LC_MESSAGES/sixodp.po" -o "../sixodp-fi.mo"
+  msgfmt "$TRANSLATIONS_PATH/sv/LC_MESSAGES/sixodp.po" -o "../sixodp-sv.mo"
   echo -e "Translations compiled, exiting..."
 }
 
