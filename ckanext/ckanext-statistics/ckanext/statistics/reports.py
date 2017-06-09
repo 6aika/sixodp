@@ -152,7 +152,7 @@ def _get_activity(organization_name, include_sub_organizations, periods):
             .filter(model.Package.id == pkg.id) \
             .filter_by(state='active') \
             .join(model.ResourceRevision,
-                  model.Resource.id == model.ResourceRevision.package_id) \
+                  model.Package.id == model.ResourceRevision.package_id) \
             .join(model.Revision) \
             .filter(~model.Revision.author.in_(system_authors)) \
             .filter(~model.Revision.author.like(system_author_template))
