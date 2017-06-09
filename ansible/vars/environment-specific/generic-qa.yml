@@ -5,7 +5,7 @@ internal_hostname: sixodp-{{ deployment_environment_id }}
 ckan_site_name: Dataportaali
 ckan_featured_orgs:
 automatic_updates: true
-automatic_updates_recipient: dataportaali-dev@gofore.com
+automatic_updates_recipient: dataportaali-dev@gofore.com joonas.dukpa@tampere.fi
 
 postgres:
   server:
