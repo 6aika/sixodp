@@ -42,7 +42,7 @@
                     <?php the_excerpt(); ?>
                   </div>
                   <div class="horizaccordion__footer">
-                    <a type="button" href="<?php the_permalink(); ?>" class="btn btn-secondary"><?php _e('Read more');?> </a>
+                    <a type="button" href="<?php the_permalink(); ?>" class="btn btn-secondary"><?php _e('Read more', 'sixodp');?> </a>
                   </div>
                 </div>
               </div>
@@ -55,10 +55,10 @@
   <div class="container">
     <div class="row horizaccordion__btn-container">
       <a type="button" href="<?php echo get_category_link(get_category_by_slug('ajankohtaista')->term_id); ?>" class="btn btn-lg btn-secondary btn--show-all">
-        <?php _e('Show all');?>  <i class="material-icons">arrow_forward</i>
+        <?php _e('Show all', 'sixodp');?>  <i class="material-icons">arrow_forward</i>
       </a>
       <a type="button" href="/ajankohtaista" class="btn btn-lg btn-secondary btn--ajankohtaista">
-        <?php _e('Latest updates');?>  <i class="material-icons">arrow_forward</i>
+        <?php _e('Latest updates', 'sixodp');?>  <i class="material-icons">arrow_forward</i>
       </a>
     </div>
   </div>
