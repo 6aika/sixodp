@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-xs-12">
     <div class="footer-follow-links">
-      <span class="footer-follow-title">Seuraa meitä</span>
+      <span class="footer-follow-title"><?php _e('Follow us', 'sixodp');?></span>
        <?php
             foreach(wp_get_nav_menu_items('socialmedia') as $item) {
                 $socialiconclass = '';

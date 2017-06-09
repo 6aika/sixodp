@@ -7,7 +7,7 @@
 <div class="wrapper--latest">
 
   <div class="container">
-    <h1 class="heading--featured"><?php _e('Latest updates');?> </h1>
+    <h1 class="heading--featured"><?php _e('Latest updates', 'sixodp');?> </h1>
   </div>
 
   <div class="container">
@@ -45,7 +45,7 @@
   <div class="container" style="display: none;">
     <div class="row text-right">
       <a href="/data/<?php echo get_current_locale(); ?>/datasets/" class="btn btn-lg btn-secondary btn--sovellukset">
-        <?php _e('More updates');?>  <i class="material-icons">arrow_forward</i>
+        <?php _e('More updates', 'sixodp');?>  <i class="material-icons">arrow_forward</i>
       </a>
     </div>
   </div>

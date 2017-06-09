@@ -1,5 +1,6 @@
 <?php
 
+load_theme_textdomain('sixodp');
 if ( !function_exists('sixodp_theme_setup') ) :
 
   function sixodp_theme_setup() {
@@ -501,7 +502,7 @@ function get_days_ago($date) {
   $date = new DateTime($date);
   $now = new DateTime();
   $interval = $now->diff($date);
-  return $interval->days . $interval->format(' päivää, %h tuntia sitten');
+  return $interval->days . $interval->format(' ' . __('days', 'sixodp') . ', %h ' . __('hours', 'sixodp') . ' ' . __('ago', 'sixodp'));
 }
 
 function get_notes_excerpt($str) {
@@ -532,7 +533,7 @@ function get_all_recent_data() {
   $showcases  = get_recent_showcases(20);
   $arr = array_merge($datasets, $showcases);
 
-  return sort_results($arr);
+  return array_slice(sort_results($arr), 0, 12);
 }
 
 const DEFAULT_LANGUAGE = 'fi';
