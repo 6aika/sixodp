@@ -29,8 +29,19 @@ class StatisticsPlugin(plugins.SingletonPlugin):
 
 class PublisherActivityReportPlugin(plugins.SingletonPlugin):
     plugins.implements(IReport)
+    plugins.implements(plugins.ITemplateHelpers)
 
     # IReport
     def register_reports(self):
         import reports
         return [reports.publisher_activity_report_info]
+
+    # ITemplateHelpers
+    def get_helpers(self):
+
+        return {
+            "report_match_rows": report_match_rows
+        }
+
+def report_match_rows(rows, type_, quarter):
+    return [row for row in rows if (row[3]==type_ and row[4]==quarter)]
