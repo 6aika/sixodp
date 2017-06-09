@@ -25,13 +25,33 @@ get_header(); ?>
 		get_template_part( 'partials/tuki-contentbox' );
 
 		$morelinks_title  = "Teemat";
-		$tuki_page = get_page_by_title('Tuki');
-		$links = array_slice(array_filter(get_pages(['child_of' => $tuki_page->ID, 'sort_order' => 'asc', 'sort_column' => 'menu_order']), function ($page) use ($tuki_page) { 
-			return $page->post_parent != $tuki_page->ID; 
-		}), 0, 4);
-
-		include(locate_template( 'partials/morelinks.php' ));
-
+		$tuki_category = get_category_by_slug('tuki');
+        $teema_category = get_categories(array('parent' => $tuki_category->term_id, 'slug' => 'teemat', 'hide_empty' => false))[0];
+        ?>
+        <div class="wrapper--morelinks">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4">
+                <h1 class="heading--themes"><?php _e('Themes') ?></h1>
+              </div>
+              <div class="col-md-8">
+                <?php foreach (get_categories(array('parent' => $teema_category->term_id, 'hide_empty' => false)) as $category) : ?>
+                  <div class="icon-link morelink">
+                    <p class="icon-link__icon">
+                      <a class="icon-link__link--round" href="<?php echo get_category_link($category->term_id); ?>">
+                        <i class="material-icons">arrow_forward</i>
+                      </a>
+                    </p>
+                    <p class="icon-link__text">
+                      <a href="<?php echo get_category_link($category->term_id); ?>"><?php echo $category->name; ?></a>
+                    </p>
+                  </div>
+                <?php endforeach; ?>
+              </div>
+            </div>
+          </div>
+        </div>
+        <?php
 		get_template_part( 'partials/tuki-contactbanner' );
 
 		?>
