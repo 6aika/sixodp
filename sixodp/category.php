@@ -45,7 +45,7 @@ $posts = get_posts(array('category' => $category->cat_ID));
               <section class="module module-narrow module-shallow">
                 <h2 class="module-heading">
                   <i class="icon-medium icon-filter"></i>
-                  <?php _e('Categories');?> 
+                  <?php _e('Categories', 'sixodp');?>
                 </h2>
                 <nav>
                   <ul class="unstyled nav nav-simple nav-facet filtertype-res_format">

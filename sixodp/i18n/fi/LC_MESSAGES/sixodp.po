@@ -2,13 +2,14 @@
 # This file is distributed under the same license as the  package.
 # Translators:
 # Zharktas <jari-pekka.voutilainen@gofore.com>, 2017
+# Mikko Nieminen <mikko.nieminen@gofore.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sixodp\n"
-"POT-Creation-Date: 2017-05-03 11:51:13+00:00\n"
+"POT-Creation-Date: 2017-06-05 11:08:12+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Zharktas <jari-pekka.voutilainen@gofore.com>, 2017\n"
+"Last-Translator: Mikko Nieminen <mikko.nieminen@gofore.com>, 2017\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,275 +17,291 @@ msgstr ""
 "Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: ajankohtaista.php:25 partials/featured-datasets.php:16
+#: partials/horizaccordion.php:61 partials/latest-updates.php:10
+msgid "Latest updates"
+msgstr "Viimeisimmät päivitykset"
+
+#: ajankohtaista.php:33
+msgid "Twitter"
+msgstr "Twitter"
+
+#: category.php:48
+msgid "Categories"
+msgstr "Kategoriat"
+
 #: footer.php:22
 msgid "Data portal"
 msgstr "Data Portaali"
 
 #: footer.php:25
 msgid "Content manangement system"
-msgstr ""
+msgstr "Sisällönhallinta"
 
 #: footer.php:29
 msgid "Login"
-msgstr ""
+msgstr "Kirjaudu sisään"
 
 #: functions.php:41 partials/nav.php:7
 msgid "Primary Menu"
-msgstr ""
+msgstr "Päävalikko"
 
 #: functions.php:42
 msgid "Secondary Menu"
-msgstr ""
+msgstr "Alavalikko"
 
 #: functions.php:43
 msgid "Social Links Menu"
-msgstr ""
+msgstr "Somelinkkivalikko"
 
 #: functions.php:44
 msgid "Footer Menu"
-msgstr ""
+msgstr "Alatunnisteen valikko"
 
 #: functions.php:192
 msgctxt "post type general name"
 msgid "Notifications"
-msgstr ""
+msgstr "Ilmoitukset"
 
 #: functions.php:193
 msgctxt "post type singular name"
 msgid "Notification"
-msgstr ""
+msgstr "Ilmoitus"
 
 #: functions.php:194
 msgctxt "Notification"
 msgid "Add New"
-msgstr ""
+msgstr "Lisää uusi"
 
 #: functions.php:195
 msgid "Add New Notification"
-msgstr ""
+msgstr "Lisää uusi ilmoitus"
 
 #: functions.php:196
 msgid "Edit Notification"
-msgstr ""
+msgstr "Muokkaa ilmoitusta"
 
 #: functions.php:197
 msgid "New Notification"
-msgstr ""
+msgstr "Uusi ilmoitus"
 
 #: functions.php:198
 msgid "All Notifications"
-msgstr ""
+msgstr "Kaikki ilmoitukset"
 
 #: functions.php:199
 msgid "View Notification"
-msgstr ""
+msgstr "Näytä ilmoitus"
 
 #: functions.php:200
 msgid "Search notifications"
-msgstr ""
+msgstr "Etsi ilmoituksia"
 
 #: functions.php:201
 msgid "No notifications found"
-msgstr ""
+msgstr "Ilmoituksia ei löytynyt"
 
 #: functions.php:202
 msgid "No notifications found in the Trash"
-msgstr ""
+msgstr "Ei ilmoituksia roskakorissa"
 
 #: index.php:46
 msgid "Previous page"
-msgstr ""
+msgstr "Edellinen"
 
 #: index.php:47
 msgid "Next page"
-msgstr ""
+msgstr "Seuraava"
 
 #: index.php:48
 msgid "Page"
-msgstr ""
+msgstr "Sivu"
 
 #: partials/article-footer.php:12 partials/content.php:18
 #: partials/page-content.php:23
 msgid "Author"
-msgstr ""
+msgstr "Tekijä"
 
 #: partials/card.php:16 partials/horizaccordion.php:45
 msgid "Read more"
-msgstr ""
+msgstr "Lue lisää"
 
 #: partials/featured-content.php:10
 msgid "Datasets and applications"
-msgstr ""
+msgstr "Tietoaineistot ja sovellukset"
 
 #: partials/featured-content.php:16
 msgid "Do you have a dataset or an application to share?"
-msgstr ""
+msgstr "Onko sinulla tietoaineisto tai sovellus jaettavaksi?"
 
 #: partials/featured-content.php:17
 msgid "Share it!"
-msgstr ""
+msgstr "Laita se jakoon!"
 
 #: partials/featured-content.php:19
 msgid "Submit an application"
-msgstr ""
+msgstr "Jaa sovellus"
 
 #: partials/featured-content.php:20
 msgid "Submit a dataset"
-msgstr ""
+msgstr "Jaa aineisto"
 
 #: partials/featured-content.php:24
 msgid "Do you have a request for a dataset or an idea for application?"
-msgstr ""
+msgstr "Onko sinulla aineistotoive tai sovellusidea?"
 
 #: partials/featured-content.php:25
 msgid "Tell us!"
-msgstr ""
+msgstr "Kerro se meille!"
 
 #: partials/featured-content.php:27
 msgid "Share an open data idea"
-msgstr ""
+msgstr "Kerro aineistotoive"
 
 #: partials/featured-content.php:28
 msgid "Share an application"
-msgstr ""
+msgstr "Kerro sovellusidea"
 
 #: partials/featured-content.php:35
 msgid "Latest applications"
-msgstr ""
+msgstr "Viimeisimmät sovellukset"
+
+#: partials/featured-content.php:56
+msgid "All applications"
+msgstr "Kaikki sovellukset"
 
 #: partials/featured-content.php:62
-msgid "All applications"
-msgstr ""
-
-#: partials/featured-content.php:68
 msgid "Latest datasets"
-msgstr ""
+msgstr "Viimeisimmät tietoaineistot"
 
-#: partials/featured-content.php:96 partials/stats.php:29
+#: partials/featured-content.php:90 partials/stats.php:35
 msgid "All datasets"
-msgstr ""
+msgstr "Kaikki tietoaineistot"
 
 #: partials/featured-datasets.php:11 partials/hero.php:21 partials/hero.php:24
 #: partials/search-content-data.php:30 partials/search-content.php:30
 #: partials/stats.php:13
 msgid "Datasets"
-msgstr ""
-
-#: partials/featured-datasets.php:16 partials/horizaccordion.php:58
-#: partials/latest-updates.php:10
-msgid "Latest updates"
-msgstr ""
+msgstr "Tietoaineistot"
 
 #: partials/featured-datasets.php:23 partials/featured-datasets.php:48
 msgid "days"
-msgstr ""
+msgstr "päivää"
 
 #: partials/featured-datasets.php:24 partials/featured-datasets.php:49
 msgid "hours"
-msgstr ""
+msgstr "tuntia"
 
 #: partials/featured-datasets.php:25 partials/featured-datasets.php:50
 msgid "ago"
-msgstr ""
+msgstr "sitten"
 
 #: partials/featured-datasets.php:55
 msgid "Article"
-msgstr ""
+msgstr "Artikkeli"
 
 #: partials/featured-datasets.php:68 partials/latest-updates.php:48
 msgid "More updates"
-msgstr ""
+msgstr "Lisää päivityksiä"
 
 #: partials/headingbar.php:10
 msgid "Support"
-msgstr ""
+msgstr "Tuki"
 
 #: partials/headingbar.php:13
 msgid "How to start"
-msgstr ""
+msgstr "Miten aloittaa"
 
 #: partials/hero.php:25 partials/search-content-data.php:33
 #: partials/search-content.php:33 partials/stats.php:19
 msgid "Applications"
-msgstr ""
+msgstr "Sovellukset"
 
 #: partials/hero.php:26
 msgid "Collections"
-msgstr ""
+msgstr "Aineistokokonaisuudet"
 
 #: partials/hero.php:27
 msgid "Articles"
-msgstr ""
+msgstr "Artikkelit"
 
 #: partials/hero.php:29
 msgid "Other"
-msgstr ""
+msgstr "Muu"
 
 #: partials/hero.php:34 searchform.php:8
 msgid "Search"
-msgstr ""
+msgstr "Etsi"
+
+#: partials/horizaccordion.php:58
+msgid "Show all"
+msgstr "Näytä kaikki"
 
 #: partials/more-links.php:11
 msgid "More about the subject"
-msgstr ""
+msgstr "Lisää aiheesta"
 
 #: partials/nav.php:12
 msgid "Toggle navigation"
-msgstr ""
+msgstr "Näytä tai piilota valikko"
 
 #: partials/search-content-data.php:25 partials/search-content.php:25
 msgid "Results in groups"
-msgstr ""
+msgstr "Tulosta ryhmissä"
 
 #: partials/search-content-data.php:36 partials/search-content.php:36
 msgid "Others"
-msgstr ""
+msgstr "Muut"
 
 #: partials/search-content-data.php:53
 msgid "Results"
-msgstr ""
+msgstr "Tulokset"
 
 #: partials/search-content.php:46
 msgid "results"
-msgstr ""
+msgstr "tulokset"
 
 #: partials/stats.php:25
 msgid "Publishers"
-msgstr ""
+msgstr "Julkaisijat"
+
+#: partials/stats.php:31
+msgid "Interfaces"
+msgstr "Rajapintoja"
 
 #: partials/tuki-contactbanner.php:14
 msgid "Any questions?"
-msgstr ""
+msgstr "Kysymyksiä?"
 
 #: partials/tuki-contactbanner.php:15
 msgid "Contact us"
-msgstr ""
+msgstr "Ota yhteyttä"
 
 #: searchform.php:4
 msgctxt "placeholder"
 msgid "Search …"
-msgstr ""
+msgstr "Etsi ..."
 
 #: searchform.php:6
 msgctxt "label"
 msgid "Search for:"
-msgstr ""
+msgstr "Etsi:"
 
 #. Template Name of the plugin/theme
 msgid "Ajankohtaista"
-msgstr ""
+msgstr "Ajankohtaista"
 
 #. Template Name of the plugin/theme
 msgid "Home"
-msgstr ""
+msgstr "Aloitussivu"
 
 #. Template Name of the plugin/theme
 msgid "Roadmap"
-msgstr ""
+msgstr "Roadmap"
 
 #. Template Name of the plugin/theme
 msgid "Tuki"
-msgstr ""
+msgstr "Tuki"
 
 #. Template Name of the plugin/theme
 msgid "Tuki childpage"

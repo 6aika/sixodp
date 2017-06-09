@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sixodp\n"
-"POT-Creation-Date: 2017-05-03 11:51:13+00:00\n"
+"POT-Creation-Date: 2017-06-05 11:08:12+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/6aika-dataportal/teams/68018/en_GB/)\n"
 "MIME-Version: 1.0\n"
@@ -12,6 +12,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ajankohtaista.php:25 partials/featured-datasets.php:16
+#: partials/horizaccordion.php:61 partials/latest-updates.php:10
+msgid "Latest updates"
+msgstr ""
+
+#: ajankohtaista.php:33
+msgid "Twitter"
+msgstr ""
+
+#: category.php:48
+msgid "Categories"
+msgstr ""
 
 #: footer.php:22
 msgid "Data portal"
@@ -149,15 +162,15 @@ msgstr ""
 msgid "Latest applications"
 msgstr ""
 
-#: partials/featured-content.php:62
+#: partials/featured-content.php:56
 msgid "All applications"
 msgstr ""
 
-#: partials/featured-content.php:68
+#: partials/featured-content.php:62
 msgid "Latest datasets"
 msgstr ""
 
-#: partials/featured-content.php:96 partials/stats.php:29
+#: partials/featured-content.php:90 partials/stats.php:35
 msgid "All datasets"
 msgstr ""
 
@@ -165,11 +178,6 @@ msgstr ""
 #: partials/search-content-data.php:30 partials/search-content.php:30
 #: partials/stats.php:13
 msgid "Datasets"
-msgstr ""
-
-#: partials/featured-datasets.php:16 partials/horizaccordion.php:58
-#: partials/latest-updates.php:10
-msgid "Latest updates"
 msgstr ""
 
 #: partials/featured-datasets.php:23 partials/featured-datasets.php:48
@@ -221,6 +229,10 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
+#: partials/horizaccordion.php:58
+msgid "Show all"
+msgstr ""
+
 #: partials/more-links.php:11
 msgid "More about the subject"
 msgstr ""
@@ -247,6 +259,10 @@ msgstr ""
 
 #: partials/stats.php:25
 msgid "Publishers"
+msgstr ""
+
+#: partials/stats.php:31
+msgid "Interfaces"
 msgstr ""
 
 #: partials/tuki-contactbanner.php:14
