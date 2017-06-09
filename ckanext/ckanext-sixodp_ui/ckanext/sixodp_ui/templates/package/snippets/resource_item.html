@@ -7,7 +7,7 @@
     <div class="col-xs-11 resource-col">
       <a href="{{ url }}" title="{{ res.name or res.description }}">
         {% block resource_item_title %}
-          {{ h.resource_display_name(res) | truncate(50) }}
+          {{ h.resource_display_name(res) | truncate(70) }}
           <span class="format-label" property="dc:format" data-format="{{ res.format.lower() or 'data' }}">
             {{ res.format }}
           </span>
