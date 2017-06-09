@@ -136,7 +136,7 @@
   when: deployment_environment_id != "vagrant"
 
 - name: Copy translations
-  copy: src=/vagrant/sixodp/i18n/{{ item.locale }}/LC_MESSAGES/sixodp-{{ item.locale }}.mo dest=/opt/wordpress/wp-content/languages/themes/
+  copy: src=../sixodp/i18n/{{ item.locale }}/LC_MESSAGES/sixodp-{{ item.locale }}.mo dest=/opt/wordpress/wp-content/languages/themes/
   with_items: "{{ polylang_languages }}"
 
 - name: Copy ckan-config to theme
