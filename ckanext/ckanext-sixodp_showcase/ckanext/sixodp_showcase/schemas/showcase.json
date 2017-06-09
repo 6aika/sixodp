@@ -83,8 +83,7 @@
       "field_name": "application_website",
       "label": "Application Website",
       "form_placeholder": "http://www.example.com",
-      "display_snippet": "link.html",
-      "required": true
+      "display_snippet": "link.html"
     },
     {
       "field_name": "store_urls",
