@@ -110,6 +110,7 @@ enabled_ckan_extensions:
     - scheming_groups
     - fluent
     - report
+    - publisher_activity_report
     - sixodp_routes
     - sixodp_feed
     - rating

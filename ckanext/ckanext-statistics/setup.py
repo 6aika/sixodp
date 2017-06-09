@@ -81,6 +81,7 @@ setup(
     entry_points='''
         [ckan.plugins]
         statistics=ckanext.statistics.plugin:StatisticsPlugin
+        publisher_activity_report=ckanext.statistics.plugin:PublisherActivityReportPlugin
 
         [babel.extractors]
         ckan = ckan.lib.extract:extract_ckan
