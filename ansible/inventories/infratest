@@ -1,0 +1,7 @@
+[mainserver]
+localhost ansible_ssh_user=ubuntu
+
+[mainserver:vars]
+deployment_environment_id=infratest
+secrets_file_path="../../sixodp-secrets/infratest/secrets.yml"
+google_analytics_secrets_file_path="/root/sixodp-secrets/{{ deployment_environment_id }}/google_analytics_credentials.json"
