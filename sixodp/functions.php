@@ -538,8 +538,8 @@ function get_all_recent_data() {
 
 const DEFAULT_LANGUAGE = 'fi';
 function get_lang() {
-  $locale = get_locale();
-  $arr = explode("_", $locale, 2);
+  $language= pll_current_language();
+  $arr = explode("_", $language, 2);
   if(count($arr) > 0) {
     return strtolower($arr[0]);
   }
