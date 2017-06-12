@@ -1,5 +1,6 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
+from ckanext.report.interfaces import IReport
 
 
 class StatisticsPlugin(plugins.SingletonPlugin):
@@ -24,3 +25,12 @@ class StatisticsPlugin(plugins.SingletonPlugin):
                     action='reports_read')
 
         return map
+
+
+class PublisherActivityReportPlugin(plugins.SingletonPlugin):
+    plugins.implements(IReport)
+
+    # IReport
+    def register_reports(self):
+        import reports
+        return [reports.publisher_activity_report_info]
