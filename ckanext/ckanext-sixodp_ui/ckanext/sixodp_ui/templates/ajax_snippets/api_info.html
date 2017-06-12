@@ -11,7 +11,7 @@ Example
 
 #}
 
-{% set sql_example_url = datastore_root_url + '/datastore_search_sql?sql=SELECT * from "' + resource_id + '" WHERE title LIKE \'jones\'' %}
+{% set sql_example_url = datastore_root_url + '/datastore_search_sql?sql=SELECT * from "' + resource_id + '" WHERE title LIKE \'my_resource_title\'' %}
 
 <div{% if not embedded %} class="modal"{% endif %}>
   <div class="modal-dialog modal-lg">
@@ -69,9 +69,9 @@ Example
                     <code>{{ datastore_root_url }}/datastore_search?resource_id={{resource_id}}&limit=5</code>
                   </p>
 
-                  <strong>{{ _('Query example (results containing \'jones\')') }}</strong>
+                  <strong>{{ _('Query example (results containing \'my_resource_query\')') }}</strong>
                   <p>
-                    <code>{{ datastore_root_url }}/datastore_search?resource_id={{resource_id}}&q=jones</code>
+                    <code>{{ datastore_root_url }}/datastore_search?resource_id={{resource_id}}&q=my_resource_query</code>
                   </p>
 
                   <strong>{{ _('Query example (via SQL statement)') }}</strong>
@@ -96,7 +96,7 @@ Example
 var data = {
   resource_id: '{{resource_id}}', // the resource id
   limit: 5, // get 5 results
-  q: 'jones' // query for 'jones'
+  q: 'my_resource_query' // query for 'my_resource_query'
 };
 $.ajax({
   url: '{{ datastore_root_url }}/datastore_search',
@@ -120,7 +120,7 @@ $.ajax({
                 <div class="accordion-inner">
                     <pre>
 import urllib
-url = '{{ datastore_root_url }}/datastore_search?resource_id={{resource_id}}&amp;limit=5&amp;q=title:jones'
+url = '{{ datastore_root_url }}/datastore_search?resource_id={{resource_id}}&amp;limit=5&amp;q=title:my_resource_title'
 fileobj = urllib.urlopen(url)
 print fileobj.read()</pre>
                 </div>
