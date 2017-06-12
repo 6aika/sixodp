@@ -553,3 +553,26 @@ function get_translated($object, $field) {
   }
   return $object[$field];
 }
+
+function new_subcategory_hierarchy() { 
+    $category = get_queried_object();
+
+    $templates = array();
+    
+    $parent_id = $category->category_parent;
+
+    while ($parent_id != 0) {
+      $category = get_category($parent_id);
+
+      $templates[] = "category-{$category->slug}.php";
+      $templates[] = "category-{$category->term_id}.php";
+
+      $parent_id = $category->category_parent;
+    }
+
+    $templates[] = 'category.php';  
+
+    return locate_template( $templates );
+}
+
+add_filter( 'category_template', 'new_subcategory_hierarchy' );

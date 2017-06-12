@@ -24,7 +24,7 @@ get_header(); ?>
           while ( have_posts() ) : the_post();
 
             get_template_part( 'partials/headingbar' );
-            get_template_part( 'partials/sidebar' );
+            get_template_part( 'partials/tuki-sidebar' );
             get_template_part( 'partials/content' );
 
           endwhile;
