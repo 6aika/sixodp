@@ -25,7 +25,7 @@
             {% endblock %}
           </div>
 
-          {% block resource_url_action %}
+          {% block resource_action_inner %}
             <div class="resource-url-action">
               {% if res.url and h.is_url(res.url) %}
                 <a class="btn btn-lg btn-primary resource-url-analytics resource-type-{{ res.resource_type }}" href="{{ res.url }}">
@@ -37,6 +37,9 @@
                   <i class="icon-download"></i> {{ _('Download') }}
                   {% endif %}
                 </a>
+              {% endif %}
+              {% if 'datastore' in g.plugins %}
+                {% snippet 'package/snippets/data_api_button.html', resource=res, datastore_root_url=c.datastore_api %}
               {% endif %}
             </div>
           {% endblock %}
