@@ -35,7 +35,7 @@
       "display_snippet": null
     },
     {
-      "field_name": "url",
+      "field_name": "image_url",
       "label": "Image URL",
       "preset": "group_url_upload"
     }

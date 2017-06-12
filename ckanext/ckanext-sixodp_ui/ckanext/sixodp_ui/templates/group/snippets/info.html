@@ -1,5 +1,11 @@
 {% ckan_extends %}
 
+{% block description %}
+  {% if h.get_translated(group, 'description') %}
+    <p>{{ h.get_translated(group, 'description') }}</p>
+  {% endif %}
+{% endblock %}
+
 {% block nums %}
   <div class="nums">
     <dl>

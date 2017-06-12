@@ -5,7 +5,9 @@
       color: $brand-danger;
     }
 
-    input {
+    input,
+    textarea,
+    select {
       border-color: $brand-danger;
     }
 
