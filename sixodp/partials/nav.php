@@ -4,12 +4,12 @@
 *
 **/
 ?>
-<nav class="navbar navbar-default" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'twentysixteen' ); ?>">
+<nav class="navbar navbar-default" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'sixodp' ); ?>">
   <div class="container-fluid">
 
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-nav-collapse" aria-expanded="false">
-        <span class="sr-only"><?php _e('Toggle navigation');?> </span>
+        <span class="sr-only"><?php _e('Toggle navigation', 'sixodp');?> </span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>

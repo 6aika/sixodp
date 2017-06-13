@@ -9,7 +9,7 @@
 
   .media-item {
     width: 100%;
-    height: 350px;
+    height: 325px;
     padding: 0;
     position: relative;
     float: left;
@@ -19,6 +19,7 @@
 
     @media(min-width: $width-xs-sm) {
       width: 282.5px;
+      height: 345px;
     }
 
     @media(min-width: $grid-float-breakpoint) {
@@ -27,6 +28,7 @@
 
     @media(min-width: $width-lg) {
       width: 263.33px;
+      height: 365px;
     }
 
     img {

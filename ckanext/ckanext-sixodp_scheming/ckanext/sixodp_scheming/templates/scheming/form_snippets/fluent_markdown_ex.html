@@ -1,6 +1,6 @@
 {% import 'macros/form.html' as form %}
 
-<div class="form-group-fluent">
+<div class="form-group-fluent control-group">
   <label class="control-label group-label">{{_(field.label)}}</label>
   {%- for lang in h.fluent_form_languages(field, entity_type, object_type, schema) -%}
     {% call form.markdown(

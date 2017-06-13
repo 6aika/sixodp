@@ -22,18 +22,18 @@
                   <section class="module module-narrow module-shallow">
                       <h2 class="module-heading">
                         <i class="icon-medium icon-filter"></i>
-                        <?php _e('Results in groups');?> 
+                        <?php _e('Results in groups', 'sixodp');?>
                       </h2>
                       <nav>
                           <ul class="unstyled nav nav-simple nav-facet filtertype-res_format">
                               <li class="nav-item">
-                                  <a href="<?php echo get_site_url(); ?>?s=<?php echo $searchterm;?>&datasearch" title=""> <span><?php _e('Datasets');?>  (<?php echo $data_dataset['count']; ?>)</span></a>
+                                  <a href="<?php echo get_site_url(); ?>?s=<?php echo $searchterm;?>&datasearch" title=""> <span><?php _e('Datasets', 'sixodp');?>  (<?php echo $data_dataset['count']; ?>)</span></a>
                               </li>
                               <li class="nav-item">
-                                  <a href="<?php echo get_site_url(); ?>?s=<?php echo $searchterm;?>&datasearch&showcase" title=""> <span><?php _e('Applications');?>  (<?php echo $data_showcase['count']; ?>)</span></a>
+                                  <a href="<?php echo get_site_url(); ?>?s=<?php echo $searchterm;?>&datasearch&showcase" title=""> <span><?php _e('Applications', 'sixodp');?>  (<?php echo $data_showcase['count']; ?>)</span></a>
                               </li>
                               <li class="nav-item">
-                                  <a href="<?php echo get_site_url(); ?>?s=<?php echo $searchterm;?>" title="" class="active"> <span><?php _e('Others');?>  (<?php  echo $searchcount; ?>)</span></a>
+                                  <a href="<?php echo get_site_url(); ?>?s=<?php echo $searchterm;?>" title="" class="active"> <span><?php _e('Others', 'sixodp');?>  (<?php  echo $searchcount; ?>)</span></a>
                               </li>
                           </ul>
                       </nav>
@@ -43,7 +43,7 @@
           </div>
       </div>
       <div class="col-md-8 search-content">
-        <h3 class="heading"><?php echo $wp_query->found_posts; ?> <?php _e('results');?> </h3>
+        <h3 class="heading"><?php echo $wp_query->found_posts; ?> <?php _e('results', 'sixodp');?> </h3>
             <ul class="search-content__list">
               <?php
               // Start the loop.
