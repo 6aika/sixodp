@@ -19,14 +19,14 @@
 						<div class="popper">
 							<ul class="popper__list">
 								<li class="popper__item">
-									<a href="/data/user/login" class="popper__link"><?php _e('Data portal');?> <i class="material-icons">arrow_forward</i></a>
+									<a href="/data/user/login" class="popper__link"><?php _e('Data portal', 'sixodp');?> <i class="material-icons">arrow_forward</i></a>
 								</li>
 								<li class="popper__item">
-									<a href="/admin" class="popper__link"><?php _e('Content manangement system');?> <i class="material-icons">arrow_forward</i></a>
+									<a href="/admin" class="popper__link"><?php _e('Content manangement system', 'sixodp');?> <i class="material-icons">arrow_forward</i></a>
 								</li>
 							</ul>
 						</div>
-						<button type="button" class="btn btn-lg btn-transparent" data-trigger="popper"><?php _e('Login');?></button>
+						<button type="button" class="btn btn-lg btn-transparent" data-trigger="popper"><?php _e('Login', 'sixodp');?></button>
 					</div>
 				</div>
 				<div class="row">

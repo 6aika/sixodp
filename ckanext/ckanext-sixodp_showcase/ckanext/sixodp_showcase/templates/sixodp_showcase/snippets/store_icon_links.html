@@ -3,7 +3,7 @@
     {% if item | length > 0 %}
       <li>
         {% if 'itunes.apple.com' in item %}
-          <a href="">
+          <a href="{{item}}">
             <img src="/assets/images/apple-app-store-badge-{{ h.get_current_lang() }}.svg">
           </a>
         {% elif 'play.google.com' in item %}

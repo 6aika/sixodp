@@ -1,5 +1,7 @@
 <?php
+require_once(ABSPATH . 'wp-admin/includes/post.php'); 
 
+load_theme_textdomain('sixodp');
 if ( !function_exists('sixodp_theme_setup') ) :
 
   function sixodp_theme_setup() {
@@ -501,7 +503,7 @@ function get_days_ago($date) {
   $date = new DateTime($date);
   $now = new DateTime();
   $interval = $now->diff($date);
-  return $interval->days . $interval->format(' päivää, %h tuntia sitten');
+  return $interval->days . $interval->format(' ' . __('days', 'sixodp') . ', %h ' . __('hours', 'sixodp') . ' ' . __('ago', 'sixodp'));
 }
 
 function get_notes_excerpt($str) {
@@ -532,13 +534,13 @@ function get_all_recent_data() {
   $showcases  = get_recent_showcases(20);
   $arr = array_merge($datasets, $showcases);
 
-  return sort_results($arr);
+  return array_slice(sort_results($arr), 0, 12);
 }
 
 const DEFAULT_LANGUAGE = 'fi';
 function get_lang() {
-  $locale = get_locale();
-  $arr = explode("_", $locale, 2);
+  $language= pll_current_language();
+  $arr = explode("_", $language, 2);
   if(count($arr) > 0) {
     return strtolower($arr[0]);
   }
@@ -551,4 +553,39 @@ function get_translated($object, $field) {
     return $object[$field . '_translated'][$lang];
   }
   return $object[$field];
+}
+
+function new_subcategory_hierarchy() { 
+    $category = get_queried_object();
+
+    $templates = array();
+    
+    $parent_id = $category->category_parent;
+
+    while ($parent_id != 0) {
+      $category = get_category($parent_id);
+
+      $templates[] = "category-{$category->slug}.php";
+      $templates[] = "category-{$category->term_id}.php";
+
+      $parent_id = $category->category_parent;
+    }
+
+    $templates[] = 'category.php';  
+
+    return locate_template( $templates );
+}
+
+add_filter( 'category_template', 'new_subcategory_hierarchy' );
+
+function get_post_grandparent_id($post_ID) {
+  $parent_ID = wp_get_post_parent_id($post_ID);
+
+  if ($parent_ID != 0) {
+    $result = get_post_grandparent_id($parent_ID);
+
+    if ($result === false) return $post_ID;
+    else return $result;
+  }
+  else return false;
 }

@@ -97,7 +97,6 @@
   become: yes
   become_user: www-data
 
-
 - name: Create WP-CLI directory
   file:
     state: directory
@@ -136,6 +135,10 @@
     delete: true
   when: deployment_environment_id != "vagrant"
 
+- name: Copy translations
+  copy: src=../sixodp/i18n/{{ item.locale }}/LC_MESSAGES/sixodp-{{ item.locale }}.mo dest=/opt/wordpress/wp-content/languages/themes/
+  with_items: "{{ polylang_languages }}"
+
 - name: Copy ckan-config to theme
   template: src="ckan-config.php.j2" dest="/opt/wordpress/wp-content/themes/sixodp/ckan-config.php" mode=0644 owner=www-data group=www-data
 
@@ -146,4 +149,12 @@
 
 - include: local_plugin.yml
   with_items: "{{ wordpress_local_plugins }}"
+
+- name: Create symbolic link for wordpress tools includes
+  file:
+    src: /opt/wordpress/
+    dest: /vagrant/src
+    state: link
+    force: yes
+  when: deployment_environment_id == "vagrant"
 

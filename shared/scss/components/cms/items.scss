@@ -1,0 +1,34 @@
+.items-list {
+  padding: 0;
+  margin: 0;
+}
+
+.items-list-content {
+  padding: $base 0;
+  list-style: none;
+  margin: $base auto;
+}
+
+.items-list-content + .items-list-content {
+  border-top: 1px solid $table-border-color;
+}
+
+.items-list-content__content {
+  padding: 0 0 $base 0;
+
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+.items-list__title {
+  margin: 0;
+  font-weight: 600;
+  font-family: $font-heading;
+}
+
+.items-list__body {
+  color: $brand-primary;
+}
