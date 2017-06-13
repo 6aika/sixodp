@@ -55,3 +55,6 @@
 [submodule "ckanext/ckanext-googleanalytics"]
 	path = ckanext/ckanext-googleanalytics
 	url = https://github.com/ckan/ckanext-googleanalytics.git
+[submodule "ckanext/ckanext-ga-report"]
+	path = ckanext/ckanext-ga-report
+	url = https://github.com/6aika/ckanext-ga-report.git
