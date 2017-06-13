@@ -1,4 +1,5 @@
 <?php
+require_once(ABSPATH . 'wp-admin/includes/post.php'); 
 
 load_theme_textdomain('sixodp');
 if ( !function_exists('sixodp_theme_setup') ) :
@@ -576,3 +577,15 @@ function new_subcategory_hierarchy() {
 }
 
 add_filter( 'category_template', 'new_subcategory_hierarchy' );
+
+function get_post_grandparent_id($post_ID) {
+  $parent_ID = wp_get_post_parent_id($post_ID);
+
+  if ($parent_ID != 0) {
+    $result = get_post_grandparent_id($parent_ID);
+
+    if ($result === false) return $post_ID;
+    else return $result;
+  }
+  else return false;
+}
