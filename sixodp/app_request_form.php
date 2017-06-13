@@ -34,6 +34,7 @@ if (isset($_POST['data_request_submit_form'])) {
       'post_content' => $content,
       'post_title' => $title,
       'post_type' => 'app_request',
+      'post_status' => 'pending',
       'meta_input' => array(
         'name' => $name,
         'email' => $email,
