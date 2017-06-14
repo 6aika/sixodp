@@ -575,7 +575,10 @@ function new_subcategory_hierarchy() {
     $category = get_queried_object();
 
     $templates = array();
-    
+
+    $templates[] = "category-{$category->slug}.php";
+    $templates[] = "category-{$category->term_id}.php";
+
     $parent_id = $category->category_parent;
 
     while ($parent_id != 0) {
@@ -587,7 +590,7 @@ function new_subcategory_hierarchy() {
       $parent_id = $category->category_parent;
     }
 
-    $templates[] = 'category.php';  
+    $templates[] = 'category.php'; 
 
     return locate_template( $templates );
 }
