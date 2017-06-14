@@ -64,7 +64,7 @@
                 <td><a href="{{h.url_for(controller='package',action='read',id=name)}}">{{ title }}</a></td>
                 <td>{{notes}}</td>
                 <td>{{ h.literal(', '.join(h.report_timestamps_split(timestamps))) }}</td>
-                <td>{{ h.literal(', '.join(h.report_users_split(users, organization=options['organization']))) }}</td>
+                <td>{# {{ h.literal(', '.join(h.report_users_split(users, organization=options['organization']))) }} #}</td>
                 <td>
                     {% if pub %}
                     <span >Yes</span>

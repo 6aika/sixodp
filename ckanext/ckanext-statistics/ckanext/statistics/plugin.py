@@ -40,8 +40,27 @@ class PublisherActivityReportPlugin(plugins.SingletonPlugin):
     def get_helpers(self):
 
         return {
-            "report_match_rows": report_match_rows
+            "report_match_rows": report_match_rows,
+            "report_timestamps_split": report_timestamps_split
         }
 
 def report_match_rows(rows, type_, quarter):
     return [row for row in rows if (row[3]==type_ and row[4]==quarter)]
+
+def report_timestamps_split(timestamps):
+    return [render_datetime(timestamp) for timestamp in timestamps.split(' ')]
+
+
+def render_datetime(datetime_, date_format=None, with_hours=False):
+    '''Render a datetime object or timestamp string as a pretty string
+    (Y-m-d H:m).
+    If timestamp is badly formatted, then a blank string is returned.
+    This is a wrapper on the CKAN one which has an American date_format.
+    '''
+    if not date_format:
+        date_format = '%d %b %Y'
+        if with_hours:
+            date_format += ' %H:%M'
+
+    from ckan.lib.helpers import render_datetime
+    return render_datetime(datetime_, date_format)
