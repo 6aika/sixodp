@@ -1,5 +1,6 @@
 <?php
 require_once(ABSPATH . 'wp-admin/includes/post.php'); 
+require_once(ABSPATH . 'wp-admin/includes/taxonomy.php'); 
 
 load_theme_textdomain('sixodp');
 if ( !function_exists('sixodp_theme_setup') ) :
@@ -77,6 +78,7 @@ if ( !function_exists('sixodp_theme_setup') ) :
 
     create_primary_menus();
     create_default_pages();
+    create_default_categories();
     create_secondary_menus();
     create_footer_menus();
     create_social_media_menus();
@@ -269,16 +271,50 @@ function create_menu_i18n($menu_name, $itemsArr, $location) {
   }
 }
 
+function create_default_categories() {
+  $translated_categories = array();
+  foreach( DEFAULT_CATEGORIES as $lang_data ) {
+
+    $translated_categories = insert_categories($lang_data['categories'], $lang_data['locale'], $lang_data['code'], $translated_categories);
+  }
+
+  foreach ($translated_categories as $translations) {
+    pll_save_term_translations($translations);
+  } 
+}
+
+function insert_categories($categories, $locale, $code, $translated_categories, $parent_id = null) {
+  foreach ($categories as $key => $category) {
+    $category_exists = get_category_by_slug(sanitize_title($category['cat_name']));
+
+    if ($category_exists === false) {
+      $defaults = array(
+        'taxonomy' => 'category'
+      );
+
+      if ($parent_id !== null) $defaults['category_parent'] = $parent_id;
+
+      $category_id = wp_insert_category(array_merge($defaults, $category));
+      pll_set_term_language( $category_id, $locale );
+
+      if (!isset($translated_categories[$key])) $translated_categories[$key] = array();
+      
+      $translated_categories[$key][$code] = $category_id;
+    }
+    else $category_id = $category_exists->term_id;
+
+    if (isset($category['children']))  $translated_categories = insert_categories($category['children'], $locale, $code, $translated_categories, $category_id);
+  }
+
+  return $translated_categories;
+} 
+
 function create_default_pages() {
   $translated_pages = array();
-  foreach( ['fi', 'en_GB', 'sv'] as $locale ) {
-    $locale_pages = insert_default_page($locale);
+  foreach( DEFAULT_PAGES as $lang_data ) {
 
-    foreach ($locale_pages as $key => $id) {
-      if (!isset($translated_pages[$key])) $translated_pages[$key] = array();
 
-      $translated_pages[$key][substr($locale, 0, 2)] = $id;
-    }
+    $translated_pages = insert_pages($lang_data['pages'], $lang_data['locale'], $lang_data['code'], $translated_pages);
   }
 
   foreach ($translated_pages as $translations) {
@@ -286,53 +322,32 @@ function create_default_pages() {
   } 
 }
 
-function insert_default_page($locale) {
-  $page_exists = get_page_by_title($locale);
-  if ( !isset( $page_exists ) ) {
-    $page = array(
-      'post_title'    => $locale,
-      'post_content'  => "This is my post",
-      'post_type'     => 'page',
-      'post_status'   => 'publish',
-      'page_template' => 'home.php'
-    );
+function insert_pages($pages, $locale, $code, $translated_pages, $parent_id = null) {
+  foreach ($pages as $key => $page) {
+    $page_exists = get_page_by_title($page['post_title']);
 
-    $page_id = wp_insert_post( $page );
-    pll_set_post_language( $page_id, $locale );
+    if (!isset($page_exists)) {
+      $defaults = array(
+        'post_type' => 'page', 
+        'post_status' => 'publish'
+      );
 
-    $roadmap_page = array(
-      'post_title'    => 'Roadmap',
-      'post_content'  => "This is my post",
-      'post_type'     => 'page',
-      'post_parent'   => $page_id,
-      'post_status'   => 'publish',
-      'page_template' => 'roadmap.php'
-    );
+      if ($parent_id !== null) $defaults['post_parent'] = $parent_id;
 
-    $roadmap_page = wp_insert_post( $roadmap_page );
-    pll_set_post_language( $roadmap_page, $locale );
+      $page_id = wp_insert_post(array_merge($defaults, $page));
+      pll_set_post_language( $page_id, $locale );
 
-    $latest_updates_page = array(
-      'post_title'    => 'Latest updates',
-      'post_content'  => "This is my post",
-      'post_type'     => 'page',
-      'post_parent'   => $page_id,
-      'post_status'   => 'publish',
-      'page_template' => 'ajankohtaista.php'
-    );
+      if (!isset($translated_pages[$key])) $translated_pages[$key] = array();
+      
+      $translated_pages[$key][$code] = $page_id;
+    }
+    else $page_id = $page_exists->ID;
 
-    $latest_updates_page = wp_insert_post( $latest_updates_page );
-    pll_set_post_language( $latest_updates_page, $locale );
-
-    return array(
-      'home' => $page_id,
-      'roadmap' => $roadmap_page,
-      'latest_updates' => $latest_updates_page
-    );
+    if (isset($page['children']))  $translated_pages = insert_pages($page['children'], $locale, $code, $translated_pages, $page_id);
   }
 
-  return array();
-}
+  return $translated_pages;
+} 
 
 function sixodp_scripts() {
     wp_enqueue_script( 'app', get_template_directory_uri() . '/app.js', array( 'jquery' ), '1.0.0', true );
@@ -342,6 +357,7 @@ add_action( 'wp_enqueue_scripts', 'sixodp_scripts' );
 function get_nav_menu_items($menu) {
   return wp_get_menu_array($menu);
 }
+
 
 function wp_get_menu_array($current_menu) {
     //var_dump(!in_array(get_current_locale().'', array("fi", "en_GB", "sv")));
