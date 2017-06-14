@@ -15,6 +15,9 @@
         'main' => array( 'post_title' => 'fi', 'post_content' => "This is my post", 'page_template' => 'home.php', 'children' => array(
           'roadmap' => array( 'post_title' => 'Roadmap', 'post_content' => "This is my post", 'page_template' => 'roadmap.php' ),
           'latest_updates' => array( 'post_title' => 'Ajankohtaista', 'post_content' => "This is my post", 'page_template' => 'ajankohtaista.php' ),
+          'support' => array( 'post_title' => 'Tuki', 'post_content' => "This is my post", 'page_template' => 'tuki.php' ),
+          'data_request_form' => array( 'post_title' => 'Uusi datatoive', 'post_content' => "This is my post", 'page_template' => 'data_request_form.php' ),
+          'app_request_form' => array( 'post_title' => 'Uusi sovellustoive', 'post_content' => "This is my post", 'page_template' => 'app_request_form.php' ),
       ) ),
     ) ),
     array(
@@ -24,6 +27,9 @@
         'main' => array( 'post_title' => 'en_GB', 'post_content' => "This is my post", 'page_template' => 'home.php', 'children' => array(
           'roadmap' => array( 'post_title' => 'Roadmap', 'post_content' => "This is my post", 'page_template' => 'roadmap.php' ),
           'latest_updates' => array( 'post_title' => 'Latest updates', 'post_content' => "This is my post", 'page_template' => 'ajankohtaista.php' ),
+          'support' => array( 'post_title' => 'Support', 'post_content' => "This is my post", 'page_template' => 'tuki.php' ),
+          'data_request_form' => array( 'post_title' => 'New data request', 'post_content' => "This is my post", 'page_template' => 'data_request_form.php' ),
+          'app_request_form' => array( 'post_title' => 'New app request', 'post_content' => "This is my post", 'page_template' => 'app_request_form.php' ),
         ) ),
     ) ),
     array(
@@ -32,7 +38,10 @@
       'pages' => array(
         'main' => array( 'post_title' => 'sv', 'post_content' => "This is my post", 'page_template' => 'home.php', 'children' => array(
           'roadmap' => array( 'post_title' => 'Roadmap', 'post_content' => "This is my post", 'page_template' => 'roadmap.php' ),
-          'latest_updates' => array( 'post_title' => 'Latest updates', 'post_content' => "This is my post", 'page_template' => 'ajankohtaista.php' ),
+          'latest_updates' => array( 'post_title' => 'Senaste uppdateringarna', 'post_content' => "This is my post", 'page_template' => 'ajankohtaista.php' ),
+          'support' => array( 'post_title' => 'Stöd', 'post_content' => "This is my post", 'page_template' => 'tuki.php' ),
+          'data_request_form' => array( 'post_title' => 'Ny data begäran', 'post_content' => "This is my post", 'page_template' => 'data_request_form.php' ),
+          'app_request_form' => array( 'post_title' => 'Ny app begäran', 'post_content' => "This is my post", 'page_template' => 'app_request_form.php' ),
         ) ),
     ) )
   ) );
@@ -48,8 +57,11 @@
         ) ),
         'support' => array( 'cat_name' => 'Tuki', 'category_description' => '', 'children' => array(
           'how_to_start' => array ( 'cat_name' => 'Kuinka aloitan?', 'category_description' => 'Kootut ohjeet sivun käyttöön' ),
-          'data_users' => array ( 'cat_name' => 'Aineiston käyttäjälle?', 'category_description' => 'Miten saan eniten irti avoimesta datasta?' ),
-          'data_publishers' => array ( 'cat_name' => 'Aineiston julkaisijalle?', 'category_description' => 'Kuinka julkaisen dataa?' ),
+          'data_users' => array ( 'cat_name' => 'Aineiston käyttäjälle', 'category_description' => 'Miten saan eniten irti avoimesta datasta?' ),
+          'data_publishers' => array ( 'cat_name' => 'Aineiston julkaisijalle', 'category_description' => 'Kuinka julkaisen dataa?' ),
+          'themes' => array( 'cat_name' => 'Teemat', 'category_description' => '', 'children' => array(
+            array ( 'cat_name' => 'Työkalut', 'category_description' => '' ),
+          ) )
         ) )
     ) ),
     array(
@@ -64,22 +76,28 @@
           'how_to_start' => array ( 'cat_name' => 'How to start?', 'category_description' => 'Kootut ohjeet sivun käyttöön' ),
           'data_users' => array ( 'cat_name' => 'Data users', 'category_description' => 'Miten saan eniten irti avoimesta datasta?' ),
           'data_publishers' => array ( 'cat_name' => 'Data publishers', 'category_description' => 'Kuinka julkaisen dataa?' ),
+          'themes' => array( 'cat_name' => 'Themes', 'category_description' => '', 'children' => array(
+            array ( 'cat_name' => 'Tools', 'category_description' => '' ),
+          ) )
         ) )
     ) ),
-    // array(
-    //   'locale' => 'sv',
-    //   'code' => 'sv',
-    //   'categories' => array(
-    //     'latest_updates' => array( 'cat_name' => 'Ajankohtaista', 'category_description' => '', 'children' => array(
-    //       'blogs' => array ( 'cat_name' => 'Blogit', 'category_description' => '' ),
-    //       'news' => array ( 'cat_name' => 'Uutiset', 'category_description' => '' )
-    //     ) ),
-    //     'support' => array( 'cat_name' => 'Tuki', 'category_description' => '', 'children' => array(
-    //       'how_to_start' => array ( 'cat_name' => 'Kuinka aloitan?', 'category_description' => 'Kootut ohjeet sivun käyttöön' ),
-    //       'data_users' => array ( 'cat_name' => 'Aineiston käyttäjälle?', 'category_description' => 'Miten saan eniten irti avoimesta datasta?' ),
-    //       'data_publishers' => array ( 'cat_name' => 'Aineiston julkaisijalle?', 'category_description' => 'Kuinka julkaisen dataa?' ),
-    //     ) )
-    // ) ),
+    array(
+      'locale' => 'sv',
+      'code' => 'sv',
+      'categories' => array(
+        'latest_updates' => array( 'cat_name' => 'Senaste uppdateringarna', 'category_description' => '', 'children' => array(
+          'blogs' => array ( 'cat_name' => 'Bloggar', 'category_description' => '' ),
+          'news' => array ( 'cat_name' => 'Nyheter', 'category_description' => '' )
+        ) ),
+        'support' => array( 'cat_name' => 'Stöd', 'category_description' => '', 'children' => array(
+          'how_to_start' => array ( 'cat_name' => 'Hur börjar jag', 'category_description' => 'Kootut ohjeet sivun käyttöön' ),
+          'data_users' => array ( 'cat_name' => 'Data till användaren', 'category_description' => 'Miten saan eniten irti avoimesta datasta?' ),
+          'data_publishers' => array ( 'cat_name' => 'Data utgivare', 'category_description' => 'Kuinka julkaisen dataa?' ),
+          'themes' => array( 'cat_name' => 'Teman', 'category_description' => '', 'children' => array(
+            array ( 'cat_name' => 'Verktyg', 'category_description' => '' ),
+          ) )
+        ) )
+    ) ),
   ) );
 
   define( 'PRIMARY_MENU_ITEMS_FI', array(

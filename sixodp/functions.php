@@ -317,8 +317,6 @@ function create_default_pages() {
     $translated_pages = insert_pages($lang_data['pages'], $lang_data['locale'], $lang_data['code'], $translated_pages);
   }
 
-  print_r($translated_pages);
-
   foreach ($translated_pages as $translations) {
     pll_save_post_translations($translations);
   } 
