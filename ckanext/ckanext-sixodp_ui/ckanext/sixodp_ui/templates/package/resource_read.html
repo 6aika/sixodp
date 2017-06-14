@@ -34,12 +34,13 @@
                   {% elif  res.resource_type == 'api' %}
                   <i class="icon-key"></i> {{ _('API Endpoint') }}
                   {% else %}
-                  <i class="icon-download"></i> {{ _('Download') }}
+                  <i class="icon-download icon-large"></i> {{ _('Download') }}
                   {% endif %}
                 </a>
               {% endif %}
               {% if 'datastore' in g.plugins %}
-                {% snippet 'package/snippets/data_api_button.html', resource=res, datastore_root_url=c.datastore_api %}
+                {% set datastore_root_url = h.url_for('/', locale='default', qualified=true) + 'api/action' %}
+                {% snippet 'package/snippets/data_api_button.html', resource=res, datastore_root_url=datastore_root_url %}
               {% endif %}
             </div>
           {% endblock %}

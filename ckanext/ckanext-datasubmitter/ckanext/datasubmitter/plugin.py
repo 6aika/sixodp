@@ -10,6 +10,7 @@ class DatasubmitterPlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IRoutes, inherit=True)
     if toolkit.check_ckan_version(min_version='2.5.0'):
         plugins.implements(plugins.ITranslation, inherit=True)
+    plugins.implements(plugins.ITemplateHelpers)
 
     # IConfigurer
 
@@ -70,4 +71,4 @@ class DatasubmitterPlugin(plugins.SingletonPlugin, DefaultTranslation):
     # ITemplateHelpers
 
     def get_helpers(self):
-        return {'get_recaptcha_sitekey': helpers.get_recaptcha_sitekey}
+        return {'get_datasubmitter_recaptcha_sitekey': helpers.get_datasubmitter_recaptcha_sitekey}

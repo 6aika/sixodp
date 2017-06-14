@@ -64,4 +64,4 @@ class Sixodp_ShowcasesubmitPlugin(plugins.SingletonPlugin, DefaultTranslation):
     # ITemplateHelpers
 
     def get_helpers(self):
-        return {'get_recaptcha_sitekey': helpers.get_recaptcha_sitekey}
+        return {'get_showcasesubmit_recaptcha_sitekey': helpers.get_showcasesubmit_recaptcha_sitekey}
