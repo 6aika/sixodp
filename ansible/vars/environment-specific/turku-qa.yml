@@ -119,9 +119,9 @@ enabled_ckan_extensions:
     - report
     - publisher_activity_report
     - ga-report
+        - rating
     - sixodp_routes
     - sixodp_feed
-    - rating
     - qa
     - archiver
     - hierarchy_display
