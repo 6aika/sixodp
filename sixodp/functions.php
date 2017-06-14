@@ -1,4 +1,5 @@
 <?php
+require_once(ABSPATH . 'wp-admin/includes/post.php'); 
 
 load_theme_textdomain('sixodp');
 if ( !function_exists('sixodp_theme_setup') ) :
@@ -576,3 +577,98 @@ function new_subcategory_hierarchy() {
 }
 
 add_filter( 'category_template', 'new_subcategory_hierarchy' );
+
+function get_post_grandparent_id($post_ID) {
+  $parent_ID = wp_get_post_parent_id($post_ID);
+
+  if ($parent_ID != 0) {
+    $result = get_post_grandparent_id($parent_ID);
+
+    if ($result === false) return $post_ID;
+    else return $result;
+  }
+  else return false;
+}
+
+function create_form_results() {
+
+  register_post_type( 'data_request', array(
+    'label'         => "Data Requests",
+    'description'   => 'Data Requests results',
+    'public'        => true,
+    'supports'      => array( 'editor', 'custom-fields' ),
+    'has_archive'   => true,
+    'show_in_rest'  => true
+  ) );
+
+  register_post_type( 'app_request', array(
+    'label'         => "App Requests",
+    'description'   => 'App Requests results',
+    'public'        => true,
+    'supports'      => array( 'editor', 'custom-fields' ),
+    'has_archive'   => true,
+    'show_in_rest'  => true
+  ) );
+
+  if(function_exists("register_field_group"))
+  {
+    register_field_group(array (
+      'id' => 'acf_form-result-fields',
+      'title' => 'Form result fields',
+      'fields' => array (
+        array (
+          'key' => 'field_v39jt81uh8792',
+          'label' => 'Name',
+          'name' => 'name',
+          'type' => 'text',
+          'default_value' => '',
+          'placeholder' => '',
+          'prepend' => '',
+          'append' => '',
+          'formatting' => 'html',
+          'maxlength' => '',
+        ),
+        array (
+          'key' => 'field_7ldql03xmqqfu',
+          'label' => 'Email',
+          'name' => 'email',
+          'type' => 'text',
+          'default_value' => '',
+          'placeholder' => '',
+          'prepend' => '',
+          'append' => '',
+          'formatting' => 'html',
+          'maxlength' => '',
+        ),
+      ),
+      'location' => array (
+        array (
+          array (
+            'param' => 'post_type',
+            'operator' => '==',
+            'value' => 'data_request',
+            'order_no' => 0,
+            'group_no' => 0,
+          ),
+        ),
+        array(
+          array (
+            'param' => 'post_type',
+            'operator' => '==',
+            'value' => 'app_request',
+            'order_no' => 0,
+            'group_no' => 0,
+          ),
+        ),
+      ),
+      'options' => array (
+        'position' => 'normal',
+        'layout' => 'no_box',
+        'hide_on_screen' => array (
+        ),
+      ),
+      'menu_order' => 0,
+    ));
+  }
+}
+add_action( 'init', 'create_form_results' );
