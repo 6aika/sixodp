@@ -576,8 +576,21 @@ function new_subcategory_hierarchy() {
 
     $templates = array();
 
+    $languages = array_diff(pll_languages_list(array('fields' => 'slug')), array(pll_current_language()));
+
     $templates[] = "category-{$category->slug}.php";
     $templates[] = "category-{$category->term_id}.php";
+
+    foreach ($languages as $lang) {
+      $translated_category_id = pll_get_term($category->term_id, $lang);
+
+      if (!$translated_category_id) continue;
+
+      $translated_category = get_category(pll_get_term($category->term_id, $lang));
+
+      $templates[] = "category-{$translated_category->slug}.php";
+      $templates[] = "category-{$translated_category->term_id}.php";
+    }
 
     $parent_id = $category->category_parent;
 
@@ -586,6 +599,17 @@ function new_subcategory_hierarchy() {
 
       $templates[] = "category-{$category->slug}.php";
       $templates[] = "category-{$category->term_id}.php";
+
+      foreach ($languages as $lang) {
+        $translated_category_id = pll_get_term($category->term_id, $lang);
+
+        if (!$translated_category_id) continue;
+
+        $translated_category = get_category(pll_get_term($category->term_id, $lang));
+
+        $templates[] = "category-{$translated_category->slug}.php";
+        $templates[] = "category-{$translated_category->term_id}.php";
+      }
 
       $parent_id = $category->category_parent;
     }
