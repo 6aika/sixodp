@@ -264,7 +264,7 @@
           <button class="btn btn-primary g-recaptcha"
                   type="submit"
                   name="save"
-                  data-sitekey="{{ h.get_recaptcha_sitekey() }}"
+                  data-sitekey="{{ h.get_showcasesubmit_recaptcha_sitekey() }}"
                   data-callback="onSubmit">
             {% block save_button_text %}{{ _('Submit') }}{% endblock %}
           </button>

@@ -93,7 +93,18 @@ $posts = get_posts(array('category' => $category->cat_ID));
                 </ul>
               </div>
               <div class="post__text">
-                <?php the_excerpt(); ?>
+                <?php 
+                $content = get_the_content();
+
+                $content = wp_strip_all_tags($content);
+                if (strlen($content) > 200) {
+                  $content = substr($content, 0, 180);
+                  $content = substr($content, 0, strripos($content, ' '));
+                  $content .= '...';
+                }
+
+                print $content;
+                ?>
               </div>
               <div class="post__footer">
               </div>
