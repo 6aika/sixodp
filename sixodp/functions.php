@@ -612,7 +612,7 @@ function create_form_results() {
     'label'         => "Data Requests",
     'description'   => 'Data Requests results',
     'public'        => true,
-    'supports'      => array( 'editor', 'custom-fields' ),
+    'supports'      => array( 'title', 'editor', 'custom-fields' ),
     'has_archive'   => true,
     'show_in_rest'  => true
   ) );
@@ -621,7 +621,7 @@ function create_form_results() {
     'label'         => "App Requests",
     'description'   => 'App Requests results',
     'public'        => true,
-    'supports'      => array( 'editor', 'custom-fields' ),
+    'supports'      => array( 'title', 'editor', 'custom-fields' ),
     'has_archive'   => true,
     'show_in_rest'  => true
   ) );
