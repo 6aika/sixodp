@@ -715,3 +715,20 @@ function create_form_results() {
   }
 }
 add_action( 'init', 'create_form_results' );
+
+function custom_category_query($query) {
+
+  if ($query->is_category) {
+    $expected_anchestor = get_category(pll_get_term(get_category_by_slug('tuki')->term_id));
+
+    $category = get_queried_object();
+    
+    if ($category->term_id == $expected_anchestor->term_id or cat_is_ancestor_of($expected_anchestor, $category)) {
+      $query->set('post_type', 'page');
+    }
+  }
+
+  return $query;
+}
+
+add_action( 'pre_get_posts', 'custom_category_query' );

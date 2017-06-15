@@ -12,9 +12,6 @@
 
 get_header(); 
 
-$category = get_queried_object();
-
-$posts = get_posts(array('category' => $category->term_id, 'post_type' => 'page'));
 ?>
 
 <div id="primary" class="content-area">
@@ -36,30 +33,34 @@ $posts = get_posts(array('category' => $category->term_id, 'post_type' => 'page'
 
         <div class="article__wrapper">
           <ul class="items-list">
-            <?php 
-            foreach ( $posts as $post ) : setup_postdata( $post ) ?>
 
-              <li class="items-list-content">
-                <div class="items-list__content">
-                  <h4 class="items-list__title">
-                    <a class="items-list__link" href="<?php the_permalink(); ?>">
-                      <?php the_title(); ?>
-                    </a>
-                  </h4>
-                  <div class="items-list__body">
-                    <div class="metadata">
-                        <span class="time">
-                            <?php echo get_the_date();?>
-                        </span>
+            <?php if ( have_posts() ) :
+              while ( have_posts() ) : the_post(); ?>
+
+                <li class="items-list-content">
+                  <div class="items-list__content">
+                    <h4 class="items-list__title">
+                      <a class="items-list__link" href="<?php the_permalink(); ?>">
+                        <?php the_title(); ?>
+                      </a>
+                    </h4>
+                    <div class="items-list__body">
+                      <div class="metadata">
+                          <span class="time">
+                              <?php echo get_the_date();?>
+                          </span>
+                      </div>
+                      <p class="items-list__info"><?php the_excerpt(); ?></p>
                     </div>
-                    <p class="items-list__info"><?php the_excerpt(); ?></p>
                   </div>
-                </div>
-              </li>
-            <?php endforeach; ?>
+                </li>
+            <?php 
+              endwhile; 
+              endif;
+            ?>
           </ul>
+          <?php posts_nav_link() ?>
         </div>
-
       </div>
     </div>
   </main><!-- .site-main -->
