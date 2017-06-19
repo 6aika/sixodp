@@ -12,11 +12,9 @@
 
 get_header();
 
-
 $category = get_queried_object();
 $child_categories = get_categories(array('parent' => $category->term_id, 'hide_empty' => false));
 $sibling_categories = get_categories(array('parent' => $category->parent, 'hide_empty' => false));
-$posts = get_posts(array('category' => $category->cat_ID));
 
 ?>
 
@@ -63,7 +61,7 @@ $posts = get_posts(array('category' => $category->cat_ID));
         </div>
         <div class="col-md-8 news-content cards--post">
           <?php
-          foreach ( $posts as $post ) : setup_postdata( $post ) ?>
+          while ( have_posts() ) : the_post(); ?>
 
           <div class="card--post">
             <?php
@@ -112,8 +110,9 @@ $posts = get_posts(array('category' => $category->cat_ID));
           </div>
 
           <?php
-          endforeach;
+          endwhile;
           wp_reset_postdata();
+          posts_nav_link();
           ?>
         </div>
       </div>
