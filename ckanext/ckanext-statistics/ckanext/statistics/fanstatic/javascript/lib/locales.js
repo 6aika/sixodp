@@ -66,9 +66,14 @@ Locales = {
     en: 'Summary',
   },
   summarySectionDetailText: {
-    fi: 'Viim. 3kk',
+    fi: 'Viimeiset kolme kuukautta',
     sv: '',
-    en: 'Last 3m',
+    en: 'Last three months',
+  },
+  summarySectionDetailTextUnit: {
+    fi: 'kpl',
+    sv: '',
+    en: 'pcs',
   },
 
   datasetSectionTitle: {
@@ -89,7 +94,7 @@ Locales = {
 
   // Nav filters
   allPublishers: {
-    fi: 'Kaikki julkaisijat',
+    fi: 'Kaikki ylläpitäjät',
     sv: '',
     en: 'All publishers',
   },
@@ -128,7 +133,7 @@ Locales = {
     en: 'Timeline',
   },
   topPublishersTitle: {
-    fi: 'Julkaisijat',
+    fi: 'Ylläpitäjät',
     sv: '',
     en: 'Publishers',
   },
@@ -169,7 +174,7 @@ Locales = {
 
   // Inputs
   all: {
-    fi: 'Kaikki julkaisijat',
+    fi: 'Kaikki ylläpitäjät',
     sv: '',
     en: 'All publishers'
   },

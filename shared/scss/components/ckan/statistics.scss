@@ -208,8 +208,12 @@
 
 .statistics-section {
   min-height: 600px;
-  padding: 60px;
+  padding: $padding-large-horizontal;
   position: relative;
+
+  @media(min-width: $width-sm) {
+    padding: $padding-large-horizontal*2
+  }
 }
 
 .statistics-section-content, .statistics-nav-content {
@@ -393,9 +397,9 @@
 .attention-number-detail {
   font-size: $font-size;
 }
-.attention-number-detail-text {
-}
+.attention-number-detail-text,
 .attention-number-detail-value {
+  display: block;
 }
 
 // Top histogram

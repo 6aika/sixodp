@@ -204,6 +204,7 @@ Statistics.prototype._createSections = function () {
       datasetsTitle: self._localeData.datasetsOpened[self._config.locale],
       appsTitle: self._localeData.apps[self._config.locale],
       detailText: self._localeData.summarySectionDetailText[self._config.locale],
+      detailTextUnit: self._localeData.summarySectionDetailTextUnit[self._config.locale],
     },
     datasetSchema: self._schemas.datasets,
     appSchema: self._schemas.apps,
