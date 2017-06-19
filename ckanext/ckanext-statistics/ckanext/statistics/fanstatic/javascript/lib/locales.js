@@ -1,8 +1,8 @@
 Locales = {
   statisticsMainTitle: {
-    fi: 'Dataportaalin tilastot',
+    fi: 'Sivuston analytiikka',
     sv: '',
-    en: 'Data Portal Statistics',
+    en: 'Site analytics',
   },
 
   // Loading
@@ -27,9 +27,9 @@ Locales = {
     en: 'Loading categories',
   },
   loadDatasets: {
-    fi: 'Ladataan tietoaineistot',
+    fi: 'Ladataan datat',
     sv: '',
-    en: 'Loading datasets',
+    en: 'Loading data',
   },
   loadApps: {
     fi: 'Ladataan sovellukset',
@@ -77,9 +77,9 @@ Locales = {
   },
 
   datasetSectionTitle: {
-    fi: 'Tietoaineistot',
+    fi: 'Datat',
     sv: '',
-    en: 'Datasets',
+    en: 'Datas',
   },
   appSectionTitle: {
     fi: 'Sovellukset',
@@ -111,9 +111,9 @@ Locales = {
 
   // Summary section
   datasetsOpened: {
-    fi: 'Tietoaineistoja avattu',
+    fi: 'Datoja avattu',
     sv: '',
-    en: 'Datasets opened',
+    en: 'Data opened',
   },
   users: {
     fi: 'uniikkia käyttäjää',
@@ -153,7 +153,7 @@ Locales = {
     en: 'Used in an app',
   },
   notUsedInApp: {
-    fi: 'Ei ole käytetty sovelluksessa',
+    fi: 'Ei käytetty sovelluksessa',
     sv: '',
     en: 'Not used in any app',
   },
