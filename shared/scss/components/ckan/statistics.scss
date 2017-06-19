@@ -22,7 +22,7 @@
   background-color: $brand-primary;
   color: $brand-white;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   left: 0;
   padding: 30% 10px;
   position: fixed;
@@ -96,7 +96,6 @@
 .statistics-nav {
   background-color: $brand-white;
   border-bottom: solid $brand-primary 1px;
-  height: 200px;
   padding: $padding-base-vertical $padding-base-horizontal;
   text-align: center;
   width: 100%;
@@ -127,65 +126,81 @@
 
   .statistics-nav-items {
     padding: $padding-large-vertical 0px;
+    margin: 0;
+
+    li {
+      a {
+        &:hover,
+        &:focus,
+        &:active {
+          text-decoration: none;
+          color: $link-color;
+        }
+      }
+    }
   }
 }
 
 .statistics-nav-filters {
   width: 100%;
-  > * {
-    display: inline-block;
-    width: 100%;
-  }
-}
-@media(min-width: $width-md) {
-  .statistics-nav {
-    height: 120px;
-  }
-
-  .statistics-nav-filters > * {
-    vertical-align: bottom;
-    width: 32%;
-  }
-  .statistics-filter-organization {
-    float: left;
-  }
-  .statistics-filter-category {
-    float: right;
-  }
+  padding: $padding-large-vertical 0;
 }
 
+.statistics-filter.form-control {
+  width: 100%;
+  margin: $margin-large-vertical 0;
+  float: none;
+
+  @media(min-width: $width-sm) {
+    width: 48%;
+    margin: 0;
+  }
+
+  @media(min-width: $width-md) {
+    width: 200px;
+
+
+    &.statistics-filter-organization {
+      float: left;
+    }
+
+    &.statistics-filter-category {
+      float: right;
+    }
+  }
+
+  @media(min-width: $width-lg) {
+    width: 300px;
+  }
+}
 
 .statistics-filter-datespan {
   display: inline-block;
-  input {
-    border: solid $gray-lighter 1px;
-    font-size: $font-size-small;
-    height: 18px; // $input-height-small;
-    text-align: center;
-    width: 100px;
+  width: 100%;
+  margin-bottom: $margin-large-vertical;
+
+  @media(min-width: $width-md) {
+    width: auto;
+    margin-bottom: 0;
   }
 }
+
 .js-statistics-filter-datespan-fields {
   position: relative;
 }
+
 .statistics-filter-datespan-quicklinks {
+  margin: $margin-small-vertical 0;
+
   > a {
     cursor: pointer;
     display: inline-block;
     margin: 0px $margin-base-horizontal;
+    border-bottom: solid transparent 5px;
 
-    border-bottom: solid transparent 2px;
     &.statistics-active {
       border-color: $brand-primary;
     }
-  }
-}
-
-.statistics-filter-datespan-datespan-fields, .statistics-filter-datespan-quicklinks, .statistics-filter-organization, .statistics-filter-categorys {
-  margin-bottom: $margin-base-vertical;
-  margin-top: $margin-base-vertical;
-  @media(min-width: $width-md) {
-    margin-bottom: 0;
   }
 }
 
@@ -405,15 +420,6 @@
   float: right;
 }
 
-.statistics-page .statistics-input-date, .statistics-page select {
-  border: solid $gray-light 1px;
-  font-size: 14px;
-  height: 30px;
-  line-height: 30px;
-  background: none;
-  color: inherit;
-  margin-right: 15px;
-}
 .statistics-page .statistics-input-date {
   text-align: center;
   width: 45%;
