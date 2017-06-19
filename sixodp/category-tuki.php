@@ -31,35 +31,61 @@ get_header();
 
         <?php get_template_part( 'partials/tuki-sidebar' ); ?>
 
-        <div class="article__wrapper">
-          <ul class="items-list">
+        <div class="cards--post">
+        <?php
+        while ( have_posts() ) : the_post(); ?>
 
-            <?php if ( have_posts() ) :
-              while ( have_posts() ) : the_post(); ?>
+        <div class="card--post">
+          <?php
+            if (has_post_thumbnail( $post->ID ) ):
+              $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
+            else :
+              $image = array("/assets/images/frontpage.jpg");
+            endif;
+          ?>
+          <a href="<?php the_permalink(); ?>" class="post__img--link" style="background-image: url(<?php echo $image[0]; ?>);"></a>
+          <div class="post__content">
+            <h4 class="post__title">
+              <a class="post__link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+            </h4>
+            <div class="post__separator"></div>
+            <div class="post__meta">
+              <span><?php echo parse_date(get_the_date('c')); ?></span>
 
-                <li class="items-list-content">
-                  <div class="items-list__content">
-                    <h4 class="items-list__title">
-                      <a class="items-list__link" href="<?php the_permalink(); ?>">
-                        <?php the_title(); ?>
-                      </a>
-                    </h4>
-                    <div class="items-list__body">
-                      <div class="metadata">
-                          <span class="time">
-                              <?php echo get_the_date();?>
-                          </span>
-                      </div>
-                      <p class="items-list__info"><?php the_excerpt(); ?></p>
-                    </div>
-                  </div>
-                </li>
-            <?php 
-              endwhile; 
-              endif;
-            ?>
-          </ul>
-          <?php posts_nav_link() ?>
+              <ul>
+                <?php
+                  if ( count(get_the_category()) > 0 ) {
+                    foreach ( get_the_category() as $cat ) { ?>
+                      <li><a href="<?php echo get_category_link($cat->cat_ID) ?>"><?php echo $cat->name; ?></a></li><?php
+                    }
+                  }
+                ?>
+              </ul>
+            </div>
+            <div class="post__text">
+              <?php 
+              $content = get_the_content();
+
+              $content = wp_strip_all_tags($content);
+              if (strlen($content) > 200) {
+                $content = substr($content, 0, 180);
+                $content = substr($content, 0, strripos($content, ' '));
+                $content .= '...';
+              }
+
+              print $content;
+              ?>
+            </div>
+            <div class="post__footer">
+            </div>
+          </div>
+        </div>
+
+        <?php
+        endwhile;
+        wp_reset_postdata();
+        posts_nav_link();
+        ?>
         </div>
       </div>
     </div>
