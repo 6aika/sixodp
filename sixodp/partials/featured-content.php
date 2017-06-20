@@ -72,9 +72,6 @@
             <span style="margin-left: 2px; margin-right: 2px;">&bull;</span>
             <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale(); ?>/<?php echo $dataset['type']; ?>" class="card__categorylink"><?php echo $dataset['type']; ?></a>
           </div>
-          <div class="card__body">
-            <p><?php echo get_notes_excerpt(get_translated($dataset, 'notes')); ?></p>
-          </div>
         </div><?php
       endforeach; ?>
     </div>
