@@ -39,6 +39,18 @@ var App = {
 
 (function($) {
 
+  $('.counter').each(function () {
+      $(this).prop('Counter',0).animate({
+          Counter: $(this).text()
+      }, {
+          duration: 2000,
+          easing: 'swing',
+          step: function (now) {
+              $(this).text(Math.ceil(now));
+          }
+      });
+  });
+
   $('button[data-toggle="collapse"]').on('click', function() {
     var $menu = $('#site-navigation');
     App.toggleMenu($menu);
