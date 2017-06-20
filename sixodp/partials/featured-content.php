@@ -6,10 +6,6 @@
 
 <div class="wrapper--featured">
 
-  <div class="container">
-    <h1 class="heading--featured"><?php _e('Datasets and applications', 'sixodp');?> </h1>
-  </div>
-
   <div class="container banner">
     <div class="row text-center">
       <div class="col-md-6">
