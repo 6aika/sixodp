@@ -90,6 +90,7 @@
     height: $base*48;
     padding-bottom: 0;
     border-left: 1px solid rgba(255,255,255,0.6);
+    flex-wrap: nowrap;
 
     .horizaccordion__text,
     .horizaccordion__meta,
