@@ -34,7 +34,7 @@
                   <span class="footer-follow-title">{{ _('Follow us') }}</span>
                   {% for item in social_links %}
                     {% set icon_class = h.get_social_link_icon_class(item) %}
-                    <a href="{{item.url}}" title="{{item.title}}" class="footer-follow-link"><i class="{{icon_class}} icon-2x"></i></a>
+                    <a href="{{item.url}}" title="{{item.title}}" class="footer-follow-link"><i class="{{icon_class}} fa-2x"></i></a>
                   {% endfor %}
                 </div>
               </div>
