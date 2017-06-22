@@ -152,7 +152,7 @@ if(function_exists("register_field_group"))
         'append' => '',
         'formatting' => 'html',
         'maxlength' => '',
-      ),
+      )
     ),
     'location' => array (
       array (
@@ -173,7 +173,43 @@ if(function_exists("register_field_group"))
     ),
     'menu_order' => 0,
   ));
-}
+  register_field_group(array (
+    'id' => 'acf_tuki-page-fields',
+    'title' => 'Tuki page fields',
+    'fields' => array (
+     array (
+        'key' => 'field_744jab559211',
+        'label' => 'Related links',
+        'name' => 'related_links',
+        'instructions' => 'One link per line',
+        'type' => 'textarea',
+        'default_value' => '',
+        'placeholder' => '',
+        'prepend' => '',
+        'append' => '',
+        'formatting' => 'html',
+        'maxlength' => '',
+      ),
+    ),
+    'location' => array (
+      array (
+        array (
+          'param' => 'page_template',
+          'operator' => '==',
+          'value' => 'tukichild.php',
+          'order_no' => 0,
+          'group_no' => 0,
+        ),
+      ),
+    ),
+    'options' => array (
+      'position' => 'normal',
+      'layout' => 'no_box',
+      'hide_on_screen' => array (
+      ),
+    ),
+    'menu_order' => 0,
+  ));}
 
 $image_field = array(
   'return_format' => 'array',
@@ -575,7 +611,23 @@ function new_subcategory_hierarchy() {
     $category = get_queried_object();
 
     $templates = array();
-    
+
+    $languages = array_diff(pll_languages_list(array('fields' => 'slug')), array(pll_current_language()));
+
+    $templates[] = "category-{$category->slug}.php";
+    $templates[] = "category-{$category->term_id}.php";
+
+    foreach ($languages as $lang) {
+      $translated_category_id = pll_get_term($category->term_id, $lang);
+
+      if (!$translated_category_id) continue;
+
+      $translated_category = get_category(pll_get_term($category->term_id, $lang));
+
+      $templates[] = "category-{$translated_category->slug}.php";
+      $templates[] = "category-{$translated_category->term_id}.php";
+    }
+
     $parent_id = $category->category_parent;
 
     while ($parent_id != 0) {
@@ -584,10 +636,21 @@ function new_subcategory_hierarchy() {
       $templates[] = "category-{$category->slug}.php";
       $templates[] = "category-{$category->term_id}.php";
 
+      foreach ($languages as $lang) {
+        $translated_category_id = pll_get_term($category->term_id, $lang);
+
+        if (!$translated_category_id) continue;
+
+        $translated_category = get_category(pll_get_term($category->term_id, $lang));
+
+        $templates[] = "category-{$translated_category->slug}.php";
+        $templates[] = "category-{$translated_category->term_id}.php";
+      }
+
       $parent_id = $category->category_parent;
     }
 
-    $templates[] = 'category.php';  
+    $templates[] = 'category.php'; 
 
     return locate_template( $templates );
 }
@@ -688,3 +751,22 @@ function create_form_results() {
   }
 }
 add_action( 'init', 'create_form_results' );
+
+function custom_category_query($query) {
+
+  if ($query->is_category) {
+    $expected_anchestor = get_category(pll_get_term(get_category_by_slug('tuki')->term_id));
+
+    $category = get_queried_object();
+    
+    if ($category->term_id == $expected_anchestor->term_id or cat_is_ancestor_of($expected_anchestor, $category)) {
+      $query->set('post_type', 'page');
+    }
+    
+    $query->set('posts_per_page', 9);
+  }
+
+  return $query;
+}
+
+add_action( 'pre_get_posts', 'custom_category_query' );
