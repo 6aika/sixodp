@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_ui 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-04-13 10:55+0000\n"
+"POT-Creation-Date: 2017-06-22 10:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Language-Team: Swedish (https://www.transifex.com/6aika-dataportal/teams/68018/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -19,30 +19,31 @@ msgstr ""
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ckanext/sixodp_ui/helpers.py:89
+#: ckanext/sixodp_ui/helpers.py:135
 msgid "Dataset not found"
 msgstr ""
 
-#: ckanext/sixodp_ui/plugin.py:222
+#: ckanext/sixodp_ui/plugin.py:226
 msgid "Formats"
 msgstr ""
 
-#: ckanext/sixodp_ui/plugin.py:223
+#: ckanext/sixodp_ui/plugin.py:227
 msgid "Geographical Coverage"
 msgstr ""
 
-#: ckanext/sixodp_ui/plugin.py:224
+#: ckanext/sixodp_ui/plugin.py:228
+#: ckanext/sixodp_ui/templates/package/group_list.html:5
 #: ckanext/sixodp_ui/templates/package/read_base.html:35
 msgid "Groups"
 msgstr ""
 
-#: ckanext/sixodp_ui/plugin.py:225
+#: ckanext/sixodp_ui/plugin.py:229
 #: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:41
 #: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:46
 msgid "Maintainer"
 msgstr ""
 
-#: ckanext/sixodp_ui/plugin.py:226
+#: ckanext/sixodp_ui/plugin.py:230
 #: ckanext/sixodp_ui/templates/package/read_base.html:36
 msgid "Collections"
 msgstr ""
@@ -51,6 +52,7 @@ msgstr ""
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/activity-stream.min.js:1
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/popover-context.js:45
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/popover-context.min.js:1
+#: ckanext/sixodp_ui/templates/package/snippets/data_api_button.html:8
 msgid "Loading..."
 msgstr ""
 
@@ -241,7 +243,7 @@ msgstr ""
 
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/table-toggle-more.js:9
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/table-toggle-more.min.js:1
-#: ckanext/sixodp_ui/templates/package/resource_read.html:123
+#: ckanext/sixodp_ui/templates/package/resource_read.html:127
 msgid "Show more"
 msgstr ""
 
@@ -250,8 +252,86 @@ msgstr ""
 msgid "Hide"
 msgstr ""
 
+#: ckanext/sixodp_ui/templates/footer.html:9
+msgid "Data portal"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/footer.html:12
+msgid "Content management"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/footer.html:16
+#: ckanext/sixodp_ui/templates/user/login.html:6
+msgid "Login"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/footer.html:34
+msgid "Follow us"
+msgstr ""
+
 #: ckanext/sixodp_ui/templates/admin/config.html:7
 msgid "Service message"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/ajax_snippets/api_info.html:21
+msgid "CKAN Data API"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/ajax_snippets/api_info.html:25
+msgid "Access resource data via a web API with powerful query support"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/ajax_snippets/api_info.html:26
+msgid ""
+" Further information in the <a                   "
+"href=\"http://docs.ckan.org/en/latest/maintaining/datastore.html\" "
+"target=\"_blank\">main CKAN Data API and DataStore documentation</a>.</p> "
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/ajax_snippets/api_info.html:36
+msgid "Endpoints"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/ajax_snippets/api_info.html:41
+msgid ""
+"The Data API can be accessed via the following actions of the CKAN action "
+"API."
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/ajax_snippets/api_info.html:46
+msgid "Query"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/ajax_snippets/api_info.html:50
+msgid "Query (via SQL)"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/ajax_snippets/api_info.html:62
+msgid "Querying"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/ajax_snippets/api_info.html:67
+msgid "Query example (first 5 results)"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/ajax_snippets/api_info.html:72
+msgid "Query example (results containing 'my_resource_query')"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/ajax_snippets/api_info.html:77
+msgid "Query example (via SQL statement)"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/ajax_snippets/api_info.html:89
+msgid "Example: Javascript"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/ajax_snippets/api_info.html:94
+msgid "A simple ajax (JSONP) request to the data API using jQuery."
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/ajax_snippets/api_info.html:116
+msgid "Example: Python"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/ckanext_pages/blog.html:4
@@ -315,6 +395,17 @@ msgstr ""
 #: ckanext/sixodp_ui/templates/group/index.html:6
 #: ckanext/sixodp_ui/templates/group/index.html:13
 msgid "Search groups..."
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/group/read_base.html:4
+#: ckanext/sixodp_ui/templates/group/snippets/info.html:12
+msgid "Datasets"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/group/read_base.html:5
+#: ckanext/sixodp_ui/templates/package/activity.html:3
+#: ckanext/sixodp_ui/templates/package/read_base.html:33
+msgid "Activity Stream"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/group/snippets/group_item.html:29
@@ -466,11 +557,6 @@ msgstr ""
 msgid "Search datasets..."
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/activity.html:3
-#: ckanext/sixodp_ui/templates/package/read_base.html:33
-msgid "Activity Stream"
-msgstr ""
-
 #: ckanext/sixodp_ui/templates/package/edit.html:9
 #: ckanext/sixodp_ui/templates/package/resource_edit.html:9
 msgid "Locked fields"
@@ -481,6 +567,24 @@ msgstr ""
 msgid ""
 "Fields marked with a thick gray border are used in automatic processing and "
 "cannot be modified."
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/package/group_list.html:14
+msgid "Associate this group with this dataset"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/package/group_list.html:14
+msgid "Add to group"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/package/group_list.html:24
+msgid "There are no groups associated with this dataset"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/package/read.html:40
+#: ckanext/sixodp_ui/templates/package/read_base.html:78
+#: ckanext/sixodp_ui/templates/package/resource_read.html:191
+msgid "Subscribe for dataset updates"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/read_base.html:31
@@ -495,13 +599,8 @@ msgid "Showcases"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/read_base.html:56
-#: ckanext/sixodp_ui/templates/package/resource_read.html:165
+#: ckanext/sixodp_ui/templates/package/resource_read.html:169
 msgid "Openness"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/package/read_base.html:78
-#: ckanext/sixodp_ui/templates/package/resource_read.html:187
-msgid "Subscribe for dataset updates"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/resource_read.html:13
@@ -522,52 +621,52 @@ msgstr ""
 msgid "Download"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/resource_read.html:80
+#: ckanext/sixodp_ui/templates/package/resource_read.html:85
 msgid "There are no views created for this resource yet."
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/resource_read.html:84
+#: ckanext/sixodp_ui/templates/package/resource_read.html:88
 msgid "Not seeing the views you were expecting?"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/resource_read.html:86
+#: ckanext/sixodp_ui/templates/package/resource_read.html:90
 #: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:18
 msgid "Click here for more information."
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/resource_read.html:90
+#: ckanext/sixodp_ui/templates/package/resource_read.html:94
 msgid "Here are some reasons you may not be seeing expected views:"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/resource_read.html:92
+#: ckanext/sixodp_ui/templates/package/resource_read.html:96
 msgid "No view has been created that is suitable for this resource"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/resource_read.html:93
+#: ckanext/sixodp_ui/templates/package/resource_read.html:97
 msgid "The site administrators may not have enabled the relevant view plugins"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/resource_read.html:94
+#: ckanext/sixodp_ui/templates/package/resource_read.html:98
 msgid ""
 "If a view requires the DataStore, the DataStore plugin may not be enabled, "
 "or the data may not have been pushed to the DataStore, or the DataStore "
 "hasn't finished processing the data yet"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/resource_read.html:115
+#: ckanext/sixodp_ui/templates/package/resource_read.html:119
 msgid "From the dataset abstract"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/resource_read.html:117
+#: ckanext/sixodp_ui/templates/package/resource_read.html:121
 #, python-format
 msgid "Source: <a href=\"%(url)s\">%(dataset)s</a>"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/resource_read.html:124
+#: ckanext/sixodp_ui/templates/package/resource_read.html:128
 msgid "Show less"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/resource_read.html:147
+#: ckanext/sixodp_ui/templates/package/resource_read.html:151
 msgid "Back to dataset"
 msgstr ""
 
@@ -640,6 +739,10 @@ msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:72
 msgid "Created"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/package/snippets/data_api_button.html:10
+msgid "Data API"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/snippets/info.html:20
@@ -901,10 +1004,6 @@ msgstr ""
 
 #: ckanext/sixodp_ui/templates/user/dashboard.html:31
 msgid "Activity from items that I'm following"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/user/login.html:6
-msgid "Login"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/user/snippets/followee_dropdown.html:14

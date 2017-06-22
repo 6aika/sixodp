@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_scheming 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-04-13 11:41+0000\n"
+"POT-Creation-Date: 2017-06-22 10:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Mikko Nieminen <mikko.nieminen@gofore.com>, 2017\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
@@ -182,7 +182,7 @@ msgstr "esim. joka toinen viikko"
 msgid "A short description of how frequently the dataset will get updated."
 msgstr "Lyhyt sanallinen kuvaus siitä miten usein tietoaineistoa päivitetään."
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:94
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:95
 #: ckanext/sixodp_scheming/translations.py:52
 msgid "License"
 msgstr "Lisenssi"
@@ -250,6 +250,7 @@ msgid ""
 msgstr ""
 "Tiedosto tai verkko-osoite, joka kuvaa halutun resurssitiedoston sijainnin."
 
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:49
 #: ckanext/sixodp_scheming/translations.py:75
 msgid "Size"
 msgstr "Koko"
@@ -397,31 +398,35 @@ msgstr "Viimeksi päivitetty"
 msgid "unknown"
 msgstr "tuntematon"
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:26
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:50
+msgid "MB"
+msgstr "Mt"
+
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:27
 msgid "Groups"
 msgstr "Kategoriat"
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:41
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:42
 msgid "Collections"
 msgstr "Aineistokokonaisuudet"
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:82
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:83
 msgid "Openness"
 msgstr "Avoimuusaste"
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:88
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:89
 msgid "Rating"
 msgstr "Arvosana"
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:100
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:101
 msgid "State"
 msgstr "Tila"
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:107
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:108
 msgid "How to reference"
 msgstr "Viittaustapa"
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:109
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:110
 msgid ""
 "{title}: The dataset's maintainer is {maintainer} and the original author is"
 " {author}. The dataset has been downloaded from the {site_title} service "
