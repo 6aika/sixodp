@@ -25,8 +25,7 @@ get_header(); ?>
 		get_template_part( 'partials/tuki-contentbox' );
 
 		$morelinks_title  = "Teemat";
-		$tuki_category = get_category_by_slug('tuki');
-        $teema_category = get_categories(array('parent' => $tuki_category->term_id, 'slug' => 'teemat', 'hide_empty' => false))[0];
+    $teema_category = get_translated_category_by_slug('teemat');
         ?>
         <div class="wrapper--morelinks">
           <div class="container">
