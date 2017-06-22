@@ -653,7 +653,7 @@ Statistics.prototype._createCategoryDatasets = function (datasets, categories, d
   for (iCategory in categories) {
     var resultItem = {
       id: categories[iCategory].id,
-      name: categories[iCategory].title,
+      name: categories[iCategory].title_translated[self._config.locale],
       all: 0,
       specific: 0, // Datasets with apps
       // allRight: 0, // User counts

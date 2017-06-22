@@ -84,6 +84,5 @@ AttentionNumbers.prototype._updateView = function (data) {
     }
     numberObj.valueElement.html(mainValue);
     numberObj.detailValueElement.html(detailValue + ' ' + numberObj.detailTextUnit);
-    console.log(numberObj.detailTextUnit)
   }
 };
