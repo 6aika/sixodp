@@ -31,7 +31,7 @@ Api.prototype.getAllData = function (callback, delay) {
         data.datasets = result
         self._stepLoaded(self._texts.loadApps, 88.8)
 
-        self.get('ckanext_showcase_list', function (result) {
+        self.get('ckanext_showcase_list?include_private=false', function (result) {
           data.apps = result
 
           if (data.apps.length === 0) {
