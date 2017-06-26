@@ -27,13 +27,12 @@ get_header(); ?>
         global $post;
         $post_slug=$post->post_name;
 
-        //var_dump($post);
+        ?>
+        <h1 class="heading--main"><?php the_title() ?></h1>
+        <article class="article"><?php the_content() ?></article>
+        <?php
 
-        // Include the page content template.
-        echo '<h1 class="heading--main">'.get_the_title().'</h1>';
-        echo '<article class="article">' . get_the_content() . '</article>';
         include( locate_template('partials/article-footer.php') );
-
 
         // End of the loop.
       endwhile;
