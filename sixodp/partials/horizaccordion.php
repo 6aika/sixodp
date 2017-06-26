@@ -54,10 +54,10 @@
   </div>
   <div class="container">
     <div class="row horizaccordion__btn-container">
-      <a type="button" href="<?php echo get_category_link(get_category_by_slug('ajankohtaista')->term_id); ?>" class="btn btn-lg btn-secondary btn--show-all">
+      <a type="button" href="<?php echo get_category_link(get_translated_category_by_slug('ajankohtaista')) ?>" class="btn btn-lg btn-secondary btn--show-all">
         <?php _e('Show all', 'sixodp');?>  <i class="material-icons">arrow_forward</i>
       </a>
-      <a type="button" href="/ajankohtaista" class="btn btn-lg btn-secondary btn--ajankohtaista">
+      <a type="button" href="<?php echo get_permalink(get_translated_page_by_title('Ajankohtaista')); ?>" class="btn btn-lg btn-secondary btn--ajankohtaista">
         <?php _e('Latest updates', 'sixodp');?>  <i class="material-icons">arrow_forward</i>
       </a>
     </div>
