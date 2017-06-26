@@ -3,7 +3,7 @@ import ckan.plugins.toolkit as toolkit
 from ckanext.showcase.plugin import ShowcasePlugin
 import ckanext.showcase.logic.helpers as showcase_helpers
 from ckanext.showcase.logic import action as showcase_action
-from logic.action import create, update
+from logic.action import create, update, get
 from ckanext.sixodp_showcase import helpers
 from ckan.common import _
 from ckan.lib import i18n
@@ -117,7 +117,7 @@ class Sixodp_ShowcasePlugin(ShowcasePlugin):
             'ckanext_showcase_show':
                 showcase_action.get.showcase_show,
             'ckanext_showcase_list':
-                showcase_action.get.showcase_list,
+                get.showcase_list,
             'ckanext_showcase_package_association_create':
                 showcase_action.create.showcase_package_association_create,
             'ckanext_showcase_package_association_delete':

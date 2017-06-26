@@ -1,8 +1,8 @@
 Locales = {
   statisticsMainTitle: {
-    fi: 'Dataportaalin tilastot',
+    fi: 'Sivuston analytiikka',
     sv: '',
-    en: 'Data Portal Statistics',
+    en: 'Site analytics',
   },
 
   // Loading
@@ -27,9 +27,9 @@ Locales = {
     en: 'Loading categories',
   },
   loadDatasets: {
-    fi: 'Ladataan tietoaineistot',
+    fi: 'Ladataan datat',
     sv: '',
-    en: 'Loading datasets',
+    en: 'Loading data',
   },
   loadApps: {
     fi: 'Ladataan sovellukset',
@@ -66,15 +66,20 @@ Locales = {
     en: 'Summary',
   },
   summarySectionDetailText: {
-    fi: 'Viim. 3kk',
+    fi: 'Viimeiset kolme kuukautta',
     sv: '',
-    en: 'Last 3m',
+    en: 'Last three months',
+  },
+  summarySectionDetailTextUnit: {
+    fi: 'kpl',
+    sv: '',
+    en: 'pcs',
   },
 
   datasetSectionTitle: {
-    fi: 'Tietoaineistot',
+    fi: 'Datat',
     sv: '',
-    en: 'Datasets',
+    en: 'Datas',
   },
   appSectionTitle: {
     fi: 'Sovellukset',
@@ -89,7 +94,7 @@ Locales = {
 
   // Nav filters
   allPublishers: {
-    fi: 'Kaikki julkaisijat',
+    fi: 'Kaikki ylläpitäjät',
     sv: '',
     en: 'All publishers',
   },
@@ -106,9 +111,9 @@ Locales = {
 
   // Summary section
   datasetsOpened: {
-    fi: 'Tietoaineistoja avattu',
+    fi: 'Datoja avattu',
     sv: '',
-    en: 'Datasets opened',
+    en: 'Data opened',
   },
   users: {
     fi: 'uniikkia käyttäjää',
@@ -128,7 +133,7 @@ Locales = {
     en: 'Timeline',
   },
   topPublishersTitle: {
-    fi: 'Julkaisijat',
+    fi: 'Ylläpitäjät',
     sv: '',
     en: 'Publishers',
   },
@@ -148,7 +153,7 @@ Locales = {
     en: 'Used in an app',
   },
   notUsedInApp: {
-    fi: 'Ei ole käytetty sovelluksessa',
+    fi: 'Ei käytetty sovelluksessa',
     sv: '',
     en: 'Not used in any app',
   },
@@ -169,7 +174,7 @@ Locales = {
 
   // Inputs
   all: {
-    fi: 'Kaikki julkaisijat',
+    fi: 'Kaikki ylläpitäjät',
     sv: '',
     en: 'All publishers'
   },

@@ -7,7 +7,7 @@
         <div class="js-statistics-loading-loaded statistics-loading-loaded">
         </div>
       </div>
-      <p class="js-statistics-loading-text statistics-loading-text">Ladataan verkkosivu</p>
+      <p class="js-statistics-loading-text statistics-loading-text">{{ _('Loading') }}</p>
     </div>
     <h1 class="page-heading js-statistics-main-title"></h1>
     <nav class="statistics-nav">
@@ -16,10 +16,9 @@
           <li><a href="#summary"></a></li>
           <li><a href="#datasets"></a></li>
           <li><a href="#apps"></a></li>
-          <!-- <li><a href="#articles"></a></li> -->
         </ul>
 
-        <div class="statistics-nav-filters">
+        <div class="form-inline statistics-nav-filters">
           <div class="statistics-filter-datespan">
             <div class="statistics-filter-datespan-quicklinks">
               <a class="js-statistics-filter-datespan-all"></a>
@@ -28,15 +27,15 @@
               <a class="js-statistics-filter-datespan-this-year"></a>
             </div>
             <div class="js-statistics-filter-datespan-fields">
-              <input class="js-statistics-filter-start-date" type="date" />
+              <input class="form-control js-statistics-filter-start-date" type="date" />
               -
-              <input class="js-statistics-filter-end-date" type="date" />
+              <input class="form-control js-statistics-filter-end-date" type="date" />
             </div>
           </div>
-          <select class="js-statistics-filter-organization statistics-filter-organization">
+          <select class="form-control js-statistics-filter-organization statistics-filter statistics-filter-organization">
             <option>-</option>
           </select>
-          <select class="js-statistics-filter-category statistics-filter-category">
+          <select class="form-control js-statistics-filter-category statistics-filter statistics-filter-category">
             <option>-</option>
           </select>
         </div>
@@ -66,12 +65,6 @@
         <div class="js-category-app-counts"></div>
       </div>
     </div>
-
-    <!-- <div class="statistics-section js-statistics-articles-section">
-      <div class="statistics-section-content">
-        <h2>Artikkelit</h2>
-      </div>
-    </div> -->
 
   </div>
 {% endblock %}
