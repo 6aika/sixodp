@@ -28,6 +28,15 @@
   .alignleft {
     margin: $base $base $base 0;
   }
+
+  img {
+    width: 100%;
+    height: auto;
+
+    @media(min-width: $width-sm) {
+      width: auto;
+    }
+  }
 }
 
 .article p {
