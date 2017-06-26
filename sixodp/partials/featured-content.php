@@ -68,7 +68,7 @@
         <div class="card">
           <h3 class="card__title">
             <a href="<?php echo CKAN_BASE_URL.'/'.get_current_locale().'/dataset/'.$dataset['name']; ?>">
-              <?php echo $dataset["title_translated"][get_current_locale()]; ?>
+              <?php echo get_translated($dataset, 'title'); ?>
             </a>
           </h3>
           <div class="card__meta">

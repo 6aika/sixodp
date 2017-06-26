@@ -23,17 +23,11 @@
               <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale(); ?>/<?php echo $item['type']; ?>" class="card__categorylink--latest"><?php echo $item['type']; ?></a>
               <h3 class="card__title--latest">
                 <a href="<?php echo CKAN_BASE_URL.'/'.get_current_locale().'/'.$item['type'].'/'.$item['name']; ?>">
-                  <?php
-                    $itemTitle = (isset($item["title_translated"][get_current_locale()]) ? $item["title_translated"][get_current_locale()] : $item["title"]);
-                    echo $itemTitle
-                  ?>
+                  <?php echo get_translated($item, 'title'); ?>
                 </a>
               </h3>
               <p class="card__description">
-                <?php
-                  $itemNotes = (isset($item["notes_translated"][get_current_locale()]) ? $item["notes_translated"][get_current_locale()] : null);
-                  echo get_notes_excerpt($itemNotes);
-                ?>
+                <?php echo get_notes_excerpt(get_translated($item, 'notes')); ?>
               </p>
             </div>
           </div><?php

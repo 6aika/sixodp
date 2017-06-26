@@ -602,7 +602,13 @@ function get_lang() {
 function get_translated($object, $field) {
   $lang = get_lang();
   if( $object[$field . '_translated'] ) {
-    return $object[$field . '_translated'][$lang];
+    $translated_value = $object[$field . '_translated'][$lang];
+
+    // Return default language if the translation was missing
+    if(empty($translated_value)) {
+      return $object[$field . '_translated'][DEFAULT_LANGUAGE];
+    }
+    return $translated_value;
   }
   return $object[$field];
 }
