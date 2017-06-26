@@ -13,26 +13,25 @@
   <div class="container">
     <div class="row cards--latest">
       <?php
-        // @TODO: get data from different sources
-        foreach ( get_all_recent_data() as $index => $dataset ) : ?>
+        foreach ( get_latest_updates() as $index => $item ) : ?>
           <?php if ($index === 4 || $index === 8) echo '</div><div class="row cards--latest">'; ?>
           <div class="card--latest">
             <div class="card__meta--latest">
-              <?php echo get_days_ago($dataset['metadata_created']); ?>
+              <?php echo get_days_ago($item['date_updated'] ? $item['date_updated'] : $item['metadata_modified']); ?>
             </div>
             <div class="card__body--latest">
-              <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale(); ?>/<?php echo $dataset['type']; ?>" class="card__categorylink--latest"><?php echo $dataset['type']; ?></a>
+              <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale(); ?>/<?php echo $item['type']; ?>" class="card__categorylink--latest"><?php echo $item['type']; ?></a>
               <h3 class="card__title--latest">
-                <a href="<?php echo CKAN_BASE_URL.'/'.get_current_locale().'/'.$dataset['type'].'/'.$dataset['name']; ?>">
+                <a href="<?php echo CKAN_BASE_URL.'/'.get_current_locale().'/'.$item['type'].'/'.$item['name']; ?>">
                   <?php
-                    $itemTitle = (isset($dataset["title_translated"][get_current_locale()]) ? $dataset["title_translated"][get_current_locale()] : $dataset["title"]);
+                    $itemTitle = (isset($item["title_translated"][get_current_locale()]) ? $item["title_translated"][get_current_locale()] : $item["title"]);
                     echo $itemTitle
                   ?>
                 </a>
               </h3>
               <p class="card__description">
                 <?php
-                  $itemNotes = (isset($dataset["notes_translated"][get_current_locale()]) ? $dataset["notes_translated"][get_current_locale()] : null);
+                  $itemNotes = (isset($item["notes_translated"][get_current_locale()]) ? $item["notes_translated"][get_current_locale()] : null);
                   echo get_notes_excerpt($itemNotes);
                 ?>
               </p>

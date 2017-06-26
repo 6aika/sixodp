@@ -574,14 +574,14 @@ function sort_results($arr) {
   $temp = array();
   foreach ($arr as $key => $row)
   {
-      $temp[$key] = $row['metadata_created'];
+      $temp[$key] = $row['date_updated'] ? $row['date_updated'] : $row['metadata_modified'];
   }
   array_multisort($temp, SORT_DESC, $arr);
 
   return $arr;
 }
 
-function get_all_recent_data() {
+function get_latest_updates() {
   $datasets   = get_recent_content();
   $showcases  = get_recent_showcases(20);
   $arr = array_merge($datasets, $showcases);
