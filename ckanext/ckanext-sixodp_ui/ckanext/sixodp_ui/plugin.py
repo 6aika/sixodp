@@ -254,6 +254,18 @@ class Sixodp_UiPlugin(plugins.SingletonPlugin, DefaultTranslation):
                 'build_nav_main': helpers.build_nav_main
                 }
 
+    def before_search(self, search_params):
+        '''Initializes default sorting if sorting is missing, replaces metadata_created with custom date_released.'''
+        sort = search_params.get('sort', '')
+        if len(sort) == 0:
+            sort = u'date_released desc'
+            search_params.update({'sort': sort})
+        elif 'metadata_created' in sort:
+            sort = sort.replace('metadata_created', 'date_released')
+            search_params.update({'sort': sort})
+
+        return search_params
+
     def after_search(self, search_results, search_params):
 
         if(search_results['search_facets'].get('groups')):
