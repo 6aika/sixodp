@@ -1,7 +1,11 @@
 .site-footer {
-  padding-top: $base*6;
+  padding-top: $padding-large-vertical;
   background: $footer-background-color;
   color: $footer-text-color;
+
+  @media(min-width: $width-sm) {
+    padding-top: $padding-large-vertical*4
+  }
 
   hr {
     margin: 0;
@@ -40,6 +44,16 @@
   text-decoration: none;
 }
 
+.footer-column {
+  margin-top: $margin-large-vertical;
+  margin-bottom: $margin-large-vertical;
+
+  @media(min-width: $width-sm) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
 .footer-section {
   padding-top: $base;
   padding-bottom: $base;
@@ -50,8 +64,12 @@
 }
 
 .footer-logo-wrapper {
-  width: 25%;
+  width: 50%;
   margin: auto;
+
+  @media (min-width: $width-sm) {
+    width: 25%;
+  }
 
   @media (min-width: $width-md) {
     width: 100%;
@@ -59,8 +77,13 @@
 }
 
 .footer-logo {
+  margin-top: 0;
   width: 100%;
-  margin-bottom: $base*4;
+  height: auto;
+
+  @media (min-width: $width-sm) {
+    margin-top: $margin-large-vertical;
+  }
 }
 
 .footer-links {

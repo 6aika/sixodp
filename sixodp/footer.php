@@ -15,7 +15,7 @@
 		<footer id="colophon" class="site-footer bgcolor-primary" role="contentinfo">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-4 pull-right text-right">
+					<div class="col-md-4 pull-right text-right footer-column">
 						<div class="popper">
 							<ul class="popper__list">
 								<li class="popper__item">
@@ -30,12 +30,12 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-2">
+					<div class="col-md-2 footer-column">
 						<div class="footer-logo-wrapper">
 							<img class="footer-logo" src="<?php echo assets_url(); ?>/images/main_logo_w.png" alt="6Aika logo">
 						</div>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-4 footer-column">
 						<div class="row">
 						  <div class="col-xs-12">
 						    <div class="footer-follow-links">
@@ -44,7 +44,7 @@
 						  </div>
 						</div>
 					</div>
-					<div class="col-md-6 pull-right">
+					<div class="col-md-6 pull-right footer-column">
 						<?php
 							get_template_part( 'partials/social_links' );
 						?>
