@@ -10,8 +10,8 @@
   <div class="wrapper--inner-contentbox">
     <div class="container">
       <div class="row"><?php
-        $tuki_category = get_category_by_slug('tuki');
-        $teema_category = get_categories(array('parent' => $tuki_category->term_id, 'slug' => 'teemat', 'hide_empty' => false))[0];
+        $tuki_category = get_translated_category_by_slug('tuki');
+        $teema_category = get_translated_category_by_slug('teemat');
         foreach ( get_categories(array('parent' => $tuki_category->term_id, 'exclude' => $teema_category->term_id, 'hide_empty' => false)) as $category ) : ?>
           <div class="col-md-4 contentbox">
             <h1 class="heading--main">
