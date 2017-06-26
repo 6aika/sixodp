@@ -38,7 +38,7 @@
   <div class="container">
     <div class="row cards--showcase">
       <?php
-        $showcases = get_recent_showcases(4);
+        $showcases = get_latest_showcases(4);
         foreach ($showcases as $showcase) {
           $showcaseUrl = CKAN_BASE_URL . "/showcase/" . $showcase['name'];
           $imgUrl = CKAN_BASE_URL . "/uploads/showcase/".$showcase['featured_image'];
@@ -64,7 +64,7 @@
 
   <div class="container">
     <div class="row cards">
-      <?php foreach ( get_recent_datasets() as $dataset ) : ?>
+      <?php foreach ( get_latest_datasets() as $dataset ) : ?>
         <div class="card">
           <h3 class="card__title">
             <a href="<?php echo CKAN_BASE_URL.'/'.get_current_locale().'/dataset/'.$dataset['name']; ?>">
@@ -72,7 +72,7 @@
             </a>
           </h3>
           <div class="card__meta">
-            <span class="card__timestamp"><?php echo parse_date($dataset['metadata_created']); ?></span>
+            <span class="card__timestamp"><?php echo parse_date($dataset['date_released']); ?></span>
             <span style="margin-left: 2px; margin-right: 2px;">&bull;</span>
             <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale(); ?>/<?php echo $dataset['type']; ?>" class="card__categorylink"><?php echo $dataset['type']; ?></a>
           </div>

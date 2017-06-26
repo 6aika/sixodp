@@ -482,7 +482,7 @@ function get_recent_content() {
   return $data['result']['results'];
 }
 
-function get_recent_datasets() {
+function get_latest_datasets() {
   $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_released%20desc&rows=3');
   return $data['result']['results'];
 }
@@ -511,7 +511,7 @@ function get_showcases_count() {
   return get_count('ckanext_showcase');
 }
 
-function get_recent_showcases($limit) {
+function get_latest_showcases($limit) {
   $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_released%20desc&fq=dataset_type:showcase&rows=' . $limit);
   return $data['result']['results'];
 }
@@ -583,7 +583,7 @@ function sort_results($arr) {
 
 function get_latest_updates() {
   $datasets   = get_recent_content();
-  $showcases  = get_recent_showcases(20);
+  $showcases  = get_latest_showcases(20);
   $arr = array_merge($datasets, $showcases);
 
   return array_slice(sort_results($arr), 0, 12);
