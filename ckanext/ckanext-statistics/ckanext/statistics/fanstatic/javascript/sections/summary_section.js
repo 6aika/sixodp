@@ -10,12 +10,14 @@ var SummarySection = function (params) {
         id: 'datasets',
         title: self._texts.datasetsTitle,
         detailText: self._texts.detailText,
+        detailTextUnit: self._texts.detailTextUnit,
         schema: params.datasetSchema,
       },
       {
         id: 'apps',
         title: self._texts.appsTitle,
         detailText: self._texts.detailText,
+        detailTextUnit: self._texts.detailTextUnit,
         schema: params.appSchema,
       },
     ]

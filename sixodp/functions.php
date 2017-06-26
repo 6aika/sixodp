@@ -385,6 +385,35 @@ function insert_pages($pages, $locale, $code, $translated_pages, $parent_id = nu
   return $translated_pages;
 } 
 
+function get_translated_page_by_title ($title) {
+  $orig_page = get_page_by_title($title);
+  if (!$orig_page) return false;
+
+  $translated_page_id = pll_get_post($orig_page->ID);
+
+  if (!$translated_page_id) return false;
+
+  return get_page($translated_page_id);
+}
+
+function get_translated_category_by_slug ($slug) {
+  $categories = get_categories(array(
+    'slug' => $slug,
+    'lang' => '',
+    'hide_empty' => false
+  ));
+
+  if (sizeof($categories) == 0) return false;
+  $orig_category = $categories[0];
+
+  $translated_category_id = pll_get_term($orig_category->term_id);
+
+  if (!$translated_category_id) return false;
+
+  return get_category($translated_category_id);
+}
+
+
 function sixodp_scripts() {
     wp_enqueue_script( 'app', get_template_directory_uri() . '/app.js', array( 'jquery' ), '1.0.0', true );
 }
@@ -522,10 +551,20 @@ function get_organizations_count() {
 
 function get_api_count() {
   $api_collection = get_ckan_data(CKAN_API_URL."/action/api_collection_show");
+
   if($api_collection['result']['package_count']) {
     return $api_collection['result']['package_count'];
   }
   return 0;
+}
+
+function get_api_link() {
+  $api_collection = get_ckan_data(CKAN_API_URL."/action/api_collection_show");
+
+  if($api_collection['result']['name']) {
+
+    return CKAN_BASE_URL . '/'. get_current_locale() . '/collection/'. $api_collection['result']['name'];
+  }
 }
 
 function get_count($type) {
@@ -761,7 +800,7 @@ add_action( 'init', 'create_form_results' );
 function custom_category_query($query) {
 
   if ($query->is_category) {
-    $expected_anchestor = get_category(pll_get_term(get_category_by_slug('tuki')->term_id));
+    $expected_anchestor = get_translated_category_by_slug('tuki');
 
     $category = get_queried_object();
     
