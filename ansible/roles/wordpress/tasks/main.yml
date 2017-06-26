@@ -113,6 +113,9 @@
     with_items: "{{ polylang_languages }}"
     ignore_errors: true
 
+  - name: Disable polylang url modifications
+    command: wp pll option update force_lang 0 --path=/opt/wordpress
+
   become: yes
   become_user: www-data
 

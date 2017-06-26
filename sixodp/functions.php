@@ -551,10 +551,20 @@ function get_organizations_count() {
 
 function get_api_count() {
   $api_collection = get_ckan_data(CKAN_API_URL."/action/api_collection_show");
+
   if($api_collection['result']['package_count']) {
     return $api_collection['result']['package_count'];
   }
   return 0;
+}
+
+function get_api_link() {
+  $api_collection = get_ckan_data(CKAN_API_URL."/action/api_collection_show");
+
+  if($api_collection['result']['name']) {
+
+    return CKAN_BASE_URL . '/'. get_current_locale() . '/collection/'. $api_collection['result']['name'];
+  }
 }
 
 function get_count($type) {
