@@ -24,7 +24,7 @@ get_header(); ?>
         <?php
 
           while ( have_posts() ) :       
-            get_template_part( 'partials/headingbar' );
+            include(locate_template( 'partials/headingbar.php' ));
             include(locate_template( 'partials/sidebar.php' ));
             the_post();
             get_template_part( 'partials/content' );

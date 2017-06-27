@@ -17,7 +17,6 @@
       ?>
         <li class="sidebar__item--heading">
           <a href="<?php echo get_permalink($page); ?>" class="sidebar__link--block">
-            <i class="material-icons">settings</i>
             <?php echo $page->post_title; ?>
             <span class="sidebar__icon-wrapper">
               <i class="material-icons">arrow_forward</i>
