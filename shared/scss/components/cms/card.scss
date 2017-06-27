@@ -1,5 +1,4 @@
 .cards {
-  margin-bottom: $base*2;
 
   @media (min-width: $width-sm) {
     display: flex;
@@ -33,7 +32,8 @@
   border-bottom: 1px solid $brand-gray;
   padding-bottom: $base;
   margin-bottom: $base;
-  font-size: 2.2rem;
+  margin-top: 0;
+  font-size: $font-size-large;
 }
 
 .card__meta {
@@ -68,6 +68,7 @@
 
 .cards--latest {
   @extend .cards;
+  margin-bottom: 0;
 }
 
 .card--latest {
@@ -75,7 +76,6 @@
   width: 75%;
   padding: 0;
   border: 0;
-  margin: $base*2 auto;
 
   @media(min-width: $width-sm) {
     width: 48%;
@@ -87,7 +87,7 @@
   @extend .card__title;
   border-bottom: 0;
   margin-top: $base;
-  font-size: 2rem;
+  font-size: $font-size-large;
   font-weight: 700;
   padding-bottom: 0;
 }
@@ -139,7 +139,9 @@
 
   @media(min-width: $width-sm) {
     flex: 1 1 48%;
+    max-width: 48%;
     margin: 1%;
+    margin-bottom: $base;
 
     &:nth-child(even) {
       margin-right: 0;
@@ -152,7 +154,9 @@
 
   @media(min-width: $width-lg) {
     flex: 1 1 24%;
+    max-width: 24%;
     margin: 0.5%;
+    margin-bottom: $base;
 
     &:nth-child(even) {
       margin-right: 0.5%;

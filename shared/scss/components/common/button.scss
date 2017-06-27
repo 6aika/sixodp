@@ -1,5 +1,15 @@
 .btn {
   @extend %button;
+  padding: $padding-base-vertical $padding-base-horizontal*2;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+
+  .material-icons {
+    font-size: $font-size-base;
+    line-height: $line-height-computed;
+    margin-right: 0;
+    font-weight: bold;
+  }
 }
 
 .btn-primary {
@@ -23,6 +33,7 @@
 .btn-lg {
   padding-left: $base*2;
   padding-right: $base*2;
+  font-size: $font-size-large
 }
 
 .btn-wrapper--right {

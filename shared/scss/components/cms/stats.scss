@@ -9,13 +9,15 @@
   }
   .stat__link {
     color: $brand-white;
+    height: 70px;
   }
 }
 
 
 .stat__wrapper {
   text-align: center;
-  margin-top: $base*2;
+  height: 70px;
+  line-height: 70px;
   border-left: 1px solid $brand-white;
 
   @media (min-width: $width-md) {
@@ -29,6 +31,10 @@
   &:last-child {
     border-left: none;
     margin-left: auto;
+  }
+
+  .btn {
+    vertical-align: middle;
   }
 }
 

@@ -42,7 +42,7 @@
             </li>
           <?php endforeach; ?>
         </ul>
-        <button type="button" class="btn btn-lg btn-secondary pull-right">
+        <button type="button" class="btn btn-secondary pull-right">
           <?php _e('More updates', 'sixodp');?>  <i class="material-icons">arrow_forward</i>
         </button>
       </div>

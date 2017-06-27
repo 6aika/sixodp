@@ -2,6 +2,7 @@
   padding: $base*4;
   background: $brand-primary;
   position: relative;
+  margin-bottom: 36px; // Compensate for the missing button height to appear similar with other elements
 
   &:after {
     content: '';

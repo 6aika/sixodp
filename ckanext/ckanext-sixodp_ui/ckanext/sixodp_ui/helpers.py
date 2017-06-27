@@ -82,24 +82,31 @@ def get_social_links():
 
 
 def get_social_link_icon_class(item):
-    if(item.get('title').lower() == 'facebook'):
-        return 'icon-facebook-sign'
-    elif(item.get('title').lower() == 'twitter'):
-        return 'icon-twitter-sign'
-    elif(item.get('title').lower() == 'youtube'):
-        return 'icon-youtube-sign'
-    elif(item.get('title').lower() == 'rss'):
-        return 'icon-rss-sign'
-    elif(item.get('title').lower() == 'tumblr'):
-        return 'icon-tumblr-sign'
-    elif(item.get('title').lower() == 'github'):
-        return 'icon-github-sign'
-    elif(item.get('title').lower() == 'instagram'):
-        return 'icon-instagram'
-    elif(item.get('title').lower() == 'linkedin'):
-        return 'icon-linkedin-sign'
-    elif(item.get('title').lower() == 'flickr'):
-        return 'icon-flickr'
+    title = item.get('title').lower()
+    if title == 'facebook':
+        return 'fa fa-facebook-square'
+    elif title == 'twitter':
+        return 'fa fa-twitter-square'
+    elif title == 'youtube':
+        return 'fa fa-youtube-square'
+    elif title == 'rss':
+        return 'fa fa-rss-square'
+    elif title == 'tumblr':
+        return 'fa fa-tumblr-square'
+    elif title == 'github':
+        return 'fa fa-github-square'
+    elif title == 'instagram':
+        return 'fa fa-instagram'
+    elif title == 'linkedin':
+        return 'fa fa-linkedin-square'
+    elif title == 'flickr':
+        return 'fa fa-flickr'
+    elif title == 'slideshare':
+        return 'fa fa-slideshare'
+    elif title == 'newsletter':
+        return 'fa fa-news-o'
+    elif title == 'speakerdeck':
+        return 'fa fa-caret-square-o-right'
     else:
         return 'icon-external-link-sign'
 

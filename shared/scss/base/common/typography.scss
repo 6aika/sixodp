@@ -48,7 +48,9 @@ a {
 
 .heading--featured {
   @include heading();
-  font-size: 3rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: $font-size-xlarge;
 }
 
 .heading--mleft {
@@ -57,7 +59,7 @@ a {
 
 .heading--featured-small {
   @include heading();
-  font-size: 2.2rem;
+  font-size: $font-size-large;
   text-align: center;
 
   @media (min-width: $width-sm) {

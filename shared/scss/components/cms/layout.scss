@@ -9,7 +9,7 @@ body.category {
 }
 
 .container--heading {
-  margin-top: $base*6;
+  margin-top: $base*3;
 }
 
 .alignright {
@@ -20,7 +20,8 @@ body.category {
   float: left;
 }
 
-.aligncenter {
+.aligncenter,
+.alignnone {
   display: block;
   margin: auto;
 }
