@@ -350,7 +350,7 @@ function create_default_pages() {
   foreach( DEFAULT_PAGES as $lang_data ) {
 
 
-    $translated_pages = insert_pages($lang_data['pages'], $lang_data['locale'], $lang_data['code'], $translated_pages);
+    $translated_pages = insert_pages($lang_G['pages'], $lang_data['locale'], $lang_data['code'], $translated_pages);
   }
 
   foreach ($translated_pages as $translations) {
@@ -506,6 +506,39 @@ function get_popular_tags() {
   return $data['result']['facets']['tags'];
 }
 
+function get_recent_comments() {
+  $fields = array(
+    'api_secret' => DISQUS_SECRET_KEY,
+    'forum' => DISQUS_SHORT_NAME
+  );
+
+  $posts_data = json_decode(file_get_contents('http://disqus.com/api/3.0/forums/listPosts.json?'. http_build_query($fields)), true);
+
+  $threads_query = '&thread=' . implode('&thread=', array_map(function ($row) { return $row['thread']; }, $posts_data['response']));
+
+  $threads_data = json_decode(file_get_contents('http://disqus.com/api/3.0/forums/listThreads.json?'. http_build_query($fields) . $threads_query), true);
+
+  $threads = array();
+
+  foreach ($threads_data['response'] as $thread) {
+    $threads[$thread['id']] = $thread;
+  }
+
+  $comments = array_map(function ($row) use ($threads) {
+    $thread = $threads[$row['thread']];
+
+    return array(
+      'date' => $row['createdAt'],
+      'type' => 'comment',
+      'link' => $thread['link'],
+      'title' => $thread['title'],
+    );
+  }, $posts_data['response']);
+
+
+  return $comments;
+}
+
 function get_recent_content() {
   $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_released%20desc&rows=8');
   return $data['result']['results'];
@@ -613,17 +646,31 @@ function sort_results($arr) {
   $temp = array();
   foreach ($arr as $key => $row)
   {
-      $temp[$key] = $row['date_updated'] ? $row['date_updated'] : $row['metadata_modified'];
+    $temp[$key] = $row['date_updated'] ? $row['date_updated'] : $row['date'];
   }
+
   array_multisort($temp, SORT_DESC, $arr);
 
   return $arr;
 }
 
+function format_ckan_row($row) {
+  return array(
+    'date' => $row['metadata_created'],
+    'date_updated' => $row['date_updated'],
+    'type' => array('link' => CKAN_BASE_URL .'/'. get_current_locale() .'/', $row['type'], 'label' => $row['type']),
+    'link' => CKAN_BASE_URL .'/'. get_current_locale() .'/', $row['type'] .'/'. $row['name'],
+    'title' => $row['title'],
+    'title_translated' => $row['title_translated']
+  );
+}
+
 function get_latest_updates() {
-  $datasets   = get_recent_content();
-  $showcases  = get_latest_showcases(20);
-  $arr = array_merge($datasets, $showcases);
+  $datasets   = array_map('format_ckan_row', get_recent_content());
+  $showcases  = array_map('format_ckan_row', get_latest_showcases(20));
+  $comments   = get_recent_comments();
+
+  $arr = array_merge($datasets, $showcases, $comments);
 
   return array_slice(sort_results($arr), 0, 12);
 }
