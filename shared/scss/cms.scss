@@ -1,12 +1,10 @@
 @import "base/common/vars";
 @import "vendor/bootstrap/bootstrap";
+@import "base/common/layout";
 @import "base/common/helpers";
 @import "base/common/typography";
-@import "components/cms/layout";
-@import "components/cms/icons";
 
 @import "components/common/form";
-
 @import "components/common/notification";
 @import "components/common/nav";
 @import "components/common/logos";
@@ -23,6 +21,8 @@
 @import "components/common/author";
 @import "components/common/popper";
 
+@import "components/cms/layout";
+@import "components/cms/icons";
 @import "components/cms/featured";
 @import "components/cms/stats";
 @import "components/cms/categories";
