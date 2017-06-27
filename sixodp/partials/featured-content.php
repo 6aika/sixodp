@@ -9,7 +9,7 @@
   <div class="container banner">
     <div class="row text-center">
       <div class="col-md-6">
-        <h2 class="banner__title"><?php _e('Do you have a dataset or an application to share?', 'sixodp');?> </h2>
+        <h3 class="banner__title"><?php _e('Do you have a dataset or an application to share?', 'sixodp');?> </h3>
         <h4 class="banner__subtitle"><?php _e('Share it!', 'sixodp');?> </h4>
         <div class="banner__buttons">
           <a class="btn btn-transparent btn--banner-jaa"><?php _e('Submit an application', 'sixodp');?>  <i class="material-icons">arrow_forward</i></a>
@@ -17,7 +17,7 @@
         </div>
       </div>
       <div class="col-md-6">
-        <h2 class="banner__title"><?php _e('Do you have a request for a dataset or an idea for application?', 'sixodp');?> </h2>
+        <h3 class="banner__title"><?php _e('Do you have a request for a dataset or an idea for application?', 'sixodp');?> </h3>
         <h4 class="banner__subtitle"><?php _e('Tell us!', 'sixodp');?> </h4>
         <div class="banner__buttons">
           <a class="btn btn-transparent btn--banner-jaa"><?php _e('Share an open data idea', 'sixodp');?>  <i class="material-icons">arrow_forward</i></a>
@@ -28,7 +28,7 @@
   </div>
 
   <div class="container container--heading">
-    <h3 class="heading--featured-small"><?php _e('Latest applications', 'sixodp');?> </h3>
+    <h2 class="heading--featured"><?php _e('Latest applications', 'sixodp');?> </h2>
   </div>
 
   <div class="container">
@@ -48,14 +48,14 @@
 
   <div class="container">
     <div class="row featured-btn-container">
-      <a href="<?php echo CKAN_BASE_URL; ?>/showcase" class="btn btn-lg btn-secondary btn--sovellukset">
+      <a href="<?php echo CKAN_BASE_URL; ?>/showcase" class="btn btn-secondary btn--sovellukset">
         <?php _e('All applications', 'sixodp');?>  <i class="material-icons">arrow_forward</i>
       </a>
     </div>
   </div>
 
   <div class="container container--heading">
-    <h3 class="heading--featured-small"><?php _e('Latest datasets', 'sixodp');?> </h3>
+    <h2 class="heading--featured"><?php _e('Latest datasets', 'sixodp');?> </h2>
   </div>
 
   <div class="container">
@@ -79,7 +79,7 @@
 
   <div class="container">
     <div class="row featured-btn-container">
-      <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale(); ?>/dataset" class="btn btn-lg btn-secondary btn--sovellukset">
+      <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale(); ?>/dataset" class="btn btn-secondary btn--sovellukset">
         <?php _e('All datasets', 'sixodp');?>  <i class="material-icons">arrow_forward</i>
       </a>
     </div>

@@ -17,7 +17,7 @@
         <div class="col-md-8 col-md-offset-2">
           <div class="input-group">
             <div class="input-group-btn">
-              <button type="button" class="btn btn-secondary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span id="selected-domain" data-value="/data/dataset"><?php _e('Datasets', 'sixodp');?> </span> <span class="caret"></span>
               </button>
               <ul class="dropdown-menu dropdown-menu-right">
@@ -31,7 +31,7 @@
             </div><!-- /btn-group -->
             <input type="text" id="q" class="form-control input-lg" aria-label="...">
             <span class="input-group-btn">
-              <button id="search" class="btn btn-lg btn-secondary" type="button"><?php _e('Search', 'sixodp');?> </button>
+              <button id="search" class="btn btn-secondary" type="button"><?php _e('Search', 'sixodp');?> </button>
             </span>
           </div><!-- /input-group -->
         </div>

@@ -11,6 +11,7 @@
   }
 
   .featured-btn-container {
+    margin-top: $base;
     text-align: center;
 
     @media (min-width: $width-sm) {

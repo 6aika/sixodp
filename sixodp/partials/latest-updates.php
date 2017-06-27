@@ -37,7 +37,7 @@
 
   <div class="container" style="display: none;">
     <div class="row text-right">
-      <a href="/data/<?php echo get_current_locale(); ?>/datasets/" class="btn btn-lg btn-secondary btn--sovellukset">
+      <a href="/data/<?php echo get_current_locale(); ?>/datasets/" class="btn btn-secondary btn--sovellukset">
         <?php _e('More updates', 'sixodp');?>  <i class="material-icons">arrow_forward</i>
       </a>
     </div>

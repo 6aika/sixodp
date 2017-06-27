@@ -33,7 +33,8 @@
   border-bottom: 1px solid $brand-gray;
   padding-bottom: $base;
   margin-bottom: $base;
-  font-size: 2.2rem;
+  margin-top: 0;
+  font-size: $font-size-large;
 }
 
 .card__meta {
@@ -68,6 +69,7 @@
 
 .cards--latest {
   @extend .cards;
+  margin-bottom: 0;
 }
 
 .card--latest {
@@ -75,7 +77,6 @@
   width: 75%;
   padding: 0;
   border: 0;
-  margin: $base*2 auto;
 
   @media(min-width: $width-sm) {
     width: 48%;
@@ -87,7 +88,7 @@
   @extend .card__title;
   border-bottom: 0;
   margin-top: $base;
-  font-size: 2rem;
+  font-size: $font-size-large;
   font-weight: 700;
   padding-bottom: 0;
 }
