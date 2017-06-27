@@ -173,43 +173,7 @@ if(function_exists("register_field_group"))
     ),
     'menu_order' => 0,
   ));
-  register_field_group(array (
-    'id' => 'acf_tuki-page-fields',
-    'title' => 'Tuki page fields',
-    'fields' => array (
-     array (
-        'key' => 'field_744jab559211',
-        'label' => 'Related links',
-        'name' => 'related_links',
-        'instructions' => 'One link per line',
-        'type' => 'textarea',
-        'default_value' => '',
-        'placeholder' => '',
-        'prepend' => '',
-        'append' => '',
-        'formatting' => 'html',
-        'maxlength' => '',
-      ),
-    ),
-    'location' => array (
-      array (
-        array (
-          'param' => 'page_template',
-          'operator' => '==',
-          'value' => 'tukichild.php',
-          'order_no' => 0,
-          'group_no' => 0,
-        ),
-      ),
-    ),
-    'options' => array (
-      'position' => 'normal',
-      'layout' => 'no_box',
-      'hide_on_screen' => array (
-      ),
-    ),
-    'menu_order' => 0,
-  ));}
+}
 
 $image_field = array(
   'return_format' => 'array',
