@@ -1,5 +1,4 @@
 .cards {
-  margin-bottom: $base*2;
 
   @media (min-width: $width-sm) {
     display: flex;
@@ -140,7 +139,9 @@
 
   @media(min-width: $width-sm) {
     flex: 1 1 48%;
+    max-width: 48%;
     margin: 1%;
+    margin-bottom: $base;
 
     &:nth-child(even) {
       margin-right: 0;
@@ -153,7 +154,9 @@
 
   @media(min-width: $width-lg) {
     flex: 1 1 24%;
+    max-width: 24%;
     margin: 0.5%;
+    margin-bottom: $base;
 
     &:nth-child(even) {
       margin-right: 0.5%;
