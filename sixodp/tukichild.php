@@ -17,25 +17,34 @@ get_header(); ?>
 
 <div id="primary" class="content-area">
   <main id="main" class="site-main" role="main">
+  <?php
+
+    while ( have_posts() ) : the_post();
+    ?>
     <div class="wrapper">
       <div class="container">
+
         <?php
-
-          while ( have_posts() ) : the_post();
-
-            get_template_part( 'partials/tuki-headingbar' );
-            get_template_part( 'partials/tuki-sidebar' );
-            get_template_part( 'partials/content' );
-
-          endwhile;
-          
+          get_template_part( 'partials/tuki-headingbar' );
+          get_template_part( 'partials/tuki-sidebar' );
+          get_template_part( 'partials/content' );
         ?>
       </div>
     </div>
     <?php
       $morelinks_title = "Lisää aiheesta";
-      $links = get_tuki_links();
+
+      $args = array(
+        'cat' => array_map(function($category) { return $category->term_id; }, get_the_category()),
+        'post_type' => 'page',
+        'exclude' => get_the_id(),
+        'posts_per_page' => 4
+      );
+
+      $links = get_posts($args);
+
       include(locate_template( 'partials/morelinks.php' ));
+    endwhile;
     ?>
   </main><!-- .site-main -->
 
