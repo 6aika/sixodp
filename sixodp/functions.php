@@ -729,6 +729,21 @@ function get_post_grandparent_id($post_ID) {
   else return false;
 }
 
+function get_category_grandparent_id($category) {
+  if (is_numeric($category)) $category = get_category($category);
+
+  if (!$category INSTANCEOF WP_Term) return false;
+
+  $parent_ID = $category->parent;
+
+  if ($parent_ID != 0) {
+    $result = get_category_grandparent_id($parent_ID);
+
+    return $result;
+  }
+  else return $category->term_id;
+}
+
 function create_form_results() {
 
   register_post_type( 'data_request', array(
