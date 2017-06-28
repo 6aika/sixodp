@@ -145,6 +145,9 @@
 - name: Copy ckan-config to theme
   template: src="ckan-config.php.j2" dest="/opt/wordpress/wp-content/themes/sixodp/ckan-config.php" mode=0644 owner=www-data group=www-data
 
+- name: Copy disqus-config to theme
+  template: src="disqus-config.php.j2" dest="/opt/wordpress/wp-content/themes/sixodp/disqus-config.php" mode=0644 owner=www-data group=www-data
+
 - name: Activate sixodp theme
   command: wp theme activate sixodp --path=/opt/wordpress
   become: yes

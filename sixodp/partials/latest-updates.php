@@ -17,12 +17,20 @@
           <?php if ($index === 4 || $index === 8) echo '</div><div class="row cards--latest">'; ?>
           <div class="card--latest">
             <div class="card__meta--latest">
-              <?php echo get_days_ago($item['date_updated'] ? $item['date_updated'] : $item['metadata_modified']); ?>
+              <?php echo get_days_ago($item['date_updated'] ? $item['date_updated'] : $item['date']); ?>
             </div>
             <div class="card__body--latest">
-              <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale(); ?>/<?php echo $item['type']; ?>" class="card__categorylink--latest"><?php echo $item['type']; ?></a>
+              <?php
+              if (is_array($item['type'])) {
+                echo '<a href="'. $item['type']['link'] .'" class="card__categorylink--latest">'. $item['type']['label'] .'</a>';
+              }
+              else {
+                echo '<span class="card__categorylink--latest">'. $item['type'] .'</span>';
+              }
+              ?>
               <h3 class="card__title--latest">
-                <a href="<?php echo CKAN_BASE_URL.'/'.get_current_locale().'/'.$item['type'].'/'.$item['name']; ?>">
+
+                <a href="<?php echo $item['link']?>">
                   <?php echo get_translated($item, 'title'); ?>
                 </a>
               </h3>
