@@ -173,43 +173,7 @@ if(function_exists("register_field_group"))
     ),
     'menu_order' => 0,
   ));
-  register_field_group(array (
-    'id' => 'acf_tuki-page-fields',
-    'title' => 'Tuki page fields',
-    'fields' => array (
-     array (
-        'key' => 'field_744jab559211',
-        'label' => 'Related links',
-        'name' => 'related_links',
-        'instructions' => 'One link per line',
-        'type' => 'textarea',
-        'default_value' => '',
-        'placeholder' => '',
-        'prepend' => '',
-        'append' => '',
-        'formatting' => 'html',
-        'maxlength' => '',
-      ),
-    ),
-    'location' => array (
-      array (
-        array (
-          'param' => 'page_template',
-          'operator' => '==',
-          'value' => 'tukichild.php',
-          'order_no' => 0,
-          'group_no' => 0,
-        ),
-      ),
-    ),
-    'options' => array (
-      'position' => 'normal',
-      'layout' => 'no_box',
-      'hide_on_screen' => array (
-      ),
-    ),
-    'menu_order' => 0,
-  ));}
+}
 
 $image_field = array(
   'return_format' => 'array',
@@ -396,7 +360,7 @@ function get_translated_page_by_title ($title) {
   return get_page($translated_page_id);
 }
 
-function get_translated_category_by_slug ($slug) {
+function get_translated_category_by_slug ($slug, $lang = null) {
   $categories = get_categories(array(
     'slug' => $slug,
     'lang' => '',
@@ -406,7 +370,7 @@ function get_translated_category_by_slug ($slug) {
   if (sizeof($categories) == 0) return false;
   $orig_category = $categories[0];
 
-  $translated_category_id = pll_get_term($orig_category->term_id);
+  $translated_category_id = pll_get_term($orig_category->term_id, $lang);
 
   if (!$translated_category_id) return false;
 
@@ -706,6 +670,7 @@ function new_subcategory_hierarchy() {
 
     $languages = array_diff(pll_languages_list(array('fields' => 'slug')), array(pll_current_language()));
 
+
     $templates[] = "category-{$category->slug}.php";
     $templates[] = "category-{$category->term_id}.php";
 
@@ -847,15 +812,13 @@ add_action( 'init', 'create_form_results' );
 function custom_category_query($query) {
 
   if ($query->is_category) {
-    $expected_anchestor = get_translated_category_by_slug('tuki');
-
     $category = get_queried_object();
-    
+
+    $expected_anchestor = get_translated_category_by_slug('tuki', pll_get_term_language($category->term_id));
+   
     if ($category->term_id == $expected_anchestor->term_id or cat_is_ancestor_of($expected_anchestor, $category)) {
       $query->set('post_type', 'page');
     }
-    
-    $query->set('posts_per_page', 9);
   }
 
   return $query;

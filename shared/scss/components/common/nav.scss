@@ -139,3 +139,18 @@
   }
 
 }
+
+// Compensate for the wp admin bar
+.admin-bar {
+  .navbar-fixed-top {
+    margin-top: 46px;
+
+    @media(min-width: 783px) {
+      margin-top: 32px;
+    }
+  }
+
+  #wpadminbar {
+    position: fixed;
+  }
+}

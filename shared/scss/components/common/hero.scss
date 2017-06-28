@@ -1,8 +1,12 @@
 .hero {
-  padding: $base*4 0 0;
+  padding: $body-padding-top 0 0;
   background-size: cover;
   background-position: center center;
   position: relative;
+
+  @media(min-width: $grid-float-breakpoint) {
+    padding-top: $body-padding-top-desktop;
+  }
 
   &:after {
     content: '';
