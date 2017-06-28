@@ -173,43 +173,7 @@ if(function_exists("register_field_group"))
     ),
     'menu_order' => 0,
   ));
-  register_field_group(array (
-    'id' => 'acf_tuki-page-fields',
-    'title' => 'Tuki page fields',
-    'fields' => array (
-     array (
-        'key' => 'field_744jab559211',
-        'label' => 'Related links',
-        'name' => 'related_links',
-        'instructions' => 'One link per line',
-        'type' => 'textarea',
-        'default_value' => '',
-        'placeholder' => '',
-        'prepend' => '',
-        'append' => '',
-        'formatting' => 'html',
-        'maxlength' => '',
-      ),
-    ),
-    'location' => array (
-      array (
-        array (
-          'param' => 'page_template',
-          'operator' => '==',
-          'value' => 'tukichild.php',
-          'order_no' => 0,
-          'group_no' => 0,
-        ),
-      ),
-    ),
-    'options' => array (
-      'position' => 'normal',
-      'layout' => 'no_box',
-      'hide_on_screen' => array (
-      ),
-    ),
-    'menu_order' => 0,
-  ));}
+}
 
 $image_field = array(
   'return_format' => 'array',
@@ -350,7 +314,7 @@ function create_default_pages() {
   foreach( DEFAULT_PAGES as $lang_data ) {
 
 
-    $translated_pages = insert_pages($lang_data['pages'], $lang_data['locale'], $lang_data['code'], $translated_pages);
+    $translated_pages = insert_pages($lang_G['pages'], $lang_data['locale'], $lang_data['code'], $translated_pages);
   }
 
   foreach ($translated_pages as $translations) {
@@ -396,7 +360,7 @@ function get_translated_page_by_title ($title) {
   return get_page($translated_page_id);
 }
 
-function get_translated_category_by_slug ($slug) {
+function get_translated_category_by_slug ($slug, $lang = null) {
   $categories = get_categories(array(
     'slug' => $slug,
     'lang' => '',
@@ -406,7 +370,7 @@ function get_translated_category_by_slug ($slug) {
   if (sizeof($categories) == 0) return false;
   $orig_category = $categories[0];
 
-  $translated_category_id = pll_get_term($orig_category->term_id);
+  $translated_category_id = pll_get_term($orig_category->term_id, $lang);
 
   if (!$translated_category_id) return false;
 
@@ -504,6 +468,39 @@ function get_ckan_data($url) {
 function get_popular_tags() {
   $data = get_ckan_data(CKAN_API_URL.'/action/package_search?facet.field=["tags"]&facet.limit=5');
   return $data['result']['facets']['tags'];
+}
+
+function get_recent_comments() {
+  $fields = array(
+    'api_secret' => DISQUS_SECRET_KEY,
+    'forum' => DISQUS_SHORT_NAME
+  );
+
+  $posts_data = json_decode(file_get_contents('http://disqus.com/api/3.0/forums/listPosts.json?'. http_build_query($fields)), true);
+
+  $threads_query = '&thread=' . implode('&thread=', array_map(function ($row) { return $row['thread']; }, $posts_data['response']));
+
+  $threads_data = json_decode(file_get_contents('http://disqus.com/api/3.0/forums/listThreads.json?'. http_build_query($fields) . $threads_query), true);
+
+  $threads = array();
+
+  foreach ($threads_data['response'] as $thread) {
+    $threads[$thread['id']] = $thread;
+  }
+
+  $comments = array_map(function ($row) use ($threads) {
+    $thread = $threads[$row['thread']];
+
+    return array(
+      'date' => $row['createdAt'],
+      'type' => 'comment',
+      'link' => $thread['link'],
+      'title' => $thread['title'],
+    );
+  }, $posts_data['response']);
+
+
+  return $comments;
 }
 
 function get_recent_content() {
@@ -613,17 +610,31 @@ function sort_results($arr) {
   $temp = array();
   foreach ($arr as $key => $row)
   {
-      $temp[$key] = $row['date_updated'] ? $row['date_updated'] : $row['metadata_modified'];
+    $temp[$key] = $row['date_updated'] ? $row['date_updated'] : $row['date'];
   }
+
   array_multisort($temp, SORT_DESC, $arr);
 
   return $arr;
 }
 
+function format_ckan_row($row) {
+  return array(
+    'date' => $row['metadata_created'],
+    'date_updated' => $row['date_updated'],
+    'type' => array('link' => CKAN_BASE_URL .'/'. get_current_locale() .'/', $row['type'], 'label' => $row['type']),
+    'link' => CKAN_BASE_URL .'/'. get_current_locale() .'/', $row['type'] .'/'. $row['name'],
+    'title' => $row['title'],
+    'title_translated' => $row['title_translated']
+  );
+}
+
 function get_latest_updates() {
-  $datasets   = get_recent_content();
-  $showcases  = get_latest_showcases(20);
-  $arr = array_merge($datasets, $showcases);
+  $datasets   = array_map('format_ckan_row', get_recent_content());
+  $showcases  = array_map('format_ckan_row', get_latest_showcases(20));
+  $comments   = get_recent_comments();
+
+  $arr = array_merge($datasets, $showcases, $comments);
 
   return array_slice(sort_results($arr), 0, 12);
 }
@@ -658,6 +669,7 @@ function new_subcategory_hierarchy() {
     $templates = array();
 
     $languages = array_diff(pll_languages_list(array('fields' => 'slug')), array(pll_current_language()));
+
 
     $templates[] = "category-{$category->slug}.php";
     $templates[] = "category-{$category->term_id}.php";
@@ -800,15 +812,13 @@ add_action( 'init', 'create_form_results' );
 function custom_category_query($query) {
 
   if ($query->is_category) {
-    $expected_anchestor = get_translated_category_by_slug('tuki');
-
     $category = get_queried_object();
-    
+
+    $expected_anchestor = get_translated_category_by_slug('tuki', pll_get_term_language($category->term_id));
+   
     if ($category->term_id == $expected_anchestor->term_id or cat_is_ancestor_of($expected_anchestor, $category)) {
       $query->set('post_type', 'page');
     }
-    
-    $query->set('posts_per_page', 9);
   }
 
   return $query;
