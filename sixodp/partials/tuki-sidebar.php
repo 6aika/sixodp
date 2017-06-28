@@ -2,15 +2,17 @@
   /**
   * Sidebar template
   */
+$parent_category = get_translated_category_by_slug('tuki');
+$themes_category = get_translated_category_by_slug('teemat');
 ?>
 
 <div class="sidebar">
   <div class="sidebar__wrapper">
     <?php
       $categories=get_categories(array(
-        'parent' => get_cat_ID('tuki'), 
+        'parent' => $parent_category->term_id,
         'hide_empty' => false,
-        'exclude' => get_cat_ID('teemat')
+        'exclude' => $themes_category->term_id
       ));
 
       if (count($categories) > 0) {
@@ -42,7 +44,7 @@
     <?php } 
 
     $teemat = get_categories(array(
-      'parent' => get_cat_ID('teemat'),
+      'parent' => $themes_category->term_id,
       'hide_empty' => false
     ));
     ?>
