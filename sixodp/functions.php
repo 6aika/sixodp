@@ -274,7 +274,6 @@ function create_menu_i18n($menu_name, $itemsArr, $location) {
 function create_default_categories() {
   $translated_categories = array();
   foreach( DEFAULT_CATEGORIES as $lang_data ) {
-
     $translated_categories = insert_categories($lang_data['categories'], $lang_data['locale'], $lang_data['code'], $translated_categories);
   }
 
@@ -314,7 +313,7 @@ function create_default_pages() {
   foreach( DEFAULT_PAGES as $lang_data ) {
 
 
-    $translated_pages = insert_pages($lang_G['pages'], $lang_data['locale'], $lang_data['code'], $translated_pages);
+    $translated_pages = insert_pages($lang_data['pages'], $lang_data['locale'], $lang_data['code'], $translated_pages);
   }
 
   foreach ($translated_pages as $translations) {
