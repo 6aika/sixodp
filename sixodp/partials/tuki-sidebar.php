@@ -2,8 +2,6 @@
   /**
   * Sidebar template
   */
-$parent_category = get_translated_category_by_slug('tuki');
-$themes_category = get_translated_category_by_slug('teemat');
 ?>
 
 <div class="sidebar">
