@@ -11,7 +11,9 @@
  */
 
 get_header(); 
-
+$parent_category = get_translated_category_by_slug('tuki');
+$themes_category = get_translated_category_by_slug('teemat');
+$category = get_queried_object();
 ?>
 
 <div id="primary" class="content-area">
@@ -21,15 +23,20 @@ get_header();
 
         <div class="headingbar">
           <h1 class="heading--main">
-            <?php _e('Support');?> 
-            <i class="material-icons">navigate_next</i>
-            <span style="font-size: 2.2rem;">
-              <?php echo $category->name ?>
-            </span>
+            <a href="<?php echo get_category_link($parent_category) ?>"><?php echo $parent_category->name ?></a>
+            <?php if ($parent_category->term_id != $category->term_id) {
+              ?>
+                <i class="material-icons">navigate_next</i>
+                <span style="font-size: 2.2rem;">
+                  <?php echo $category->name ?>
+                </span>
+              <?php
+            }
+            ?>
           </h1>
         </div>
 
-        <?php get_template_part( 'partials/tuki-sidebar' ); ?>
+        <?php include( locate_template('partials/tuki-sidebar.php') ); ?>
 
         <div class="cards--post">
         <?php

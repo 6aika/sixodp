@@ -13,9 +13,11 @@
 get_header();
 
 $category = get_queried_object();
-$child_categories = get_categories(array('parent' => $category->term_id, 'hide_empty' => false));
-$sibling_categories = get_categories(array('parent' => $category->parent, 'hide_empty' => false));
-
+$grandparent_id = get_category_grandparent_id($category->term_id);
+$sibling_categories = get_categories(array('parent' => $grandparent_id, 'hide_empty' => false));
+if ($grandparent_id != $category->term_id) {
+  $child_categories = get_categories(array('parent' => $category->term_id, 'hide_empty' => false));
+}
 ?>
 
  <div id="primary" class="content-area">
@@ -28,34 +30,40 @@ $sibling_categories = get_categories(array('parent' => $category->parent, 'hide_
         <div class="col-md-4 news-content">
           <div class="filters secondary">
             <div>
-            <section class="module module-narrow module-shallow">
-              <nav>
-                <ul class="unstyled nav nav-simple nav-facet filtertype-res_format">
-                  <?php
-                  foreach ($sibling_categories as $sibling_category) {
-                    echo '<li class="nav-item news-category"><a href="' . get_category_link($sibling_category->cat_ID) . '" class="news-category__link">'. $sibling_category->name .'<span class="news-category__count">'. $sibling_category->count .'</span></a></li>';
-                  }
-                  ?>
-                </ul>
-              </nav>
-              <p class="module-footer"> </p>
-            </section>
               <section class="module module-narrow module-shallow">
-                <h2 class="module-heading">
-                  <i class="icon-medium icon-filter"></i>
-                  <?php _e('Categories', 'sixodp');?>
-                </h2>
                 <nav>
                   <ul class="unstyled nav nav-simple nav-facet filtertype-res_format">
                     <?php
-                    foreach ($child_categories as $child_category) {
-                      echo '<li class="nav-item news-category"><a href="' . get_category_link($child_category->cat_ID) . '" class="news-category__link">'. $child_category->name .'<span class="news-category__count">'. $child_category->count .'</span></a></li>';
+                    foreach ($sibling_categories as $sibling_category) {
+                      echo '<li class="nav-item news-category"><a href="' . get_category_link($sibling_category->cat_ID) . '" class="news-category__link">'. $sibling_category->name .'<span class="news-category__count">'. $sibling_category->count .'</span></a></li>';
                     }
                     ?>
                   </ul>
                 </nav>
                 <p class="module-footer"> </p>
               </section>
+              <?php
+              if (isset($child_categories) && sizeof($child_categories) > 0) {
+                ?>
+                  <section class="module module-narrow module-shallow">
+                    <h2 class="module-heading">
+                      <i class="icon-medium icon-filter"></i>
+                      <?php _e('Categories', 'sixodp');?>
+                    </h2>
+                    <nav>
+                      <ul class="unstyled nav nav-simple nav-facet filtertype-res_format">
+                        <?php
+                        foreach ($child_categories as $child_category) {
+                          echo '<li class="nav-item news-category"><a href="' . get_category_link($child_category->cat_ID) . '" class="news-category__link">'. $child_category->name .'<span class="news-category__count">'. $child_category->count .'</span></a></li>';
+                        }
+                        ?>
+                      </ul>
+                    </nav>
+                    <p class="module-footer"> </p>
+                  </section>
+                <?php
+              }
+              ?>
             </div>
           </div>
         </div>

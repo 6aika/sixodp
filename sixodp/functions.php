@@ -274,7 +274,6 @@ function create_menu_i18n($menu_name, $itemsArr, $location) {
 function create_default_categories() {
   $translated_categories = array();
   foreach( DEFAULT_CATEGORIES as $lang_data ) {
-
     $translated_categories = insert_categories($lang_data['categories'], $lang_data['locale'], $lang_data['code'], $translated_categories);
   }
 
@@ -285,9 +284,13 @@ function create_default_categories() {
 
 function insert_categories($categories, $locale, $code, $translated_categories, $parent_id = null) {
   foreach ($categories as $key => $category) {
-    $category_exists = get_category_by_slug(sanitize_title($category['cat_name']));
+    $category_exists = get_categories(array(
+      'name' => $category['cat_name'],
+      'lang' => '',
+      'hide_empty' => false
+    ));
 
-    if ($category_exists === false) {
+    if (sizeof($category_exists) == 0) {
       $defaults = array(
         'taxonomy' => 'category'
       );
@@ -301,9 +304,11 @@ function insert_categories($categories, $locale, $code, $translated_categories, 
       
       $translated_categories[$key][$code] = $category_id;
     }
-    else $category_id = $category_exists->term_id;
+    else {
+      $category_id = $category_exists[0]->term_id;
+    }
 
-    if (isset($category['children']))  $translated_categories = insert_categories($category['children'], $locale, $code, $translated_categories, $category_id);
+    if (isset($category['children'])) $translated_categories = insert_categories($category['children'], $locale, $code, $translated_categories, $category_id);
   }
 
   return $translated_categories;
@@ -312,9 +317,7 @@ function insert_categories($categories, $locale, $code, $translated_categories, 
 function create_default_pages() {
   $translated_pages = array();
   foreach( DEFAULT_PAGES as $lang_data ) {
-
-
-    $translated_pages = insert_pages($lang_G['pages'], $lang_data['locale'], $lang_data['code'], $translated_pages);
+    $translated_pages = insert_pages($lang_data['pages'], $lang_data['locale'], $lang_data['code'], $translated_pages);
   }
 
   foreach ($translated_pages as $translations) {
@@ -724,6 +727,21 @@ function get_post_grandparent_id($post_ID) {
     else return $result;
   }
   else return false;
+}
+
+function get_category_grandparent_id($category) {
+  if (is_numeric($category)) $category = get_category($category);
+
+  if (!$category INSTANCEOF WP_Term) return false;
+
+  $parent_ID = $category->parent;
+
+  if ($parent_ID != 0) {
+    $result = get_category_grandparent_id($parent_ID);
+
+    return $result;
+  }
+  else return $category->term_id;
 }
 
 function create_form_results() {
