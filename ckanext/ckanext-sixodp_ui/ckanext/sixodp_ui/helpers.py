@@ -216,27 +216,35 @@ def resource_display_name(resource_dict):
         return resource_dict['name']
 
 
-def check_if_active(menu):
-    return helpers.full_current_url() == menu.get('url')
+def check_if_active(parent_menu, menu):
+    current_url = helpers.full_current_url()
+
+    # Set menu to active if the menu url matches the full current page url
+    active = current_url == menu.get('url')
+
+    # Check menus that have no parent in the WP menu api structure, usually a CKAN submenu
+    if active == False and parent_menu is None:
+        active = menu.get('url') in current_url
+
+    return active
 
 
 def build_nav_main():
-
     navigation_tree = get_navigation_items_by_menu_location(config.get('ckanext.sixodp_ui.wp_main_menu_location'), True)
 
     def construct_menu_tree(menu):
-        active = check_if_active(menu)
+        active = check_if_active(None, menu)
         children = ''
 
-        if(menu.get('children')):
+        if menu.get('children'):
             for child_item in menu.get('children'):
                 # Parent will be set as active if any of its children is active
-                if (check_if_active(child_item)):
+                if check_if_active(menu, child_item):
                     active = True
 
                 children += construct_menu_tree(child_item)
 
-        if(len(children) > 0):
+        if len(children) > 0:
             return make_menu_item(menu, active) + literal('<ul class="nav navbar-nav subnav">') + children + literal('</ul></li>')
         else:
             return make_menu_item(menu, active) + literal('</li>')
