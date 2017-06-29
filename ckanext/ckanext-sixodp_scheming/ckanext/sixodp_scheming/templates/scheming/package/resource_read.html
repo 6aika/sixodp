@@ -47,7 +47,14 @@
           {%- block resource_file_size -%}
           <tr>
             <th scope="row">{{ _('Size') }}</th>
-            <td>{{ (res.file_size | int / 1000000) | round(2, 'common') | int }} {{ _('MB') }}</td>
+            <td>
+              {% set file_size = (res.file_size|int / 1000000) | round(2, 'common') %}
+              {% if file_size > 10000 %}
+                {{ (file_size / 1000) | round(2, 'common') | int }} {{ _('GB') }}
+              {% else %}
+                {{ file_size }} {{ _('MB') }}
+              {% endif %}
+            </td>
           </tr>
           {%- endblock -%}
         {% endif %}
