@@ -1,6 +1,8 @@
 {% ckan_extends %}
 
-{% block primary_content_inner %}
+{% block offcanvas_button %}{% endblock %}
+
+{% block primary %}
       <h1>{{ report.title }}</h1>
       <p>{{ report.description }}</p>
       <p>
@@ -50,3 +52,5 @@
       {% endif %}
   </div>
 {% endblock%}
+
+{% block secondary %}{% endblock %}
