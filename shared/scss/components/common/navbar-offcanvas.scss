@@ -1,5 +1,7 @@
 .navbar-offcanvas {
   z-index: 1002;
+  padding: $navbar-height 0 0 0;
+  border-width: 0;
   
   @media screen and (max-width: $width-md - 1) {
     position: fixed !important;
@@ -85,8 +87,6 @@
     max-width: 250px;
     left: -250px;
     top: 0;
-    padding-left: 15px;
-    padding-right: 15px;
     z-index: 999;
     overflow: auto;
     -webkit-transition: all 0.15s ease-in;
