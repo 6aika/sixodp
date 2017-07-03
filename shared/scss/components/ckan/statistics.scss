@@ -147,18 +147,17 @@
 }
 
 .statistics-filter.form-control {
-  width: 100%;
-  margin: $margin-large-vertical 0;
+  width: 48%;
   float: none;
+  display: inline-block;
 
-  @media(min-width: $width-sm) {
-    width: 48%;
+  @media(min-width: $width-xs) {
     margin: 0;
+    display: inline-block;
   }
 
-  @media(min-width: $width-md) {
+  @media(min-width: $width-sm) {
     width: 200px;
-
 
     &.statistics-filter-organization {
       float: left;
@@ -177,7 +176,7 @@
 .statistics-filter-datespan {
   display: inline-block;
   width: 100%;
-  margin-bottom: $margin-large-vertical;
+  margin-bottom: $margin-small-vertical;
 
   @media(min-width: $width-md) {
     width: auto;
@@ -187,6 +186,10 @@
 
 .js-statistics-filter-datespan-fields {
   position: relative;
+
+  .form-control {
+    display: inline-block;
+  }
 }
 
 .statistics-filter-datespan-quicklinks {
