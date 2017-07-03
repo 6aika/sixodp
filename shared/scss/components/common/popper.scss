@@ -25,18 +25,18 @@
   display: inline-block;
   white-space: nowrap;
   width: 100%;
-
-  a {
-    background: $brand-white;
-    color: $brand-primary;
-  }
 }
 
-.popper__link {
+a.popper__link,
+a.popper__link:active,
+a.popper__link:focus {
   width: 100%;
   display: block;
   text-align: left;
   padding: $base*1.5;
+  text-decoration: none;
+  background: $brand-white;
+  color: $brand-primary;
 
   &:hover {
     background: $brand-gray;
