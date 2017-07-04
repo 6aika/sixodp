@@ -502,8 +502,10 @@ function get_recent_comments() {
     );
   }, $posts_data['response']);
 
-
-  return $comments;
+  if(isset($comments)) {
+    return $comments;
+  }
+  return [];
 }
 
 function get_recent_content() {
