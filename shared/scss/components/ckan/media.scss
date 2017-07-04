@@ -3,5 +3,7 @@
     position: absolute;
     bottom: $padding-large-vertical;
     right: $padding-large-horizontal;
+    height: auto;
+    padding: $btn-padding-small;
   }
 }
