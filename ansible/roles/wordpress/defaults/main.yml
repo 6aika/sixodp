@@ -17,6 +17,7 @@ wordpress_plugins:
   - polylang
   - google-analytics-dashboard-for-wp
   - wpcustom-category-image
+  - disqus-comment-system
 
 polylang_languages: 
   - { name: 'Suomi', code: 'fi', locale: 'fi', flag: 'fi' }
