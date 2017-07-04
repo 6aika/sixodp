@@ -1,5 +1,6 @@
 .wrapper--featured {
   @extend .wrapper;
+  padding: $base*4 0;
   background: $brand-lightgray;
 
   .heading--featured {

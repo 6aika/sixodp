@@ -1,12 +1,8 @@
 .hero {
-  padding: $body-padding-top 0 0;
+  padding: $navbar-height 0 0;
   background-size: cover;
   background-position: center center;
   position: relative;
-
-  @media(min-width: $grid-float-breakpoint) {
-    padding-top: $body-padding-top-desktop;
-  }
 
   &:after {
     content: '';
@@ -26,6 +22,14 @@
 .hero__inner {
   position: relative;
   z-index: 1;
+
+  .logos {
+    margin-top: $content-padding-top - $navbar-height;
+
+    @media(min-width: $grid-float-breakpoint) {
+      margin-top: $content-padding-top-desktop - $navbar-height;
+    }
+  }
 }
 
 .hero .input-group {

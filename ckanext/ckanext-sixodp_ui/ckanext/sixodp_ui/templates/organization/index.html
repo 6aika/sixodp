@@ -10,6 +10,6 @@
 
 {% block organizations_search_form %}
   <div class="search-options">
-    {% snippet 'snippets/search_form_without_input.html', form_id='organization-search-form', type='organization', query=c.q, sorting_selected=c.sort_by_selected, count=c.page.item_count, placeholder=_('Search organizations...'), show_empty=request.params, no_bottom_border=true if c.page.items %}
+    {% snippet 'snippets/search_form_without_input.html', form_id='organization-search-form', type='organization', query=c.q, sorting_selected=c.sort_by_selected, sorting='disabled', count=c.page.item_count, placeholder=_('Search organizations...'), show_empty=request.params, no_bottom_border=true if c.page.items %}
   </div>
 {% endblock %}
