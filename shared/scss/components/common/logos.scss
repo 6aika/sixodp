@@ -1,6 +1,10 @@
 .logos {
-  margin-top: $base*5;
+  margin-top: $content-padding-top;
   padding: 0 $base;
+
+  @media(min-width: $grid-float-breakpoint) {
+    margin-top: $content-padding-top-desktop;
+  }
 
   &:after {
     display: block;
