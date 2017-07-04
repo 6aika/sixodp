@@ -9,7 +9,7 @@
     <div class="row boxlinks">
       <?php
         $count = 0;
-        $parent_category = get_category_by_slug('ajankohtaista');
+        $parent_category = get_translated_category_by_slug('ajankohtaista');
 
         if ($parent_category) {
           foreach ( get_categories(array('parent' => $parent_category->cat_ID, 'hide_empty' => false)) as $category ) :
