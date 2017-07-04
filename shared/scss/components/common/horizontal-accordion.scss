@@ -1,0 +1,114 @@
+$horizontal-accordion-height: 400px;
+
+.horizontal-accordion-wrapper {
+
+  .horizontal-accordion-container {
+    margin: 100px auto;
+  }
+
+  .horizontal-accordion {
+    background: $brand-primary;
+    width: 100%;
+    min-width: 950px;
+    display: block;
+    list-style-type: none;
+    overflow: hidden;
+    height: $horizontal-accordion-height;
+    font-size: 0;
+  }
+
+  .horizontal-accordion-tab {
+    display: inline-block;
+    background-color: $brand-primary;
+    border-right: $brand-white 1px solid;
+    width: 80px;
+    height: $horizontal-accordion-height;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    font-size: 16px;
+    transition: all 0.4s 0.1s ease-in-out;
+
+    &:hover {
+      width: 450px;
+
+      .tab-cover {
+
+        a {
+          &:before {
+            margin-left: -100px;
+          }
+
+          &:after {
+            margin-left: -5px;
+          }
+        }
+      }
+    }
+
+    .paragraph {
+      position: relative;
+      width: 360px;
+      margin-left: 80px;
+      padding: 50px 0 0 10px;
+      height: $horizontal-accordion-height;
+      background: #fff;
+      box-sizing: content-box;
+
+      h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 0.88em;
+        line-height: 1.5em;
+        padding-right: 30px;
+      }
+    }
+  }
+
+  .tab-cover {
+    display: block;
+    box-sizing: content-box;
+
+    a {
+      display: block;
+      text-indent: -9999px;
+      font-size: 0;
+      line-height: 0;
+
+      &:before, &:after {
+        transition: all 0.4s 0.1s ease-in-out;
+        width: 80px;
+        height: $horizontal-accordion-height;
+        position: absolute;
+        text-indent: 0;
+        padding-top: 90px;
+        padding-left: 25px;
+        display: block;
+        font: normal 30px Genericons;
+        color: #ffffff;
+      }
+
+      &:after {
+        font-size: 48px;
+        padding-left: 20px;
+        padding-top: 80px;
+        margin-left: 85px;
+      }
+    }
+  }
+
+  .cover-image {
+    a {
+      &:before, &:after {
+        content: '\f202';
+      }
+
+      &:after {
+        background-image: url("http://via.placeholder.com/350x150");
+      }
+    }
+  }
+}
