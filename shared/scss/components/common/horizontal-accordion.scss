@@ -1,6 +1,6 @@
 $horizontal-accordion-height: 400px;
-$item-width: 300px;
-$item-width-open: 450px;
+$item-width: 22%;
+$item-width-open: 34%;
 $tab-transition: all 0.4s 0.1s ease-in-out;
 
 .horizontal-accordion-wrapper {
@@ -20,8 +20,8 @@ $tab-transition: all 0.4s 0.1s ease-in-out;
 
   .horizontal-accordion {
     background: linear-gradient(to bottom, #7875B2, $brand-primary);
-    min-width: 950px;
-    width: 1350px;
+    width: $item-width*3 + $item-width-open;
+    max-width: 1500px;
     margin: auto;
     display: block;
     list-style-type: none;
@@ -41,6 +41,8 @@ $tab-transition: all 0.4s 0.1s ease-in-out;
   }
 
   .horizontal-accordion-tab {
+    background-repeat: no-repeat;
+    background-size: cover;
     display: inline-block;
     background-color: $brand-primary;
     border-right: $brand-white 1px solid;
@@ -79,7 +81,7 @@ $tab-transition: all 0.4s 0.1s ease-in-out;
     .tab-overlay:active {
       background: rgba(83, 79, 151, 0.8);
       overflow: hidden;
-      height: 100%;
+      height: $horizontal-accordion-height;
       width: 100%;
       display: block;
       z-index: 2;
@@ -89,7 +91,7 @@ $tab-transition: all 0.4s 0.1s ease-in-out;
     .tab-content {
       color: $text-muted;
       position: relative;
-      width: 440px;
+      width: $item-width-open - 10px;
       padding: 50px 0 0 10px;
       height: $horizontal-accordion-height;
       background: transparent;
