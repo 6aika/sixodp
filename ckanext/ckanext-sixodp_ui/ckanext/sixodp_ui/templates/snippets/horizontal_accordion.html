@@ -1,15 +1,25 @@
+{% set truncate = truncate or 180 %}
+{% set lang = h.get_current_lang() %}
+
 <div class="horizontal-accordion-wrapper">
   <div class="horizontal-accordion-container">
     <ul class="horizontal-accordion">
       {% for item in items %}
-        <li class="horizontal-accordion-tab">
-          <!--<div class="tab-cover cover-image">-->
-            <!--<a href="{{ h.url_for(controller=controller, action='read', id=item.name) }}">{{ h.get_translated(item, 'title') }}</a>-->
-          <!--</div>-->
-          <div class="paragraph" style="background-image: url({{item[image_identifier]}});">
-            <h1>{{ h.get_translated(item, 'title') }}</h1>
-            <p>{{ h.get_translated(item, 'notes') | truncate }}</p>
-          </div>
+        <li class="horizontal-accordion-tab" style="background-image: url({{item[image_identifier]}});">
+          <a class="tab-overlay" href="{{ h.url_for(controller=controller, action='read', id=item.name) }}">
+            <div class="tab-content">
+              <h1>{{ h.get_translated(item, 'title') }}</h1>
+              {% set meta_fields = item[meta_identifier].get(lang) %}
+              {% if meta_fields %}
+                <p>
+                  {% for meta_item in meta_fields %}
+                    <span>{{meta_item}}{% if not loop.last %}, {% endif %}</span>
+                  {% endfor %}
+                </p>
+              {% endif %}
+              <p>{{ h.get_translated(item, 'notes') | truncate }}</p>
+            </div>
+          </a>
         </li>
       {% endfor %}
     </ul>

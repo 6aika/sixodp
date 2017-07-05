@@ -1,10 +1,13 @@
 $horizontal-accordion-height: 400px;
 $item-width: 300px;
+$item-width-open: 450px;
+$tab-transition: all 0.4s 0.1s ease-in-out;
 
 .horizontal-accordion-wrapper {
 
   .horizontal-accordion-container {
     margin: 100px auto;
+    padding: 2px 0;
     background: $brand-primary;
     background: linear-gradient(to bottom, #7875B2, $brand-primary);
   }
@@ -25,7 +28,7 @@ $item-width: 300px;
         width: $item-width;
 
         &:hover {
-          width: 450px;
+          width: $item-width-open;
         }
       }
     }
@@ -40,16 +43,16 @@ $item-width: 300px;
     overflow: hidden;
     position: relative;
     margin: 0;
-    font-size: 16px;
-    transition: all 0.4s 0.1s ease-in-out;
+    font-size: $font-size-medium;
+    transition: $tab-transition;
 
     // Set first child initially to hover state width
     &:first-child {
-      width: 450px;
+      width: $item-width-open;
     }
 
     &:hover {
-      width: 450px;
+      width: $item-width-open;
 
       .tab-cover {
 
@@ -65,23 +68,46 @@ $item-width: 300px;
       }
     }
 
-    .paragraph {
+    .tab-overlay,
+    .tab-overlay:focus,
+    .tab-overlay:active {
+      background: rgba(83, 79, 151, 0.8);
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
+      display: block;
+      z-index: 2;
+      text-decoration: none;
+    }
+
+    .tab-content {
+      color: $text-muted;
       position: relative;
       width: 440px;
       padding: 50px 0 0 10px;
       height: $horizontal-accordion-height;
-      background: #fff;
+      background: transparent;
       box-sizing: content-box;
+      transition: $tab-transition;
 
       h1 {
-        font-size: 2.5em;
+        transition: $tab-transition;
+        color: $text-muted;
+        font-size: $font-size-xlarge;
         margin-bottom: 10px;
       }
 
       p {
-        font-size: 0.88em;
-        line-height: 1.5em;
+        font-size: $font-size-base;
         padding-right: 30px;
+      }
+
+      &:hover {
+        color: $brand-white;
+
+        h1 {
+          color: $brand-white;
+        }
       }
     }
   }
@@ -97,7 +123,7 @@ $item-width: 300px;
       line-height: 0;
 
       &:before, &:after {
-        transition: all 0.4s 0.1s ease-in-out;
+        transition: $tab-transition;
         width: $item-width;
         height: $horizontal-accordion-height;
         position: absolute;
@@ -106,7 +132,7 @@ $item-width: 300px;
         padding-left: 25px;
         display: block;
         font: normal 30px Genericons;
-        color: #ffffff;
+        color: $brand-white;
       }
 
       &:after {
