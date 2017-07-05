@@ -2,6 +2,7 @@ $horizontal-accordion-height: 400px;
 $item-width: 22%;
 $item-width-open: 34%;
 $tab-transition: all 0.4s 0.1s ease-in-out;
+$horizontal-accordion-breakpoint: $width-md;
 
 .horizontal-accordion-wrapper {
 
@@ -26,15 +27,19 @@ $tab-transition: all 0.4s 0.1s ease-in-out;
     display: block;
     list-style-type: none;
     overflow: hidden;
-    height: $horizontal-accordion-height;
+    height: auto;
     font-size: 0;
 
-    &:hover {
-      .horizontal-accordion-tab:first-child {
-        width: $item-width;
+    @media(min-width: $horizontal-accordion-breakpoint) {
+      height: $horizontal-accordion-height;
 
-        &:hover {
-          width: $item-width-open;
+      &:hover {
+        .horizontal-accordion-tab:first-child {
+          width: $item-width;
+
+          &:hover {
+            width: $item-width-open;
+          }
         }
       }
     }
@@ -43,10 +48,11 @@ $tab-transition: all 0.4s 0.1s ease-in-out;
   .horizontal-accordion-tab {
     background-repeat: no-repeat;
     background-size: cover;
-    display: inline-block;
     background-color: $brand-primary;
     border-right: $brand-white 1px solid;
-    width: $item-width;
+    width: 100%;
+    float: left;
+    display: block;
     height: $horizontal-accordion-height;
     overflow: hidden;
     position: relative;
@@ -54,23 +60,33 @@ $tab-transition: all 0.4s 0.1s ease-in-out;
     font-size: $font-size-medium;
     transition: $tab-transition;
 
-    // Set first child initially to hover state width
-    &:first-child {
-      width: $item-width-open;
+    @media(min-width: $width-xs-sm) {
+      width: 50%;
     }
 
-    &:hover {
-      width: $item-width-open;
+    @media(min-width: $horizontal-accordion-breakpoint) {
+      display: inline-block;
+      float: none;
+      width: $item-width;
 
-      .tab-cover {
+      // Set first child initially to hover state width
+      &:first-child {
+        width: $item-width-open;
+      }
 
-        a {
-          &:before {
-            margin-left: -100px;
-          }
+      &:hover {
+        width: $item-width-open;
 
-          &:after {
-            margin-left: -5px;
+        .tab-cover {
+
+          a {
+            &:before {
+              margin-left: -100px;
+            }
+
+            &:after {
+              margin-left: -5px;
+            }
           }
         }
       }
@@ -89,9 +105,9 @@ $tab-transition: all 0.4s 0.1s ease-in-out;
     }
 
     .tab-content {
-      color: $text-muted;
+      color: $brand-white;
       position: relative;
-      width: $item-width-open - 10px;
+      width: 100%;
       padding: 50px 0 0 10px;
       height: $horizontal-accordion-height;
       background: transparent;
@@ -100,9 +116,26 @@ $tab-transition: all 0.4s 0.1s ease-in-out;
 
       h1 {
         transition: $tab-transition;
-        color: $text-muted;
+        color: $brand-white;
         font-size: $font-size-xlarge;
         margin-bottom: 10px;
+      }
+
+      @media(min-width: $horizontal-accordion-breakpoint) {
+        width: calc(#{$width-md} / 3);
+        color: $text-muted;
+
+        h1 {
+          color: $text-muted;
+        }
+      }
+
+      @media(min-width: $width-lg) {
+        width: calc(#{$width-lg} / 3);
+      }
+
+      @media(min-width: $width-xl) {
+        width: calc(#{$width-xl} / 3);
       }
 
       p {
