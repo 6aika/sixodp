@@ -1,8 +1,8 @@
 $horizontal-accordion-height: 400px;
-$item-width: 22%;
-$item-width-open: 34%;
-$tab-transition: all 0.4s 0.1s ease-in-out;
 $horizontal-accordion-breakpoint: $width-md;
+$tab-width: 22%;
+$tab-width-open: 34%;
+$tab-transition: all 0.4s 0.1s ease-in-out;
 
 .horizontal-accordion-wrapper {
 
@@ -21,7 +21,7 @@ $horizontal-accordion-breakpoint: $width-md;
 
   .horizontal-accordion {
     background: linear-gradient(to bottom, #7875B2, $brand-primary);
-    width: $item-width*3 + $item-width-open;
+    width: $tab-width*3 + $tab-width-open;
     max-width: 1500px;
     margin: auto;
     display: block;
@@ -35,10 +35,10 @@ $horizontal-accordion-breakpoint: $width-md;
 
       &:hover {
         .horizontal-accordion-tab:first-child {
-          width: $item-width;
+          width: $tab-width;
 
           &:hover {
-            width: $item-width-open;
+            width: $tab-width-open;
           }
         }
       }
@@ -67,15 +67,15 @@ $horizontal-accordion-breakpoint: $width-md;
     @media(min-width: $horizontal-accordion-breakpoint) {
       display: inline-block;
       float: none;
-      width: $item-width;
+      width: $tab-width;
 
       // Set first child initially to hover state width
       &:first-child {
-        width: $item-width-open;
+        width: $tab-width-open;
       }
 
       &:hover {
-        width: $item-width-open;
+        width: $tab-width-open;
 
         .tab-cover {
 
@@ -165,7 +165,7 @@ $horizontal-accordion-breakpoint: $width-md;
 
       &:before, &:after {
         transition: $tab-transition;
-        width: $item-width;
+        width: $tab-width;
         height: $horizontal-accordion-height;
         position: absolute;
         text-indent: 0;
