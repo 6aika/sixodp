@@ -6,10 +6,16 @@ $tab-transition: all 0.4s 0.1s ease-in-out;
 .horizontal-accordion-wrapper {
 
   .horizontal-accordion-container {
-    margin: 100px auto;
+    margin: 0 auto;
     padding: 2px 0;
     background: $brand-primary;
     background: linear-gradient(to bottom, #7875B2, $brand-primary);
+  }
+
+  &.collapse.in {
+    .horizontal-accordion-container {
+      padding-bottom: 0;
+    }
   }
 
   .horizontal-accordion {
@@ -152,6 +158,21 @@ $tab-transition: all 0.4s 0.1s ease-in-out;
       &:after {
         background-image: url("http://via.placeholder.com/350x150");
       }
+    }
+  }
+}
+
+.horizontal-accordion-collapse {
+  border-top: 2px solid $brand-primary;
+
+  .btn {
+    border-radius: 0 0 $border-radius-small $border-radius-small;
+    position: absolute;
+    right: $padding-large-horizontal*6;
+    padding: $btn-padding-large;
+
+    #show-text {
+      display: none;
     }
   }
 }

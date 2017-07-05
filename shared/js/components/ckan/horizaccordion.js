@@ -1,30 +1,30 @@
 $(function ($) {
   $(document).ready(function () {
 
-    var showOpenHorizaccordionButton = function (e) {
+    var showOpenHorizontalAccordionButton = function (e) {
       e.find("#show-text").show();
       e.find("#close-text").hide();
     };
 
-    var showCloseHorizaccordionButton = function (e) {
+    var showCloseHorizontalAccordionButton = function (e) {
       e.find("#show-text").hide();
       e.find("#close-text").show();
     };
 
-    // Toggle horizaccordion collapse button text
-    $("#horizaccordion-collapse-btn").click(function () {
+    // Toggle horizontal accordion collapse button text
+    $("#horizontal-accordion-collapse-btn").click(function () {
       if ($(this).hasClass("collapsed")) {
-        return showCloseHorizaccordionButton($(this));
+        return showCloseHorizontalAccordionButton($(this));
       }
-      showOpenHorizaccordionButton($(this));
+      showOpenHorizontalAccordionButton($(this));
     });
 
-    // Close horizaccordion if query parameters present
+    // Close horizontal accordion if query parameters present
     if (window.location.search) {
-      $('#horizaccordion').addClass('collapsed');
-      $('#horizaccordion').removeClass('in');
-      $("#horizaccordion-collapse-btn").addClass('collapsed');
-      showOpenHorizaccordionButton($("#horizaccordion-collapse-btn"));
+      $('#horizontal-accordion').addClass('collapsed');
+      $('#horizontal-accordion').removeClass('in');
+      $("#horizontal-accordion-collapse-btn").addClass('collapsed');
+      showOpenHorizontalAccordionButton($("#horizontal-accordion-collapse-btn"));
     }
   });
 });

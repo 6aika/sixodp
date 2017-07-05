@@ -1,7 +1,7 @@
 {% set truncate = truncate or 180 %}
 {% set lang = h.get_current_lang() %}
 
-<div class="horizontal-accordion-wrapper">
+<div class="horizontal-accordion-wrapper collapse in" id="horizontal-accordion">
   <div class="horizontal-accordion-container">
     <ul class="horizontal-accordion">
       {% for item in items %}
@@ -24,4 +24,10 @@
       {% endfor %}
     </ul>
   </div>
+</div>
+<div class="horizontal-accordion-collapse">
+  <button id="horizontal-accordion-collapse-btn" class="btn btn-primary" data-toggle="collapse" data-target="#horizontal-accordion">
+    <span id="close-text">{{ _('Close preview') }}</span>
+    <span id="show-text">{{ _('Show preview') }}</span>
+  </button>
 </div>
