@@ -3,10 +3,10 @@
     <ul class="horizontal-accordion">
       {% for item in items %}
         <li class="horizontal-accordion-tab">
-          <div class="tab-cover cover-image">
-            <a href="{{ h.url_for(controller=controller, action='read', id=item.name) }}">{{ h.get_translated(item, 'title') }}</a>
-          </div>
-          <div class="paragraph">
+          <!--<div class="tab-cover cover-image">-->
+            <!--<a href="{{ h.url_for(controller=controller, action='read', id=item.name) }}">{{ h.get_translated(item, 'title') }}</a>-->
+          <!--</div>-->
+          <div class="paragraph" style="background-image: url({{item[image_identifier]}});">
             <h1>{{ h.get_translated(item, 'title') }}</h1>
             <p>{{ h.get_translated(item, 'notes') | truncate }}</p>
           </div>

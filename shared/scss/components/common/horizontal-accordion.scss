@@ -1,33 +1,52 @@
 $horizontal-accordion-height: 400px;
+$item-width: 300px;
 
 .horizontal-accordion-wrapper {
 
   .horizontal-accordion-container {
     margin: 100px auto;
+    background: $brand-primary;
+    background: linear-gradient(to bottom, #7875B2, $brand-primary);
   }
 
   .horizontal-accordion {
-    background: $brand-primary;
-    width: 100%;
+    background: linear-gradient(to bottom, #7875B2, $brand-primary);
     min-width: 950px;
+    width: 1350px;
+    margin: auto;
     display: block;
     list-style-type: none;
     overflow: hidden;
     height: $horizontal-accordion-height;
     font-size: 0;
+
+    &:hover {
+      .horizontal-accordion-tab:first-child {
+        width: $item-width;
+
+        &:hover {
+          width: 450px;
+        }
+      }
+    }
   }
 
   .horizontal-accordion-tab {
     display: inline-block;
     background-color: $brand-primary;
     border-right: $brand-white 1px solid;
-    width: 80px;
+    width: $item-width;
     height: $horizontal-accordion-height;
     overflow: hidden;
     position: relative;
     margin: 0;
     font-size: 16px;
     transition: all 0.4s 0.1s ease-in-out;
+
+    // Set first child initially to hover state width
+    &:first-child {
+      width: 450px;
+    }
 
     &:hover {
       width: 450px;
@@ -48,8 +67,7 @@ $horizontal-accordion-height: 400px;
 
     .paragraph {
       position: relative;
-      width: 360px;
-      margin-left: 80px;
+      width: 440px;
       padding: 50px 0 0 10px;
       height: $horizontal-accordion-height;
       background: #fff;
@@ -80,7 +98,7 @@ $horizontal-accordion-height: 400px;
 
       &:before, &:after {
         transition: all 0.4s 0.1s ease-in-out;
-        width: 80px;
+        width: $item-width;
         height: $horizontal-accordion-height;
         position: absolute;
         text-indent: 0;
@@ -95,7 +113,6 @@ $horizontal-accordion-height: 400px;
         font-size: 48px;
         padding-left: 20px;
         padding-top: 80px;
-        margin-left: 85px;
       }
     }
   }
