@@ -1,0 +1,213 @@
+$horizontal-accordion-height: 400px;
+$horizontal-accordion-breakpoint: $width-md;
+$tab-width: 22%;
+$tab-width-open: 34%;
+$tab-transition: all 0.4s 0.1s ease-in-out;
+
+.horizontal-accordion-wrapper {
+
+  .horizontal-accordion-container {
+    margin: 0 auto;
+    padding: 2px 0;
+    background: $brand-primary;
+    background: linear-gradient(to bottom, #7875B2, $brand-primary);
+  }
+
+  &.collapse.in {
+    .horizontal-accordion-container {
+      padding-bottom: 0;
+    }
+  }
+
+  .horizontal-accordion {
+    background: linear-gradient(to bottom, #7875B2, $brand-primary);
+    width: $tab-width*3 + $tab-width-open;
+    max-width: 1500px;
+    margin: auto;
+    display: block;
+    list-style-type: none;
+    overflow: hidden;
+    height: auto;
+    font-size: 0;
+
+    @media(min-width: $horizontal-accordion-breakpoint) {
+      height: $horizontal-accordion-height;
+
+      &:hover {
+        .horizontal-accordion-tab:first-child {
+          width: $tab-width;
+
+          &:hover {
+            width: $tab-width-open;
+          }
+        }
+      }
+    }
+  }
+
+  .horizontal-accordion-tab {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: $brand-primary;
+    border-right: $brand-white 1px solid;
+    width: 100%;
+    float: left;
+    display: block;
+    height: $horizontal-accordion-height;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    font-size: $font-size-medium;
+    transition: $tab-transition;
+
+    @media(min-width: $width-xs-sm) {
+      width: 50%;
+    }
+
+    @media(min-width: $horizontal-accordion-breakpoint) {
+      display: inline-block;
+      float: none;
+      width: $tab-width;
+
+      // Set first child initially to hover state width
+      &:first-child {
+        width: $tab-width-open;
+      }
+
+      &:hover {
+        width: $tab-width-open;
+
+        .tab-cover {
+
+          a {
+            &:before {
+              margin-left: -100px;
+            }
+
+            &:after {
+              margin-left: -5px;
+            }
+          }
+        }
+      }
+    }
+
+    .tab-overlay,
+    .tab-overlay:focus,
+    .tab-overlay:active {
+      background: rgba(83, 79, 151, 0.8);
+      overflow: hidden;
+      height: $horizontal-accordion-height;
+      width: 100%;
+      display: block;
+      z-index: 2;
+      text-decoration: none;
+    }
+
+    .tab-content {
+      color: $brand-white;
+      position: relative;
+      width: 100%;
+      padding: 50px 0 0 10px;
+      height: $horizontal-accordion-height;
+      background: transparent;
+      box-sizing: content-box;
+      transition: $tab-transition;
+
+      h1 {
+        transition: $tab-transition;
+        color: $brand-white;
+        font-size: $font-size-xlarge;
+        margin-bottom: 10px;
+      }
+
+      @media(min-width: $horizontal-accordion-breakpoint) {
+        width: calc(#{$width-md} / 3);
+        color: $text-muted;
+
+        h1 {
+          color: $text-muted;
+        }
+      }
+
+      @media(min-width: $width-lg) {
+        width: calc(#{$width-lg} / 3);
+      }
+
+      @media(min-width: $width-xl) {
+        width: calc(#{$width-xl} / 3);
+      }
+
+      p {
+        font-size: $font-size-base;
+        padding-right: 30px;
+      }
+
+      &:hover {
+        color: $brand-white;
+
+        h1 {
+          color: $brand-white;
+        }
+      }
+    }
+  }
+
+  .tab-cover {
+    display: block;
+    box-sizing: content-box;
+
+    a {
+      display: block;
+      text-indent: -9999px;
+      font-size: 0;
+      line-height: 0;
+
+      &:before, &:after {
+        transition: $tab-transition;
+        width: $tab-width;
+        height: $horizontal-accordion-height;
+        position: absolute;
+        text-indent: 0;
+        padding-top: 90px;
+        padding-left: 25px;
+        display: block;
+        font: normal 30px Genericons;
+        color: $brand-white;
+      }
+
+      &:after {
+        font-size: 48px;
+        padding-left: 20px;
+        padding-top: 80px;
+      }
+    }
+  }
+
+  .cover-image {
+    a {
+      &:before, &:after {
+        content: '\f202';
+      }
+
+      &:after {
+        background-image: url("http://via.placeholder.com/350x150");
+      }
+    }
+  }
+}
+
+.horizontal-accordion-collapse {
+  border-top: 2px solid $brand-primary;
+
+  .btn {
+    border-radius: 0 0 $border-radius-small $border-radius-small;
+    position: absolute;
+    right: $padding-large-horizontal*6;
+    padding: $btn-padding-large;
+
+    #show-text {
+      display: none;
+    }
+  }
+}
