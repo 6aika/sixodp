@@ -25,7 +25,7 @@ get_header(); ?>
       <h1 class="heading--main"><?php _e('Latest updates', 'sixodp') ?></h1>
     </div>
     <?php 
-      get_template_part( 'partials/horizaccordion' );
+      get_template_part( 'partials/horizontal-accordion' );
       get_template_part( 'partials/ajankohtaista-links');
     ?>
 

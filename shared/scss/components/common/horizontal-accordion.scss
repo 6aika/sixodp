@@ -11,22 +11,23 @@ $text-transition: all 0.1s 0.1s ease-in-out;
 
   .horizontal-accordion-container {
     margin: 0 auto;
-    padding: 2px 0;
+    padding: 0;
     background: $brand-primary;
     background: linear-gradient(to bottom, #7875B2, $brand-primary);
   }
 
   &.collapse.in {
     .horizontal-accordion-container {
-      padding-bottom: 0;
+      padding-top: 2px;
     }
   }
 
   .horizontal-accordion {
-    background: linear-gradient(to bottom, #7875B2, $brand-primary);
+    background: transparent;
     width: $tab-width*3 + $tab-width-open;
     max-width: 1500px;
     margin: auto;
+    padding: 0;
     display: block;
     list-style-type: none;
     overflow: hidden;
@@ -206,6 +207,21 @@ $text-transition: all 0.1s 0.1s ease-in-out;
         background-image: url("http://via.placeholder.com/350x150");
       }
     }
+  }
+}
+
+.horizontal-accordion-btn-group {
+  width: $tab-width*3 + $tab-width-open;
+  max-width: 1500px;
+  margin: auto;
+  padding: $padding-large-vertical*2 0;
+  text-align: right;
+  height: 34px + $padding-large-vertical*4;
+  vertical-align: middle;
+
+  .btn {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
 
