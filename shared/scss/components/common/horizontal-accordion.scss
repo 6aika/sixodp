@@ -1,29 +1,33 @@
 $horizontal-accordion-height: 400px;
+$horizontal-accordion-top-padding: 50px;
+$horizontal-accordion-heading-height: 95px;
 $horizontal-accordion-breakpoint: $width-md;
 $tab-width: 22%;
 $tab-width-open: 34%;
 $tab-transition: all 0.4s 0.1s ease-in-out;
+$text-transition: all 0.1s 0.1s ease-in-out;
 
 .horizontal-accordion-wrapper {
 
   .horizontal-accordion-container {
     margin: 0 auto;
-    padding: 2px 0;
+    padding: 0;
     background: $brand-primary;
     background: linear-gradient(to bottom, #7875B2, $brand-primary);
   }
 
   &.collapse.in {
     .horizontal-accordion-container {
-      padding-bottom: 0;
+      padding-top: 2px;
     }
   }
 
   .horizontal-accordion {
-    background: linear-gradient(to bottom, #7875B2, $brand-primary);
+    background: transparent;
     width: $tab-width*3 + $tab-width-open;
     max-width: 1500px;
     margin: auto;
+    padding: 0;
     display: block;
     list-style-type: none;
     overflow: hidden;
@@ -108,25 +112,47 @@ $tab-transition: all 0.4s 0.1s ease-in-out;
       color: $brand-white;
       position: relative;
       width: 100%;
-      padding: 50px 0 0 10px;
+      padding: $horizontal-accordion-top-padding 0 0 10px;
       height: $horizontal-accordion-height;
       background: transparent;
       box-sizing: content-box;
       transition: $tab-transition;
 
       h1 {
-        transition: $tab-transition;
         color: $brand-white;
         font-size: $font-size-xlarge;
         margin-bottom: 10px;
       }
 
+      .tab-meta {
+        font-size: $font-size-base;
+        color: $brand-white;
+        margin-top: 0;
+      }
+
+      p {
+        font-size: $font-size-base;
+        padding-right: 30px;
+        position: relative
+      }
+
       @media(min-width: $horizontal-accordion-breakpoint) {
         width: calc(#{$width-md} / 3);
-        color: $text-muted;
 
-        h1 {
-          color: $text-muted;
+        p {
+          position: absolute;
+          top: $horizontal-accordion-height;
+          transition: $text-transition;
+        }
+
+        &:hover {
+          p {
+            transition: $tab-transition;
+            transform: translate(0,-($horizontal-accordion-height - $horizontal-accordion-top-padding - $horizontal-accordion-heading-height));
+            -webkit-transform: translate(0,-($horizontal-accordion-height - $horizontal-accordion-top-padding - $horizontal-accordion-heading-height));
+            -o-transform: translate(0,-($horizontal-accordion-height - $horizontal-accordion-top-padding - $horizontal-accordion-heading-height));
+            -moz-transform: translate(0,-($horizontal-accordion-height - $horizontal-accordion-top-padding - $horizontal-accordion-heading-height));
+          }
         }
       }
 
@@ -136,19 +162,6 @@ $tab-transition: all 0.4s 0.1s ease-in-out;
 
       @media(min-width: $width-xl) {
         width: calc(#{$width-xl} / 3);
-      }
-
-      p {
-        font-size: $font-size-base;
-        padding-right: 30px;
-      }
-
-      &:hover {
-        color: $brand-white;
-
-        h1 {
-          color: $brand-white;
-        }
       }
     }
   }
@@ -194,6 +207,21 @@ $tab-transition: all 0.4s 0.1s ease-in-out;
         background-image: url("http://via.placeholder.com/350x150");
       }
     }
+  }
+}
+
+.horizontal-accordion-btn-group {
+  width: $tab-width*3 + $tab-width-open;
+  max-width: 1500px;
+  margin: auto;
+  padding: $padding-large-vertical*2 0;
+  text-align: right;
+  height: 34px + $padding-large-vertical*4;
+  vertical-align: middle;
+
+  .btn {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
 

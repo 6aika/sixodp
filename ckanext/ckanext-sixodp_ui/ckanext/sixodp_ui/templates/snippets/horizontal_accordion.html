@@ -11,11 +11,11 @@
               <h1>{{ h.get_translated(item, 'title') }}</h1>
               {% set meta_fields = item[meta_identifier].get(lang) %}
               {% if meta_fields %}
-                <p>
+                <h2 class="tab-meta">
                   {% for meta_item in meta_fields %}
                     <span>{{meta_item}}{% if not loop.last %}, {% endif %}</span>
                   {% endfor %}
-                </p>
+                </h2>
               {% endif %}
               <p>{{ h.get_translated(item, 'notes') | truncate }}</p>
             </div>
