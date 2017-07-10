@@ -148,10 +148,10 @@ $text-transition: all 0.1s 0.1s ease-in-out;
         &:hover {
           p {
             transition: $tab-transition;
-            transform: translate(0,-$horizontal-accordion-height);
-            -webkit-transform: translate(0,-$horizontal-accordion-height);
-            -o-transform: translate(0,-$horizontal-accordion-height);
-            -moz-transform: translate(0,-$horizontal-accordion-height);
+            transform: translate(0, -$horizontal-accordion-height);
+            -webkit-transform: translate(0, -$horizontal-accordion-height);
+            -o-transform: translate(0, -$horizontal-accordion-height);
+            -moz-transform: translate(0, -$horizontal-accordion-height);
           }
         }
       }

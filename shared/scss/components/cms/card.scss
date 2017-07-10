@@ -2,20 +2,24 @@
 
   @media (min-width: $width-sm) {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
   }
 }
 
 .card {
+  max-width: 75%;
   border-radius: $base/2;
   background: white;
   padding: $base*2;
   margin: $base auto;
   border: 1px solid $brand-gray;
-  width: 75%;
 
   @media (min-width: $width-sm) {
-    width: 33%;
-    margin: $base;
+    flex: 1 1 32%;
+    max-width: 32%;
+    margin: 1%;
 
     &:first-child {
       margin-left: 0;
@@ -45,8 +49,6 @@
 }
 
 
-
-
 // Secondary cards
 
 .wrapper--latest {
@@ -73,13 +75,51 @@
 
 .card--latest {
   @extend .card;
-  width: 75%;
   padding: 0;
   border: 0;
 
-  @media(min-width: $width-sm) {
-    width: 48%;
-    margin: $base;
+  @media (min-width: $width-sm) {
+    flex: 1 1 49%;
+    max-width: 49%;
+    margin: 1%;
+
+    &:nth-child(even) {
+      margin-right: 0;
+    }
+
+    &:nth-child(odd) {
+      margin-left: 0;
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  @media (min-width: $width-md) {
+    flex: 1 1 24%;
+    max-width: 24%;
+    margin: 0.66%;
+
+    &:nth-child(even) {
+      margin: 0.66%;
+    }
+
+    &:nth-child(odd) {
+      margin: 0.66%;
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 }
 
@@ -138,10 +178,41 @@
   padding: 0;
 
   @media(min-width: $width-sm) {
-    flex: 1 1 48%;
-    max-width: 48%;
+    flex: 1 1 49%;
+    max-width: 49%;
     margin: 1%;
     margin-bottom: $base;
+
+    &:nth-child(even) {
+      margin: 1%;
+    }
+
+    &:nth-child(odd) {
+      margin: 1%;
+    }
+
+    &:nth-child(even) {
+      margin-right: 0;
+    }
+
+    &:nth-child(odd) {
+      margin-left: 0;
+    }
+  }
+
+  @media(min-width: $width-md) {
+    flex: 1 1 49%;
+    max-width: 49%;
+    margin: 1%;
+    margin-bottom: $base;
+
+    &:nth-child(even) {
+      margin: 1%;
+    }
+
+    &:nth-child(odd) {
+      margin: 1%;
+    }
 
     &:nth-child(even) {
       margin-right: 0;
@@ -155,15 +226,14 @@
   @media(min-width: $width-lg) {
     flex: 1 1 24%;
     max-width: 24%;
-    margin: 0.5%;
-    margin-bottom: $base;
+    margin: 0.66%;
 
     &:nth-child(even) {
-      margin-right: 0.5%;
+      margin: 0.66%;
     }
 
     &:nth-child(odd) {
-      margin-left: 0.5%;
+      margin: 0.66%;
     }
 
     &:first-child {
