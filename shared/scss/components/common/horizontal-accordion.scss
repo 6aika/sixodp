@@ -140,7 +140,7 @@ $text-transition: all 0.1s 0.1s ease-in-out;
         width: calc(#{$width-md} / 3);
 
         p {
-          position: absolute;
+          position: relative;
           top: $horizontal-accordion-height;
           transition: $text-transition;
         }
@@ -148,10 +148,10 @@ $text-transition: all 0.1s 0.1s ease-in-out;
         &:hover {
           p {
             transition: $tab-transition;
-            transform: translate(0,-($horizontal-accordion-height - $horizontal-accordion-top-padding - $horizontal-accordion-heading-height));
-            -webkit-transform: translate(0,-($horizontal-accordion-height - $horizontal-accordion-top-padding - $horizontal-accordion-heading-height));
-            -o-transform: translate(0,-($horizontal-accordion-height - $horizontal-accordion-top-padding - $horizontal-accordion-heading-height));
-            -moz-transform: translate(0,-($horizontal-accordion-height - $horizontal-accordion-top-padding - $horizontal-accordion-heading-height));
+            transform: translate(0,-$horizontal-accordion-height);
+            -webkit-transform: translate(0,-$horizontal-accordion-height);
+            -o-transform: translate(0,-$horizontal-accordion-height);
+            -moz-transform: translate(0,-$horizontal-accordion-height);
           }
         }
       }
