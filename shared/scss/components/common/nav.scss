@@ -14,14 +14,19 @@
     padding-bottom: $navbar-height/4;
   }
 
-  &.active {
+  .subnav {
+    display: none;
+  }
+
+  &.active,
+  &.active-hover {
     > a {
       border-bottom-color: $navbar-active-link-border-color;
       background: transparent !important;    
     }
 
     .subnav {
-      max-height: 100%;
+      display: block;
 
       @media(min-width: $grid-float-breakpoint) {
         max-height: $base*4;
@@ -103,8 +108,8 @@
   margin: 0;
   position: relative;
   background: $navbar-secondary-background-color;
-  max-height: 0;
-  transition: max-height .1s ease-in-out;
+  height: 100%;
+  transition: all .5s ease-in-out;
   overflow: hidden;
   padding-left: $base*3;
 

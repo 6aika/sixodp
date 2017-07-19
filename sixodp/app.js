@@ -85,4 +85,13 @@ var App = {
 
   App.resizeArticleContent($('.article iframe'));
 
+  $('#main-navbar li').hover(
+    function () {
+      $(this).addClass('active-hover');
+    },
+    function () {
+      $(this).removeClass('active-hover');
+    }
+  );
+
 })( jQuery );
