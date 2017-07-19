@@ -5,7 +5,11 @@
 }
 
 .navbar-nav li {
-  position: static;
+  position: relative;
+
+  @media(min-width: $grid-float-breakpoint) {
+    position: static;
+  }
 
   > a {
     border-top: $base/2 solid transparent;
@@ -15,21 +19,35 @@
   }
 
   .subnav {
-    display: none;
+    visibility: hidden;
+    display: block;
+    transition: all 0.1s ease-in-out;
+    max-height: 0;
+
+    @media(min-width: $grid-float-breakpoint) {
+      visibility: visible;
+      display: none;
+      transition: none;
+      max-height: $base*4;
+    }
   }
 
-  &.active,
-  &.active-hover {
+  &.active {
     > a {
       border-bottom-color: $navbar-active-link-border-color;
       background: transparent !important;    
     }
+  }
 
+  &.active-hover {
     .subnav {
-      display: block;
+      visibility: visible;
+      max-height: $base*4;
 
       @media(min-width: $grid-float-breakpoint) {
-        max-height: $base*4;
+        visibility: visible;
+        display: block;
+        transition: none;
       }
     }
   }
@@ -76,6 +94,32 @@
   }
 }
 
+.subnav-toggle {
+  text-align: center;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: $navbar-height;
+  height: $navbar-height;
+  color: $navbar-secondary-background-color;
+  transition: all 0.2s ease-in-out;
+
+  &.rotate {
+    transform:rotate(180deg);
+  }
+
+  .fa {
+    line-height: $navbar-height;
+    vertical-align: middle;
+    width: 100%;
+  }
+
+  @media(min-width: $grid-float-breakpoint) {
+    display: none;
+  }
+}
+
 .navbar-secondary {
   background: none;
   
@@ -109,7 +153,6 @@
   position: relative;
   background: $navbar-secondary-background-color;
   height: 100%;
-  transition: all .5s ease-in-out;
   overflow: hidden;
   padding-left: $base*3;
 
