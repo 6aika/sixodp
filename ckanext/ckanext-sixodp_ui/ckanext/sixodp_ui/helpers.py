@@ -247,7 +247,9 @@ def build_nav_main():
                 children += construct_menu_tree(child_item)
 
         if len(children) > 0:
-            return make_menu_item(menu, active) + literal('<ul class="nav navbar-nav subnav">') + children + literal('</ul></li>')
+            subnav_toggle = literal('<span class="subnav-toggle"><i class="fa fa-chevron-down"></i></span>')
+            subnav = literal('<ul class="nav navbar-nav subnav">') + children + literal('</ul>')
+            return make_menu_item(menu, active) + subnav_toggle + subnav + literal('</li>')
         else:
             return make_menu_item(menu, active) + literal('</li>')
 
