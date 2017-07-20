@@ -1,0 +1,15 @@
+{% ckan_extends %}
+
+{% block license_content_inner %}
+  {{ license_string(pkg_dict) }}<br>
+  {% if pkg_dict.license_id != 'other-open' %}
+  <a href="{{ pkg_dict.license_url }}" title="{{ pkg_dict.license_title }}">
+    <img class="open-data" src="/assets/images/{{ pkg_dict.license_id }}.png" alt="{{ pkg_dict.license_id }}" />
+  </a>
+  {% endif %}
+  {% if pkg_dict.isopen %}
+    <a href="http://opendefinition.org/okd/" title="{{ _('This dataset satisfies the Open Definition.') }}">
+      <img class="open-data" src="{{ h.url_for_static('/base/images/od_80x15_blue.png') }}" alt="[Open Data]" />
+    </a>
+  {% endif %}
+{% endblock %}
