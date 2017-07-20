@@ -26,6 +26,7 @@
 </head>
 
 <body <?php body_class(); ?>>
+  <div id="mobile-indicator"></div>
 	<?php $notifications = get_posts(array('post_type' => 'notification')); ?>
 	<?php if ( count($notifications) > 0 && ($notifications[0]->post_title !== '' || $notifications[0]->post_content !== '') ) : ?>
 	<?php

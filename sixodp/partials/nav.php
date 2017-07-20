@@ -4,7 +4,7 @@
 *
 **/
 ?>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'sixodp' ); ?>">
+<nav class="navbar navbar-default navbar-fixed-top" id="main-navbar" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'sixodp' ); ?>">
   <div class="container-fluid">
 
     <div class="navbar-header">
@@ -25,7 +25,8 @@
               if ( $navItem["isActive"] ) {
                 $class = 'active';
               }
-              echo '<li class="'.$class.'"><a href="'.$navItem["url"].'" title="'.$navItem["title"].'">'.$navItem["title"].'</a><ul class="nav navbar-nav subnav">';
+              echo '<li class="'.$class.'"><a href="'.$navItem["url"].'" title="'.$navItem["title"].'">'.$navItem["title"].'</a>
+              <span class="subnav-toggle"><i class="fa fa-chevron-down"></i></span><ul class="nav navbar-nav subnav">';
               foreach ($navItem["children"] as $sub_nav_item) {
                 $class = '';
                 if ( $sub_nav_item["isActive"] ) {

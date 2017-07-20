@@ -217,12 +217,14 @@ def resource_display_name(resource_dict):
 
 
 def check_if_active(parent_menu, menu):
-    current_url = helpers.full_current_url()
+    current_url = helpers.full_current_url().replace('https', '').replace('http', '')
+    menu_url = menu.get('url').replace('https', '').replace('http', '')
 
     # Set menu to active if the menu url matches the full current page url
-    active = current_url == menu.get('url')
+    active = current_url == menu_url
 
-    # Check menus that have no parent in the WP menu api structure, usually a CKAN submenu
+    # Check menus that have no parent in the WP menu api structure, usually a CKAN submenu which has not been
+    # configured through WordPress
     if active == False and parent_menu is None:
         active = menu.get('url') in current_url
 
@@ -245,7 +247,9 @@ def build_nav_main():
                 children += construct_menu_tree(child_item)
 
         if len(children) > 0:
-            return make_menu_item(menu, active) + literal('<ul class="nav navbar-nav subnav">') + children + literal('</ul></li>')
+            subnav_toggle = literal('<span class="subnav-toggle"><i class="fa fa-chevron-down"></i></span>')
+            subnav = literal('<ul class="nav navbar-nav subnav">') + children + literal('</ul>')
+            return make_menu_item(menu, active) + subnav_toggle + subnav + literal('</li>')
         else:
             return make_menu_item(menu, active) + literal('</li>')
 
