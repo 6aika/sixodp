@@ -72,8 +72,6 @@ $card-border-highlight-color-active: $brand-success;
 
 // Navigation
 $navbar-background-color: #f8f8f8;
-$navbar-secondary-background-color: $brand-primary;
-$navbar-secondary-active-link-border-color: $brand-secondary;
 
 $navbar-height: 60px;
 $navbar-margin-bottom: 0;
@@ -83,11 +81,15 @@ $navbar-toggle-background-color: transparent;
 $navbar-toggle-icon-color: $brand-primary;
 $navbar-border-color: $gray-base;
 $navbar-logos-background-color: $brand-white;
-$navbar-secondary-link-color: $brand-white;
-$navbar-secondary-link-color-hover: $brand-white;
-$navbar-secondary-link-color-active: $brand-white;
 $navbar-toggle-color: $brand-primary;
 $navbar-toggle-color-active: lighten($navbar-toggle-color, 30%);
+
+$navbar-secondary-bg: $brand-primary;
+$navbar-secondary-link-color: $brand-white;
+$navbar-secondary-link-active-color: $brand-white;
+$navbar-secondary-link-active-border-color: $brand-secondary;
+$navbar-secondary-link-hover-bg: $navbar-secondary-bg;
+$navbar-secondary-link-active-bg: $navbar-secondary-link-hover-bg;
 
 $navbar-default-link-color: $gray-base;
 $navbar-default-link-active-color: $brand-primary;
