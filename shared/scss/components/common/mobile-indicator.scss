@@ -1,0 +1,9 @@
+#mobile-indicator {
+  display: block;
+}
+
+@media (min-width: $grid-float-breakpoint) {
+  #mobile-indicator {
+    display: none;
+  }
+}
