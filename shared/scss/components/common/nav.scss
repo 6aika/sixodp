@@ -4,7 +4,9 @@
   background: $navbar-background-color;
 }
 
-.navbar-nav li {
+.navbar-nav li,
+.navbar-nav li:focus,
+.navbar-nav li:active {
   position: relative;
 
   @media(min-width: $grid-float-breakpoint) {
@@ -34,8 +36,7 @@
 
   &.active {
     > a {
-      border-bottom-color: $navbar-active-link-border-color;
-      background: transparent !important;    
+      border-bottom-color: $navbar-default-link-active-border-color;
     }
   }
 
@@ -65,31 +66,6 @@
 
     .icon-bar {
       background-color: $navbar-toggle-icon-color;
-    }
-  }
-
-  .navbar-nav li {
-    > a,
-    > a:focus {
-      color: $navbar-link-color;
-    }
-
-    &:hover {
-      > a,
-      > a:focus{
-        color: $navbar-link-color-hover;
-      }
-    }
-
-    &.active {
-      > a,
-      > a:focus {
-        color: $navbar-link-color-active;
-
-        &:hover {
-          color: $navbar-link-color-active-hover;
-        }
-      }
     }
   }
 }
