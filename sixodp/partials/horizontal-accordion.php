@@ -43,12 +43,14 @@
     </ul>
 
     <div class="horizontal-accordion-btn-group">
-      <a type="button" href="<?php echo get_category_link(get_translated_category_by_slug('ajankohtaista')) ?>" class="btn btn-secondary btn--show-all">
-        <?php _e('Show all', 'sixodp');?>  <i class="material-icons">arrow_forward</i>
-      </a>
-      <a type="button" href="<?php echo get_permalink(get_translated_page_by_title('Ajankohtaista')); ?>" class="btn btn-secondary btn--ajankohtaista">
-        <?php _e('Latest updates', 'sixodp');?>  <i class="material-icons">arrow_forward</i>
-      </a>
+      <div class="container">
+        <a type="button" href="<?php echo get_category_link(get_translated_category_by_slug('ajankohtaista')) ?>" class="btn btn-secondary btn--show-all">
+          <?php _e('Show all', 'sixodp');?>  <i class="material-icons">arrow_forward</i>
+        </a>
+        <a type="button" href="<?php echo get_permalink(get_translated_page_by_title('Ajankohtaista')); ?>" class="btn btn-secondary btn--ajankohtaista">
+          <?php _e('Latest updates', 'sixodp');?>  <i class="material-icons">arrow_forward</i>
+        </a>
+      </div>
     </div>
   </div>
 </div>
