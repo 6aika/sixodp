@@ -1,5 +1,5 @@
-$horizontal-accordion-height: 400px;
-$horizontal-accordion-top-padding: 50px;
+$horizontal-accordion-height: 450px;
+$horizontal-accordion-top-padding-base: 10px;
 $horizontal-accordion-heading-height: 95px;
 $horizontal-accordion-breakpoint: $width-md;
 $tab-width: 22%;
@@ -111,8 +111,8 @@ $text-transition: all 0.1s 0.1s ease-in-out;
     .tab-content {
       color: $brand-white;
       position: relative;
-      width: 100%;
-      padding: $horizontal-accordion-top-padding 0 0 10px;
+      width: auto;
+      padding: $horizontal-accordion-top-padding-base 10px 0 10px;
       height: $horizontal-accordion-height;
       background: transparent;
       box-sizing: content-box;
@@ -132,12 +132,13 @@ $text-transition: all 0.1s 0.1s ease-in-out;
 
       p {
         font-size: $font-size-base;
-        padding-right: 30px;
+        padding-right: 10px;
         position: relative
       }
 
       @media(min-width: $horizontal-accordion-breakpoint) {
         width: calc(#{$width-md} / 3);
+        padding: $horizontal-accordion-top-padding-base+20px 0 0 10px;
 
         p {
           position: relative;
