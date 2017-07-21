@@ -226,7 +226,7 @@ def check_if_active(parent_menu, menu):
     # Check menus that have no parent in the WP menu api structure, usually a CKAN submenu which has not been
     # configured through WordPress
     if active == False and parent_menu is None:
-        active = menu.get('url') in current_url
+        active = menu_url in current_url
 
     return active
 

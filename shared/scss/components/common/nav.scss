@@ -38,6 +38,15 @@
     > a {
       border-bottom-color: $navbar-default-link-active-border-color;
     }
+
+    @media(min-width: $grid-float-breakpoint) {
+      .subnav {
+        visibility: visible;
+        max-height: $base*4;
+        display: block;
+        transition: none;
+      }
+    }
   }
 
   &.active-hover {
@@ -78,7 +87,7 @@
   top: 0;
   width: $navbar-height;
   height: $navbar-height;
-  color: $navbar-secondary-background-color;
+  color: $navbar-toggle-icon-color;
   transition: all 0.2s ease-in-out;
 
   &.rotate {
@@ -127,7 +136,7 @@
 .navbar-default .navbar-nav.subnav {
   margin: 0;
   position: relative;
-  background: $navbar-secondary-background-color;
+  background: $navbar-secondary-bg;
   height: 100%;
   overflow: hidden;
   padding-left: $base*3;
@@ -142,15 +151,17 @@
 
     &:hover {
       > a {
-        color: $navbar-secondary-link-color-hover;
+        background: $navbar-secondary-link-hover-bg;
+        color: $navbar-secondary-link-active-color;
       }
     }
 
     &.active {
-      border-bottom-color: $navbar-secondary-active-link-border-color;
+      border-bottom-color: $navbar-secondary-link-active-border-color;
 
       > a {
-        color: $navbar-secondary-link-color-active;
+        background: $navbar-secondary-link-active-bg;
+        color: $navbar-secondary-link-active-color;
       }
     }
   }
