@@ -465,7 +465,8 @@ function get_current_locale() {
 }
 
 function get_ckan_data($url) {
-  return json_decode(file_get_contents($url), TRUE);
+  $data = json_decode(file_get_contents($url), TRUE);
+  return $data;
 }
 
 function get_popular_tags() {
@@ -615,7 +616,7 @@ function sort_results($arr) {
   $temp = array();
   foreach ($arr as $key => $row)
   {
-    $temp[$key] = $row['date_updated'] ? $row['date_updated'] : $row['date'];
+    $temp[$key] = strtotime($row['date_updated'] ? $row['date_updated'] : $row['date']);
   }
 
   array_multisort($temp, SORT_DESC, $arr);
@@ -627,19 +628,60 @@ function format_ckan_row($row) {
   return array(
     'date' => $row['metadata_created'],
     'date_updated' => $row['date_updated'],
-    'type' => array('link' => CKAN_BASE_URL .'/'. get_current_locale() .'/', $row['type'], 'label' => $row['type']),
-    'link' => CKAN_BASE_URL .'/'. get_current_locale() .'/', $row['type'] .'/'. $row['name'],
+    'type' => array('link' => CKAN_BASE_URL .'/'. get_current_locale() .'/'. $row['type'], 'label' => $row['type']),
+    'link' => CKAN_BASE_URL .'/'. get_current_locale() .'/'. $row['type'] .'/'. $row['name'],
     'title' => $row['title'],
-    'title_translated' => $row['title_translated']
+    'title_translated' => $row['title_translated'],
+    'notes_translated' => $row['notes_translated']
   );
 }
 
-function get_latest_updates() {
-  $datasets   = array_map('format_ckan_row', get_recent_content());
-  $showcases  = array_map('format_ckan_row', get_latest_showcases(20));
-  $comments   = get_recent_comments();
+function get_recent_data_requests() {
+  $data = array_map(function($row) {
+    return array(
+      'date' => $row->post_date,
+      'type' => 'data request',
+      'link' => get_permalink($row),
+      'title' => $row->post_title,
+      'notes' => $row->post_content
+    );
+  }, get_posts(array('post_type' => 'data_request')));
 
-  $arr = array_merge($datasets, $showcases, $comments);
+  return $data;
+}
+
+function get_recent_app_requests() {
+  $data = array_map(function($row) {
+    return array(
+      'date' => $row->post_date,
+      'type' => 'app request',
+      'link' => get_permalink($row),
+      'title' => $row->post_title,
+      'notes' => $row->post_content
+    );
+  }, get_posts(array('post_type' => 'app_request')));
+
+  return $data;
+}
+
+function get_latest_updates($types = array()) {
+  $defaults = array(
+    'datasets' => true,
+    'showcases' => true,
+    'comments' => true,
+    'data_requests' => false,
+    'app_requests' => false,
+  );
+
+  $types = array_merge($defaults, $types);
+
+  $datasets   = $types['datasets'] ? array_map('format_ckan_row', get_recent_content()) : [];
+  $showcases  = $types['showcases'] ? array_map('format_ckan_row', get_latest_showcases(20)) : [];
+  $comments   = $types['comments'] ? get_recent_comments() : [];
+  $data_requests = $types['data_requests'] ? get_recent_data_requests() : [];
+  $app_requests = $types['app_requests'] ? get_recent_app_requests() : [];
+
+  $arr = array_merge($datasets, $showcases, $comments, $data_requests, $app_requests);
 
   return array_slice(sort_results($arr), 0, 12);
 }
