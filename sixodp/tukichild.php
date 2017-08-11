@@ -13,7 +13,11 @@
  */
 
 
-get_header(); ?>
+get_header(); 
+$parent_category = get_translated_category_by_slug('tuki');
+$themes_category = get_translated_category_by_slug('teemat');
+$category = get_queried_object();
+?>
 
 <div id="primary" class="content-area">
   <main id="main" class="site-main" role="main">
@@ -25,8 +29,8 @@ get_header(); ?>
       <div class="container">
 
         <?php
-          get_template_part( 'partials/tuki-headingbar' );
-          get_template_part( 'partials/tuki-sidebar' );
+          include( locate_template('partials/tuki-headingbar.php') );
+          include( locate_template('partials/tuki-sidebar.php') );
           get_template_part( 'partials/content' );
         ?>
       </div>
