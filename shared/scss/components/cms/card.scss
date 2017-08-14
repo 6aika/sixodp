@@ -81,7 +81,7 @@
   @media (min-width: $width-sm) {
     flex: 1 1 49%;
     max-width: 49%;
-    margin: 1%;
+    margin: $base/2;
 
     &:nth-child(even) {
       margin-right: 0;
@@ -103,14 +103,14 @@
   @media (min-width: $width-md) {
     flex: 1 1 24%;
     max-width: 24%;
-    margin: 0.66%;
+    margin: $base/2;
 
     &:nth-child(even) {
-      margin: 0.66%;
+      margin: $base/2;
     }
 
     &:nth-child(odd) {
-      margin: 0.66%;
+      margin: $base/2;
     }
 
     &:first-child {
