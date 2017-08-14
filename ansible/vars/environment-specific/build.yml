@@ -156,3 +156,7 @@ AWS:
   region: S3_EU_WEST
 
 recaptcha_sitekey: somesitekey
+
+disqus_public_key: ''
+disqus_secret_key: ''
+disqus_short_name: ''
