@@ -20,13 +20,15 @@ $types = array(
   'app_requests' => true,
 );
 
-if ($_POST['submit']) {
+if ($_GET['date']) $date = $_GET['date'];
+
+if ($_GET['submit']) {
   $types = array(
-    'datasets' => $_POST['datasets'] == 'on',
-    'showcases' => $_POST['showcases'] == 'on',
-    'comments' => $_POST['comments'] == 'on',
-    'data_requests' => $_POST['data_requests'] == 'on',
-    'app_requests' => $_POST['app_requests'] == 'on',
+    'datasets' => $_GET['datasets'] == 'on',
+    'showcases' => $_GET['showcases'] == 'on',
+    'comments' => $_GET['comments'] == 'on',
+    'data_requests' => $_GET['data_requests'] == 'on',
+    'app_requests' => $_GET['app_requests'] == 'on',
   );
 }
 else {
@@ -54,7 +56,7 @@ get_header(); ?>
     </div>
 
     <div class="container">
-      <form action="" method="POST">
+      <form action="" method="GET">
         <input type="checkbox" name="datasets" value="on" <?php if ($types['datasets']) echo 'checked="checked"' ?> /> <?php _e('Datasets','sixodp') ?>
         <input type="checkbox" name="showcases" value="on" <?php if ($types['showcases']) echo 'checked="checked"' ?> /> <?php _e('Applications','sixodp') ?>
         <input type="checkbox" name="comments" value="on" <?php if ($types['comments']) echo 'checked="checked"' ?> /> <?php _e('Comments', 'sixodp') ?>
@@ -67,7 +69,7 @@ get_header(); ?>
     <div class="container">
       <ul class="items-list">
       <?php
-      foreach ( get_latest_updates($types) as $index => $item ) : ?>
+      foreach ( get_latest_updates($types, $date) as $index => $item ) : ?>
         <li class="items-list-content">
           <div class="items-list__content">
             <h4 class="items-list__title">
