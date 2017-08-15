@@ -43,9 +43,9 @@
     </div>
   </div>
 
-  <div class="container" style="display: none;">
+  <div class="container">
     <div class="row text-right">
-      <a href="/data/<?php echo get_current_locale(); ?>/datasets/" class="btn btn-secondary btn--sovellukset">
+      <a href="<?php echo get_permalink(get_translated_page_by_title('Viimeisimmät päivitykset')); ?>" class="btn btn-secondary btn--sovellukset">
         <?php _e('More updates', 'sixodp');?>  <i class="material-icons">arrow_forward</i>
       </a>
     </div>
