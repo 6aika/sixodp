@@ -1,13 +1,5 @@
 .sidebar {
-  width: $base*32;
-  
-  @media(min-width: $width-md) {
-    float: left;
-  }
 
-  @media(min-width: $width-lg) {
-    margin-right: $base*4;
-  }
 }
 
 .sidebar__list {

@@ -97,16 +97,18 @@ get_header(); ?>
 
       <?php
       $args = $_GET;
-
       $uri = parse_url($_SERVER['REQUEST_URI']);
-
       ?>
 
-      <a href="<?php echo $uri['path'] ?>?<?php echo http_build_query(array_merge($args, array('date' => date('Y-m-d', strtotime($date .'- 1 DAY'))))); ?>">« <?php _e('Previous day') ?></a>
-      <?php if ($date != date('Y-m-d')) { ?>
-        <a href="<?php echo $uri['path'] ?>?<?php echo http_build_query(array_merge($args, array('date' => date('Y-m-d', strtotime($date .'+ 1 DAY'))))); ?>"><?php _e('Next day') ?> »</a>
-      <?php } ?>
 
+      <div class="paginate">
+        <div class="paginate-prev">
+          <?php echo '<a href="'. $uri['path'] .'?'. http_build_query(array_merge($args, array('date' => date('Y-m-d', strtotime($date .'- 1 DAY'))))) .'">« '.__('Previous day') .'</a>'; ?>
+        </div>
+        <div class="paginate-next">
+          <?php if ($date != date('Y-m-d')) echo '<a href="'. $uri['path'] .'?'. http_build_query(array_merge($args, array('date' => date('Y-m-d', strtotime($date .'+ 1 DAY'))))) .'">'.__('Next day') .' »</a>'; ?>
+        </div>
+      </div>
     </div>
    
   </main><!-- .site-main -->
