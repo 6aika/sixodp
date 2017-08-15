@@ -18,6 +18,8 @@ $category = get_queried_object();
 
 <div id="primary" class="content-area">
   <main id="main" class="site-main" role="main">
+    <?php get_template_part('partials/header-logos'); ?>
+
     <div class="wrapper">
       <div class="container">
 
@@ -58,7 +60,8 @@ $category = get_queried_object();
                   <div class="post__separator"></div>
                   <div class="post__meta">
                     <span><?php echo parse_date(get_the_date('c')); ?></span>
-
+                  </div>
+                  <div class="post__categories">
                     <ul>
                       <?php
                         if ( count(get_the_category()) > 0 ) {
@@ -68,20 +71,6 @@ $category = get_queried_object();
                         }
                       ?>
                     </ul>
-                  </div>
-                  <div class="post__text">
-                    <?php 
-                    $content = get_the_content();
-
-                    $content = wp_strip_all_tags($content);
-                    if (strlen($content) > 200) {
-                      $content = substr($content, 0, 180);
-                      $content = substr($content, 0, strripos($content, ' '));
-                      $content .= '...';
-                    }
-
-                    print $content;
-                    ?>
                   </div>
                   <div class="post__footer">
                   </div>

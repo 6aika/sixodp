@@ -87,7 +87,8 @@ if ($grandparent_id != $category->term_id) {
               <div class="post__separator"></div>
               <div class="post__meta">
                 <span><?php echo parse_date(get_the_date('c')); ?></span>
-
+              </div>
+              <div class="post__categories">
                 <ul>
                   <?php
                     if ( count(get_the_category()) > 0 ) {
@@ -97,20 +98,6 @@ if ($grandparent_id != $category->term_id) {
                     }
                   ?>
                 </ul>
-              </div>
-              <div class="post__text">
-                <?php 
-                $content = get_the_content();
-
-                $content = wp_strip_all_tags($content);
-                if (strlen($content) > 200) {
-                  $content = substr($content, 0, 180);
-                  $content = substr($content, 0, strripos($content, ' '));
-                  $content .= '...';
-                }
-
-                print $content;
-                ?>
               </div>
               <div class="post__footer">
               </div>

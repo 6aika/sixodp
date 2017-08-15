@@ -78,15 +78,26 @@
   display: flex;
   z-index: 2;
   position: relative;
+}
+
+.post__categories {
   ul {
     display: flex;
+    flex-wrap: wrap;
     padding-left: 25px;
     margin: 0;
+    list-style: none;
+    padding: 0;
 
     li {
+      margin-right: 5px;
       a {
         color: $brand-success;
       }
+    }
+
+    li:before {
+      content: '· ';
     }
   }
 }
