@@ -120,3 +120,14 @@
   background-position: center center;
   height: $base*13;
 }
+
+.paginate {
+  width: 100%;
+}
+
+.paginate-next {
+  float: right;
+}
+.paginate-prev {
+  float: left;
+}
