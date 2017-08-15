@@ -4,7 +4,7 @@
   */
 ?>
 
-<div class="sidebar">
+<div class="sidebar col-sm-4">
   <div class="sidebar__wrapper">
     <?php
       $categories=get_categories(array(
