@@ -474,21 +474,40 @@ function get_popular_tags() {
   return $data['result']['facets']['tags'];
 }
 
-function get_recent_comments() {
+
+
+
+function get_recent_comments($date = false) {
   $fields = array(
     'api_secret' => DISQUS_SECRET_KEY,
-    'forum' => DISQUS_SHORT_NAME
+    'forum' => DISQUS_SHORT_NAME,
+    'limit' => 100
   );
+
+  if ($date) {
+    $fields['since'] = date('Y-m-d\T00:00:00', strtotime($date .'+ 1 DAY'));
+  }
 
   $posts_data = json_decode(file_get_contents('http://disqus.com/api/3.0/forums/listPosts.json?'. http_build_query($fields)), true);
 
-  $threads_query = '&thread=' . implode('&thread=', array_map(function ($row) { return $row['thread']; }, $posts_data['response']));
+  $posts_data = $posts_data['response'];
+
+  if ($date) {
+    for ($i = 0; $i < sizeof($posts_data); $i++) {
+      if (substr($posts_data[$i]['createdAt'], 0, 10) !== $date) break;
+    }
+
+    array_splice($posts_data, $i);
+  }
+
+  $threads_query = '&thread=' . implode('&thread=', array_map(function ($row) { return $row['thread']; }, $posts_data));
 
   $threads_data = json_decode(file_get_contents('http://disqus.com/api/3.0/forums/listThreads.json?'. http_build_query($fields) . $threads_query), true);
+  $threads_data = $threads_data['response'];
 
   $threads = array();
 
-  foreach ($threads_data['response'] as $thread) {
+  foreach ($threads_data as $thread) {
     $threads[$thread['id']] = $thread;
   }
 
@@ -501,7 +520,7 @@ function get_recent_comments() {
       'link' => $thread['link'],
       'title' => $thread['title'],
     );
-  }, $posts_data['response']);
+  }, $posts_data);
 
   if(isset($comments)) {
     return $comments;
@@ -509,13 +528,16 @@ function get_recent_comments() {
   return [];
 }
 
-function get_recent_content() {
-  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_released%20desc&rows=8');
+function get_recent_content($date = false) {
+  if ($date) {
+    $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_updated%20desc&rows=8&q=date_updated:['. date('Y-m-d\T00:00:00', strtotime($date)) .'Z%20TO%20'. date('Y-m-d\T00:00:00', strtotime($date . '+ 1 DAY')) .'Z]');
+  }
+  else $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_updated%20desc&rows=8');
   return $data['result']['results'];
 }
 
 function get_latest_datasets() {
-  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_released%20desc&rows=3');
+  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_updated%20desc&rows=3');
   return $data['result']['results'];
 }
 
@@ -543,8 +565,11 @@ function get_showcases_count() {
   return get_count('ckanext_showcase');
 }
 
-function get_latest_showcases($limit) {
-  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_released%20desc&fq=dataset_type:showcase&rows=' . $limit);
+function get_latest_showcases($limit, $date = false) {
+  if ($date) {
+    $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=metadata_created%20desc&fq=dataset_type:showcase&rows='.$limit.'&q=metadata_created:['. date('Y-m-d\T00:00:00', strtotime($date)) .'Z%20TO%20'. date('Y-m-d\T00:00:00', strtotime($date . '+ 1 DAY')) .'Z]');
+  }
+  else $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=metadata_created%20desc&fq=dataset_type:showcase&rows='.$limit);
   return $data['result']['results'];
 }
 
@@ -636,35 +661,33 @@ function format_ckan_row($row) {
   );
 }
 
-function get_recent_data_requests() {
-  $data = array_map(function($row) {
+function get_recent_posts($type, $date = false) {
+  $args = array(
+    'post_type' => $type
+  );
+
+  if ($date) {
+    $date = strtotime($date);
+
+    $args['date_query']['year'] = date('Y', $date);
+    $args['date_query']['month'] = date('m', $date);
+    $args['date_query']['day'] = date('d', $date);
+  }
+
+  $data = array_map(function($row) use ($type) {
     return array(
       'date' => $row->post_date,
-      'type' => 'data request',
+      'type' => $type,
       'link' => get_permalink($row),
       'title' => $row->post_title,
-      'notes' => $row->post_content
+      'notes' => $row->post_content,
     );
-  }, get_posts(array('post_type' => 'data_request')));
+  }, get_posts($args));
 
   return $data;
 }
 
-function get_recent_app_requests() {
-  $data = array_map(function($row) {
-    return array(
-      'date' => $row->post_date,
-      'type' => 'app request',
-      'link' => get_permalink($row),
-      'title' => $row->post_title,
-      'notes' => $row->post_content
-    );
-  }, get_posts(array('post_type' => 'app_request')));
-
-  return $data;
-}
-
-function get_latest_updates($types = array()) {
+function get_latest_updates($types = array(), $date = false) {
   $defaults = array(
     'datasets' => true,
     'showcases' => true,
@@ -675,11 +698,11 @@ function get_latest_updates($types = array()) {
 
   $types = array_merge($defaults, $types);
 
-  $datasets   = $types['datasets'] ? array_map('format_ckan_row', get_recent_content()) : [];
-  $showcases  = $types['showcases'] ? array_map('format_ckan_row', get_latest_showcases(20)) : [];
-  $comments   = $types['comments'] ? get_recent_comments() : [];
-  $data_requests = $types['data_requests'] ? get_recent_data_requests() : [];
-  $app_requests = $types['app_requests'] ? get_recent_app_requests() : [];
+  $datasets   = $types['datasets'] ? array_map('format_ckan_row', get_recent_content($date)) : [];
+  $showcases  = $types['showcases'] ? array_map('format_ckan_row', get_latest_showcases(20, $date)) : [];
+  $comments   = $types['comments'] ? get_recent_comments($date) : [];
+  $data_requests = $types['data_requests'] ? get_recent_posts('data_request', $date) : [];
+  $app_requests = $types['app_requests'] ? get_recent_posts('app_request', $date) : [];
 
   $arr = array_merge($datasets, $showcases, $comments, $data_requests, $app_requests);
 

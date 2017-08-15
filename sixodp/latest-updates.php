@@ -20,13 +20,16 @@ $types = array(
   'app_requests' => true,
 );
 
-if ($_POST['submit']) {
+if ($_GET['date']) $date = $_GET['date'];
+else $date = date('Y-m-d');
+
+if ($_GET['types']) {
   $types = array(
-    'datasets' => $_POST['datasets'] == 'on',
-    'showcases' => $_POST['showcases'] == 'on',
-    'comments' => $_POST['comments'] == 'on',
-    'data_requests' => $_POST['data_requests'] == 'on',
-    'app_requests' => $_POST['app_requests'] == 'on',
+    'datasets' => in_array('datasets', $_GET['types']),
+    'showcases' => in_array('showcases', $_GET['types']),
+    'comments' => in_array('comments', $_GET['types']),
+    'data_requests' => in_array('data_requests', $_GET['types']),
+    'app_requests' => in_array('app_requests', $_GET['types']),
   );
 }
 else {
@@ -39,7 +42,7 @@ else {
   );
 }
 
-print_r($types);
+var_dump($types);
 
 get_header(); ?>
 
@@ -54,20 +57,23 @@ get_header(); ?>
     </div>
 
     <div class="container">
-      <form action="" method="POST">
-        <input type="checkbox" name="datasets" value="on" <?php if ($types['datasets']) echo 'checked="checked"' ?> /> <?php _e('Datasets','sixodp') ?>
-        <input type="checkbox" name="showcases" value="on" <?php if ($types['showcases']) echo 'checked="checked"' ?> /> <?php _e('Applications','sixodp') ?>
-        <input type="checkbox" name="comments" value="on" <?php if ($types['comments']) echo 'checked="checked"' ?> /> <?php _e('Comments', 'sixodp') ?>
-        <input type="checkbox" name="data_requests" value="on" <?php if ($types['data_requests']) echo 'checked="checked"' ?> /> <?php _e('Data Requests', 'sixodp') ?>
-        <input type="checkbox" name="app_requests" value="on" <?php if ($types['app_requests']) echo 'checked="checked"' ?> /> <?php _e('App Requests', 'sixodp') ?>
-        <input type="submit" value="Päivitä" name="submit" />
+      <form action="" method="GET">
+        <input type="checkbox" value="datasets" name="types[]" <?php if ($types['datasets']) echo 'checked="checked"' ?> /> <?php _e('Datasets','sixodp') ?>
+        <input type="checkbox" value="showcases" name="types[]" <?php if ($types['showcases']) echo 'checked="checked"' ?> /> <?php _e('Applications','sixodp') ?>
+        <input type="checkbox" value="comments" name="types[]" <?php if ($types['comments']) echo 'checked="checked"' ?> /> <?php _e('Comments', 'sixodp') ?>
+        <input type="checkbox" value="data_requests" name="types[]" <?php if ($types['data_requests']) echo 'checked="checked"' ?> /> <?php _e('Data Requests', 'sixodp') ?>
+        <input type="checkbox" value="app_requests" name="types[]" <?php if ($types['app_requests']) echo 'checked="checked"' ?> /> <?php _e('App Requests', 'sixodp') ?>
+        <input type="submit" value="Päivitä" />
       </form>
     </div>
    
     <div class="container">
       <ul class="items-list">
       <?php
-      foreach ( get_latest_updates($types) as $index => $item ) : ?>
+      $updates = get_latest_updates($types, $date);
+
+      if (sizeof($updates) == 0) _e('No updates found for selected date.');
+      foreach ( $updates as $index => $item ) : ?>
         <li class="items-list-content">
           <div class="items-list__content">
             <h4 class="items-list__title">
@@ -88,6 +94,18 @@ get_header(); ?>
       <?php
       endforeach; ?>
       </ul>
+
+      <?php
+      $args = $_GET;
+
+      $uri = parse_url($_SERVER['REQUEST_URI']);
+
+      ?>
+
+      <a href="<?php echo $uri['path'] ?>?<?php echo http_build_query(array_merge($args, array('date' => date('Y-m-d', strtotime($date .'- 1 DAY'))))); ?>">« <?php _e('Previous day') ?></a>
+      <?php if ($date != date('Y-m-d')) { ?>
+        <a href="<?php echo $uri['path'] ?>?<?php echo http_build_query(array_merge($args, array('date' => date('Y-m-d', strtotime($date .'+ 1 DAY'))))); ?>"><?php _e('Next day') ?> »</a>
+      <?php } ?>
 
     </div>
    
