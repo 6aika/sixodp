@@ -12,7 +12,7 @@
   padding-bottom: $base*1.5;
 }
 
-.category {
+.category--box {
   @extend %box;
   border-radius: $base/5;
   background: $brand-white;
