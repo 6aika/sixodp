@@ -21,21 +21,24 @@ $category = get_queried_object();
 
 <div id="primary" class="content-area">
   <main id="main" class="site-main" role="main">
-  <?php
-
+    <?php
     while ( have_posts() ) : the_post();
     ?>
-    <div class="wrapper">
-      <div class="container">
+      <div class="wrapper">
+        <div class="container">
 
-        <?php
-          include( locate_template('partials/tuki-headingbar.php') );
-          include( locate_template('partials/tuki-sidebar.php') );
-          get_template_part( 'partials/content' );
-        ?>
+          <?php
+            include( locate_template('partials/tuki-headingbar.php') );
+          ?>
+          <div class="row">
+            <?php
+              include( locate_template('partials/tuki-sidebar.php') );
+              get_template_part( 'partials/content' );
+            ?>
+          </div>
+        </div>
       </div>
-    </div>
-    <?php
+      <?php
       $morelinks_title = "Lisää aiheesta";
 
       $args = array(
@@ -51,6 +54,5 @@ $category = get_queried_object();
     endwhile;
     ?>
   </main><!-- .site-main -->
-
 </div><!-- .content-area -->
 <?php get_footer(); ?>

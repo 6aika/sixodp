@@ -881,6 +881,7 @@ function custom_category_query($query) {
     if ($category->term_id == $expected_anchestor->term_id or cat_is_ancestor_of($expected_anchestor, $category)) {
       $query->set('post_type', 'page');
     }
+    $query->set('posts_per_page', 9);
   }
 
   return $query;
