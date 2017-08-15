@@ -167,3 +167,7 @@ recaptcha_sitekey: 6LfS9h8UAAAAACsWMtKTxlv81DWXiOAyF82xi1wZ
 google_analytics:
   id: UA-98421659-1
   account: Sixodp
+
+disqus_public_key: ''
+disqus_secret_key: ''
+disqus_short_name: ''
