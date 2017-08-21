@@ -30,6 +30,9 @@
 {%- elif entity_type == 'group' -%}
     {%- set controller = 'group' -%}
     {%- set module_placeholder = '<group>' -%}
+{%- elif entity_type == 'collection' -%}
+    {%- set controller = 'ckanext.collection.controller:CollectionController' -%}
+    {%- set module_placeholder = '<collection>' -%}
 {%- endif -%}
 
 {%- set prefix = h.url_for(controller=controller, action='read', id='') -%}
