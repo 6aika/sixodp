@@ -79,6 +79,23 @@
   }
 }
 
+.navbar-search {
+  width: 220px;
+  margin: 14px 10px;
+
+  .navbar-search-form {
+    display: none;
+  }
+
+  .navbar-search-btn {
+    float: right;
+  }
+
+  .btn {
+    padding: 5px 12px 4px 12px;
+  }
+}
+
 .subnav-toggle {
   text-align: center;
   display: inline-block;
