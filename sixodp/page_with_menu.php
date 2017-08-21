@@ -25,10 +25,15 @@ get_header(); ?>
 
           while ( have_posts() ) :       
             include(locate_template( 'partials/headingbar.php' ));
-            include(locate_template( 'partials/sidebar.php' ));
-            the_post();
-            get_template_part( 'partials/content' );
-
+            ?>
+            <div class="row">
+              <?php
+              include(locate_template( 'partials/sidebar.php' ));
+              the_post();
+              get_template_part( 'partials/content' );
+              ?>
+            </div>
+            <?php
           endwhile;
           
         ?>
