@@ -41,22 +41,6 @@
           </a>
         </li>
 
-        <!-- The markup for ckanext_pages is added directly, because -->
-        <!-- the markup in ckanext_pages does not have an inner <span> -->
-        <li>
-          <a href="{{ h.url_for('pages_index') }}" class="nav-link" title="{{ _('Pages') }}">
-            <i class="icon-file"></i>
-            <span class="text">{{ _('Pages') }}</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="{{ h.url_for('blog_index') }}" class="nav-link" title="{{ _('Blog') }}">
-            <i class="icon-pencil"></i>
-            <span class="text">{{ _('Blog') }}</span>
-          </a>
-        </li>
-        <!-- /ckanext_pages -->
 
         {% block header_account_logged %}
         {% endblock %}
