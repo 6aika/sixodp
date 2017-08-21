@@ -168,6 +168,6 @@ google_analytics:
   id: UA-98421659-1
   account: Sixodp
 
-disqus_public_key: ''
-disqus_secret_key: ''
-disqus_short_name: ''
+disqus_public_key: "{{ secret.disqus_public_key }}"
+disqus_secret_key: "{{ secret.disqus_secret_key }}"
+disqus_short_name: "{{ secret.disqus_short_name }}"
