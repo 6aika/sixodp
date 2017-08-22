@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sixodp\n"
-"POT-Creation-Date: 2017-06-05 11:08:12+00:00\n"
+"POT-Creation-Date: 2017-08-22 09:00:43+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Language-Team: Swedish (https://www.transifex.com/6aika-dataportal/teams/68018/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -13,8 +13,9 @@ msgstr ""
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ajankohtaista.php:25 partials/featured-datasets.php:16
-#: partials/horizaccordion.php:61 partials/latest-updates.php:10
+#: ajankohtaista.php:25 latest-updates.php:56
+#: partials/featured-datasets.php:16 partials/horizontal-accordion.php:51
+#: partials/latest-updates.php:10
 msgid "Latest updates"
 msgstr ""
 
@@ -22,7 +23,51 @@ msgstr ""
 msgid "Twitter"
 msgstr ""
 
-#: category.php:48
+#: app_request_form.php:27 data_request_form.php:27
+msgid "Content is required"
+msgstr ""
+
+#: app_request_form.php:28 data_request_form.php:28
+msgid "Title is required"
+msgstr ""
+
+#: app_request_form.php:29 data_request_form.php:29
+msgid "Email is required"
+msgstr ""
+
+#: app_request_form.php:30 data_request_form.php:30
+msgid "Email must be valid"
+msgstr ""
+
+#: app_request_form.php:31 data_request_form.php:31
+msgid "Name is required and must be over 3 characters long"
+msgstr ""
+
+#: app_request_form.php:61 data_request_form.php:61
+msgid "Thank you for submission."
+msgstr ""
+
+#: app_request_form.php:71 data_request_form.php:71
+msgid "Title"
+msgstr ""
+
+#: app_request_form.php:73 data_request_form.php:73
+msgid "Your request"
+msgstr ""
+
+#: app_request_form.php:81 data_request_form.php:81
+msgid "Name"
+msgstr ""
+
+#: app_request_form.php:83 data_request_form.php:83
+msgid "Email"
+msgstr ""
+
+#: app_request_form.php:85 data_request_form.php:85
+msgid "Submit"
+msgstr ""
+
+#: category.php:51
 msgid "Categories"
 msgstr ""
 
@@ -38,67 +83,79 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: functions.php:41 partials/nav.php:7
+#: functions.php:44 partials/nav.php:7
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:42
+#: functions.php:45
 msgid "Secondary Menu"
 msgstr ""
 
-#: functions.php:43
+#: functions.php:46
 msgid "Social Links Menu"
 msgstr ""
 
-#: functions.php:44
+#: functions.php:47
 msgid "Footer Menu"
 msgstr ""
 
-#: functions.php:192
+#: functions.php:196
 msgctxt "post type general name"
 msgid "Notifications"
 msgstr ""
 
-#: functions.php:193
+#: functions.php:197
 msgctxt "post type singular name"
 msgid "Notification"
 msgstr ""
 
-#: functions.php:194
+#: functions.php:198
 msgctxt "Notification"
 msgid "Add New"
 msgstr ""
 
-#: functions.php:195
+#: functions.php:199
 msgid "Add New Notification"
 msgstr ""
 
-#: functions.php:196
+#: functions.php:200
 msgid "Edit Notification"
 msgstr ""
 
-#: functions.php:197
+#: functions.php:201
 msgid "New Notification"
 msgstr ""
 
-#: functions.php:198
+#: functions.php:202
 msgid "All Notifications"
 msgstr ""
 
-#: functions.php:199
+#: functions.php:203
 msgid "View Notification"
 msgstr ""
 
-#: functions.php:200
+#: functions.php:204
 msgid "Search notifications"
 msgstr ""
 
-#: functions.php:201
+#: functions.php:205
 msgid "No notifications found"
 msgstr ""
 
-#: functions.php:202
+#: functions.php:206
 msgid "No notifications found in the Trash"
+msgstr ""
+
+#: functions.php:625 partials/featured-datasets.php:23
+msgid "days"
+msgstr ""
+
+#: functions.php:625 partials/featured-datasets.php:24
+msgid "hours"
+msgstr ""
+
+#: functions.php:625 partials/featured-datasets.php:25
+msgid "ago"
 msgstr ""
 
 #: index.php:46
@@ -113,104 +170,110 @@ msgstr ""
 msgid "Page"
 msgstr ""
 
+#: latest-updates.php:61 partials/featured-datasets.php:11
+#: partials/hero.php:21 partials/hero.php:24
+#: partials/search-content-data.php:30 partials/search-content.php:30
+#: partials/stats.php:14
+msgid "Datasets"
+msgstr ""
+
+#: latest-updates.php:62 partials/hero.php:25
+#: partials/search-content-data.php:33 partials/search-content.php:33
+#: partials/stats.php:22
+msgid "Applications"
+msgstr ""
+
+#: latest-updates.php:63
+msgid "Comments"
+msgstr ""
+
+#: latest-updates.php:64
+msgid "Data Requests"
+msgstr ""
+
+#: latest-updates.php:65
+msgid "App Requests"
+msgstr ""
+
+#: latest-updates.php:75
+msgid "No updates found for selected date."
+msgstr ""
+
+#: latest-updates.php:106
+msgid "Previous day"
+msgstr ""
+
+#: latest-updates.php:109
+msgid "Next day"
+msgstr ""
+
 #: partials/article-footer.php:12 partials/content.php:18
 #: partials/page-content.php:23
 msgid "Author"
 msgstr ""
 
-#: partials/card.php:16 partials/horizaccordion.php:45
+#: partials/card.php:16
 msgid "Read more"
 msgstr ""
 
-#: partials/featured-content.php:10
-msgid "Datasets and applications"
-msgstr ""
-
-#: partials/featured-content.php:16
+#: partials/featured-content.php:12
 msgid "Do you have a dataset or an application to share?"
 msgstr ""
 
-#: partials/featured-content.php:17
+#: partials/featured-content.php:13
 msgid "Share it!"
 msgstr ""
 
-#: partials/featured-content.php:19
+#: partials/featured-content.php:15
 msgid "Submit an application"
 msgstr ""
 
-#: partials/featured-content.php:20
+#: partials/featured-content.php:16
 msgid "Submit a dataset"
 msgstr ""
 
-#: partials/featured-content.php:24
+#: partials/featured-content.php:20
 msgid "Do you have a request for a dataset or an idea for application?"
 msgstr ""
 
-#: partials/featured-content.php:25
+#: partials/featured-content.php:21
 msgid "Tell us!"
 msgstr ""
 
-#: partials/featured-content.php:27
+#: partials/featured-content.php:23
 msgid "Share an open data idea"
 msgstr ""
 
-#: partials/featured-content.php:28
+#: partials/featured-content.php:24
 msgid "Share an application"
 msgstr ""
 
-#: partials/featured-content.php:35
+#: partials/featured-content.php:31
 msgid "Latest applications"
 msgstr ""
 
-#: partials/featured-content.php:56
+#: partials/featured-content.php:52
 msgid "All applications"
 msgstr ""
 
-#: partials/featured-content.php:62
+#: partials/featured-content.php:58
 msgid "Latest datasets"
 msgstr ""
 
-#: partials/featured-content.php:90 partials/stats.php:35
+#: partials/featured-content.php:83 partials/stats.php:35
 msgid "All datasets"
 msgstr ""
 
-#: partials/featured-datasets.php:11 partials/hero.php:21 partials/hero.php:24
-#: partials/search-content-data.php:30 partials/search-content.php:30
-#: partials/stats.php:13
-msgid "Datasets"
-msgstr ""
-
-#: partials/featured-datasets.php:23 partials/featured-datasets.php:48
-msgid "days"
-msgstr ""
-
-#: partials/featured-datasets.php:24 partials/featured-datasets.php:49
-msgid "hours"
-msgstr ""
-
-#: partials/featured-datasets.php:25 partials/featured-datasets.php:50
-msgid "ago"
-msgstr ""
-
-#: partials/featured-datasets.php:55
-msgid "Article"
-msgstr ""
-
-#: partials/featured-datasets.php:68 partials/latest-updates.php:48
+#: partials/featured-datasets.php:46 partials/latest-updates.php:49
 msgid "More updates"
 msgstr ""
 
-#: partials/headingbar.php:10
-msgid "Support"
+#: partials/hero.php:14
+msgid "6Aika Open Data Portal"
 msgstr ""
 
-#: partials/headingbar.php:13
-msgid "How to start"
-msgstr ""
-
-#: partials/hero.php:25 partials/search-content-data.php:33
-#: partials/search-content.php:33 partials/stats.php:19
-msgid "Applications"
+#: partials/hero.php:15
+msgid "Open data for free utilization"
 msgstr ""
 
 #: partials/hero.php:26
@@ -229,7 +292,7 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: partials/horizaccordion.php:58
+#: partials/horizontal-accordion.php:48
 msgid "Show all"
 msgstr ""
 
@@ -257,20 +320,28 @@ msgstr ""
 msgid "results"
 msgstr ""
 
-#: partials/stats.php:25
-msgid "Publishers"
+#: partials/social_links.php:4
+msgid "Follow us"
 msgstr ""
 
-#: partials/stats.php:31
+#: partials/stats.php:30
 msgid "Interfaces"
 msgstr ""
 
-#: partials/tuki-contactbanner.php:14
+#: partials/tuki-contactbanner.php:16
 msgid "Any questions?"
 msgstr ""
 
-#: partials/tuki-contactbanner.php:15
+#: partials/tuki-contactbanner.php:17
 msgid "Contact us"
+msgstr ""
+
+#: partials/tuki-headingbar.php:10
+msgid "Support"
+msgstr ""
+
+#: partials/tuki-sidebar.php:49 tuki.php:34
+msgid "Themes"
 msgstr ""
 
 #: searchform.php:4
@@ -288,7 +359,23 @@ msgid "Ajankohtaista"
 msgstr ""
 
 #. Template Name of the plugin/theme
+msgid "Sovellustoive-lomake"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Datatoive-lomake"
+msgstr ""
+
+#. Template Name of the plugin/theme
 msgid "Home"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Viimeisimmät päivitykset"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Oletuspohja valikolla"
 msgstr ""
 
 #. Template Name of the plugin/theme
