@@ -14,3 +14,15 @@ body {
   margin: 0;
   background: $brand-background;
 }
+
+.container {
+  width: 100%;
+
+  @media (min-width: $width-md) {
+    width: 960px;
+  }
+
+  @media (min-width: $width-lg) {
+    width: 1170px;
+  }
+}
