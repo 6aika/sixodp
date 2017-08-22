@@ -20,8 +20,14 @@ $types = array(
   'app_requests' => true,
 );
 
-if ($_GET['date']) $date = $_GET['date'];
-else $date = date('Y-m-d');
+if ($_GET['date']) {
+  $date = strtotime($_GET['date']);
+
+  $date = $date - 86400 * (date('N', $date) - 1);
+}
+else $date = strtotime("last monday");
+
+$date = date('Y-m-d', $date);
 
 if ($_GET['types']) {
   $types = array(
@@ -41,8 +47,6 @@ else {
     'app_requests' => true,
   );
 }
-
-var_dump($types);
 
 get_header(); ?>
 
@@ -72,7 +76,7 @@ get_header(); ?>
       <?php
       $updates = get_latest_updates($types, $date);
 
-      if (sizeof($updates) == 0) _e('No updates found for selected date.');
+      if (sizeof($updates) == 0) _e('No updates found for selected week.');
       foreach ( $updates as $index => $item ) : ?>
         <li class="items-list-content">
           <div class="items-list__content">
@@ -100,13 +104,12 @@ get_header(); ?>
       $uri = parse_url($_SERVER['REQUEST_URI']);
       ?>
 
-
       <div class="paginate">
         <div class="paginate-prev">
-          <?php echo '<a href="'. $uri['path'] .'?'. http_build_query(array_merge($args, array('date' => date('Y-m-d', strtotime($date .'- 1 DAY'))))) .'">« '.__('Previous day') .'</a>'; ?>
+          <?php echo '<a href="'. $uri['path'] .'?'. http_build_query(array_merge($args, array('date' => date('Y-m-d', strtotime($date .'- 1 WEEK'))))) .'">« '.__('Previous week') .'</a>'; ?>
         </div>
         <div class="paginate-next">
-          <?php if ($date != date('Y-m-d')) echo '<a href="'. $uri['path'] .'?'. http_build_query(array_merge($args, array('date' => date('Y-m-d', strtotime($date .'+ 1 DAY'))))) .'">'.__('Next day') .' »</a>'; ?>
+          <?php if ($date != date('Y-m-d', strtotime('last monday'))) echo '<a href="'. $uri['path'] .'?'. http_build_query(array_merge($args, array('date' => date('Y-m-d', strtotime($date .'+ 1 WEEK'))))) .'">'.__('Next week') .' »</a>'; ?>
         </div>
       </div>
     </div>
