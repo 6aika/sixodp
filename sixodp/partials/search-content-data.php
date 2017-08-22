@@ -50,15 +50,15 @@
                $results = $data_dataset;
             }
         ?>
-        <h3 class="heading"><?php echo $results['count']; ?><?php _e('Results', 'sixodp');?> </h3>
+        <h3 class="heading"><?php printf( esc_html( _n( 'Found %d result', 'Found %d results', $results['count'], 'sixodp' ) ), $results['count'] ); ?></h3>
             <ul class="search-content__list">
               <?php foreach ( $results['results'] as $result ) : ?>
               <li class="search-content">
                 <div class="search-content__content">
                   <span class="search-content__type"><?php echo $item['type']; ?></span>
                   <h4 class="search-content__title">
-                    <a class="search-content__link" href="/dataset/<?php echo $result['name']; ?>">
-                      <?php echo $result['name']; ?>
+                    <a class="search-content__link" href="<?php echo CKAN_BASE_URL ?>/<?php echo get_lang(); ?>/dataset/<?php echo $result['name']; ?>">
+                      <?php echo get_translated($result, 'title'); ?>
                     </a>
                   </h4>
                   <div class="search-content__body">
@@ -67,7 +67,7 @@
                             <?php echo $result['date_updated'];?>
                         </span>
                     </div>
-                    <p class="search-content__info"><?php echo get_translated($result, 'notes'); ?></p>
+                    <p class="search-content__info"><?php echo wp_trim_words( get_translated($result, 'notes'), 55, '...' ); ?></p>
                   </div>
                 </div>
               </li>
