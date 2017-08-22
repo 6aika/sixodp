@@ -13,7 +13,7 @@
               </li>
             </ul>
           </div>
-          <button type="button" class="btn btn-lg btn-transparent" data-trigger="popper">{{ _('Login') }}</button>
+          <button type="button" class="btn btn-transparent" data-trigger="popper">{{ _('Login') }}</button>
         </div>
       </div>
       <div class="row row-compensate">
@@ -27,19 +27,17 @@
         </div>
         <div class="col-md-6 pull-right footer-column">
           {% set social_links = h.get_social_links() %}
-          {% if social_links %}
-            <div class="row row-compensate">
-              <div class="col-xs-12 text-right">
-                <div class="footer-follow-links">
-                  <span class="footer-follow-title">{{ _('Follow us') }}</span>
-                  {% for item in social_links %}
-                    {% set icon_class = h.get_social_link_icon_class(item) %}
-                    <a href="{{item.url}}" title="{{item.title}}" class="footer-follow-link"><i class="{{icon_class}} fa-2x"></i></a>
-                  {% endfor %}
-                </div>
+          <div class="row row-compensate">
+            <div class="col-xs-12 text-right">
+              <div class="footer-follow-links">
+                <span class="footer-follow-title">{{ _('Follow us') }}</span>
+                {% for item in social_links %}
+                  {% set icon_class = h.get_social_link_icon_class(item) %}
+                  <a href="{{item.url}}" title="{{item.title}}" class="footer-follow-link"><i class="{{icon_class}} fa-2x"></i></a>
+                {% endfor %}
               </div>
             </div>
-          {% endif %}
+          </div>
         </div>
       </div>
 
