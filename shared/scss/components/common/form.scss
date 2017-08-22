@@ -2,3 +2,74 @@
   line-height: $base*3;
   padding-right: 0;
 }
+
+.form-control {
+  background-color: $input-background-color;
+}
+
+form {
+  .control-group {
+    position: relative;
+    margin: $margin-large-vertical 0;
+
+    label {
+      color: $brand-primary;
+    }
+
+    input {
+      @extend .form-control;
+    }
+  }
+
+  .form-group {
+    display: inline-block;
+    width: 100%;
+    margin: $margin-large-vertical 0;
+  }
+
+  .form-group-fluent {
+    label {
+      color: $brand-primary;
+
+      &:not(.group-label) {
+        display: inline;
+        position: absolute;
+        right: 10px;
+        z-index: 2;
+      }
+    }
+
+    .control-group {
+      &:first-of-type {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .field-assistive-text {
+    margin-bottom: $margin-large-vertical;
+    padding-bottom: $padding-large-vertical*2;
+  }
+
+  .form-select {
+    width: 100%;
+
+    @media (min-width: $width-sm) {
+      width: 33%;
+    }
+  }
+
+  .form-actions {
+    .action-info {
+      margin: $margin-large-vertical*2 0;
+    }
+
+    .btn {
+      margin-right: $margin-large-horizontal*2;
+    }
+
+    .control-required-message {
+      margin: $margin-large-vertical*2 0;
+    }
+  }
+}

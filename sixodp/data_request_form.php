@@ -49,12 +49,14 @@ if (isset($_POST['data_request_submit_form'])) {
 get_header(); ?>
 
 <div id="primary" class="content-area">
-  <main id="main" class="site-main site-main--home" role="main">
+  <main id="main" role="main">
     <?php
       get_template_part('partials/header-logos');
     ?>
 
     <div class="container">
+      <h1 class="page-heading"><?php _e('New Data Request', 'sixodp') ?></h1>
+
       <?php
 
       if ($welcome_page && sizeof($errors) == 0) {
@@ -68,21 +70,54 @@ get_header(); ?>
         }
         ?>
         <form action="" method="POST">
-          <label for="data_request_title"><?php _e('Title', 'sixodp');?></label>
-          <input type="text" name="data_request_title" id="data_request_title" class="form-control" value="<?php echo $name; ?>" />
-          <label for="data_request_content"><?php _e('Your request', 'sixodp');?></label>
-          <?php
-          wp_editor($content, 'data_request_content', array(
-            'textarea_rows' => 5,
-            'media_buttons' => false,
-            'quicktags' => false
-          ));
-          ?>
-          <label for="data_request_name"><?php _e('Name', 'sixodp');?></label>
-          <input type="text" name="data_request_name" id="data_request_name" class="form-control" value="<?php echo $name; ?>" />
-          <label for="data_request_email"><?php _e('Email', 'sixodp');?></label>
-          <input type="text" name="data_request_email" id="data_request_email" class="form-control" value="<?php echo $email; ?>"/>
-          <button type="submit" class="btn btn-lg btn-primary" name="data_request_submit_form"><?php _e('Submit', 'sixodp');?></button>
+          <p><?php _e('By filling this form you can submit your data request. ', 'sixodp') ?></p>
+
+          <div class="col-xs-12">
+            <div class="control-group control-full">
+              <label class="control-label" for="data_request_title"><span title="This field is required" class="control-required">*</span> <?php _e('Title', 'sixodp');?></label>
+              <div class="controls ">             
+                <input type="text" name="data_request_title" id="data_request_title" class="form-control" value="<?php echo $name; ?>" placeholder="<?php _e('eg. A descriptive title') ?>" />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12">
+            <div class="control-group control-full">
+              <label class="control-label" for="data_request_content"><span title="This field is required" class="control-required">*</span> <?php _e('Your request', 'sixodp');?></label>
+              <div class="controls">             
+                <?php
+                wp_editor($content, 'data_request_content', array(
+                  'textarea_rows' => 5,
+                  'media_buttons' => false,
+                  'quicktags' => false
+                ));
+                ?>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-md-8">
+            <div class="control-group control-medium">
+              <label class="control-label" for="data_request_name"><span title="This field is required" class="control-required">*</span> <?php _e('Name', 'sixodp');?></label>
+              <div class="controls ">             
+                <input type="text" name="data_request_name" id="data_request_name" class="form-control" value="<?php echo $name; ?>" />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-md-8">
+            <div class="control-group control-medium">
+              <label class="control-label" for="data_request_email"><span title="This field is required" class="control-required">*</span> <?php _e('Email', 'sixodp');?></label>
+              <div class="controls ">             
+                <input type="text" name="data_request_email" id="data_request_email" class="form-control" value="<?php echo $name; ?>" />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12">
+            <hr>
+            <button type="submit" class="btn btn-primary" name="data_request_submit_form"><?php _e('Submit', 'sixodp');?></button>
+          </div>
         </form>
         <?php
       }
