@@ -21,7 +21,7 @@
   {% endblock %}
   {% block description %}
     {% if group.description %}
-      <p>{{ h.markdown_extract(group.description) }}</p>
+      <p>{{ h.markdown_extract(h.get_translated(group, 'description')) }}</p>
     {% endif %}
   {% endblock %}
   {% block datasets %}
