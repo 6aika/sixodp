@@ -28,7 +28,9 @@ variable in this script file."
 
 function compile_translations_for_extension {
   cd ../ckanext/ckanext-$1
-  tx pull -a
+  echo -e "Pulling translations for ckanext-$1"
+  tx pull -a -f
+  echo -e "Compiling translations for ckanext-$1"
   python setup.py compile_catalog -f
   cd ../../tools
   echo -e "Translations compiled for ckanext-$1"
