@@ -44,30 +44,38 @@
       </div>
       <div class="col-md-8 search-content">
         <?php
-            if(isset($_GET['showcase'])) {
-               $results = $data_showcase;
-            } else {
-               $results = $data_dataset;
-            }
+          $type = 'dataset';
+          if(isset($_GET['showcase'])) {
+            $results = $data_showcase;
+            $type = 'showcase';
+          }
+          else {
+            $results = $data_dataset;
+          }
         ?>
-        <h3 class="heading"><?php echo $results['count']; ?><?php _e('Results', 'sixodp');?> </h3>
+        <h3 class="heading"><?php printf( esc_html( _n( 'Found %d result', 'Found %d results', $results['count'], 'sixodp' ) ), $results['count'] ); ?></h3>
             <ul class="search-content__list">
               <?php foreach ( $results['results'] as $result ) : ?>
               <li class="search-content">
                 <div class="search-content__content">
                   <span class="search-content__type"><?php echo $item['type']; ?></span>
                   <h4 class="search-content__title">
-                    <a class="search-content__link" href="/dataset/<?php echo $result['name']; ?>">
-                      <?php echo $result['name']; ?>
+                    <a class="search-content__link" href="<?php echo CKAN_BASE_URL ?>/<?php echo get_lang(); ?>/<?php echo $type ?>/<?php echo $result['name']; ?>">
+                      <?php echo get_translated($result, 'title'); ?>
                     </a>
                   </h4>
                   <div class="search-content__body">
                     <div class="metadata">
                         <span class="time">
-                            <?php echo $result['date_updated'];?>
+                          <?php
+                            if (isset($result['date_updated'])) {
+                              $date = DateTime::createFromFormat('Y-m-j', $result['date_updated']);
+                              echo $date->format('d.m.Y');
+                            }
+                          ?>
                         </span>
                     </div>
-                    <p class="search-content__info"><?php echo get_translated($result, 'notes'); ?></p>
+                    <p class="search-content__info"><?php echo wp_trim_words( get_translated($result, 'notes'), 55, '...' ); ?></p>
                   </div>
                 </div>
               </li>
