@@ -67,7 +67,7 @@ if ($grandparent_id != $category->term_id) {
             </div>
           </div>
         </div>
-        <div class="col-md-8 news-content cards--post">
+        <div class="col-md-8 news-content">
           <div class="cards--post">
             <?php
             while ( have_posts() ) : the_post(); ?>
