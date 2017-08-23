@@ -153,6 +153,7 @@
 .cards--post {
   @extend .cards;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .card--post {
