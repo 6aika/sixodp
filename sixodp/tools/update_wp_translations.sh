@@ -13,10 +13,13 @@ Pulls Wordpress translation files from Transifex and compiles the files to .mo.\
 in the default path relative to this script: $TRANSLATIONS_PATH/<language>/LC_MESSAGES/<language_file.po>\n"
 
 function compile_translations {
-  tx pull -a
+  tx pull -a -f
   msgfmt "$TRANSLATIONS_PATH/en_GB/LC_MESSAGES/sixodp.po" -o "$TRANSLATIONS_PATH/en_GB/LC_MESSAGES/sixodp-en_GB.mo"
+  cp $TRANSLATIONS_PATH/en_GB/LC_MESSAGES/sixodp-en_GB.mo /opt/wordpress/wp-content/languages/themes/
   msgfmt "$TRANSLATIONS_PATH/fi/LC_MESSAGES/sixodp.po" -o "$TRANSLATIONS_PATH/fi/LC_MESSAGES/sixodp-fi.mo"
+  cp $TRANSLATIONS_PATH/fi/LC_MESSAGES/sixodp-fi.mo /opt/wordpress/wp-content/languages/themes/
   msgfmt "$TRANSLATIONS_PATH/sv/LC_MESSAGES/sixodp.po" -o "$TRANSLATIONS_PATH/sv/LC_MESSAGES/sixodp-sv.mo"
+  cp $TRANSLATIONS_PATH/sv/LC_MESSAGES/sixodp-sv.mo /opt/wordpress/wp-content/languages/themes/
   echo -e "Translations compiled, exiting..."
 }
 
