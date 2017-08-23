@@ -7,7 +7,7 @@
 <div class="container">
   <div class="row">
     <div class="stats">
-      <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale(); ?>/dataset" class="stat__link">
+      <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale_ckan(); ?>/dataset" class="stat__link">
         <div class="stat__wrapper">
           <div class="stat">
             <div class="stat__value counter"><?php echo get_dataset_count(); ?></div>
@@ -15,7 +15,7 @@
           </div>
         </div>
       </a>
-      <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale(); ?>/showcase" class="stat__link">
+      <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale_ckan(); ?>/showcase" class="stat__link">
         <div class="stat__wrapper">
           <div class="stat">
             <div class="stat__value counter"><?php echo get_showcases_count(); ?></div>
@@ -32,7 +32,7 @@
         </div>
       </a>
       <div class="stat__wrapper">
-        <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale(); ?>/dataset" class="btn btn-lg btn-secondary"><?php _e('All datasets', 'sixodp');?></a>
+        <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale_ckan(); ?>/dataset" class="btn btn-lg btn-secondary"><?php _e('All datasets', 'sixodp');?></a>
       </div>
     </div>
   </div>
