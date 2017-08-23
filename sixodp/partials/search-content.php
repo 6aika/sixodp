@@ -43,7 +43,7 @@
           </div>
       </div>
       <div class="col-md-8 search-content">
-        <h3 class="heading"><?php echo $wp_query->found_posts; ?> <?php _e('results', 'sixodp');?> </h3>
+        <h3 class="heading"><?php printf( esc_html( _n( 'Found %d result', 'Found %d results', $wp_query->found_posts, 'sixodp' ) ), $wp_query->found_posts ); ?></h3>
             <ul class="search-content__list">
               <?php
               // Start the loop.
