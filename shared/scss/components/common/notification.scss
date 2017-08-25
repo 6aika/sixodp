@@ -1,8 +1,12 @@
 .notification {
   background: #E89D21;
   color: #fff;
-  padding: $base $base;
+  padding: $base/2 $base;
   font-size: $font-size-base;
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+  top: 0;
 
   &.info {
       background: $brand-info;
@@ -21,7 +25,7 @@
   }
 
   @media (min-width: $width-md) {
-    padding: $base $base*4.5;
+    padding: $base/2 $base*4.5;
   }
 }
 

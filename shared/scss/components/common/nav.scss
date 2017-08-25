@@ -195,13 +195,16 @@
 }
 
 // Compensate for the wp admin bar and notification bar
-$notification-height: 2*$base + 24px;
 $admin-bar-height: 46px;
 $admin-bar-height-desktop: 32px;
 
 .notification {
-  + .navbar-fixed-top {
-    margin-top: $notification-height;
+  ~ .navbar-fixed-top {
+    margin-top: $notificationbar-height;
+  }
+
+  ~ #main .statistics-nav.affix {
+    top: $navbar-height + $notificationbar-height;
   }
 }
 
@@ -215,13 +218,20 @@ $admin-bar-height-desktop: 32px;
   }
 
   .notification {
-    + .navbar-fixed-top {
-      margin-top: $admin-bar-height + $notification-height;
+    margin-top: $admin-bar-height;
 
-      @media(min-width: 783px) {
-        margin-top: $admin-bar-height-desktop + $notification-height;
+    ~ .navbar-fixed-top {
+      margin-top: $admin-bar-height + $notificationbar-height;
+    }
+
+    @media(min-width: 783px) {
+      margin-top: $admin-bar-height-desktop;
+
+      ~ .navbar-fixed-top {
+        margin-top: $admin-bar-height-desktop + $notificationbar-height;
       }
     }
+
   }
 
   #wpadminbar {
