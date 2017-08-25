@@ -75,14 +75,6 @@ if ( !function_exists('sixodp_theme_setup') ) :
       'audio',
       'chat',
     ) );
-
-    create_primary_menus();
-    create_default_pages();
-    create_default_categories();
-    create_secondary_menus();
-    create_footer_menus();
-    create_social_media_menus();
-
   }
 endif; // twentysixteen_setup
 add_action( 'after_setup_theme', 'sixodp_theme_setup' );
