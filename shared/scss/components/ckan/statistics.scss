@@ -144,46 +144,57 @@
 .statistics-nav-filters {
   width: 100%;
   padding: $padding-large-vertical 0;
-}
 
-.statistics-filter.form-control {
-  width: 48%;
-  float: none;
-  display: inline-block;
-
-  @media(min-width: $width-xs) {
-    margin: 0;
+  .statistics-filter-container {
+    height: auto;
     display: inline-block;
-  }
+    width: 100%;
 
-  @media(min-width: $width-sm) {
-    width: 200px;
-
-    &.statistics-filter-organization {
-      float: left;
+    &.statistics-filter-container-left,
+    &.statistics-filter-container-right{
+      float: none;
     }
 
-    &.statistics-filter-category {
-      float: right;
+    .form-control {
+      width: 100%;
+      margin-top: 5px;
+    }
+
+    &.statistics-filter-datespan {
+      width: 100%;
+    }
+
+    @media(min-width: $width-xs) {
+      width: 48%;
+
+      &.statistics-filter-datespan {
+        .form-control {
+          width: 47%;
+        }
+      }
+    }
+
+    @media(min-width: $width-sm) {
+      width: 25%;
+
+      .form-control {
+        margin-top: 0;
+      }
+
+      &.statistics-filter-datespan {
+        width: 50%;
+      }
+
+      &.statistics-filter-container-left {
+        float: left;
+      }
+
+      &.statistics-filter-container-right {
+        float: right;
+      }
     }
   }
-
-  @media(min-width: $width-lg) {
-    width: 300px;
-  }
 }
-
-.statistics-filter-datespan {
-  display: inline-block;
-  width: 100%;
-  margin-bottom: $margin-small-vertical;
-
-  @media(min-width: $width-md) {
-    width: auto;
-    margin-bottom: 0;
-  }
-}
-
 .js-statistics-filter-datespan-fields {
   position: relative;
 
