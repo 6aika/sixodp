@@ -194,13 +194,33 @@
 
 }
 
-// Compensate for the wp admin bar
+// Compensate for the wp admin bar and notification bar
+$notification-height: 2*$base + 24px;
+$admin-bar-height: 46px;
+$admin-bar-height-desktop: 32px;
+
+.notification {
+  + .navbar-fixed-top {
+    margin-top: $notification-height;
+  }
+}
+
 .admin-bar {
   .navbar-fixed-top {
-    margin-top: 46px;
+    margin-top: $admin-bar-height;
 
     @media(min-width: 783px) {
-      margin-top: 32px;
+      margin-top: $admin-bar-height-desktop;
+    }
+  }
+
+  .notification {
+    + .navbar-fixed-top {
+      margin-top: $admin-bar-height + $notification-height;
+
+      @media(min-width: 783px) {
+        margin-top: $admin-bar-height-desktop + $notification-height;
+      }
     }
   }
 
