@@ -18,12 +18,12 @@
           <div class="input-group">
             <div class="input-group-btn">
               <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span id="selected-domain" data-value="/data/dataset"><?php _e('Datasets', 'sixodp');?> </span> <span class="caret"></span>
+                <span id="selected-domain" data-value="/dataset"><?php _e('Datasets', 'sixodp');?> </span> <span class="caret"></span>
               </button>
               <ul class="dropdown-menu dropdown-menu-right">
-                <li><a data-value="/data/dataset"><?php _e('Datasets', 'sixodp');?> </a></li>
-                <li><a data-value="/data/showcase"><?php _e('Applications', 'sixodp');?> </a></li>
-                <li><a data-value="/data/collection"><?php _e('Collections', 'sixodp');?> </a></li>
+                <li><a data-value="/dataset"><?php _e('Datasets', 'sixodp');?> </a></li>
+                <li><a data-value="/showcase"><?php _e('Applications', 'sixodp');?> </a></li>
+                <li><a data-value="/collection"><?php _e('Collections', 'sixodp');?> </a></li>
                 <li><a data-value="/posts"><?php _e('Articles', 'sixodp');?> </a></li>
                 <li role="separator" class="divider"></li>
                 <li><a data-value="/posts"><?php _e('Other', 'sixodp');?> </a></li>

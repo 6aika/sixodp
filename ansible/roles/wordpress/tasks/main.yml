@@ -97,6 +97,7 @@
   become: yes
   become_user: www-data
 
+
 - name: Create WP-CLI directory
   file:
     state: directory
@@ -113,11 +114,11 @@
     with_items: "{{ polylang_languages }}"
     ignore_errors: true
 
-  - name: Disable polylang url modifications
-    command: wp pll option update force_lang 0 --path=/opt/wordpress
+  - name: Configure polylang
+    command: wp pll option update "{{ item.option }}" "{{ item.value }}" --path=/opt/wordpress
+    with_items: "{{ polylang_config }}"
+    ignore_errors: true
 
-  - name: Disable polylang url rewrite
-    command: wp pll option update rewrite 0 --path=/opt/wordpress
 
   become: yes
   become_user: www-data
@@ -156,6 +157,11 @@
   become: yes
   become_user: www-data
 
+- name: Create initial content for WordPress
+  command: wp eval-file /opt/wordpress/wp-content/themes/sixodp/initialize_theme.php --path=/opt/wordpress 
+  become: yes
+  become_user: www-data
+  
 - include: local_plugin.yml
   with_items: "{{ wordpress_local_plugins }}"
 
