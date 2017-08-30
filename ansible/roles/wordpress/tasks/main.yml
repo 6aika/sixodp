@@ -97,6 +97,7 @@
   become: yes
   become_user: www-data
 
+
 - name: Create WP-CLI directory
   file:
     state: directory
@@ -156,6 +157,11 @@
   become: yes
   become_user: www-data
 
+- name: Create initial content for WordPress
+  command: wp eval-file /opt/wordpress/wp-content/themes/sixodp/initialize_theme.php --path=/opt/wordpress 
+  become: yes
+  become_user: www-data
+  
 - include: local_plugin.yml
   with_items: "{{ wordpress_local_plugins }}"
 
