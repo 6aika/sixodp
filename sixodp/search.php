@@ -13,7 +13,7 @@
  	<main id="main" class="site-main site-main--search" role="main">
     <?php get_template_part('partials/header-logos'); ?>
 
-		<h1 class="page-title">Hae sivustolta</h1>
+		<h1 class="page-title"><?php _e('Search from site') ?></h1>
         <?php get_search_form(); ?>
         <?php if(isset($_GET['datasearch'])) {
             get_template_part( 'partials/search-content-data' );

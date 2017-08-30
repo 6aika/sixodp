@@ -22,7 +22,13 @@ wordpress_plugins:
 polylang_languages: 
   - { name: 'Suomi', code: 'fi', locale: 'fi', flag: 'fi' }
   - { name: 'Svenska', code: 'sv', locale: 'sv', flag: 'se' }
-  - { name: 'English', code: 'en', locale: 'en_GB', flag: 'gb' }
+  - { name: 'English', code: 'en_gb', locale: 'en_GB', flag: 'gb' }
+
+polylang_config: 
+  - { option: 'force_lang', value: 1 }
+  - { option: 'rewrite', value: 1 }
+  - { option: 'hide_default', value: 0 }
+  - { option: 'redirect_lang', value: 1 }
 
 wp_cli_version: "1.3.0"
 wp_cli_checksum: sha512:710d41171358fbaff5962e23d1acfda1327e03cbc59bb7c5d8a7ff87fee009ac678bc8f8e690bc743f40bc54ae8907f1f16e4e5abd166c05dc7769cd15b00084

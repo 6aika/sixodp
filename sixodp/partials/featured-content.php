@@ -63,14 +63,14 @@
       <?php foreach ( get_latest_datasets() as $dataset ) : ?>
         <div class="card">
           <h3 class="card__title">
-            <a href="<?php echo CKAN_BASE_URL.'/'.get_current_locale().'/dataset/'.$dataset['name']; ?>">
+            <a href="<?php echo CKAN_BASE_URL.'/'.get_current_locale_ckan().'/dataset/'.$dataset['name']; ?>">
               <?php echo get_translated($dataset, 'title'); ?>
             </a>
           </h3>
           <div class="card__meta">
             <span class="card__timestamp"><?php echo parse_date($dataset['date_released']); ?></span>
             <span style="margin-left: 2px; margin-right: 2px;">&bull;</span>
-            <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale(); ?>/<?php echo $dataset['type']; ?>" class="card__categorylink"><?php echo $dataset['type']; ?></a>
+            <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale_ckan(); ?>/<?php echo $dataset['type']; ?>" class="card__categorylink"><?php echo $dataset['type']; ?></a>
           </div>
         </div><?php
       endforeach; ?>
@@ -79,7 +79,7 @@
 
   <div class="container">
     <div class="row featured-btn-container">
-      <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale(); ?>/dataset" class="btn btn-secondary btn--sovellukset">
+      <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale_ckan(); ?>/dataset" class="btn btn-secondary btn--sovellukset">
         <?php _e('All datasets', 'sixodp');?>  <i class="material-icons">arrow_forward</i>
       </a>
     </div>

@@ -224,19 +224,19 @@ add_action( 'init', 'add_custom_fields_support_for_pages' );
 
 function create_primary_menus() {
   create_menu_i18n('primary_fi', PRIMARY_MENU_ITEMS_FI, 'primary');
-  create_menu_i18n('primary_en_GB', PRIMARY_MENU_ITEMS_EN, 'primary');
+  create_menu_i18n('primary_en_gb', PRIMARY_MENU_ITEMS_EN, 'primary');
   create_menu_i18n('primary_sv', PRIMARY_MENU_ITEMS_SV, 'primary');
 }
 
 function create_secondary_menus() {
   create_menu_i18n('secondary_fi', SECONDARY_MENU_ITEMS_FI, 'secondary');
-  create_menu_i18n('secondary_en_GB', SECONDARY_MENU_ITEMS_EN, 'secondary');
+  create_menu_i18n('secondary_en_gb', SECONDARY_MENU_ITEMS_EN, 'secondary');
   create_menu_i18n('secondary_sv', SECONDARY_MENU_ITEMS_SV, 'secondary');
 }
 
 function create_footer_menus() {
   create_menu_i18n('footer_fi', FOOTER_MENU_ITEMS_FI, 'footer_menu');
-  create_menu_i18n('footer_en_GB', FOOTER_MENU_ITEMS_EN, 'footer_menu');
+  create_menu_i18n('footer_en_gb', FOOTER_MENU_ITEMS_EN, 'footer_menu');
   create_menu_i18n('footer_sv', FOOTER_MENU_ITEMS_SV, 'footer_menu');
 }
 function create_social_media_menus() {
@@ -385,7 +385,7 @@ function get_nav_menu_items($menu) {
 
 function wp_get_menu_array($current_menu) {
     //var_dump(!in_array(get_current_locale().'', array("fi", "en_GB", "sv")));
-    if ( !in_array(get_current_locale().'', array("fi", "en_GB", "sv")) ) {
+    if ( !in_array(get_current_locale().'', array("fi", "en_gb", "sv")) ) {
       $array_menu = wp_get_nav_menu_items($current_menu . '_fi');
     } else {
       $array_menu = wp_get_nav_menu_items($current_menu . '_' . get_current_locale());
@@ -449,6 +449,15 @@ function get_child_pages($page_title, $limit = 6) {
 
   $parent_page          = get_page_by_title($page_title);
   return array_slice(get_page_children( $parent_page->ID, $all_wp_pages ), 0, $limit);
+}
+
+function get_current_locale_ckan() {
+  $locale = get_current_locale();
+
+  // Convert second part of locale to upper case
+  $locale = substr_replace($locale, strtoupper(substr($locale, 3)), 3);
+
+  return $locale;
 }
 
 function get_current_locale() {
@@ -609,7 +618,7 @@ function get_api_link() {
 
   if($api_collection['result']['name']) {
 
-    return CKAN_BASE_URL . '/'. get_current_locale() . '/collection/'. $api_collection['result']['name'];
+    return CKAN_BASE_URL . '/'. get_current_locale_ckan() . '/collection/'. $api_collection['result']['name'];
   }
 }
 
@@ -671,8 +680,8 @@ function format_ckan_row($row) {
   return array(
     'date' => $row['metadata_created'],
     'date_updated' => $row['date_updated'],
-    'type' => array('link' => CKAN_BASE_URL .'/'. get_current_locale() .'/'. $row['type'], 'label' => $row['type']),
-    'link' => CKAN_BASE_URL .'/'. get_current_locale() .'/'. $row['type'] .'/'. $row['name'],
+    'type' => array('link' => CKAN_BASE_URL .'/'. get_current_locale_ckan() .'/'. $row['type'], 'label' => $row['type']),
+    'link' => CKAN_BASE_URL .'/'. get_current_locale_ckan() .'/'. $row['type'] .'/'. $row['name'],
     'title' => $row['title'],
     'title_translated' => $row['title_translated'],
     'notes_translated' => $row['notes_translated']
@@ -911,6 +920,8 @@ add_action( 'init', 'create_form_results' );
 
 function custom_category_query($query) {
 
+  // var_dump($query);
+
   if ($query->is_category) {
     $category = get_queried_object();
 
@@ -921,6 +932,8 @@ function custom_category_query($query) {
     }
     $query->set('posts_per_page', 9);
   }
+
+  $query->set('is_search', true);
 
   return $query;
 }
