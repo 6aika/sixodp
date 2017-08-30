@@ -12,11 +12,11 @@ var App = {
   },
 
   search: function(domain, q) {
-
     if(domain == "/posts") {
-      window.location.href='/?s='+q;
+      window.location.href='/'+locale+'/?s='+q;
     } else {
-      window.location.href=domain+'?q='+q+'&sort=title+asc';
+
+      window.location.href='/data/'+locale_ckan+domain+'?q='+q+'&sort=title+asc';
     }
     //
   },
