@@ -243,18 +243,33 @@ function create_social_media_menus() {
   create_menu_i18n('socialmedia',null,null);
 }
 
+
+function create_menu_items($menu_id, $itemsArr, $parent_id = false) {
+  foreach ($itemsArr as $item) {
+    if ($item['menu-item-type'] == 'post_type') {
+      $post = get_posts(array('name' => $item['menu-item-object-slug'], 'post_type' => 'any'))[0];
+
+      $item['menu-item-object-slug'] = '';
+      $item['menu-item-object-id'] = $post->ID;
+    }
+
+    if ($parent_id) $item['menu-item-parent-id'] = $parent_id;
+
+    $item['menu-item-status'] = 'publish';
+
+    $item_id = wp_update_nav_menu_item($menu_id, 0, $item);
+
+    if (isset($item['children'])) create_menu_items($menu_id, $item['children'], $item_id);
+  }
+}
+
 function create_menu_i18n($menu_name, $itemsArr, $location) {
 
   // If it doesn't exist, let's create it.
   if( !wp_get_nav_menu_object( $menu_name )){
       $menu_id = wp_create_nav_menu($menu_name);
 
-      foreach($itemsArr as $item) {
-        wp_update_nav_menu_item($menu_id, 0, array(
-          'menu-item-title' =>  $item['menu-item-title'],
-          'menu-item-url' => home_url( $item['menu-item-url'] ),
-          'menu-item-status' => 'publish'));
-      }
+    create_menu_items($menu_id, $itemsArr);
     //then you set the wanted theme  location
     $menu = get_term_by( 'name', $menu_name, 'nav_menu' );
     $locations = get_theme_mod('nav_menu_locations');
