@@ -56,10 +56,13 @@
   }
 }
 
-.notification ~ .logos {
-  margin-top: $content-padding-top + $notificationbar-height;
+.notification {
+  ~ .logos,
+    #main .logos {
+    margin-top: $content-padding-top + $notificationbar-height;
 
-  @media(min-width: $grid-float-breakpoint) {
-    margin-top: $content-padding-top-desktop + $notificationbar-height;
+    @media(min-width: $grid-float-breakpoint) {
+      margin-top: $content-padding-top-desktop + $notificationbar-height;
+    }
   }
 }
