@@ -1,0 +1,10 @@
+.image-upload {
+  .btn {
+    margin-right: $margin-large-horizontal*2;
+
+    &.hover {
+      cursor: pointer;
+      color: $brand-black;
+    }
+  }
+}
