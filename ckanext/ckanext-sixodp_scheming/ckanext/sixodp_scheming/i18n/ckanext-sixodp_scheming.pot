@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_scheming 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-22 10:56+0000\n"
+"POT-Creation-Date: 2017-08-31 09:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -367,7 +367,11 @@ msgstr ""
 msgid "unknown"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:50
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:53
+msgid "GB"
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:55
 msgid "MB"
 msgstr ""
 
@@ -397,8 +401,8 @@ msgstr ""
 
 #: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:110
 msgid ""
-"{title}: The dataset's maintainer is {maintainer} and the original author is "
-"{author}. The dataset has been downloaded from the {site_title} service "
-"{date} using the license {license}."
+"{title}: The maintainer of the dataset is {maintainer} and the original "
+"author is {author}. The dataset has been downloaded from the {site_title} "
+"service {date} using the license {license}."
 msgstr ""
 

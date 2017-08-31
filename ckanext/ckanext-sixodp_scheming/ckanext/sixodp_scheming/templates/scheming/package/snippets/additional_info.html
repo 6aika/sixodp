@@ -107,8 +107,8 @@
     <tr>
       <th scope="row" class="dataset-label">{{ _("How to reference") }}</th>
       <td class="dataset-details">
-        {{ _('{title}: The dataset\'s maintainer is {maintainer} and the original author is {author}.
-        The dataset has been downloaded from the {site_title} service {date} using the license {license}.')
+        {{ _("{title}: The maintainer of the dataset is {maintainer} and the original author is {author}.
+        The dataset has been downloaded from the {site_title} service {date} using the license {license}.")
         .format(title=h.ensure_translated(pkg_dict.title_translated), maintainer=pkg_dict.maintainer,
         author=pkg_dict.organization.title, site_title=g.site_title,
         date=h.get_current_date(), license=pkg_dict.license_title) }}
