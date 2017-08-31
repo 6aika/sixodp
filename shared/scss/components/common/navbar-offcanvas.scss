@@ -1,5 +1,5 @@
 .navbar-offcanvas {
-  z-index: 1002;
+  z-index: $zindex-navbar-fixed;
   padding: $navbar-height 0 0 0;
   border-width: 0;
   
@@ -242,5 +242,11 @@
 
   @media(min-width: $width-md) {
     display: none;
+  }
+}
+
+.notification  {
+  ~ #main .navbar-offcanvas {
+    padding-top: $navbar-height + $notificationbar-height;
   }
 }

@@ -2,15 +2,11 @@
   thead,
   tbody {
     tr {
-      th,
+      th:first-child,
       th.condensed,
       td.condensed {
         width: 1%;
         white-space: nowrap;
-      }
-
-      td {
-        width: 100%;
       }
 
       th,

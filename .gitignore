@@ -11,6 +11,7 @@ node_modules
 transifexrc
 ckanext/ckan/
 sixodp/app.css
+sixodp/app.js
 sixodp/ckan-config.php
 sixodp/disqus-config.php
 npm-debug.log
