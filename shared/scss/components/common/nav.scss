@@ -52,12 +52,14 @@
   &.active-hover {
     .subnav {
       visibility: visible;
-      max-height: $base*4;
+      max-height: 100%;
 
       @media(min-width: $grid-float-breakpoint) {
+        max-height: $base*4;
         visibility: visible;
         display: block;
         transition: none;
+        z-index: 9999;
       }
     }
   }
@@ -192,14 +194,44 @@
 
 }
 
-// Compensate for the wp admin bar
+// Compensate for the wp admin bar and notification bar
+$admin-bar-height: 46px;
+$admin-bar-height-desktop: 32px;
+
+.notification {
+  ~ .navbar-fixed-top {
+    margin-top: $notificationbar-height;
+  }
+
+  ~ #main .statistics-nav.affix {
+    top: $navbar-height + $notificationbar-height;
+  }
+}
+
 .admin-bar {
   .navbar-fixed-top {
-    margin-top: 46px;
+    margin-top: $admin-bar-height;
 
     @media(min-width: 783px) {
-      margin-top: 32px;
+      margin-top: $admin-bar-height-desktop;
     }
+  }
+
+  .notification {
+    margin-top: $admin-bar-height;
+
+    ~ .navbar-fixed-top {
+      margin-top: $admin-bar-height + $notificationbar-height;
+    }
+
+    @media(min-width: 783px) {
+      margin-top: $admin-bar-height-desktop;
+
+      ~ .navbar-fixed-top {
+        margin-top: $admin-bar-height-desktop + $notificationbar-height;
+      }
+    }
+
   }
 
   #wpadminbar {

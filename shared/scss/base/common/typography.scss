@@ -33,6 +33,10 @@ a {
   font-size: 3rem;
 }
 
+.heading--inverse {
+  color: $brand-white;
+}
+
 .heading--tuki {
   @include heading();
   font-size: 3.5rem;
