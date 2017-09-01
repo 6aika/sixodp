@@ -32,6 +32,18 @@
   }
 }
 
+.notification {
+  ~ #primary {
+    .hero__inner .logos {
+      margin-top: $content-padding-top + $notificationbar-height - $navbar-height;
+
+      @media(min-width: $grid-float-breakpoint) {
+        margin-top: $content-padding-top-desktop + $notificationbar-height - $navbar-height;
+      }
+    }
+  }
+}
+
 .hero .input-group {
   display: table;
 

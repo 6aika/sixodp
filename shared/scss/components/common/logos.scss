@@ -57,8 +57,9 @@
 }
 
 .notification {
-  ~ .logos,
-    #main .logos {
+  ~ #primary .logos,
+  ~ #main .logos,
+  ~ .logos {
     margin-top: $content-padding-top + $notificationbar-height;
 
     @media(min-width: $grid-float-breakpoint) {
