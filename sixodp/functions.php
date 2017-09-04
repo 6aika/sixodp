@@ -934,9 +934,6 @@ function create_form_results() {
 add_action( 'init', 'create_form_results' );
 
 function custom_category_query($query) {
-
-  // var_dump($query);
-
   if ($query->is_category) {
     $category = get_queried_object();
 
@@ -947,8 +944,6 @@ function custom_category_query($query) {
     }
     $query->set('posts_per_page', 9);
   }
-
-  $query->set('is_search', true);
 
   return $query;
 }
