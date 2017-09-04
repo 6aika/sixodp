@@ -55,6 +55,12 @@ $headings-secondary-color: $brand-primary;
 $headings-extra-color: $brand-gray;
 
 // Frontpage elements
+$category-box-bg: $brand-white;
+$category-box-text-color: $brand-primary;
+$category-box-count-color: $brand-primary;
+
+$stats-text-color: $brand-white;
+
 $accordion-bg: $brand-primary;
 $accordion-tab-bg: $brand-primary;
 $accordion-tab-border-color: $brand-white;
@@ -79,6 +85,7 @@ $latest-card-heading-bar-color: $brand-white;
 $latest-card-bg: $brand-white;
 $latest-card-heading-color: $brand-primary;
 $latest-card-text-color: $brand-primary;
+$latest-card-link-color: $brand-secondary;
 
 // Button
 $btn-font-weight: 100;

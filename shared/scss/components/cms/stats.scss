@@ -2,13 +2,13 @@
   display: none;
   margin-top: $base*2;
   padding-bottom: $base*6;
-  color: $brand-white;
+  color: $stats-text-color;
 
   @media (min-width: $width-sm) {
     display: flex;
   }
   .stat__link {
-    color: $brand-white;
+    color: $stats-text-color;;
     height: 70px;
   }
 }
@@ -18,7 +18,7 @@
   text-align: center;
   height: 70px;
   line-height: 70px;
-  border-left: 1px solid $brand-white;
+  border-left: 1px solid $stats-text-color;
 
   @media (min-width: $width-md) {
     text-align: left;
