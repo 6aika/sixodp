@@ -254,3 +254,28 @@
 .showcase__footer p {
   color: $brand-white;
 }
+
+// Dataset cards
+.cards--dataset {
+  @extend .cards;
+
+  .card,
+  .card__title{
+    border-color: $dataset-card-border-color;
+  }
+
+  .card__title,
+  .card__title a {
+    color: $dataset-card-heading-color;
+  }
+
+  .card__meta {
+    a {
+      color: $dataset-card-link-color;
+    }
+  }
+
+  .card__timestamp {
+    color: $dataset-card-text-color;
+  }
+}

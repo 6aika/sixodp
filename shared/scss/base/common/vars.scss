@@ -56,8 +56,18 @@ $headings-extra-color: $brand-gray;
 
 // Frontpage elements
 $accordion-bg: linear-gradient(to bottom, $brand-secondary, $brand-primary);
+
 $featured-bg: $brand-lightgray;
-$showcase-content-bg: $brand-primary;
+$showcase-card-bg: $brand-primary;
+$showcase-card-heading-color: $brand-white;
+$showcase-card-text-color: $brand-white;
+
+$dataset-card-bg: $brand-white;
+$dataset-card-border-color: $brand-lightgray;
+$dataset-card-heading-color: $brand-secondary;
+$dataset-card-text-color: $text-color;
+$dataset-card-link-color: $brand-secondary;
+
 $latest-bg: linear-gradient(to bottom, $brand-secondary, $brand-primary);
 $latest-card-heading-bar-bg: $brand-secondary;
 $latest-card-heading-bar-color: $brand-white;
