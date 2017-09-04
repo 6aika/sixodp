@@ -46,13 +46,24 @@ $gray-light:             lighten($gray-base, $lighten-intensity*3);
 $gray-lighter:           lighten($gray-base, $lighten-intensity*6);
 
 $brand-background: #ffffff;
-$brand-secondary-background: #f8f8f8;
+$brand-secondary-background: #d2dce1;
 
-$text-color: #000;
-$headings-color: $brand-primary;
+$text-color: $gray-base;
+$headings-color: $brand-secondary;
 $headings-small-color: $brand-primary;
 $headings-secondary-color: $brand-primary;
 $headings-extra-color: $brand-gray;
+
+// Frontpage elements
+$accordion-bg: linear-gradient(to bottom, $brand-secondary, $brand-primary);
+$featured-bg: $brand-lightgray;
+$showcase-content-bg: $brand-primary;
+$latest-bg: linear-gradient(to bottom, $brand-secondary, $brand-primary);
+$latest-card-heading-bar-bg: $brand-secondary;
+$latest-card-heading-bar-color: $brand-white;
+$latest-card-bg: $brand-white;
+$latest-card-heading-color: $brand-primary;
+$latest-card-text-color: $brand-primary;
 
 // Button
 $btn-font-weight: 100;

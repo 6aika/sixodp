@@ -12,8 +12,7 @@ $text-transition: all 0.1s 0.1s ease-in-out;
   .horizontal-accordion-container {
     margin: 0 auto;
     padding: 0;
-    background: $brand-primary;
-    background: linear-gradient(to bottom, #7875B2, $brand-primary);
+    background: $accordion-bg;
   }
 
   &.collapse.in {
