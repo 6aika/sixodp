@@ -6,7 +6,7 @@
  * Please note that this is the WordPress construct of pages and that
  * other "pages" on your WordPress site will use a different template.
  *
- * Template Name: Sovellustoive-lomake
+ * Template Name: Sovellusidea-lomake
  *
  * @package WordPress
  * @subpackage Sixodp
@@ -16,11 +16,11 @@ $content = '';
 $email = '';
 $name = '';
 
-if (isset($_POST['app_request_submit_form'])) {
-  $content = $_POST['app_request_content'];
-  $title = $_POST['app_request_title'];
-  $name = $_POST['app_request_name'];
-  $email = $_POST['app_request_email'];
+if (isset($_POST['showcase_idea_submit_form'])) {
+  $content = $_POST['showcase_idea_content'];
+  $title = $_POST['showcase_idea_title'];
+  $name = $_POST['showcase_idea_name'];
+  $email = $_POST['showcase_idea_email'];
 
   $errors = array();
 
@@ -34,7 +34,7 @@ if (isset($_POST['app_request_submit_form'])) {
     wp_insert_post(array(
       'post_content' => $content,
       'post_title' => $title,
-      'post_type' => 'app_request',
+      'post_type' => 'showcase_idea',
       'post_status' => 'pending',
       'meta_input' => array(
         'name' => $name,
@@ -56,7 +56,7 @@ get_header(); ?>
     ?>
 
     <div class="container">
-      <h1 class="page-heading"><?php _e('New Application Request', 'sixodp') ?></h1>
+      <h1 class="page-heading"><?php _e('New showcase idea', 'sixodp') ?></h1>
 
       <?php
 
@@ -75,19 +75,19 @@ get_header(); ?>
 
           <div class="col-xs-12">
             <div class="control-group control-full">
-              <label class="control-label" for="app_request_title"><span title="This field is required" class="control-required">*</span> <?php _e('Title', 'sixodp');?></label>
+              <label class="control-label" for="showcase_idea_title"><span title="This field is required" class="control-required">*</span> <?php _e('Title', 'sixodp');?></label>
               <div class="controls ">             
-                <input type="text" name="app_request_title" id="app_request_title" class="form-control" value="<?php echo $name; ?>" placeholder="<?php _e('eg. A descriptive title') ?>" />
+                <input type="text" name="showcase_idea_title" id="showcase_idea_title" class="form-control" value="<?php echo $name; ?>" placeholder="<?php _e('eg. A descriptive title') ?>" />
               </div>
             </div>
           </div>
 
           <div class="col-xs-12">
             <div class="control-group control-full">
-              <label class="control-label" for="app_request_content"><span title="This field is required" class="control-required">*</span> <?php _e('Your request', 'sixodp');?></label>
+              <label class="control-label" for="showcase_idea_content"><span title="This field is required" class="control-required">*</span> <?php _e('Your request', 'sixodp');?></label>
               <div class="controls">             
                 <?php
-                wp_editor($content, 'app_request_content', array(
+                wp_editor($content, 'showcase_idea_content', array(
                   'textarea_rows' => 5,
                   'media_buttons' => false,
                   'quicktags' => false
@@ -99,25 +99,25 @@ get_header(); ?>
 
           <div class="col-xs-12 col-md-8">
             <div class="control-group control-medium">
-              <label class="control-label" for="app_request_name"><span title="This field is required" class="control-required">*</span> <?php _e('Name', 'sixodp');?></label>
+              <label class="control-label" for="showcase_idea_name"><span title="This field is required" class="control-required">*</span> <?php _e('Name', 'sixodp');?></label>
               <div class="controls ">             
-                <input type="text" name="app_request_name" id="app_request_name" class="form-control" value="<?php echo $name; ?>" />
+                <input type="text" name="showcase_idea_name" id="showcase_idea_name" class="form-control" value="<?php echo $name; ?>" />
               </div>
             </div>
           </div>
 
           <div class="col-xs-12 col-md-8">
             <div class="control-group control-medium">
-              <label class="control-label" for="app_request_email"><span title="This field is required" class="control-required">*</span> <?php _e('Email', 'sixodp');?></label>
+              <label class="control-label" for="showcase_idea_email"><span title="This field is required" class="control-required">*</span> <?php _e('Email', 'sixodp');?></label>
               <div class="controls ">             
-                <input type="text" name="app_request_email" id="app_request_email" class="form-control" value="<?php echo $name; ?>" />
+                <input type="text" name="showcase_idea_email" id="showcase_idea_email" class="form-control" value="<?php echo $name; ?>" />
               </div>
             </div>
           </div>
 
           <div class="col-xs-12">
             <hr>
-            <button type="submit" class="btn btn-primary" name="app_request_submit_form"><?php _e('Submit', 'sixodp');?></button>
+            <button type="submit" class="btn btn-primary" name="showcase_idea_submit_form"><?php _e('Submit', 'sixodp');?></button>
           </div>
         </form>
         <?php
