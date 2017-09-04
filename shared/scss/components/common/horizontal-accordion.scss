@@ -51,8 +51,8 @@ $text-transition: all 0.1s 0.1s ease-in-out;
   .horizontal-accordion-tab {
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: $brand-primary;
-    border-right: $brand-white 1px solid;
+    background: $accordion-tab-bg;
+    border-right: $accordion-tab-border-color 1px solid;
     width: 100%;
     float: left;
     display: block;
@@ -108,7 +108,7 @@ $text-transition: all 0.1s 0.1s ease-in-out;
     }
 
     .tab-content {
-      color: $brand-white;
+      color: $accordion-tab-text-color;
       position: relative;
       width: auto;
       padding: $horizontal-accordion-top-padding-base 10px 0 10px;
@@ -117,15 +117,16 @@ $text-transition: all 0.1s 0.1s ease-in-out;
       box-sizing: content-box;
       transition: $tab-transition;
 
-      h1 {
-        color: $brand-white;
+      h1,
+      .tab-heading {
+        color: $accordion-tab-heading-color;
         font-size: $font-size-xlarge;
         margin-bottom: 10px;
       }
 
       .tab-meta {
         font-size: $font-size-base;
-        color: $brand-white;
+        color: $accordion-tab-meta-color;
         margin-top: 0;
       }
 

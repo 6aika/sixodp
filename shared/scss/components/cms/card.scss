@@ -121,7 +121,8 @@
   }
 }
 
-.card__title--latest {
+.card__title--latest,
+.card__title--latest a {
   @extend .card__title;
   border-bottom: 0;
   margin-top: $base;
@@ -134,6 +135,10 @@
 .card__body--latest {
   padding: $base*2;
   color: $latest-card-text-color;
+
+  a {
+    color: $latest-card-link-color;
+  }
 }
 
 .card__meta--latest {

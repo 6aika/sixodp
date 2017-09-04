@@ -55,10 +55,15 @@ $headings-secondary-color: $brand-primary;
 $headings-extra-color: $brand-gray;
 
 // Frontpage elements
-$accordion-bg: linear-gradient(to bottom, $brand-secondary, $brand-primary);
+$accordion-bg: $brand-primary;
+$accordion-tab-bg: $brand-primary;
+$accordion-tab-border-color: $brand-white;
+$accordion-tab-text-color: $brand-white;
+$accordion-tab-heading-color: $brand-white;
+$accordion-tab-meta-color: $brand-white;
 
-$featured-bg: $brand-lightgray;
-$showcase-card-bg: $brand-primary;
+$featured-bg: $brand-white;
+$showcase-card-bg: $brand-gray;
 $showcase-card-heading-color: $brand-white;
 $showcase-card-text-color: $brand-white;
 
