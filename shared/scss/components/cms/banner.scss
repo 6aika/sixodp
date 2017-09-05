@@ -1,6 +1,6 @@
 .banner {
   padding: $base*4;
-  background: $brand-primary;
+  background: $banner-bg;
   position: relative;
   margin-bottom: 36px; // Compensate for the missing button height to appear similar with other elements
 
@@ -23,19 +23,19 @@
 
 .banner__title {
   font-size: $font-size-large;
-  color: $brand-white;
+  color: $banner-heading-color;
   margin-top: 0;
   margin-bottom: 0;
 }
 
 .banner__subtitle {
   font-size: $font-size-base;
-  color: $brand-white;
+  color: $banner-text-color;
   font-weight: normal;
 }
 
 .banner__buttons .btn {
-  color: $brand-white;
+  color: $banner-text-color;
   padding-left: $base*2;
   padding-right: $base*2;
   margin-bottom: $base;

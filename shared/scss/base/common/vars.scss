@@ -68,6 +68,10 @@ $accordion-tab-text-color: $brand-white;
 $accordion-tab-heading-color: $brand-white;
 $accordion-tab-meta-color: $brand-white;
 
+$banner-bg: $brand-primary;
+$banner-heading-color: $brand-white;
+$banner-text-color: $brand-white;
+
 $featured-bg: $brand-white;
 $showcase-card-bg: $brand-gray;
 $showcase-card-heading-color: $brand-white;
@@ -163,7 +167,7 @@ $link-color-secondary-active: lighten($link-color-secondary, 20%);
 
 // Rating (ckan extension)
 $rating-stars-color: $brand-success;
-$rating-stars-color-hover: #cccc00;
+$rating-stars-color-hover: lighten($rating-stars-color, 20%);
 $rating-text-color: $brand-primary;
 
 // Datavis colors
