@@ -693,8 +693,8 @@ function sort_results($arr) {
 
 function format_ckan_row($row) {
   return array(
-    'date' => $row['metadata_created'],
-    'date_updated' => $row['date_updated'],
+    'date' => $row['date_created'] ? $row['date_created'] : $row['metadata_created'],
+    'date_updated' => $row['date_updated'] ? $row['date_updated'] : $row['metadata_updated'],
     'type' => array('link' => CKAN_BASE_URL .'/'. get_current_locale_ckan() .'/'. $row['type'], 'label' => $row['type']),
     'link' => CKAN_BASE_URL .'/'. get_current_locale_ckan() .'/'. $row['type'] .'/'. $row['name'],
     'title' => $row['title'],
