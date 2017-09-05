@@ -78,7 +78,7 @@
 .cards--latest {
   @extend .cards;
   margin-bottom: 0;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .card--latest {
@@ -111,6 +111,7 @@
   @media (min-width: $width-md) {
     flex: 1 1 24%;
     margin: $base/2 0.5%;
+    max-width: 24%;
 
     &:nth-child(even) {
       margin: $base/2 0.5%;
