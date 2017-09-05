@@ -43,6 +43,8 @@
   height: calc(100% - 180px);
   position: relative;
   background: $showcase-card-bg;
+  border-bottom-left-radius: $border-radius-base;
+  border-bottom-right-radius: $border-radius-base;
 }
 
 .showcase__title {

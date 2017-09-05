@@ -1,4 +1,5 @@
 .banner {
+  @extend %box;
   padding: $base*4;
   background: $banner-bg;
   position: relative;
