@@ -32,7 +32,7 @@
 				<div class="row">
 					<div class="col-md-2 footer-column">
 						<div class="footer-logo-wrapper">
-							<img class="footer-logo" src="<?php echo assets_url(); ?>/images/main_logo_w.png" alt="6Aika logo">
+							<img class="footer-logo" src="<?php echo assets_url(); ?>/images/footer_logo.png" alt="6Aika logo">
 						</div>
 					</div>
 					<div class="col-md-4 footer-column">
