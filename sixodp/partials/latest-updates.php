@@ -44,7 +44,7 @@
   </div>
 
   <div class="container">
-    <div class="row text-right">
+    <div class="row latest-btn-container">
       <a href="<?php echo get_permalink(get_translated_page_by_title('Viimeisimmät päivitykset')); ?>" class="btn btn-secondary btn--sovellukset">
         <?php _e('More updates', 'sixodp');?>  <i class="material-icons">arrow_forward</i>
       </a>

@@ -59,7 +59,7 @@
   </div>
 
   <div class="container">
-    <div class="row cards">
+    <div class="row cards--dataset">
       <?php foreach ( get_latest_datasets() as $dataset ) : ?>
         <div class="card">
           <h3 class="card__title">
