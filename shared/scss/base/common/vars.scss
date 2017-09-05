@@ -162,8 +162,8 @@ $navbar-offcanvas-heading-color: $brand-primary;
 // Links
 $link-color: $brand-primary;
 $link-color-active: lighten($link-color, 20%);
-$link-color-secondary: $brand-success;
-$link-color-secondary-active: lighten($link-color-secondary, 20%);
+$link-secondary-color: $brand-success;
+$link-secondary-color-active: lighten($link-secondary-color, 20%);
 
 // Rating (ckan extension)
 $rating-stars-color: $brand-success;
