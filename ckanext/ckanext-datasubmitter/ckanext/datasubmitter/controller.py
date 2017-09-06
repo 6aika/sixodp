@@ -78,6 +78,9 @@ class DatasubmitterController(p.toolkit.BaseController):
 
             organization_reference = config.get('ckanext.datasubmitter.organization_name_or_id')
             organization = model.Group.get(organization_reference)
+            if user is None or organization is None:
+                abort(403,_('Dataset submit user or organization not set.'))
+
 
             context = {'model': model, 'session': model.Session,
                        'user': user.id, 'auth_user_obj': user.id,
