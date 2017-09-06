@@ -75,58 +75,67 @@ get_header(); ?>
         <form action="" method="POST">
           <p><?php _e('Your data request will be moderated, it may be modified or combined with similar requests. Moderated request will be published on this site and will be forwarded to person responsible for the data if possible.'); ?>
 
-          <div class="col-xs-12">
-            <div class="control-group control-full">
-              <label class="control-label" for="data_request_title"><span title="This field is required" class="control-required">*</span> <?php _e('Title', 'sixodp');?></label>
-              <div class="controls ">             
-                <input type="text" name="data_request_title" id="data_request_title" class="form-control" value="<?php echo $name; ?>" placeholder="<?php _e('eg. A descriptive title') ?>" />
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="control-group control-full">
+                <label class="control-label" for="data_request_title"><span title="This field is required" class="control-required">*</span> <?php _e('Title', 'sixodp');?></label>
+                <div class="controls ">             
+                  <input type="text" name="data_request_title" id="data_request_title" class="form-control" value="<?php echo $name; ?>" placeholder="<?php _e('eg. A descriptive title') ?>" />
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="col-xs-12">
-            <div class="control-group control-full">
-              <label class="control-label" for="data_request_content"><span title="This field is required" class="control-required">*</span> <?php _e('Your request', 'sixodp');?></label>
-              <div class="controls">             
-                <?php
-                wp_editor($content, 'data_request_content', array(
-                  'textarea_rows' => 5,
-                  'media_buttons' => false,
-                  'quicktags' => false
-                ));
-                ?>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="control-group control-full">
+                <label class="control-label" for="data_request_content"><span title="This field is required" class="control-required">*</span> <?php _e('Your request', 'sixodp');?></label>
+                <div class="controls">             
+                  <?php
+                  wp_editor($content, 'data_request_content', array(
+                    'textarea_rows' => 5,
+                    'media_buttons' => false,
+                    'quicktags' => false
+                  ));
+                  ?>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-md-8">
+              <div class="control-group control-medium">
+                <label class="control-label" for="data_request_name"><span title="This field is required" class="control-required">*</span> <?php _e('Name', 'sixodp');?></label>
+                <div class="controls ">             
+                  <input type="text" name="data_request_name" id="data_request_name" class="form-control" value="<?php echo $name; ?>" />
+                </div>
+              </div>
+              <div class="field-assistive-text">
+                <?php _e('Your name will not be published with data request.'); ?>
               </div>
             </div>
           </div>
 
-          <div class="col-xs-12 col-md-8">
-            <div class="control-group control-medium">
-              <label class="control-label" for="data_request_name"><span title="This field is required" class="control-required">*</span> <?php _e('Name', 'sixodp');?></label>
-              <div class="controls ">             
-                <input type="text" name="data_request_name" id="data_request_name" class="form-control" value="<?php echo $name; ?>" />
+          <div class="row">
+            <div class="col-xs-12 col-md-8">
+              <div class="control-group control-medium">
+                <label class="control-label" for="data_request_email"><span title="This field is required" class="control-required">*</span> <?php _e('Email', 'sixodp');?></label>
+                <div class="controls ">             
+                  <input type="text" name="data_request_email" id="data_request_email" class="form-control" value="<?php echo $name; ?>" />
+                </div>
               </div>
-            </div>
-            <div class="field-assistive-text">
-              <?php _e('Your name will not be published with data request.'); ?>
+
+              <div class="field-assistive-text">
+               <?php _e('Your email will not be published with data request.'); ?>
+              </div>
             </div>
           </div>
 
-          <div class="col-xs-12 col-md-8">
-            <div class="control-group control-medium">
-              <label class="control-label" for="data_request_email"><span title="This field is required" class="control-required">*</span> <?php _e('Email', 'sixodp');?></label>
-              <div class="controls ">             
-                <input type="text" name="data_request_email" id="data_request_email" class="form-control" value="<?php echo $name; ?>" />
-              </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <hr>
+              <button type="submit" class="btn btn-primary" name="data_request_submit_form"><?php _e('Submit', 'sixodp');?></button>
             </div>
-
-            <div class="field-assistive-text">
-             <?php _e('Your email will not be published with data request.'); ?>
-            </div>
-          </div>
-
-          <div class="col-xs-12">
-            <hr>
-            <button type="submit" class="btn btn-primary" name="data_request_submit_form"><?php _e('Submit', 'sixodp');?></button>
           </div>
         </form>
         <?php
