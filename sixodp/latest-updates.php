@@ -67,7 +67,7 @@ get_header(); ?>
         <input type="checkbox" value="comments" name="types[]" <?php if ($types['comments']) echo 'checked="checked"' ?> /> <?php _e('Comments', 'sixodp') ?>
         <input type="checkbox" value="data_requests" name="types[]" <?php if ($types['data_requests']) echo 'checked="checked"' ?> /> <?php _e('Data Requests', 'sixodp') ?>
         <input type="checkbox" value="app_requests" name="types[]" <?php if ($types['app_requests']) echo 'checked="checked"' ?> /> <?php _e('App Requests', 'sixodp') ?>
-        <input type="submit" value="Päivitä" />
+        <input type="submit" value="Päivitä" class="btn btn-secondary" />
       </form>
     </div>
    
@@ -80,16 +80,26 @@ get_header(); ?>
       foreach ( $updates as $index => $item ) : ?>
         <li class="items-list-content">
           <div class="items-list__content">
+            <div class="items-list__type">
+              <?php
+              if (is_array($item['type'])) {
+                echo '<a href="'. $item['type']['link'] .'">'. $item['type']['label'] .'</a>';
+              }
+              else {
+                echo '<span>'. $item['type'] .'</span>';
+              }
+              ?>
+            </div>
             <h4 class="items-list__title">
               <a class="items-list__link" href="<?php echo $item['link']?>">
                 <?php echo get_translated($item, 'title'); ?>
               </a>
             </h4>
             <div class="items-list__body">
-              <div class="metadata">
-                <span class="time">
+              <div class="items-list__metadata">
+                <div class="items-list__time">
                   <?php echo get_days_ago($item['date_updated'] ? $item['date_updated'] : $item['date']); ?>
-                </span>
+                </div>
               </div>
               <p class="items-list__info"><?php echo get_notes_excerpt(get_translated($item, 'notes')); ?></p>
             </div>
