@@ -32,3 +32,8 @@
 .items-list__body {
   color: $brand-primary;
 }
+
+.items-list__type {
+  margin: $base 0;
+  text-transform: uppercase;
+}

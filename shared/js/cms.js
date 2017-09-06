@@ -79,6 +79,10 @@ var App = {
         var domain = $('#selected-domain').data('value');
         App.search(domain, q);
       }
+      else if ($('#navbar-search-q').is(':focus')) {
+        var q = $('#navbar-search-q').val();
+        App.search('/posts', q);
+      }
     }
   });
 
@@ -106,7 +110,7 @@ var App = {
 
   $('.navbar-search-submit-btn').on('click', function(e) {
     e.preventDefault();
-    var q = $('.navbar-search-form > input').val();
+    var q = $('#navbar-search-q').val();
     App.search('/posts', q);
   });
 

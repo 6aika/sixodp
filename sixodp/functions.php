@@ -561,6 +561,7 @@ function get_recent_comments($date = false) {
       'type' => 'comment',
       'link' => $thread['link'],
       'title' => $thread['title'],
+      'notes' => $row['raw_message']
     );
   }, $posts_data);
 

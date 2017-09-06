@@ -48,7 +48,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li class="navbar-search">
           <div class="input-group navbar-search-form">
-            <input type="text" class="form-control navbar-search-input" aria-label="...">
+            <input type="text" class="form-control navbar-search-input" id="navbar-search-q" aria-label="...">
             <span class="input-group-btn">
               <button class="btn btn-secondary navbar-search-submit-btn" type="button"><span class="fa fa-search" aria-hidden="true"></span></button>
             </span>
