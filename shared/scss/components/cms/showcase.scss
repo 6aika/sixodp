@@ -42,6 +42,9 @@
   padding: $base*2;
   height: calc(100% - 180px);
   position: relative;
+  background: $showcase-card-bg;
+  border-bottom-left-radius: $border-radius-base;
+  border-bottom-right-radius: $border-radius-base;
 }
 
 .showcase__title {
@@ -52,7 +55,7 @@
 }
 
 .showcase__text {
-  color: $brand-white;
+  color: $showcase-card-text-color;
   height: $base*12;
   position: relative;
   overflow: hidden;
@@ -82,7 +85,7 @@
 }
 
 .showcase__link {
-  color: $brand-white;
+  color: $showcase-card-heading-color;
   padding-bottom: $base/5;
   border-bottom: $base/5 solid transparent;
 

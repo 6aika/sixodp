@@ -561,6 +561,7 @@ function get_recent_comments($date = false) {
       'type' => 'comment',
       'link' => $thread['link'],
       'title' => $thread['title'],
+      'notes' => $row['raw_message']
     );
   }, $posts_data);
 
@@ -693,8 +694,8 @@ function sort_results($arr) {
 
 function format_ckan_row($row) {
   return array(
-    'date' => $row['metadata_created'],
-    'date_updated' => $row['date_updated'],
+    'date' => $row['date_created'] ? $row['date_created'] : $row['metadata_created'],
+    'date_updated' => $row['date_updated'] ? $row['date_updated'] : $row['metadata_updated'],
     'type' => array('link' => CKAN_BASE_URL .'/'. get_current_locale_ckan() .'/'. $row['type'], 'label' => $row['type']),
     'link' => CKAN_BASE_URL .'/'. get_current_locale_ckan() .'/'. $row['type'] .'/'. $row['name'],
     'title' => $row['title'],
@@ -732,7 +733,7 @@ function get_latest_updates($types = array(), $date = false) {
     'showcases' => true,
     'comments' => true,
     'data_requests' => false,
-    'app_requests' => false,
+    'showcase_ideas' => false,
   );
 
   $types = array_merge($defaults, $types);
@@ -741,9 +742,9 @@ function get_latest_updates($types = array(), $date = false) {
   $showcases  = $types['showcases'] ? array_map('format_ckan_row', get_latest_showcases(20, $date)) : [];
   $comments   = $types['comments'] ? get_recent_comments($date) : [];
   $data_requests = $types['data_requests'] ? get_recent_posts('data_request', $date) : [];
-  $app_requests = $types['app_requests'] ? get_recent_posts('app_request', $date) : [];
+  $showcase_ideas = $types['showcase_ideas'] ? get_recent_posts('showcase_idea', $date) : [];
 
-  $arr = array_merge($datasets, $showcases, $comments, $data_requests, $app_requests);
+  $arr = array_merge($datasets, $showcases, $comments, $data_requests, $showcase_ideas);
 
   return array_slice(sort_results($arr), 0, 12);
 }
@@ -861,9 +862,9 @@ function create_form_results() {
     'show_in_rest'  => true
   ) );
 
-  register_post_type( 'app_request', array(
-    'label'         => "App Requests",
-    'description'   => 'App Requests results',
+  register_post_type( 'showcase_idea', array(
+    'label'         => "Showcase ideas",
+    'description'   => 'Showcase ideas results',
     'public'        => true,
     'supports'      => array( 'title', 'editor', 'custom-fields' ),
     'has_archive'   => true,
@@ -915,7 +916,7 @@ function create_form_results() {
           array (
             'param' => 'post_type',
             'operator' => '==',
-            'value' => 'app_request',
+            'value' => 'showcase_idea',
             'order_no' => 0,
             'group_no' => 0,
           ),

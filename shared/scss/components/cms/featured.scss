@@ -1,7 +1,7 @@
 .wrapper--featured {
   @extend .wrapper;
   padding: $base*4 0;
-  background: $brand-lightgray;
+  background: $featured-bg;
 
   .heading--featured {
     text-align: center;

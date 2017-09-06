@@ -17,10 +17,11 @@
 }
 
 .btn-primary {
-  background-color: $brand-primary;
+  background-color: $btn-primary-bg;
 
   &:hover, &:focus, &:active {
     background-color: $brand-primary-light;
+    color: $btn-primary-color;
   }
 }
 
@@ -79,6 +80,10 @@
 
 .btn--ajankohtaista, .btn--show-all {
   margin-top: $base*2;
+}
+
+.btn--request-show-all {
+  margin-bottom: $base;
 }
 
 .btn-list-item {

@@ -35,7 +35,7 @@ if ($grandparent_id != $category->term_id) {
                   <ul class="unstyled nav nav-simple nav-facet filtertype-res_format">
                     <?php
                     foreach ($sibling_categories as $sibling_category) {
-                      echo '<li class="nav-item news-category"><a href="' . get_category_link($sibling_category->cat_ID) . '" class="news-category__link">'. $sibling_category->name .'<span class="news-category__count">'. $sibling_category->count .'</span></a></li>';
+                      echo '<li class="nav-item news-category"><a href="' . get_category_link($sibling_category->cat_ID) . '" class="news-category__link'. ($sibling_category->cat_ID === $category->cat_ID ? ' active' : '') .'">'. $sibling_category->name .'<span class="news-category__count">'. $sibling_category->count .'</span></a></li>';
                     }
                     ?>
                   </ul>

@@ -46,19 +46,56 @@ $gray-light:             lighten($gray-base, $lighten-intensity*3);
 $gray-lighter:           lighten($gray-base, $lighten-intensity*6);
 
 $brand-background: #ffffff;
-$brand-secondary-background: #f8f8f8;
+$brand-secondary-background: #d2dce1;
 
-$text-color: #000;
-$headings-color: $brand-primary;
+$text-color: $gray-base;
+$headings-color: $brand-secondary;
 $headings-small-color: $brand-primary;
 $headings-secondary-color: $brand-primary;
 $headings-extra-color: $brand-gray;
 
+// Frontpage elements
+$category-box-bg: $brand-white;
+$category-box-text-color: $brand-primary;
+$category-box-count-color: $brand-primary;
+
+$stats-text-color: $brand-white;
+
+$accordion-bg: $brand-primary;
+$accordion-tab-bg: $brand-primary;
+$accordion-tab-border-color: $brand-white;
+$accordion-tab-text-color: $brand-white;
+$accordion-tab-heading-color: $brand-white;
+$accordion-tab-meta-color: $brand-white;
+
+$banner-bg: $brand-primary;
+$banner-heading-color: $brand-white;
+$banner-text-color: $brand-white;
+
+$featured-bg: $brand-white;
+$showcase-card-bg: $brand-gray;
+$showcase-card-heading-color: $brand-white;
+$showcase-card-text-color: $brand-white;
+
+$dataset-card-bg: $brand-white;
+$dataset-card-border-color: $brand-lightgray;
+$dataset-card-heading-color: $brand-secondary;
+$dataset-card-text-color: $text-color;
+$dataset-card-link-color: $brand-secondary;
+
+$latest-bg: linear-gradient(to bottom, $brand-secondary, $brand-primary);
+$latest-card-heading-bar-bg: $brand-secondary;
+$latest-card-heading-bar-color: $brand-white;
+$latest-card-bg: $brand-white;
+$latest-card-heading-color: $brand-primary;
+$latest-card-text-color: $brand-primary;
+$latest-card-link-color: $brand-secondary;
+
 // Button
 $btn-font-weight: 100;
-$btn-border-radius-base: $border-radius-base;
+$btn-border-radius-base: $border-radius-small;
 $btn-border-radius-small: $border-radius-small;
-$btn-border-radius-large: $border-radius-large;
+$btn-border-radius-large: $border-radius-small;
 $btn-padding-small: 4px 6px;
 $btn-padding-large: 8px 12px;
 
@@ -125,12 +162,12 @@ $navbar-offcanvas-heading-color: $brand-primary;
 // Links
 $link-color: $brand-primary;
 $link-color-active: lighten($link-color, 20%);
-$link-color-secondary: $brand-success;
-$link-color-secondary-active: lighten($link-color-secondary, 20%);
+$link-secondary-color: $brand-success;
+$link-secondary-color-active: lighten($link-secondary-color, 20%);
 
 // Rating (ckan extension)
 $rating-stars-color: $brand-success;
-$rating-stars-color-hover: #cccc00;
+$rating-stars-color-hover: lighten($rating-stars-color, 20%);
 $rating-text-color: $brand-primary;
 
 // Datavis colors

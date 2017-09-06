@@ -15,7 +15,7 @@
 .category--box {
   @extend %box;
   border-radius: $base/5;
-  background: $brand-white;
+  background: $category-box-bg;
   margin-left: 0;
   padding: $base*2 $base*1.5;
   height: 100%;
@@ -38,12 +38,14 @@
   display: inline-block;
   text-transform: capitalize;
   padding-right: $base*0.5;
+  color: $category-box-text-color;
 }
 
 .category__count {
   display: inline-block;
   font-weight: normal;
   padding: 0 7px;
-  border: 1px solid $brand-primary;
+  border: 1px solid $category-box-count-color;
+  color: $category-box-count-color;
   border-radius: 50%;
 }

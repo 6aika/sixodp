@@ -7,12 +7,12 @@
 <div class="hero" style="background-image: url(<?php echo get_field('frontpage_background')['url']; ?>);">
   <div class="hero__inner">
     <?php
-      get_template_part('partials/header-logos');
+      get_template_part('partials/hero-logos');
     ?>
     <div class="container">
       <div class="row">
-        <h1 class="heading--main text-center"><?php _e('6Aika Open Data Portal', 'sixodp');?></h1>
-        <h3 class="subheading text-center"><?php _e('Open data for free utilization', 'sixodp');?></h3>
+        <h1 class="heading--main text-center"><?php echo bloginfo('title') ?></h1>
+        <h3 class="subheading text-center"><?php  echo bloginfo('description') ?></h3>
 
         <div class="col-md-8 col-md-offset-2">
           <div class="input-group">

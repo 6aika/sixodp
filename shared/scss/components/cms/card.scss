@@ -11,7 +11,7 @@
 .card {
   max-width: 75%;
   border-radius: $base/2;
-  background: white;
+  background: $card-background-color;
   padding: $base*2;
   margin: $base auto;
   border: 1px solid $brand-gray;
@@ -53,9 +53,7 @@
 
 .wrapper--latest {
   background: $brand-primary; /* Old browsers */
-  background: -moz-linear-gradient(-45deg, $brand-primary-extradark 0%, $brand-primary 56%, $brand-primary-extralight 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(-45deg, $brand-primary-extradark 0%, $brand-primary 56%, $brand-primary-extralight 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(135deg, $brand-primary-extradark 0%, $brand-primary 56%, $brand-primary-extralight 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: $latest-bg;
   padding: $base*4 0;
 
   .heading--featured {
@@ -66,12 +64,21 @@
       text-align: left;
     }
   }
+
+  .latest-btn-container {
+    margin-top: $base;
+    text-align: center;
+
+    @media (min-width: $width-sm) {
+      text-align: right;
+    }
+  }
 }
 
 .cards--latest {
   @extend .cards;
   margin-bottom: 0;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .card--latest {
@@ -104,6 +111,7 @@
   @media (min-width: $width-md) {
     flex: 1 1 24%;
     margin: $base/2 0.5%;
+    max-width: 24%;
 
     &:nth-child(even) {
       margin: $base/2 0.5%;
@@ -123,26 +131,32 @@
   }
 }
 
-.card__title--latest {
+.card__title--latest,
+.card__title--latest a {
   @extend .card__title;
   border-bottom: 0;
   margin-top: $base;
   font-size: $font-size-large;
   font-weight: 700;
   padding-bottom: 0;
+  color: $latest-card-heading-color;
 }
 
 .card__body--latest {
   padding: $base*2;
-  color: $brand-primary;
+  color: $latest-card-text-color;
+
+  a {
+    color: $latest-card-link-color;
+  }
 }
 
 .card__meta--latest {
   padding: $base;
-  background: $brand-secondary;
+  background: $latest-card-heading-bar-bg;
   border-top-left-radius: $base/2;
   border-top-right-radius: $base/2;
-  color: $brand-white;
+  color: $latest-card-heading-bar-color;
 }
 
 .card__categorylink--latest {
@@ -254,4 +268,29 @@
 
 .showcase__footer p {
   color: $brand-white;
+}
+
+// Dataset cards
+.cards--dataset {
+  @extend .cards;
+
+  .card,
+  .card__title{
+    border-color: $dataset-card-border-color;
+  }
+
+  .card__title,
+  .card__title a {
+    color: $dataset-card-heading-color;
+  }
+
+  .card__meta {
+    a {
+      color: $dataset-card-link-color;
+    }
+  }
+
+  .card__timestamp {
+    color: $dataset-card-text-color;
+  }
 }

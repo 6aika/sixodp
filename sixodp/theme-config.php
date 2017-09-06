@@ -14,34 +14,34 @@
       'locale' => 'fi',
       'code' => 'fi',
       'pages' => array(
-        'main' => array( 'post_title' => 'fi', 'post_content' => "This is my post", 'page_template' => 'home.php' ),
-        'roadmap' => array( 'post_title' => 'Työn alla', 'post_content' => "This is my post", 'page_template' => 'roadmap.php' ),
-        'latest_updates' => array( 'post_title' => 'Ajankohtaista', 'post_content' => "This is my post", 'page_template' => 'ajankohtaista.php' ),
-        'support' => array( 'post_title' => 'Tuki', 'post_content' => "This is my post", 'page_template' => 'tuki.php' ),
-        'data_request_form' => array( 'post_title' => 'Uusi datatoive', 'post_content' => "This is my post", 'page_template' => 'data_request_form.php' ),
-        'app_request_form' => array( 'post_title' => 'Uusi sovellustoive', 'post_content' => "This is my post", 'page_template' => 'app_request_form.php' )
+        'main' => array( 'post_title' => 'fi', 'post_content' => "", 'page_template' => 'home.php' ),
+        'roadmap' => array( 'post_title' => 'Työn alla', 'post_content' => "", 'page_template' => 'roadmap.php' ),
+        'latest_updates' => array( 'post_title' => 'Ajankohtaista', 'post_content' => "", 'page_template' => 'ajankohtaista.php' ),
+        'support' => array( 'post_title' => 'Tuki', 'post_content' => "", 'page_template' => 'tuki.php' ),
+        'data_request_form' => array( 'post_title' => 'Uusi datatoive', 'post_content' => "", 'page_template' => 'data_request_form.php' ),
+        'showcase_idea_form' => array( 'post_title' => 'Uusi sovellusidea', 'post_content' => "", 'page_template' => 'showcase_idea_form.php' )
     ) ),
     array(
       'locale' => 'en_GB',
       'code' => 'en',
       'pages' => array(
-        'main' => array( 'post_title' => 'en_GB', 'post_content' => "This is my post", 'page_template' => 'home.php' ),
-        'roadmap' => array( 'post_title' => 'Roadmap', 'post_content' => "This is my post", 'page_template' => 'roadmap.php' ),
-        'latest_updates' => array( 'post_title' => 'Latest updates', 'post_content' => "This is my post", 'page_template' => 'ajankohtaista.php' ),
-        'support' => array( 'post_title' => 'Support', 'post_content' => "This is my post", 'page_template' => 'tuki.php' ),
-        'data_request_form' => array( 'post_title' => 'New data request', 'post_content' => "This is my post", 'page_template' => 'data_request_form.php' ),
-        'app_request_form' => array( 'post_title' => 'New app request', 'post_content' => "This is my post", 'page_template' => 'app_request_form.php' ),
+        'main' => array( 'post_title' => 'en_GB', 'post_content' => "", 'page_template' => 'home.php' ),
+        'roadmap' => array( 'post_title' => 'Roadmap', 'post_content' => "", 'page_template' => 'roadmap.php' ),
+        'latest_updates' => array( 'post_title' => 'Latest updates', 'post_content' => "", 'page_template' => 'ajankohtaista.php' ),
+        'support' => array( 'post_title' => 'Support', 'post_content' => "", 'page_template' => 'tuki.php' ),
+        'data_request_form' => array( 'post_title' => 'New data request', 'post_content' => "", 'page_template' => 'data_request_form.php' ),
+        'showcase_idea_form' => array( 'post_title' => 'New showcase idea', 'post_content' => "", 'page_template' => 'showcase_idea_form.php' ),
     ) ),
     array(
       'locale' => 'sv',
       'code' => 'sv',
       'pages' => array(
-        'main' => array( 'post_title' => 'sv', 'post_content' => "This is my post", 'page_template' => 'home.php' ),
-        'roadmap' => array( 'post_title' => 'Roadmap', 'post_content' => "This is my post", 'page_template' => 'roadmap.php' ),
-        'latest_updates' => array( 'post_title' => 'Senaste uppdateringarna', 'post_content' => "This is my post", 'page_template' => 'ajankohtaista.php' ),
-        'support' => array( 'post_title' => 'Stöd', 'post_content' => "This is my post", 'page_template' => 'tuki.php' ),
-        'data_request_form' => array( 'post_title' => 'Ny data begäran', 'post_content' => "This is my post", 'page_template' => 'data_request_form.php' ),
-        'app_request_form' => array( 'post_title' => 'Ny app begäran', 'post_content' => "This is my post", 'page_template' => 'app_request_form.php' ),
+        'main' => array( 'post_title' => 'sv', 'post_content' => "", 'page_template' => 'home.php' ),
+        'roadmap' => array( 'post_title' => 'Roadmap', 'post_content' => "", 'page_template' => 'roadmap.php' ),
+        'latest_updates' => array( 'post_title' => 'Senaste uppdateringarna', 'post_content' => "", 'page_template' => 'ajankohtaista.php' ),
+        'support' => array( 'post_title' => 'Stöd', 'post_content' => "", 'page_template' => 'tuki.php' ),
+        'data_request_form' => array( 'post_title' => 'Ny data begäran', 'post_content' => "", 'page_template' => 'data_request_form.php' ),
+        'showcase_idea_form' => array( 'post_title' => 'Ny app begäran', 'post_content' => "", 'page_template' => 'showcase_idea_form.php' ),
     ) )
   ) );
 
@@ -108,7 +108,7 @@
     )),
     array('menu-item-title' => 'Sovellukset', 'menu-item-url' => '/data/fi/showcase', 'children' => array(
       array('menu-item-title' => 'Ilmoita sovellus', 'menu-item-url' => '/data/fi/submit-showcase/'),
-      array('menu-item-title' => 'Uusi sovellustoive', 'menu-item-type' => 'post_type', 'menu-item-object-slug' => 'uusi-sovellustoive', 'menu-item-object' => 'page'),
+      array('menu-item-title' => 'Uusi sovellusidea', 'menu-item-type' => 'post_type', 'menu-item-object-slug' => 'uusi-sovellusidea', 'menu-item-object' => 'page'),
     )),
     array('menu-item-title' => 'Ajankohtaista', 'menu-item-type' => 'post_type', 'menu-item-object-slug' => 'ajankohtaista', 'menu-item-object' => 'page'),
     array('menu-item-title' => 'Tuki', 'menu-item-type' => 'post_type', 'menu-item-object-slug' => 'tuki', 'menu-item-object' => 'page'),

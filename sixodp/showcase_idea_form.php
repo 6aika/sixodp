@@ -6,7 +6,7 @@
  * Please note that this is the WordPress construct of pages and that
  * other "pages" on your WordPress site will use a different template.
  *
- * Template Name: Datatoive-lomake
+ * Template Name: Sovellusidea-lomake
  *
  * @package WordPress
  * @subpackage Sixodp
@@ -16,11 +16,11 @@ $content = '';
 $email = '';
 $name = '';
 
-if (isset($_POST['data_request_submit_form'])) {
-  $content = $_POST['data_request_content'];
-  $title = $_POST['data_request_title'];
-  $name = $_POST['data_request_name'];
-  $email = $_POST['data_request_email'];
+if (isset($_POST['showcase_idea_submit_form'])) {
+  $content = $_POST['showcase_idea_content'];
+  $title = $_POST['showcase_idea_title'];
+  $name = $_POST['showcase_idea_name'];
+  $email = $_POST['showcase_idea_email'];
 
   $errors = array();
 
@@ -34,7 +34,7 @@ if (isset($_POST['data_request_submit_form'])) {
     wp_insert_post(array(
       'post_content' => $content,
       'post_title' => $title,
-      'post_type' => 'data_request',
+      'post_type' => 'showcase_idea',
       'post_status' => 'pending',
       'meta_input' => array(
         'name' => $name,
@@ -48,6 +48,7 @@ if (isset($_POST['data_request_submit_form'])) {
 
 get_header(); ?>
 
+
 <div id="primary" class="content-area">
   <main id="main" role="main">
     <?php
@@ -56,9 +57,9 @@ get_header(); ?>
 
     <div class="container">
 
-      <h1 class="page-heading"><?php _e('New Data Request', 'sixodp') ?></h1>
+      <h1 class="page-heading"><?php _e('New Showcase idea', 'sixodp') ?></h1>
 
-      <a href="<?php echo get_post_type_archive_link( 'data_request' ); ?>" class="btn btn-small btn-secondary btn--request-show-all"><?php _e('All data requests') ?> &raquo;</a>
+      <a href="<?php echo get_post_type_archive_link( 'showcase_idea' ); ?>" class="btn btn-small btn-secondary btn--request-show-all"><?php _e('All showcase ideas') ?> &raquo;</a>
 
       <?php
 
@@ -73,14 +74,14 @@ get_header(); ?>
         }
         ?>
         <form action="" method="POST">
-          <p><?php _e('Your data request will be moderated, it may be modified or combined with similar requests. Moderated request will be published on this site and will be forwarded to person responsible for the data if possible.'); ?>
+          <p><?php _e('Your showcase idea will be moderated, it may be modified or combined with similar ideas. Moderated ideas will be published on this site.'); ?>
 
           <div class="row">
             <div class="col-xs-12">
               <div class="control-group control-full">
-                <label class="control-label" for="data_request_title"><span title="This field is required" class="control-required">*</span> <?php _e('Title', 'sixodp');?></label>
+                <label class="control-label" for="showcase_idea_title"><span title="This field is required" class="control-required">*</span> <?php _e('Title', 'sixodp');?></label>
                 <div class="controls ">             
-                  <input type="text" name="data_request_title" id="data_request_title" class="form-control" value="<?php echo $name; ?>" placeholder="<?php _e('eg. A descriptive title') ?>" />
+                  <input type="text" name="showcase_idea_title" id="showcase_idea_title" class="form-control" value="<?php echo $name; ?>" placeholder="<?php _e('eg. A descriptive title') ?>" />
                 </div>
               </div>
             </div>
@@ -89,10 +90,10 @@ get_header(); ?>
           <div class="row">
             <div class="col-xs-12">
               <div class="control-group control-full">
-                <label class="control-label" for="data_request_content"><span title="This field is required" class="control-required">*</span> <?php _e('Your request', 'sixodp');?></label>
+                <label class="control-label" for="showcase_idea_content"><span title="This field is required" class="control-required">*</span> <?php _e('Your idea', 'sixodp');?></label>
                 <div class="controls">             
                   <?php
-                  wp_editor($content, 'data_request_content', array(
+                  wp_editor($content, 'showcase_idea_content', array(
                     'textarea_rows' => 5,
                     'media_buttons' => false,
                     'quicktags' => false
@@ -102,16 +103,17 @@ get_header(); ?>
               </div>
             </div>
           </div>
+
           <div class="row">
             <div class="col-xs-12 col-md-8">
               <div class="control-group control-medium">
-                <label class="control-label" for="data_request_name"><span title="This field is required" class="control-required">*</span> <?php _e('Name', 'sixodp');?></label>
+                <label class="control-label" for="showcase_idea_name"><span title="This field is required" class="control-required">*</span> <?php _e('Name', 'sixodp');?></label>
                 <div class="controls ">             
-                  <input type="text" name="data_request_name" id="data_request_name" class="form-control" value="<?php echo $name; ?>" />
+                  <input type="text" name="showcase_idea_name" id="showcase_idea_name" class="form-control" value="<?php echo $name; ?>" />
                 </div>
               </div>
               <div class="field-assistive-text">
-                <?php _e('Your name will not be published with data request.'); ?>
+                <?php _e('Your name will not be published with showcase idea.'); ?>
               </div>
             </div>
           </div>
@@ -119,14 +121,14 @@ get_header(); ?>
           <div class="row">
             <div class="col-xs-12 col-md-8">
               <div class="control-group control-medium">
-                <label class="control-label" for="data_request_email"><span title="This field is required" class="control-required">*</span> <?php _e('Email', 'sixodp');?></label>
+                <label class="control-label" for="showcase_idea_email"><span title="This field is required" class="control-required">*</span> <?php _e('Email', 'sixodp');?></label>
                 <div class="controls ">             
-                  <input type="text" name="data_request_email" id="data_request_email" class="form-control" value="<?php echo $name; ?>" />
+                  <input type="text" name="showcase_idea_email" id="showcase_idea_email" class="form-control" value="<?php echo $name; ?>" />
                 </div>
               </div>
 
               <div class="field-assistive-text">
-               <?php _e('Your email will not be published with data request.'); ?>
+               <?php _e('Your email will not be published with showcase idea.'); ?>
               </div>
             </div>
           </div>
@@ -134,7 +136,7 @@ get_header(); ?>
           <div class="row">
             <div class="col-xs-12">
               <hr>
-              <button type="submit" class="btn btn-primary" name="data_request_submit_form"><?php _e('Submit', 'sixodp');?></button>
+              <button type="submit" class="btn btn-primary" name="showcase_idea_submit_form"><?php _e('Submit', 'sixodp');?></button>
             </div>
           </div>
         </form>
