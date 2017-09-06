@@ -55,7 +55,10 @@ get_header(); ?>
     ?>
 
     <div class="container">
+
       <h1 class="page-heading"><?php _e('New Data Request', 'sixodp') ?></h1>
+
+      <a href="<?php echo get_post_type_archive_link( 'data_request' ); ?>" class="btn btn-small btn-secondary btn--request-show-all"><?php _e('All data requests') ?> &raquo;</a>
 
       <?php
 
@@ -70,7 +73,7 @@ get_header(); ?>
         }
         ?>
         <form action="" method="POST">
-          <p><?php _e('By filling this form you can submit your data request. ', 'sixodp') ?></p>
+          <p><?php _e('Your data request will be moderated, it may be modified or combined with similar requests. Moderated request will be published on this site and will be forwarded to person responsible for the data if possible.'); ?>
 
           <div class="col-xs-12">
             <div class="control-group control-full">
@@ -103,6 +106,9 @@ get_header(); ?>
                 <input type="text" name="data_request_name" id="data_request_name" class="form-control" value="<?php echo $name; ?>" />
               </div>
             </div>
+            <div class="field-assistive-text">
+              <?php _e('Your name will not be published with data request.'); ?>
+            </div>
           </div>
 
           <div class="col-xs-12 col-md-8">
@@ -111,6 +117,10 @@ get_header(); ?>
               <div class="controls ">             
                 <input type="text" name="data_request_email" id="data_request_email" class="form-control" value="<?php echo $name; ?>" />
               </div>
+            </div>
+
+            <div class="field-assistive-text">
+             <?php _e('Your email will not be published with data request.'); ?>
             </div>
           </div>
 
