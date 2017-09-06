@@ -12,7 +12,7 @@ from ckan.lib.dictization.model_dictize import group_list_dictize
 
 from pylons.i18n import gettext
 from ckanext.scheming.helpers import lang
-from ckan.common import _
+from ckan.common import _, c
 from webhelpers.html import literal
 from ckan.logic import get_action
 import ckan.lib.helpers as helpers
@@ -137,6 +137,21 @@ def get_package_groups(package_id):
         group_list = [group
                      for group in groups if
                      group['id'] in pkg_group_ids]
+
+        if c.user:
+            context = {'model': model, 'session': model.Session,
+                       'user': c.user, 'for_view': True,
+                       'auth_user_obj': c.userobj, 'use_cache': False,
+                       'is_member': True}
+
+            data_dict = {'id': package_id}
+            users_groups = get_action('group_list_authz')(context, data_dict)
+
+            user_group_ids = set(group['id'] for group
+                                 in users_groups)
+
+            for group in group_list:
+                group['user_member'] = (group['id'] in user_group_ids)
 
     except (NotFound):
         abort(404, _('Dataset not found'))
