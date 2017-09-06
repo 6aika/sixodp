@@ -32,7 +32,7 @@
         'notes_translated-fi',
         id='field-notes_translated-fi',
         label=_('Description'),
-        placeholder='',
+        placeholder=_('Example: The dataset includes financial information for Acme corporation starting from the year 2012'),
         value=data['notes_translated']['fi'] if data['notes_translated'],
         error=errors['notes_translated'],
         attrs={},
@@ -50,7 +50,7 @@
       {% call form.input(
         'maintainer',
         id='maintainer',
-        label=_('Name or organization of the submitter'),
+        label=_('Name of the submitter'),
         placeholder='',
         value=data['maintainer'],
         error=errors['maintainer'],

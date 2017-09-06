@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-datasubmitter 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-05-08 12:55+0000\n"
+"POT-Creation-Date: 2017-09-06 12:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Language-Team: Swedish (https://www.transifex.com/6aika-dataportal/teams/68018/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -27,11 +27,11 @@ msgstr ""
 msgid "New dataset notification"
 msgstr ""
 
-#: ckanext/datasubmitter/controller.py:118
+#: ckanext/datasubmitter/controller.py:123
 msgid "Unauthorized to create a package"
 msgstr ""
 
-#: ckanext/datasubmitter/controller.py:127
+#: ckanext/datasubmitter/controller.py:132
 msgid "Dataset submitted successfully"
 msgstr ""
 
@@ -71,14 +71,20 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:52
-msgid "Name or organization of the submitter"
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:35
+msgid ""
+"Example: The dataset includes financial information for Acme corporation "
+"starting from the year 2012"
 msgstr ""
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:70
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:53
+msgid "Name of the submitter"
+msgstr ""
+
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:71
 msgid "Submitter email"
 msgstr ""
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:97
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:98
 msgid "Submit"
 msgstr ""
