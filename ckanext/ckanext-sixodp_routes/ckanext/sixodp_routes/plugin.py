@@ -197,7 +197,7 @@ class Sixodp_OrganizationController(OrganizationController):
                                     'res_format': _('Formats'),
                                     'license_id': _('Licenses')}
 
-            for facet in g.facets:
+            for facet in h.facets():
                 if facet in default_facet_titles:
                     facets[facet] = default_facet_titles[facet]
                 else:
@@ -242,14 +242,12 @@ class Sixodp_OrganizationController(OrganizationController):
 
             c.group_dict['package_count'] = query['count']
             c.facets = query['facets']
-            maintain.deprecate_context_item('facets',
-                                            'Use `c.search_facets` instead.')
 
             c.search_facets = query['search_facets']
             c.search_facets_limits = {}
             for facet in c.facets.keys():
                 limit = int(request.params.get('_%s_limit' % facet,
-                                               g.facets_default_number))
+                                               int(config.get('search.facets.default', 10))))
                 c.search_facets_limits[facet] = limit
             c.page.items = query['results']
 
@@ -283,7 +281,7 @@ class Sixodp_PackageController(PackageController):
         c.query_error = False
         page = h.get_page_number(request.params)
 
-        limit = g.datasets_per_page
+        limit = int(config.get('ckan.datasets_per_page', 20))
 
         # most search operations should reset the page counter:
         params_nopage = [(k, v) for k, v in request.params.items()
@@ -377,7 +375,7 @@ class Sixodp_PackageController(PackageController):
                 'license_id': _('Licenses'),
             }
 
-            for facet in g.facets:
+            for facet in h.facets():
                 if facet in default_facet_titles:
                     facets[facet] = default_facet_titles[facet]
                 else:
@@ -439,7 +437,7 @@ class Sixodp_PackageController(PackageController):
         for facet in c.search_facets.keys():
             try:
                 limit = int(request.params.get('_%s_limit' % facet,
-                                               g.facets_default_number))
+                                               int(config.get('search.facets.default', 10))))
             except ValueError:
                 abort(400, _('Parameter "{parameter_name}" is not '
                              'an integer').format(
