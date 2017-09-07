@@ -110,11 +110,15 @@ class DatasubmitterController(p.toolkit.BaseController):
                 'owner_org': organization.id,
                 'date_released': datetime.date.today().strftime('%Y-%m-%d'),
                 'date_updated': datetime.date.today().strftime('%Y-%m-%d'),
+                'url': parsedParams.get('url'),
                 'maintainer': parsedParams.get('maintainer'),
                 'maintainer_email': parsedParams.get('maintainer_email'),
                 'license_id': 'other-open',
                 'private': True
             }
+
+            if parsedParams.get('organization'):
+                data_dict['notes_translated']['fi'] += '\n\n' + _('Organization') + ': ' + parsedParams.get('organization')
 
             validateReCaptcha(parsedParams.get('g-recaptcha-response'))
 
