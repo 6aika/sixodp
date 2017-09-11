@@ -124,7 +124,7 @@ ckan.module('statistics', function($){
                         window.onhashchange = undefined
                         window.location.hash = hash
                         setTimeout(function () {
-                            window.onhashchange = self._onHashChange
+                            window.onhashchange = self.onHashChange
                         }, 100)
                     }
                 },
@@ -164,53 +164,55 @@ ckan.module('statistics', function($){
                     // self.articleSection.setDateRange(dates)
                 }).bind(this),
 
-                broadcastOrganization: function(value) {
-                    self._state.organization = value
-                    self._data.filtered = self._filterAllData(self._data.all)
-                    self._datasetSection.setOrganization(self._state.organization)
-                    self._datasetSection.setData(
-                        self._data.filtered.datasets,
-                        self._createCategoryDatasets(
-                            self._data.filtered.datasets,
-                            self._data.filtered.categories,
-                            self._state.dateRangeFilter
+                broadcastOrganization: (function(value) {
+                    var self = this;
+                    self.state.organization = value;
+                    self.data.filtered = self.filterAllData(self.data.all);
+                    self.sections.datasetSection.setOrganization(self.state.organization);
+                    self.sections.datasetSection.setData(
+                        self.data.filtered.datasets,
+                        self.createCategoryDatasets(
+                            self.data.filtered.datasets,
+                            self.data.filtered.categories,
+                            self.state.dateRangeFilter
                         ),
-                        self._createFormatDatasets(
-                            self._data.filtered.datasets,
-                            self._data.filtered.formats,
-                            self._state.dateRangeFilter
+                        self.createFormatDatasets(
+                            self.data.filtered.datasets,
+                            self.data.filtered.formats,
+                            self.state.dateRangeFilter
                         ),
-                        self._createOrganizationDatasets(
-                            self._data.filtered.datasets,
-                            self._data.filtered.organizations,
-                            self._state.dateRangeFilter
+                        self.createOrganizationDatasets(
+                            self.data.filtered.datasets,
+                            self.data.filtered.organizations,
+                            self.state.dateRangeFilter
                         )
                     )
-                },
+                }).bind(this),
 
-                broadcastCategory: function(value) {
-                    self._state.category = value
-                    self._data.filtered = self._filterAllData(self._data.all)
-                    self._datasetSection.setCategory(self._state.category)
-                    self._datasetSection.setData(
-                        self._data.filtered.datasets,
-                        self._createCategoryDatasets(
-                            self._data.filtered.datasets,
-                            self._data.filtered.categories,
-                            self._state.dateRangeFilter
+                broadcastCategory: (function(value) {
+                    var self = this;
+                    self.state.category = value;
+                    self.data.filtered = self.filterAllData(self.data.all);
+                    self.sections.datasetSection.setCategory(self.state.category);
+                    self.sections.datasetSection.setData(
+                        self.data.filtered.datasets,
+                        self.createCategoryDatasets(
+                            self.data.filtered.datasets,
+                            self.data.filtered.categories,
+                            self.state.dateRangeFilter
                         ),
-                        self._createFormatDatasets(
-                            self._data.filtered.datasets,
-                            self._data.filtered.formats,
-                            self._state.dateRangeFilter
+                        self.createFormatDatasets(
+                            self.data.filtered.datasets,
+                            self.data.filtered.formats,
+                            self.state.dateRangeFilter
                         ),
-                        self._createOrganizationDatasets(
-                            self._data.filtered.datasets,
-                            self._data.filtered.organizations,
-                            self._state.dateRangeFilter
+                        self.createOrganizationDatasets(
+                            self.data.filtered.datasets,
+                            self.data.filtered.organizations,
+                            self.state.dateRangeFilter
                         )
                     )
-                },
+                }).bind(this)
             })
         },
 
@@ -309,7 +311,7 @@ ckan.module('statistics', function($){
 
             // Scroll event: Tell nav to update its state
             this.options.onScroll = $.throttle(300, function () {
-                var y = $(window).scrollTop()
+                var y = $(window).scrollTop();
                 self.nav.onScroll(y)
             });
 
@@ -328,15 +330,15 @@ ckan.module('statistics', function($){
 
             // Resize elements on window resize
             window.onresize = function () {
-                self._nav.onResize()
+                self.nav.onResize();
 
-                var newWidth = parseInt(d3.select('.statistics-section-content:first-child').style('width'))
-                self._styles.visHeight = self._getVisHeight(self._styles.contentWidth)
-                if (newWidth !== self._styles.contentWidth) {
-                    self._styles.contentWidth = newWidth
-                    self._summarySection.onContentResize(self._styles.contentWidth)
-                    self._datasetSection.onContentResize(self._styles.contentWidth, self._styles.visHeight)
-                    self._appSection.onContentResize(self._styles.contentWidth, self._styles.visHeight)
+                var newWidth = parseInt(d3.select('.statistics-section-content:first-child').style('width'));
+                self.options.styles.visHeight = self.getVisHeight(self.options.styles.contentWidth);
+                if (newWidth !== self.options.styles.contentWidth) {
+                    self.options.styles.contentWidth = newWidth;
+                    self.sections.summarySection.onContentResize(self.options.styles.contentWidth);
+                    self.sections.datasetSection.onContentResize(self.options.styles.contentWidth, self.options.styles.visHeight);
+                    self.sections.appSection.onContentResize(self.options.styles.contentWidth, self.options.styles.visHeight)
                 }
             }
         },
@@ -639,7 +641,7 @@ ckan.module('statistics', function($){
                     for (var iExtra in apps[iApp].extras) {
                         var extra = apps[iApp].extras[iExtra];
                         if (extra.key === 'category') {
-                            var categoryLists = extra.value;
+                            var categoryLists = JSON.parse(extra.value);
                             if (categoryLists[self.options.locale] && categoryLists[self.options.locale].indexOf(categories[iCategory]) !== -1) {
                                 resultItem.all ++
                                 resultItem.specific ++
