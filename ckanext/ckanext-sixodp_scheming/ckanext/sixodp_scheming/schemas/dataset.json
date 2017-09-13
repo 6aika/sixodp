@@ -122,7 +122,6 @@
       "field_name": "date_updated",
       "label": "Updated",
       "preset": "date",
-      "required": true,
       "description": "The date which will be shown as the last modified date for this dataset."
     },
     {
