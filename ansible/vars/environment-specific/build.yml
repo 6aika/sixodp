@@ -14,7 +14,7 @@ postgres:
     installed_locally: true
     host: 127.0.0.1
     admin_user: ckan_admin
-    admin_password: "{{ secret.database_ckan_admin_password }}"
+    admin_password: "{{ secret.database_ckan_root_password }}"
     trusted_ip_range: 127.0.0.1/32
   users:
     ckan:
@@ -30,6 +30,21 @@ postgres:
     ckan_datastore:
       name: datastore_default
       owner: ckan_default
+
+mysql:
+  server:
+    installed_locally: true
+    host: localhost
+    admin_user: root
+    admin_password: "{{ secret.database_wordpress_root_password }}"
+  users:
+    wordpress:
+          username: wordpress
+          password: "{{ secret.database_wordpress_password}}"
+  databases:
+    wordpress:
+      name: wordpress
+      owner: wordpress
 
 nginx:
   use_ssl_certificate: true
@@ -63,6 +78,12 @@ ckan_users:
 ckan_admins:
   - "{{ ckan_users.admin.username }}"
   - "{{ ckan_users.harvest.username }}"
+
+wordpress_users:
+  admin:
+    username: admin
+    password: "{{ secret.wordpress_admin_password }}"
+    email: admin@localhost.localdomain
 
 ckan_extensions:
   - ckanext-sixodp_routes
