@@ -59,4 +59,11 @@ var App = {
 
   App.resizeArticleContent($('.article iframe'));
 
+  $('.cards--post').masonry({
+    itemSelector: '.card--post',
+    columnWidth: 240,
+    horizontalOrder: true,
+    gutter: 10
+  });
+
 })( jQuery );

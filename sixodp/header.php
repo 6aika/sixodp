@@ -20,13 +20,14 @@
 	<?php endif; ?>
 	<?php wp_head(); ?>
 	<script src="https://use.fontawesome.com/4f2a9d3d3d.js"></script>
-  <link rel="stylesheet" href="<?php echo site_url(); ?>/wp-content/themes/sixodp/app.css">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Roboto+Slab:300,400,600" rel="stylesheet">
+	<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+	<link rel="stylesheet" href="<?php echo site_url(); ?>/wp-content/themes/sixodp/app.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Roboto+Slab:300,400,600" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script type="text/javascript">
-  	var locale = '<?php echo get_current_locale() ?>';
-  	var locale_ckan = '<?php echo get_current_locale_ckan() ?>';
-  </script>
+	<script type="text/javascript">
+		var locale = '<?php echo get_current_locale() ?>';
+		var locale_ckan = '<?php echo get_current_locale_ckan() ?>';
+	</script>
 </head>
 
 <body <?php body_class(); ?> id="wordpress-indicator">

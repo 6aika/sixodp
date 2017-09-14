@@ -175,9 +175,36 @@
   padding: 0;
   border-color: #ccc;
   width: 240px;
-  height: 330px;
-  margin: 0 10px 10px 0;
+  margin: 0 0 10px 0;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  .post__img--link {
+    flex: 1 1 auto
+  }
+
+  .post__title {
+    margin: $base;
+    text-align: left;
+  }
+
+  .post__meta {
+    margin: 0 $base;
+
+    flex: 2 1 auto;
+    font-weight: 600;
+    padding-bottom: $base;
+  }
+
+  .post__categories {
+    display: block;
+    background: $gray-lighter;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 $base;
+    box-sizing: border-box;
+  }
 }
 
 // Showcase cards
