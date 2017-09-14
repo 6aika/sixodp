@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_ui 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-22 10:51+0000\n"
+"POT-Creation-Date: 2017-09-13 09:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Mikko Nieminen <mikko.nieminen@gofore.com>, 2017\n"
+"Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2017\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ckanext/sixodp_ui/helpers.py:135
+#: ckanext/sixodp_ui/helpers.py:157
 msgid "Dataset not found"
 msgstr "Tietoaineistoa ei löytynyt"
 
@@ -264,11 +264,10 @@ msgid "Content management"
 msgstr "Sisällönhallinta"
 
 #: ckanext/sixodp_ui/templates/footer.html:16
-#: ckanext/sixodp_ui/templates/user/login.html:6
-msgid "Login"
-msgstr "Kirjaudu sisään"
+msgid "Management"
+msgstr "Ylläpito"
 
-#: ckanext/sixodp_ui/templates/footer.html:34
+#: ckanext/sixodp_ui/templates/footer.html:33
 msgid "Follow us"
 msgstr "Seuraa meitä"
 
@@ -335,7 +334,8 @@ msgstr "Esimerkki: Javascript"
 
 #: ckanext/sixodp_ui/templates/ajax_snippets/api_info.html:94
 msgid "A simple ajax (JSONP) request to the data API using jQuery."
-msgstr "Yksinkertainen ajax (JSONP) kysely data-apiin käyttäen jQuery-kutsua."
+msgstr ""
+"Yksinkertainen ajax (JSONP) -kysely data-apiin käyttäen jQuery-kutsua."
 
 #: ckanext/sixodp_ui/templates/ajax_snippets/api_info.html:116
 msgid "Example: Python"
@@ -357,8 +357,6 @@ msgid "Add Article"
 msgstr "Lisää artikkeli"
 
 #: ckanext/sixodp_ui/templates/ckanext_pages/blog_list.html:15
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:54
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:56
 msgid "Blog"
 msgstr "Blogi"
 
@@ -462,30 +460,25 @@ msgstr "Yhteenveto"
 msgid "Organizations"
 msgstr "Organisaatiot"
 
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:47
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:49
-msgid "Pages"
-msgstr "Sivut"
-
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:66
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:50
 #: ckanext/sixodp_ui/templates/user/dashboard.html:8
 msgid "Edit settings"
 msgstr "Muokkaa asetuksia"
 
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:68
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:52
 msgid "Settings"
 msgstr "Asetukset"
 
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:75
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:77
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:59
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:61
 msgid "Log out"
 msgstr "Kirjaudu ulos"
 
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:86
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:70
 msgid "Log in"
 msgstr "Kirjaudu sisään"
 
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:88
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:72
 msgid "Register"
 msgstr "Rekisteröidy"
 
@@ -529,7 +522,7 @@ msgstr "Tähän organisaatioon ei liity tietoaineistoja"
 #: ckanext/sixodp_ui/templates/organization/index.html:6
 #: ckanext/sixodp_ui/templates/organization/index.html:13
 msgid "Search organizations..."
-msgstr "Etsi organisaatioita.."
+msgstr "Etsi organisaatioita..."
 
 #: ckanext/sixodp_ui/templates/organization/read.html:12
 msgid "Last Created"
@@ -576,7 +569,7 @@ msgid ""
 "cannot be modified."
 msgstr ""
 "Paksulla harmaalla kehyksellä merkittyjä kenttiä käytetään automaattiseen "
-"prosessointiin, eikä niitä voi muokata"
+"prosessointiin, eikä niitä voi muokata."
 
 #: ckanext/sixodp_ui/templates/package/group_list.html:14
 msgid "Associate this group with this dataset"
@@ -626,7 +619,7 @@ msgid "API Endpoint"
 msgstr "API-osoite"
 
 #: ckanext/sixodp_ui/templates/package/resource_read.html:37
-#: ckanext/sixodp_ui/templates/report/view.html:38
+#: ckanext/sixodp_ui/templates/report/view.html:40
 msgid "Download"
 msgstr "Lataa"
 
@@ -663,7 +656,7 @@ msgid ""
 "hasn't finished processing the data yet"
 msgstr ""
 "Jos näkymä vaatii DataStoren, voi olla, ettei DataStore-liitännäistä ole "
-"otettu käyttöön, tai ettei tietoja ole tallennettu DataStoreen, tai ettei "
+"otettu käyttöön tai ettei tietoja ole tallennettu DataStoreen tai ettei "
 "DataStore ole vielä saanut prosessointia valmiiksi"
 
 #: ckanext/sixodp_ui/templates/package/resource_read.html:119
@@ -800,7 +793,7 @@ msgstr "esim. CSV, XML tai JSON"
 
 #: ckanext/sixodp_ui/templates/package/snippets/resource_form.html:40
 msgid "This will be guessed automatically. Leave blank if you wish"
-msgstr "Tämä päätellään automaattisesti. Jätä tyhjäksi jos haluat"
+msgstr "Tämä päätellään automaattisesti. Jätä tyhjäksi, jos haluat"
 
 #: ckanext/sixodp_ui/templates/package/snippets/resource_form.html:51
 msgid "eg. 2012-06-05"
@@ -860,11 +853,15 @@ msgstr "Lataa resurssi"
 msgid "Your browser does not support iframes."
 msgstr "Selaimesi ei tue iframe-elementtejä."
 
-#: ckanext/sixodp_ui/templates/report/view.html:7
+#: ckanext/sixodp_ui/templates/report/index.html:22
+msgid "View Report"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/report/view.html:9
 msgid "Generated"
 msgstr "Generoitu"
 
-#: ckanext/sixodp_ui/templates/report/view.html:16
+#: ckanext/sixodp_ui/templates/report/view.html:18
 msgid ""
 "As a system administrator you are able to refresh this report on demand by "
 "clicking the 'Refresh' button."
@@ -872,15 +869,15 @@ msgstr ""
 "Järjestelmän ylläpitäjänä voit pakottaa tämän raportin päivityksen "
 "painamalla 'Päivitä'"
 
-#: ckanext/sixodp_ui/templates/report/view.html:22
+#: ckanext/sixodp_ui/templates/report/view.html:24
 msgid "Options"
 msgstr "Valinnat"
 
-#: ckanext/sixodp_ui/templates/report/view.html:43
+#: ckanext/sixodp_ui/templates/report/view.html:45
 msgid "Results"
 msgstr "Tulokset"
 
-#: ckanext/sixodp_ui/templates/report/view.html:45
+#: ckanext/sixodp_ui/templates/report/view.html:47
 msgid "No results found."
 msgstr "Tuloksia ei löytynyt"
 
@@ -948,17 +945,17 @@ msgstr "Näytä vain suositut {facet_type}"
 msgid "There are no {facet_type} that match this search"
 msgstr "Hakuun ei liity {facet_type} -tyyppistä sisältöä"
 
-#: ckanext/sixodp_ui/templates/snippets/horizaccordion.html:36
-msgid "Read more"
-msgstr "Lue lisää"
-
-#: ckanext/sixodp_ui/templates/snippets/horizaccordion.html:50
+#: ckanext/sixodp_ui/templates/snippets/horizontal_accordion.html:30
 msgid "Close preview"
 msgstr "Sulje esittely"
 
-#: ckanext/sixodp_ui/templates/snippets/horizaccordion.html:51
+#: ckanext/sixodp_ui/templates/snippets/horizontal_accordion.html:31
 msgid "Show preview"
 msgstr "Avaa esittely"
+
+#: ckanext/sixodp_ui/templates/snippets/license.html:11
+msgid "This dataset satisfies the Open Definition."
+msgstr ""
 
 #: ckanext/sixodp_ui/templates/snippets/package_item.html:74
 msgid "This dataset has no description"
@@ -1026,6 +1023,10 @@ msgstr "Minun kategoriani"
 #: ckanext/sixodp_ui/templates/user/dashboard.html:31
 msgid "Activity from items that I'm following"
 msgstr "Seuraamieni osioiden toiminta"
+
+#: ckanext/sixodp_ui/templates/user/login.html:6
+msgid "Login"
+msgstr "Kirjaudu"
 
 #: ckanext/sixodp_ui/templates/user/snippets/followee_dropdown.html:14
 #: ckanext/sixodp_ui/templates/user/snippets/followee_dropdown.html:15

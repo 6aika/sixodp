@@ -21,16 +21,6 @@ except ImportError:
 
 log = logging.getLogger(__name__)
 
-def ensure_translated(s):
-    ts = type(s)
-    if ts == unicode:
-        return s
-    elif ts == str:
-        return unicode(s)
-    elif ts == dict:
-        language = i18n.get_lang()
-        return ensure_translated(s.get(language, u""))
-
 
 def service_alerts():
     message = config.get('ckanext.sixodp_ui.service_alert.message')

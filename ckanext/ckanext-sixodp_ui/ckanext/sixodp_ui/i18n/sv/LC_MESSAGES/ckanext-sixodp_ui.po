@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_ui 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-22 10:51+0000\n"
+"POT-Creation-Date: 2017-09-13 09:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Language-Team: Swedish (https://www.transifex.com/6aika-dataportal/teams/68018/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ckanext/sixodp_ui/helpers.py:135
+#: ckanext/sixodp_ui/helpers.py:157
 msgid "Dataset not found"
 msgstr ""
 
@@ -261,11 +261,10 @@ msgid "Content management"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/footer.html:16
-#: ckanext/sixodp_ui/templates/user/login.html:6
-msgid "Login"
+msgid "Management"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/footer.html:34
+#: ckanext/sixodp_ui/templates/footer.html:33
 msgid "Follow us"
 msgstr ""
 
@@ -350,8 +349,6 @@ msgid "Add Article"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/ckanext_pages/blog_list.html:15
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:54
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:56
 msgid "Blog"
 msgstr ""
 
@@ -455,30 +452,25 @@ msgstr ""
 msgid "Organizations"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:47
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:49
-msgid "Pages"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:66
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:50
 #: ckanext/sixodp_ui/templates/user/dashboard.html:8
 msgid "Edit settings"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:68
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:52
 msgid "Settings"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:75
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:77
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:59
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:61
 msgid "Log out"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:86
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:70
 msgid "Log in"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:88
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:72
 msgid "Register"
 msgstr ""
 
@@ -617,7 +609,7 @@ msgid "API Endpoint"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/resource_read.html:37
-#: ckanext/sixodp_ui/templates/report/view.html:38
+#: ckanext/sixodp_ui/templates/report/view.html:40
 msgid "Download"
 msgstr ""
 
@@ -843,25 +835,29 @@ msgstr ""
 msgid "Your browser does not support iframes."
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/report/view.html:7
+#: ckanext/sixodp_ui/templates/report/index.html:22
+msgid "View Report"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/report/view.html:9
 msgid "Generated"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/report/view.html:16
+#: ckanext/sixodp_ui/templates/report/view.html:18
 msgid ""
 "As a system administrator you are able to refresh this report on demand by "
 "clicking the 'Refresh' button."
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/report/view.html:22
+#: ckanext/sixodp_ui/templates/report/view.html:24
 msgid "Options"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/report/view.html:43
+#: ckanext/sixodp_ui/templates/report/view.html:45
 msgid "Results"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/report/view.html:45
+#: ckanext/sixodp_ui/templates/report/view.html:47
 msgid "No results found."
 msgstr ""
 
@@ -929,16 +925,16 @@ msgstr ""
 msgid "There are no {facet_type} that match this search"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/snippets/horizaccordion.html:36
-msgid "Read more"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/snippets/horizaccordion.html:50
+#: ckanext/sixodp_ui/templates/snippets/horizontal_accordion.html:30
 msgid "Close preview"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/snippets/horizaccordion.html:51
+#: ckanext/sixodp_ui/templates/snippets/horizontal_accordion.html:31
 msgid "Show preview"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/snippets/license.html:11
+msgid "This dataset satisfies the Open Definition."
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/snippets/package_item.html:74
@@ -1004,6 +1000,10 @@ msgstr ""
 
 #: ckanext/sixodp_ui/templates/user/dashboard.html:31
 msgid "Activity from items that I'm following"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/user/login.html:6
+msgid "Login"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/user/snippets/followee_dropdown.html:14

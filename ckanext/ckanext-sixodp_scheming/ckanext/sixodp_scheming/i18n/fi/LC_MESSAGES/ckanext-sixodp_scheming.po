@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_scheming 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-08-31 09:38+0000\n"
+"POT-Creation-Date: 2017-09-13 10:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2017\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
@@ -400,7 +400,7 @@ msgstr "tuntematon"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:53
 msgid "GB"
-msgstr ""
+msgstr "Gt"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:55
 msgid "MB"
@@ -426,16 +426,32 @@ msgstr "Arvosana"
 msgid "State"
 msgstr "Tila"
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:108
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:107
 msgid "How to reference"
 msgstr "Viittaustapa"
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:110
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:109
+msgid "Source"
+msgstr "Lähde"
+
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:114
 msgid ""
-"{title}: The maintainer of the dataset is {maintainer} and the original "
-"author is {author}. The dataset has been downloaded from the {site_title} "
-"service {date} using the license {license}."
-msgstr ""
-"{title}: Tietoaineiston ylläpitäjä on {maintainer} ja alkuperäinen tekijä "
-"{author}. Tietoaineisto on ladattu {site_title} -palvelusta {date} "
-"lisenssillä {license}."
+"The maintainer of the dataset is {maintainer} and the original author is "
+"{author}"
+msgstr "Aineiston ylläpitäjä on {maintainer} alkuperäinen tekijä {author}"
+
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:117
+msgid "The maintainer of the dataset is {maintainer}"
+msgstr "Aineiston ylläpitäjä on {maintainer}"
+
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:120
+msgid "The dataset has been downloaded from {site_title} service on {date}"
+msgstr "Aineisto on ladattu {site_title} -palvelusta {date}"
+
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:123
+msgid "using the license {license}"
+msgstr "lisenssillä {license}"
+
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:125
+msgid "The license can be found on the maintainer's service"
+msgstr "Lisenssi ilmoitettu ylläpitäjän palvelussa"
