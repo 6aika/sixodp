@@ -1,5 +1,6 @@
 // Common js
 require('./components/common/navbar');
+require('./components/common/search');
 require('./components/common/polyfills');
 require('./components/common/popper');
 
