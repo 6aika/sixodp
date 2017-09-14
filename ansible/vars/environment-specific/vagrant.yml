@@ -29,6 +29,22 @@ postgres:
       name: datastore_default
       owner: ckan_default
 
+
+mysql:
+  server:
+    installed_locally: true
+    host: localhost
+    admin_user: root
+    admin_password:
+  users:
+    wordpress:
+          username: wordpress
+          password: "{{ secret.database_wordpress_password}}"
+  databases:
+    wordpress:
+      name: wordpress
+      owner: wordpress
+
 nginx:
   use_ssl_certificate: true
   use_selfsigned_certificate: true
@@ -56,6 +72,12 @@ ckan_users:
     username: test
     password: "{{ secret.ckan_test_password }}"
     email: testuser@localhost
+
+wordpress_users:
+  admin:
+    username: admin
+    password: "{{ secret.wordpress_admin_password }}"
+    email: admin@localhost.localdomain
 
 ckan_admins:
   - "{{ ckan_users.admin.username }}"
