@@ -108,7 +108,7 @@
     <td class="dataset-details">
       {{- _('Source') -}}:
       <a href="{{ h.url_for(controller='package', action='read', id=pkg_dict.name) -}}">
-        {{- h.ensure_translated(pkg_dict.title_translated) -}}.
+        {{- h.get_translated(pkg_dict, 'title') -}}.
       </a>
       {% if pkg_dict.maintainer and pkg_dict.organization.title %}
         {{- ' ' + _('The maintainer of the dataset is {maintainer} and the original author is {author}')
