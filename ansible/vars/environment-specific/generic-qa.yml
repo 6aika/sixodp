@@ -12,7 +12,7 @@ postgres:
     installed_locally: false
     host: sixodp-{{ deployment_environment_id }}-ckan.{{ rds_domain_common_part }}
     admin_user: ckan_admin
-    admin_password: "{{ secret.database_ckan_admin_password }}"
+    admin_password: "{{ secret.database_ckan_root_password }}"
     trusted_ip_range: 127.0.0.1/32
   users:
     ckan:
@@ -29,6 +29,23 @@ postgres:
       name: datastore_default
       owner: ckan_default
 
+mysql:
+  server:
+    installed_locally: false
+    host: sixodp-{{ deployment_environment_id }}-wordpress.{{ rds_domain_common_part }}
+    admin_user: ckan_admin
+    admin_password: "{{ secret.database_wordpress_root_password }}"
+    trusted_ip_range: 127.0.0.1/32
+  users:
+    wordpress:
+      username: wordpress
+      password: "{{ secret.database_wordpress_password }}"
+  databases:
+    wordpress:
+      name: wordpress
+      owner: wordpress
+
+
 nginx:
   use_ssl_certificate: true
   use_selfsigned_certificate: true
@@ -37,12 +54,6 @@ nginx:
 acmetool_hostnames:
   - "{{ public_facing_hostname }}"
   - demo.dataportaali.com
-
-wordpress_database_host: sixodp-{{ deployment_environment_id }}-wordpress.{{ rds_domain_common_part }}
-wordpress_database_admin_user: ckan_admin
-wordpress_database_admin_password: "{{ secret.database_ckan_admin_password }}"
-wordpress_database_password: "{{ secret.wordpress_database_password }}"
-wordpress_admin_password: "{{ secret.wordpress_admin_password }}"
 
 solr:
   host: 127.0.0.1
@@ -66,6 +77,10 @@ ckan_users:
     username: test
     password: "{{ secret.ckan_test_password }}"
     email: testuser@localhost
+
+wordpress_users:
+  admin:
+    password: "{{ secret.wordpress_admin_password }}"
 
 ckan_admins:
   - "{{ ckan_users.admin.username }}"
