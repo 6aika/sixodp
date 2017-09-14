@@ -80,7 +80,9 @@ ckan_users:
 
 wordpress_users:
   admin:
+    username: admin
     password: "{{ secret.wordpress_admin_password }}"
+    email: admin@localhost.localdomain
 
 ckan_admins:
   - "{{ ckan_users.admin.username }}"
