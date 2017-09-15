@@ -81,7 +81,6 @@ class DatasubmitterController(p.toolkit.BaseController):
             if user is None or organization is None:
                 abort(403,_('Dataset submit user or organization not set.'))
 
-
             context = {'model': model, 'session': model.Session,
                        'user': user.id, 'auth_user_obj': user.id,
                        'save': 'save' in request.params}
@@ -113,7 +112,6 @@ class DatasubmitterController(p.toolkit.BaseController):
                 'owner_org': organization.id,
                 'date_released': datetime.date.today().strftime('%Y-%m-%d'),
                 'date_updated': datetime.date.today().strftime('%Y-%m-%d'),
-                'url': parsedParams.get('url'),
                 'maintainer': parsedParams.get('maintainer'),
                 'maintainer_email': parsedParams.get('maintainer_email'),
                 'license_id': 'other-open',
@@ -122,6 +120,9 @@ class DatasubmitterController(p.toolkit.BaseController):
 
             if parsedParams.get('organization'):
                 data_dict['notes_translated']['fi'] += '\n\n' + _('Organization') + ': ' + parsedParams.get('organization')
+
+            if parsedParams.get('url'):
+                data_dict['notes_translated']['fi'] += '\n\n' + _('Dataset url') + ': ' + parsedParams.get('url')
 
             validateReCaptcha(parsedParams.get('g-recaptcha-response'))
 
