@@ -1,9 +1,9 @@
 ---
 
-public_facing_hostname: 10.106.10.10
+public_facing_hostname: 10.106.10.20
 internal_hostname: sixodp-vagrant
-cms_site_url: localhost
-ckan_internal_host: 127.0.0.1:8080
+cms_site_url: 10.106.10.20
+ckan_internal_host: 10.106.10.30:8080
 ckan_internal_url: "{{ 'http://' + ckan_internal_host }}"
 ckan_site_name: Dataportaali
 ckan_featured_orgs:
