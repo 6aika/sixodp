@@ -28,3 +28,5 @@ STDERR = True
 {% if deployment_environment_id == "vagrant" %}
 SSL_VERIFY = 'False'
 {% endif %}
+
+MAX_CONTENT_LENGTH = {{ datapusher_max_content_length }}

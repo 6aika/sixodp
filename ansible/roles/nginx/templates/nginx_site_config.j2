@@ -16,7 +16,7 @@ server {
   ### CKAN
 
   location /data/ {
-    proxy_pass http://127.0.0.1:8080;
+    proxy_pass {{ ckan_internal_url }};
     proxy_read_timeout 300s;
     proxy_set_header X-Url-Scheme $scheme;
     proxy_set_header Host $host;
@@ -85,7 +85,7 @@ server {
   }
 
   # file upload size in megabytes
-  client_max_body_size {{ ckan_max_resource_size }}m;
+  client_max_body_size {{ nginx_max_resource_size }}m;
 }
 
 # Redirect unknown hostnames to primary hostname

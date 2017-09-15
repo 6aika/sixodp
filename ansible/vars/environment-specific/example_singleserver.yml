@@ -3,8 +3,14 @@
 public_facing_hostname: yourserver.example.com
 internal_hostname: yourserver
 ckan_site_name: Dataportaali
+
+# Sets featured orgs in ckan.ini but not actually used in anything
 ckan_featured_orgs:
+
+# Does the server update itself every night from github
 automatic_updates: false
+
+# Notification address for nightly updates
 automatic_updates_recipient: root@localhost
 
 postgres:
@@ -29,6 +35,21 @@ postgres:
       name: datastore_default
       owner: ckan_default
 
+mysql:
+  server:
+    installed_locally: true
+    host: localhost
+    admin_user: root
+    admin_password:
+  users:
+    wordpress:
+          username: wordpress
+          password: "{{ secret.database_wordpress_password}}"
+  databases:
+    wordpress:
+      name: wordpress
+      owner: wordpress
+
 nginx:
   use_ssl_certificate: true
   use_selfsigned_certificate: true
@@ -43,6 +64,7 @@ redis:
   host: 127.0.0.1
   port: 6379
 
+# CKAN accounts created by ansible
 ckan_users:
   admin:
     username: admin
@@ -57,10 +79,19 @@ ckan_users:
     password: "{{ secret.ckan_test_password }}"
     email: testuser@localhost
 
+# Wordpress accounts created by ansible
+wordpress_users:
+  admin:
+    username: admin
+    password: "{{ secret.wordpress_admin_password }}"
+    email: admin@localhost.localdomain
+
+# CKAN accounts given sysadmin rights
 ckan_admins:
   - "{{ ckan_users.admin.username }}"
   - "{{ ckan_users.harvest.username }}"
 
+# CKAN Extensions deployed to server
 ckan_extensions:
   - ckanext-sixodp_routes
   - ckanext-sixodp_scheming
@@ -130,6 +161,7 @@ enabled_ckan_extensions:
     - sixodp_showcasesubmit
 #    - googleanalytics
 
+# If AWS is used, these extensions are enabled in CKAN
 enabled_ckan_aws_extensions: cloudstorage
 
 ckan_site_id: "default"
@@ -146,9 +178,12 @@ robots_allowed: false
 
 debug_enabled: false
 
+# AWS related configuration. If iam_role is used, access keys are not needed
 AWS:
   enabled: false
   use_iam_role: false
+  access_key: somekey
+  secret_access_key: somesecret
   ckan_s3_bucket: not_in_use
   region: not_in_use
 

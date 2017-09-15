@@ -1,0 +1,7 @@
+---
+
+# To run:
+# ansible-playbook -v -i inventories/example_multipleservers deploy-all-to-multiple.yml
+
+- include: deploy-mainserver.yml
+- include: deploy-ckanserver.yml

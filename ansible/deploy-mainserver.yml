@@ -1,0 +1,21 @@
+---
+
+# To run:
+# ansible-playbook -v -i inventories/example_multipleservers deploy-mainserver.yml
+
+- hosts: mainserver
+  become: true
+  vars_files:
+    - "vars/common.yml"
+    - "vars/environment-specific/{{ deployment_environment_id }}.yml"
+    - "{{ secrets_file_path }}"
+  roles:
+    - os-base
+    - nodejs
+    - nginx
+    - acmetool
+    - postfix
+    - php-fpm
+    - mysql
+    - wordpress
+

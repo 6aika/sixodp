@@ -155,11 +155,14 @@
 
   {% block package_info_mobile_only %}
     <div class="mobile-only">
-      {% set author_showcases = h.get_showcases_by_author(pkg.author, 3, pkg.id) %}
+      {% set author_showcases = h.get_showcases_by_author(pkg.author, 5, pkg.id) %}
       {% if author_showcases %}
         <h2 class="module-heading">{{ _('More from the author') }}</h2>
         {{ h.snippet('sixodp_showcase/snippets/related_list.html', packages=author_showcases, current=pkg.id) }}
-      <a href="{{ h.url_for(controller='ckanext.sixodp_showcase.controller:Sixodp_ShowcaseController', action='search', author=pkg.author) }}">{{ _('Show all from this author') }}</a>
+      <a href="{{ h.url_for(controller='ckanext.sixodp_showcase.controller:Sixodp_ShowcaseController', action='search', author=pkg.author) }}"
+        class="btn btn-block btn-transparent--inverse btn-list-item">
+        {{ _('Show all from this author') }}
+      </a>
       {% endif %}
       {% snippet "snippets/social.html" %}
     </div>
@@ -198,12 +201,15 @@
   {% endblock %}
 
   {% block more_from_author %}
-    {% set author_showcases = h.get_showcases_by_author(pkg.author, 3, pkg.id) %}
+    {% set author_showcases = h.get_showcases_by_author(pkg.author, 5, pkg.id) %}
     {% if author_showcases %}
       <section class="module module-narrow">
         <h2 class="module-heading">{{ _('More from the author') }}</h2>
         {{ h.snippet('sixodp_showcase/snippets/related_list.html', packages=author_showcases, current=pkg.id) }}
-        <a href="{{ h.url_for(controller='ckanext.sixodp_showcase.controller:Sixodp_ShowcaseController', action='search', author=pkg.author) }}">{{ _('Show all from this author') }}</a>
+        <a href="{{ h.url_for(controller='ckanext.sixodp_showcase.controller:Sixodp_ShowcaseController', action='search', author=pkg.author) }}"
+        class="btn btn-block btn-transparent--inverse btn-list-item">
+          {{ _('Show all from this author') }}
+        </a>
       </section>
     {% endif %}
   {% endblock %}
