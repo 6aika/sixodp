@@ -2,6 +2,9 @@
 
 public_facing_hostname: generic-qa.dataportaali.com
 internal_hostname: sixodp-{{ deployment_environment_id }}
+cms_site_url: localhost
+ckan_internal_host: 127.0.0.1:8080
+ckan_internal_url: "{{ 'http://' + ckan_internal_host }}"
 ckan_site_name: Dataportaali
 ckan_featured_orgs:
 automatic_updates: true
