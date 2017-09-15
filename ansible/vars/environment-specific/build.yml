@@ -4,6 +4,9 @@ cache_path: /root/.cache
 
 public_facing_hostname: build
 internal_hostname: build
+cms_site_url: localhost
+ckan_internal_host: 127.0.0.1:8080
+ckan_internal_url: "{{ 'http://' + ckan_internal_host }}"
 ckan_site_name: Dataportaali
 ckan_featured_orgs:
 automatic_updates: false
