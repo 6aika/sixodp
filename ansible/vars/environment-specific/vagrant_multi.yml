@@ -1,7 +1,10 @@
 ---
 
-public_facing_hostname: tampere-qa.dataportaali.com
-internal_hostname: sixodp-{{ deployment_environment_id }}
+public_facing_hostname: 10.106.10.20
+internal_hostname: sixodp-vagrant
+cms_site_url: 10.106.10.20
+ckan_internal_host: 10.106.10.30:8080
+ckan_internal_url: "{{ 'http://' + ckan_internal_host }}"
 ckan_site_name: Dataportaali
 ckan_featured_orgs:
 automatic_updates: false
@@ -9,11 +12,11 @@ automatic_updates_recipient: root@localhost
 
 postgres:
   server:
-    installed_locally: false
-    host: sixodp-{{ deployment_environment_id }}-ckan.{{ rds_domain_common_part }}
-    admin_user: ckan_admin
-    admin_password: "{{ secret.database_ckan_admin_password }}"
-    trusted_ip_range: 127.0.0.1/32
+    installed_locally: true
+    host: 127.0.0.1
+    admin_user: postgres
+    admin_password:
+    trusted_ip_range: 10.0.0.0/8
   users:
     ckan:
       username: ckan_default
@@ -29,24 +32,31 @@ postgres:
       name: datastore_default
       owner: ckan_default
 
+
+mysql:
+  server:
+    installed_locally: true
+    host: localhost
+    admin_user: root
+    admin_password:
+  users:
+    wordpress:
+          username: wordpress
+          password: "{{ secret.database_wordpress_password}}"
+  databases:
+    wordpress:
+      name: wordpress
+      owner: wordpress
+
 nginx:
   use_ssl_certificate: true
   use_selfsigned_certificate: true
-  fqdn_common_part: dataportaali.com
-
-acmetool_hostnames:
-  - "{{ public_facing_hostname }}"
-
-wordpress_database_host: sixodp-{{ deployment_environment_id }}-wordpress.{{ rds_domain_common_part }}
-wordpress_database_admin_user: ckan_admin
-wordpress_database_admin_password: "{{ secret.database_ckan_admin_password }}"
-wordpress_database_password: "{{ secret.wordpress_database_password }}"
-wordpress_admin_password: "{{ secret.wordpress_admin_password }}"
+  fqdn_common_part: goforecrew.com
 
 solr:
   host: 127.0.0.1
   port: 8983
-  listen_address: 127.0.0.1
+  listen_address: 0.0.0.0
 
 redis:
   host: 127.0.0.1
@@ -56,7 +66,7 @@ ckan_users:
   admin:
     username: admin
     password: "{{ secret.ckan_admin_password }}"
-    email: admin@localhost
+    email: vagrant@localhost
   harvest:
     username: harvest
     password: "{{ secret.ckan_harvest_password }}"
@@ -65,6 +75,12 @@ ckan_users:
     username: test
     password: "{{ secret.ckan_test_password }}"
     email: testuser@localhost
+
+wordpress_users:
+  admin:
+    username: admin
+    password: "{{ secret.wordpress_admin_password }}"
+    email: admin@localhost.localdomain
 
 ckan_admins:
   - "{{ ckan_users.admin.username }}"
@@ -143,25 +159,27 @@ enabled_ckan_aws_extensions: cloudstorage
 
 ckan_site_id: "default"
 
-email_domain: "{{ public_facing_hostname }}"
+email_domain: vagrant
 email:
   smtp_server: localhost
   from: no-reply@{{ email_domain }}
-  error_recipient: admin@localhost
+  error_recipient: vagrant@localhost
   error_from: error@{{ email_domain }}
-  contact: not-implemented@localhost
+  contact: vagrant@localhost
 
-robots_allowed: false
+robots_allowed: true
 
-debug_enabled: false
+debug_enabled: true
 
 AWS:
-  enabled: true
-  use_iam_role: true
-  ckan_s3_bucket: sixodp-{{ deployment_environment_id }}-datasets
+  enabled: false
+  use_iam_role: false
+  access_key: somekey
+  secret_access_key: somesecret
+  ckan_s3_bucket: sixodp-testi-ampari
   region: S3_EU_WEST
 
-recaptcha_sitekey: somesitekey
+recaptcha_sitekey: 6LcOXyAUAAAAALCDCcqzCrqRM4fllGmL0KHopKLY
 
 disqus_public_key: "{{ secret.disqus_public_key }}"
 disqus_secret_key: "{{ secret.disqus_secret_key }}"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_scheming 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-08-31 09:38+0000\n"
+"POT-Creation-Date: 2017-09-13 10:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/6aika-dataportal/teams/68018/en_GB/)\n"
 "MIME-Version: 1.0\n"
@@ -398,13 +398,32 @@ msgstr ""
 msgid "State"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:108
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:107
 msgid "How to reference"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:110
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:109
+msgid "Source"
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:114
 msgid ""
-"{title}: The maintainer of the dataset is {maintainer} and the original "
-"author is {author}. The dataset has been downloaded from the {site_title} "
-"service {date} using the license {license}."
+"The maintainer of the dataset is {maintainer} and the original author is "
+"{author}"
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:117
+msgid "The maintainer of the dataset is {maintainer}"
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:120
+msgid "The dataset has been downloaded from {site_title} service on {date}"
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:123
+msgid "using the license {license}"
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:125
+msgid "The license can be found on the maintainer's service"
 msgstr ""

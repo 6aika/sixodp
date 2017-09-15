@@ -1,11 +1,4 @@
 ---
-wordpress_database_admin_user: root
-wordpress_database_admin_password:
-wordpress_database_name: wordpress
-wordpress_database_user: wordpress
-wordpress_database_host: localhost
-wordpress_admin_user: admin
-wordpress_admin_email: admin@localhost.localdomain
 wordpress_local_plugins:
   - wp-trello
   - wp-api-menus
