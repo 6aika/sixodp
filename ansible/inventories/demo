@@ -1,7 +1,0 @@
-[mainserver]
-demo.dataportaali.com ansible_ssh_user=ubuntu
-
-[mainserver:vars]
-deployment_environment_id=demo
-secrets_file_path="../../sixodp-secrets/demo.yml"
-google_analytics_secrets_file_path="/root/sixodp-secrets/{{ deployment_environment_id }}/google_analytics_credentials.json"
