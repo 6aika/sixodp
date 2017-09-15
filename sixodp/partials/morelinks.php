@@ -19,7 +19,7 @@
               </a>
             </p>
             <p class="icon-link__text">
-              <a href="<?php echo $link->post_name; ?>"><?php echo $link->post_title; ?></a>
+              <a href="<?php echo get_permalink($link) ?>"><?php echo $link->post_title; ?></a>
             </p>
           </div>
         <?php endforeach; ?>
