@@ -1,8 +1,9 @@
 {% ckan_extends %}
 
 {% block head_extras -%}
+  {% set description = h.markdown_extract(h.get_translated(pkg ,'notes'), extract_length=200)|forceescape %}
   <meta property="og:title" content="{{ h.dataset_display_name(pkg) }} - {{ g.site_title }}">
-  <meta property="og:description" content="{{ h.get_translated(pkg ,'description')|forceescape|trim }}">
+  <meta property="og:description" content="{{ description|forceescape|trim }}">
 {% endblock -%}
 
 {% block content_primary_nav %}
