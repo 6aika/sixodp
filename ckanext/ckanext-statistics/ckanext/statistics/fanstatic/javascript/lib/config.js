@@ -1,7 +1,7 @@
 // Currently selected language (fi / sv / en)
 var Config = function () {
   var result = {
-    locale: window.ckan.i18n.options.locale_data.ckan[''].lang.split('_')[0],
+    //locale: window.ckan.i18n.options.locale_data.ckan[''].lang.split('_')[0],
     api: {},
   }
 

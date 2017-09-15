@@ -35,7 +35,7 @@ if ($grandparent_id != $category->term_id) {
                   <ul class="unstyled nav nav-simple nav-facet filtertype-res_format">
                     <?php
                     foreach ($sibling_categories as $sibling_category) {
-                      echo '<li class="nav-item news-category"><a href="' . get_category_link($sibling_category->cat_ID) . '" class="news-category__link">'. $sibling_category->name .'<span class="news-category__count">'. $sibling_category->count .'</span></a></li>';
+                      echo '<li class="nav-item news-category"><a href="' . get_category_link($sibling_category->cat_ID) . '" class="news-category__link'. ($sibling_category->cat_ID === $category->cat_ID ? ' active' : '') .'">'. $sibling_category->name .'<span class="news-category__count">'. $sibling_category->count .'</span></a></li>';
                     }
                     ?>
                   </ul>
@@ -81,27 +81,24 @@ if ($grandparent_id != $category->term_id) {
                 endif;
               ?>
               <a href="<?php the_permalink(); ?>" class="post__img--link" style="background-image: url(<?php echo $image[0]; ?>);"></a>
-              <div class="post__content">
-                <h4 class="post__title">
-                  <a class="post__link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                </h4>
-                <div class="post__separator"></div>
-                <div class="post__meta">
-                  <span><?php echo parse_date(get_the_date('c')); ?></span>
-                </div>
-                <div class="post__categories">
-                  <ul>
-                    <?php
-                      if ( count(get_the_category()) > 0 ) {
-                        foreach ( get_the_category() as $cat ) { ?>
-                          <li><a href="<?php echo get_category_link($cat->cat_ID) ?>"><?php echo $cat->name; ?></a></li><?php
-                        }
+              <h4 class="post__title">
+                <a class="post__link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+              </h4>
+              <div class="post__meta">
+                <span><?php echo parse_date(get_the_date('c')); ?></span>
+              </div>
+              <div class="post__categories">
+                <ul>
+                  <?php
+                    if ( count(get_the_category()) > 0 ) {
+                      foreach ( get_the_category() as $cat ) { ?>
+                        <li><a href="<?php echo get_category_link($cat->cat_ID) ?>"><?php echo $cat->name; ?></a></li><?php
                       }
-                    ?>
-                  </ul>
-                </div>
-                <div class="post__footer">
-                </div>
+                    }
+                  ?>
+                </ul>
+              </div>
+              <div class="post__footer">
               </div>
             </div>
 

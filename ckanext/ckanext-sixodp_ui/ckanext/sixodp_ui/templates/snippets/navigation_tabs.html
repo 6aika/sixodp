@@ -3,6 +3,7 @@
     {{ h.build_nav_main() }}
   </ul>
   <ul class="nav navbar-nav navbar-right">
+    {% snippet 'home/snippets/sixodp_navbar_search.html' %}
     {% if c.userobj %}
       {% snippet 'home/snippets/sixodp_profile.html' %}
     {% endif %}

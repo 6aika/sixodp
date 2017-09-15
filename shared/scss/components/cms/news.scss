@@ -96,7 +96,7 @@
       }
     }
 
-    li:before {
+    li + li:before {
       content: '· ';
     }
   }

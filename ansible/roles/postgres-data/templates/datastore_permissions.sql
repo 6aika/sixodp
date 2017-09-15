@@ -23,28 +23,49 @@ over SSH:
 -- 'public' schema, and could be executed anywhere. But ALTER DEFAULT
 -- PERMISSIONS applies to the current database, and so we must be connected to
 -- the datastore DB:
-\connect datastore_default
+\connect "{{ postgres.databases.ckan_datastore.name }}"
 
 -- revoke permissions for the read-only user
 REVOKE CREATE ON SCHEMA public FROM PUBLIC;
 REVOKE USAGE ON SCHEMA public FROM PUBLIC;
 
-GRANT CREATE ON SCHEMA public TO "ckan_default";
-GRANT USAGE ON SCHEMA public TO "ckan_default";
+GRANT CREATE ON SCHEMA public TO "{{ postgres.users.ckan.username }}";
+GRANT USAGE ON SCHEMA public TO "{{ postgres.users.ckan.username }}";
 
-GRANT CREATE ON SCHEMA public TO "ckan_default";
-GRANT USAGE ON SCHEMA public TO "ckan_default";
+GRANT CREATE ON SCHEMA public TO "{{ postgres.users.ckan.username }}";
+GRANT USAGE ON SCHEMA public TO "{{ postgres.users.ckan.username }}";
 
 -- take connect permissions from main db
-REVOKE CONNECT ON DATABASE "ckan_default" FROM "datastore_default";
+REVOKE CONNECT ON DATABASE "{{ postgres.databases.ckan.name }}" FROM "{{ postgres.users.ckan_datastore.username }}";
 
 -- grant select permissions for read-only user
-GRANT CONNECT ON DATABASE "datastore_default" TO "datastore_default";
-GRANT USAGE ON SCHEMA public TO "datastore_default";
+GRANT CONNECT ON DATABASE "{{ postgres.databases.ckan_datastore.name }}" TO "{{ postgres.users.ckan_datastore.username }}";
+GRANT USAGE ON SCHEMA public TO "{{ postgres.users.ckan_datastore.username }}";
 
 -- grant access to current tables and views to read-only user
-GRANT SELECT ON ALL TABLES IN SCHEMA public TO "datastore_default";
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO "{{ postgres.users.ckan_datastore.username }}";
 
 -- grant access to new tables and views by default
-ALTER DEFAULT PRIVILEGES FOR USER "ckan_default" IN SCHEMA public
-   GRANT SELECT ON TABLES TO "datastore_default";
+ALTER DEFAULT PRIVILEGES FOR USER "{{ postgres.users.ckan.username }}" IN SCHEMA public
+   GRANT SELECT ON TABLES TO "{{ postgres.users.ckan_datastore.username }}";
+
+CREATE OR REPLACE VIEW "_table_metadata" AS
+    SELECT DISTINCT
+        substr(md5(dependee.relname || COALESCE(dependent.relname, '')), 0, 17) AS "_id",
+        dependee.relname AS name,
+        dependee.oid AS oid,
+        dependent.relname AS alias_of
+        -- dependent.oid AS oid
+    FROM
+        pg_class AS dependee
+        LEFT OUTER JOIN pg_rewrite AS r ON r.ev_class = dependee.oid
+        LEFT OUTER JOIN pg_depend AS d ON d.objid = r.oid
+        LEFT OUTER JOIN pg_class AS dependent ON d.refobjid = dependent.oid
+    WHERE
+        (dependee.oid != dependent.oid OR dependent.oid IS NULL) AND
+        (dependee.relname IN (SELECT tablename FROM pg_catalog.pg_tables)
+            OR dependee.relname IN (SELECT viewname FROM pg_catalog.pg_views)) AND
+        dependee.relnamespace = (SELECT oid FROM pg_namespace WHERE nspname='public')
+    ORDER BY dependee.oid DESC;
+ALTER VIEW "_table_metadata" OWNER TO "{{ postgres.users.ckan.username }}";
+GRANT SELECT ON "_table_metadata" TO "{{ postgres.users.ckan_datastore.username }}";

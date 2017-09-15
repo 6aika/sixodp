@@ -3,4 +3,16 @@
     list-style: disc;
     padding-left: 3*$padding-large-horizontal;
   }
+
+  h1 {
+    font-size: $font-size-large
+  }
+
+  h2 {
+    font-size: $font-size-medium;
+  }
+
+  h3, h4, h5, h6 {
+    font-size: $font-size;
+  }
 }

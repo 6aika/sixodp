@@ -56,7 +56,10 @@ get_header(); ?>
     ?>
 
     <div class="container">
-      <h1 class="page-heading"><?php _e('New showcase idea', 'sixodp') ?></h1>
+
+      <h1 class="page-heading"><?php _e('New Showcase idea', 'sixodp') ?></h1>
+
+      <a href="<?php echo get_post_type_archive_link( 'showcase_idea' ); ?>" class="btn btn-small btn-secondary btn--request-show-all"><?php _e('All showcase ideas') ?> &raquo;</a>
 
       <?php
 
@@ -71,53 +74,70 @@ get_header(); ?>
         }
         ?>
         <form action="" method="POST">
-          <p><?php _e('By filling this form you can submit your application request. ', 'sixodp') ?></p>
+          <p><?php _e('Your showcase idea will be moderated, it may be modified or combined with similar ideas. Moderated ideas will be published on this site.'); ?>
 
-          <div class="col-xs-12">
-            <div class="control-group control-full">
-              <label class="control-label" for="showcase_idea_title"><span title="This field is required" class="control-required">*</span> <?php _e('Title', 'sixodp');?></label>
-              <div class="controls ">             
-                <input type="text" name="showcase_idea_title" id="showcase_idea_title" class="form-control" value="<?php echo $name; ?>" placeholder="<?php _e('eg. A descriptive title') ?>" />
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="control-group control-full">
+                <label class="control-label" for="showcase_idea_title"><span title="This field is required" class="control-required">*</span> <?php _e('Title', 'sixodp');?></label>
+                <div class="controls ">             
+                  <input type="text" name="showcase_idea_title" id="showcase_idea_title" class="form-control" value="<?php echo $name; ?>" placeholder="<?php _e('eg. A descriptive title') ?>" />
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="col-xs-12">
-            <div class="control-group control-full">
-              <label class="control-label" for="showcase_idea_content"><span title="This field is required" class="control-required">*</span> <?php _e('Your request', 'sixodp');?></label>
-              <div class="controls">             
-                <?php
-                wp_editor($content, 'showcase_idea_content', array(
-                  'textarea_rows' => 5,
-                  'media_buttons' => false,
-                  'quicktags' => false
-                ));
-                ?>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="control-group control-full">
+                <label class="control-label" for="showcase_idea_content"><span title="This field is required" class="control-required">*</span> <?php _e('Your idea', 'sixodp');?></label>
+                <div class="controls">             
+                  <?php
+                  wp_editor($content, 'showcase_idea_content', array(
+                    'textarea_rows' => 5,
+                    'media_buttons' => false,
+                    'quicktags' => false
+                  ));
+                  ?>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="col-xs-12 col-md-8">
-            <div class="control-group control-medium">
-              <label class="control-label" for="showcase_idea_name"><span title="This field is required" class="control-required">*</span> <?php _e('Name', 'sixodp');?></label>
-              <div class="controls ">             
-                <input type="text" name="showcase_idea_name" id="showcase_idea_name" class="form-control" value="<?php echo $name; ?>" />
+          <div class="row">
+            <div class="col-xs-12 col-md-8">
+              <div class="control-group control-medium">
+                <label class="control-label" for="showcase_idea_name"><span title="This field is required" class="control-required">*</span> <?php _e('Name', 'sixodp');?></label>
+                <div class="controls ">             
+                  <input type="text" name="showcase_idea_name" id="showcase_idea_name" class="form-control" value="<?php echo $name; ?>" />
+                </div>
+              </div>
+              <div class="field-assistive-text">
+                <?php _e('Your name will not be published with showcase idea.'); ?>
               </div>
             </div>
           </div>
 
-          <div class="col-xs-12 col-md-8">
-            <div class="control-group control-medium">
-              <label class="control-label" for="showcase_idea_email"><span title="This field is required" class="control-required">*</span> <?php _e('Email', 'sixodp');?></label>
-              <div class="controls ">             
-                <input type="text" name="showcase_idea_email" id="showcase_idea_email" class="form-control" value="<?php echo $name; ?>" />
+          <div class="row">
+            <div class="col-xs-12 col-md-8">
+              <div class="control-group control-medium">
+                <label class="control-label" for="showcase_idea_email"><span title="This field is required" class="control-required">*</span> <?php _e('Email', 'sixodp');?></label>
+                <div class="controls ">             
+                  <input type="text" name="showcase_idea_email" id="showcase_idea_email" class="form-control" value="<?php echo $name; ?>" />
+                </div>
+              </div>
+
+              <div class="field-assistive-text">
+               <?php _e('Your email will not be published with showcase idea.'); ?>
               </div>
             </div>
           </div>
 
-          <div class="col-xs-12">
-            <hr>
-            <button type="submit" class="btn btn-primary" name="showcase_idea_submit_form"><?php _e('Submit', 'sixodp');?></button>
+          <div class="row">
+            <div class="col-xs-12">
+              <hr>
+              <button type="submit" class="btn btn-primary" name="showcase_idea_submit_form"><?php _e('Submit', 'sixodp');?></button>
+            </div>
           </div>
         </form>
         <?php
