@@ -126,8 +126,8 @@
 {%- endblock -%}
 
 {%- block scripts %}
-    {% resource 'sixodp_ui/main' %}
-    {% resource 'sixodp_ui/ckan' %}
+    {% resource 'base/ckan' %}
+    {% resource 'sixodp_ui/sixodp' %}
 
     {% if g.tracking_enabled %}
       {% resource 'base/tracking.js' %}

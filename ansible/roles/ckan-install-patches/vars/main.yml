@@ -13,7 +13,8 @@ ckan_patches:
   - { file: "move_rootpathmiddleware" }
   #- { file: "fix_fanstatic_urls" }
   #- { file: "add_multilingual_groups" }
-  - { file: "redirect_fix"}
+  - { file: "redirect_fix" }
+  - { file: "use_bootstrap_3" }
 
 files_created_by_patches:
   - { file: '/usr/lib/ckan/default/src/ckan/ckan/lib/csrf_token.py'}
