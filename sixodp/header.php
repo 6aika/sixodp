@@ -30,7 +30,7 @@
 	</script>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> id="wordpress-indicator">
   <div id="mobile-indicator"></div>
 	<?php $notifications = get_posts(array('post_type' => 'notification')); ?>
 	<?php if ( count($notifications) > 0 && ($notifications[0]->post_title !== '' || $notifications[0]->post_content !== '') ) : ?>
