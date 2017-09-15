@@ -1,0 +1,32 @@
+---
+
+# To run:
+# ansible-playbook -v -i inventories/example_multipleservers deploy-ckanserver.yml
+
+- hosts: ckanserver
+  become: true
+  vars_files:
+    - "vars/common.yml"
+    - "vars/environment-specific/{{ deployment_environment_id }}.yml"
+    - "{{ secrets_file_path }}"
+  roles:
+    - os-base
+    - java8
+    - nodejs
+    - postgres-install
+    - postgres-backup
+    - postgres-data
+    - solr6
+    - redis
+    - apache
+    - postfix
+    - ckan-extensions
+    - ckan-install
+    - ckan-config
+    - ckan-install-patches
+    - ckan-database
+    - ckan-cron
+    - datapusher
+    - ckan-restart
+    - supervisor
+    - solr-reindex

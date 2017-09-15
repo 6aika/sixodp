@@ -16,21 +16,21 @@
 
 - name: Create database
   mysql_db:
-    name: wordpress
+    name: "{{ mysql.databases.wordpress.name }}"
     encoding: utf8
-    login_host: "{{ wordpress_database_host }}"
-    login_user: "{{ wordpress_database_admin_user }}"
-    login_password: "{{ wordpress_database_admin_password }}"
+    login_host: "{{ mysql.server.host }}"
+    login_user: "{{ mysql.server.admin_user }}"
+    login_password: "{{ mysql.server.admin_password }}"
 
 - name: Create database user
   mysql_user:
-    name: wordpress
+    name: "{{ mysql.users.wordpress.username }}"
     host: "%"
-    password: "{{ secret.wordpress_database_password }}"
+    password: "{{ mysql.users.wordpress.password  }}"
     priv: "wordpress.*:ALL"
-    login_host: "{{ wordpress_database_host }}"
-    login_user: "{{ wordpress_database_admin_user }}"
-    login_password: "{{ wordpress_database_admin_password }}"
+    login_host: "{{ mysql.server.host }}"
+    login_user: "{{ mysql.server.admin_user }}"
+    login_password: "{{ mysql.server.admin_password }}"
 
 - name: Create WordPress directory
   file:
@@ -63,10 +63,10 @@
     command: >
       wp core config
         --path=/opt/wordpress
-        --dbhost={{ wordpress_database_host }}
-        --dbname={{ wordpress_database_name }}
-        --dbuser={{ wordpress_database_user }}
-        --dbpass={{ secret.wordpress_database_password }}
+        --dbhost={{ mysql.server.host }}
+        --dbname={{ mysql.databases.wordpress.name }}
+        --dbuser={{ mysql.users.wordpress.username }}
+        --dbpass={{ mysql.users.wordpress.password }}
     args:
       creates: /opt/wordpress/wp-config.php
 
@@ -76,9 +76,9 @@
         --path=/opt/wordpress
         --url=https://{{ public_facing_hostname }}/
         --title=6aika
-        --admin_user={{ wordpress_admin_user }}
-        --admin_password={{ secret.wordpress_admin_password }}
-        --admin_email={{ wordpress_admin_email }}
+        --admin_user={{ wordpress_users.admin.username }}
+        --admin_password={{ wordpress_users.admin.password }}
+        --admin_email={{ wordpress_users.admin.email }}
 
   - name: Install and activate plugins
     command: >
