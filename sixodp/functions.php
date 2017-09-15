@@ -830,10 +830,9 @@ function get_post_grandparent_id($post_ID) {
   if ($parent_ID != 0) {
     $result = get_post_grandparent_id($parent_ID);
 
-    if ($result === false) return $post_ID;
-    else return $result;
+    return $result;
   }
-  else return false;
+  else return $post_ID;
 }
 
 function get_category_grandparent_id($category) {

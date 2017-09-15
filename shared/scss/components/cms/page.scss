@@ -29,23 +29,6 @@
 
   .single & {
     padding: $base*4 $base*2;
-
-    @media (min-width: $width-sm) {
-      padding: $base*4;
-    }
-
-    @media (min-width: $width-md) {
-      padding: $base*6;
-    }
-
-    @media (min-width: $width-lg) {
-      padding: $base*6 $base*10;
-      width: $base*97;
-    }
-  }
-
-  @media (min-width: $width-lg) {
-    width: $base*97;
   }
 }
 

@@ -26,7 +26,7 @@
 								</li>
 							</ul>
 						</div>
-						<button type="button" class="btn btn-transparent" data-trigger="popper"><?php _e('Login', 'sixodp');?></button>
+						<button type="button" class="btn btn-transparent" data-trigger="popper"><?php _e('Management', 'sixodp');?></button>
 					</div>
 				</div>
 				<div class="row">
