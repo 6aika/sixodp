@@ -81,7 +81,6 @@ class DatasubmitterController(p.toolkit.BaseController):
             if user is None or organization is None:
                 abort(403,_('Dataset submit user or organization not set.'))
 
-
             context = {'model': model, 'session': model.Session,
                        'user': user.id, 'auth_user_obj': user.id,
                        'save': 'save' in request.params}
@@ -118,6 +117,12 @@ class DatasubmitterController(p.toolkit.BaseController):
                 'license_id': 'other-open',
                 'private': True
             }
+
+            if parsedParams.get('organization'):
+                data_dict['notes_translated']['fi'] += '\n\n' + _('Organization') + ': ' + parsedParams.get('organization')
+
+            if parsedParams.get('url'):
+                data_dict['notes_translated']['fi'] += '\n\n' + _('Dataset url') + ': ' + parsedParams.get('url')
 
             validateReCaptcha(parsedParams.get('g-recaptcha-response'))
 

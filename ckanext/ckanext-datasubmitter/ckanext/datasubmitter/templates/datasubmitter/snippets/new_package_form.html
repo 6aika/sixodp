@@ -8,6 +8,8 @@
 
 <form id="submit-dataset-form" class="dataset-form form-horizontal" method="post" action="submit-data" data-module="basic-form" novalidate>
 
+  <h2 class="h3">{{ _('Dataset info') }}</h2>
+
   <div class="row row-compensate">
     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-12">
       {% call form.input(
@@ -32,7 +34,7 @@
         'notes_translated-fi',
         id='field-notes_translated-fi',
         label=_('Description'),
-        placeholder='',
+        placeholder=_('Example: The dataset includes financial information for Acme corporation starting from the year 2012'),
         value=data['notes_translated']['fi'] if data['notes_translated'],
         error=errors['notes_translated'],
         attrs={},
@@ -48,9 +50,47 @@
   <div class="row row-compensate">
     <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12">
       {% call form.input(
+        'organization',
+        id='organization',
+        label=_('Owner organization'),
+        placeholder='',
+        value=data['organization'],
+        error=errors['organization'],
+        classes=['control-medium'],
+        attrs={},
+        is_required=false
+        )
+        %}
+      {% endcall %}
+    </div>
+  </div>
+
+  <div class="row row-compensate">
+    <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12">
+      {% call form.input(
+        'url',
+        id='url',
+        label=_('Dataset url'),
+        placeholder='',
+        value=data['url'],
+        error=errors['url'],
+        classes=['control-medium'],
+        attrs={},
+        is_required=false
+        )
+        %}
+      {% endcall %}
+    </div>
+  </div>
+
+  <h2 class="h3">{{ _('Submitter info') }}</h2>
+
+  <div class="row row-compensate">
+    <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12">
+      {% call form.input(
         'maintainer',
         id='maintainer',
-        label=_('Name or organization of the submitter'),
+        label=_('Name of the submitter'),
         placeholder='',
         value=data['maintainer'],
         error=errors['maintainer'],
@@ -74,7 +114,7 @@
         error=errors['maintainer_email'],
         classes=['control-medium'],
         attrs={},
-        is_required=false
+        is_required=true
         )
         %}
       {% endcall %}
