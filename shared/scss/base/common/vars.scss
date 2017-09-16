@@ -46,10 +46,10 @@ $gray-light:             lighten($gray-base, $lighten-intensity*3);
 $gray-lighter:           lighten($gray-base, $lighten-intensity*6);
 
 $brand-background: #ffffff;
-$brand-secondary-background: #d2dce1;
+$brand-secondary-background: $brand-lightgray;
 
 $text-color: $gray-base;
-$headings-color: $brand-secondary;
+$headings-color: $brand-primary;
 $headings-small-color: $brand-primary;
 $headings-secondary-color: $brand-primary;
 $headings-extra-color: $brand-gray;
@@ -83,7 +83,7 @@ $dataset-card-heading-color: $brand-secondary;
 $dataset-card-text-color: $text-color;
 $dataset-card-link-color: $brand-secondary;
 
-$latest-bg: linear-gradient(to bottom, $brand-secondary, $brand-primary);
+$latest-bg: $brand-primary;
 $latest-card-heading-bar-bg: $brand-secondary;
 $latest-card-heading-bar-color: $brand-white;
 $latest-card-bg: $brand-white;

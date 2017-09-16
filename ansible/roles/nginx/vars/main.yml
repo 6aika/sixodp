@@ -9,3 +9,5 @@ ssl_dh_parameters_path: "{{ ssl_certificate_path }}/dhparams.pem"
 
 static_path: /var/www/static
 assets_path: /var/www/assets
+
+nginx_max_resource_size: 50000
