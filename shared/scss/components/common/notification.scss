@@ -1,36 +1,25 @@
 .notification {
-  background: #E89D21;
-  color: #fff;
+  background: $notificationbar-bg;
+  color: $notificationbar-text-color;
   padding: $base/2 $base;
   font-size: $font-size-base;
   position: fixed;
   z-index: $zindex-navbar-fixed;
   width: 100%;
   top: 0;
-  height: 34px;
+  height: $notificationbar-height;
   box-sizing: border-box;
 
-  &.info {
-      background: $brand-info;
-      .material-icons {
-          display: none;
-      }
-  }
-  &.danger {
-      background: $brand-danger;
-  }
-  &.neutral {
-      background: $brand-success;
-      .material-icons {
-          display: none;
-      }
-  }
-
   @media (min-width: $width-md) {
-    padding: $base/2 $base*4.5;
+    padding: $base/2 $base*3;
   }
 }
 
 .notification__text {
   margin: 0;
+
+  .fa {
+    font-size: 16px;
+    margin-right: $margin-small-horizontal;
+  }
 }
