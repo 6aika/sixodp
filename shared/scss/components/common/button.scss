@@ -26,12 +26,12 @@
 }
 
 .btn-secondary {
-  background-color: $brand-secondary;
-  color: $brand-white;
+  background-color: $btn-main-bg;
+  color: $btn-main-color;
 
   &:hover, &:focus, &:active {
-    background-color: $brand-secondary-light;
-    color: $brand-white;
+    background-color: $btn-main-active-bg;
+    color: $btn-main-active-color;
   }
 }
 

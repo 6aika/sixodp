@@ -55,10 +55,14 @@ $headings-secondary-color: $brand-primary;
 $headings-extra-color: $brand-gray;
 
 // Frontpage elements
+$btn-main-bg: $brand-secondary;
+$btn-main-color: $brand-white;
+$btn-main-active-bg: $brand-secondary-light;
+$btn-main-active-color: $brand-white;
+
 $category-box-bg: $brand-white;
 $category-box-text-color: $brand-primary;
 $category-box-count-color: $brand-primary;
-
 $stats-text-color: $brand-white;
 
 $accordion-bg: $brand-primary;
@@ -110,7 +114,8 @@ $card-border-highlight-color-active: $brand-success;
 
 // Navigation
 $navbar-background-color: #f8f8f8;
-
+$notificationbar-bg: $brand-info;
+$notificationbar-text-color: $brand-white;
 $notificationbar-height: $base + 24px;
 $navbar-height: 60px;
 $navbar-margin-bottom: 0;
