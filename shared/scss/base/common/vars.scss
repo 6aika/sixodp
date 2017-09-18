@@ -55,9 +55,9 @@ $headings-secondary-color: $brand-primary;
 $headings-extra-color: $brand-gray;
 
 // Frontpage elements
-$btn-main-bg: $brand-secondary;
+$btn-main-bg: $brand-success;
 $btn-main-color: $brand-white;
-$btn-main-active-bg: $brand-secondary-light;
+$btn-main-active-bg: lighten($brand-success, 10%);
 $btn-main-active-color: $brand-white;
 
 $category-box-bg: $brand-white;
@@ -90,7 +90,7 @@ $dataset-card-heading-color: $brand-primary;
 $dataset-card-text-color: $text-color;
 $dataset-card-link-color: $brand-success;
 
-$latest-bg: linear-gradient(230deg, $brand-primary, $brand-secondary);
+$latest-bg: linear-gradient(130deg, $brand-primary, $brand-secondary);
 $latest-card-heading-bar-bg: $brand-secondary;
 $latest-card-heading-bar-color: $brand-white;
 $latest-card-bg: $brand-white;
