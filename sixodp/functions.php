@@ -571,6 +571,18 @@ function get_recent_comments($date = false) {
   return [];
 }
 
+function get_disqus_comment_count($post) {
+  $fields = array(
+    'api_secret' => DISQUS_SECRET_KEY,
+    'forum' => DISQUS_SHORT_NAME,
+    'thread' => 'link:'. get_permalink($post)
+  );
+
+  $thread_data = json_decode(file_get_contents('http://disqus.com/api/3.0/threads/set.json?'. http_build_query($fields)), true);
+
+  return $thread_data['response'][0]['posts'];
+}
+
 function get_recent_content($date = false) {
   if ($date) {
     $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_updated%20desc&rows=8&q=date_updated:['. date('Y-m-d\T00:00:00', strtotime($date)) .'Z%20TO%20'. date('Y-m-d\T00:00:00', strtotime($date . '+ 1 WEEK')) .'Z]');
@@ -628,6 +640,8 @@ function get_api_count() {
   }
   return 0;
 }
+
+
 
 function get_api_link() {
   $api_collection = get_ckan_data(CKAN_API_URL."/action/api_collection_show");
@@ -856,7 +870,7 @@ function create_form_results() {
     'label'         => "Data Requests",
     'description'   => 'Data Requests results',
     'public'        => true,
-    'supports'      => array( 'title', 'editor', 'custom-fields' ),
+    'supports'      => array( 'title', 'editor', 'custom-fields', 'comments' ),
     'has_archive'   => true,
     'show_in_rest'  => true
   ) );
@@ -865,7 +879,7 @@ function create_form_results() {
     'label'         => "Showcase ideas",
     'description'   => 'Showcase ideas results',
     'public'        => true,
-    'supports'      => array( 'title', 'editor', 'custom-fields' ),
+    'supports'      => array( 'title', 'editor', 'custom-fields', 'comments' ),
     'has_archive'   => true,
     'show_in_rest'  => true
   ) );
