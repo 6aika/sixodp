@@ -18,25 +18,25 @@ $headings-font-family: $font-heading;
 $lighten-intensity: 10%;
 $darken-intensity: 20%;
 
-$brand-primary: #534f97;
+$brand-primary: #074A74;
 $brand-primary-light: lighten($brand-primary, 10%);
 $brand-primary-dark: darken($brand-primary, 10%);
 $brand-primary-extralight: lighten($brand-primary, 15%);
 $brand-primary-extradark: darken($brand-primary, 15%);
 
-$brand-secondary: #a55efa;
+$brand-secondary: #1B90BF;
 $brand-secondary-light: lighten($brand-secondary, 10%);
 $brand-secondary-dark: darken($brand-secondary, 10%);
 
-$brand-success: #97ba54;
-$brand-info: #446eb5;
-$brand-warning: #f0ad4e;
-$brand-danger: #d9534f;
+$brand-success: #6db868;
+$brand-info: #4693A7;
+$brand-warning: #f39447;
+$brand-danger: #e52e5f;
 
 $brand-black: #000000;
 $brand-white: #ffffff;
-$brand-gray: #57575b;
-$brand-lightgray: #f5f5f5;
+$brand-gray: #333333;
+$brand-lightgray: #F6F6F6;
 
 $gray-base: $brand-gray;
 $gray-darker:            darken($gray-base, $darken-intensity*2);
@@ -48,7 +48,7 @@ $gray-lighter:           lighten($gray-base, $lighten-intensity*6);
 $brand-background: #ffffff;
 $brand-secondary-background: $brand-lightgray;
 
-$text-color: $gray-base;
+$text-color: #0C2C40;
 $headings-color: $brand-primary;
 $headings-small-color: $brand-primary;
 $headings-secondary-color: $brand-primary;
@@ -56,8 +56,8 @@ $headings-extra-color: $brand-gray;
 
 // Frontpage elements
 $category-box-bg: $brand-white;
-$category-box-text-color: $brand-primary;
-$category-box-count-color: $brand-primary;
+$category-box-text-color: $brand-secondary;
+$category-box-count-color: $brand-secondary;
 
 $stats-text-color: $brand-white;
 
@@ -72,24 +72,24 @@ $banner-bg: $brand-primary;
 $banner-heading-color: $brand-white;
 $banner-text-color: $brand-white;
 
-$featured-bg: $brand-white;
-$showcase-card-bg: $brand-gray;
+$featured-bg: $brand-lightgray;
+$showcase-card-bg: $brand-primary;
 $showcase-card-heading-color: $brand-white;
 $showcase-card-text-color: $brand-white;
 
 $dataset-card-bg: $brand-white;
-$dataset-card-border-color: $brand-lightgray;
-$dataset-card-heading-color: $brand-secondary;
+$dataset-card-border-color: $gray-lighter;
+$dataset-card-heading-color: $brand-primary;
 $dataset-card-text-color: $text-color;
-$dataset-card-link-color: $brand-secondary;
+$dataset-card-link-color: $brand-success;
 
-$latest-bg: $brand-primary;
+$latest-bg: linear-gradient(230deg, $brand-primary, $brand-secondary);
 $latest-card-heading-bar-bg: $brand-secondary;
 $latest-card-heading-bar-color: $brand-white;
 $latest-card-bg: $brand-white;
 $latest-card-heading-color: $brand-primary;
 $latest-card-text-color: $brand-primary;
-$latest-card-link-color: $brand-secondary;
+$latest-card-link-color: $brand-primary;
 
 // Button
 $btn-font-weight: 100;
