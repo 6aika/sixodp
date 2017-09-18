@@ -109,16 +109,16 @@
   }
 
   @media (min-width: $width-md) {
-    flex: 1 1 24%;
-    margin: $base/2 0.5%;
-    max-width: 24%;
+    flex: 1 1 23.5%;
+    margin: 1% 1%;
+    max-width: 23.5%;
 
     &:nth-child(even) {
-      margin: $base/2 0.5%;
+      margin: 1% 1%;
     }
 
     &:nth-child(odd) {
-      margin: $base/2 0.5%;
+      margin: 1% 1%;
     }
 
     &:first-child {
