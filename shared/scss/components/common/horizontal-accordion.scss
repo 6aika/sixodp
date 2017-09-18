@@ -98,7 +98,8 @@ $text-transition: all 0.1s 0.1s ease-in-out;
     .tab-overlay,
     .tab-overlay:focus,
     .tab-overlay:active {
-      background: rgba(83, 79, 151, 0.8);
+      background: $accordion-tab-overlay-bg;
+      opacity: 0.8;
       overflow: hidden;
       height: $horizontal-accordion-height;
       width: 100%;
