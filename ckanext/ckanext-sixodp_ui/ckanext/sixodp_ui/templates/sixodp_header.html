@@ -3,8 +3,7 @@
   {% for notification in h.get_notifications() %}
     <div class="notification">
         <p class="notification__text">
-          <i class="material-icons">warning</i>
-          {{ notification.title }}
+          <i class="fa fa-exclamation-circle"></i>{{ notification.title }}
         </p>
     </div>
   {% endfor %}
