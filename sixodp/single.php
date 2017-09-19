@@ -29,47 +29,52 @@ get_header(); ?>
 
         ?>
         <div class="row">
-          <div class="col-md-4 sidebar">
-            <div class="sidebar__wrapper">
-              <ul class="sidebar__list--heading">
-                <?php
-                foreach (get_the_category() as $cat):
-                  ?>
-                  <li class="sidebar__item--heading">
-                    <a href="<?php echo get_category_link($cat); ?>" class="sidebar__link--block">
-                      <i class="material-icons">settings</i>
-                      <?php echo $cat->cat_name; ?>
-                      <span class="sidebar__icon-wrapper">
-                        <i class="material-icons">arrow_forward</i>
-                      </span>
-                    </a>
-                  </li>
-                  <?php 
-                endforeach;
-                ?>
-                <?php 
-                $author = get_the_author();
-
-                if (get_the_author() !== 'admin') {
-                  ?>
-                  <li class="sidebar__item--heading">
-                    <?php the_author(); ?>
-                  </li>
-                  <?php
+          <div class="col-md-3 sidebar">
+            <ul>
+              <?php
+              $category_parents = [];
+              foreach (get_the_category() as $cat):
+                if (!in_array($cat->ID, $category_parents)) {
+                  $className = 'sidebar__item--heading';
+                  $category_parents[] = $cat->ID;
                 }
+                else $className = 'sidebar__item';
                 ?>
-                <li class="sidebar__item--heading">
-                  <?php the_date(); ?>
+                <li class="<?php echo $className ?>">
+                  <a href="<?php echo get_category_link($cat); ?>">
+                    <i class="material-icons">settings</i>
+                    <?php echo $cat->cat_name; ?>
+                  </a>
                 </li>
-              </ul>
-              
-              <div class="addthis_toolbox">
-                <a class="addthis_button_facebook_like at300b"></a>
-                <a class="addthis_button_tweet at300b"></a>
-              </div>
-            </div>        
+                <?php 
+              endforeach;
+              ?>
+            </ul>
+            <ul>
+              <?php 
+              $author = get_the_author();
+
+              if (get_the_author() !== 'admin') {
+                ?>
+                <li class="sidebar__item">
+                  <i class="material-icons">face</i> <?php the_author(); ?>
+                </li>
+                <?php
+              }
+              ?>
+            </ul>
+            <ul>
+              <li class="sidebar__item">
+                <i class="material-icons">event</i> <?php the_date(); ?>
+              </li>
+            </ul>
+            
+            <div class="addthis_toolbox">
+              <a class="addthis_button_facebook_like at300b"></a>
+              <a class="addthis_button_tweet at300b"></a>
+            </div>
           </div>
-          <div class="col-md-8 news-content">
+          <div class="col-md-9 news-content">
             <h1 class="heading--main"><?php the_title() ?></h1>
             <article class="article"><?php the_content() ?></article>
             <?php

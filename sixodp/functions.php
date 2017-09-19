@@ -850,10 +850,13 @@ function get_post_grandparent_id($post_ID) {
 }
 
 function get_category_grandparent_id($category) {
+  
   if (is_numeric($category)) $category = get_category($category);
 
   if (!$category INSTANCEOF WP_Term) return false;
 
+
+  print_r($category);
   $parent_ID = $category->parent;
 
   if ($parent_ID != 0) {

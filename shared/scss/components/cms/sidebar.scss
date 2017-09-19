@@ -1,63 +1,87 @@
-.sidebar {
-
-}
-
-.sidebar__list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  background: $brand-lightgray;
-}
-
-.sidebar__item {
-  padding: 0;
-  color: $brand-primary;
-  padding-top: $base;
-
-  &:last-child {
-    padding-bottom: $base;
+.sidebar, .sidebar-links {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
-}
 
-.sidebar__item ~ .sidebar__item {
-  padding-top: 0;
-}
-
-.sidebar__item--heading {
-  padding: $base*1.5 $base*2;
-  background: $brand-primary;
-  color: $brand-white;
-}
-
-.sidebar__link {
-  padding: $base $base*2;
-  display: block;
-}
-
-.sidebar__link--active {
-  @extend .sidebar__link;
-  font-weight: 700;
-}
-
-
-
-.sidebar__list--heading {
-  @extend .sidebar__list;
-  margin-top: $base*2;
-
-  .sidebar__item--heading {
+  ul + ul {
     margin-top: $base;
   }
 }
 
-.sidebar__link--block {
-  display: block;
-  color: $brand-white;
-  position: relative;
+.sidebar {
+  ul {
+    li:first-child {
+      border-top-right-radius: 15px;
+    }
 
-  &:hover {
-    color: $gray-light;
+    li:last-child {
+      border-bottom-left-radius: 15px;
+    }
   }
+}
+
+.sidebar {
+  .sidebar__item--heading, .sidebar__item {
+    padding: $base $base*2;
+  }
+}
+
+.sidebar-links {
+  .sidebar__item--heading, .sidebar__item {
+    padding: $base*1.5 $base*2;
+  }
+}
+
+.sidebar__item--heading {
+  background: $brand-primary;
+
+  a {
+    color: $brand-white;
+    position: relative;
+    display: block;
+    color: $brand-white;
+
+    .material-icons {
+      color: $brand-primary-extralight;
+    }
+
+    .sidebar__icon-wrapper .material-icons {
+      color: $brand-white;
+    }
+
+    &:hover {
+      color: $gray-light;
+
+      .sidebar__icon-wrapper {
+        background: $brand-secondary-dark;
+      }
+    }
+  }
+}
+
+.sidebar__item {
+  background: $gray-lighter;
+
+  a {
+    color: $brand-black; 
+    position: relative;
+    display: block;
+    color: $brand-black;
+
+    .material-icons {
+      color: $gray-light;
+    }
+
+    &:hover {
+      color: $gray-light;
+    }
+  }
+
+  .material-icons {
+    color: $gray-light;
+  } 
 }
 
 .sidebar__icon-wrapper {
@@ -68,20 +92,12 @@
   border-radius: 100%;
   text-align: center;
   position: absolute;
-    right: 0;
-    top: 50%;
+  right: 0;
+  top: 50%;
   transform: translateY(-50%);
 
-  i {
+  .material-icons {
     line-height: $base*3.2;
     margin-right: 0;
-  }
-
-  &:hover {
-    background: $brand-primary;
-
-    i {
-      color: $brand-white;
-    }
   }
 }
