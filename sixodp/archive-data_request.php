@@ -21,7 +21,8 @@ get_header(); ?>
 
     <div class="page__hero"></div>
     <div class="page__content container">
-      <h1 class="heading--archive"><?php echo _e(get_post_type_object(get_post_type())->labels->name); ?></h1>
+      <h1 class="heading--archive"><?php _e('Data Requests') ?></h1>
+      <a href="<?php echo get_permalink(get_translated_page_by_title('Uusi datatoive')); ?>" class="btn btn-small btn-secondary"><?php _e('New data request') ?> &raquo;</a>
       <?php
       // Start the loop.
       while ( have_posts() ) : the_post();
