@@ -37,7 +37,7 @@
         error=errors['notes_translated'],
         classes=['control-full'],
         attrs={},
-        is_required=false
+        is_required=true
         ) %}
         {%- snippet 'scheming/form_snippets/fluent_help_text.html',
         field='',
@@ -82,7 +82,7 @@
       error=errors['application_website'],
       classes=['control-medium'],
       attrs={},
-      is_required=true
+      is_required=false
       )
       %}
       {% endcall %}
@@ -107,7 +107,7 @@
         "data-module-tags": "",
         "data-module-source": "/api/2/util/tag/autocomplete?incomplete=?&vocabulary_id=platform"
       },
-      is_required=true
+      is_required=false
       )
       %}
       {% endcall %}
@@ -129,7 +129,7 @@
         placeholder='',
         error=errors['store_urls'],
         attrs={},
-        is_required=true,
+        is_required=false,
         classes=['control-medium']) }}
       <div class="field-assistive-text">
         {% trans %}
@@ -140,11 +140,7 @@
     </div>
 
     <div class="col-xs-12">
-      <hr>
-      <h2>{{ _('Showcase images') }}</h2>
-    </div>
-
-    <div class="col-xs-12">
+      <h2 class="h3">{{ _('Showcase images') }}</h2>
       <p>
         {% trans %}
           Upload or provide a link for up to three images which will be presented in the showcase info page.
@@ -253,7 +249,24 @@
     </div>
 
     <div class="col-xs-12">
-      <hr>
+      <h2 class="h3">{{ _('Related datasets') }}</h2>
+      <div class="control-group control-medium">
+        <label class="control-label">{{ _('Select one or multiple datasets') }}</label>
+        <input id="dataset"
+         type="text"
+         name="datasets"
+         placeholder="{{ _('Search for a dataset') }}"
+         value="{{ data['datasets'] if data['datasets'] | length > 0 }}"
+         class="control-medium"
+         data-module="autocomplete"
+         data-module-source="/api/util/dataset/autocomplete?incomplete=?"
+         data-module-tags="true"
+         data-module-key="name"
+         data-module-label="title">
+      </div>
+    </div>
+
+    <div class="col-xs-12">
       {% block form_actions %}
         {% if message %}
           <div class="alert alert-{{message.class}}">

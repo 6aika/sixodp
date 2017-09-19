@@ -8,7 +8,7 @@ import httplib
 import json
 import urllib
 import ckan.lib.navl.dictization_functions as dict_fns
-from ckan.common import _, request, response
+from ckan.common import _, c, request, response
 from ckan.common import config
 from ckan.lib.mailer import mail_recipient
 
@@ -113,12 +113,27 @@ class Sixodp_ShowcasesubmitController(p.toolkit.BaseController):
                 'image_3': parsedParams.get('image_3'),
                 'featured': False,
                 'archived': False,
-                'private': True
+                'private': True,
+                'datasets': parsedParams.get('datasets')
             }
 
             validateReCaptcha(parsedParams.get('g-recaptcha-response'))
 
-            get_action('ckanext_showcase_create')(context, data_dict)
+            new_showcase = get_action('ckanext_showcase_create')(context, data_dict)
+
+            if parsedParams.get('datasets'):
+                datasets_to_link = parsedParams.get('datasets').split(',')
+
+                for package_name in datasets_to_link:
+                    association_dict = {"showcase_id": new_showcase.get('id'),
+                                 "package_id": package_name}
+                    try:
+                        get_action('ckanext_showcase_package_association_create')(
+                            context, association_dict)
+                    except:
+                        new_showcase['notes_translated']['fi'] += '\n\n' + _('N.B. The following dataset could not be automatically linked') + ': ' + package_name
+                        get_action('ckanext_showcase_update')(context, new_showcase)
+
         except NotAuthorized:
             abort(403, _('Unauthorized to create a package'))
         except ValidationError, e:
