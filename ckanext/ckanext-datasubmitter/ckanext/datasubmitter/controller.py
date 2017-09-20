@@ -9,6 +9,7 @@ import ckan.lib.navl.dictization_functions as dict_fns
 import httplib
 import json
 import urllib
+import re
 from ckan.common import _, request, c, response
 from ckan.common import config
 from ckan.lib.mailer import mail_recipient
@@ -93,7 +94,8 @@ class DatasubmitterController(p.toolkit.BaseController):
             user_entered_notes = data_dict.get('notes_translated-fi')
 
             data_dict['type'] = 'dataset'
-            data_dict['name'] = data_dict.get('title_translated-fi').replace(' ', '-').lower()
+            data_dict['name'] = re.sub('[^a-z0-9]+', '', data_dict.get('title_translated-fi')) \
+                if data_dict.get('title_translated-fi') else None
             data_dict['keywords'] = {
                 'fi': ['UPDATE THIS BEFORE PUBLISHING'],
                 'en': [],
