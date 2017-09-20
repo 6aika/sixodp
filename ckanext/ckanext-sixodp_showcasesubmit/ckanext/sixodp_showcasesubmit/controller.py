@@ -7,6 +7,7 @@ import ckan.model as model
 import httplib
 import json
 import urllib
+import re
 import ckan.lib.navl.dictization_functions as dict_fns
 from ckan.common import _, c, request, response
 from ckan.common import config
@@ -80,49 +81,26 @@ class Sixodp_ShowcasesubmitController(p.toolkit.BaseController):
                        'user': user.id, 'auth_user_obj': user.id,
                        'save': 'save' in request.params}
 
-            parsedParams = dict_fns.unflatten(tuplize_dict(parse_params(
-                request.params)))
+            data_dict = clean_dict(dict_fns.unflatten(
+                tuplize_dict(parse_params(request.POST))))
 
-            name = parsedParams.get('title').replace(' ', '-').lower()
-
-            data_dict = {
-                'type': 'showcase',
-                'title': parsedParams.get('title'),
-                'name': name,
-                'category': {
-                    'fi': ['Ilmoitetut'],
-                    'en': [],
-                    'sv': []
-                },
-                'platform': parsedParams.get('platform'),
-                'author': parsedParams.get('author'),
-                'application_website': parsedParams.get('application_website'),
-                'store_urls': parsedParams.get('store_urls'),
-                'notes_translated': {
-                    'fi': parsedParams.get('notes_translated-fi'),
-                    'en': parsedParams.get('notes_translated-en'),
-                    'sv': parsedParams.get('notes_translated-sv')
-                },
-                'icon': parsedParams.get('icon'),
-                'featured_image': parsedParams.get('featured_image'),
-                'image_1_upload': parsedParams.get('image_1_upload'),
-                'image_2_upload': parsedParams.get('image_2_upload'),
-                'image_3_upload': parsedParams.get('image_3_upload'),
-                'image_1': parsedParams.get('image_1'),
-                'image_2': parsedParams.get('image_2'),
-                'image_3': parsedParams.get('image_3'),
-                'featured': False,
-                'archived': False,
-                'private': True,
-                'datasets': parsedParams.get('datasets')
+            data_dict['type'] = 'showcase'
+            data_dict['name'] = re.sub('[^a-z0-9]+', '', data_dict.get('title'))
+            data_dict['featured'] = False
+            data_dict['archived'] = False
+            data_dict['private'] = True
+            data_dict['category'] = {
+                'fi': ['Ilmoitetut'],
+                'en': [],
+                'sv': []
             }
 
-            validateReCaptcha(parsedParams.get('g-recaptcha-response'))
+            validateReCaptcha(data_dict.get('g-recaptcha-response'))
 
             new_showcase = get_action('ckanext_showcase_create')(context, data_dict)
 
-            if parsedParams.get('datasets'):
-                datasets_to_link = parsedParams.get('datasets').split(',')
+            if data_dict.get('datasets'):
+                datasets_to_link = data_dict.get('datasets').split(',')
 
                 for package_name in datasets_to_link:
                     association_dict = {"showcase_id": new_showcase.get('id'),
@@ -131,7 +109,7 @@ class Sixodp_ShowcasesubmitController(p.toolkit.BaseController):
                         get_action('ckanext_showcase_package_association_create')(
                             context, association_dict)
                     except:
-                        new_showcase['notes_translated']['fi'] += '\n\n' + _('N.B. The following dataset could not be automatically linked') + ': ' + package_name
+                        new_showcase['notes_translated-fi'] += '\n\n' + _('N.B. The following dataset could not be automatically linked') + ': ' + package_name
                         get_action('ckanext_showcase_update')(context, new_showcase)
 
         except NotAuthorized:
@@ -142,7 +120,7 @@ class Sixodp_ShowcasesubmitController(p.toolkit.BaseController):
             data_dict['state'] = 'none'
             return data_dict, errors, error_summary, None
 
-        sendNewShowcaseNotifications(name)
+        sendNewShowcaseNotifications(data_dict.get('name'))
 
         return {}, {}, {}, { 'class': 'success', 'text':  _('Showcase submitted successfully')}
 
