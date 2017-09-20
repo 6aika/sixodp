@@ -106,10 +106,12 @@ class DatasubmitterController(p.toolkit.BaseController):
                 'geographical_coverage': ['update this before publishing'],
                 'notes_translated': {
                     'fi': parsedParams.get('notes_translated-fi'),
-                    'en': '',
-                    'sv': ''
+                    'en': parsedParams.get('notes_translated-en'),
+                    'sv': parsedParams.get('notes_translated-sv')
                 },
+                'organization': parsedParams.get('organization'),
                 'owner_org': organization.id,
+                'url': parsedParams.get('url'),
                 'date_released': datetime.date.today().strftime('%Y-%m-%d'),
                 'date_updated': datetime.date.today().strftime('%Y-%m-%d'),
                 'maintainer': parsedParams.get('maintainer'),
@@ -130,6 +132,13 @@ class DatasubmitterController(p.toolkit.BaseController):
         except NotAuthorized:
             abort(403, _('Unauthorized to create a package'))
         except ValidationError, e:
+            # Restore original user entered notes to prevent user from seeing the appended info
+            data_dict['notes_translated'] = {
+                'fi': parsedParams.get('notes_translated-fi'),
+                'en': parsedParams.get('notes_translated-en'),
+                'sv': parsedParams.get('notes_translated-sv')
+            }
+
             errors = e.error_dict
             error_summary = e.error_summary
             data_dict['state'] = 'none'
