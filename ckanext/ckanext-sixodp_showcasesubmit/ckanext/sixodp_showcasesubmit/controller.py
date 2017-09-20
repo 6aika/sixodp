@@ -100,8 +100,8 @@ class Sixodp_ShowcasesubmitController(p.toolkit.BaseController):
                 'store_urls': parsedParams.get('store_urls'),
                 'notes_translated': {
                     'fi': parsedParams.get('notes_translated-fi'),
-                    'en': '',
-                    'sv': ''
+                    'en': parsedParams.get('notes_translated-en'),
+                    'sv': parsedParams.get('notes_translated-sv')
                 },
                 'icon': parsedParams.get('icon'),
                 'featured_image': parsedParams.get('featured_image'),
