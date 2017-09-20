@@ -16,6 +16,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
 
     server.vm.provision "ansible_local" do |ansible|
+      ansible.version = "2.3.2"
+      ansible.install_mode = "pip"
       ansible.inventory_path = "inventories/vagrant"
       ansible.limit = "all"
       ansible.playbook = "deploy-all.yml"
@@ -41,6 +43,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
 
     mainserver.vm.provision "ansible_local" do |ansible|
+      ansible.version = "2.3.2"
+      ansible.install_mode = "pip"
       ansible.inventory_path = "inventories/vagrant_multi"
       ansible.limit = "all"
       ansible.playbook = "deploy-mainserver.yml"
@@ -66,6 +70,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
 
     ckanserver.vm.provision "ansible_local" do |ansible|
+      ansible.version = "2.3.2"
+      ansible.install_mode = "pip"
       ansible.inventory_path = "inventories/vagrant_multi"
       ansible.limit = "all"
       ansible.playbook = "deploy-ckanserver.yml"
