@@ -72,6 +72,8 @@ class DatasubmitterController(p.toolkit.BaseController):
 
     @staticmethod
     def _submit():
+        user_entered_notes = ''
+
         try:
             username = config.get('ckanext.datasubmitter.creating_user_username')
             user = model.User.get(username)
@@ -85,66 +87,44 @@ class DatasubmitterController(p.toolkit.BaseController):
                        'user': user.id, 'auth_user_obj': user.id,
                        'save': 'save' in request.params}
 
-            parsedParams = dict_fns.unflatten(tuplize_dict(parse_params(
-                request.params)))
+            data_dict = parse_params(request.POST)
 
-            name = parsedParams.get('title_translated-fi').replace(' ', '-').lower()
+            user_entered_notes = data_dict.get('notes_translated-fi')
 
-            data_dict = {
-                'type': 'dataset',
-                'name': name,
-                'title_translated': {
-                    'fi': parsedParams.get('title_translated-fi'),
-                    'en': 'UPDATE THIS BEFORE PUBLISHING',
-                    'sv': 'UPDATE THIS BEFORE PUBLISHING'
-                },
-                'keywords': {
-                    'fi': ['UPDATE THIS BEFORE PUBLISHING'],
-                    'en': [],
-                    'sv': []
-                },
-                'geographical_coverage': ['update this before publishing'],
-                'notes_translated': {
-                    'fi': parsedParams.get('notes_translated-fi'),
-                    'en': parsedParams.get('notes_translated-en'),
-                    'sv': parsedParams.get('notes_translated-sv')
-                },
-                'organization': parsedParams.get('organization'),
-                'owner_org': organization.id,
-                'url': parsedParams.get('url'),
-                'date_released': datetime.date.today().strftime('%Y-%m-%d'),
-                'date_updated': datetime.date.today().strftime('%Y-%m-%d'),
-                'maintainer': parsedParams.get('maintainer'),
-                'maintainer_email': parsedParams.get('maintainer_email'),
-                'license_id': 'other-open',
-                'private': True
+            data_dict['type'] = 'dataset'
+            data_dict['name'] = data_dict.get('title_translated-fi').replace(' ', '-').lower()
+            data_dict['keywords'] = {
+                'fi': ['UPDATE THIS BEFORE PUBLISHING'],
+                'en': [],
+                'sv': []
             }
+            data_dict['geographical_coverage'] = ['UPDATE THIS BEFORE PUBLISHING']
+            data_dict['owner_org'] = organization.id
+            data_dict['date_released'] = datetime.date.today().strftime('%Y-%m-%d')
+            data_dict['license_id'] = 'other-open'
+            data_dict['private'] = True
 
-            if parsedParams.get('organization'):
-                data_dict['notes_translated']['fi'] += '\n\n' + _('Organization') + ': ' + parsedParams.get('organization')
+            if data_dict.get('organization'):
+                data_dict['notes_translated-fi'] += '\n\n' + _('Organization') + ': ' + data_dict.get('organization')
 
-            if parsedParams.get('url'):
-                data_dict['notes_translated']['fi'] += '\n\n' + _('Dataset url') + ': ' + parsedParams.get('url')
+            if data_dict.get('url'):
+                data_dict['notes_translated-fi'] += '\n\n' + _('Dataset url') + ': ' + data_dict.get('url')
 
-            validateReCaptcha(parsedParams.get('g-recaptcha-response'))
+            validateReCaptcha(data_dict.get('g-recaptcha-response'))
 
             get_action('package_create')(context, data_dict)
         except NotAuthorized:
             abort(403, _('Unauthorized to create a package'))
         except ValidationError, e:
             # Restore original user entered notes to prevent user from seeing the appended info
-            data_dict['notes_translated'] = {
-                'fi': parsedParams.get('notes_translated-fi'),
-                'en': parsedParams.get('notes_translated-en'),
-                'sv': parsedParams.get('notes_translated-sv')
-            }
+            data_dict['notes_translated-fi'] = user_entered_notes
 
             errors = e.error_dict
             error_summary = e.error_summary
             data_dict['state'] = 'none'
             return data_dict, errors, error_summary, None
 
-        sendNewDatasetNotifications(name)
+        sendNewDatasetNotifications(data_dict['name'])
 
         return {}, [], {}, {'class': 'success', 'text': _('Dataset submitted successfully')}
 
