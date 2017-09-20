@@ -87,7 +87,8 @@ class DatasubmitterController(p.toolkit.BaseController):
                        'user': user.id, 'auth_user_obj': user.id,
                        'save': 'save' in request.params}
 
-            data_dict = parse_params(request.POST)
+            data_dict = clean_dict(dict_fns.unflatten(
+                tuplize_dict(parse_params(request.POST))))
 
             user_entered_notes = data_dict.get('notes_translated-fi')
 
