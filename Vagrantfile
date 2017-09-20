@@ -16,6 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
 
     server.vm.provision "ansible_local" do |ansible|
+      # Ansible is locked to version 2.3.2 as 2.4 is broken, once removed remember to remove lock from jenkins and cloudformation
       ansible.version = "2.3.2"
       ansible.install_mode = "pip"
       ansible.inventory_path = "inventories/vagrant"
