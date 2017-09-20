@@ -1,4 +1,4 @@
-.sidebar, .sidebar-links {
+.sidebar, .sidebar-links, .sidebar-filters {
   ul {
     list-style: none;
     margin: 0;
@@ -22,6 +22,52 @@
   }
 }
 
+.sidebar-filters {
+  margin-top: $base * 2;
+  padding-right: $base * 4;
+  padding: 0;
+  border-width: $base*1.5 0 0 0;
+  border-style: solid;
+  border-color: $navbar-offcanvas-border-color;
+  border-radius: 0 0 $border-radius-base $border-radius-base;
+  background: $brand-secondary-background;
+
+  ul {
+    padding: $base 0;
+  }
+
+  .sidebar__item--heading {
+    @include heading;
+    color: $navbar-offcanvas-heading-color;
+    padding: 0;
+    margin: 0;
+    padding: $padding-small-vertical 0;
+    margin: 0 $margin-large-horizontal;
+  }
+
+  .sidebar__item {
+    &.active {
+      a {
+        background-color: $navbar-offcanvas-link-background-color-active;
+        color: $navbar-offcanvas-link-color-active;
+      }
+    }
+
+    a {
+      font-size: $font-size*0.9;
+      width: 100%;
+      margin: 0;
+      display: block;
+      padding: $base;
+
+      &:hover {
+        background-color: $navbar-offcanvas-link-background-color-hover;
+        color: $navbar-offcanvas-link-color-hover;
+      }
+    }
+  }
+}
+
 .sidebar {
   .sidebar__item--heading, .sidebar__item {
     padding: $base $base*2;
@@ -34,70 +80,72 @@
   }
 }
 
-.sidebar__item--heading {
-  background: $brand-primary;
+.sidebar, .sidebar-links {
+  .sidebar__item--heading {
+    background: $brand-primary;
 
-  a {
-    color: $brand-white;
-    position: relative;
-    display: block;
-    color: $brand-white;
-
-    .material-icons {
-      color: $brand-primary-extralight;
-    }
-
-    .sidebar__icon-wrapper .material-icons {
+    a {
       color: $brand-white;
-    }
+      position: relative;
+      display: block;
+      color: $brand-white;
 
-    &:hover {
-      color: $gray-light;
+      .material-icons {
+        color: $brand-primary-extralight;
+      }
 
-      .sidebar__icon-wrapper {
-        background: $brand-secondary-dark;
+      .sidebar__icon-wrapper .material-icons {
+        color: $brand-white;
+      }
+
+      &:hover {
+        color: $gray-light;
+
+        .sidebar__icon-wrapper {
+          background: $brand-secondary-dark;
+        }
       }
     }
   }
-}
 
-.sidebar__item {
-  background: $gray-lighter;
+  .sidebar__item {
+    background: $gray-lighter;
 
-  a {
-    color: $brand-black; 
-    position: relative;
-    display: block;
-    color: $brand-black;
+    a {
+      color: $brand-black; 
+      position: relative;
+      display: block;
+      color: $brand-black;
+
+      .material-icons {
+        color: $gray-light;
+      }
+
+      &:hover {
+        color: $gray-light;
+      }
+    }
 
     .material-icons {
       color: $gray-light;
-    }
-
-    &:hover {
-      color: $gray-light;
-    }
+    } 
   }
 
-  .material-icons {
-    color: $gray-light;
-  } 
-}
+  .sidebar__icon-wrapper {
+    background: $brand-secondary;
+    display: inline-block;
+    height: $base*3.2;
+    width: $base*3.2;
+    border-radius: 100%;
+    text-align: center;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
 
-.sidebar__icon-wrapper {
-  background: $brand-secondary;
-  display: inline-block;
-  height: $base*3.2;
-  width: $base*3.2;
-  border-radius: 100%;
-  text-align: center;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-
-  .material-icons {
-    line-height: $base*3.2;
-    margin-right: 0;
+    .material-icons {
+      line-height: $base*3.2;
+      margin-right: 0;
+    }
   }
 }
