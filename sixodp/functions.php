@@ -855,8 +855,6 @@ function get_category_grandparent_id($category) {
 
   if (!$category INSTANCEOF WP_Term) return false;
 
-
-  print_r($category);
   $parent_ID = $category->parent;
 
   if ($parent_ID != 0) {
