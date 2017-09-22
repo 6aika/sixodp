@@ -165,6 +165,11 @@
       "display_snippet": null,
       "description": "Synonyms for package search",
       "form_snippet": "textarea.html"
+    },
+    {
+      "field_name": "state",
+      "label": "state",
+      "preset": "state"
     }
   ],
   "resource_fields": [
