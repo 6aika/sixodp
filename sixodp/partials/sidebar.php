@@ -4,20 +4,20 @@
   */
 ?>
 
-<div class="sidebar col-sm-4">
-  <div class="sidebar__wrapper">
-    <?php
-      $pages= get_pages(array("parent" => $parent_page->ID));
+<div class="sidebar-links col-sm-4">
+  <?php
+    $pages= get_pages(array("parent" => $parent_page->ID));
 
-      if (count($pages) > 0) {
+    if (count($pages) > 0) {
+  ?>
+    <?php foreach ( $pages as $page ) : 
+    $child_pages = get_pages(array('parent' => $page->ID));
     ?>
-    <ul class="sidebar__list--heading">
-      <?php foreach ( $pages as $page ) : 
-      $child_pages = get_pages(array('parent' => $page->ID));
-      ?>
+      <ul>
         <li class="sidebar__item--heading">
-          <a href="<?php echo get_permalink($page); ?>" class="sidebar__link--block">
+          <a href="<?php echo get_permalink($page); ?>">
             <?php echo $page->post_title; ?>
+
             <span class="sidebar__icon-wrapper">
               <i class="material-icons">arrow_forward</i>
             </span>
@@ -32,8 +32,7 @@
           </a>
         </li>
         <?php endforeach; ?>
-      <?php endforeach; ?>
-    </ul>
-    <?php } ?>
-  </div>
+      </ul>
+    <?php endforeach; ?>
+  <?php } ?>
 </div>
