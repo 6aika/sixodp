@@ -30,20 +30,15 @@
 
   <div class="row row-compensate">
     <div class="col-lg-10 col-md-12 col-sm-10 col-xs-12">
-      {% call form.markdown(
-        'notes_translated-fi',
-        id='field-notes_translated-fi',
-        label=_('Description'),
-        placeholder=_('Example: The dataset includes financial information for Acme corporation starting from the year 2012'),
-        value=data['notes_translated']['fi'] if data['notes_translated'],
-        error=errors['notes_translated'],
-        attrs={},
-        is_required=false
-        ) %}
-        {%- snippet 'scheming/form_snippets/fluent_help_text.html',
-        field='',
-        lang='fi' -%}
-      {% endcall %}
+      {% snippet "scheming/form_snippets/fluent_markdown_ex.html", field={
+        "field_name": "notes_translated",
+        "label": "Description",
+        "preset": "fluent_core_markdown_translated",
+        "form_placeholder": "Example: The dataset includes financial information for Acme corporation starting from the year 2012",
+        "form_languages": ["fi", "en", "sv"],
+        "description": " ",
+        "only_default_lang_required": true
+      }, data=data, errors=errors %}
     </div>
   </div>
 
