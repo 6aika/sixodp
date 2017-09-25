@@ -43,7 +43,7 @@
 
   - name: Download WordPress
     command:
-      wp core download --path=/opt/wordpress
+      wp core download --path=/opt/wordpress --version={{ wordpress_version }}
     args:
       creates: /opt/wordpress/index.php
 
@@ -93,6 +93,10 @@
       wp option set
         --path=/opt/wordpress
         permalink_structure /%postname%/
+
+  - name: Update WordPress
+    command:
+      wp core update --path=/opt/wordpress --minor
 
   become: yes
   become_user: www-data
