@@ -54,7 +54,8 @@
 	url = https://github.com/6aika/wp-api-menus
 [submodule "ckanext/ckanext-googleanalytics"]
 	path = ckanext/ckanext-googleanalytics
-	url = https://github.com/ckan/ckanext-googleanalytics.git
+	url = https://github.com/6aika/ckanext-googleanalytics.git
+	branch = master
 [submodule "ckanext/ckanext-ga-report"]
 	path = ckanext/ckanext-ga-report
 	url = https://github.com/6aika/ckanext-ga-report.git
