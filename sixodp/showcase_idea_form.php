@@ -81,7 +81,7 @@ get_header(); ?>
               <div class="control-group control-full">
                 <label class="control-label" for="showcase_idea_title"><span title="This field is required" class="control-required">*</span> <?php _e('Title', 'sixodp');?></label>
                 <div class="controls ">             
-                  <input type="text" name="showcase_idea_title" id="showcase_idea_title" class="form-control" value="<?php echo $name; ?>" placeholder="<?php _e('eg. A descriptive title') ?>" />
+                  <input type="text" name="showcase_idea_title" id="showcase_idea_title" class="form-control" value="<?php echo $title; ?>" placeholder="<?php _e('eg. A descriptive title') ?>" />
                 </div>
               </div>
             </div>
@@ -123,7 +123,7 @@ get_header(); ?>
               <div class="control-group control-medium">
                 <label class="control-label" for="showcase_idea_email"><span title="This field is required" class="control-required">*</span> <?php _e('Email', 'sixodp');?></label>
                 <div class="controls ">             
-                  <input type="text" name="showcase_idea_email" id="showcase_idea_email" class="form-control" value="<?php echo $name; ?>" />
+                  <input type="text" name="showcase_idea_email" id="showcase_idea_email" class="form-control" value="<?php echo $email; ?>" />
                 </div>
               </div>
 
