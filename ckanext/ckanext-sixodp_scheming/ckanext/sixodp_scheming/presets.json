@@ -186,6 +186,13 @@
         "upload_clear": "clear_upload",
         "upload_label": "File"
       }
+    },
+    {
+      "preset_name": "state",
+      "values":{
+        "form_snippet": "state.html",
+        "display_snippet": null
+      }
     }
   ]
 }

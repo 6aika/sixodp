@@ -255,6 +255,9 @@ def build_nav_main():
 
         if menu.get('children'):
             for child_item in menu.get('children'):
+                # If WP menu has links to non-existing pages
+                if child_item.get('url') is False:
+                    continue
                 # Parent will be set as active if any of its children is active
                 if check_if_active(menu, child_item):
                     active = True

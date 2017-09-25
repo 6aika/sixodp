@@ -44,7 +44,7 @@
         <section class="tags">
           <ul class="tag-list">
             {% for collection in h.get_package_groups_by_type(pkg_dict.id, 'collection') %}
-              <li><a class="tag" href="{{h.url_for(controller='ckanext.collection.controller:CollectionController', action='read', id=collection.name)}}">{{ collection.display_name }}</a></li>
+              <li><a class="tag" href="{{h.url_for(controller='ckanext.collection.controller:CollectionController', action='read', id=collection.name)}}">{{ h.get_translated_or_default_locale(collection, 'title') }}</a></li>
             {% endfor %}
           </ul>
         </section>
