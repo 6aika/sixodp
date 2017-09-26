@@ -182,6 +182,9 @@
     {% snippet 'package/snippets/info.html', pkg=pkg %}
   {% endblock %}
 
+  {% block stats %}
+  {% endblock %}
+
   {% block package_social %}
     {% snippet "snippets/social.html" %}
   {% endblock %}
@@ -195,5 +198,4 @@
     </div>
   {% endblock %}
 
-  {% snippet "googleanalytics/snippets/resource_stats.html", res=res %}
 {% endblock %}

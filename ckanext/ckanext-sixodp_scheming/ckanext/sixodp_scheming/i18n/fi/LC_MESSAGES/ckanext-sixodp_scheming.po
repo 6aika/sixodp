@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_scheming 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-09-13 10:58+0000\n"
+"POT-Creation-Date: 2017-09-25 13:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2017\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ckanext/sixodp_scheming/helpers.py:61
+#: ckanext/sixodp_scheming/helpers.py:62
 msgid "Dataset not found"
 msgstr "Tietoaineistoa ei löytynyt"
 
@@ -30,15 +30,16 @@ msgstr "Nimi"
 
 #: ckanext/sixodp_scheming/translations.py:5
 msgid ""
-"A short and descriptive title for the dataset. Do not utilize dates in the "
-"title but instead add multiple time-specific resources to the dataset in the"
-" next stage."
+"A short and descriptive title for the dataset in multiple languages. Try not"
+" to use dates when naming a dataset, since data from multiple years will "
+"usually be published as multiple resources in one dataset."
 msgstr ""
-"Lyhyt ja ytimekäs nimi tietoaineistolle. Älä käytä vuosilukuja, vaan "
-"julkaise eri vuosien tiedot samassa tietoaineistossa erillisinä resursseina."
+"Lyhyt ja ytimekäs nimi tietoaineistolle eri kielillä. Eri vuosien tiedot "
+"julkaistaan erillisinä resursseina yhden tietoaineiston alla, joten "
+"otsikossa ei useimmiten kannata käyttää vuosilukuja."
 
 #: ckanext/sixodp_scheming/translations.py:7
-#: ckanext/sixodp_scheming/translations.py:72
+#: ckanext/sixodp_scheming/translations.py:75
 msgid "URL"
 msgstr "URL"
 
@@ -56,12 +57,15 @@ msgstr "Avainsanat"
 
 #: ckanext/sixodp_scheming/translations.py:11
 msgid ""
-"Keywords or tags through which users are able to find this dataset easily "
-"through the search page or other datasets which have the same tag."
+"Descriptive keywords or tags through which users are able to find this "
+"dataset easily through the search. The input will suggest existing keywords "
+"in the portal. New keywords should utilize ontologies such as the generic "
+"finnish ontology YSO: finto.fi/yso/fi."
 msgstr ""
-"Avainsanat eli tägit, joiden kautta tiedon hakijat löytävät tämän "
-"tietoaineiston helposti hakusivulta ja toisten aineistojen kautta, mikäli "
-"niille on annettu sama avainsana."
+"Aineistoa kuvaavat avainsanat, joiden kautta tiedon hakijat löytävät "
+"tietoaineiston helpommin. Syöttökenttä ehdottaa dataportaalin olemassa "
+"olevia avainsanoja. Uusien avainsanojen olisi hyvä hyödyntää ontologioita "
+"kuten yleinen suomalainen ontologia YSO: finto.fi/yso/fi."
 
 #: ckanext/sixodp_scheming/translations.py:13
 msgid "Geographical Coverage"
@@ -76,31 +80,35 @@ msgid "Select the municipalities from which the dataset contains data."
 msgstr "Valitse, mistä kunnista tai alueista tietoaineisto sisältää tietoa."
 
 #: ckanext/sixodp_scheming/translations.py:17
-#: ckanext/sixodp_scheming/translations.py:81
+#: ckanext/sixodp_scheming/translations.py:84
 msgid "Description"
 msgstr "Kuvaus"
 
 #: ckanext/sixodp_scheming/translations.py:18
-msgid "eg. A detailed description"
-msgstr "lyhyt ja ytimekäs kuvaus"
+msgid "E.g. A diverse and detailed description"
+msgstr "Monipuolinen ja kattava tietoaineiston kuvaus"
 
 #: ckanext/sixodp_scheming/translations.py:19
 msgid ""
-"An universal, compact and easy to understand description of the added "
-"dataset. Use as confining terms as possible to assist the user to understand"
-" what types of data, meters and dimensions the dataset contains."
+"An universal and easy to understand, but also diverse description of the "
+"added dataset. Describe the dataset creation process, use case and possible "
+"limitations and shortcomings as well as possible."
 msgstr ""
-"Yleiskielinen, tiivis ja helposti ymmärrettävä kuvaus tietoaineistosta. "
-"Käytä mahdollisimman rajaavia termejä, jotta käyttäjä ymmärtää tarkalleen "
-"mitä tietoa, mittareita ja dimensioita aineisto sisältää."
+"Yleiskielinen helposti ymmärrettävä mutta samalla kattava tietoaineiston "
+"kuvaus. Kuvaa mahdollisimman hyvin tietoaineiston luontiprosessi, "
+"käyttötarkoitus sekä myös mahdolliset rajoitteet tai puutteet aineistossa."
 
 #: ckanext/sixodp_scheming/translations.py:21
-msgid "Links to additional information"
-msgstr "Linkkejä lisätietoihin"
+msgid "Links to additional information concerning the dataset"
+msgstr "Linkkejä tietoaineistoa koskeviin lisätietoihin verkossa."
 
 #: ckanext/sixodp_scheming/translations.py:22
-msgid "Links to additional information concerning the dataset."
-msgstr "Linkkejä tietoaineistoa koskeviin lisätietoihin verkossa."
+msgid ""
+"You may attach external websites or other documentation which could assist "
+"in interpreting the dataset."
+msgstr ""
+"Voit linkittää ulkoisia verkkosivuja tai muuta dokumentaatiota, joka auttaa "
+"esimerkiksi aineiston tulkinnassa."
 
 #: ckanext/sixodp_scheming/translations.py:24
 msgid "Organization"
@@ -110,119 +118,166 @@ msgstr "Organisaatio"
 msgid "The organization which owns the dataset."
 msgstr "Tietoaineiston omistava organisaatio."
 
-#: ckanext/sixodp_scheming/translations.py:28
-msgid "The origin of the dataset."
-msgstr "Tietoaineiston lähde."
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:109
+#: ckanext/sixodp_scheming/translations.py:27
+msgid "Source"
+msgstr "Lähde"
 
-#: ckanext/sixodp_scheming/translations.py:30
+#: ckanext/sixodp_scheming/translations.py:28
+msgid "http://example.com/dataset.json"
+msgstr "http://example.com/dataset.json"
+
+#: ckanext/sixodp_scheming/translations.py:29
+msgid ""
+"The original author of the dataset. Can also be an external author such as "
+"Statistics Finland. The field can e.g. be used to describe a situation where"
+" the dataset is published by a single unit but it has multiple authors."
+msgstr ""
+"Aineiston tietosisällön alkuperäinen tuottaja. Voi olla myös ulkoinen lähde "
+"kuten esim. Tilastokeskus. Käytetään kuvaamaan esimerkiksi tilannetta jossa "
+"aineiston julkaisee omistava yksikkö mutta aineisto sisältää myös muiden "
+"tahojen tuottamia tietoja."
+
+#: ckanext/sixodp_scheming/translations.py:31
 msgid "Maintainer"
 msgstr "Ylläpitäjä"
 
-#: ckanext/sixodp_scheming/translations.py:31
+#: ckanext/sixodp_scheming/translations.py:32
 msgid "Joe Bloggs"
 msgstr "Etunimi Sukunimi"
 
 #: ckanext/sixodp_scheming/translations.py:33
+msgid ""
+"The technical maintainer for the dataset. Can in practice be the maintaining"
+" unit, bureau or as an exception a single employee."
+msgstr ""
+"Tietoaineiston tekninen ylläpitäjä. Voi olla käytännössä aineistoa "
+"ylläpitävä yksikkö, virasto tai poikkeustapauksissa yksittäinen työntekijä."
+
+#: ckanext/sixodp_scheming/translations.py:35
 msgid "Maintainer Email"
 msgstr "Ylläpitäjän sähköposti"
 
-#: ckanext/sixodp_scheming/translations.py:34
+#: ckanext/sixodp_scheming/translations.py:36
 msgid "joe@example.com"
 msgstr "joe@example.com"
 
-#: ckanext/sixodp_scheming/translations.py:36
+#: ckanext/sixodp_scheming/translations.py:37
+msgid ""
+"The email address for the maintaining party for the dataset. Use a mailing "
+"list or other similar means to direct the message to multiple recipients."
+msgstr ""
+"Aineistoa ylläpitävän tahon sähköpostiosoite. Jos mahdollista niin käytetään"
+" yksikön jakelulistaa tai muuta useammalle henkilölle kohdistettua "
+"sähköpostia."
+
+#: ckanext/sixodp_scheming/translations.py:39
 msgid "Maintainer Website"
 msgstr "Ylläpitäjän verkkosivusto"
 
-#: ckanext/sixodp_scheming/translations.py:37
+#: ckanext/sixodp_scheming/translations.py:40
 msgid "http://www.example.com"
 msgstr "http://www.example.com"
 
 #: ckanext/sixodp_scheming/templates/scheming/form_snippets/private.html:3
-#: ckanext/sixodp_scheming/translations.py:39
+#: ckanext/sixodp_scheming/translations.py:42
 msgid "Visibility"
 msgstr "Näkyvyys"
 
-#: ckanext/sixodp_scheming/translations.py:40
+#: ckanext/sixodp_scheming/translations.py:43
 msgid ""
 "Private datasets will only be seen by the logged in users of the dataset's "
-"organization. Public datasets will be listed publicly through the search."
+"organization. The private status is used when preparing a new dataset for "
+"publication."
 msgstr ""
 "Yksityiset tietoaineistot näkyvät ainoastaan tietoaineiston organisaation "
-"sisäänkirjautuneille käyttäjille. Tietoaineistot, joiden tila on julkinen, "
-"listataan julkisesti haussa."
-
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:34
-#: ckanext/sixodp_scheming/translations.py:42
-msgid "Created"
-msgstr "Luotu"
-
-#: ckanext/sixodp_scheming/translations.py:43
-msgid "The date which will be shown as the publish date for this dataset."
-msgstr "Päivämäärä, joka näytetään tietoaineiston julkaisupäivämääränä."
+"sisäänkirjautuneille käyttäjille. Yksityinen -tilaa käytetään tietoaineiston"
+" julkaisua valmisteltaessa."
 
 #: ckanext/sixodp_scheming/translations.py:45
+msgid "Published"
+msgstr "Julkaistu"
+
+#: ckanext/sixodp_scheming/translations.py:46
+msgid "The dataset publication date."
+msgstr "Tietoaineiston julkaisupäivämäärä."
+
+#: ckanext/sixodp_scheming/translations.py:48
 msgid "Updated"
 msgstr "Päivitetty"
 
-#: ckanext/sixodp_scheming/translations.py:46
+#: ckanext/sixodp_scheming/translations.py:49
 msgid ""
-"The date which will be shown as the last modified date for this dataset."
-msgstr "Päivämäärä, jolloin tietoaineistoa on viimeksi muokattu."
+"A manually maintained date which can be used to notify when the dataset has "
+"been updated."
+msgstr ""
+"Manuaalisesti ylläpidettävä päivämäärä, jolla kerrotaan tietoaineiston "
+"päivityksistä."
 
-#: ckanext/sixodp_scheming/translations.py:48
+#: ckanext/sixodp_scheming/translations.py:51
 msgid "Update Frequency"
 msgstr "Päivitystiheys"
 
-#: ckanext/sixodp_scheming/translations.py:49
+#: ckanext/sixodp_scheming/translations.py:52
 msgid "eg. every second week"
 msgstr "esim. joka toinen viikko"
 
-#: ckanext/sixodp_scheming/translations.py:50
-msgid "A short description of how frequently the dataset will get updated."
-msgstr "Lyhyt sanallinen kuvaustietoaineiston päivitysvälistä."
+#: ckanext/sixodp_scheming/translations.py:53
+msgid ""
+"The supposed update frequency for the dataset. The field will suggest "
+"similar values used in other datasets such as yearly, monthly or realtime. A"
+" new value can also be created if required."
+msgstr ""
+"Tietoaineiston oletettu päivitystiheys. Kenttä ehdottaa muissa aineistoissa "
+"käytössä olevia tiheyksiä kuten \"vuosittain\", \"kuukausittain\" tai "
+"\"reaaliaikainen\". Voit kuitenkin tarvittaessa luoda uuden."
 
 #: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:95
-#: ckanext/sixodp_scheming/translations.py:52
+#: ckanext/sixodp_scheming/translations.py:55
 msgid "License"
 msgstr "Lisenssi"
 
-#: ckanext/sixodp_scheming/translations.py:54
+#: ckanext/sixodp_scheming/translations.py:57
 msgid "Reminder date"
 msgstr "Muistutuspäivämäärä"
 
-#: ckanext/sixodp_scheming/translations.py:55
+#: ckanext/sixodp_scheming/translations.py:58
 msgid ""
-"A date when a reminder will be sent to a specified email address reminding "
-"to check this dataset. The email address can be changed in the CKAN admin "
-"config page."
+"A date when a reminder email will be sent to the system administrator "
+"reminding to check this dataset e.g. for a yearly update."
 msgstr ""
-"Päivämäärä, jolloin tietoaineistoa koskien lähetetään sähköposti "
-"määritettyyn sähköpostiosoitteeseen muistuttamaan tietoaineiston tietojen "
-"tarkistuksesta. Osoitetta on mahdollista muuttaa CKAN:in ylläpitäjän "
-"asetussivulta."
+"Päivämäärä, jolloin ylläpidolle lähetetään automaattinen muistutus "
+"sähköpostitse esim. tietoaineiston vuosittaisesta päivittämisestä tai "
+"tietojen tarkistuksesta."
 
-#: ckanext/sixodp_scheming/translations.py:57
+#: ckanext/sixodp_scheming/translations.py:60
 msgid "Global ID"
 msgstr "Globaali ID"
 
-#: ckanext/sixodp_scheming/translations.py:58
+#: ckanext/sixodp_scheming/translations.py:61
 msgid ""
-"An Id that is used in other services, so that this dataset can be matched to"
-" dataset in other service."
+"A global id can be assigned to identify the dataset in external services."
 msgstr ""
-"Tietoaineiston tunniste muita palveluita varten, jotta tietoaineisto on "
-"mahdollista yksilöidä muissa palveluissa yhtenevästi."
+"Tietoaineistolle voidaan antaa globaali id, jolla tietoaineisto voidaan "
+"yksilöidä ulkoisissa palveluissa. Esimerkiksi paikkatietoaineistoilla on "
+"käytössä Maanmittauslaitoksen myöntämiä yksilöiviä tunnisteita."
 
-#: ckanext/sixodp_scheming/translations.py:60
+#: ckanext/sixodp_scheming/translations.py:63
 msgid "Search Synonyms"
 msgstr "Hakusanat"
 
-#: ckanext/sixodp_scheming/translations.py:61
-msgid "Synonyms for package search"
-msgstr "Synonyymisanat hakua varten"
+#: ckanext/sixodp_scheming/translations.py:64
+msgid ""
+"Keywords can be provided here to improve the findability of the dataset. "
+"E.g. words from spoken language can be provided to make the dataset "
+"searchable by those words."
+msgstr ""
+"Kenttään voi täyttää aineiston löydettävyyttä parantavia synonyymisanoja. "
+"Hakusanoihin voi lisätä esimerkiksi puhekielisiä termejä kuten "
+"joukkoliikenteen aineiston osalta hakusanan \"bussi\", jolloin haku löytää "
+"aineiston myös kyseisestä sanaa haettaessa."
 
-#: ckanext/sixodp_scheming/translations.py:63
+#: ckanext/sixodp_scheming/translations.py:66
 msgid ""
 "The <i>data license</i> you select above only applies to the contents of any"
 " resource files that you add to this dataset. By submitting this form, you "
@@ -236,26 +291,26 @@ msgstr ""
 "href=\"http://opendatacommons.org/licenses/odbl/1-0/\">Open Database "
 "Lisenssin</a> mukaisesti."
 
-#: ckanext/sixodp_scheming/translations.py:69
+#: ckanext/sixodp_scheming/translations.py:72
 msgid "Name"
 msgstr "Nimi"
 
-#: ckanext/sixodp_scheming/translations.py:70
+#: ckanext/sixodp_scheming/translations.py:73
 msgid "A short and descriptive name for the resource."
 msgstr "Lyhyt ja kuvaava nimi resurssille."
 
-#: ckanext/sixodp_scheming/translations.py:73
+#: ckanext/sixodp_scheming/translations.py:76
 msgid ""
 "A file or url which describes the location of the desired resource file."
 msgstr ""
 "Tiedosto tai verkko-osoite, joka kuvaa halutun resurssitiedoston sijainnin."
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:49
-#: ckanext/sixodp_scheming/translations.py:75
+#: ckanext/sixodp_scheming/translations.py:78
 msgid "Size"
 msgstr "Koko"
 
-#: ckanext/sixodp_scheming/translations.py:76
+#: ckanext/sixodp_scheming/translations.py:79
 msgid ""
 "Size of the added resouce file in bytes. Will be automatically filled when "
 "the file is uploaded."
@@ -264,55 +319,55 @@ msgstr ""
 "tiedosto ladataan."
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:42
-#: ckanext/sixodp_scheming/translations.py:78
+#: ckanext/sixodp_scheming/translations.py:81
 msgid "Format"
 msgstr "Muoto"
 
-#: ckanext/sixodp_scheming/translations.py:79
+#: ckanext/sixodp_scheming/translations.py:82
 msgid "File format of the selected resource."
 msgstr "Valitun resurssitiedoston tiedostotyyppi."
 
-#: ckanext/sixodp_scheming/translations.py:82
+#: ckanext/sixodp_scheming/translations.py:85
 msgid ""
 "An universal, compact and easy to understand description of the added "
 "resource."
 msgstr "Yleiskielinen, tiivis ja helposti ymmärrettävä kuvaus resurssista."
 
-#: ckanext/sixodp_scheming/translations.py:84
+#: ckanext/sixodp_scheming/translations.py:87
 msgid "Position coordinates"
 msgstr "Paikkakoordinaatit"
 
-#: ckanext/sixodp_scheming/translations.py:85
+#: ckanext/sixodp_scheming/translations.py:88
 msgid ""
 "Coordinates which describe the area which the added resource is associated "
 "with."
 msgstr "Koordinaatit, jotka kuvaavat aluetta, johon lisätty resurssi liittyy."
 
-#: ckanext/sixodp_scheming/translations.py:87
+#: ckanext/sixodp_scheming/translations.py:90
 msgid "Time series start"
 msgstr "Aikasarja alkaen"
 
-#: ckanext/sixodp_scheming/translations.py:88
+#: ckanext/sixodp_scheming/translations.py:91
 msgid "A moment in time after which the data is relevant."
 msgstr "Ajanhetki, jonka jälkeen data on relevanttia"
 
-#: ckanext/sixodp_scheming/translations.py:90
+#: ckanext/sixodp_scheming/translations.py:93
 msgid "Time series end"
 msgstr "Aikasarja päättyen"
 
-#: ckanext/sixodp_scheming/translations.py:91
+#: ckanext/sixodp_scheming/translations.py:94
 msgid "A moment in time after which the data is no longer relevant."
 msgstr "Ajanhetki, jonka jälkeen data ei enää ole relevanttia."
 
-#: ckanext/sixodp_scheming/translations.py:93
+#: ckanext/sixodp_scheming/translations.py:96
 msgid "Time Series Precision"
 msgstr "Aikasarjan tarkkuus"
 
-#: ckanext/sixodp_scheming/translations.py:94
+#: ckanext/sixodp_scheming/translations.py:97
 msgid "eg. 2 weeks"
 msgstr "esim. 2 viikkoa"
 
-#: ckanext/sixodp_scheming/translations.py:95
+#: ckanext/sixodp_scheming/translations.py:98
 msgid "A string which describes the precision of the entered time series."
 msgstr "Lyhyt sanallinen kuvaus aikasarjan tarkkuudesta."
 
@@ -364,6 +419,19 @@ msgstr "Yksityinen"
 msgid "Public"
 msgstr "Julkinen"
 
+#: ckanext/sixodp_scheming/templates/scheming/form_snippets/state.html:3
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:101
+msgid "State"
+msgstr "Tila"
+
+#: ckanext/sixodp_scheming/templates/scheming/form_snippets/state.html:6
+msgid "Active"
+msgstr "Aktiivinen"
+
+#: ckanext/sixodp_scheming/templates/scheming/form_snippets/state.html:7
+msgid "Deleted"
+msgstr "Poistettu"
+
 #: ckanext/sixodp_scheming/templates/scheming/package/read.html:18
 msgid "Show more"
 msgstr "Näytä lisää"
@@ -398,6 +466,10 @@ msgstr "Viimeksi päivitetty"
 msgid "unknown"
 msgstr "tuntematon"
 
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:34
+msgid "Created"
+msgstr "Luotu"
+
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:53
 msgid "GB"
 msgstr "Gt"
@@ -422,17 +494,9 @@ msgstr "Avoimuusaste"
 msgid "Rating"
 msgstr "Arvosana"
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:101
-msgid "State"
-msgstr "Tila"
-
 #: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:107
 msgid "How to reference"
 msgstr "Viittaustapa"
-
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:109
-msgid "Source"
-msgstr "Lähde"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:114
 msgid ""
