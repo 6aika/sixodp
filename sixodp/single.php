@@ -31,16 +31,11 @@ get_header(); ?>
         <div class="row">
           <div class="col-md-3 sidebar">
             <ul>
+              <li class="sidebar__item--heading"><i class="material-icons">bookmark</i> <?php _e('Categories') ?></li>
               <?php
-              $category_parents = [];
               foreach (get_the_category() as $cat):
-                if (!in_array($cat->ID, $category_parents)) {
-                  $className = 'sidebar__item--heading';
-                  $category_parents[] = $cat->ID;
-                }
-                else $className = 'sidebar__item';
                 ?>
-                <li class="<?php echo $className ?>">
+                <li class="sidebar__item">
                   <a href="<?php echo get_category_link($cat); ?>">
                     <i class="material-icons">settings</i>
                     <?php echo $cat->cat_name; ?>
