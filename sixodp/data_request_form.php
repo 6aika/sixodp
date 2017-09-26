@@ -24,11 +24,11 @@ if (isset($_POST['data_request_submit_form'])) {
 
   $errors = array();
 
-  if (empty($content)) $errors[] = __('Content is required', 'sixodp');
-  if (empty($title)) $errors[] = __('Title is required', 'sixodp');
-  if (empty($email)) $errors[] = __('Email is required', 'sixodp');
-  else if (is_email($email) === false) $errors[] = __('Email must be valid', 'sixodp');
-  if (empty($name) or strlen($name) < 3) $errors[] = __('Name is required and must be over 3 characters long', 'sixodp');
+  if (empty($content)) $errors['content'] = __('Content is required', 'sixodp');
+  if (empty($title)) $errors['title'] = __('Title is required', 'sixodp');
+  if (empty($email)) $errors['email'] = __('Email is required', 'sixodp');
+  else if (is_email($email) === false) $errors['email'] = __('Email must be valid', 'sixodp');
+  if (empty($name) or strlen($name) < 3) $errors['name'] = __('Name is required and must be over 3 characters long', 'sixodp');
 
   if (sizeof($errors) == 0) {  
     wp_insert_post(array(
@@ -66,29 +66,25 @@ get_header(); ?>
         _e('Thank you for submission.');
       }
       else {
-        if (sizeof($errors) > 0) {
-          foreach($errors as $error) {
-            echo '<p>'. $error .'</p>';
-          } 
-        }
         ?>
         <form action="" method="POST">
           <p><?php _e('Your data request will be moderated, it may be modified or combined with similar requests. Moderated request will be published on this site and will be forwarded to person responsible for the data if possible.'); ?>
 
           <div class="row">
             <div class="col-xs-12">
-              <div class="control-group control-full">
+              <div class="control-group control-full <?php if (isset($errors['title'])) echo "error" ?>">
                 <label class="control-label" for="data_request_title"><span title="This field is required" class="control-required">*</span> <?php _e('Title', 'sixodp');?></label>
-                <div class="controls ">             
-                  <input type="text" name="data_request_title" id="data_request_title" class="form-control" value="<?php echo $name; ?>" placeholder="<?php _e('eg. A descriptive title') ?>" />
+                <div class="controls">             
+                  <input type="text" name="data_request_title" id="data_request_title" class="form-control" value="<?php echo $title; ?>" placeholder="<?php _e('eg. A descriptive title') ?>" />
                 </div>
+                <?php if (isset($errors['title'])) echo '<span class="error-block">'. $errors['title'] .'</span>'; ?>
               </div>
             </div>
           </div>
 
           <div class="row">
             <div class="col-xs-12">
-              <div class="control-group control-full">
+              <div class="control-group control-full <?php if (isset($errors['content'])) echo "error" ?>">
                 <label class="control-label" for="data_request_content"><span title="This field is required" class="control-required">*</span> <?php _e('Your request', 'sixodp');?></label>
                 <div class="controls">             
                   <?php
@@ -99,34 +95,37 @@ get_header(); ?>
                   ));
                   ?>
                 </div>
+                <?php if (isset($errors['content'])) echo '<span class="error-block">'. $errors['content'] .'</span>'; ?>
               </div>
             </div>
           </div>
+
           <div class="row">
             <div class="col-xs-12 col-md-8">
-              <div class="control-group control-medium">
+              <div class="control-group control-medium <?php if (isset($errors['name'])) echo "error" ?>">
                 <label class="control-label" for="data_request_name"><span title="This field is required" class="control-required">*</span> <?php _e('Name', 'sixodp');?></label>
                 <div class="controls ">             
                   <input type="text" name="data_request_name" id="data_request_name" class="form-control" value="<?php echo $name; ?>" />
                 </div>
-              </div>
-              <div class="field-assistive-text">
-                <?php _e('Your name will not be published with data request.'); ?>
+                <div class="editor-info-block">
+                  <?php _e('Your name will not be published with data request.'); ?>
+                </div>
+                <?php if (isset($errors['name'])) echo '<span class="error-block">'. $errors['name'] .'</span>'; ?>
               </div>
             </div>
           </div>
 
           <div class="row">
             <div class="col-xs-12 col-md-8">
-              <div class="control-group control-medium">
+              <div class="control-group control-medium <?php if (isset($errors['email'])) echo "error" ?>">
                 <label class="control-label" for="data_request_email"><span title="This field is required" class="control-required">*</span> <?php _e('Email', 'sixodp');?></label>
                 <div class="controls ">             
-                  <input type="text" name="data_request_email" id="data_request_email" class="form-control" value="<?php echo $name; ?>" />
+                  <input type="text" name="data_request_email" id="data_request_email" class="form-control" value="<?php echo $email; ?>" />
                 </div>
-              </div>
-
-              <div class="field-assistive-text">
-               <?php _e('Your email will not be published with data request.'); ?>
+                <div class="editor-info-block">
+                 <?php _e('Your email will not be published with data request.'); ?>
+                </div>
+                <?php if (isset($errors['email'])) echo '<span class="error-block">'. $errors['email'] .'</span>'; ?>
               </div>
             </div>
           </div>
