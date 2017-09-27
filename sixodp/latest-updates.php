@@ -12,14 +12,6 @@
  * @subpackage Sixodp
  */
 
-$types = array(
-  'datasets' => true,
-  'showcases' => true,
-  'comments' => true,
-  'data_requests' => true,
-  'app_requests' => true,
-);
-
 if ($_GET['date']) {
   $date = strtotime($_GET['date']);
 
@@ -34,6 +26,8 @@ if ($_GET['types']) {
     'datasets' => in_array('datasets', $_GET['types']),
     'showcases' => in_array('showcases', $_GET['types']),
     'comments' => in_array('comments', $_GET['types']),
+    'posts' => in_array('posts', $_GET['types']),
+    'pages' => in_array('pages', $_GET['types']),
     'data_requests' => in_array('data_requests', $_GET['types']),
     'app_requests' => in_array('app_requests', $_GET['types']),
   );
@@ -43,6 +37,8 @@ else {
     'datasets' => true,
     'showcases' => true,
     'comments' => true,
+    'posts' => true,
+    'pages' => true,
     'data_requests' => true,
     'app_requests' => true,
   );
@@ -65,6 +61,8 @@ get_header(); ?>
         <input type="checkbox" value="datasets" name="types[]" <?php if ($types['datasets']) echo 'checked="checked"' ?> /> <?php _e('Datasets','sixodp') ?>
         <input type="checkbox" value="showcases" name="types[]" <?php if ($types['showcases']) echo 'checked="checked"' ?> /> <?php _e('Applications','sixodp') ?>
         <input type="checkbox" value="comments" name="types[]" <?php if ($types['comments']) echo 'checked="checked"' ?> /> <?php _e('Comments', 'sixodp') ?>
+        <input type="checkbox" value="posts" name="types[]" <?php if ($types['posts']) echo 'checked="checked"' ?> /> <?php _e('Posts', 'sixodp') ?>
+        <input type="checkbox" value="pages" name="types[]" <?php if ($types['pages']) echo 'checked="checked"' ?> /> <?php _e('Pages', 'sixodp') ?>
         <input type="checkbox" value="data_requests" name="types[]" <?php if ($types['data_requests']) echo 'checked="checked"' ?> /> <?php _e('Data Requests', 'sixodp') ?>
         <input type="checkbox" value="app_requests" name="types[]" <?php if ($types['app_requests']) echo 'checked="checked"' ?> /> <?php _e('App Requests', 'sixodp') ?>
         <input type="submit" value="Päivitä" class="btn btn-secondary" />
@@ -74,10 +72,13 @@ get_header(); ?>
     <div class="container">
       <ul class="items-list">
       <?php
-      $updates = get_latest_updates($types, $date);
+      $updates = get_latest_updates($types, $date, false);
 
       if (sizeof($updates) == 0) _e('No updates found for selected week.');
-      foreach ( $updates as $index => $item ) : ?>
+      foreach ( $updates as $index => $item ) :
+        if ($item['link'] === get_permalink()) continue; // Don't show self
+
+        ?>
         <li class="items-list-content">
           <div class="items-list__content">
             <div class="items-list__type">
@@ -101,7 +102,7 @@ get_header(); ?>
                   <?php echo get_days_ago($item['date_updated'] ? $item['date_updated'] : $item['date']); ?>
                 </div>
               </div>
-              <p class="items-list__info"><?php echo get_notes_excerpt(get_translated($item, 'notes')); ?></p>
+              <p class="items-list__info"><?php echo get_notes_excerpt(strip_tags(get_translated($item, 'notes'))); ?></p>
             </div>
           </div>
         </li>
