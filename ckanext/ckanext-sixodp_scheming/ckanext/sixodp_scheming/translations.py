@@ -96,3 +96,12 @@ def _translations():
     _('Time Series Precision')
     _('eg. 2 weeks')
     _('A string which describes the precision of the entered time series.')
+
+    # Licenses from licenses.json
+    _('Creative Commons Attribution 4.0')
+    _('https://creativecommons.org/licenses/by/4.0/')
+
+    _('CC0 1.0')
+    _('https://creativecommons.org/publicdomain/zero/1.0/')
+
+    _('Other (Open)')

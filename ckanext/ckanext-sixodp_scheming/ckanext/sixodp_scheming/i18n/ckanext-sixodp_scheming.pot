@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_scheming 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-09-25 13:23+0000\n"
+"POT-Creation-Date: 2017-09-27 11:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -316,6 +316,26 @@ msgstr ""
 
 #: ckanext/sixodp_scheming/translations.py:98
 msgid "A string which describes the precision of the entered time series."
+msgstr ""
+
+#: ckanext/sixodp_scheming/translations.py:101
+msgid "Creative Commons Attribution 4.0"
+msgstr ""
+
+#: ckanext/sixodp_scheming/translations.py:102
+msgid "https://creativecommons.org/licenses/by/4.0/"
+msgstr ""
+
+#: ckanext/sixodp_scheming/translations.py:104
+msgid "CC0 1.0"
+msgstr ""
+
+#: ckanext/sixodp_scheming/translations.py:105
+msgid "https://creativecommons.org/publicdomain/zero/1.0/"
+msgstr ""
+
+#: ckanext/sixodp_scheming/translations.py:107
+msgid "Other (Open)"
 msgstr ""
 
 #: ckanext/sixodp_scheming/validators.py:57
