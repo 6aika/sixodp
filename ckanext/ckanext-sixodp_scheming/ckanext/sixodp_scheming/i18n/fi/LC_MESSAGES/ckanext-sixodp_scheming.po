@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_scheming 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-09-25 13:23+0000\n"
+"POT-Creation-Date: 2017-09-27 11:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2017\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
@@ -370,6 +370,26 @@ msgstr "esim. 2 viikkoa"
 #: ckanext/sixodp_scheming/translations.py:98
 msgid "A string which describes the precision of the entered time series."
 msgstr "Lyhyt sanallinen kuvaus aikasarjan tarkkuudesta."
+
+#: ckanext/sixodp_scheming/translations.py:101
+msgid "Creative Commons Attribution 4.0"
+msgstr "Creative Commons Nimeä 4.0"
+
+#: ckanext/sixodp_scheming/translations.py:102
+msgid "https://creativecommons.org/licenses/by/4.0/"
+msgstr "https://creativecommons.org/licenses/by/4.0/deed.fi"
+
+#: ckanext/sixodp_scheming/translations.py:104
+msgid "CC0 1.0"
+msgstr "CC0 1.0"
+
+#: ckanext/sixodp_scheming/translations.py:105
+msgid "https://creativecommons.org/publicdomain/zero/1.0/"
+msgstr "https://creativecommons.org/publicdomain/zero/1.0/deed.fi"
+
+#: ckanext/sixodp_scheming/translations.py:107
+msgid "Other (Open)"
+msgstr "Muu (avoin)"
 
 #: ckanext/sixodp_scheming/validators.py:57
 #: ckanext/sixodp_scheming/validators.py:243
