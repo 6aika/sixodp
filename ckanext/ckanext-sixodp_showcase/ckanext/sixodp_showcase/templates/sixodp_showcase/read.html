@@ -93,14 +93,15 @@
 
     <div class="image-slider-wrapper">
       <ol class="image-slider">
-        {% if pkg.image_1_display_url %}<li><img class="image-modal-open" src="{{ pkg.image_1_display_url }}"></li>{% endif %}
-        {% if pkg.image_2_display_url %}<li><img class="image-modal-open" src="{{ pkg.image_2_display_url }}"></li>{% endif %}
-        {% if pkg.image_3_display_url %}<li><img class="image-modal-open" src="{{ pkg.image_3_display_url }}"></li>{% endif %}
-        {% if pkg.image_4_display_url %}<li><img class="image-modal-open" src="{{ pkg.image_4_display_url }}"></li>{% endif %}
+        {% if pkg.image_1_display_url %}<li><img class="image-modal-open" alt="{{ pkg.image_1 }}" src="{{ pkg.image_1_display_url }}"></li>{% endif %}
+        {% if pkg.image_2_display_url %}<li><img class="image-modal-open" alt="{{ pkg.image_2 }}" src="{{ pkg.image_2_display_url }}"></li>{% endif %}
+        {% if pkg.image_3_display_url %}<li><img class="image-modal-open" alt="{{ pkg.image_3 }}" src="{{ pkg.image_3_display_url }}"></li>{% endif %}
+        {% if pkg.image_4_display_url %}<li><img class="image-modal-open" alt="{{ pkg.image_4 }}" src="{{ pkg.image_4_display_url }}"></li>{% endif %}
       </ol>
     </div>
 
-    {% snippet 'snippets/image_modal.html' %}
+    {% snippet 'sixodp_showcase/snippets/photoswipe.html' %}
+
   </div>
 {% endblock %}
 
