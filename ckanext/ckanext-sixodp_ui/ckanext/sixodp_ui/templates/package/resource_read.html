@@ -185,10 +185,6 @@
   {% block stats %}
   {% endblock %}
 
-  {% block package_social %}
-    {% snippet "snippets/social.html" %}
-  {% endblock %}
-
   {% block package_subscribe %}
     <div class="module module-narrow module-shallow context-info">
       <h2 class="module-heading">{{ _('Subscribe for dataset updates') }}</h2>
@@ -196,6 +192,10 @@
         {% snippet "reminder/snippets/subscription_form.html", package=pkg %}
       </section>
     </div>
+  {% endblock %}
+
+  {% block package_social %}
+    {% snippet "snippets/social.html" %}
   {% endblock %}
 
 {% endblock %}
