@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-datasubmitter 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-09-07 07:30+0000\n"
+"POT-Creation-Date: 2017-09-25 10:24+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Mikko Nieminen <mikko.nieminen@gofore.com>, 2017\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
@@ -20,23 +20,32 @@ msgstr ""
 "Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ckanext/datasubmitter/controller.py:60
+#: ckanext/datasubmitter/controller.py:61
 msgid "A user has submitted a new dataset"
 msgstr "Käyttäjä on ilmoittanut uuden tietoaineiston"
 
-#: ckanext/datasubmitter/controller.py:63
+#: ckanext/datasubmitter/controller.py:64
 msgid "New dataset notification"
 msgstr "Ilmoitus uudesta tietoaineistosta"
 
-#: ckanext/datasubmitter/controller.py:121
+#: ckanext/datasubmitter/controller.py:85
+msgid "Dataset submit user or organization not set."
+msgstr "Aineiston tallennukseen käytettävää organisaatiota ei ole asetettu."
+
+#: ckanext/datasubmitter/controller.py:111
 msgid "Organization"
 msgstr "Organisaatio"
 
-#: ckanext/datasubmitter/controller.py:127
+#: ckanext/datasubmitter/controller.py:114
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:68
+msgid "Dataset url"
+msgstr "Aineiston www-osoite"
+
+#: ckanext/datasubmitter/controller.py:120
 msgid "Unauthorized to create a package"
 msgstr "Ei oikeuksia luoda tietoaineistoa"
 
-#: ckanext/datasubmitter/controller.py:136
+#: ckanext/datasubmitter/controller.py:132
 msgid "Dataset submitted successfully"
 msgstr "Tietoaineiston lähetys onnistui"
 
@@ -82,39 +91,22 @@ msgstr "Nimi"
 msgid "A descriptive title for the dataset"
 msgstr "esim. \"Helsingin kaupungin talousarvio\""
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:36
-msgid "Description"
-msgstr "Kuvaus"
-
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:37
-msgid ""
-"Example: The dataset includes financial information for Acme corporation "
-"starting from the year 2012"
-msgstr ""
-"Esim. \"Helsingin kaupungin talousarviotiedot vuodesta 2012 alkaen. Tiedot "
-"ovat käyttösuunnitelmatason tietoa. Aineisto sisältää kaupungin "
-"toimintatulot ja -menot sekä poistot.\""
-
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:55
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:50
 msgid "Owner organization"
 msgstr "Omistajaorganisaatio"
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:73
-msgid "Dataset url"
-msgstr "Aineiston www-osoite"
-
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:86
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:81
 msgid "Submitter info"
 msgstr "Ilmoittajan tiedot"
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:93
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:88
 msgid "Name of the submitter"
 msgstr "Datan ilmoittajan nimi"
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:111
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:106
 msgid "Submitter email"
 msgstr "Ilmoittajan sähköpostiosoite"
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:138
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:133
 msgid "Submit"
 msgstr "Lähetä"
