@@ -8,5 +8,4 @@ require('./components/common/popper');
 require('./components/ckan/datepicker');
 require('./components/ckan/form-action-loading-indicator');
 require('./components/ckan/horizontal-accordion');
-require('./components/ckan/image-modal');
 require('./components/ckan/show-more');
