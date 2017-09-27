@@ -30,34 +30,50 @@ get_header(); ?>
         ?>
         <div class="row">
           <div class="col-md-3 sidebar">
-            <ul>
-              <li class="sidebar__item--heading"><i class="material-icons">bookmark</i> <?php _e('Categories') ?></li>
-              <?php
-              foreach (get_the_category() as $cat):
+            <?php 
+            $post_type = get_post_type_object(get_post_type());
+            if ($post_type->name !== 'post' && $post_type->name !== 'page') :
+            ?>
+              <ul>
+                <li class="sidebar__item--heading"><a href="<?php echo get_post_type_archive_link($post_type->name); ?>"><i class="material-icons">bookmark</i> 
+                  <?php
+                  if ($post_type->name === 'data_request') _e('Data Request');
+                  if ($post_type->name === 'showcase_idea') _e('Showcase Idea');
+                  else echo $post_type->labels->singular_name; 
+                  ?>
+                </a></li>
+              </ul>
+            <?php 
+            endif; 
+            $categories = get_the_category();
+            if (sizeof($categories) > 0) :
+            ?>
+              <ul>
+                <li class="sidebar__item--heading"><i class="material-icons">bookmark</i> <?php _e('Categories') ?></li>
+                <?php
+                foreach (get_the_category() as $cat):
+                  ?>
+                  <li class="sidebar__item">
+                    <a href="<?php echo get_category_link($cat); ?>">
+                      <i class="material-icons">settings</i>
+                      <?php echo $cat->cat_name; ?>
+                    </a>
+                  </li>
+                  <?php 
+                endforeach;
                 ?>
-                <li class="sidebar__item">
-                  <a href="<?php echo get_category_link($cat); ?>">
-                    <i class="material-icons">settings</i>
-                    <?php echo $cat->cat_name; ?>
-                  </a>
-                </li>
-                <?php 
-              endforeach;
-              ?>
-            </ul>
-            <ul>
-              <?php 
-              $author = get_the_author();
+              </ul>
+            <?php endif; ?>
+            <?php 
+            $author = get_the_author();
 
-              if (get_the_author() !== 'admin') {
-                ?>
+            if (get_the_author() !== 'admin') : ?>
+              <ul>
                 <li class="sidebar__item">
                   <i class="material-icons">face</i> <?php the_author(); ?>
                 </li>
-                <?php
-              }
-              ?>
-            </ul>
+              </ul>
+            <?php endif; ?>
             <ul>
               <li class="sidebar__item">
                 <i class="material-icons">event</i> <?php the_date(); ?>
