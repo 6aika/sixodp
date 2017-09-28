@@ -104,15 +104,16 @@ get_header(); ?>
                 <i class="material-icons">event</i> <?php the_date(); ?>
               </li>
             </ul>
-            
-            <div class="addthis_toolbox">
-              <a class="addthis_button_facebook_like at300b"></a>
-              <a class="addthis_button_tweet at300b"></a>
-            </div>
           </div>
           <div class="col-md-9 news-content">
             <h1 class="heading--main"><?php the_title() ?></h1>
             <article class="article"><?php the_content() ?></article>
+
+            <div class="addthis_toolbox">
+              <a class="addthis_button_facebook_like at300b"></a>
+              <a class="addthis_button_tweet at300b"></a>
+            </div>
+            
             <?php
 
             // If comments are open or we have at least one comment, load up the comment template.
