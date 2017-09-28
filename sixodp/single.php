@@ -45,13 +45,14 @@ get_header(); ?>
               </ul>
             <?php 
             endif; 
+
             $categories = get_the_category();
             if (sizeof($categories) > 0) :
             ?>
               <ul>
                 <li class="sidebar__item--heading"><i class="material-icons">bookmark</i> <?php _e('Categories') ?></li>
                 <?php
-                foreach (get_the_category() as $cat):
+                foreach ($categories as $cat):
                   ?>
                   <li class="sidebar__item">
                     <a href="<?php echo get_category_link($cat); ?>">
@@ -63,14 +64,38 @@ get_header(); ?>
                 endforeach;
                 ?>
               </ul>
+            <?php endif;
+
+            $tags = get_the_tags();
+            if (sizeof($tags) > 0) :
+            ?>
+              <ul>
+                <li class="sidebar__item--heading"><i class="material-icons">label</i> <?php _e('Tags') ?></li>
+                <?php
+                foreach ($tags as $tag):
+                  ?>
+                  <li class="sidebar__item">
+                    <a href="<?php echo get_tag_link($tag); ?>">
+                      <i class="material-icons">settings</i>
+                      <?php echo $tag->name; ?>
+                    </a>
+                  </li>
+                  <?php 
+                endforeach;
+                ?>
+              </ul>
             <?php endif; ?>
+
             <?php 
             $author = get_the_author();
-
             if (get_the_author() !== 'admin') : ?>
               <ul>
                 <li class="sidebar__item">
-                  <i class="material-icons">face</i> <?php the_author(); ?>
+                  <img src="<?php echo get_avatar_url(2, ['size' => 128]) ?>" class="avatar" />
+                  <p><i class="material-icons">face</i> <?php the_author(); ?></p>
+                  <p><?php echo get_the_author_meta('description'); ?></p>
+                </li>
+                <li class="sidebar__item">
                 </li>
               </ul>
             <?php endif; ?>
