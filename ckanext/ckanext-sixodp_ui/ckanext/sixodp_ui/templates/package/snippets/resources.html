@@ -1,5 +1,8 @@
 {% ckan_extends %}
 
+{% block resources_title %}
+  <h2 class="module-heading">{{ _("Resources") }}</h2>
+{% endblock %}
 {% block resources_list %}
   <ul class="unstyled nav nav-simple">
     {% for resource in resources %}

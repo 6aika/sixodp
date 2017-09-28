@@ -11,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-04-12 12:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Mikko Nieminen <mikko.nieminen@gofore.com>, 2017\n"
+"Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2017\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -83,7 +83,7 @@ msgstr "Vahvista poisto"
 msgid ""
 "Are you sure you want to remove this user as a Showcase Admin - {name}?"
 msgstr ""
-"Haluatko varmasti poistaa käyttäjän {name} sovellusten ylläpitäjän oikeudet"
+"Haluatko varmasti poistaa käyttäjän {name} sovellusten ylläpitäjän oikeudet?"
 
 #: ckanext/sixodp_showcase/templates/admin/confirm_remove_showcase_admin.html:15
 msgid "Cancel"
@@ -211,7 +211,7 @@ msgstr "Kuvaus"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:28
 msgid "eg. Some useful notes about the data"
-msgstr "esim. datan sanallinen kuvaus"
+msgstr "datan sanallinen kuvaus"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:33
 msgid "eg. economy, mental health, government"
@@ -294,12 +294,12 @@ msgstr "Sovellukseen ei liity tietoaineistoja"
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:160
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:204
 msgid "More from the author"
-msgstr "Lisää samalta tekijältä"
+msgstr "Saman tekijän muita sovelluksia"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:162
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:206
 msgid "Show all from this author"
-msgstr "Näytä kaikki tältä tekijältä"
+msgstr "Näytä kaikki"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:187
 msgid "Application website"

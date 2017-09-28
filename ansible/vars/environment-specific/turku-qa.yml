@@ -131,6 +131,7 @@ enabled_ckan_extensions:
     - recline_grid_view
     - recline_map_view
     - sixodp_showcase
+#    - googleanalytics
     - sixodp_ui
     - datastore
     - datasetcopy
@@ -159,7 +160,6 @@ enabled_ckan_extensions:
     - csw_harvester
     - sixodp_harvester
     - sixodp_showcasesubmit
-#    - googleanalytics
 
 enabled_ckan_aws_extensions: cloudstorage
 

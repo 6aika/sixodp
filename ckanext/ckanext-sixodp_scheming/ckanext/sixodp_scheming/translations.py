@@ -2,63 +2,66 @@ def _translations():
     """ Does nothing but hints message extractor to extract missing strings. """
 
     _('Title')
-    _('A short and descriptive title for the dataset. Do not utilize dates in the title but instead add multiple time-specific resources to the dataset in the next stage.')
+    _('A short and descriptive title for the dataset in multiple languages. Try not to use dates when naming a dataset, since data from multiple years will usually be published as multiple resources in one dataset.')
 
     _('URL')
     _('An URL-address which refers to the dataset. The automatically filled option derived from the title is the best option in most cases.')
 
     _('Tags')
-    _('Keywords or tags through which users are able to find this dataset easily through the search page or other datasets which have the same tag.')
+    _('Descriptive keywords or tags through which users are able to find this dataset easily through the search. The input will suggest existing keywords in the portal. New keywords should utilize ontologies such as the generic finnish ontology YSO: finto.fi/yso/fi.')
 
     _('Geographical Coverage')
     _('eg. tampere')
     _('Select the municipalities from which the dataset contains data.')
 
     _('Description')
-    _('eg. A detailed description')
-    _('An universal, compact and easy to understand description of the added dataset. Use as confining terms as possible to assist the user to understand what types of data, meters and dimensions the dataset contains.')
+    _('E.g. A diverse and detailed description')
+    _('An universal and easy to understand, but also diverse description of the added dataset. Describe the dataset creation process, use case and possible limitations and shortcomings as well as possible.')
 
-    _('Links to additional information')
-    _('Links to additional information concerning the dataset.')
+    _('Links to additional information concerning the dataset')
+    _('You may attach external websites or other documentation which could assist in interpreting the dataset.')
 
     _('Organization')
     _('The organization which owns the dataset.')
 
-    -('Source')
-    _('The origin of the dataset.')
+    _('Source')
+    _('http://example.com/dataset.json')
+    _('The original author of the dataset. Can also be an external author such as Statistics Finland. The field can e.g. be used to describe a situation where the dataset is published by a single unit but it has multiple authors.')
 
     _('Maintainer')
     _('Joe Bloggs')
+    _('The technical maintainer for the dataset. Can in practice be the maintaining unit, bureau or as an exception a single employee.')
 
     _('Maintainer Email')
     _('joe@example.com')
+    _('The email address for the maintaining party for the dataset. Use a mailing list or other similar means to direct the message to multiple recipients.')
 
     _('Maintainer Website')
     _('http://www.example.com')
 
     _('Visibility')
-    _('Private datasets will only be seen by the logged in users of the dataset\'s organization. Public datasets will be listed publicly through the search.')
+    _('Private datasets will only be seen by the logged in users of the dataset\'s organization. The private status is used when preparing a new dataset for publication.')
 
-    _('Created')
-    _('The date which will be shown as the publish date for this dataset.')
+    _('Published')
+    _('The dataset publication date.')
 
     _('Updated')
-    _('The date which will be shown as the last modified date for this dataset.')
+    _('A manually maintained date which can be used to notify when the dataset has been updated.')
 
     _('Update Frequency')
     _('eg. every second week')
-    _('A short description of how frequently the dataset will get updated.')
+    _('The supposed update frequency for the dataset. The field will suggest similar values used in other datasets such as yearly, monthly or realtime. A new value can also be created if required.')
 
     _('License')
 
     _('Reminder date')
-    _('A date when a reminder will be sent to a specified email address reminding to check this dataset. The email address can be changed in the CKAN admin config page.')
+    _('A date when a reminder email will be sent to the system administrator reminding to check this dataset e.g. for a yearly update.')
 
     _('Global ID')
-    _('An Id that is used in other services, so that this dataset can be matched to dataset in other service.')
+    _('A global id can be assigned to identify the dataset in external services.')
 
     _('Search Synonyms')
-    _('Synonyms for package search')
+    _('Keywords can be provided here to improve the findability of the dataset. E.g. words from spoken language can be provided to make the dataset searchable by those words.')
 
     _("The <i>data license</i> you select above only applies to the contents of any "
       "resource files that you add to this dataset. By submitting this form, you "
@@ -93,3 +96,12 @@ def _translations():
     _('Time Series Precision')
     _('eg. 2 weeks')
     _('A string which describes the precision of the entered time series.')
+
+    # Licenses from licenses.json
+    _('Creative Commons Attribution 4.0')
+    _('https://creativecommons.org/licenses/by/4.0/')
+
+    _('CC0 1.0')
+    _('https://creativecommons.org/publicdomain/zero/1.0/')
+
+    _('Other (Open)')
