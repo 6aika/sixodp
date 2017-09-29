@@ -45,13 +45,14 @@ get_header(); ?>
               </ul>
             <?php 
             endif; 
+
             $categories = get_the_category();
             if (sizeof($categories) > 0) :
             ?>
               <ul>
                 <li class="sidebar__item--heading"><i class="material-icons">bookmark</i> <?php _e('Categories') ?></li>
                 <?php
-                foreach (get_the_category() as $cat):
+                foreach ($categories as $cat):
                   ?>
                   <li class="sidebar__item">
                     <a href="<?php echo get_category_link($cat); ?>">
@@ -63,14 +64,38 @@ get_header(); ?>
                 endforeach;
                 ?>
               </ul>
+            <?php endif;
+
+            $tags = get_the_tags();
+            if (sizeof($tags) > 0) :
+            ?>
+              <ul>
+                <li class="sidebar__item--heading"><i class="material-icons">label</i> <?php _e('Tags') ?></li>
+                <?php
+                foreach ($tags as $tag):
+                  ?>
+                  <li class="sidebar__item">
+                    <a href="<?php echo get_tag_link($tag); ?>">
+                      <i class="material-icons">settings</i>
+                      <?php echo $tag->name; ?>
+                    </a>
+                  </li>
+                  <?php 
+                endforeach;
+                ?>
+              </ul>
             <?php endif; ?>
+
             <?php 
             $author = get_the_author();
-
             if (get_the_author() !== 'admin') : ?>
               <ul>
                 <li class="sidebar__item">
-                  <i class="material-icons">face</i> <?php the_author(); ?>
+                  <img src="<?php echo get_avatar_url(2, ['size' => 128]) ?>" class="avatar" />
+                  <p><i class="material-icons">face</i> <?php the_author(); ?></p>
+                  <p><?php echo get_the_author_meta('description'); ?></p>
+                </li>
+                <li class="sidebar__item">
                 </li>
               </ul>
             <?php endif; ?>
@@ -79,15 +104,16 @@ get_header(); ?>
                 <i class="material-icons">event</i> <?php the_date(); ?>
               </li>
             </ul>
-            
-            <div class="addthis_toolbox">
-              <a class="addthis_button_facebook_like at300b"></a>
-              <a class="addthis_button_tweet at300b"></a>
-            </div>
           </div>
           <div class="col-md-9 news-content">
             <h1 class="heading--main"><?php the_title() ?></h1>
             <article class="article"><?php the_content() ?></article>
+
+            <div class="addthis_toolbox">
+              <a class="addthis_button_facebook_like at300b"></a>
+              <a class="addthis_button_tweet at300b"></a>
+            </div>
+            
             <?php
 
             // If comments are open or we have at least one comment, load up the comment template.
