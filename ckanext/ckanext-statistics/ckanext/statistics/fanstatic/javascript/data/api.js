@@ -27,42 +27,44 @@ Api.prototype.getAllData = function (callback, delay) {
       data.categories = result
       self._stepLoaded(self._texts.loadDatasets, 81.8)
 
-      self.get('current_package_list_with_resources', function (result) {
-        data.datasets = result
-        self._stepLoaded(self._texts.loadApps, 88.8)
+      self.get('package_search', function(result){
+        self.get('current_package_list_with_resources?limit=' + result.count, function (result) {
+          data.datasets = result
+          self._stepLoaded(self._texts.loadApps, 88.8)
 
-        self.get('ckanext_showcase_list?include_private=false', function (result) {
-          data.apps = result
+          self.get('ckanext_showcase_list?include_private=false', function (result) {
+            data.apps = result
 
-          if (data.apps.length === 0) {
-            finishedAppDatasets()
-          } else {
-            self._stepLoaded(self._texts.loadAppDatasetRelations, 95.0)
-            var receivedCount = 0
-            for (i in data.apps) {
-              self.get('ckanext_showcase_package_list?showcase_id=' + data.apps[i].id, function (result) {
-                data.apps[i].datasets = result
-                receivedCount ++
-                if (receivedCount >= data.apps.length) {
-                  finishedAppDatasets()
-                }
-              })
+            if (data.apps.length === 0) {
+              finishedAppDatasets()
+            } else {
+              self._stepLoaded(self._texts.loadAppDatasetRelations, 95.0)
+              var receivedCount = 0
+              for (i in data.apps) {
+                self.get('ckanext_showcase_package_list?showcase_id=' + data.apps[i].id, function (result) {
+                  data.apps[i].datasets = result
+                  receivedCount ++
+                  if (receivedCount >= data.apps.length) {
+                    finishedAppDatasets()
+                  }
+                })
+              }
             }
-          }
 
-          function finishedAppDatasets () {
-            self._stepLoaded(self._texts.loadPreprocessing, 97.0)
-            data = self._preprocess(data)
-            self._stepLoaded(self._texts.loadRendering, 99.9)
-            callback(data)
-            // Hide loading screen
-            setTimeout(function () {
-              self._stepLoaded(self._texts.loadDone, 100.0)
-              self._elem.container.fadeOut(200, function () {
-                self._elem.container.remove()
-              })
-            }, delay)
-          }
+            function finishedAppDatasets () {
+              self._stepLoaded(self._texts.loadPreprocessing, 97.0)
+              data = self._preprocess(data)
+              self._stepLoaded(self._texts.loadRendering, 99.9)
+              callback(data)
+              // Hide loading screen
+              setTimeout(function () {
+                self._stepLoaded(self._texts.loadDone, 100.0)
+                self._elem.container.fadeOut(200, function () {
+                  self._elem.container.remove()
+                })
+              }, delay)
+            }
+          })
         })
       })
     })
