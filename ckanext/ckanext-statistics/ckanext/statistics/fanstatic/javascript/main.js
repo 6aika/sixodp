@@ -360,10 +360,26 @@ ckan.module('statistics', function($){
             firstDate = moment.utc(firstDate)
             var firstDateVis = moment.utc([firstDate.year(), 0, 1])
 
-            var today = moment.utc()
-            today = moment.utc([today.year(), today.month(), today.date()])
+            var lastDateDataset = d3.max(allData.datasets, function (d) { return d.date_released });
+            var lastDateApp = d3.max(allData.apps, function (d) { return d.metadata_created });
 
-            return [firstDateVis, today]
+            var today = moment.utc()
+
+            var lastDate = today;
+
+            if (typeof lastDateDataset !== 'undefined') {
+                lastDate = lastDateDataset
+            }
+            if (typeof lastDateApp !== 'undefined' && lastDateApp > lastDateDataset) {
+                lastDate = lastDateApp
+            }
+
+            lastDate = moment.utc(lastDate)
+            var lastDateVis = moment.utc([lastDate.year(), lastDate.month(), lastDate.date()])
+
+
+
+            return [firstDateVis, lastDateVis]
         },
 
         filterAllData: function (data) {
@@ -592,7 +608,7 @@ ckan.module('statistics', function($){
             function findParentChain (searchedOrganizationId, branch) {
                 var result = [];
                 // Each org in this branch
-                for (i in branch) {
+                for (var i in branch) {
                     var organization = branch[i];
                     // This is the selected?
                     if (searchedOrganizationId === organization.id) {
