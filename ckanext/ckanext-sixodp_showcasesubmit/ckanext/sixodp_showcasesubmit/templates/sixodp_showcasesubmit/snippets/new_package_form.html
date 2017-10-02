@@ -253,7 +253,47 @@
          data-module-label="title">
       </div>
     </div>
+  </div>
 
+  <h2 class="h3">{{ _('Submitter info') }}</h2>
+
+  <div class="row row-compensate">
+    <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12">
+      {% call form.input(
+        'notifier',
+        id='notifier',
+        label=_('Name of the submitter'),
+        placeholder='',
+        value=data['notifier'],
+        error=errors['notifier'],
+        classes=['control-medium'],
+        attrs={},
+        is_required=true
+        )
+      %}
+      {% endcall %}
+    </div>
+  </div>
+
+  <div class="row row-compensate">
+    <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12">
+      {% call form.input(
+        'notifier_email',
+        id='notifier_email',
+        label=_('Submitter email'),
+        placeholder='',
+        value=data['notifier_email'],
+        error=errors['notifier_email'],
+        classes=['control-medium'],
+        attrs={},
+        is_required=true
+        )
+      %}
+      {% endcall %}
+    </div>
+  </div>
+
+  <div class="row row-compensate">
     <div class="col-xs-12">
       {% block form_actions %}
         {% if message %}
