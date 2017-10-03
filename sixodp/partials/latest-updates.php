@@ -11,33 +11,33 @@
   </div>
 
   <div class="container">
-    <div class="row cards--latest">
+    <div class="row cards cards--latest">
       <?php
         foreach ( get_latest_updates() as $index => $item ) : ?>
-          <?php if ($index === 4 || $index === 8) echo '</div><div class="row cards--latest">'; ?>
-          <div class="card--latest">
-            <div class="card__meta--latest">
-              <?php echo get_days_ago($item['date_updated'] ? $item['date_updated'] : $item['date']); ?>
-            </div>
-            <div class="card__body--latest">
+          <?php if ($index === 4 || $index === 8) echo '</div><div class="row cards cards--latest">'; ?>
+          <div class="card card-hover card--latest">
+
+            <h3 class="card__title">
+              <a href="<?php echo $item['link']?>">
+                <?php echo get_translated($item, 'title'); ?>
+              </a>
+            </h3>
+            <div class="card__meta">
+              <span class="card__timestamp"><?php echo parse_date($item['date_updated']); ?></span>
               <?php
               if (is_array($item['type'])) {
                 echo '<a href="'. $item['type']['link'] .'" class="card__categorylink--latest">'. $item['type']['label'] .'</a>';
               }
               else {
-                echo '<span class="card__categorylink--latest">'. $item['type'] .'</span>';
+
+                echo '<span>&bull;</span><span class="card__categorylink--latest">'. $item['type'] .'</span>';
               }
               ?>
-              <h3 class="card__title--latest">
-
-                <a href="<?php echo $item['link']?>">
-                  <?php echo get_translated($item, 'title'); ?>
-                </a>
-              </h3>
-              <p class="card__description">
-                <?php echo get_notes_excerpt(get_translated($item, 'notes')); ?>
-              </p>
             </div>
+
+            <p class="card__description">
+              <?php echo get_notes_excerpt(get_translated($item, 'notes')); ?>
+            </p>
           </div><?php
         endforeach; ?>
     </div>

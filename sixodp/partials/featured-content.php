@@ -59,9 +59,9 @@
   </div>
 
   <div class="container">
-    <div class="row cards--dataset">
+    <div class="row cards cards--dataset">
       <?php foreach ( get_latest_datasets() as $dataset ) : ?>
-        <div class="card">
+        <div class="card card-hover">
           <h3 class="card__title">
             <a href="<?php echo CKAN_BASE_URL.'/'.get_current_locale_ckan().'/dataset/'.$dataset['name']; ?>">
               <?php echo get_translated($dataset, 'title'); ?>
@@ -69,7 +69,6 @@
           </h3>
           <div class="card__meta">
             <span class="card__timestamp"><?php echo parse_date($dataset['date_released']); ?></span>
-            <span style="margin-left: 2px; margin-right: 2px;">&bull;</span>
             <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale_ckan(); ?>/<?php echo $dataset['type']; ?>" class="card__categorylink"><?php echo $dataset['type']; ?></a>
           </div>
         </div><?php
