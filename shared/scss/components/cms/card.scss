@@ -10,7 +10,7 @@
 
 .card {
   max-width: 75%;
-  border-radius: $base/2;
+  border-radius: $border-radius-small;
   background: $card-background-color;
   padding: $base*2;
   margin: $base auto;
@@ -154,8 +154,8 @@
 .card__meta--latest {
   padding: $base;
   background: $latest-card-heading-bar-bg;
-  border-top-left-radius: $base/2;
-  border-top-right-radius: $base/2;
+  border-top-left-radius: $border-radius-small;
+  border-top-right-radius: $border-radius-small;
   color: $latest-card-heading-bar-color;
 }
 

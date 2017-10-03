@@ -36,13 +36,13 @@ $brand-danger: #d9534f;
 $brand-black: #000000;
 $brand-white: #ffffff;
 $brand-gray: #57575b;
-$brand-lightgray: #f5f5f5;
+$brand-lightgray: #f8f8f8;
 
 $gray-base: $brand-gray;
 $gray-darker:            darken($gray-base, $darken-intensity*2);
 $gray-dark:              darken($gray-base, $darken-intensity);
 $gray:                   lighten($gray-base, $lighten-intensity*1.5);
-$gray-light:             lighten($gray-base, $lighten-intensity*3);
+$gray-light:             lighten($gray-base, $lighten-intensity*4.5);
 $gray-lighter:           lighten($gray-base, $lighten-intensity*6);
 
 $brand-background: #ffffff;
@@ -77,13 +77,13 @@ $banner-bg: $brand-primary;
 $banner-heading-color: $brand-white;
 $banner-text-color: $brand-white;
 
-$featured-bg: $brand-white;
-$showcase-card-bg: $brand-gray;
+$featured-bg: $brand-lightgray;
+$showcase-card-bg: $brand-primary;
 $showcase-card-heading-color: $brand-white;
 $showcase-card-text-color: $brand-white;
 
 $dataset-card-bg: $brand-white;
-$dataset-card-border-color: $brand-lightgray;
+$dataset-card-border-color: $gray-light;
 $dataset-card-heading-color: $brand-primary;
 $dataset-card-text-color: $text-color;
 $dataset-card-link-color: $brand-success;
