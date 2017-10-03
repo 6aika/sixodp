@@ -24,7 +24,7 @@ $text-transition: all 0.1s 0.1s ease-in-out;
   .horizontal-accordion {
     background: transparent;
     width: $tab-width*3 + $tab-width-open;
-    max-width: 1500px;
+    max-width: 2000px;
     margin: auto;
     padding: 0;
     display: block;
@@ -210,11 +210,28 @@ $text-transition: all 0.1s 0.1s ease-in-out;
       }
     }
   }
+
+  // Static variant of the accordion without resizing tabs on hover
+  .horizontal-accordion.horizontal-accordion-static {
+    @media(min-width: $horizontal-accordion-breakpoint) {
+
+      .horizontal-accordion-tab,
+      .horizontal-accordion-tab:hover,
+      .horizontal-accordion-tab:first-child,
+      .horizontal-accordion-tab:first-child:hover {
+        width: 25%;
+
+        .tab-content {
+          width: 97%;
+        }
+      }
+    }
+  }
 }
 
 .horizontal-accordion-btn-group {
   width: $tab-width*3 + $tab-width-open;
-  max-width: 1500px;
+  max-width: 2000px;
   margin: auto;
   padding: $padding-large-vertical*2 0;
   text-align: center;
