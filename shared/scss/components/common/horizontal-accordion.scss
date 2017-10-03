@@ -225,6 +225,40 @@ $text-transition: all 0.1s 0.1s ease-in-out;
           width: 97%;
         }
       }
+
+      .horizontal-accordion-tab {
+        .tab-content p {
+          top: 0;
+        }
+
+        .tab-overlay {
+          position: relative;
+          transition: $tab-transition;
+          top: $horizontal-accordion-height - $horizontal-accordion-heading-height;
+
+          h1 {
+            margin-top: 0;
+          }
+
+          .tab-meta {
+            margin-top: $horizontal-accordion-top-padding-base*4;
+          }
+        }
+
+        &:hover {
+          // Remove old transform
+          .tab-content p {
+            transform: none;
+          }
+
+          .tab-overlay {
+            transform: translate(0, -$horizontal-accordion-height + $horizontal-accordion-heading-height);
+            -webkit-transform: translate(0, -$horizontal-accordion-height + $horizontal-accordion-heading-height);
+            -o-transform: translate(0, -$horizontal-accordion-height + $horizontal-accordion-heading-height);
+            -moz-transform: translate(0, -$horizontal-accordion-height + $horizontal-accordion-heading-height);
+          }
+        }
+      }
     }
   }
 }
