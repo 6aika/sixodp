@@ -49,6 +49,7 @@
 
 .card__meta {
   margin-bottom: $base*1.5;
+  font-size: $font-size-base;
 }
 
 .card__categorylink {
@@ -59,7 +60,7 @@
 // Secondary cards
 
 .wrapper--latest {
-  background: $brand-primary; /* Old browsers */
+  background: $brand-primary; /* Old browsers fallback to single color */
   background: $latest-bg;
   padding: $base*4 0;
 
@@ -83,7 +84,6 @@
 }
 
 .cards--latest {
-  @extend .cards;
   margin-bottom: 0;
   justify-content: flex-start;
 }
@@ -164,8 +164,7 @@
 }
 
 .card__categorylink--latest {
-  text-transform: uppercase;
-  font-size: $base*1.2;
+  text-transform: capitalize;
 }
 
 .cards--post {
