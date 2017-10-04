@@ -76,19 +76,29 @@
 }
 
 .navbar-search {
-  width: 220px;
-  margin: 14px 10px;
+  width: 100%;
+  margin: 0;
+  height: $navbar-height;
+  padding: $navbar-height/4;
 
   .navbar-search-form {
     display: none;
   }
 
   .navbar-search-btn {
-    float: right;
+    float: left;
   }
 
   .btn {
     padding: 5px 12px 4px 12px;
+  }
+
+  @media(min-width: $grid-float-breakpoint) {
+    width: auto;
+    max-width: 220px;
+    margin: 14px 10px;
+    height: auto;
+    padding: 0;
   }
 }
 
