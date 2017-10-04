@@ -224,27 +224,29 @@ class Sixodp_UiPlugin(plugins.SingletonPlugin, DefaultTranslation):
         return facets_dict
 
     def get_helpers(self):
-        return {'get_recent_content': get_recent_content,
-                'get_popular_tags': get_popular_tags,
-                'get_categories': get_categories,
-                'get_homepage_organizations': get_homepage_organizations,
-                'service_alerts': service_alerts,
-                'unquote_url': unquote_url,
-                'get_translated': helpers.get_translated,
-                'get_current_lang': helpers.get_current_lang,
-                'get_qa_openness': get_qa_openness,
-                'dataset_display_name': helpers.dataset_display_name,
-                'get_navigation_items_by_menu_location': helpers.get_navigation_items_by_menu_location,
-                'get_footer_navigation_items': helpers.get_footer_navigation_items,
-                'get_social_links': helpers.get_social_links,
-                'get_social_link_icon_class': helpers.get_social_link_icon_class,
-                'get_package_groups': helpers.get_package_groups,
-                'scheming_language_text_or_empty': helpers.scheming_language_text_or_empty,
-                'resource_display_name': helpers.resource_display_name,
-                'get_notifications': helpers.get_notifications,
-                'menu_is_active': helpers.menu_is_active,
-                'build_nav_main': helpers.build_nav_main
-                }
+        return {
+            'get_recent_content': get_recent_content,
+            'get_popular_tags': get_popular_tags,
+            'get_categories': get_categories,
+            'get_homepage_organizations': get_homepage_organizations,
+            'service_alerts': service_alerts,
+            'unquote_url': unquote_url,
+            'get_translated': helpers.get_translated,
+            'get_current_lang': helpers.get_current_lang,
+            'get_qa_openness': get_qa_openness,
+            'dataset_display_name': helpers.dataset_display_name,
+            'get_navigation_items_by_menu_location': helpers.get_navigation_items_by_menu_location,
+            'get_footer_navigation_items': helpers.get_footer_navigation_items,
+            'get_social_links': helpers.get_social_links,
+            'get_social_link_icon_class': helpers.get_social_link_icon_class,
+            'get_package_groups': helpers.get_package_groups,
+            'scheming_language_text_or_empty': helpers.scheming_language_text_or_empty,
+            'resource_display_name': helpers.resource_display_name,
+            'get_notifications': helpers.get_notifications,
+            'menu_is_active': helpers.menu_is_active,
+            'build_nav_main': helpers.build_nav_main,
+            'get_search_tags': helpers.get_search_tags
+        }
 
     def before_search(self, search_params):
         '''Initializes default sorting if sorting is missing, replaces metadata_created with custom date_released.'''
