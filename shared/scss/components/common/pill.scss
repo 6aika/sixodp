@@ -1,0 +1,15 @@
+.pill {
+  background-color: $btn-primary-bg;
+  padding: $padding-small-vertical $padding-small-horizontal;
+  border-radius: $btn-border-radius-base;
+  color: $brand-white;
+
+  a {
+    color: $brand-white;
+    transition: color .2s ease-in-out;
+
+    &:hover {
+      color: $brand-lightgray;
+    }
+  }
+}

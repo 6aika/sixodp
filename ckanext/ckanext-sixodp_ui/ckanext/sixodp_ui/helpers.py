@@ -284,3 +284,12 @@ def make_menu_item(menu_item, active):
     if active:
         return literal('<li class="active">') + link
     return literal('<li>') + link
+
+
+def get_search_tags(facets_dict, visible_fields):
+    tags = {}
+    for field in visible_fields:
+        if facets_dict.get('fields').get(field):
+            tags[field] = facets_dict.get('fields').get(field)
+
+    return tags

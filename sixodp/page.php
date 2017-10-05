@@ -20,7 +20,7 @@ get_header(); ?>
 		?>
 
 		<div class="page__hero"></div>
-		<div class="page__content container">
+		<div class="page__content page__hero__content container">
 			<?php
 			// Start the loop.
 			while ( have_posts() ) : the_post();
