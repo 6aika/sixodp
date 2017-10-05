@@ -1,6 +1,6 @@
 $horizontal-accordion-height: 450px;
 $horizontal-accordion-top-padding-base: 10px;
-$horizontal-accordion-heading-height: 95px;
+$horizontal-accordion-heading-height: 140px;
 $horizontal-accordion-breakpoint: $width-md;
 $tab-width: 22%;
 $tab-width-open: 34%;
@@ -99,7 +99,7 @@ $text-transition: all 0.1s 0.1s ease-in-out;
     .tab-overlay:focus,
     .tab-overlay:active {
       background: $accordion-tab-overlay-bg;
-      opacity: 0.8;
+      opacity: 0.7;
       overflow: hidden;
       height: $horizontal-accordion-height;
       width: 100%;
@@ -121,14 +121,21 @@ $text-transition: all 0.1s 0.1s ease-in-out;
       h1,
       .tab-heading {
         color: $accordion-tab-heading-color;
-        font-size: $font-size-xlarge;
-        margin-bottom: 10px;
+        font-size: 18px;
+        line-height: $line-height-large;
+        min-height: $line-height-large * 18px * 3;
+        margin: 0 0 $horizontal-accordion-top-padding-base+20px 0;
+        display: inline-block;
+
+        @media(min-width: $width-lg) {
+          font-size: 20px;
+          min-height: $line-height-large * 20px * 3;
+        }
       }
 
       .tab-meta {
         font-size: $font-size-base;
         color: $accordion-tab-meta-color;
-        margin-top: 0;
       }
 
       p {
@@ -241,7 +248,7 @@ $text-transition: all 0.1s 0.1s ease-in-out;
           }
 
           .tab-meta {
-            margin-top: $horizontal-accordion-top-padding-base*4;
+            margin-top: $horizontal-accordion-top-padding-base;
           }
         }
 
