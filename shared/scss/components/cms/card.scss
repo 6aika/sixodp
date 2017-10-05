@@ -40,22 +40,20 @@
 
 .card__title {
   @include heading();
-  border-bottom: 1px solid $card-border-color;
-  padding-bottom: $base;
   margin-bottom: $base;
   margin-top: 0;
   font-size: $font-size-large;
 }
 
 .card__meta {
-  margin-bottom: $base*1.5;
+  border-top: 1px solid $card-border-color;
+  padding-top: $base*1.5;
   font-size: $font-size-base;
 }
 
 .card__categorylink {
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
-
 
 // Secondary cards
 
@@ -83,55 +81,55 @@
   }
 }
 
-.cards--latest {
+.cards--4 {
   margin-bottom: 0;
   justify-content: flex-start;
-}
 
-.card--latest {
-  @extend .card;
+  .card {
+    @extend .card;
 
-  @media (min-width: $width-sm) {
-    flex: 1 1 49%;
-    max-width: 49.5%;
-    margin: $base/2 0.5%;
+    @media (min-width: $width-sm) {
+      flex: 1 1 49%;
+      max-width: 49.5%;
+      margin: $base/2 0.5%;
 
-    &:nth-child(even) {
-      margin-right: 0;
+      &:nth-child(even) {
+        margin-right: 0;
+      }
+
+      &:nth-child(odd) {
+        margin-left: 0;
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
 
-    &:nth-child(odd) {
-      margin-left: 0;
-    }
-
-    &:first-child {
-      margin-left: 0;
-    }
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-
-  @media (min-width: $width-md) {
-    flex: 1 1 23.5%;
-    margin: 1% 1%;
-    max-width: 23.5%;
-
-    &:nth-child(even) {
+    @media (min-width: $width-md) {
+      flex: 1 1 23.5%;
       margin: 1% 1%;
-    }
+      max-width: 23.5%;
 
-    &:nth-child(odd) {
-      margin: 1% 1%;
-    }
+      &:nth-child(even) {
+        margin: 1% 1%;
+      }
 
-    &:first-child {
-      margin-left: 0;
-    }
+      &:nth-child(odd) {
+        margin: 1% 1%;
+      }
 
-    &:last-child {
-      margin-right: 0;
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 }
@@ -161,10 +159,6 @@
   border-top-left-radius: $border-radius-small;
   border-top-right-radius: $border-radius-small;
   color: $latest-card-heading-bar-color;
-}
-
-.card__categorylink--latest {
-  text-transform: capitalize;
 }
 
 .cards--post {
@@ -215,80 +209,79 @@
 // Showcase cards
 
 .cards--showcase {
-  @extend .cards--latest;
+  @extend .cards--4;
   flex-wrap: wrap;
-}
 
-.card--showcase {
-  @extend .card--latest;
-  background: $brand-primary;
-  padding: 0;
+  .card {
+    background: $brand-primary;
+    padding: 0;
 
-  @media(min-width: $width-sm) {
-    flex: 1 1 49%;
-    max-width: 49%;
-    margin: 1%;
-    margin-bottom: $base;
-
-    &:nth-child(even) {
+    @media(min-width: $width-sm) {
+      flex: 1 1 49%;
+      max-width: 49%;
       margin: 1%;
+      margin-bottom: $base;
+
+      &:nth-child(even) {
+        margin: 1%;
+      }
+
+      &:nth-child(odd) {
+        margin: 1%;
+      }
+
+      &:nth-child(even) {
+        margin-right: 0;
+      }
+
+      &:nth-child(odd) {
+        margin-left: 0;
+      }
     }
 
-    &:nth-child(odd) {
+    @media(min-width: $width-md) {
+      flex: 1 1 49%;
+      max-width: 49%;
       margin: 1%;
+      margin-bottom: $base;
+
+      &:nth-child(even) {
+        margin: 1%;
+      }
+
+      &:nth-child(odd) {
+        margin: 1%;
+      }
+
+      &:nth-child(even) {
+        margin-right: 0;
+      }
+
+      &:nth-child(odd) {
+        margin-left: 0;
+      }
     }
 
-    &:nth-child(even) {
-      margin-right: 0;
-    }
-
-    &:nth-child(odd) {
-      margin-left: 0;
-    }
-  }
-
-  @media(min-width: $width-md) {
-    flex: 1 1 49%;
-    max-width: 49%;
-    margin: 1%;
-    margin-bottom: $base;
-
-    &:nth-child(even) {
-      margin: 1%;
-    }
-
-    &:nth-child(odd) {
-      margin: 1%;
-    }
-
-    &:nth-child(even) {
-      margin-right: 0;
-    }
-
-    &:nth-child(odd) {
-      margin-left: 0;
-    }
-  }
-
-  @media(min-width: $width-lg) {
-    flex: 1 1 24%;
-    max-width: 24%;
-    margin: 0.66%;
-
-    &:nth-child(even) {
+    @media(min-width: $width-lg) {
+      flex: 1 1 24%;
+      max-width: 24%;
       margin: 0.66%;
-    }
 
-    &:nth-child(odd) {
-      margin: 0.66%;
-    }
+      &:nth-child(even) {
+        margin: 0.66%;
+      }
 
-    &:first-child {
-      margin-left: 0;
-    }
+      &:nth-child(odd) {
+        margin: 0.66%;
+      }
 
-    &:last-child {
-      margin-right: 0;
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 }
@@ -315,14 +308,16 @@
   .card__title a {
     color: $dataset-card-heading-color;
   }
+}
 
-  .card__meta {
-    a {
-      color: $dataset-card-link-color;
-    }
+.card__meta {
+  a {
+    color: $dataset-card-heading-color;
+    text-transform: uppercase;
   }
+}
 
-  .card__timestamp {
-    color: $dataset-card-text-color;
-  }
+.card__timestamp {
+  color: $dataset-card-heading-color;
+  font-family: $headings-font-family;
 }

@@ -59,7 +59,7 @@
   </div>
 
   <div class="container">
-    <div class="row cards cards--dataset">
+    <div class="row cards">
       <?php foreach ( get_latest_datasets() as $dataset ) : ?>
         <div class="card card-hover">
           <h3 class="card__title">
@@ -67,9 +67,16 @@
               <?php echo get_translated($dataset, 'title'); ?>
             </a>
           </h3>
+
+          <p class="card__description">
+            <span class="card__timestamp"><?php echo parse_date($dataset['date_released']); ?></span><br />
+            <?php echo wp_trim_words( get_translated($dataset, 'notes'), 40, '...' ); ?>
+          </p>
+
           <div class="card__meta">
-            <span class="card__timestamp"><?php echo parse_date($dataset['date_released']); ?></span>
-            <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale_ckan(); ?>/<?php echo $dataset['type']; ?>" class="card__categorylink"><?php echo $dataset['type']; ?></a>
+            <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale_ckan(); ?>/<?php echo $dataset['type']; ?>" class="card__categorylink">
+              <span class="fa fa-database"></span>&nbsp;<?php echo $dataset['type']; ?>
+            </a>
           </div>
         </div><?php
       endforeach; ?>

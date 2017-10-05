@@ -35,7 +35,7 @@
                 </h4>
                 <div class="dataset__body">
                   <p class="dataset__info"><?php echo get_notes_excerpt(get_translated($item, 'notes')); ?>
-                    <a href="<?php echo CKAN_BASE_URL . '/dataset/' . echo $item['name']; ?>"><i class="material-icons">arrow_forward</i></a>
+                    <a href="<?php echo CKAN_BASE_URL . '/dataset/' . $item['name']; ?>"><i class="material-icons">arrow_forward</i></a>
                   </p>
                 </div>
               </div>
