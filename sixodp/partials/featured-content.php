@@ -32,7 +32,7 @@
   </div>
 
   <div class="container">
-    <div class="row cards--showcase">
+    <div class="row cards cards--4 cards--showcase">
       <?php
         $showcases = get_latest_showcases(4);
         foreach ($showcases as $showcase) {
