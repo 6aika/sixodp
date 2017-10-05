@@ -14,18 +14,41 @@
 }
 
 .page__hero {
-  height: $base*32;
-  background: url('/assets/images/blog_bgr.png') no-repeat center center;
+  height: $base*25;
+  background: url('/assets/images/page_bgr.jpg') no-repeat center center;
   background-size: cover;
+
+  @media(min-width: $width-md) {
+    height: $base*75;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: rgba($brand-primary, 0.2); /* Old browsers */
+    background: -moz-linear-gradient(rgba($brand-primary, 0) 0%, rgba($brand-primary-extradark, 0.6) 60%, rgba(darken($brand-primary-extradark, 15%), 0.9) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(rgba($brand-primary, 0) 0%, rgba($brand-primary-extradark, 0.6) 60%, rgba(darken($brand-primary-extradark, 15%), 0.9) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(rgba($brand-primary, 0) 0%, rgba($brand-primary-extradark, 0.6) 60%, rgba(darken($brand-primary-extradark, 15%), 0.9) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  }
+}
+
+.page__hero__content {
+  position: relative;
+  min-height: $base*50;
+  z-index: 1;
+  margin-top: 0;
+  background: $brand-white;
+
+  @media(min-width: $width-md) {
+    margin-top: -$base*50;
+  }
 }
 
 .page__content {
   @extend %pagew;
-  margin-top: -$base*24;
-  background: $brand-white;
-}
-
-.page__content {
 
   .single & {
     padding: $base*4 $base*2;
