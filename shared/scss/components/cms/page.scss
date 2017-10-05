@@ -35,8 +35,9 @@
   }
 }
 
-.page__content {
-  @extend %pagew;
+.page__hero__content {
+  position: relative;
+  z-index: 1;
   margin-top: 0;
   background: $brand-white;
 
@@ -46,8 +47,7 @@
 }
 
 .page__content {
-  position: relative;
-  z-index: 1;
+  @extend %pagew;
 
   .single & {
     padding: $base*4 $base*2;

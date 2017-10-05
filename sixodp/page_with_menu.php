@@ -23,7 +23,8 @@ get_header(); ?>
       get_template_part('partials/header-logos');
     ?>
     <div class="wrapper">
-      <div class="container">
+      <div class="page__hero"></div>
+      <div class="page__hero__content container">
         <?php
 
           while ( have_posts() ) :       
