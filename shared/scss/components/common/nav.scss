@@ -38,28 +38,22 @@
     > a {
       border-bottom-color: $navbar-default-link-active-border-color;
     }
-
-    @media(min-width: $grid-float-breakpoint) {
-      .subnav {
-        visibility: visible;
-        max-height: $base*4;
-        display: block;
-        transition: none;
-      }
-    }
   }
 
   &.active-hover {
     .subnav {
       visibility: visible;
       max-height: 100%;
+      padding: 0;
+      transition: all 0.2s ease-in-out;
 
       @media(min-width: $grid-float-breakpoint) {
-        max-height: $base*4;
+        width: auto;
+        max-height: none;
         visibility: visible;
         display: block;
-        transition: none;
         z-index: $zindex-navbar-fixed;
+        position: absolute;
       }
     }
   }
@@ -82,19 +76,29 @@
 }
 
 .navbar-search {
-  width: 220px;
-  margin: 14px 10px;
+  width: 100%;
+  margin: 0;
+  height: $navbar-height;
+  padding: $navbar-height/4;
 
   .navbar-search-form {
     display: none;
   }
 
   .navbar-search-btn {
-    float: right;
+    float: left;
   }
 
   .btn {
     padding: 5px 12px 4px 12px;
+  }
+
+  @media(min-width: $grid-float-breakpoint) {
+    width: auto;
+    max-width: 220px;
+    margin: 14px 10px;
+    height: auto;
+    padding: 0;
   }
 }
 
@@ -161,6 +165,9 @@
   padding-left: $base*3;
 
   & > li {
+    width: auto;
+    float: none;
+
     > a,
     > a:focus {
       color: $navbar-secondary-link-color;
@@ -186,10 +193,8 @@
   }
 
   @media(min-width: $width-md) {
-    position: absolute;
-    top: $navbar-height;
-    left: 0;
-    right: 0;
+    height: auto;
+    position: relative;
   }
 
 }
