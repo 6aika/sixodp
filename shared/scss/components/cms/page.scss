@@ -37,6 +37,7 @@
 
 .page__hero__content {
   position: relative;
+  min-height: $base*50;
   z-index: 1;
   margin-top: 0;
   background: $brand-white;
