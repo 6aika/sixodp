@@ -60,7 +60,8 @@
 
   <div class="container">
     <div class="row cards">
-      <?php foreach ( get_latest_datasets() as $dataset ) : ?>
+      <?php foreach ( get_latest_datasets() as $index => $dataset ) : ?>
+        <?php if ($index % 3 === 0) echo '</div><div class="row cards">'; ?>
         <div class="card card-hover">
           <h3 class="card__title">
             <a href="<?php echo CKAN_BASE_URL.'/'.get_current_locale_ckan().'/dataset/'.$dataset['name']; ?>">
