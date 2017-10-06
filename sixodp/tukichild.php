@@ -24,38 +24,41 @@ $category = get_queried_object();
     <?php
       get_template_part('partials/header-logos');
     ?>
-    <?php
-    while ( have_posts() ) : the_post();
-    ?>
-      <div class="wrapper">
-        <div class="container">
-
-          <?php
-            include( locate_template('partials/tuki-headingbar.php') );
-          ?>
-          <div class="row">
-            <?php
-              include( locate_template('partials/tuki-sidebar.php') );
-              get_template_part( 'partials/content' );
-            ?>
-          </div>
-        </div>
-      </div>
+    <div class="page__hero"></div>
+    <div class="page__hero__content container">
       <?php
-      $morelinks_title = "Lisää aiheesta";
+        while ( have_posts() ) : the_post();
+        ?>
+          <div class="wrapper">
+            <div class="container">
 
-      $args = array(
-        'cat' => array_map(function($category) { return $category->term_id; }, get_the_category()),
-        'post_type' => 'page',
-        'exclude' => get_the_id(),
-        'posts_per_page' => 4
-      );
+              <?php
+                include( locate_template('partials/tuki-headingbar.php') );
+              ?>
+              <div class="row">
+                <?php
+                  include( locate_template('partials/tuki-sidebar.php') );
+                  get_template_part( 'partials/content' );
+                ?>
+              </div>
+            </div>
+          </div>
+          <?php
+          $morelinks_title = "Lisää aiheesta";
 
-      $links = get_posts($args);
+          $args = array(
+            'cat' => array_map(function($category) { return $category->term_id; }, get_the_category()),
+            'post_type' => 'page',
+            'exclude' => get_the_id(),
+            'posts_per_page' => 4
+          );
 
-      include(locate_template( 'partials/morelinks.php' ));
-    endwhile;
-    ?>
+          $links = get_posts($args);
+
+          include(locate_template( 'partials/morelinks.php' ));
+        endwhile;
+      ?>
+    </div>
   </main><!-- .site-main -->
 </div><!-- .content-area -->
 <?php get_footer(); ?>
