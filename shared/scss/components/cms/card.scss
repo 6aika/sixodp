@@ -1,4 +1,5 @@
 .cards {
+  display: block;
 
   @media (min-width: $width-sm) {
     display: flex;
@@ -65,7 +66,7 @@
 .wrapper--latest {
   background: $brand-primary; /* Old browsers fallback to single color */
   background: $latest-bg;
-  padding: $base*4 0;
+  padding: $base*4 $base*1.5;
 
   .heading--featured {
     color: $brand-white;
@@ -212,82 +213,10 @@
 }
 
 // Showcase cards
-
 .cards--showcase {
-  @extend .cards--4;
-  flex-wrap: wrap;
-
   .card {
     background: $brand-primary;
     padding: 0;
-
-    @media(min-width: $width-sm) {
-      flex: 1 1 49%;
-      max-width: 49%;
-      margin: 1%;
-      margin-bottom: $base;
-
-      &:nth-child(even) {
-        margin: 1%;
-      }
-
-      &:nth-child(odd) {
-        margin: 1%;
-      }
-
-      &:nth-child(even) {
-        margin-right: 0;
-      }
-
-      &:nth-child(odd) {
-        margin-left: 0;
-      }
-    }
-
-    @media(min-width: $width-md) {
-      flex: 1 1 49%;
-      max-width: 49%;
-      margin: 1%;
-      margin-bottom: $base;
-
-      &:nth-child(even) {
-        margin: 1%;
-      }
-
-      &:nth-child(odd) {
-        margin: 1%;
-      }
-
-      &:nth-child(even) {
-        margin-right: 0;
-      }
-
-      &:nth-child(odd) {
-        margin-left: 0;
-      }
-    }
-
-    @media(min-width: $width-lg) {
-      flex: 1 1 24%;
-      max-width: 24%;
-      margin: 0.66%;
-
-      &:nth-child(even) {
-        margin: 0.66%;
-      }
-
-      &:nth-child(odd) {
-        margin: 0.66%;
-      }
-
-      &:first-child {
-        margin-left: 0;
-      }
-
-      &:last-child {
-        margin-right: 0;
-      }
-    }
   }
 }
 
