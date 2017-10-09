@@ -15,10 +15,10 @@
       <?php
         foreach ( get_latest_updates() as $index => $item ) : ?>
           <?php if ($index % 3 === 0) echo '</div><div class="row cards">'; ?>
-          <div class="card card-hover">
+          <div class="card card-hover card-hover-light" onclick="window.location.href='<?php echo $item['link']?>'">
 
             <h3 class="card__title">
-              <a href="<?php echo $item['link']?>">
+              <a href="<?php echo $item['link'] ?>">
                 <?php echo get_translated($item, 'title'); ?>
               </a>
             </h3>

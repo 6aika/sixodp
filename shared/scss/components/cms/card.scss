@@ -22,6 +22,11 @@
     @extend %box-shadow;
     background: $card-bg-active;
     border-color: $card-border-color-active;
+    cursor: pointer;
+
+    &.card-hover-light {
+      @extend %box-shadow-light;
+    }
   }
 
   &:last-child {
