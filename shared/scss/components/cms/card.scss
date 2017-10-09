@@ -57,10 +57,6 @@
   font-size: $font-size-base;
 }
 
-.card__categorylink {
-  text-transform: uppercase;
-}
-
 // Secondary cards
 
 .wrapper--latest {
@@ -245,10 +241,7 @@
 }
 
 .card__meta {
-  a {
-    color: $dataset-card-heading-color;
-    text-transform: uppercase;
-  }
+  color: $dataset-card-heading-color;
 }
 
 .card__timestamp {

@@ -75,9 +75,9 @@
           </p>
 
           <div class="card__meta">
-            <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale_ckan(); ?>/<?php echo $dataset['type']; ?>" class="card__categorylink">
-              <span class="fa fa-database"></span>&nbsp;<?php echo $dataset['type']; ?>
-            </a>
+            <span class="card__categorylink">
+              <span class="fa fa-database"></span>&nbsp;<?php echo _e('Dataset', 'sixodp'); ?>
+            </span>
           </div>
         </div><?php
       endforeach; ?>

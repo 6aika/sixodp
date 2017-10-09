@@ -30,11 +30,27 @@
 
             <div class="card__meta">
               <?php
-                if (is_array($item['type'])) {
-                  echo '<a href="'. $item['type']['link'] .'" class="card__categorylink">'. $item['type']['label'] .'</a>';
-                }
-                else {
-                  echo '<span>&bull;</span><span class="card__categorylink">'. $item['type'] .'</span>';
+                $label = is_array($item['type']) ? $item['type']['label'] : $item['type'];
+                switch ($label) {
+                  case 'dataset':
+                    echo '<span class="fa fa-database"></span>&nbsp;';
+                    echo _e('Dataset', 'sixodp');
+                    break;
+                  case 'showcase':
+                    echo '<span><span class="fa fa-line-chart"></span>&nbsp;';
+                    echo _e('Showcase', 'sixodp');
+                    break;
+                  case 'post':
+                    echo '<span class="fa fa-address-card"></span>&nbsp;';
+                    echo _e('Article', 'sixodp');
+                    break;
+                  case 'page':
+                    echo '<span class="fa fa-file-text"></span>&nbsp;';
+                    echo _e('Page', 'sixodp') .'</span>';
+                    break;
+                  default:
+                    echo $label;
+                    break;
                 }
               ?>
             </div>
