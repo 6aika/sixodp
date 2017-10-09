@@ -746,8 +746,8 @@ function get_latest_updates($types = array(), $date = false, $limit = 12) {
     'datasets' => true,
     'showcases' => true,
     'comments' => true,
-    'posts' => false,
-    'pages' => false,
+    'posts' => true,
+    'pages' => true,
     'data_requests' => false,
     'showcase_ideas' => false,
   );
