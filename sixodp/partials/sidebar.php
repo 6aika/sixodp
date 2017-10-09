@@ -4,7 +4,7 @@
   */
 ?>
 
-<div class="sidebar-links col-sm-4">
+<div class="sidebar-links col-sm-3">
   <?php
     $pages= get_pages(array("parent" => $parent_page->ID));
 
@@ -17,10 +17,6 @@
         <li class="sidebar__item--heading">
           <a href="<?php echo get_permalink($page); ?>">
             <?php echo $page->post_title; ?>
-
-            <span class="sidebar__icon-wrapper">
-              <i class="material-icons">arrow_forward</i>
-            </span>
           </a>
         </li>
         <?php

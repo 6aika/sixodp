@@ -20,7 +20,7 @@ get_header(); ?>
     ?>
 
     <div class="page__hero"></div>
-    <div class="page__content container">
+    <div class="page__content page__hero__content container">
       <?php
       // Start the loop.
       while ( have_posts() ) : the_post();
@@ -45,29 +45,27 @@ get_header(); ?>
               </ul>
             <?php 
             endif; 
-
-            $categories = get_the_category();
-            if (sizeof($categories) > 0) :
             ?>
-              <ul>
-                <li class="sidebar__item--heading"><i class="material-icons">bookmark</i> <?php _e('Categories') ?></li>
-                <?php
-                foreach ($categories as $cat):
-                  ?>
-                  <li class="sidebar__item">
-                    <a href="<?php echo get_category_link($cat); ?>">
-                      <i class="material-icons">settings</i>
-                      <?php echo $cat->cat_name; ?>
-                    </a>
-                  </li>
-                  <?php 
-                endforeach;
-                ?>
-              </ul>
-            <?php endif;
 
+            <ul>
+              <li class="sidebar__item--heading"><i class="material-icons">bookmark</i> <?php _e('Categories') ?></li>
+              <?php
+              foreach (get_the_category() as $cat):
+                ?>
+                <li class="sidebar__item">
+                  <a href="<?php echo get_category_link($cat); ?>">
+                    <i class="material-icons">settings</i>
+                    <?php echo $cat->cat_name; ?>
+                  </a>
+                </li>
+                <?php 
+              endforeach;
+              ?>
+            </ul>
+
+            <?php
             $tags = get_the_tags();
-            if (sizeof($tags) > 0) :
+            if ($tags) :
             ?>
               <ul>
                 <li class="sidebar__item--heading"><i class="material-icons">label</i> <?php _e('Tags') ?></li>
@@ -88,11 +86,12 @@ get_header(); ?>
 
             <?php 
             $author = get_the_author();
+
             if (get_the_author() !== 'admin') : ?>
               <ul>
                 <li class="sidebar__item">
-                  <img src="<?php echo get_avatar_url(2, ['size' => 128]) ?>" class="avatar" />
-                  <p><i class="material-icons">face</i> <?php the_author(); ?></p>
+                  <img src="<?php echo get_avatar_url(get_the_author_meta('id'), ['size' => 128]) ?>" class="avatar" />
+                  <p><strong><?php the_author(); ?></strong></p>
                   <p><?php echo get_the_author_meta('description'); ?></p>
                 </li>
                 <li class="sidebar__item">

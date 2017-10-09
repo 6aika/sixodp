@@ -3,7 +3,7 @@
 
 <div class="horizontal-accordion-wrapper collapse in" id="horizontal-accordion">
   <div class="horizontal-accordion-container">
-    <ul class="horizontal-accordion">
+    <ul class="horizontal-accordion horizontal-accordion-static">
       {% for item in items %}
         <li class="horizontal-accordion-tab" style="background-image: url({{item[image_identifier]}});">
           <a class="tab-overlay" href="{{ h.url_for(controller=controller, action='read', id=item.name) }}">
