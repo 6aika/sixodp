@@ -592,7 +592,7 @@ function get_recent_content($date = false) {
 }
 
 function get_latest_datasets() {
-  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_updated%20desc&rows=3');
+  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_updated%20desc&rows=6');
   return $data['result']['results'];
 }
 

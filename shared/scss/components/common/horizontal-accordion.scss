@@ -274,7 +274,7 @@ $text-transition: all 0.1s 0.1s ease-in-out;
   width: $tab-width*3 + $tab-width-open;
   max-width: 2000px;
   margin: auto;
-  padding: $padding-large-vertical*2 0;
+  padding: $padding-large-vertical*2 $base*1.5;
   text-align: center;
   height: 34px + $padding-large-vertical*4;
   vertical-align: middle;

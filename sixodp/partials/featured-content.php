@@ -32,7 +32,7 @@
   </div>
 
   <div class="container">
-    <div class="row cards--showcase">
+    <div class="row cards cards--4 cards--showcase">
       <?php
         $showcases = get_latest_showcases(4);
         foreach ($showcases as $showcase) {
@@ -59,18 +59,25 @@
   </div>
 
   <div class="container">
-    <div class="row cards--dataset">
-      <?php foreach ( get_latest_datasets() as $dataset ) : ?>
-        <div class="card">
+    <div class="row cards">
+      <?php foreach ( get_latest_datasets() as $index => $dataset ) : ?>
+        <?php if ($index % 3 === 0) echo '</div><div class="row cards">'; ?>
+        <div class="card card-hover" onclick="window.location.href='<?php echo CKAN_BASE_URL.'/'.get_current_locale_ckan().'/dataset/'.$dataset['name']; ?>'">
           <h3 class="card__title">
             <a href="<?php echo CKAN_BASE_URL.'/'.get_current_locale_ckan().'/dataset/'.$dataset['name']; ?>">
               <?php echo get_translated($dataset, 'title'); ?>
             </a>
           </h3>
+
+          <p class="card__description">
+            <span class="card__timestamp"><?php echo parse_date($dataset['date_released']); ?></span><br />
+            <?php echo wp_trim_words( get_translated($dataset, 'notes'), 40, '...' ); ?>
+          </p>
+
           <div class="card__meta">
-            <span class="card__timestamp"><?php echo parse_date($dataset['date_released']); ?></span>
-            <span style="margin-left: 2px; margin-right: 2px;">&bull;</span>
-            <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale_ckan(); ?>/<?php echo $dataset['type']; ?>" class="card__categorylink"><?php echo $dataset['type']; ?></a>
+            <span class="card__categorylink">
+              <span class="fa fa-database"></span>&nbsp;<?php echo _e('Dataset', 'sixodp'); ?>
+            </span>
           </div>
         </div><?php
       endforeach; ?>

@@ -1,4 +1,5 @@
 .cards {
+  display: block;
 
   @media (min-width: $width-sm) {
     display: flex;
@@ -10,11 +11,27 @@
 
 .card {
   max-width: 75%;
-  border-radius: $base/2;
-  background: $card-background-color;
+  border-radius: $border-radius-small;
+  background: $card-bg;
   padding: $base*2;
   margin: $base auto;
-  border: 1px solid $brand-gray;
+  border: 1px solid $card-border-color;
+  transition: background-color $transition-speed-base $transition-curve-base;
+
+  &.card-hover:hover {
+    @extend %box-shadow;
+    background: $card-bg-active;
+    border-color: $card-border-color-active;
+    cursor: pointer;
+
+    &.card-hover-light {
+      @extend %box-shadow-light;
+    }
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 
   @media (min-width: $width-sm) {
     flex: 1 1 32%;
@@ -27,34 +44,30 @@
 
     &:last-child {
       margin-right: 0;
+      margin-bottom: 1%;
     }
   }
 }
 
 .card__title {
   @include heading();
-  border-bottom: 1px solid $brand-gray;
-  padding-bottom: $base;
   margin-bottom: $base;
   margin-top: 0;
   font-size: $font-size-large;
 }
 
 .card__meta {
-  margin-bottom: $base*1.5;
+  border-top: 1px solid $card-border-color;
+  padding-top: $base*1.5;
+  font-size: $font-size-base;
 }
-
-.card__categorylink {
-  text-transform: capitalize;
-}
-
 
 // Secondary cards
 
 .wrapper--latest {
-  background: $brand-primary; /* Old browsers */
+  background: $brand-primary; /* Old browsers fallback to single color */
   background: $latest-bg;
-  padding: $base*4 0;
+  padding: $base*4 $base*1.5;
 
   .heading--featured {
     color: $brand-white;
@@ -75,58 +88,55 @@
   }
 }
 
-.cards--latest {
-  @extend .cards;
+.cards--4 {
   margin-bottom: 0;
   justify-content: flex-start;
-}
 
-.card--latest {
-  @extend .card;
-  padding: 0;
-  border: 0;
+  .card {
+    @extend .card;
 
-  @media (min-width: $width-sm) {
-    flex: 1 1 49%;
-    max-width: 49.5%;
-    margin: $base/2 0.5%;
+    @media (min-width: $width-sm) {
+      flex: 1 1 49%;
+      max-width: 49.5%;
+      margin: $base/2 0.5%;
 
-    &:nth-child(even) {
-      margin-right: 0;
+      &:nth-child(even) {
+        margin-right: 0;
+      }
+
+      &:nth-child(odd) {
+        margin-left: 0;
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
 
-    &:nth-child(odd) {
-      margin-left: 0;
-    }
-
-    &:first-child {
-      margin-left: 0;
-    }
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-
-  @media (min-width: $width-md) {
-    flex: 1 1 23.5%;
-    margin: 1% 1%;
-    max-width: 23.5%;
-
-    &:nth-child(even) {
+    @media (min-width: $width-md) {
+      flex: 1 1 23.5%;
       margin: 1% 1%;
-    }
+      max-width: 23.5%;
 
-    &:nth-child(odd) {
-      margin: 1% 1%;
-    }
+      &:nth-child(even) {
+        margin: 1% 1%;
+      }
 
-    &:first-child {
-      margin-left: 0;
-    }
+      &:nth-child(odd) {
+        margin: 1% 1%;
+      }
 
-    &:last-child {
-      margin-right: 0;
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 }
@@ -138,7 +148,6 @@
   margin-top: $base;
   font-size: $font-size-large;
   font-weight: 700;
-  padding-bottom: 0;
   color: $latest-card-heading-color;
 }
 
@@ -154,14 +163,9 @@
 .card__meta--latest {
   padding: $base;
   background: $latest-card-heading-bar-bg;
-  border-top-left-radius: $base/2;
-  border-top-right-radius: $base/2;
+  border-top-left-radius: $border-radius-small;
+  border-top-right-radius: $border-radius-small;
   color: $latest-card-heading-bar-color;
-}
-
-.card__categorylink--latest {
-  text-transform: uppercase;
-  font-size: $base*1.2;
 }
 
 .cards--post {
@@ -210,83 +214,10 @@
 }
 
 // Showcase cards
-
 .cards--showcase {
-  @extend .cards--latest;
-  flex-wrap: wrap;
-}
-
-.card--showcase {
-  @extend .card--latest;
-  background: $brand-primary;
-  padding: 0;
-
-  @media(min-width: $width-sm) {
-    flex: 1 1 49%;
-    max-width: 49%;
-    margin: 1%;
-    margin-bottom: $base;
-
-    &:nth-child(even) {
-      margin: 1%;
-    }
-
-    &:nth-child(odd) {
-      margin: 1%;
-    }
-
-    &:nth-child(even) {
-      margin-right: 0;
-    }
-
-    &:nth-child(odd) {
-      margin-left: 0;
-    }
-  }
-
-  @media(min-width: $width-md) {
-    flex: 1 1 49%;
-    max-width: 49%;
-    margin: 1%;
-    margin-bottom: $base;
-
-    &:nth-child(even) {
-      margin: 1%;
-    }
-
-    &:nth-child(odd) {
-      margin: 1%;
-    }
-
-    &:nth-child(even) {
-      margin-right: 0;
-    }
-
-    &:nth-child(odd) {
-      margin-left: 0;
-    }
-  }
-
-  @media(min-width: $width-lg) {
-    flex: 1 1 24%;
-    max-width: 24%;
-    margin: 0.66%;
-
-    &:nth-child(even) {
-      margin: 0.66%;
-    }
-
-    &:nth-child(odd) {
-      margin: 0.66%;
-    }
-
-    &:first-child {
-      margin-left: 0;
-    }
-
-    &:last-child {
-      margin-right: 0;
-    }
+  .card {
+    background: $brand-primary;
+    padding: 0;
   }
 }
 
@@ -312,14 +243,13 @@
   .card__title a {
     color: $dataset-card-heading-color;
   }
+}
 
-  .card__meta {
-    a {
-      color: $dataset-card-link-color;
-    }
-  }
+.card__meta {
+  color: $dataset-card-heading-color;
+}
 
-  .card__timestamp {
-    color: $dataset-card-text-color;
-  }
+.card__timestamp {
+  color: $dataset-card-heading-color;
+  font-family: $headings-font-family;
 }

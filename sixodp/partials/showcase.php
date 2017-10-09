@@ -4,7 +4,7 @@
   *
   */
 ?>
-<div class="card--showcase">
+<div class="card card--showcase">
   <a href="<?php echo $showcaseUrl; ?>" class="showcase__img--link" style="background-image: url(<?php echo $imgUrl; ?>);"></a>
   <div class="showcase__content">
     <h4 class="showcase__title">
