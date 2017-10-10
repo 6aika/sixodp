@@ -36,7 +36,7 @@
   @media (min-width: $width-sm) {
     flex: 1 1 32%;
     max-width: 32%;
-    margin: 1%;
+    margin: $padding-base-vertical 1% $padding-base-vertical 1%;
 
     &:first-child {
       margin-left: 0;
@@ -44,7 +44,7 @@
 
     &:last-child {
       margin-right: 0;
-      margin-bottom: 1%;
+      margin-bottom: $padding-base-vertical;
     }
   }
 }
