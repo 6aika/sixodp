@@ -1,6 +1,7 @@
 <?php
 require_once(ABSPATH . 'wp-admin/includes/post.php'); 
-require_once(ABSPATH . 'wp-admin/includes/taxonomy.php'); 
+require_once(ABSPATH . 'wp-admin/includes/taxonomy.php');
+require_once WP_CONTENT_DIR . '/themes/sixodp/vendor/Parsedown.php';
 
 load_theme_textdomain('sixodp');
 if ( !function_exists('sixodp_theme_setup') ) :
@@ -969,3 +970,8 @@ function custom_category_query($query) {
 }
 
 add_action( 'pre_get_posts', 'custom_category_query' );
+
+function render_markdown($markdown) {
+  $Parsedown = new Parsedown();
+  return $Parsedown->text($markdown);
+}
