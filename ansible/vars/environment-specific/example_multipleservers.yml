@@ -2,18 +2,12 @@
 
 public_facing_hostname: yourserver.example.com
 internal_hostname: yourserver
-cms_site_url: localhost
-ckan_internal_host: 127.0.0.1:8080
+cms_site_url: yourserver.example.com
+ckan_internal_host: yourckandomain:8080
 ckan_internal_url: "{{ 'http://' + ckan_internal_host }}"
 ckan_site_name: Dataportaali
-
-# Sets featured orgs in ckan.ini but not actually used in anything
 ckan_featured_orgs:
-
-# Does the server update itself every night from github
 automatic_updates: false
-
-# Notification address for nightly updates
 automatic_updates_recipient: root@localhost
 
 postgres:
@@ -38,6 +32,7 @@ postgres:
       name: datastore_default
       owner: ckan_default
 
+
 mysql:
   server:
     installed_locally: true
@@ -56,23 +51,22 @@ mysql:
 nginx:
   use_ssl_certificate: true
   use_selfsigned_certificate: true
-  fqdn_common_part: dataportaali.com
+  fqdn_common_part: goforecrew.com
 
 solr:
   host: 127.0.0.1
   port: 8983
-  listen_address: 127.0.0.1
+  listen_address: 0.0.0.0
 
 redis:
   host: 127.0.0.1
   port: 6379
 
-# CKAN accounts created by ansible
 ckan_users:
   admin:
     username: admin
     password: "{{ secret.ckan_admin_password }}"
-    email: admin@localhost
+    email: vagrant@localhost
   harvest:
     username: harvest
     password: "{{ secret.ckan_harvest_password }}"
@@ -82,19 +76,16 @@ ckan_users:
     password: "{{ secret.ckan_test_password }}"
     email: testuser@localhost
 
-# Wordpress accounts created by ansible
 wordpress_users:
   admin:
     username: admin
     password: "{{ secret.wordpress_admin_password }}"
     email: admin@localhost.localdomain
 
-# CKAN accounts given sysadmin rights
 ckan_admins:
   - "{{ ckan_users.admin.username }}"
   - "{{ ckan_users.harvest.username }}"
 
-# CKAN Extensions deployed to server
 ckan_extensions:
   - ckanext-sixodp_routes
   - ckanext-sixodp_scheming
@@ -164,7 +155,6 @@ enabled_ckan_extensions:
     - sixodp_harvester
     - sixodp_showcasesubmit
 
-# If AWS is used, these extensions are enabled in CKAN
 enabled_ckan_aws_extensions: cloudstorage
 
 ckan_site_id: "default"
@@ -173,15 +163,14 @@ email_domain: "{{ public_facing_hostname }}"
 email:
   smtp_server: localhost
   from: no-reply@{{ email_domain }}
-  error_recipient: admin@localhost
+  error_recipient: vagrant@localhost
   error_from: error@{{ email_domain }}
-  contact: not-implemented@localhost
+  contact: vagrant@localhost
 
-robots_allowed: false
+robots_allowed: true
 
 debug_enabled: false
 
-# AWS related configuration. If iam_role is used, access keys are not needed
 AWS:
   enabled: false
   use_iam_role: false
