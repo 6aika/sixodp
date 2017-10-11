@@ -51,7 +51,9 @@ get_header(); ?>
 
             <ul>
               <li class="sidebar-item--highlight">
-                <i class="material-icons">bookmark</i> <?php _e('Categories') ?>
+                <span class="sidebar-item-inner">
+                  <i class="material-icons">bookmark</i> <?php _e('Categories') ?>
+                </span>
               </li>
               <?php
               foreach (get_the_category() as $cat):
@@ -96,9 +98,11 @@ get_header(); ?>
             if (get_the_author() !== 'admin') : ?>
               <ul>
                 <li class="sidebar-item">
-                  <img src="<?php echo get_avatar_url(get_the_author_meta('id'), ['size' => 128]) ?>" class="avatar" />
-                  <p><strong><?php the_author(); ?></strong></p>
-                  <p><?php echo get_the_author_meta('description'); ?></p>
+                  <span class="sidebar-item-inner">
+                    <img src="<?php echo get_avatar_url(get_the_author_meta('id'), ['size' => 128]) ?>" class="avatar" />
+                    <p><strong><?php the_author(); ?></strong></p>
+                    <p><?php echo get_the_author_meta('description'); ?></p>
+                  </span>
                 </li>
                 <li class="sidebar-item">
                 </li>
@@ -106,7 +110,9 @@ get_header(); ?>
             <?php endif; ?>
             <ul>
               <li class="sidebar-item">
-                <i class="material-icons">event</i> <?php the_date(); ?>
+                <span class="sidebar-item-inner">
+                  <i class="material-icons">event</i> <?php the_date(); ?>
+                </span>
               </li>
             </ul>
           </div>
