@@ -212,6 +212,17 @@ $stages-text-color: $text-color;
 $stages-text-color-active: $brand-white;
 $stages-text-color-filled: $brand-white;
 
+// Sidebar (CMS only)
+$sidebar-item-bg: $gray-lighter;
+$sidebar-item-bg--highlight: $brand-secondary;
+$sidebar-item-bg-active: $gray-light;
+$sidebar-item-bg-active--highlight: $brand-secondary-light;
+
+$sidebar-item-color: $text-color;
+$sidebar-item-color--highlight: $brand-white;
+$sidebar-item-color-active: $text-color;
+$sidebar-item-color-active--highlight: $brand-white;
+
 // Misc component colors
 $badge-background-color: $brand-primary;
 $badge-background-color-active: $brand-primary;

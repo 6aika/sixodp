@@ -35,7 +35,9 @@ get_header(); ?>
             if ($post_type->name !== 'post' && $post_type->name !== 'page') :
             ?>
               <ul>
-                <li class="sidebar__item--heading"><a href="<?php echo get_post_type_archive_link($post_type->name); ?>"><i class="material-icons">bookmark</i> 
+                <li class="sidebar-item--highlight">
+                  <a href="<?php echo get_post_type_archive_link($post_type->name); ?>">
+                    <i class="material-icons">bookmark</i>
                   <?php
                   if ($post_type->name === 'data_request') _e('Data Request');
                   if ($post_type->name === 'showcase_idea') _e('Showcase Idea');
@@ -48,11 +50,13 @@ get_header(); ?>
             ?>
 
             <ul>
-              <li class="sidebar__item--heading"><i class="material-icons">bookmark</i> <?php _e('Categories') ?></li>
+              <li class="sidebar-item--highlight">
+                <i class="material-icons">bookmark</i> <?php _e('Categories') ?>
+              </li>
               <?php
               foreach (get_the_category() as $cat):
                 ?>
-                <li class="sidebar__item">
+                <li class="sidebar-item">
                   <a href="<?php echo get_category_link($cat); ?>">
                     <i class="material-icons">settings</i>
                     <?php echo $cat->cat_name; ?>
@@ -68,11 +72,13 @@ get_header(); ?>
             if ($tags) :
             ?>
               <ul>
-                <li class="sidebar__item--heading"><i class="material-icons">label</i> <?php _e('Tags') ?></li>
+                <li class="sidebar-item--highlight">
+                  <i class="material-icons">label</i> <?php _e('Tags') ?>
+                </li>
                 <?php
                 foreach ($tags as $tag):
                   ?>
-                  <li class="sidebar__item">
+                  <li class="sidebar-item">
                     <a href="<?php echo get_tag_link($tag); ?>">
                       <i class="material-icons">settings</i>
                       <?php echo $tag->name; ?>
@@ -89,17 +95,17 @@ get_header(); ?>
 
             if (get_the_author() !== 'admin') : ?>
               <ul>
-                <li class="sidebar__item">
+                <li class="sidebar-item">
                   <img src="<?php echo get_avatar_url(get_the_author_meta('id'), ['size' => 128]) ?>" class="avatar" />
                   <p><strong><?php the_author(); ?></strong></p>
                   <p><?php echo get_the_author_meta('description'); ?></p>
                 </li>
-                <li class="sidebar__item">
+                <li class="sidebar-item">
                 </li>
               </ul>
             <?php endif; ?>
             <ul>
-              <li class="sidebar__item">
+              <li class="sidebar-item">
                 <i class="material-icons">event</i> <?php the_date(); ?>
               </li>
             </ul>

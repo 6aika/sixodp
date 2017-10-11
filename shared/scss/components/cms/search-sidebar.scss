@@ -1,0 +1,32 @@
+.search-sidebar {
+  @extend .sidebar;
+  border-width: $base*1.5 0 0 0;
+  border-style: solid;
+  border-color: $navbar-offcanvas-border-color;
+  border-radius: 0 0 $border-radius-base $border-radius-base;
+  background: $brand-secondary-background;
+  padding: 0;
+
+  .sidebar-heading {
+    padding: $padding-small-vertical 0;
+    margin: 0 $margin-large-horizontal;
+    font-size: $font-size;
+    color: $navbar-offcanvas-heading-color;
+    font-weight: bold;
+    font-family: $font;
+  }
+
+  .sidebar-item {
+    a {
+      background: none;
+      font-size: $font-size-base * 0.9;
+      border-radius: 0;
+      color: $navbar-offcanvas-link-color;
+
+      &:hover {
+        background: $navbar-offcanvas-link-background-color-active;
+        color: $navbar-offcanvas-link-color-active;
+      }
+    }
+  }
+}

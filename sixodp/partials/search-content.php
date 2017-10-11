@@ -17,18 +17,18 @@
 <div class="container">
   <div class="row">
 
-    <div class="sidebar-filters col-sm-3">
-      <ul>
-        <li class="sidebar__item--heading">
+    <div class="search-sidebar col-sm-3">
+      <ul class="sidebar-section">
+        <li class="sidebar-heading">
           <?php _e('Results in groups', 'sixodp');?>
         </li>
-        <li class="sidebar__item">
+        <li class="sidebar-item">
             <a href="<?php echo get_site_url(); ?>/<?php echo get_current_locale() ?>/?s=<?php echo $searchterm;?>&datasearch" title=""> <span><?php _e('Datasets', 'sixodp');?>  (<?php echo $data_dataset['count']; ?>)</span></a>
         </li>
-        <li class="sidebar__item">
+        <li class="sidebar-item">
             <a href="<?php echo get_site_url(); ?>/<?php echo get_current_locale() ?>/?s=<?php echo $searchterm;?>&datasearch&showcase" title=""> <span><?php _e('Applications', 'sixodp');?>  (<?php echo $data_showcase['count']; ?>)</span></a>
         </li>
-        <li class="sidebar__item">
+        <li class="sidebar-item">
             <a href="<?php echo get_site_url(); ?>/<?php echo get_current_locale() ?>/?s=<?php echo $searchterm;?>" title="" class="active"> <span><?php _e('Others', 'sixodp');?>  (<?php  echo $searchcount; ?>)</span></a>
         </li>
       </ul>
