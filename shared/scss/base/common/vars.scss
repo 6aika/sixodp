@@ -82,19 +82,7 @@ $showcase-card-bg: $brand-primary;
 $showcase-card-heading-color: $brand-white;
 $showcase-card-text-color: $brand-white;
 
-$dataset-card-bg: $brand-white;
-$dataset-card-border-color: $gray-light;
-$dataset-card-heading-color: $brand-primary;
-$dataset-card-text-color: $text-color;
-$dataset-card-link-color: $brand-success;
-
 $latest-bg: $brand-primary;
-$latest-card-heading-bar-bg: $brand-secondary;
-$latest-card-heading-bar-color: $brand-white;
-$latest-card-bg: $brand-white;
-$latest-card-heading-color: $brand-primary;
-$latest-card-text-color: $brand-primary;
-$latest-card-link-color: $brand-primary;
 
 // Button
 $btn-font-weight: 100;
@@ -108,6 +96,7 @@ $btn-padding-large: 8px 12px;
 $card-bg: $brand-white;
 $card-bg-active: $brand-lightgray;
 $card-text-color: $text-color;
+$card-text-color--highlight: $brand-primary;
 $card-text-color-active: $text-color;
 $card-link-color: $brand-primary;
 $card-border-color: $gray-light;

@@ -25,7 +25,7 @@ get_header();
     <h1 class="page-title"><?php echo $category->name ?></h1>
     <div class="container">
       <div class="row">
-        <div class="sidebar col-sm-4">
+        <div class="sidebar col-md-3">
           <?php
             $categories=get_categories(array(
               'parent' => $grandparent_id,
@@ -59,7 +59,7 @@ get_header();
           <?php } 
           ?>
         </div>
-        <div class="col-md-8 news-content">
+        <div class="col-md-9 news-content">
           <div class="cards--post">
             <?php
             while ( have_posts() ) : the_post(); ?>
