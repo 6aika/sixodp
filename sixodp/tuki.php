@@ -37,7 +37,9 @@ get_header(); ?>
                 <?php foreach (get_categories(array('parent' => $teema_category->term_id, 'hide_empty' => false)) as $category) : ?>
                   <div class="icon-link morelink">
                     <p class="icon-link__icon">
-                      <a class="icon-link__link--round" href="<?php echo get_category_link($category->term_id); ?>"></a>
+                      <a class="icon-link__link--round" href="<?php echo get_category_link($category->term_id); ?>">
+                        <i class="material-icons">arrow_forward</i>
+                      </a>
                     </p>
                     <p class="icon-link__text">
                       <a href="<?php echo get_category_link($category->term_id); ?>"><?php echo $category->name; ?></a>
