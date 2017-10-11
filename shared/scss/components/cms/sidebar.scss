@@ -19,6 +19,7 @@
   background: transparent;
 
   a {
+    transition: all $transition-speed-base $transition-curve-base;
     width: 100%;
     border-top-left-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -29,14 +30,19 @@
     color: $sidebar-item-color;
   }
 
-  &.active {
+  &:hover {
     a {
       background: $sidebar-item-bg-active;
       color: $sidebar-item-color-active;
     }
+
+    .sidebar-icon-wrapper {
+      right: -$padding-xs-horizontal;
+    }
   }
 
   .sidebar-icon-wrapper {
+    transition: all $transition-speed-base $transition-curve-base;
     display: inline-block;
     height: $base*3.2;
     width: $base*3.2;
@@ -62,7 +68,7 @@
     color: $sidebar-item-color--highlight;
   }
 
-  &.active {
+  &:hover {
     a {
       background: $sidebar-item-bg-active--highlight;
       color: $sidebar-item-color-active--highlight;
