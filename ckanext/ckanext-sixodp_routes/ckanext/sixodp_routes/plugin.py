@@ -17,6 +17,8 @@ import ckan.lib.base as base
 import ckan.lib.mailer as mailer
 from ckan.plugins import toolkit
 
+from ckan.controllers.user import set_repoze_user
+
 from urllib import urlencode
 import ckan.lib.maintain as maintain
 
@@ -473,7 +475,7 @@ class Sixodp_RevisionController(RevisionController):
 
 class Sixodp_UserController(UserController):
 
-    # Copy paste from ckan 2.6.0 to get to the _save_edit function
+    # Copy paste from ckan 2.7.2 to get to the _save_edit function
     def edit(self, id=None, data=None, errors=None, error_summary=None):
         context = {'save': 'save' in request.params,
                    'schema': self._edit_form_to_db_schema(),
@@ -535,7 +537,7 @@ class Sixodp_UserController(UserController):
 
         return render('user/edit.html')
 
-    # copy paste from ckan 2.6.0 with csrf implementation
+    # copy paste from ckan 2.7.2 with csrf implementation
     def _save_edit(self, id, context):
         try:
             if id in (c.userobj.id, c.userobj.name):
