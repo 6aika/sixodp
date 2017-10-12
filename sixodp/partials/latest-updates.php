@@ -25,7 +25,7 @@
 
             <p class="card__description">
               <span class="card__timestamp"><?php echo parse_date($item['date_updated']); ?></span><br />
-              <?php echo wp_html_excerpt( render_markdown(get_translated($item, 'notes')), 240, '...'); ?>
+              <?php echo wp_html_excerpt( strip_shortcodes(render_markdown(get_translated($item, 'notes'))), 240, '...'); ?>
             </p>
 
             <div class="card__meta">
