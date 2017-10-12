@@ -7,14 +7,14 @@
     li:first-child {
       a,
       .sidebar-item-inner {
-        border-top-right-radius: 15px;
+        border-top-right-radius: $border-radius-round;
       }
     }
 
     li:last-child {
       a,
       .sidebar-item-inner {
-        border-bottom-left-radius: 15px;
+        border-bottom-left-radius: $border-radius-round;
       }
     }
   }
