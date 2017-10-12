@@ -63,7 +63,7 @@ class Sixodp_ShowcaseController(ShowcaseController):
         except NotFound:
             abort(404, _('Showcase not found'))
         except NotAuthorized:
-            abort(401, _('Unauthorized to read showcase'))
+            abort(404, _('Showcase not found'))
 
         # get showcase packages
         c.showcase_pkgs = get_action('ckanext_showcase_package_list')(
