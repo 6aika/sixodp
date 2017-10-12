@@ -29,7 +29,7 @@
               <div class="dataset__content">
                 <span class="dataset__type"><?php echo $item['type']; ?></span>
                 <h4 class="dataset__title">
-                  <a class="dataset__link" href="<?php echo CKAN_BASE_URL . '/dataset/' . echo $item['name']; ?>">
+                  <a class="dataset__link" href="<?php echo CKAN_BASE_URL . '/dataset/' . $item['name']; ?>">
                     <?php echo get_translated($item, 'title'); ?>
                   </a>
                 </h4>

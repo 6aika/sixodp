@@ -4,9 +4,10 @@
   background: $navbar-background-color;
 }
 
-.navbar-nav li,
-.navbar-nav li:focus,
-.navbar-nav li:active {
+
+.navbar-default .navbar-nav li,
+.navbar-default .navbar-nav li:focus,
+.navbar-default .navbar-nav li:active {
   position: relative;
 
   @media(min-width: $grid-float-breakpoint) {
@@ -23,21 +24,43 @@
   .subnav {
     visibility: hidden;
     display: block;
-    transition: all 0.1s ease-in-out;
     max-height: 0;
+    border: 0;
 
     @media(min-width: $grid-float-breakpoint) {
       visibility: visible;
       display: none;
       transition: none;
       max-height: $base*4;
+      border-width: 0 1px 1px 1px;
+      border-style: solid;
+      border-radius: 0 0 $border-radius-small $border-radius-small;
+      border-color: $navbar-secondary-border-color;
     }
   }
 
   &.active {
-    > a {
-      border-bottom-color: $navbar-default-link-active-border-color;
+    .subnav-toggle {
+      color: $navbar-secondary-active-toggle-color;
     }
+
+    > a {
+      background-color: $navbar-default-link-active-bg;
+      color: $navbar-default-link-active-color;
+      border-bottom-color: $navbar-default-link-active-border-color;
+
+      @media(min-width: $grid-float-breakpoint) {
+        background-color: $navbar-default-link-active-bg-desktop;
+        color: $navbar-default-link-active-color-desktop;
+        border-bottom-color: $navbar-default-link-active-border-color-desktop;
+
+        &:hover {
+          background-color: $navbar-default-link-hover-bg-desktop;
+          color: $navbar-default-link-hover-color;
+        }
+      }
+    }
+
   }
 
   &.active-hover {
@@ -45,7 +68,6 @@
       visibility: visible;
       max-height: 100%;
       padding: 0;
-      transition: all 0.2s ease-in-out;
 
       @media(min-width: $grid-float-breakpoint) {
         width: auto;
@@ -110,8 +132,8 @@
   top: 0;
   width: $navbar-height;
   height: $navbar-height;
-  color: $navbar-toggle-icon-color;
-  transition: all 0.2s ease-in-out;
+  color: $navbar-secondary-toggle-color;
+  transition: all $transition-speed-base $transition-curve-base;
 
   &.rotate {
     transform:rotate(180deg);

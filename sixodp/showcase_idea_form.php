@@ -57,9 +57,9 @@ get_header(); ?>
 
     <div class="container">
       <div class="row">
-        <div class="sidebar-links col-sm-3">
+        <div class="sidebar col-sm-3">
           <ul>
-            <li class="sidebar__item"><a href="<?php echo get_post_type_archive_link( 'showcase_idea' ); ?>"><?php _e('All data requests') ?></a></li>
+            <li class="sidebar-item"><a href="<?php echo get_post_type_archive_link( 'showcase_idea' ); ?>"><?php _e('All data requests') ?></a></li>
         </div>
         <div class="article__wrapper col-xs-12 col-sm-9">
           <h1 class="page-heading"><?php _e('New Showcase idea', 'sixodp') ?></h1>
