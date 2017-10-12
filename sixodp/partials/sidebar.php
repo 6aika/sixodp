@@ -4,7 +4,7 @@
   */
 ?>
 
-<div class="sidebar-links col-sm-3">
+<div class="sidebar col-sm-3">
   <?php
     $pages= get_pages(array("parent" => $parent_page->ID));
 
@@ -14,7 +14,7 @@
     $child_pages = get_pages(array('parent' => $page->ID));
     ?>
       <ul>
-        <li class="sidebar__item--heading">
+        <li class="sidebar-item--highlight">
           <a href="<?php echo get_permalink($page); ?>">
             <?php echo $page->post_title; ?>
           </a>
@@ -22,8 +22,8 @@
         <?php
         foreach ($child_pages as $child_page) : 
         ?>
-        <li class="sidebar__item">
-          <a href="<?php echo get_permalink($child_page); ?>" class="sidebar__link">
+        <li class="sidebar-item">
+          <a href="<?php echo get_permalink($child_page); ?>">
             <?php echo $child_page->post_title; ?>  
           </a>
         </li>

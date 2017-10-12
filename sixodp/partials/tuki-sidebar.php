@@ -4,7 +4,7 @@
   */
 ?>
 
-<div class="sidebar-links col-sm-4">
+<div class="sidebar col-md-3 col-sm-5">
   <?php
     $categories=get_categories(array(
       'parent' => $parent_category->term_id,
@@ -18,20 +18,20 @@
     $child_categories = get_categories(array('parent' => $cat->term_id, 'hide_empty' => false));
     ?>
     <ul>
-      <li class="sidebar__item--heading">
-        <a href="<?php echo get_category_link($cat); ?>" class="sidebar__link--block">
+      <li class="sidebar-item--highlight">
+        <a href="<?php echo get_category_link($cat); ?>">
           <i class="material-icons">settings</i>
           <?php echo $cat->cat_name; ?>
-          <span class="sidebar__icon-wrapper">
-            <i class="material-icons">arrow_forward</i>
+          <span class="sidebar-icon-wrapper">
+            <span class="fa fa-chevron-right"></span>
           </span>
         </a>
       </li>
       <?php
       foreach ($child_categories as $child_cat) : 
       ?>
-      <li class="sidebar__item">
-        <a href="<?php echo get_category_link($child_cat); ?>" class="sidebar__link">
+      <li class="sidebar-item">
+        <a href="<?php echo get_category_link($child_cat); ?>">
           <?php echo $child_cat->name; ?>  
         </a>
       </li>
@@ -49,9 +49,12 @@
   <ul>
   <?php
   foreach ($teemat as $teema_cat) :?>
-    <li class="sidebar__item">
-      <a href="<?php echo get_category_link($teema_cat); ?>" class="sidebar__link">
-        <?php echo $teema_cat->name; ?>  
+    <li class="sidebar-item">
+      <a href="<?php echo get_category_link($teema_cat); ?>">
+        <?php echo $teema_cat->name; ?>
+        <span class="sidebar-icon-wrapper">
+          <span class="fa fa-chevron-right"></span>
+        </span>
       </a>
     </li>
   <?php endforeach; ?>

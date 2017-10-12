@@ -25,7 +25,7 @@ get_header();
     <h1 class="page-title"><?php echo $category->name ?></h1>
     <div class="container">
       <div class="row">
-        <div class="sidebar-links col-sm-4">
+        <div class="sidebar col-md-3">
           <?php
             $categories=get_categories(array(
               'parent' => $grandparent_id,
@@ -38,20 +38,18 @@ get_header();
             $child_categories = get_categories(array('parent' => $cat->term_id, 'hide_empty' => false));
             ?>
             <ul>
-              <li class="sidebar__item--heading">
-                <a href="<?php echo get_category_link($cat); ?>" class="sidebar__link--block">
+              <li class="sidebar-item--highlight">
+                <a href="<?php echo get_category_link($cat); ?>">
                   <i class="material-icons">settings</i>
                   <?php echo $cat->cat_name; ?>
-                  <span class="sidebar__icon-wrapper">
-                    <i class="material-icons">arrow_forward</i>
-                  </span>
+                  <span class="sidebar-icon-wrapper"></span>
                 </a>
               </li>
               <?php
               foreach ($child_categories as $child_cat) : 
               ?>
-              <li class="sidebar__item">
-                <a href="<?php echo get_category_link($child_cat); ?>" class="sidebar__link">
+              <li class="sidebar-item">
+                <a href="<?php echo get_category_link($child_cat); ?>">
                   <?php echo $child_cat->name; ?>  
                 </a>
               </li>
@@ -61,7 +59,7 @@ get_header();
           <?php } 
           ?>
         </div>
-        <div class="col-md-8 news-content">
+        <div class="col-md-9 news-content">
           <div class="cards--post">
             <?php
             while ( have_posts() ) : the_post(); ?>

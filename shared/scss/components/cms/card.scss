@@ -36,7 +36,7 @@
   @media (min-width: $width-sm) {
     flex: 1 1 32%;
     max-width: 32%;
-    margin: 1%;
+    margin: $padding-base-vertical 1% $padding-base-vertical 1%;
 
     &:first-child {
       margin-left: 0;
@@ -44,7 +44,7 @@
 
     &:last-child {
       margin-right: 0;
-      margin-bottom: 1%;
+      margin-bottom: $padding-base-vertical;
     }
   }
 }
@@ -60,32 +60,12 @@
   border-top: 1px solid $card-border-color;
   padding-top: $base*1.5;
   font-size: $font-size-base;
+  color: $card-text-color--highlight;
 }
 
-// Secondary cards
-
-.wrapper--latest {
-  background: $brand-primary; /* Old browsers fallback to single color */
-  background: $latest-bg;
-  padding: $base*4 $base*1.5;
-
-  .heading--featured {
-    color: $brand-white;
-    text-align: center;
-
-    @media(min-width: $width-sm) {
-      text-align: left;
-    }
-  }
-
-  .latest-btn-container {
-    margin-top: $base;
-    text-align: center;
-
-    @media (min-width: $width-sm) {
-      text-align: right;
-    }
-  }
+.card__timestamp {
+  color: $card-text-color--highlight;
+  font-family: $headings-font-family;
 }
 
 .cards--4 {
@@ -141,31 +121,30 @@
   }
 }
 
-.card__title--latest,
-.card__title--latest a {
-  @extend .card__title;
-  border-bottom: 0;
-  margin-top: $base;
-  font-size: $font-size-large;
-  font-weight: 700;
-  color: $latest-card-heading-color;
-}
+// Secondary cards
 
-.card__body--latest {
-  padding: $base*2;
-  color: $latest-card-text-color;
+.wrapper--latest {
+  background: $brand-primary; /* Old browsers fallback to single color */
+  background: $latest-bg;
+  padding: $base*4 $base*1.5;
 
-  a {
-    color: $latest-card-link-color;
+  .heading--featured {
+    color: $brand-white;
+    text-align: center;
+
+    @media(min-width: $width-sm) {
+      text-align: left;
+    }
   }
-}
 
-.card__meta--latest {
-  padding: $base;
-  background: $latest-card-heading-bar-bg;
-  border-top-left-radius: $border-radius-small;
-  border-top-right-radius: $border-radius-small;
-  color: $latest-card-heading-bar-color;
+  .latest-btn-container {
+    margin-top: $base;
+    text-align: center;
+
+    @media (min-width: $width-sm) {
+      text-align: right;
+    }
+  }
 }
 
 .cards--post {
@@ -228,28 +207,4 @@
 
 .showcase__footer p {
   color: $brand-white;
-}
-
-// Dataset cards
-.cards--dataset {
-  @extend .cards;
-
-  .card,
-  .card__title{
-    border-color: $dataset-card-border-color;
-  }
-
-  .card__title,
-  .card__title a {
-    color: $dataset-card-heading-color;
-  }
-}
-
-.card__meta {
-  color: $dataset-card-heading-color;
-}
-
-.card__timestamp {
-  color: $dataset-card-heading-color;
-  font-family: $headings-font-family;
 }
