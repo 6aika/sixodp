@@ -975,3 +975,19 @@ function render_markdown($markdown) {
   $Parsedown = new Parsedown();
   return $Parsedown->text($markdown);
 }
+
+function excerpt_count_js(){
+
+if ('page' != get_post_type()) {
+
+      echo '<script>jQuery(document).ready(function(){
+jQuery("#post-status-info #wp-word-count .word-count").after(" Character count: <span id=\"character_counter\"></span>");
+     jQuery("span#character_counter").text(jQuery("#content").val().length);
+     jQuery("#content").keyup( function() {
+       jQuery("span#character_counter").text(jQuery("#content").val().length);
+   });
+});</script>';
+}
+}
+add_action( 'admin_head-post.php', 'excerpt_count_js');
+add_action( 'admin_head-post-new.php', 'excerpt_count_js');
