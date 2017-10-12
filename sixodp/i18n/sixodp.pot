@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sixodp\n"
-"POT-Creation-Date: 2017-10-09 12:52:16+00:00\n"
+"POT-Creation-Date: 2017-10-10 08:13:58+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -120,78 +120,78 @@ msgstr ""
 msgid "Management"
 msgstr ""
 
-#: functions.php:44 partials/nav.php:7
+#: functions.php:45 partials/nav.php:7
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:45
+#: functions.php:46
 msgid "Secondary Menu"
 msgstr ""
 
-#: functions.php:46
+#: functions.php:47
 msgid "Social Links Menu"
 msgstr ""
 
-#: functions.php:47
+#: functions.php:48
 msgid "Footer Menu"
 msgstr ""
 
-#: functions.php:188
+#: functions.php:189
 msgctxt "post type general name"
 msgid "Notifications"
 msgstr ""
 
-#: functions.php:189
+#: functions.php:190
 msgctxt "post type singular name"
 msgid "Notification"
 msgstr ""
 
-#: functions.php:190
+#: functions.php:191
 msgctxt "Notification"
 msgid "Add New"
 msgstr ""
 
-#: functions.php:191
+#: functions.php:192
 msgid "Add New Notification"
 msgstr ""
 
-#: functions.php:192
+#: functions.php:193
 msgid "Edit Notification"
 msgstr ""
 
-#: functions.php:193
+#: functions.php:194
 msgid "New Notification"
 msgstr ""
 
-#: functions.php:194
+#: functions.php:195
 msgid "All Notifications"
 msgstr ""
 
-#: functions.php:195
+#: functions.php:196
 msgid "View Notification"
 msgstr ""
 
-#: functions.php:196
+#: functions.php:197
 msgid "Search notifications"
 msgstr ""
 
-#: functions.php:197
+#: functions.php:198
 msgid "No notifications found"
 msgstr ""
 
-#: functions.php:198
+#: functions.php:199
 msgid "No notifications found in the Trash"
 msgstr ""
 
-#: functions.php:682 partials/featured-datasets.php:23
+#: functions.php:683 partials/featured-datasets.php:23
 msgid "days"
 msgstr ""
 
-#: functions.php:682 partials/featured-datasets.php:24
+#: functions.php:683 partials/featured-datasets.php:24
 msgid "hours"
 msgstr ""
 
-#: functions.php:682 partials/featured-datasets.php:25
+#: functions.php:683 partials/featured-datasets.php:25
 msgid "ago"
 msgstr ""
 
@@ -247,7 +247,7 @@ msgstr ""
 msgid "Next week"
 msgstr ""
 
-#: partials/ajankohtaista-links.php:9 single.php:51
+#: partials/ajankohtaista-links.php:9 single.php:55
 msgid "Categories"
 msgstr ""
 
@@ -316,11 +316,15 @@ msgstr ""
 msgid "Latest datasets"
 msgstr ""
 
+#: partials/featured-content.php:79 partials/latest-updates.php:37
+msgid "Dataset"
+msgstr ""
+
 #: partials/featured-content.php:90 partials/stats.php:35
 msgid "All datasets"
 msgstr ""
 
-#: partials/featured-datasets.php:46 partials/latest-updates.php:65
+#: partials/featured-datasets.php:46 partials/latest-updates.php:69
 msgid "More updates"
 msgstr ""
 
@@ -344,16 +348,16 @@ msgstr ""
 msgid "Show all"
 msgstr ""
 
-#: partials/latest-updates.php:37
-msgid "Dataset"
-msgstr ""
-
 #: partials/latest-updates.php:41
 msgid "Showcase"
 msgstr ""
 
 #: partials/latest-updates.php:45
 msgid "Article"
+msgstr ""
+
+#: partials/latest-updates.php:53
+msgid "Comment"
 msgstr ""
 
 #: partials/more-links.php:11
@@ -438,15 +442,15 @@ msgstr ""
 msgid "Your email will not be published with showcase idea."
 msgstr ""
 
-#: single.php:40
+#: single.php:42
 msgid "Data Request"
 msgstr ""
 
-#: single.php:41
+#: single.php:43
 msgid "Showcase Idea"
 msgstr ""
 
-#: single.php:71
+#: single.php:78
 msgid "Tags"
 msgstr ""
 

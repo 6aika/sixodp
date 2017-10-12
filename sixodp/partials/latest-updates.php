@@ -48,6 +48,10 @@
                     echo '<span class="fa fa-file-text"></span>&nbsp;';
                     echo _e('Page', 'sixodp') .'</span>';
                     break;
+                  case 'comment':
+                    echo '<span class="fa fa-comment"></span>&nbsp;';
+                    echo _e('Comment', 'sixodp') .'</span>';
+                    break;
                   default:
                     echo $label;
                     break;
