@@ -75,7 +75,9 @@ get_header(); ?>
             ?>
               <ul>
                 <li class="sidebar-item--highlight">
-                  <i class="material-icons">label</i> <?php _e('Tags') ?>
+                  <span class="sidebar-item-inner">
+                    <i class="material-icons">label</i> <?php _e('Tags') ?>
+                  </span>
                 </li>
                 <?php
                 foreach ($tags as $tag):
@@ -100,11 +102,9 @@ get_header(); ?>
                 <li class="sidebar-item">
                   <span class="sidebar-item-inner">
                     <img src="<?php echo get_avatar_url(get_the_author_meta('id'), ['size' => 128]) ?>" class="avatar" />
-                    <p><strong><?php the_author(); ?></strong></p>
-                    <p><?php echo get_the_author_meta('description'); ?></p>
+                    <p class="text-center"><strong><?php echo trim(get_the_author_meta('first_name') . ' ' . get_the_author_meta('last_name')) ?></strong></p>
+                    <p><?php echo wp_html_excerpt(get_the_author_meta('description'), 240, '...'); ?></p>
                   </span>
-                </li>
-                <li class="sidebar-item">
                 </li>
               </ul>
             <?php endif; ?>
