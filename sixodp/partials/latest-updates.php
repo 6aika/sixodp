@@ -25,7 +25,7 @@
 
             <p class="card__description">
               <span class="card__timestamp"><?php echo parse_date($item['date_updated']); ?></span><br />
-              <?php echo wp_html_excerpt( render_markdown(get_translated($item, 'notes')), 240, '...'); ?>
+              <?php echo wp_html_excerpt( strip_shortcodes(render_markdown(get_translated($item, 'notes'))), 240, '...'); ?>
             </p>
 
             <div class="card__meta">
@@ -47,6 +47,10 @@
                   case 'page':
                     echo '<span class="fa fa-file-text"></span>&nbsp;';
                     echo _e('Page', 'sixodp') .'</span>';
+                    break;
+                  case 'comment':
+                    echo '<span class="fa fa-comment"></span>&nbsp;';
+                    echo _e('Comment', 'sixodp') .'</span>';
                     break;
                   default:
                     echo $label;

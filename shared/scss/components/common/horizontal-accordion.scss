@@ -99,7 +99,7 @@ $text-transition: all 0.1s 0.1s ease-in-out;
     .tab-overlay:focus,
     .tab-overlay:active {
       background: $accordion-tab-overlay-bg;
-      opacity: 0.7;
+      opacity: 0.9;
       overflow: hidden;
       height: $horizontal-accordion-height;
       width: 100%;
@@ -297,7 +297,7 @@ $text-transition: all 0.1s 0.1s ease-in-out;
   border-top: 2px solid $brand-primary;
 
   .btn {
-    border-radius: 0 0 $border-radius-small $border-radius-small;
+    border-radius: 0 0 $border-radius-round $border-radius-round;
     position: absolute;
     right: $padding-large-horizontal*6;
     padding: $btn-padding-large;
