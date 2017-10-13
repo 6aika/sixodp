@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_ui 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-09-27 12:22+0000\n"
+"POT-Creation-Date: 2017-10-13 10:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -132,6 +132,7 @@ msgstr ""
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/image-upload.js:18
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/image-upload.min.js:1
 #: ckanext/sixodp_ui/templates/group/snippets/group_item.html:41
+#: ckanext/sixodp_ui/templates/snippets/search_form_without_input.html:66
 msgid "Remove"
 msgstr ""
 
@@ -429,45 +430,50 @@ msgstr ""
 msgid "Admin"
 msgstr ""
 
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:18
 #: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:20
+msgid "Dataset Editor"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:26
 msgid "View profile"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:29
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:35
 #, python-format
 msgid "Dashboard (%(num)d new item)"
 msgid_plural "Dashboard (%(num)d new items)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:32
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:38
 msgid "Dashboard"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:38
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:40
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:44
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:46
 msgid "Organizations"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:50
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:56
 #: ckanext/sixodp_ui/templates/user/dashboard.html:8
 msgid "Edit settings"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:52
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:58
 msgid "Settings"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:59
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:61
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:65
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:67
 msgid "Log out"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:70
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:76
 msgid "Log in"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:72
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:78
 msgid "Register"
 msgstr ""
 
@@ -959,11 +965,11 @@ msgstr ""
 msgid "Go"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/snippets/search_form_without_input.html:57
+#: ckanext/sixodp_ui/templates/snippets/search_form_without_input.html:77
 msgid " <p class=\"extra\">Please try another search or change search facets.</p> "
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/snippets/search_form_without_input.html:63
+#: ckanext/sixodp_ui/templates/snippets/search_form_without_input.html:83
 msgid ""
 " <p><strong>There was an error while searching.</strong> Please try "
 "again.</p> "
