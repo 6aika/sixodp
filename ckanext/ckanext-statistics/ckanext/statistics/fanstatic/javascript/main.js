@@ -6,7 +6,7 @@ ckan.module('statistics', function($){
 
       this.options.styles.visHeight = this.getVisHeight(this.options.styles.contentWidth);
       this.options.api = new Api({
-        baseUrl: ckan.SITE_ROOT + '/api/3/action/',
+        baseUrl: ckan.SITE_ROOT + '/api/action/',
         width: this.options.styles.contentWidth,
         texts: {
           loading: this._("Loading"),
@@ -142,6 +142,7 @@ ckan.module('statistics', function($){
 
           self.sections.datasetSection.setDateRange(
             dates,
+            self.createMostVisitedDatasets(self.data.all.mostVisitedDatasets),
             self.createCategoryDatasets(
               self.data.filtered.datasets,
               self.data.filtered.categories,
@@ -176,6 +177,7 @@ ckan.module('statistics', function($){
           self.data.filtered = self.filterAllData(self.data.all);
           self.sections.datasetSection.setOrganization(self.state.organization);
           self.sections.datasetSection.setData(
+            self.createMostVisitedDatasets(self.data.all.mostVisitedDatasets),
             self.data.filtered.datasets,
             self.createCategoryDatasets(
               self.data.filtered.datasets,
@@ -201,6 +203,7 @@ ckan.module('statistics', function($){
           self.data.filtered = self.filterAllData(self.data.all);
           self.sections.datasetSection.setCategory(self.state.category);
           self.sections.datasetSection.setData(
+            self.createMostVisitedDatasets(self.data.all.mostVisitedDatasets),
             self.data.filtered.datasets,
             self.createCategoryDatasets(
               self.data.filtered.datasets,
@@ -240,6 +243,7 @@ ckan.module('statistics', function($){
       this.sections.datasetSection = new DatasetSection({
         texts: {
           sectionTitle: this._('Datas'),
+          mostVisitedDatasetsTitle: this._('Most visited'),
           timelineTitle: this._('Timeline'),
           amount: this._('pcs'),
           topPublishersTitle: this._('Publishers'),
@@ -269,6 +273,20 @@ ckan.module('statistics', function($){
         schema: this.options.schemas.apps,
         locale: this.options.locale
       })
+    },
+
+    createMostVisitedDatasets: function (datasets) {
+      var result = [];
+      for (var index in datasets) {
+        var resultItem = {
+          name: datasets[index].package_name,
+          all: datasets[index].visits,
+          specific: 0
+        };
+
+        result.push(resultItem)
+      }
+      return result
     },
 
     createCategoryDatasets: function (datasets, categories, dateRange) {
@@ -714,6 +732,7 @@ ckan.module('statistics', function($){
         self.sections.datasetSection.setOrganization(self.state.organization);
         self.sections.datasetSection.setCategory(self.state.category);
         self.sections.datasetSection.setData(
+          self.createMostVisitedDatasets(self.data.all.mostVisitedDatasets),
           self.data.filtered.datasets,
           self.createCategoryDatasets(
             self.data.filtered.datasets,

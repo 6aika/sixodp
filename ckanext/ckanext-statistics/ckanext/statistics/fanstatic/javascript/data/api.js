@@ -30,7 +30,7 @@ Api.prototype.getAllData = function (callback, delay) {
     data.organizations = organizations;
     data.categories = categories;
     data.apps = apps;
-    data.mostVisitedDatasets = mostVisitedDatasets;
+    data.mostVisitedDatasets = mostVisitedDatasets.packages;
     return self.get('current_package_list_with_resources?limit=' + datasets.count);
   })
   .then(function(datasetsWithResources) {

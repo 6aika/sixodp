@@ -5,7 +5,26 @@ var DatasetSection = function (params) {
   self._element = d3.select('.js-statistics-datasets-section')
 
   d3.select('.js-statistics-datasets-section-title')
-    .text(self._texts.sectionTitle)
+    .text(self._texts.sectionTitle);
+
+  self.mostVisitedDatasets = new TopHistogram({
+    id: 'mostVisitedDatasets',
+    element: self._element.select('.js-most-visited-datasets'),
+    texts: {
+      title: self._texts.mostVisitedDatasetsTitle,
+      amount: self._texts.amount
+    },
+    legend: [],
+    limit: 10, // Before show more button is used
+
+    width: params.width,
+    margin: params.visMargins,
+    schema: {
+      labelField: 'name',
+      valueField: 'all',
+      valueSpecificField: 'specific',
+    }
+  });
 
   self.totalsTimeline = new TotalsTimeline({
     id: 'datasetCount',
@@ -22,7 +41,7 @@ var DatasetSection = function (params) {
       organizations: true
     },
     locale: params.locale,
-  })
+  });
 
   self.categoryDatasets = new TopHistogram({
     id: 'categoryDatasets',
@@ -103,12 +122,13 @@ var DatasetSection = function (params) {
   })
 }
 
-DatasetSection.prototype.setData = function (datasets, categoryDatasets, formatDatasets, organizationDatasets) {
+DatasetSection.prototype.setData = function (mostVisitedDatasets, datasets, categoryDatasets, formatDatasets, organizationDatasets) {
   var self = this
-  self.totalsTimeline.setData(datasets)
-  self.categoryDatasets.setData(categoryDatasets)
-  self.formatDatasets.setData(formatDatasets)
-  self.organizationDatasets.setData(organizationDatasets)
+  self.mostVisitedDatasets.setData(mostVisitedDatasets);
+  self.totalsTimeline.setData(datasets);
+  self.categoryDatasets.setData(categoryDatasets);
+  self.formatDatasets.setData(formatDatasets);
+  self.organizationDatasets.setData(organizationDatasets);
 }
 
 
