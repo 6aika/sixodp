@@ -41,7 +41,7 @@ ckan.module('statistics', function($){
                     dateField: 'date_released',
                     skip: function (dataset) {
                         return !!dataset.private
-                    },
+                    }
                 },
                 apps: {
                     nameField: 'name',
@@ -49,6 +49,13 @@ ckan.module('statistics', function($){
                     skip: function (app) {
                         return false
                     }
+                },
+                popularDatasets: {
+                  nameField: 'package_name',
+                  dateField: 'visit_date',
+                  skip: function (dataset) {
+                    return false
+                  }
                 }
             },
             locale: jQuery('html').attr('lang'),
