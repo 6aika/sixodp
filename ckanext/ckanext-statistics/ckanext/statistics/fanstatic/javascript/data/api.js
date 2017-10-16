@@ -1,5 +1,5 @@
 var Api = function (params) {
-  var self = this
+  var self = this;
   self._baseUrl = params.baseUrl;
   self._width = params.width;
   self._texts = params.texts;
@@ -23,12 +23,14 @@ Api.prototype.getAllData = function (callback, delay) {
     self.get('group_tree'),
     self.get('group_list?all_fields=true&include_extras=true'),
     self.get('package_search'),
-    self.get('ckanext_showcase_list?include_private=false')
+    self.get('ckanext_showcase_list?include_private=false'),
+    self.get('most_visited_packages')
   ])
-  .spread(function(organizations, categories, datasets, apps) {
+  .spread(function(organizations, categories, datasets, apps, mostVisitedDatasets) {
     data.organizations = organizations;
     data.categories = categories;
     data.apps = apps;
+    data.mostVisitedDatasets = mostVisitedDatasets;
     return self.get('current_package_list_with_resources?limit=' + datasets.count);
   })
   .then(function(datasetsWithResources) {
