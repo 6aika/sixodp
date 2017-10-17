@@ -122,13 +122,29 @@ var DatasetSection = function (params) {
   })
 }
 
-DatasetSection.prototype.setData = function (mostVisitedDatasets, datasets, categoryDatasets, formatDatasets, organizationDatasets) {
+DatasetSection.prototype.setData = function (context, datasets, categoryDatasets, formatDatasets, organizationDatasets) {
   var self = this
-  self.mostVisitedDatasets.setData(mostVisitedDatasets);
+
   self.totalsTimeline.setData(datasets);
   self.categoryDatasets.setData(categoryDatasets);
   self.formatDatasets.setData(formatDatasets);
   self.organizationDatasets.setData(organizationDatasets);
+
+  return context.api.get('most_visited_packages')
+  .then(function(response) {
+    var datasets = response.packages;
+    var result = [];
+    for (var index in datasets) {
+      var resultItem = {
+        name: datasets[index].package_name,
+        all: datasets[index].visits,
+        specific: 0
+      };
+
+      result.push(resultItem);
+    }
+    self.mostVisitedDatasets.setData(result);
+  });
 }
 
 
@@ -136,6 +152,7 @@ DatasetSection.prototype.onContentResize = function (width, height) {
   if (!height)
     height = undefined
   var self = this
+  self.mostVisitedDatasets.resize(width)
   self.totalsTimeline.resize(width, height)
   self.categoryDatasets.resize(width)
   self.formatDatasets.resize(width)
@@ -144,8 +161,9 @@ DatasetSection.prototype.onContentResize = function (width, height) {
 
 
 // Filter all the visualizations in this section by the given dates
-DatasetSection.prototype.setDateRange = function (dates, categoryDatasets, formatDatasets, organizationDatasets) {
+DatasetSection.prototype.setDateRange = function (context, dates, categoryDatasets, formatDatasets, organizationDatasets) {
   var self = this
+
   self.totalsTimeline.setDateRange(dates)
 
   self.categoryDatasets.setDateRange(dates)
@@ -162,6 +180,23 @@ DatasetSection.prototype.setDateRange = function (dates, categoryDatasets, forma
   if (organizationDatasets) {
     self.organizationDatasets.setData(organizationDatasets)
   }
+
+  var dateQuery = '?start_date=' + dates[0].format('DD-MM-YYYY') + '&end_date=' + dates[1].format('DD-MM-YYYY');
+  return context.api.get('most_visited_packages' + dateQuery)
+  .then(function(response) {
+    var datasets = response.packages;
+    var result = [];
+    for (var index in datasets) {
+      var resultItem = {
+        name: datasets[index].package_name,
+        all: datasets[index].visits,
+        specific: 0
+      };
+
+      result.push(resultItem);
+    }
+    self.mostVisitedDatasets.setData(result);
+  });
 }
 
 DatasetSection.prototype.setMaxDateRange = function (dates) {

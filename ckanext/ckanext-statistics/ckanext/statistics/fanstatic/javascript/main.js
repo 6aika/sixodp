@@ -48,20 +48,13 @@ ckan.module('statistics', function($){
           skip: function (app) {
             return false
           }
-        },
-        mostVisitedDatasets: {
-          nameField: 'package_name',
-          dateField: 'visit_date',
-          skip: function () {
-            return false
-          }
         }
       },
       locale: jQuery('html').attr('lang'),
       onScroll: null
     },
     state: {
-      dateRange: [undefined, undefined],
+      dateRange: [new Date(new Date().getFullYear(), 0, 1), new Date()],
       organization: '',
       category: ''
     },
@@ -141,8 +134,8 @@ ckan.module('statistics', function($){
           self.sections.summarySection.setDateRange(dates);
 
           self.sections.datasetSection.setDateRange(
+            self.options,
             dates,
-            self.createMostVisitedDatasets(self.data.all.mostVisitedDatasets),
             self.createCategoryDatasets(
               self.data.filtered.datasets,
               self.data.filtered.categories,
@@ -177,7 +170,7 @@ ckan.module('statistics', function($){
           self.data.filtered = self.filterAllData(self.data.all);
           self.sections.datasetSection.setOrganization(self.state.organization);
           self.sections.datasetSection.setData(
-            self.createMostVisitedDatasets(self.data.all.mostVisitedDatasets),
+            self.options,
             self.data.filtered.datasets,
             self.createCategoryDatasets(
               self.data.filtered.datasets,
@@ -203,7 +196,7 @@ ckan.module('statistics', function($){
           self.data.filtered = self.filterAllData(self.data.all);
           self.sections.datasetSection.setCategory(self.state.category);
           self.sections.datasetSection.setData(
-            self.createMostVisitedDatasets(self.data.all.mostVisitedDatasets),
+            self.options,
             self.data.filtered.datasets,
             self.createCategoryDatasets(
               self.data.filtered.datasets,
@@ -275,18 +268,24 @@ ckan.module('statistics', function($){
       })
     },
 
-    createMostVisitedDatasets: function (datasets) {
-      var result = [];
-      for (var index in datasets) {
-        var resultItem = {
-          name: datasets[index].package_name,
-          all: datasets[index].visits,
-          specific: 0
-        };
+    createMostVisitedDatasets: function (datasets, dateRange) {
+      //var query = '?start_date=' + this.options.dateRange[0].format('DD-MM-YYYY') + '&end_date=' + this.options.dateRange[1].format('DD-MM-YYYY');
+      this.options.api.get('most_visited_packages')
+      .then(function(response) {
+        var datasets = response.packages;
+        var result = [];
+        for (var index in datasets) {
+          var resultItem = {
+            name: datasets[index].package_name,
+            all: datasets[index].visits,
+            specific: 0
+          };
 
-        result.push(resultItem)
-      }
-      return result
+          result.push(resultItem);
+        }
+        console.log(result)
+        return result;
+      });
     },
 
     createCategoryDatasets: function (datasets, categories, dateRange) {
@@ -728,11 +727,11 @@ ckan.module('statistics', function($){
 
         // Update dataset section
         self.sections.datasetSection.setMaxDateRange(self.state.maxDateRange);
-        self.sections.datasetSection.setDateRange(self.state.dateRangeFilter);
+        self.sections.datasetSection.setDateRange(self.options, self.state.dateRangeFilter);
         self.sections.datasetSection.setOrganization(self.state.organization);
         self.sections.datasetSection.setCategory(self.state.category);
         self.sections.datasetSection.setData(
-          self.createMostVisitedDatasets(self.data.all.mostVisitedDatasets),
+          self.options,
           self.data.filtered.datasets,
           self.createCategoryDatasets(
             self.data.filtered.datasets,

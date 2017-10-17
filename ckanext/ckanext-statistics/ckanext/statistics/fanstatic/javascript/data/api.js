@@ -1,5 +1,8 @@
 var Api = function (params) {
   var self = this;
+
+  self._defaultEndDate = new Date();
+  self._defaultStartDate = new Date(new Date().getFullYear(), 0, 1);
   self._baseUrl = params.baseUrl;
   self._width = params.width;
   self._texts = params.texts;
@@ -19,18 +22,16 @@ Api.prototype.getAllData = function (callback, delay) {
   self._elem.loaded.style('width', width);
   self._stepLoaded(self._texts.loadOrganizations, 66.1);
 
-  Promise.all([
+  return Promise.all([
     self.get('group_tree'),
     self.get('group_list?all_fields=true&include_extras=true'),
     self.get('package_search'),
-    self.get('ckanext_showcase_list?include_private=false'),
-    self.get('most_visited_packages')
+    self.get('ckanext_showcase_list?include_private=false')
   ])
-  .spread(function(organizations, categories, datasets, apps, mostVisitedDatasets) {
+  .spread(function(organizations, categories, datasets, apps) {
     data.organizations = organizations;
     data.categories = categories;
     data.apps = apps;
-    data.mostVisitedDatasets = mostVisitedDatasets.packages;
     return self.get('current_package_list_with_resources?limit=' + datasets.count);
   })
   .then(function(datasetsWithResources) {
