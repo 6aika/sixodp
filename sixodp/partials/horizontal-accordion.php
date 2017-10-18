@@ -34,7 +34,7 @@
                 }
                 ?>
               </h2>
-              <p><?php the_excerpt(); ?></p>
+              <p><?php wp_strip_all_tags( the_excerpt() ); ?></p>
             </div>
           </a>
         </li>

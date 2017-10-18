@@ -5,7 +5,7 @@
 
   @media(min-width: $grid-float-breakpoint) {
     height: auto;
-    max-height: initial;
+    max-height: none;
     overflow: visible;
   }
 }
