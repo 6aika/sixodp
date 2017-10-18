@@ -40,9 +40,10 @@ get_header();
             <ul>
               <li class="sidebar-item--highlight">
                 <a href="<?php echo get_category_link($cat); ?>">
-                  <i class="material-icons">settings</i>
                   <?php echo $cat->cat_name; ?>
-                  <span class="sidebar-icon-wrapper"></span>
+                  <span class="sidebar-icon-wrapper">
+                    <span class="fa fa-chevron-right"></span>
+                  </span>
                 </a>
               </li>
               <?php

@@ -36,7 +36,7 @@
   .sidebar-item-inner {
     transition: all $transition-speed-base $transition-curve-base;
     width: 100%;
-    padding: $padding-large-vertical $padding-large-horizontal;
+    padding: $padding-large-vertical $padding-large-horizontal*1.5;
     position: relative;
     display: block;
     background: $sidebar-item-bg;
@@ -50,7 +50,7 @@
     }
 
     .sidebar-icon-wrapper {
-      right: -$padding-xs-horizontal;
+      right: 0;
     }
   }
 
@@ -61,7 +61,7 @@
     width: $base*3.2;
     text-align: center;
     position: absolute;
-    right: 0;
+    right: 5px;
     top: 50%;
     transform: translateY(-50%);
 
