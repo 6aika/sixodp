@@ -50,10 +50,7 @@
 
 .page__content {
   @extend %pagew;
-
-  .single & {
-    padding: $base*4 $base*2;
-  }
+  padding: $base*4 $base*2;
 }
 
 .page__breadcrumb {

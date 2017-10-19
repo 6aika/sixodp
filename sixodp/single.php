@@ -40,7 +40,7 @@ get_header(); ?>
                     <i class="material-icons">bookmark</i>
                   <?php
                   if ($post_type->name === 'data_request') _e('Data Request');
-                  if ($post_type->name === 'showcase_idea') _e('Showcase Idea');
+                  else if ($post_type->name === 'showcase_idea') _e('Showcase Idea');
                   else echo $post_type->labels->singular_name; 
                   ?>
                 </a></li>
@@ -49,25 +49,42 @@ get_header(); ?>
             endif; 
             ?>
 
-            <ul>
-              <li class="sidebar-item--highlight">
-                <span class="sidebar-item-inner">
-                  <i class="material-icons">bookmark</i> <?php _e('Categories') ?>
-                </span>
-              </li>
-              <?php
-              foreach (get_the_category() as $cat):
-                ?>
-                <li class="sidebar-item">
-                  <a href="<?php echo get_category_link($cat); ?>">
-                    <i class="material-icons">settings</i>
-                    <?php echo $cat->cat_name; ?>
-                  </a>
+            <?php
+              if ($post_type->name === 'data_request') {
+                $categories[] = (object) array('cat_name' => _('Data Request'), 'link' => get_post_type_archive_link($post_type->name));
+              }
+              else if ($post_type->name === 'data_request') {
+                $categories[] = (object) array('cat_name' => _('Showcase Idea'), 'link' => get_post_type_archive_link($post_type->name));
+              }
+              else {
+                $categories = get_the_category();
+              }
+              if (sizeof($categories) > 0) :
+            ?>
+              <ul>
+                <li class="sidebar-item--highlight">
+                  <span class="sidebar-item-inner">
+                    <i class="material-icons">bookmark</i> <?php _e('Categories') ?>
+                  </span>
                 </li>
-                <?php 
-              endforeach;
-              ?>
-            </ul>
+                <?php
+                foreach ($categories as $cat):
+                  ?>
+                  <li class="sidebar-item">
+                    <a href="<?php echo isset($cat->cat_ID) ? get_category_link($cat) : $cat->link ?>">
+                      <?php echo $cat->cat_name; ?>
+                      <span class="sidebar-icon-wrapper">
+                        <span class="fa fa-chevron-right"></span>
+                      </span>
+                    </a>
+                  </li>
+                  <?php
+                endforeach;
+                ?>
+              </ul>
+            <?php
+            endif;
+            ?>
 
             <?php
             $tags = get_the_tags();
@@ -84,8 +101,10 @@ get_header(); ?>
                   ?>
                   <li class="sidebar-item">
                     <a href="<?php echo get_tag_link($tag); ?>">
-                      <i class="material-icons">settings</i>
                       <?php echo $tag->name; ?>
+                      <span class="sidebar-icon-wrapper">
+                        <span class="fa fa-chevron-right"></span>
+                      </span>
                     </a>
                   </li>
                   <?php 

@@ -505,7 +505,7 @@ function get_disqus_posts($args, $date = false, $cursor = false) {
   $posts_data = json_decode(file_get_contents('http://disqus.com/api/3.0/forums/listPosts.json?'. http_build_query(array_merge($args, $fields))), true);
 
   $cursor_result = $posts_data['cursor'];
-  $posts_data = $posts_data['response'];
+  $posts_data = isset($posts_data['response']) ? $posts_data['response'] : [];
 
   if ($date) {
     for ($i = 0; $i < sizeof($posts_data); $i++) {
@@ -529,7 +529,7 @@ function get_disqus_threads($args, $threads_query, $cursor = false) {
   $threads_data = json_decode(file_get_contents('http://disqus.com/api/3.0/forums/listThreads.json?'. http_build_query(array_merge($args, $fields)) . $threads_query), true);
 
   $cursor_result = $threads_data['cursor'];
-  $threads_data = $threads_data['response'];
+  $threads_data = isset($threads_data['response']) ? $threads_data['response'] : [];
 
   if ($cursor_result['more']) return array_merge($threads_data, get_disqus_threads($args, $threads_query, $cursor_result['next']));
   else return $threads_data;
@@ -544,7 +544,7 @@ function get_recent_comments($date = false) {
 
   $posts_data = get_disqus_posts($fields, $date);
 
-  $threads_query = '&thread=' . implode('&thread=', array_map(function ($row) { return $row['thread']; }, $posts_data));
+  $threads_query = '&thread=' . implode('&thread=', array_map(function ($row) { return $row['thread']; }, $posts_data ));
 
   $threads_data = get_disqus_threads($fields, $threads_query);
 
@@ -559,6 +559,7 @@ function get_recent_comments($date = false) {
 
     return array(
       'date' => $row['createdAt'],
+      'updated_at' => $row['createdAt'],
       'type' => 'comment',
       'link' => $thread['link'],
       'title' => $thread['title'],
@@ -709,12 +710,12 @@ function sort_results($arr) {
 
 function format_ckan_row($row) {
   return array(
-    'date' => $row['date_created'] ? $row['date_created'] : $row['metadata_created'],
-    'date_updated' => $row['date_updated'] ? $row['date_updated'] : $row['metadata_updated'],
+    'date' => isset($row['date_created']) ? $row['date_created'] : $row['metadata_created'],
+    'date_updated' => isset($row['date_updated']) ? $row['date_updated'] : $row['metadata_created'],
     'type' => array('link' => CKAN_BASE_URL .'/'. get_current_locale_ckan() .'/'. $row['type'], 'label' => $row['type']),
     'link' => CKAN_BASE_URL .'/'. get_current_locale_ckan() .'/'. $row['type'] .'/'. $row['name'],
     'title' => $row['title'],
-    'title_translated' => $row['title_translated'],
+    'title_translated' => isset($row['title_translated']) ? $row['title_translated'] : $row['title'],
     'notes_translated' => $row['notes_translated']
   );
 }
@@ -732,6 +733,7 @@ function get_recent_posts($type, $date = false) {
   $data = array_map(function($row) use ($type) {
     return array(
       'date' => $row->post_date,
+      'date_updated' => $row->post_modified,
       'type' => $type,
       'link' => get_permalink($row),
       'title' => $row->post_title,
@@ -781,7 +783,7 @@ function get_lang() {
 
 function get_translated($object, $field) {
   $lang = get_lang();
-  if( $object[$field . '_translated'] ) {
+  if( isset($object[$field . '_translated']) and $object[$field . '_translated'] ) {
     $translated_value = $object[$field . '_translated'][$lang];
 
     // Return default language if the translation was missing
