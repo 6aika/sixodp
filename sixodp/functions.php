@@ -559,6 +559,7 @@ function get_recent_comments($date = false) {
 
     return array(
       'date' => $row['createdAt'],
+      'updated_at' => $row['createdAt'],
       'type' => 'comment',
       'link' => $thread['link'],
       'title' => $thread['title'],
@@ -732,6 +733,7 @@ function get_recent_posts($type, $date = false) {
   $data = array_map(function($row) use ($type) {
     return array(
       'date' => $row->post_date,
+      'date_updated' => $row->post_modified,
       'type' => $type,
       'link' => get_permalink($row),
       'title' => $row->post_title,
@@ -781,7 +783,7 @@ function get_lang() {
 
 function get_translated($object, $field) {
   $lang = get_lang();
-  if( $object[$field . '_translated'] ) {
+  if( isset($object[$field . '_translated']) and $object[$field . '_translated'] ) {
     $translated_value = $object[$field . '_translated'][$lang];
 
     // Return default language if the translation was missing
