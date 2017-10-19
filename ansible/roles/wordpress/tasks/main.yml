@@ -76,6 +76,19 @@
         --admin_user={{ wordpress_users.admin.username }}
         --admin_password={{ wordpress_users.admin.password }}
         --admin_email={{ wordpress_users.admin.email }}
+    when: deployment_environment_id != "vagrant"
+
+  - name: Install WordPress and activate debug on vagrant
+    command: >
+      wp core install
+        --path=/opt/wordpress
+        --url=https://{{ public_facing_hostname }}/
+        --title=6aika
+        --admin_user={{ wordpress_users.admin.username }}
+        --admin_password={{ wordpress_users.admin.password }}
+        --admin_email={{ wordpress_users.admin.email }}
+        --debug=true
+    when: deployment_environment_id == "vagrant"
 
   - name: Install and activate plugins
     command: >
