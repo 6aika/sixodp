@@ -50,7 +50,15 @@ get_header(); ?>
             ?>
 
             <?php
-              $categories = get_the_category();
+              if ($post_type->name === 'data_request') {
+                $categories[] = (object) array('cat_name' => _('Data Request'), 'link' => get_post_type_archive_link($post_type->name));
+              }
+              else if ($post_type->name === 'data_request') {
+                $categories[] = (object) array('cat_name' => _('Showcase Idea'), 'link' => get_post_type_archive_link($post_type->name));
+              }
+              else {
+                $categories = get_the_category();
+              }
               if (sizeof($categories) > 0) :
             ?>
               <ul>
@@ -63,7 +71,7 @@ get_header(); ?>
                 foreach ($categories as $cat):
                   ?>
                   <li class="sidebar-item">
-                    <a href="<?php echo get_category_link($cat); ?>">
+                    <a href="<?php echo isset($cat->cat_ID) ? get_category_link($cat) : $cat->link ?>">
                       <?php echo $cat->cat_name; ?>
                       <span class="sidebar-icon-wrapper">
                         <span class="fa fa-chevron-right"></span>
