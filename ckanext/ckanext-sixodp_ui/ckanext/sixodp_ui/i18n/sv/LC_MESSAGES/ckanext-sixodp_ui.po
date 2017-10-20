@@ -9,8 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_ui 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-09-13 09:06+0000\n"
+"POT-Creation-Date: 2017-09-27 12:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Mikko Nieminen <mikko.nieminen@gofore.com>, 2017\n"
 "Language-Team: Swedish (https://www.transifex.com/6aika-dataportal/teams/68018/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -23,28 +24,28 @@ msgstr ""
 msgid "Dataset not found"
 msgstr ""
 
-#: ckanext/sixodp_ui/plugin.py:226
+#: ckanext/sixodp_ui/plugin.py:218
 msgid "Formats"
 msgstr ""
 
-#: ckanext/sixodp_ui/plugin.py:227
+#: ckanext/sixodp_ui/plugin.py:219
 msgid "Geographical Coverage"
 msgstr ""
 
-#: ckanext/sixodp_ui/plugin.py:228
+#: ckanext/sixodp_ui/plugin.py:220
 #: ckanext/sixodp_ui/templates/package/group_list.html:5
-#: ckanext/sixodp_ui/templates/package/read_base.html:35
+#: ckanext/sixodp_ui/templates/package/read_base.html:36
 msgid "Groups"
 msgstr ""
 
-#: ckanext/sixodp_ui/plugin.py:229
+#: ckanext/sixodp_ui/plugin.py:221
 #: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:41
 #: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:46
 msgid "Maintainer"
 msgstr ""
 
-#: ckanext/sixodp_ui/plugin.py:230
-#: ckanext/sixodp_ui/templates/package/read_base.html:36
+#: ckanext/sixodp_ui/plugin.py:222
+#: ckanext/sixodp_ui/templates/package/read_base.html:37
 msgid "Collections"
 msgstr ""
 
@@ -401,7 +402,7 @@ msgstr ""
 
 #: ckanext/sixodp_ui/templates/group/read_base.html:5
 #: ckanext/sixodp_ui/templates/package/activity.html:3
-#: ckanext/sixodp_ui/templates/package/read_base.html:33
+#: ckanext/sixodp_ui/templates/package/read_base.html:34
 msgid "Activity Stream"
 msgstr ""
 
@@ -488,14 +489,14 @@ msgid "Delete"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/organization/bulk_process.html:49
-#: ckanext/sixodp_ui/templates/package/read_base.html:13
+#: ckanext/sixodp_ui/templates/package/read_base.html:14
 #: ckanext/sixodp_ui/templates/showcase/read.html:20
 #: ckanext/sixodp_ui/templates/snippets/package_item.html:42
 msgid "Draft"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/organization/bulk_process.html:51
-#: ckanext/sixodp_ui/templates/package/read_base.html:16
+#: ckanext/sixodp_ui/templates/package/read_base.html:17
 #: ckanext/sixodp_ui/templates/snippets/package_item.html:44
 msgid "Deleted"
 msgstr ""
@@ -575,22 +576,22 @@ msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/read.html:40
 #: ckanext/sixodp_ui/templates/package/read_base.html:78
-#: ckanext/sixodp_ui/templates/package/resource_read.html:191
+#: ckanext/sixodp_ui/templates/package/resource_read.html:190
 msgid "Subscribe for dataset updates"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/read_base.html:31
+#: ckanext/sixodp_ui/templates/package/read_base.html:32
 msgid "Dataset"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/read_base.html:32
+#: ckanext/sixodp_ui/templates/package/read_base.html:33
 #: ckanext/sixodp_ui/templates/showcase/edit_base.html:5
 #: ckanext/sixodp_ui/templates/showcase/edit_base.html:12
 #: ckanext/sixodp_ui/templates/showcase/edit_base.html:16
 msgid "Showcases"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/read_base.html:56
+#: ckanext/sixodp_ui/templates/package/read_base.html:57
 #: ckanext/sixodp_ui/templates/package/resource_read.html:169
 msgid "Openness"
 msgstr ""
@@ -835,6 +836,10 @@ msgstr ""
 msgid "Your browser does not support iframes."
 msgstr ""
 
+#: ckanext/sixodp_ui/templates/package/snippets/resources.html:4
+msgid "Resources"
+msgstr "Data och resurser"
+
 #: ckanext/sixodp_ui/templates/report/index.html:22
 msgid "View Report"
 msgstr ""
@@ -933,7 +938,15 @@ msgstr ""
 msgid "Show preview"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/snippets/license.html:11
+#: ckanext/sixodp_ui/templates/snippets/license.html:14
+msgid "No License Provided"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/snippets/license.html:21
+msgid "License"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/snippets/license.html:33
 msgid "This dataset satisfies the Open Definition."
 msgstr ""
 
@@ -971,10 +984,6 @@ msgstr ""
 
 #: ckanext/sixodp_ui/templates/snippets/sixodp_offcanvas-info-button.html:2
 msgid "About"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/snippets/social.html:5
-msgid "Social"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/snippets/tag_list.html:4

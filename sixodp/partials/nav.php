@@ -29,7 +29,7 @@
               <span class="subnav-toggle"><i class="fa fa-chevron-down"></i></span><ul class="nav navbar-nav subnav">';
               foreach ($navItem["children"] as $sub_nav_item) {
                 $class = '';
-                if ( $sub_nav_item["isActive"] ) {
+                if ( isset($sub_nav_item["isActive"]) and $sub_nav_item["isActive"] ) {
                   $class = 'active';
                 }
                 echo '<li class="'.$class.'"><a href="'.$sub_nav_item["url"].'" title="'.$sub_nav_item["title"].'">'.$sub_nav_item["title"].'</a></li>';
@@ -48,10 +48,10 @@
       <ul class="nav navbar-nav navbar-right">
         <li class="navbar-search">
           <div class="input-group navbar-search-form">
-            <input type="text" class="form-control navbar-search-input" id="navbar-search-q" aria-label="...">
             <span class="input-group-btn">
               <button class="btn btn-secondary navbar-search-submit-btn" type="button"><span class="fa fa-search" aria-hidden="true"></span></button>
             </span>
+            <input type="text" class="form-control navbar-search-input" id="navbar-search-q" aria-label="...">
           </div>
           <button class="btn btn-secondary navbar-search-btn" type="button"><span class="fa fa-search" aria-hidden="true"></span></button>
         </li>

@@ -22,6 +22,8 @@
 @import "components/common/popper.scss";
 @import "components/common/dropdown.scss";
 @import "components/common/mobile-indicator";
+@import "components/common/control-group";
+@import "components/common/pill";
 
 @import "components/ckan/icons";
 @import "components/ckan/layout";
@@ -60,7 +62,7 @@
 @import "components/ckan/datepicker";
 @import "components/ckan/star-rating";
 @import "components/ckan/pagination";
-@import "components/ckan/control-group";
 @import "components/ckan/datapreview";
 @import "components/ckan/nav-tabs";
 @import "components/ckan/image-upload";
+@import "components/ckan/modal";

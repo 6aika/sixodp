@@ -4,9 +4,10 @@
   background: $navbar-background-color;
 }
 
-.navbar-nav li,
-.navbar-nav li:focus,
-.navbar-nav li:active {
+
+.navbar-default .navbar-nav li,
+.navbar-default .navbar-nav li:focus,
+.navbar-default .navbar-nav li:active {
   position: relative;
 
   @media(min-width: $grid-float-breakpoint) {
@@ -23,43 +24,58 @@
   .subnav {
     visibility: hidden;
     display: block;
-    transition: all 0.1s ease-in-out;
     max-height: 0;
+    border: 0;
 
     @media(min-width: $grid-float-breakpoint) {
       visibility: visible;
       display: none;
       transition: none;
       max-height: $base*4;
+      border-width: 0 1px 1px 1px;
+      border-style: solid;
+      border-radius: 0 0 $border-radius-small $border-radius-small;
+      border-color: $navbar-secondary-border-color;
     }
   }
 
   &.active {
-    > a {
-      border-bottom-color: $navbar-default-link-active-border-color;
+    .subnav-toggle {
+      color: $navbar-secondary-active-toggle-color;
     }
 
-    @media(min-width: $grid-float-breakpoint) {
-      .subnav {
-        visibility: visible;
-        max-height: $base*4;
-        display: block;
-        transition: none;
+    > a {
+      background-color: $navbar-default-link-active-bg;
+      color: $navbar-default-link-active-color;
+      border-bottom-color: $navbar-default-link-active-border-color;
+
+      @media(min-width: $grid-float-breakpoint) {
+        background-color: $navbar-default-link-active-bg-desktop;
+        color: $navbar-default-link-active-color-desktop;
+        border-bottom-color: $navbar-default-link-active-border-color-desktop;
+
+        &:hover {
+          background-color: $navbar-default-link-hover-bg-desktop;
+          color: $navbar-default-link-hover-color;
+        }
       }
     }
+
   }
 
   &.active-hover {
     .subnav {
       visibility: visible;
       max-height: 100%;
+      padding: 0;
 
       @media(min-width: $grid-float-breakpoint) {
-        max-height: $base*4;
+        width: auto;
+        max-height: none;
         visibility: visible;
         display: block;
-        transition: none;
         z-index: $zindex-navbar-fixed;
+        position: absolute;
       }
     }
   }
@@ -82,19 +98,29 @@
 }
 
 .navbar-search {
-  width: 220px;
-  margin: 14px 10px;
+  width: 100%;
+  margin: 0;
+  height: $navbar-height;
+  padding: $navbar-height/4;
 
   .navbar-search-form {
     display: none;
   }
 
   .navbar-search-btn {
-    float: right;
+    float: left;
   }
 
   .btn {
     padding: 5px 12px 4px 12px;
+  }
+
+  @media(min-width: $grid-float-breakpoint) {
+    width: auto;
+    max-width: 220px;
+    margin: 14px 10px;
+    height: auto;
+    padding: 0;
   }
 }
 
@@ -106,8 +132,8 @@
   top: 0;
   width: $navbar-height;
   height: $navbar-height;
-  color: $navbar-toggle-icon-color;
-  transition: all 0.2s ease-in-out;
+  color: $navbar-secondary-toggle-color;
+  transition: all $transition-speed-base $transition-curve-base;
 
   &.rotate {
     transform:rotate(180deg);
@@ -161,6 +187,9 @@
   padding-left: $base*3;
 
   & > li {
+    width: auto;
+    float: none;
+
     > a,
     > a:focus {
       color: $navbar-secondary-link-color;
@@ -186,10 +215,8 @@
   }
 
   @media(min-width: $width-md) {
-    position: absolute;
-    top: $navbar-height;
-    left: 0;
-    right: 0;
+    height: auto;
+    position: relative;
   }
 
 }

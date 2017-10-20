@@ -29,13 +29,13 @@
               <div class="dataset__content">
                 <span class="dataset__type"><?php echo $item['type']; ?></span>
                 <h4 class="dataset__title">
-                  <a class="dataset__link" href="<?php echo CKAN_BASE_URL . '/dataset/' . echo $item['name']; ?>">
+                  <a class="dataset__link" href="<?php echo CKAN_BASE_URL . '/dataset/' . $item['name']; ?>">
                     <?php echo get_translated($item, 'title'); ?>
                   </a>
                 </h4>
                 <div class="dataset__body">
                   <p class="dataset__info"><?php echo get_notes_excerpt(get_translated($item, 'notes')); ?>
-                    <a href="<?php echo CKAN_BASE_URL . '/dataset/' . echo $item['name']; ?>"><i class="material-icons">arrow_forward</i></a>
+                    <a href="<?php echo CKAN_BASE_URL . '/dataset/' . $item['name']; ?>"><i class="material-icons">arrow_forward</i></a>
                   </p>
                 </div>
               </div>

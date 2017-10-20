@@ -35,11 +35,11 @@
 .showcase {
   background: $brand-primary;
   color: $brand-white;
-  border-radius: $base/2;
+  border-radius: $border-radius-small;
 }
 
 .showcase__content {
-  padding: $base*2;
+  padding: $base;
   height: calc(100% - 180px);
   position: relative;
   background: $showcase-card-bg;
@@ -50,8 +50,9 @@
 .showcase__title {
   text-align: center;
   font-family: $font-heading;
-  font-size: 2.2rem;
-  font-weight: 600;
+  font-size: $font-size-large;
+  font-weight: $headings-font-weight;
+  margin: 0;
 }
 
 .showcase__text {
@@ -80,18 +81,15 @@
   display: block;
   background-size: cover;
   background-position: center center;
-  border-radius: $base/2 $base/2 0 0;
+  border-radius: $border-radius-small $border-radius-small 0 0;
   height: $base*18;
 }
 
 .showcase__link {
   color: $showcase-card-heading-color;
-  padding-bottom: $base/5;
-  border-bottom: $base/5 solid transparent;
 
   &:hover {
-    color: $brand-white;
-    border-bottom: $base/5 solid white;
+    color: $showcase-card-heading-color;
   }
 }
 

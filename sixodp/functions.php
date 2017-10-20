@@ -1,6 +1,7 @@
 <?php
 require_once(ABSPATH . 'wp-admin/includes/post.php'); 
-require_once(ABSPATH . 'wp-admin/includes/taxonomy.php'); 
+require_once(ABSPATH . 'wp-admin/includes/taxonomy.php');
+require_once WP_CONTENT_DIR . '/themes/sixodp/vendor/Parsedown.php';
 
 load_theme_textdomain('sixodp');
 if ( !function_exists('sixodp_theme_setup') ) :
@@ -504,7 +505,7 @@ function get_disqus_posts($args, $date = false, $cursor = false) {
   $posts_data = json_decode(file_get_contents('http://disqus.com/api/3.0/forums/listPosts.json?'. http_build_query(array_merge($args, $fields))), true);
 
   $cursor_result = $posts_data['cursor'];
-  $posts_data = $posts_data['response'];
+  $posts_data = isset($posts_data['response']) ? $posts_data['response'] : [];
 
   if ($date) {
     for ($i = 0; $i < sizeof($posts_data); $i++) {
@@ -528,7 +529,7 @@ function get_disqus_threads($args, $threads_query, $cursor = false) {
   $threads_data = json_decode(file_get_contents('http://disqus.com/api/3.0/forums/listThreads.json?'. http_build_query(array_merge($args, $fields)) . $threads_query), true);
 
   $cursor_result = $threads_data['cursor'];
-  $threads_data = $threads_data['response'];
+  $threads_data = isset($threads_data['response']) ? $threads_data['response'] : [];
 
   if ($cursor_result['more']) return array_merge($threads_data, get_disqus_threads($args, $threads_query, $cursor_result['next']));
   else return $threads_data;
@@ -543,7 +544,7 @@ function get_recent_comments($date = false) {
 
   $posts_data = get_disqus_posts($fields, $date);
 
-  $threads_query = '&thread=' . implode('&thread=', array_map(function ($row) { return $row['thread']; }, $posts_data));
+  $threads_query = '&thread=' . implode('&thread=', array_map(function ($row) { return $row['thread']; }, $posts_data ));
 
   $threads_data = get_disqus_threads($fields, $threads_query);
 
@@ -558,6 +559,7 @@ function get_recent_comments($date = false) {
 
     return array(
       'date' => $row['createdAt'],
+      'updated_at' => $row['createdAt'],
       'type' => 'comment',
       'link' => $thread['link'],
       'title' => $thread['title'],
@@ -571,6 +573,18 @@ function get_recent_comments($date = false) {
   return [];
 }
 
+function get_disqus_comment_count($post) {
+  $fields = array(
+    'api_secret' => DISQUS_SECRET_KEY,
+    'forum' => DISQUS_SHORT_NAME,
+    'thread' => 'link:'. get_permalink($post)
+  );
+
+  $thread_data = json_decode(file_get_contents('http://disqus.com/api/3.0/threads/set.json?'. http_build_query($fields)), true);
+
+  return $thread_data['response'][0]['posts'];
+}
+
 function get_recent_content($date = false) {
   if ($date) {
     $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_updated%20desc&rows=8&q=date_updated:['. date('Y-m-d\T00:00:00', strtotime($date)) .'Z%20TO%20'. date('Y-m-d\T00:00:00', strtotime($date . '+ 1 WEEK')) .'Z]');
@@ -580,7 +594,7 @@ function get_recent_content($date = false) {
 }
 
 function get_latest_datasets() {
-  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_updated%20desc&rows=3');
+  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_updated%20desc&rows=6');
   return $data['result']['results'];
 }
 
@@ -629,6 +643,8 @@ function get_api_count() {
   return 0;
 }
 
+
+
 function get_api_link() {
   $api_collection = get_ckan_data(CKAN_API_URL."/action/api_collection_show");
 
@@ -643,7 +659,7 @@ function get_count($type) {
 }
 
 function get_ckan_categories() {
-  $data = get_ckan_data(CKAN_API_URL.'/action/group_list?all_fields=true&include_extras=true');
+  $data = get_ckan_data(CKAN_API_URL.'/action/group_list?all_fields=true&include_extras=true&sort=name asc');
   return $data['result'];
 }
 
@@ -694,12 +710,12 @@ function sort_results($arr) {
 
 function format_ckan_row($row) {
   return array(
-    'date' => $row['date_created'] ? $row['date_created'] : $row['metadata_created'],
-    'date_updated' => $row['date_updated'] ? $row['date_updated'] : $row['metadata_updated'],
+    'date' => isset($row['date_created']) ? $row['date_created'] : $row['metadata_created'],
+    'date_updated' => isset($row['date_updated']) ? $row['date_updated'] : $row['metadata_created'],
     'type' => array('link' => CKAN_BASE_URL .'/'. get_current_locale_ckan() .'/'. $row['type'], 'label' => $row['type']),
     'link' => CKAN_BASE_URL .'/'. get_current_locale_ckan() .'/'. $row['type'] .'/'. $row['name'],
     'title' => $row['title'],
-    'title_translated' => $row['title_translated'],
+    'title_translated' => isset($row['title_translated']) ? $row['title_translated'] : $row['title'],
     'notes_translated' => $row['notes_translated']
   );
 }
@@ -717,6 +733,7 @@ function get_recent_posts($type, $date = false) {
   $data = array_map(function($row) use ($type) {
     return array(
       'date' => $row->post_date,
+      'date_updated' => $row->post_modified,
       'type' => $type,
       'link' => get_permalink($row),
       'title' => $row->post_title,
@@ -727,11 +744,13 @@ function get_recent_posts($type, $date = false) {
   return $data;
 }
 
-function get_latest_updates($types = array(), $date = false) {
+function get_latest_updates($types = array(), $date = false, $limit = 12) {
   $defaults = array(
     'datasets' => true,
     'showcases' => true,
     'comments' => true,
+    'posts' => true,
+    'pages' => true,
     'data_requests' => false,
     'showcase_ideas' => false,
   );
@@ -741,12 +760,15 @@ function get_latest_updates($types = array(), $date = false) {
   $datasets   = $types['datasets'] ? array_map('format_ckan_row', get_recent_content($date)) : [];
   $showcases  = $types['showcases'] ? array_map('format_ckan_row', get_latest_showcases(20, $date)) : [];
   $comments   = $types['comments'] ? get_recent_comments($date) : [];
+  $posts = $types['posts'] ? get_recent_posts('post', $date) : [];
+  $pages = $types['pages'] ? get_recent_posts('page', $date) : [];
   $data_requests = $types['data_requests'] ? get_recent_posts('data_request', $date) : [];
   $showcase_ideas = $types['showcase_ideas'] ? get_recent_posts('showcase_idea', $date) : [];
 
-  $arr = array_merge($datasets, $showcases, $comments, $data_requests, $showcase_ideas);
+  $arr = array_merge($datasets, $showcases, $comments, $posts, $pages, $data_requests, $showcase_ideas);
 
-  return array_slice(sort_results($arr), 0, 12);
+  if ($limit) return array_slice(sort_results($arr), 0, $limit);
+  else return sort_results($arr);
 }
 
 const DEFAULT_LANGUAGE = 'fi';
@@ -761,7 +783,7 @@ function get_lang() {
 
 function get_translated($object, $field) {
   $lang = get_lang();
-  if( $object[$field . '_translated'] ) {
+  if( isset($object[$field . '_translated']) and $object[$field . '_translated'] ) {
     $translated_value = $object[$field . '_translated'][$lang];
 
     // Return default language if the translation was missing
@@ -836,6 +858,7 @@ function get_post_grandparent_id($post_ID) {
 }
 
 function get_category_grandparent_id($category) {
+  
   if (is_numeric($category)) $category = get_category($category);
 
   if (!$category INSTANCEOF WP_Term) return false;
@@ -856,7 +879,7 @@ function create_form_results() {
     'label'         => "Data Requests",
     'description'   => 'Data Requests results',
     'public'        => true,
-    'supports'      => array( 'title', 'editor', 'custom-fields' ),
+    'supports'      => array( 'title', 'editor', 'custom-fields', 'comments' ),
     'has_archive'   => true,
     'show_in_rest'  => true
   ) );
@@ -865,7 +888,7 @@ function create_form_results() {
     'label'         => "Showcase ideas",
     'description'   => 'Showcase ideas results',
     'public'        => true,
-    'supports'      => array( 'title', 'editor', 'custom-fields' ),
+    'supports'      => array( 'title', 'editor', 'custom-fields', 'comments' ),
     'has_archive'   => true,
     'show_in_rest'  => true
   ) );
@@ -949,3 +972,24 @@ function custom_category_query($query) {
 }
 
 add_action( 'pre_get_posts', 'custom_category_query' );
+
+function render_markdown($markdown) {
+  $Parsedown = new Parsedown();
+  return $Parsedown->text($markdown);
+}
+
+function excerpt_count_js(){
+
+if ('page' != get_post_type()) {
+
+      echo '<script>jQuery(document).ready(function(){
+jQuery("#post-status-info #wp-word-count .word-count").after(" Character count: <span id=\"character_counter\"></span>");
+     jQuery("span#character_counter").text(jQuery("#content").val().length);
+     jQuery("#content").keyup( function() {
+       jQuery("span#character_counter").text(jQuery("#content").val().length);
+   });
+});</script>';
+}
+}
+add_action( 'admin_head-post.php', 'excerpt_count_js');
+add_action( 'admin_head-post-new.php', 'excerpt_count_js');

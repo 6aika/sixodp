@@ -10,9 +10,6 @@
     mode: 0755
     checksum: "{{ wp_cli_checksum }}"
 
-- name: Upgrade WP-cli
-  command:
-    wp cli update --yes --allow-root
 
 - name: Create database
   mysql_db:
@@ -43,7 +40,7 @@
 
   - name: Download WordPress
     command:
-      wp core download --path=/opt/wordpress
+      wp core download --path=/opt/wordpress --version={{ wordpress_version }}
     args:
       creates: /opt/wordpress/index.php
 
@@ -79,6 +76,19 @@
         --admin_user={{ wordpress_users.admin.username }}
         --admin_password={{ wordpress_users.admin.password }}
         --admin_email={{ wordpress_users.admin.email }}
+    when: deployment_environment_id != "vagrant"
+
+  - name: Install WordPress and activate debug on vagrant
+    command: >
+      wp core install
+        --path=/opt/wordpress
+        --url=https://{{ public_facing_hostname }}/
+        --title=6aika
+        --admin_user={{ wordpress_users.admin.username }}
+        --admin_password={{ wordpress_users.admin.password }}
+        --admin_email={{ wordpress_users.admin.email }}
+        --debug=true
+    when: deployment_environment_id == "vagrant"
 
   - name: Install and activate plugins
     command: >
@@ -93,6 +103,10 @@
       wp option set
         --path=/opt/wordpress
         permalink_structure /%postname%/
+
+  - name: Update WordPress
+    command:
+      wp core update --path=/opt/wordpress --minor
 
   become: yes
   become_user: www-data

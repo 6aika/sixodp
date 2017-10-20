@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_ui 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-09-13 09:06+0000\n"
+"POT-Creation-Date: 2017-10-13 10:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,28 +22,28 @@ msgstr ""
 msgid "Dataset not found"
 msgstr ""
 
-#: ckanext/sixodp_ui/plugin.py:226
+#: ckanext/sixodp_ui/plugin.py:218
 msgid "Formats"
 msgstr ""
 
-#: ckanext/sixodp_ui/plugin.py:227
+#: ckanext/sixodp_ui/plugin.py:219
 msgid "Geographical Coverage"
 msgstr ""
 
-#: ckanext/sixodp_ui/plugin.py:228
+#: ckanext/sixodp_ui/plugin.py:220
 #: ckanext/sixodp_ui/templates/package/group_list.html:5
-#: ckanext/sixodp_ui/templates/package/read_base.html:35
+#: ckanext/sixodp_ui/templates/package/read_base.html:36
 msgid "Groups"
 msgstr ""
 
-#: ckanext/sixodp_ui/plugin.py:229
+#: ckanext/sixodp_ui/plugin.py:221
 #: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:41
 #: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:46
 msgid "Maintainer"
 msgstr ""
 
-#: ckanext/sixodp_ui/plugin.py:230
-#: ckanext/sixodp_ui/templates/package/read_base.html:36
+#: ckanext/sixodp_ui/plugin.py:222
+#: ckanext/sixodp_ui/templates/package/read_base.html:37
 msgid "Collections"
 msgstr ""
 
@@ -132,6 +132,7 @@ msgstr ""
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/image-upload.js:18
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/image-upload.min.js:1
 #: ckanext/sixodp_ui/templates/group/snippets/group_item.html:41
+#: ckanext/sixodp_ui/templates/snippets/search_form_without_input.html:66
 msgid "Remove"
 msgstr ""
 
@@ -398,7 +399,7 @@ msgstr ""
 
 #: ckanext/sixodp_ui/templates/group/read_base.html:5
 #: ckanext/sixodp_ui/templates/package/activity.html:3
-#: ckanext/sixodp_ui/templates/package/read_base.html:33
+#: ckanext/sixodp_ui/templates/package/read_base.html:34
 msgid "Activity Stream"
 msgstr ""
 
@@ -429,45 +430,50 @@ msgstr ""
 msgid "Admin"
 msgstr ""
 
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:18
 #: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:20
+msgid "Dataset Editor"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:26
 msgid "View profile"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:29
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:35
 #, python-format
 msgid "Dashboard (%(num)d new item)"
 msgid_plural "Dashboard (%(num)d new items)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:32
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:38
 msgid "Dashboard"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:38
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:40
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:44
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:46
 msgid "Organizations"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:50
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:56
 #: ckanext/sixodp_ui/templates/user/dashboard.html:8
 msgid "Edit settings"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:52
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:58
 msgid "Settings"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:59
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:61
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:65
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:67
 msgid "Log out"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:70
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:76
 msgid "Log in"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:72
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:78
 msgid "Register"
 msgstr ""
 
@@ -485,14 +491,14 @@ msgid "Delete"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/organization/bulk_process.html:49
-#: ckanext/sixodp_ui/templates/package/read_base.html:13
+#: ckanext/sixodp_ui/templates/package/read_base.html:14
 #: ckanext/sixodp_ui/templates/showcase/read.html:20
 #: ckanext/sixodp_ui/templates/snippets/package_item.html:42
 msgid "Draft"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/organization/bulk_process.html:51
-#: ckanext/sixodp_ui/templates/package/read_base.html:16
+#: ckanext/sixodp_ui/templates/package/read_base.html:17
 #: ckanext/sixodp_ui/templates/snippets/package_item.html:44
 msgid "Deleted"
 msgstr ""
@@ -572,22 +578,22 @@ msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/read.html:40
 #: ckanext/sixodp_ui/templates/package/read_base.html:78
-#: ckanext/sixodp_ui/templates/package/resource_read.html:191
+#: ckanext/sixodp_ui/templates/package/resource_read.html:190
 msgid "Subscribe for dataset updates"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/read_base.html:31
+#: ckanext/sixodp_ui/templates/package/read_base.html:32
 msgid "Dataset"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/read_base.html:32
+#: ckanext/sixodp_ui/templates/package/read_base.html:33
 #: ckanext/sixodp_ui/templates/showcase/edit_base.html:5
 #: ckanext/sixodp_ui/templates/showcase/edit_base.html:12
 #: ckanext/sixodp_ui/templates/showcase/edit_base.html:16
 msgid "Showcases"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/read_base.html:56
+#: ckanext/sixodp_ui/templates/package/read_base.html:57
 #: ckanext/sixodp_ui/templates/package/resource_read.html:169
 msgid "Openness"
 msgstr ""
@@ -832,6 +838,10 @@ msgstr ""
 msgid "Your browser does not support iframes."
 msgstr ""
 
+#: ckanext/sixodp_ui/templates/package/snippets/resources.html:4
+msgid "Resources"
+msgstr ""
+
 #: ckanext/sixodp_ui/templates/report/index.html:22
 msgid "View Report"
 msgstr ""
@@ -930,7 +940,15 @@ msgstr ""
 msgid "Show preview"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/snippets/license.html:11
+#: ckanext/sixodp_ui/templates/snippets/license.html:14
+msgid "No License Provided"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/snippets/license.html:21
+msgid "License"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/snippets/license.html:33
 msgid "This dataset satisfies the Open Definition."
 msgstr ""
 
@@ -947,11 +965,11 @@ msgstr ""
 msgid "Go"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/snippets/search_form_without_input.html:57
+#: ckanext/sixodp_ui/templates/snippets/search_form_without_input.html:77
 msgid " <p class=\"extra\">Please try another search or change search facets.</p> "
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/snippets/search_form_without_input.html:63
+#: ckanext/sixodp_ui/templates/snippets/search_form_without_input.html:83
 msgid ""
 " <p><strong>There was an error while searching.</strong> Please try "
 "again.</p> "
@@ -967,10 +985,6 @@ msgstr ""
 
 #: ckanext/sixodp_ui/templates/snippets/sixodp_offcanvas-info-button.html:2
 msgid "About"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/snippets/social.html:5
-msgid "Social"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/snippets/tag_list.html:4

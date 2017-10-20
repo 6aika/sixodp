@@ -71,6 +71,12 @@
         <div class="copyrights">
           © 6Aika
         </div>
+        <?php
+        if( current_user_can( 'manage_options' ) ) {
+          // Print active template for debug reasons when signed in as content manager
+          echo '<hr>Active template: ' . get_page_template();
+        }
+        ?>
 			</div>
 		</footer><!-- .site-footer -->
 	</div><!-- .site-inner -->

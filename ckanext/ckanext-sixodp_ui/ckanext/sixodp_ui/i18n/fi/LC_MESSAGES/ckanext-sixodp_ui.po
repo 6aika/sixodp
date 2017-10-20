@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_ui 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-09-13 09:06+0000\n"
+"POT-Creation-Date: 2017-09-27 12:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2017\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
@@ -24,28 +24,28 @@ msgstr ""
 msgid "Dataset not found"
 msgstr "Tietoaineistoa ei löytynyt"
 
-#: ckanext/sixodp_ui/plugin.py:226
+#: ckanext/sixodp_ui/plugin.py:218
 msgid "Formats"
 msgstr "Tiedostomuodot"
 
-#: ckanext/sixodp_ui/plugin.py:227
+#: ckanext/sixodp_ui/plugin.py:219
 msgid "Geographical Coverage"
 msgstr "Alue"
 
-#: ckanext/sixodp_ui/plugin.py:228
+#: ckanext/sixodp_ui/plugin.py:220
 #: ckanext/sixodp_ui/templates/package/group_list.html:5
-#: ckanext/sixodp_ui/templates/package/read_base.html:35
+#: ckanext/sixodp_ui/templates/package/read_base.html:36
 msgid "Groups"
 msgstr "Kategoriat"
 
-#: ckanext/sixodp_ui/plugin.py:229
+#: ckanext/sixodp_ui/plugin.py:221
 #: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:41
 #: ckanext/sixodp_ui/templates/package/snippets/additional_info.html:46
 msgid "Maintainer"
 msgstr "Ylläpitäjä"
 
-#: ckanext/sixodp_ui/plugin.py:230
-#: ckanext/sixodp_ui/templates/package/read_base.html:36
+#: ckanext/sixodp_ui/plugin.py:222
+#: ckanext/sixodp_ui/templates/package/read_base.html:37
 msgid "Collections"
 msgstr "Aineistokokonaisuudet"
 
@@ -409,7 +409,7 @@ msgstr "Tietoaineistot"
 
 #: ckanext/sixodp_ui/templates/group/read_base.html:5
 #: ckanext/sixodp_ui/templates/package/activity.html:3
-#: ckanext/sixodp_ui/templates/package/read_base.html:33
+#: ckanext/sixodp_ui/templates/package/read_base.html:34
 msgid "Activity Stream"
 msgstr "Aktiivisuusvirta"
 
@@ -496,14 +496,14 @@ msgid "Delete"
 msgstr "Poista"
 
 #: ckanext/sixodp_ui/templates/organization/bulk_process.html:49
-#: ckanext/sixodp_ui/templates/package/read_base.html:13
+#: ckanext/sixodp_ui/templates/package/read_base.html:14
 #: ckanext/sixodp_ui/templates/showcase/read.html:20
 #: ckanext/sixodp_ui/templates/snippets/package_item.html:42
 msgid "Draft"
 msgstr "Luonnos"
 
 #: ckanext/sixodp_ui/templates/organization/bulk_process.html:51
-#: ckanext/sixodp_ui/templates/package/read_base.html:16
+#: ckanext/sixodp_ui/templates/package/read_base.html:17
 #: ckanext/sixodp_ui/templates/snippets/package_item.html:44
 msgid "Deleted"
 msgstr "Poistettu"
@@ -585,22 +585,22 @@ msgstr "Tietoaineisto ei kuulu kategorioihin"
 
 #: ckanext/sixodp_ui/templates/package/read.html:40
 #: ckanext/sixodp_ui/templates/package/read_base.html:78
-#: ckanext/sixodp_ui/templates/package/resource_read.html:191
+#: ckanext/sixodp_ui/templates/package/resource_read.html:190
 msgid "Subscribe for dataset updates"
 msgstr "Tilaa ilmoitukset muutoksista"
 
-#: ckanext/sixodp_ui/templates/package/read_base.html:31
+#: ckanext/sixodp_ui/templates/package/read_base.html:32
 msgid "Dataset"
 msgstr "Tietoaineisto"
 
-#: ckanext/sixodp_ui/templates/package/read_base.html:32
+#: ckanext/sixodp_ui/templates/package/read_base.html:33
 #: ckanext/sixodp_ui/templates/showcase/edit_base.html:5
 #: ckanext/sixodp_ui/templates/showcase/edit_base.html:12
 #: ckanext/sixodp_ui/templates/showcase/edit_base.html:16
 msgid "Showcases"
 msgstr "Sovellukset"
 
-#: ckanext/sixodp_ui/templates/package/read_base.html:56
+#: ckanext/sixodp_ui/templates/package/read_base.html:57
 #: ckanext/sixodp_ui/templates/package/resource_read.html:169
 msgid "Openness"
 msgstr "Avoimuusaste"
@@ -853,6 +853,10 @@ msgstr "Lataa resurssi"
 msgid "Your browser does not support iframes."
 msgstr "Selaimesi ei tue iframe-elementtejä."
 
+#: ckanext/sixodp_ui/templates/package/snippets/resources.html:4
+msgid "Resources"
+msgstr "Data ja resurssit"
+
 #: ckanext/sixodp_ui/templates/report/index.html:22
 msgid "View Report"
 msgstr ""
@@ -953,7 +957,15 @@ msgstr "Sulje esittely"
 msgid "Show preview"
 msgstr "Avaa esittely"
 
-#: ckanext/sixodp_ui/templates/snippets/license.html:11
+#: ckanext/sixodp_ui/templates/snippets/license.html:14
+msgid "No License Provided"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/snippets/license.html:21
+msgid "License"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/snippets/license.html:33
 msgid "This dataset satisfies the Open Definition."
 msgstr ""
 
@@ -994,10 +1006,6 @@ msgstr "Suodattimet"
 #: ckanext/sixodp_ui/templates/snippets/sixodp_offcanvas-info-button.html:2
 msgid "About"
 msgstr "Tiedot"
-
-#: ckanext/sixodp_ui/templates/snippets/social.html:5
-msgid "Social"
-msgstr "Jaa sosiaalisessa mediassa"
 
 #: ckanext/sixodp_ui/templates/snippets/tag_list.html:4
 msgid "Tags"

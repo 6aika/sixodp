@@ -48,21 +48,27 @@ function TopHistogram (params) {
 
 // Whenever new data arrives
 TopHistogram.prototype.setData = function (data) {
-  var self = this
-  self._data.raw = data
-  self._data.histogram = self._transformData(data)
-  self._state.barCount = self._data.histogram.length
+  // Skip update if no data exists
+  if(!data) {
+    return false;
+  }
+
+  var self = this;
+  self._data.raw = data;
+  self._data.histogram = self._transformData(data);
+  self._state.barCount = self._data.histogram.length;
 
   // Update y domain range based on amount of histgram bars
   self._helpers.yScale.domain(
     d3.map(self._data.histogram, function(d) { return d[self._schema.labelField] }).keys()
-  )
+  );
 
-  self.resize()
+  self.resize();
 
   // This will also update x domain range
-  self._renderHistogram(self._data.histogram)
-}
+  self._renderHistogram(self._data.histogram);
+  return true;
+};
 
 
 // When window is resized

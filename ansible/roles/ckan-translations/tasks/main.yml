@@ -21,3 +21,6 @@
 - name: Compile translation files
   command: msgfmt "{{ virtualenv }}/src/ckan/ckan/i18n/{{ item }}/LC_MESSAGES/ckan.po" -o "{{ virtualenv }}/src/ckan/ckan/i18n/{{ item }}/LC_MESSAGES/ckan.mo"
   with_items: "{{ ckan_languages }}"
+
+- name: Ensure CKAN JavaScript translation privileges
+  file: path="{{ virtualenv }}/src/ckan/ckan/public/base/i18n" owner={{ www_user }} group={{ www_group }} mode="0755"

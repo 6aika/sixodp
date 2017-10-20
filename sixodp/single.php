@@ -20,7 +20,7 @@ get_header(); ?>
     ?>
 
     <div class="page__hero"></div>
-    <div class="page__content container">
+    <div class="page__content page__hero__content container">
       <?php
       // Start the loop.
       while ( have_posts() ) : the_post();
@@ -29,53 +29,126 @@ get_header(); ?>
 
         ?>
         <div class="row">
-          <div class="col-md-4 sidebar">
-            <div class="sidebar__wrapper">
-              <ul class="sidebar__list--heading">
-                <?php
-                foreach (get_the_category() as $cat):
+          <div class="col-md-3 sidebar">
+            <?php 
+            $post_type = get_post_type_object(get_post_type());
+            if ($post_type->name !== 'post' && $post_type->name !== 'page') :
+            ?>
+              <ul>
+                <li class="sidebar-item--highlight">
+                  <a href="<?php echo get_post_type_archive_link($post_type->name); ?>">
+                    <i class="material-icons">bookmark</i>
+                  <?php
+                  if ($post_type->name === 'data_request') _e('Data Request');
+                  else if ($post_type->name === 'showcase_idea') _e('Showcase Idea');
+                  else echo $post_type->labels->singular_name; 
                   ?>
-                  <li class="sidebar__item--heading">
-                    <a href="<?php echo get_category_link($cat); ?>" class="sidebar__link--block">
-                      <i class="material-icons">settings</i>
+                </a></li>
+              </ul>
+            <?php 
+            endif; 
+            ?>
+
+            <?php
+              if ($post_type->name === 'data_request') {
+                $categories[] = (object) array('cat_name' => _('Data Request'), 'link' => get_post_type_archive_link($post_type->name));
+              }
+              else if ($post_type->name === 'data_request') {
+                $categories[] = (object) array('cat_name' => _('Showcase Idea'), 'link' => get_post_type_archive_link($post_type->name));
+              }
+              else {
+                $categories = get_the_category();
+              }
+              if (sizeof($categories) > 0) :
+            ?>
+              <ul>
+                <li class="sidebar-item--highlight">
+                  <span class="sidebar-item-inner">
+                    <i class="material-icons">bookmark</i> <?php _e('Categories') ?>
+                  </span>
+                </li>
+                <?php
+                foreach ($categories as $cat):
+                  ?>
+                  <li class="sidebar-item">
+                    <a href="<?php echo isset($cat->cat_ID) ? get_category_link($cat) : $cat->link ?>">
                       <?php echo $cat->cat_name; ?>
-                      <span class="sidebar__icon-wrapper">
-                        <i class="material-icons">arrow_forward</i>
+                      <span class="sidebar-icon-wrapper">
+                        <span class="fa fa-chevron-right"></span>
+                      </span>
+                    </a>
+                  </li>
+                  <?php
+                endforeach;
+                ?>
+              </ul>
+            <?php
+            endif;
+            ?>
+
+            <?php
+            $tags = get_the_tags();
+            if ($tags) :
+            ?>
+              <ul>
+                <li class="sidebar-item--highlight">
+                  <span class="sidebar-item-inner">
+                    <i class="material-icons">label</i> <?php _e('Tags') ?>
+                  </span>
+                </li>
+                <?php
+                foreach ($tags as $tag):
+                  ?>
+                  <li class="sidebar-item">
+                    <a href="<?php echo get_tag_link($tag); ?>">
+                      <?php echo $tag->name; ?>
+                      <span class="sidebar-icon-wrapper">
+                        <span class="fa fa-chevron-right"></span>
                       </span>
                     </a>
                   </li>
                   <?php 
                 endforeach;
                 ?>
-                <?php 
-                $author = get_the_author();
+              </ul>
+            <?php endif; ?>
 
-                if (get_the_author() !== 'admin') {
-                  ?>
-                  <li class="sidebar__item--heading">
-                    <?php the_author(); ?>
-                  </li>
-                  <?php
-                }
-                ?>
-                <li class="sidebar__item--heading">
-                  <?php the_date(); ?>
+            <?php 
+            $author = get_the_author();
+
+            if (get_the_author() !== 'admin') : ?>
+              <ul>
+                <li class="sidebar-item">
+                  <span class="sidebar-item-inner">
+                    <img src="<?php echo get_avatar_url(get_the_author_meta('id'), ['size' => 128]) ?>" class="avatar" />
+                    <p class="text-center"><strong><?php echo trim(get_the_author_meta('first_name') . ' ' . get_the_author_meta('last_name')) ?></strong></p>
+                    <p><?php echo wp_html_excerpt(get_the_author_meta('description'), 240, '...'); ?></p>
+                  </span>
                 </li>
               </ul>
-              
-              <div class="addthis_toolbox">
-                <a class="addthis_button_facebook_like at300b"></a>
-                <a class="addthis_button_tweet at300b"></a>
-              </div>
-            </div>        
+            <?php endif; ?>
+            <ul>
+              <li class="sidebar-item">
+                <span class="sidebar-item-inner">
+                  <i class="material-icons">event</i> <?php the_date(); ?>
+                </span>
+              </li>
+            </ul>
           </div>
-          <div class="col-md-8 news-content">
+          <div class="col-md-9 news-content">
             <h1 class="heading--main"><?php the_title() ?></h1>
             <article class="article"><?php the_content() ?></article>
+
+            <div class="addthis_toolbox">
+              <a class="addthis_button_facebook_like at300b"></a>
+              <a class="addthis_button_tweet at300b"></a>
+            </div>
+            
             <?php
 
             // If comments are open or we have at least one comment, load up the comment template.
             if ( comments_open() || get_comments_number() ) :
+              echo '<a name="comments"></a>';
               comments_template();
             endif;
             ?>

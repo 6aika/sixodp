@@ -10,14 +10,12 @@
  * @subpackage Sixodp
  */
 
-get_header();
 
 $category = get_queried_object();
-$grandparent_id = get_category_grandparent_id($category->term_id);
-$sibling_categories = get_categories(array('parent' => $grandparent_id, 'hide_empty' => false));
-if ($grandparent_id != $category->term_id) {
-  $child_categories = get_categories(array('parent' => $category->term_id, 'hide_empty' => false));
-}
+$grandparent_id = get_category_grandparent_id($category);
+
+get_header();
+
 ?>
 
  <div id="primary" class="content-area">
@@ -27,47 +25,42 @@ if ($grandparent_id != $category->term_id) {
     <h1 class="page-title"><?php echo $category->name ?></h1>
     <div class="container">
       <div class="row">
-        <div class="col-md-4 news-content">
-          <div class="filters secondary">
-            <div>
-              <section class="module module-narrow module-shallow">
-                <nav>
-                  <ul class="unstyled nav nav-simple nav-facet filtertype-res_format">
-                    <?php
-                    foreach ($sibling_categories as $sibling_category) {
-                      echo '<li class="nav-item news-category"><a href="' . get_category_link($sibling_category->cat_ID) . '" class="news-category__link'. ($sibling_category->cat_ID === $category->cat_ID ? ' active' : '') .'">'. $sibling_category->name .'<span class="news-category__count">'. $sibling_category->count .'</span></a></li>';
-                    }
-                    ?>
-                  </ul>
-                </nav>
-                <p class="module-footer"> </p>
-              </section>
+        <div class="sidebar col-md-3">
+          <?php
+            $categories=get_categories(array(
+              'parent' => $grandparent_id,
+              'hide_empty' => false,
+            ));
+
+            if (count($categories) > 0) {
+          ?>
+            <?php foreach ( $categories as $cat ) : 
+            $child_categories = get_categories(array('parent' => $cat->term_id, 'hide_empty' => false));
+            ?>
+            <ul>
+              <li class="sidebar-item--highlight">
+                <a href="<?php echo get_category_link($cat); ?>">
+                  <?php echo $cat->cat_name; ?>
+                  <span class="sidebar-icon-wrapper">
+                    <span class="fa fa-chevron-right"></span>
+                  </span>
+                </a>
+              </li>
               <?php
-              if (isset($child_categories) && sizeof($child_categories) > 0) {
-                ?>
-                  <section class="module module-narrow module-shallow">
-                    <h2 class="module-heading">
-                      <i class="icon-medium icon-filter"></i>
-                      <?php _e('Categories', 'sixodp');?>
-                    </h2>
-                    <nav>
-                      <ul class="unstyled nav nav-simple nav-facet filtertype-res_format">
-                        <?php
-                        foreach ($child_categories as $child_category) {
-                          echo '<li class="nav-item news-category"><a href="' . get_category_link($child_category->cat_ID) . '" class="news-category__link">'. $child_category->name .'<span class="news-category__count">'. $child_category->count .'</span></a></li>';
-                        }
-                        ?>
-                      </ul>
-                    </nav>
-                    <p class="module-footer"> </p>
-                  </section>
-                <?php
-              }
+              foreach ($child_categories as $child_cat) : 
               ?>
-            </div>
-          </div>
+              <li class="sidebar-item">
+                <a href="<?php echo get_category_link($child_cat); ?>">
+                  <?php echo $child_cat->name; ?>  
+                </a>
+              </li>
+              <?php endforeach; ?>
+            </ul>
+            <?php endforeach; ?>
+          <?php } 
+          ?>
         </div>
-        <div class="col-md-8 news-content">
+        <div class="col-md-9 news-content">
           <div class="cards--post">
             <?php
             while ( have_posts() ) : the_post(); ?>

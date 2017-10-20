@@ -16,6 +16,11 @@
   }
 }
 
+.wp-caption {
+  max-width: 100%;
+  font-size: $font-size-small;
+}
+
 .article {
   line-height: $line-height-base;
   font-size: $font-size-base;
@@ -41,7 +46,7 @@
 }
 
 .article p {
-  margin: $base*2 auto $base*4;
+  margin: $base auto;
 }
 
 .article__iframe-wrapper {
@@ -63,4 +68,10 @@
     display: inline-block;
     margin: $base;
   }
+}
+
+.avatar {
+  margin: $base auto;
+  border-radius: 100%;
+  display: block;
 }

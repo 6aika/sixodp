@@ -16,6 +16,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
 
     server.vm.provision "ansible_local" do |ansible|
+      # Ansible is locked to version 2.3.2 as 2.4 is broken, once removed remember to remove lock from jenkins and cloudformation
+      ansible.version = "2.3.2.0"
+      ansible.install_mode = "pip"
       ansible.inventory_path = "inventories/vagrant"
       ansible.limit = "all"
       ansible.playbook = "deploy-all.yml"
@@ -24,7 +27,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
     server.vm.provider "virtualbox" do |vbox|
       vbox.gui = false
-      vbox.memory = 2048
+      vbox.memory = 3048
       vbox.customize ["modifyvm", :id, "--nictype1", "virtio"]
     end
   end
@@ -41,6 +44,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
 
     mainserver.vm.provision "ansible_local" do |ansible|
+      ansible.version = "2.3.2.0"
+      ansible.install_mode = "pip"
       ansible.inventory_path = "inventories/vagrant_multi"
       ansible.limit = "all"
       ansible.playbook = "deploy-mainserver.yml"
@@ -66,6 +71,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
 
     ckanserver.vm.provision "ansible_local" do |ansible|
+      ansible.version = "2.3.2.0"
+      ansible.install_mode = "pip"
       ansible.inventory_path = "inventories/vagrant_multi"
       ansible.limit = "all"
       ansible.playbook = "deploy-ckanserver.yml"

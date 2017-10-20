@@ -38,14 +38,13 @@
       "label": "Platform",
       "form_placeholder":"eg. android",
       "preset": "vocabulary_with_autocomplete",
-      "validators": "not_empty convert_to_list create_tags(platform)",
+      "validators": "convert_to_list create_tags(platform)",
       "form_attrs": {
         "data-module": "autocomplete",
         "data-module-tags": "",
         "data-module-source": "/api/2/util/tag/autocomplete?incomplete=?&vocabulary_id=platform"
       },
-      "description": "Platforms of the showcase.",
-      "required": true
+      "description": "Platforms of the showcase."
     },
     {
       "field_name": "keywords",
@@ -93,7 +92,7 @@
       "display_snippet": "repeating_link.html",
       "form_snippet": "repeating.html",
       "description": "Links to stores",
-      "validators": "not_empty repeating_text"
+      "validators": "repeating_text"
     },
     {
       "field_name": "notes_translated",
@@ -188,13 +187,15 @@
       "field_name": "notifier",
       "label": "Notifier",
       "form_placeholder": "Joe Bloggs",
-      "display_snippet": null
+      "display_snippet": null,
+      "required": true
     },
     {
       "field_name": "notifier_email",
       "label": "Notifier Email",
       "form_placeholder": "joe@example.com",
-      "display_snippet": null
+      "display_snippet": null,
+      "required": true
     },
     {
       "field_name": "private",

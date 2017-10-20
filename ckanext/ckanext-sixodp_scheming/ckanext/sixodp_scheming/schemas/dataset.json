@@ -9,9 +9,9 @@
       "label": "Title",
       "preset": "fluent_core_title_translated",
       "form_languages": ["fi", "en", "sv"],
-      "form_placeholder":"eg. A descriptive title",
+      "form_placeholder":"eg. A descriptive title for the dataset",
       "only_default_lang_required": true,
-      "description": "A short and descriptive title for the dataset. Do not utilize dates in the title but instead add multiple time-specific resources to the dataset in the next stage."
+      "description": "A short and descriptive title for the dataset in multiple languages. Try not to use dates when naming a dataset, since data from multiple years will usually be published as multiple resources in one dataset."
     },
     {
       "field_name": "name",
@@ -23,7 +23,7 @@
     {
       "field_name": "keywords",
       "label": "Tags",
-      "form_placeholder":"eg. every second week",
+      "form_placeholder":"E.g. transport, housing, buildings",
       "form_languages": ["fi", "en", "sv"],
       "preset": "fluent_vocabulary_with_autocomplete",
       "validators": "only_default_lang_required fluent_tags create_fluent_tags(keywords)",
@@ -33,7 +33,7 @@
         "data-module-source": "/api/2/util/tag/autocomplete?incomplete=?&vocabulary_id=keywords"
       },
       "only_default_lang_required": true,
-      "description": "Keywords or tags through which users are able to find this dataset easily through the search page or other datasets which have the same tag."
+      "description": "Descriptive keywords or tags through which users are able to find this dataset easily through the search. The input will suggest existing keywords in the portal. New keywords should utilize ontologies such as the generic finnish ontology YSO: finto.fi/yso/fi."
     },
     {
       "field_name": "geographical_coverage",
@@ -52,21 +52,21 @@
     {
       "field_name": "notes_translated",
       "preset": "fluent_core_markdown_translated",
-      "form_placeholder": "eg. A detailed description",
+      "form_placeholder": "E.g. A diverse and detailed description",
       "form_languages": ["fi", "en", "sv"],
       "label": "Description",
       "display_snippet": null,
       "only_default_lang_required": true,
-      "description": "An universal, compact and easy to understand description of the added dataset. Use as confining terms as possible to assist the user to understand what types of data, meters and dimensions the dataset contains."
+      "description": "An universal and easy to understand, but also diverse description of the added dataset. Describe the dataset creation process, use case and possible limitations and shortcomings as well as possible."
     },
     {
       "field_name": "external_urls",
       "preset": "repeating_text",
-      "label": "Links to additional information",
+      "label": "Links to additional information concerning the dataset",
       "form_blanks": 1,
       "display_snippet": "repeating_link.html",
       "form_snippet": "repeating.html",
-      "description": "Links to additional information concerning the dataset."
+      "description": "You may attach external websites or other documentation which could assist in interpreting the dataset."
     },
     {
       "field_name": "owner_org",
@@ -80,13 +80,14 @@
       "form_placeholder": "http://example.com/dataset.json",
       "display_property": "foaf:homepage",
       "display_snippet": "link.html",
-      "description": "The origin of the dataset."
+      "description": "The original author of the dataset. Can also be an external author such as Statistics Finland. The field can e.g. be used to describe a situation where the dataset is published by a single unit but it has multiple authors."
     },
     {
       "field_name": "maintainer",
       "label": "Maintainer",
       "form_placeholder": "Joe Bloggs",
-      "display_property": "dc:contributor"
+      "display_property": "dc:contributor",
+      "description": "The technical maintainer for the dataset. Can in practice be the maintaining unit, bureau or as an exception a single employee."
     },
     {
       "field_name": "maintainer_email",
@@ -95,7 +96,8 @@
       "display_property": "dc:contributor",
       "display_snippet": "email.html",
       "display_email_name_field": "maintainer",
-      "required": true
+      "required": true,
+      "description": "The email address for the maintaining party for the dataset. Use a mailing list or other similar means to direct the message to multiple recipients."
     },
     {
       "field_name": "maintainer_website",
@@ -110,20 +112,20 @@
       "form_snippet": "private.html",
       "display_snippet": null,
       "validators": "boolean_validator set_private_if_not_admin",
-      "description": "Private datasets will only be seen by the logged in users of the dataset's organization. Public datasets will be listed publicly through the search."
+      "description": "Private datasets will only be seen by the logged in users of the dataset's organization. The private status is used when preparing a new dataset for publication."
     },
     {
       "field_name": "date_released",
-      "label": "Created",
+      "label": "Published",
       "preset": "date",
       "required": true,
-      "description": "The date which will be shown as the publish date for this dataset."
+      "description": "The dataset publication date."
     },
     {
       "field_name": "date_updated",
       "label": "Updated",
       "preset": "date",
-      "description": "The date which will be shown as the last modified date for this dataset."
+      "description": "A manually maintained date which can be used to notify when the dataset has been updated."
     },
     {
       "field_name": "update_frequency",
@@ -137,7 +139,7 @@
         "data-module-tags": "",
         "data-module-source": "/api/2/util/tag/autocomplete?incomplete=?&vocabulary_id=update_frequency"
       },
-      "description": "A short description of how frequently the dataset will get updated."
+      "description": "The supposed update frequency for the dataset. The field will suggest similar values used in other datasets such as yearly, monthly or realtime. A new value can also be created if required."
     },
     {
       "field_name": "license_id",
@@ -152,19 +154,24 @@
       "label": "Reminder date",
       "preset": "date",
       "display_snippet": null,
-      "description": "A date when a reminder will be sent to a specified email address reminding to check this dataset. The email address can be changed in the CKAN admin config page."
+      "description": "A date when a reminder email will be sent to the system administrator reminding to check this dataset e.g. for a yearly update."
     },
     {
       "field_name": "global_id",
       "label": "Global ID",
-      "description": "An Id that is used in other services, so that this dataset can be matched to dataset in other service."
+      "description": "A global id can be assigned to identify the dataset in external services."
     },
     {
       "field_name": "search_synonyms",
       "label": "Search Synonyms",
       "display_snippet": null,
-      "description": "Synonyms for package search",
+      "description": "Keywords can be provided here to improve the findability of the dataset. E.g. words from spoken language can be provided to make the dataset searchable by those words.",
       "form_snippet": "textarea.html"
+    },
+    {
+      "field_name": "state",
+      "label": "state",
+      "preset": "state"
     }
   ],
   "resource_fields": [

@@ -5,17 +5,7 @@
   position: relative;
 
   &:after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba($brand-primary, 0.2); /* Old browsers */
-    background: -moz-linear-gradient(rgba($brand-primary, 0) 0%, rgba($brand-primary-extradark, 0.6) 60%, rgba(darken($brand-primary-extradark, 15%), 0.9) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(rgba($brand-primary, 0) 0%, rgba($brand-primary-extradark, 0.6) 60%, rgba(darken($brand-primary-extradark, 15%), 0.9) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(rgba($brand-primary, 0) 0%, rgba($brand-primary-extradark, 0.6) 60%, rgba(darken($brand-primary-extradark, 15%), 0.9) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    @include overlay();
   }
 }
 
@@ -95,4 +85,10 @@
   color: $brand-white;
   font-size: 3rem;
   text-shadow: 0 1px 4px $brand-gray;
+}
+
+.wrapper {
+  &.wrapper--categories {
+    padding: 0 $base*1.5;
+  }
 }

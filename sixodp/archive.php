@@ -21,7 +21,7 @@ get_header(); ?>
 
     <div class="page__hero"></div>
     <div class="page__content container">
-      <h1 class="heading--archive"><?php echo get_post_type_object(get_post_type())->labels->name; ?></h1>
+      <h1 class="heading--archive"><?php echo _e(get_post_type_object(get_post_type())->labels->name); ?></h1>
       <?php
       // Start the loop.
       while ( have_posts() ) : the_post();

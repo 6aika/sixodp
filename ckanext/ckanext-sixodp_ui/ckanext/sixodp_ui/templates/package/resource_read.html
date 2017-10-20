@@ -182,8 +182,7 @@
     {% snippet 'package/snippets/info.html', pkg=pkg %}
   {% endblock %}
 
-  {% block package_social %}
-    {% snippet "snippets/social.html" %}
+  {% block stats %}
   {% endblock %}
 
   {% block package_subscribe %}
@@ -194,4 +193,9 @@
       </section>
     </div>
   {% endblock %}
+
+  {% block package_social %}
+    {% snippet "snippets/social.html" %}
+  {% endblock %}
+
 {% endblock %}

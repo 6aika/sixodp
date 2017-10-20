@@ -255,6 +255,9 @@ def build_nav_main():
 
         if menu.get('children'):
             for child_item in menu.get('children'):
+                # If WP menu has links to non-existing pages
+                if child_item.get('url') is False:
+                    continue
                 # Parent will be set as active if any of its children is active
                 if check_if_active(menu, child_item):
                     active = True
@@ -281,3 +284,12 @@ def make_menu_item(menu_item, active):
     if active:
         return literal('<li class="active">') + link
     return literal('<li>') + link
+
+
+def get_search_tags(facets_dict, visible_fields):
+    tags = {}
+    for field in visible_fields:
+        if facets_dict.get('fields').get(field):
+            tags[field] = facets_dict.get('fields').get(field)
+
+    return tags

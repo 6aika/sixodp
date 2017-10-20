@@ -71,12 +71,15 @@
   padding-top: $base*2;
 }
 
-.contentbox__link {
+.contentbox__link,
+.contentbox__link:focus,
+.contentbox__link:active {
   color: $brand-white;
+  text-decoration: none;
 
   &:hover {
-    color: $brand-gray;
-    text-decoration: underline;
+    color: $brand-lightgray;
+    text-decoration: none;
   }
 }
 
