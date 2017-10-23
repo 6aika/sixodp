@@ -50,15 +50,7 @@ get_header(); ?>
             ?>
 
             <?php
-              if ($post_type->name === 'data_request') {
-                $categories[] = (object) array('cat_name' => _('Data Request'), 'link' => get_post_type_archive_link($post_type->name));
-              }
-              else if ($post_type->name === 'data_request') {
-                $categories[] = (object) array('cat_name' => _('Showcase Idea'), 'link' => get_post_type_archive_link($post_type->name));
-              }
-              else {
-                $categories = get_the_category();
-              }
+              $categories = get_the_category();
               if (sizeof($categories) > 0) :
             ?>
               <ul>
