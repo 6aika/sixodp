@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sixodp\n"
-"POT-Creation-Date: 2017-10-23 12:12:47+00:00\n"
+"POT-Creation-Date: 2017-10-23 17:52:13+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -29,12 +29,12 @@ msgstr ""
 msgid "Data Requests"
 msgstr ""
 
-#: archive-showcase_idea.php:29
-msgid "New showcase idea"
+#: archive-showcase_idea.php:24
+msgid "Showcase ideas"
 msgstr ""
 
-#: archive-showcase_idea.php:38
-msgid "Showcase ideas"
+#: archive-showcase_idea.php:25
+msgid "New showcase idea"
 msgstr ""
 
 #: data_request_form.php:27 showcase_idea_form.php:27
@@ -57,7 +57,7 @@ msgstr ""
 msgid "Name is required and must be over 3 characters long"
 msgstr ""
 
-#: data_request_form.php:62
+#: data_request_form.php:62 showcase_idea_form.php:62
 msgid "All data requests"
 msgstr ""
 
@@ -65,7 +65,7 @@ msgstr ""
 msgid "New Data Request"
 msgstr ""
 
-#: data_request_form.php:74 showcase_idea_form.php:77
+#: data_request_form.php:74 showcase_idea_form.php:70
 msgid "Thank you for submission."
 msgstr ""
 
@@ -76,11 +76,11 @@ msgid ""
 "be forwarded to person responsible for the data if possible."
 msgstr ""
 
-#: data_request_form.php:84 showcase_idea_form.php:87
+#: data_request_form.php:84 showcase_idea_form.php:80
 msgid "Title"
 msgstr ""
 
-#: data_request_form.php:86 showcase_idea_form.php:89
+#: data_request_form.php:86 showcase_idea_form.php:82
 msgid "eg. A descriptive title"
 msgstr ""
 
@@ -88,7 +88,7 @@ msgstr ""
 msgid "Your request"
 msgstr ""
 
-#: data_request_form.php:114 showcase_idea_form.php:117
+#: data_request_form.php:114 showcase_idea_form.php:110
 msgid "Name"
 msgstr ""
 
@@ -96,7 +96,7 @@ msgstr ""
 msgid "Your name will not be published with data request."
 msgstr ""
 
-#: data_request_form.php:129 showcase_idea_form.php:132
+#: data_request_form.php:129 showcase_idea_form.php:125
 msgid "Email"
 msgstr ""
 
@@ -104,7 +104,7 @@ msgstr ""
 msgid "Your email will not be published with data request."
 msgstr ""
 
-#: data_request_form.php:144 showcase_idea_form.php:147
+#: data_request_form.php:144 showcase_idea_form.php:140
 msgid "Submit"
 msgstr ""
 
@@ -247,7 +247,7 @@ msgstr ""
 msgid "Next week"
 msgstr ""
 
-#: partials/ajankohtaista-links.php:9 single.php:59
+#: partials/ajankohtaista-links.php:9 single.php:67
 msgid "Categories"
 msgstr ""
 
@@ -420,41 +420,37 @@ msgctxt "label"
 msgid "Search for:"
 msgstr ""
 
-#: showcase_idea_form.php:64
-msgid "All showcase ideas"
-msgstr ""
-
-#: showcase_idea_form.php:72
+#: showcase_idea_form.php:65
 msgid "New Showcase idea"
 msgstr ""
 
-#: showcase_idea_form.php:82
+#: showcase_idea_form.php:75
 msgid ""
 "Your showcase idea will be moderated, it may be modified or combined with "
 "similar ideas. Moderated ideas will be published on this site."
 msgstr ""
 
-#: showcase_idea_form.php:99
+#: showcase_idea_form.php:92
 msgid "Your idea"
 msgstr ""
 
-#: showcase_idea_form.php:122
+#: showcase_idea_form.php:115
 msgid "Your name will not be published with showcase idea."
 msgstr ""
 
-#: showcase_idea_form.php:137
+#: showcase_idea_form.php:130
 msgid "Your email will not be published with showcase idea."
 msgstr ""
 
-#: single.php:42
+#: single.php:42 single.php:54
 msgid "Data Request"
 msgstr ""
 
-#: single.php:43
+#: single.php:43 single.php:57
 msgid "Showcase Idea"
 msgstr ""
 
-#: single.php:88
+#: single.php:96
 msgid "Tags"
 msgstr ""
 

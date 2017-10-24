@@ -76,7 +76,7 @@ get_header(); ?>
           else {
             ?>
             <form action="" method="POST">
-              <p><?php _e('Your data request will be moderated, it may be modified or combined with similar requests. Moderated request will be published on this site and will be forwarded to person responsible for the data if possible.'); ?></p>
+              <p><?php _e('Your data request will be moderated, it may be modified or combined with similar requests. Moderated request will be published on this site and will be forwarded to person responsible for the data if possible.', 'sixodp'); ?></p>
 
               <div class="row">
                 <div class="col-xs-12">

@@ -74,12 +74,12 @@ get_header(); ?>
           <?php
 
           if ($welcome_page && sizeof($errors) == 0) {
-            _e('Thank you for submission.');
+            _e('Thank you for submission.', 'sixodp');
           }
           else {
             ?>
             <form action="" method="POST">
-              <p><?php _e('Your showcase idea will be moderated, it may be modified or combined with similar ideas. Moderated ideas will be published on this site.'); ?></p>
+              <p><?php _e('Your showcase idea will be moderated, it may be modified or combined with similar ideas. Moderated ideas will be published on this site.', 'sixodp'); ?></p>
 
               <div class="row">
                 <div class="col-xs-12">
