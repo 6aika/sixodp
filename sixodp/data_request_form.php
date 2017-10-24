@@ -59,7 +59,7 @@ get_header(); ?>
         <div class="sidebar col-sm-3">
           <ul>
             <li class="sidebar-item--highlight">
-              <a href="<?php echo get_post_type_archive_link( 'data_request' ); ?>"><?php _e('All data requests') ?>
+              <a href="<?php echo get_post_type_archive_link( 'data_request' ); ?>"><?php _e('All data requests', 'sixodp') ?>
                 <span class="sidebar-icon-wrapper">
                   <span class="fa fa-chevron-right"></span>
                 </span>
