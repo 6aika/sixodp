@@ -20,83 +20,62 @@ $category = get_queried_object();
   <div id="main" class="site-main" role="main">
     <?php get_template_part('partials/header-logos'); ?>
 
-    <div class="page__hero"></div>
-    <div class="page__hero__content container">
+    <div class="page-hero"></div>
+    <div class="page-hero-content container">
 
       <div class="wrapper">
-        <div class="container">
-
-          <div class="headingbar">
-            <h1 class="heading--main">
-              <a href="<?php echo get_category_link($parent_category) ?>"><?php echo $parent_category->name ?></a>
-              <?php if ($parent_category->term_id != $category->term_id) {
-                ?>
-                  <i class="material-icons">navigate_next</i>
-                  <span style="font-size: 2.2rem;">
-                    <?php echo $category->name ?>
-                  </span>
-                <?php
-              }
+        <div class="headingbar">
+          <h1 class="heading-main">
+            <a href="<?php echo get_category_link($parent_category) ?>"><?php echo $parent_category->name ?></a>
+            <?php if ($parent_category->term_id != $category->term_id) {
               ?>
-            </h1>
-          </div>
+                <i class="material-icons">navigate_next</i>
+                <span><?php echo $category->name ?></span>
+              <?php
+            }
+            ?>
+          </h1>
+        </div>
 
-          <div class="row">
-            <?php include( locate_template('partials/tuki-sidebar.php') ); ?>
+        <div class="row">
+          <?php include( locate_template('partials/tuki-sidebar.php') ); ?>
 
-            <div class="col-xs-12 col-md-9 col-sm-7">
-              <div class="cards--post">
+          <div class="col-xs-12 col-md-9 col-sm-7">
+            <div class="cards cards--2 cards--image">
+              <?php
+              while ( have_posts() ) : the_post(); ?>
+
+              <a href="<?php the_permalink(); ?>" class="card">
                 <?php
-                while ( have_posts() ) : the_post(); ?>
-
-                <div class="card--post">
-                  <?php
-                    if (has_post_thumbnail( $post->ID ) ):
-                      $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
-                    else :
-                      $image = array("/assets/images/frontpage.jpg");
-                    endif;
-                  ?>
-                  <a href="<?php the_permalink(); ?>" class="post__img--link" style="background-image: url(<?php echo $image[0]; ?>);"></a>
-                  <h4 class="post__title">
-                    <a class="post__link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                  </h4>
-                  <div class="post__meta">
-                    <span><?php echo parse_date(get_the_date('c')); ?></span>
-                  </div>
-                  <div class="post__categories">
-                    <ul>
-                      <?php
-                        if ( count(get_the_category()) > 0 ) {
-                          foreach ( get_the_category() as $cat ) { ?>
-                            <li><a href="<?php echo get_category_link($cat->cat_ID) ?>"><?php echo $cat->name; ?></a></li><?php
-                          }
-                        }
-                      ?>
-                    </ul>
-                  </div>
-                  <div class="post__footer">
-                  </div>
-                </div>
-
-                <?php
-                endwhile;
-                wp_reset_postdata();
+                  if (has_post_thumbnail( $post->ID ) ):
+                    $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
+                  else :
+                    $image = array("/assets/images/frontpage.jpg");
+                  endif;
                 ?>
+                <div class="card-image" style="background-image: url(<?php echo $image[0]; ?>);"></div>
+                <div class="card-content">
+                  <h3 class="card-title"><?php the_title(); ?></h3>
+                </div>
+              </a>
+
+              <?php
+              endwhile;
+              wp_reset_postdata();
+              ?>
+            </div>
+            <div class="paginate">
+              <div class="paginate-prev">
+                <?php previous_posts_link() ?>
               </div>
-              <div class="paginate">
-                <div class="paginate-prev">
-                  <?php previous_posts_link() ?>
-                </div>
-                <div class="paginate-next">
-                  <?php next_posts_link() ?>
-                </div>
+              <div class="paginate-next">
+                <?php next_posts_link() ?>
               </div>
             </div>
-          </div><!-- .row -->
-        </div><!-- .container -->
+          </div>
+        </div><!-- .row -->
       </div><!-- .wrapper -->
-    </div><!-- .page__hero__content -->
+    </div><!-- .page-hero-content -->
   </main><!-- .site-main -->
 </div><!-- .content-area -->
 <?php get_footer(); ?>

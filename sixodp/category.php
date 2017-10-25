@@ -22,90 +22,84 @@ get_header();
   <main id="main" class="site-main site-main--news" role="main">
     <?php get_template_part('partials/header-logos'); ?>
 
-    <h1 class="page-title"><?php echo $category->name ?></h1>
-    <div class="container">
-      <div class="row">
-        <div class="sidebar col-md-3">
-          <?php
-            $categories=get_categories(array(
-              'parent' => $grandparent_id,
-              'hide_empty' => false,
-            ));
+    <div class="page-hero"></div>
+    <div class="page-hero-content container">
+      <div class="wrapper">
 
-            if (count($categories) > 0) {
-          ?>
-            <?php foreach ( $categories as $cat ) : 
-            $child_categories = get_categories(array('parent' => $cat->term_id, 'hide_empty' => false));
-            ?>
-            <ul>
-              <li class="sidebar-item--highlight">
-                <a href="<?php echo get_category_link($cat); ?>">
-                  <?php echo $cat->cat_name; ?>
-                  <span class="sidebar-icon-wrapper">
-                    <span class="fa fa-chevron-right"></span>
-                  </span>
-                </a>
-              </li>
-              <?php
-              foreach ($child_categories as $child_cat) : 
-              ?>
-              <li class="sidebar-item">
-                <a href="<?php echo get_category_link($child_cat); ?>">
-                  <?php echo $child_cat->name; ?>  
-                </a>
-              </li>
-              <?php endforeach; ?>
-            </ul>
-            <?php endforeach; ?>
-          <?php } 
-          ?>
+        <div class="headingbar">
+          <h1 class="heading-main">
+            <?php echo $category->name ?>
+          </h1>
         </div>
-        <div class="col-md-9 news-content">
-          <div class="cards--post">
-            <?php
-            while ( have_posts() ) : the_post(); ?>
 
-            <div class="card--post">
-              <?php
-                if (has_post_thumbnail( $post->ID ) ):
-                  $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
-                else :
-                  $image = array("/assets/images/frontpage.jpg");
-                endif;
+        <div class="row">
+          <div class="sidebar col-md-3">
+            <?php
+              $categories=get_categories(array(
+                'parent' => $grandparent_id,
+                'hide_empty' => false,
+              ));
+
+              if (count($categories) > 0) {
+            ?>
+              <?php foreach ( $categories as $cat ) :
+              $child_categories = get_categories(array('parent' => $cat->term_id, 'hide_empty' => false));
               ?>
-              <a href="<?php the_permalink(); ?>" class="post__img--link" style="background-image: url(<?php echo $image[0]; ?>);"></a>
-              <h4 class="post__title">
-                <a class="post__link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-              </h4>
-              <div class="post__meta">
-                <span><?php echo parse_date(get_the_date('c')); ?></span>
-              </div>
-              <div class="post__categories">
-                <ul>
-                  <?php
-                    if ( count(get_the_category()) > 0 ) {
-                      foreach ( get_the_category() as $cat ) { ?>
-                        <li><a href="<?php echo get_category_link($cat->cat_ID) ?>"><?php echo $cat->name; ?></a></li><?php
-                      }
-                    }
-                  ?>
-                </ul>
-              </div>
-              <div class="post__footer">
-              </div>
-            </div>
-
-            <?php
-            endwhile;
-            wp_reset_postdata();
+              <ul>
+                <li class="sidebar-item--highlight">
+                  <a href="<?php echo get_category_link($cat); ?>">
+                    <?php echo $cat->cat_name; ?>
+                    <span class="sidebar-icon-wrapper">
+                      <span class="fa fa-chevron-right"></span>
+                    </span>
+                  </a>
+                </li>
+                <?php
+                foreach ($child_categories as $child_cat) :
+                ?>
+                <li class="sidebar-item">
+                  <a href="<?php echo get_category_link($child_cat); ?>">
+                    <?php echo $child_cat->name; ?>
+                  </a>
+                </li>
+                <?php endforeach; ?>
+              </ul>
+              <?php endforeach; ?>
+            <?php }
             ?>
           </div>
-          <div class="paginate">
-            <div class="paginate-prev">
-              <?php previous_posts_link() ?>
+          <div class="col-md-9 news-content">
+            <div class="cards cards--2 cards--image">
+              <?php
+              while ( have_posts() ) : the_post(); ?>
+
+              <a class="card" href="<?php the_permalink(); ?>">
+                <?php
+                  if (has_post_thumbnail( $post->ID ) ):
+                    $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
+                  else :
+                    $image = array("/assets/images/frontpage.jpg");
+                  endif;
+                ?>
+                <div class="card-image" style="background-image: url(<?php echo $image[0]; ?>);"></div>
+                <div class="card-content">
+                  <h4 class="card-title text-left"><?php the_title(); ?></h4>
+                  <span class="card-timestamp"><?php echo parse_date(get_the_date('c')); ?></span>
+                </div>
+              </a>
+
+              <?php
+              endwhile;
+              wp_reset_postdata();
+              ?>
             </div>
-            <div class="paginate-next">
-              <?php next_posts_link() ?>
+            <div class="paginate">
+              <div class="paginate-prev">
+                <?php previous_posts_link() ?>
+              </div>
+              <div class="paginate-next">
+                <?php next_posts_link() ?>
+              </div>
             </div>
           </div>
         </div>

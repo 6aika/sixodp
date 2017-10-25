@@ -32,7 +32,7 @@
   </div>
 
   <div class="container">
-    <div class="row cards cards--4 cards--showcase">
+    <div class="row cards cards--4 cards--image cards--image--dark">
       <?php
         $showcases = get_latest_showcases(4);
         foreach ($showcases as $showcase) {
@@ -63,19 +63,19 @@
       <?php foreach ( get_latest_datasets() as $index => $dataset ) : ?>
         <?php if ($index % 3 === 0) echo '</div><div class="row cards">'; ?>
         <div class="card card-hover" onclick="window.location.href='<?php echo CKAN_BASE_URL.'/'.get_current_locale_ckan().'/dataset/'.$dataset['name']; ?>'">
-          <h3 class="card__title">
+          <h3 class="card-title">
             <a href="<?php echo CKAN_BASE_URL.'/'.get_current_locale_ckan().'/dataset/'.$dataset['name']; ?>">
               <?php echo get_translated($dataset, 'title'); ?>
             </a>
           </h3>
 
-          <p class="card__description">
-            <span class="card__timestamp"><?php echo parse_date($dataset['date_released']); ?></span><br />
+          <p>
+            <span class="card-timestamp"><?php echo parse_date($dataset['date_released']); ?></span><br />
             <?php echo wp_html_excerpt( strip_shortcodes(render_markdown(get_translated($dataset, 'notes'))), 240, '...'); ?>
           </p>
 
-          <div class="card__meta">
-            <span class="card__categorylink">
+          <div class="card-meta">
+            <span>
               <span class="fa fa-database"></span>&nbsp;<?php echo _e('Dataset', 'sixodp'); ?>
             </span>
           </div>

@@ -14,7 +14,7 @@
         $teema_category = get_translated_category_by_slug('teemat');
         foreach ( get_categories(array('parent' => $tuki_category->term_id, 'exclude' => $teema_category->term_id, 'hide_empty' => false)) as $category ) : ?>
           <div class="col-md-4 contentbox">
-            <h1 class="heading--main">
+            <h1 class="heading-content">
               <a class="contentbox__link" href="<?php echo get_category_link($category->term_id);; ?>">
                 <?php echo $category->name; ?>
               </a>

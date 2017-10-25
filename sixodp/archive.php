@@ -19,8 +19,8 @@ get_header(); ?>
       get_template_part('partials/header-logos');
     ?>
 
-    <div class="page__hero"></div>
-    <div class="page__content container">
+    <div class="page-hero"></div>
+    <div class="page-content container">
       <h1 class="heading--archive"><?php echo _e(get_post_type_object(get_post_type())->labels->name); ?></h1>
       <?php
       // Start the loop.

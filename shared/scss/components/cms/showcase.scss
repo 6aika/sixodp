@@ -38,23 +38,6 @@
   border-radius: $border-radius-small;
 }
 
-.showcase__content {
-  padding: $base;
-  height: calc(100% - 180px);
-  position: relative;
-  background: $showcase-card-bg;
-  border-bottom-left-radius: $border-radius-base;
-  border-bottom-right-radius: $border-radius-base;
-}
-
-.showcase__title {
-  text-align: center;
-  font-family: $font-heading;
-  font-size: $font-size-large;
-  font-weight: $headings-font-weight;
-  margin: 0;
-}
-
 .showcase__text {
   color: $showcase-card-text-color;
   height: $base*12;

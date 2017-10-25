@@ -19,8 +19,8 @@ get_header(); ?>
       get_template_part('partials/header-logos');
     ?>
 
-    <div class="page__hero"></div>
-    <div class="page__content page__hero__content container">
+    <div class="page-hero"></div>
+    <div class="page-content page-hero-content container">
       <div class="row">
         <div class="col-md-3 sidebar">
           <ul>

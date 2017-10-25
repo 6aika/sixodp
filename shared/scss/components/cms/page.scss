@@ -13,7 +13,7 @@
   }
 }
 
-.page__hero {
+.page-hero {
   height: $base*25;
   background: url('/assets/images/page_bgr.jpg') no-repeat center center;
   background-size: cover;
@@ -35,12 +35,13 @@
   }
 }
 
-.page__hero__content {
+.page-hero-content {
   position: relative;
   min-height: $base*50;
   z-index: 1;
   margin-top: 0;
   background: $brand-white;
+  padding-bottom: $base*4;
   @extend %box-shadow;
 
   @media(min-width: $width-md) {
@@ -48,12 +49,12 @@
   }
 }
 
-.page__content {
+.page-content {
   @extend %pagew;
   padding: $base*4 $base*2;
 }
 
-.page__breadcrumb {
+.page-breadcrumb {
   margin: 0;
   border-bottom: 1px solid $gray-lighter;
   height: $base*6;
@@ -81,7 +82,7 @@
   }
 }
 
-.page__body {
+.page-body {
   position: relative;
   padding-top: $base*6;
 }
