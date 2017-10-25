@@ -4,11 +4,9 @@
   *
   */
 ?>
-<div class="card card--showcase">
-  <a href="<?php echo $showcaseUrl; ?>" class="showcase__img--link" style="background-image: url(<?php echo $imgUrl; ?>);"></a>
-  <div class="showcase__content">
-    <h4 class="showcase__title">
-      <a class="showcase__link" href="<?php echo $showcaseUrl; ?>"><?php echo $showcase['title']; ?></a>
-    </h4>
+<a class="card" href="<?php echo $showcaseUrl; ?>">
+  <div class="card-image" style="background-image: url(<?php echo $imgUrl; ?>);"></div>
+  <div class="card-content">
+    <h4 class="card-title"><?php echo $showcase['title']; ?></h4>
   </div>
-</div>
+</a>

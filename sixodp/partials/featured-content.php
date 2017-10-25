@@ -32,7 +32,7 @@
   </div>
 
   <div class="container">
-    <div class="row cards cards--4 cards--showcase">
+    <div class="row cards cards--4 cards--image cards--image--dark">
       <?php
         $showcases = get_latest_showcases(4);
         foreach ($showcases as $showcase) {
@@ -63,7 +63,7 @@
       <?php foreach ( get_latest_datasets() as $index => $dataset ) : ?>
         <?php if ($index % 3 === 0) echo '</div><div class="row cards">'; ?>
         <div class="card card-hover" onclick="window.location.href='<?php echo CKAN_BASE_URL.'/'.get_current_locale_ckan().'/dataset/'.$dataset['name']; ?>'">
-          <h3 class="card__title">
+          <h3 class="card-title">
             <a href="<?php echo CKAN_BASE_URL.'/'.get_current_locale_ckan().'/dataset/'.$dataset['name']; ?>">
               <?php echo get_translated($dataset, 'title'); ?>
             </a>

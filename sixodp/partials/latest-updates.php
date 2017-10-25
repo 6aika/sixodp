@@ -17,7 +17,7 @@
           <?php if ($index % 3 === 0) echo '</div><div class="row cards">'; ?>
           <div class="card card-hover card-hover-light" onclick="window.location.href='<?php echo $item['link']?>'">
 
-            <h3 class="card__title">
+            <h3 class="card-title">
               <a href="<?php echo $item['link'] ?>">
                 <?php echo get_translated($item, 'title'); ?>
               </a>
