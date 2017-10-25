@@ -54,12 +54,12 @@ get_header(); ?>
       get_template_part('partials/header-logos');
     ?>
 
-    <div class="page__hero"></div>
-    <div class="page__hero__content container">
+    <div class="page-hero"></div>
+    <div class="page-hero-content container">
       <div class="wrapper">
 
         <div class="headingbar">
-          <h1 class="heading--main">
+          <h1 class="heading-main">
             <?php _e('New Data Request', 'sixodp') ?>
           </h1>
         </div>
@@ -75,7 +75,7 @@ get_header(); ?>
                 </a>
               </li>
           </div>
-          <div class="article__wrapper col-xs-12 col-sm-9">
+          <div class="article-wrapper col-xs-12 col-sm-9">
             <?php
 
             if ($welcome_page && sizeof($errors) == 0) {

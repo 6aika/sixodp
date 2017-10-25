@@ -33,9 +33,14 @@ a {
   @include heading;
 }
 
-.heading--main {
+.heading-main {
   @include heading();
   font-size: 3rem;
+}
+
+.heading-content {
+  @extend .heading-main;
+  margin-top: 0;
 }
 
 .heading--inverse {
@@ -77,5 +82,5 @@ a {
 }
 
 .heading--archive {
-  @extend .heading--main;
+  @extend .heading-main;
 }

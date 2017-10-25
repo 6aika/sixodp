@@ -4,9 +4,9 @@
   */
 ?>
 
-<div class="page__body">
-  <h1 class="heading--main"><?php the_title(); ?></h1>
-  <div class="page__text article"><?php the_content(); ?></div>
+<div class="page-body">
+  <h1 class="heading-main"><?php the_title(); ?></h1>
+  <div class="article"><?php the_content(); ?></div>
 
   <?php
     // Get the board id for retrieving the lists

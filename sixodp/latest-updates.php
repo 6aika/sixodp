@@ -52,9 +52,9 @@ get_header(); ?>
       get_template_part('partials/header-logos');
     ?>
 
-    <div class="page__hero"></div>
-    <div class="page__hero__content container">
-      <h1 class="heading--main"><?php _e('Latest updates', 'sixodp') ?></h1>
+    <div class="page-hero"></div>
+    <div class="page-hero-content container">
+      <h1 class="heading-main"><?php _e('Latest updates', 'sixodp') ?></h1>
       <form action="" method="GET">
         <input type="checkbox" value="datasets" name="types[]" <?php if ($types['datasets']) echo 'checked="checked"' ?> /> <?php _e('Datasets','sixodp') ?>
         <input type="checkbox" value="showcases" name="types[]" <?php if ($types['showcases']) echo 'checked="checked"' ?> /> <?php _e('Applications','sixodp') ?>

@@ -19,8 +19,8 @@ get_header(); ?>
       get_template_part('partials/header-logos');
     ?>
 
-    <div class="page__hero"></div>
-    <div class="page__content page__hero__content container">
+    <div class="page-hero"></div>
+    <div class="page-content page-hero-content container">
       <?php
       // Start the loop.
       while ( have_posts() ) : the_post();
@@ -128,7 +128,7 @@ get_header(); ?>
             </ul>
           </div>
           <div class="col-md-9 news-content">
-            <h1 class="heading--main"><?php the_title() ?></h1>
+            <h1 class="heading-content"><?php the_title() ?></h1>
             <article class="article"><?php the_content() ?></article>
 
             <div class="addthis_toolbox">

@@ -22,7 +22,7 @@ get_header(); ?>
     ?>
 
     <div class="container">
-      <h1 class="heading--main"><?php _e('Latest updates', 'sixodp') ?></h1>
+      <h1 class="heading-main"><?php _e('Latest updates', 'sixodp') ?></h1>
     </div>
     <?php get_template_part( 'partials/horizontal-accordion' ); ?>
 
@@ -30,7 +30,7 @@ get_header(); ?>
 
     <div class="wrapper--twitterfeed">
       <div class="container">
-        <h2 class="heading--main" style="margin-bottom:-20px;"><?php _e('Twitter', 'sixodp') ?></h2>
+        <h2 class="heading-main"><?php _e('Twitter', 'sixodp') ?></h2>
       </div>
       <?php
         echo do_shortcode('[custom-twitter-feeds num=12 class="twitterfeed" showheader=false showbutton=false]');

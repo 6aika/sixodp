@@ -4,8 +4,8 @@
   */
 ?>
 
-<div class="article__wrapper col-xs-12 col-sm-9">
-  <h1 class="heading--main" style="margin-top: 0;"><?php the_title(); ?></h1>
+<div class="article-wrapper col-xs-12 col-sm-9">
+  <h1 class="heading-content"><?php the_title(); ?></h1>
   <article class="article" role="article">
     <?php the_content(); ?>
   </article>

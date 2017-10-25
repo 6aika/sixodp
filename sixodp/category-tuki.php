@@ -20,12 +20,12 @@ $category = get_queried_object();
   <div id="main" class="site-main" role="main">
     <?php get_template_part('partials/header-logos'); ?>
 
-    <div class="page__hero"></div>
-    <div class="page__hero__content container">
+    <div class="page-hero"></div>
+    <div class="page-hero-content container">
 
       <div class="wrapper">
         <div class="headingbar">
-          <h1 class="heading--main">
+          <h1 class="heading-main">
             <a href="<?php echo get_category_link($parent_category) ?>"><?php echo $parent_category->name ?></a>
             <?php if ($parent_category->term_id != $category->term_id) {
               ?>
@@ -75,7 +75,7 @@ $category = get_queried_object();
           </div>
         </div><!-- .row -->
       </div><!-- .wrapper -->
-    </div><!-- .page__hero__content -->
+    </div><!-- .page-hero-content -->
   </main><!-- .site-main -->
 </div><!-- .content-area -->
 <?php get_footer(); ?>

@@ -69,13 +69,13 @@
             </a>
           </h3>
 
-          <p class="card__description">
+          <p>
             <span class="card-timestamp"><?php echo parse_date($dataset['date_released']); ?></span><br />
             <?php echo wp_html_excerpt( strip_shortcodes(render_markdown(get_translated($dataset, 'notes'))), 240, '...'); ?>
           </p>
 
-          <div class="card__meta">
-            <span class="card__categorylink">
+          <div class="card-meta">
+            <span>
               <span class="fa fa-database"></span>&nbsp;<?php echo _e('Dataset', 'sixodp'); ?>
             </span>
           </div>

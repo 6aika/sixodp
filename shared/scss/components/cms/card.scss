@@ -85,7 +85,6 @@ $card-border-radius: $border-radius-small;
 
     .card-title {
       color: $card-link-color;
-      text-align: center;
       margin: 0;
     }
   }
@@ -115,7 +114,7 @@ $card-border-radius: $border-radius-small;
   background-position: center center;
 }
 
-.card__meta {
+.card-meta {
   border-top: 1px solid $card-border-color;
   padding: $base*1.5 0;
   font-size: $font-size-base;

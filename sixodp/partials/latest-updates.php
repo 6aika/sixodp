@@ -23,12 +23,12 @@
               </a>
             </h3>
 
-            <p class="card__description">
+            <p>
               <span class="card-timestamp"><?php echo parse_date($item['date_updated']); ?></span><br />
               <?php echo wp_html_excerpt( strip_shortcodes(render_markdown(get_translated($item, 'notes'))), 240, '...'); ?>
             </p>
 
-            <div class="card__meta">
+            <div class="card-meta">
               <?php
                 $label = is_array($item['type']) ? $item['type']['label'] : $item['type'];
                 switch ($label) {
