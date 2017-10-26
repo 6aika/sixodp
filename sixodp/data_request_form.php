@@ -17,6 +17,9 @@ $email = '';
 $name = '';
 
 if (isset($_POST['data_request_submit_form'])) {
+
+  $recaptcha_valid = apply_filters( 'recaptcha_valid' , null )  !== false;
+
   $content = $_POST['data_request_content'];
   $title = $_POST['data_request_title'];
   $name = $_POST['data_request_name'];
@@ -29,6 +32,8 @@ if (isset($_POST['data_request_submit_form'])) {
   if (empty($email)) $errors['email'] = __('Email is required', 'sixodp');
   else if (is_email($email) === false) $errors['email'] = __('Email must be valid', 'sixodp');
   if (empty($name) or strlen($name) < 3) $errors['name'] = __('Name is required and must be over 3 characters long', 'sixodp');
+
+  if ($recaptcha_valid === false ) $errors['recaptcha'] = __('Recaptcha must be validated', 'sixodp');
 
   if (sizeof($errors) == 0) {  
     wp_insert_post(array(
@@ -151,6 +156,20 @@ get_header(); ?>
                     <hr>
                     <button type="submit" class="btn btn-primary" name="data_request_submit_form"><?php _e('Submit', 'sixodp');?></button>
                   </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-md-8">
+                        <div class="control-group control-medium <?php if (isset($errors['recaptcha'])) echo "error" ?>">
+                            <?php
+                            if (isset($errors['recaptcha'])) echo '<span class="error-block">'. $errors['recaptcha'] .'</span>';
+                            $attr = array(
+                                'data-theme' => 'light',
+                            );
+                            do_action( 'recaptcha_print' , $attr );
+                            ?>
+                        </div>
+                    </div>
                 </div>
               </form>
               <?php

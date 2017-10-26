@@ -142,6 +142,17 @@
     WP_CLI_CONFIG_PATH: /opt/wp-cli/config.yml
     WP_CLI_PACKAGES_DIR: /opt/wp-cli/packages
 
+
+- block:
+  - name: Configure ReCaptcha sitekey
+    command: wp option update recaptcha_publickey {{ recaptcha_sitekey }} --path=/opt/wordpress
+
+  - name: Configure ReCaptcha sitekey
+    command: wp option update recaptcha_privatekey {{ secret.recaptcha_secret }} --path=/opt/wordpress
+
+  when: secret.recaptcha_secret is defined
+  become_user: www-data
+
 - name: Create symbolic link to sixodp theme
   file:
     src: /vagrant/sixodp
