@@ -10,6 +10,7 @@ ckan_patches:
   - { file: "package_group_list_fix" }
   - { file: "update_to_bootstrap_3" }
   - { file: "bs3-modal" }
+  - { file: "enable_multiple_image_uploads" }
 
 files_created_by_patches:
   - { file: '/usr/lib/ckan/default/src/ckan/ckan/lib/csrf_token.py'}
