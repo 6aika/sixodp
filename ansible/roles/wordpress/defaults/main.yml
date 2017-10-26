@@ -11,6 +11,7 @@ wordpress_plugins:
   - google-analytics-dashboard-for-wp
   - wpcustom-category-image
   - disqus-comment-system
+  - wp-recaptcha-integration
 
 polylang_languages: 
   - { name: 'Suomi', code: 'fi', locale: 'fi', flag: 'fi' }
