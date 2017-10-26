@@ -60,7 +60,7 @@ def sendNewShowcaseNotifications(showcase_name):
     message_body = _('A user has submitted a new showcase') + ': ' + showcase_url
 
     for email in recipient_emails:
-        mail_recipient(email, email, _('New showcase notification'), message_body)
+        mail_recipient("", email, _('New showcase notification'), message_body)
 
 
 class Sixodp_ShowcasesubmitController(p.toolkit.BaseController):
