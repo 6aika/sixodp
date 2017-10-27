@@ -39,7 +39,7 @@ ckan.module('statistics', function($){
           nameField: 'title_translated',
           dateField: 'date_released',
           skip: function (dataset) {
-            return !!dataset.private
+            return false
           }
         },
         apps: {
