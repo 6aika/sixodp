@@ -25,7 +25,7 @@ Api.prototype.getAllData = function (callback, delay) {
   return Promise.all([
     self.get('group_tree'),
     self.get('group_list?all_fields=true&include_extras=true'),
-    self.get('package_search'),
+    self.get('package_search?include_private=true'),
     self.get('ckanext_showcase_list?include_private=false')
   ])
   .spread(function(organizations, categories, datasets, apps) {
