@@ -132,7 +132,7 @@ DatasetSection.prototype.updateSectionData = function(context, dateRange) {
   var dateQuery = '?start_date=' + moment(dateRange[0]).format('DD-MM-YYYY') + '&end_date=' + moment(dateRange[1]).format('DD-MM-YYYY');
 
   return Promise.all([
-    context.api.get('most_visited_packages' + dateQuery)
+    context.api.get('most_visited_packages' + dateQuery + '&type=dataset')
     .then(function(response) {
       var datasets = response.packages;
       var result = [];
