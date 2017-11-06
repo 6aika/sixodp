@@ -222,7 +222,7 @@
 
 .statistics-section {
   min-height: 600px;
-  padding: $padding-large-horizontal;
+  padding: 0 $padding-small-horizontal;
   position: relative;
 
   @media(min-width: $width-sm) {

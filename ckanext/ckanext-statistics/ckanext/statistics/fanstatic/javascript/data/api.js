@@ -110,7 +110,7 @@ Api.prototype._preprocess = function (data) {
     for (iResource in dataset.resources) {
       var resource = dataset.resources[iResource]
       // Add the file format of the resource into the list of formats if it's not there yet
-      if (data.formats.indexOf(resource.format) === -1) {
+      if (resource.format && data.formats.indexOf(resource.format) === -1) {
         data.formats.push(resource.format)
       }
     }

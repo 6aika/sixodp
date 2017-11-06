@@ -18,7 +18,7 @@ function TopHistogram (params) {
   self._schema = params.schema
 
   // Mutable
-  var barHeight = params.barHeight || 50 // Default height
+  var barHeight = params.barHeight || 75 // Default height
   var barCount = 10
   var contentHeight = barHeight * barCount + self._props.margin.top + self._props.margin.bottom
 
@@ -110,7 +110,7 @@ TopHistogram.prototype.resize = function (contentWidth, barHeight) {
 
   // Area for data
   self._state.dataArea = {
-    width: self._state.contentArea.width - self._props.margin.left - self._props.margin.right,
+    width: self._state.contentArea.width - self._props.margin.right,
     height: self._state.contentArea.height - self._props.margin.top - self._props.margin.bottom,
   }
 
