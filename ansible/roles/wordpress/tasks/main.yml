@@ -10,6 +10,16 @@
     mode: 0755
     checksum: "{{ wp_cli_checksum }}"
 
+- block:
+  - name: Check WP-CLI version
+    command: wp cli version --yes --allow-root
+    register: results
+
+  - name: Update WP CLI
+    command: wp cli update --yes --allow-root
+    when: results.stdout | regex_search('(?<=WP-CLI.)(.*)') < wp_cli_version
+
+  become: yes
 
 - name: Create database
   mysql_db:
