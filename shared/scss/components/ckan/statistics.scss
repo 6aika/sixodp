@@ -94,23 +94,11 @@
 // Nav
 
 .statistics-nav {
-  background-color: $brand-white;
-  border-bottom: solid $brand-primary 1px;
+  background-color: transparent;
   padding: $padding-base-vertical $padding-base-horizontal;
   text-align: center;
   width: 100%;
   z-index: 1;
-
-  &.affix {
-    top: 0;
-  }
-  &.affix-top {
-    position: absolute;
-  }
-  &.affix-bottom {
-    position: absolute;
-    top: auto;
-  }
 
   li {
     display: inline-block;
@@ -258,9 +246,9 @@
 .summary-section {
   background-color: $gray-lighter;
   color: $text-color;
-  min-height: 400px;
-  padding-top: 200px;
-  padding-bottom: 150px;
+  min-height: 200px;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 .summary-section .statistics-section-content {
   padding: 0px;
@@ -388,7 +376,6 @@
 // Attention numbers
 
 .attention-numbers {
-  margin-top: 50px;
   text-align: center;
 }
 

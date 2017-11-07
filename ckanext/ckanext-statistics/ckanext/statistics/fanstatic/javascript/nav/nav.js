@@ -47,7 +47,7 @@ function StatisticsNav (params) {
     endDateFilter: $('.js-statistics-filter-end-date')
   };
   self._elem.inputsD3 = {};
-  for (key in self._elem.inputs) {
+  for (var key in self._elem.inputs) {
     self._elem.inputsD3[key] = d3.select(self._elem.inputs[key].get(0));
   }
 
@@ -83,7 +83,6 @@ StatisticsNav.prototype.onHashChange = function (hash) {
 
   self._scrollToSection(section);
   self._highlightSection(section);
-  self._updateFilterVisibility(section.id);
   self._state.selectedSectionId = section.id
 };
 
@@ -134,7 +133,6 @@ StatisticsNav.prototype.onScroll = function (y) {
 
   if (self._state.selectedSectionId !== newActiveSection.id) {
     self._highlightSection(newActiveSection);
-    self._updateFilterVisibility(newActiveSection.id);
     self._state.selectedSectionId = newActiveSection.id;
     self._callbacks.broadcastHashState(newActiveSection.id)
   }
@@ -143,10 +141,9 @@ StatisticsNav.prototype.onScroll = function (y) {
 
 StatisticsNav.prototype._getSectionByHash = function (hash) {
   var self = this;
-  var section = self._sections.find(function (section) {
+  return self._sections.find(function (section) {
     return section.id == hash;
   });
-  return section;
 };
 
 
@@ -219,7 +216,7 @@ StatisticsNav.prototype._updateDateRangeQuicklinks = function (maxDateRange) {
     }
   };
 
-  for (id in self._quicklinks) {
+  for (var id in self._quicklinks) {
     var quicklink = self._quicklinks[id];
     if (
       quicklink.title === self._texts.wholeDatespan
@@ -287,7 +284,7 @@ StatisticsNav.prototype._addOrganizationsWithChildren = function (organizations,
   organizations.forEach(function(organization) {
     result.push({
       value: organization.id,
-      label: parentText + organization.title,
+      label: parentText + organization.title
     });
     result = result.concat(self._addOrganizationsWithChildren(organization.children, parentText + organization.title + ' > '))
   });
@@ -314,30 +311,13 @@ StatisticsNav.prototype._setCategories = function (categories) {
   .attr('value', function (d) {
     return d.id;
   })
-}
-
+};
 
 StatisticsNav.prototype._highlightSection = function (section) {
   var self = this;
   self._elem.navItems.find('a').removeClass('active');
   section.navLink.addClass('active');
 };
-
-
-StatisticsNav.prototype._updateFilterVisibility = function (sectionId) {
-  var self = this;
-  // Filters
-  //  || self._state.selectedSectionId === 'summary' || self._state.selectedSectionId === ''
-  if (sectionId === 'datasets') {
-    self._elem.inputs.organizationFilter.slideDown();
-    self._elem.inputs.categoryFilter.slideDown();
-  }
-  else {
-    self._elem.inputs.organizationFilter.slideUp();
-    self._elem.inputs.categoryFilter.slideUp();
-  }
-};
-
 
 StatisticsNav.prototype._scrollToSection = function (section) {
   var self = this;
@@ -347,17 +327,9 @@ StatisticsNav.prototype._scrollToSection = function (section) {
   })
 };
 
-
 // Update positions of each section on page
 StatisticsNav.prototype._updateSectionPositions = function () {
   var self = this;
-
-  // Calibrate affix nav
-  self._elem.container.affix({
-    offset: {
-      top: $('.statistics-nav').offset().top
-    }
-  });
 
   $('.js-summary-section').css('margin-top', self._state.height + 'px');
 
@@ -371,7 +343,6 @@ StatisticsNav.prototype._updateSectionPositions = function () {
     }
   })
 };
-
 
 StatisticsNav.prototype._fixDatepickers = function () {
   var self = this;
@@ -406,45 +377,45 @@ StatisticsNav.prototype._fixDatepickers = function () {
 
 // https://tc39.github.io/ecma262/#sec-array.prototype.find
 if (!Array.prototype.find) {
-    Object.defineProperty(Array.prototype, 'find', {
-        value: function(predicate) {
-            // 1. Let O be ? ToObject(this value).
-            if (this == null) {
-                throw new TypeError('"this" is null or not defined');
-            }
+  Object.defineProperty(Array.prototype, 'find', {
+    value: function(predicate) {
+      // 1. Let O be ? ToObject(this value).
+      if (this == null) {
+        throw new TypeError('"this" is null or not defined');
+      }
 
-            var o = Object(this);
+      var o = Object(this);
 
-            // 2. Let len be ? ToLength(? Get(O, "length")).
-            var len = o.length >>> 0;
+      // 2. Let len be ? ToLength(? Get(O, "length")).
+      var len = o.length >>> 0;
 
-            // 3. If IsCallable(predicate) is false, throw a TypeError exception.
-            if (typeof predicate !== 'function') {
-                throw new TypeError('predicate must be a function');
-            }
+      // 3. If IsCallable(predicate) is false, throw a TypeError exception.
+      if (typeof predicate !== 'function') {
+        throw new TypeError('predicate must be a function');
+      }
 
-            // 4. If thisArg was supplied, let T be thisArg; else let T be undefined.
-            var thisArg = arguments[1];
+      // 4. If thisArg was supplied, let T be thisArg; else let T be undefined.
+      var thisArg = arguments[1];
 
-            // 5. Let k be 0.
-            var k = 0;
+      // 5. Let k be 0.
+      var k = 0;
 
-            // 6. Repeat, while k < len
-            while (k < len) {
-                // a. Let Pk be ! ToString(k).
-                // b. Let kValue be ? Get(O, Pk).
-                // c. Let testResult be ToBoolean(? Call(predicate, T, « kValue, k, O »)).
-                // d. If testResult is true, return kValue.
-                var kValue = o[k];
-                if (predicate.call(thisArg, kValue, k, o)) {
-                    return kValue;
-                }
-                // e. Increase k by 1.
-                k++;
-            }
-
-            // 7. Return undefined.
-            return undefined;
+      // 6. Repeat, while k < len
+      while (k < len) {
+        // a. Let Pk be ! ToString(k).
+        // b. Let kValue be ? Get(O, Pk).
+        // c. Let testResult be ToBoolean(? Call(predicate, T, « kValue, k, O »)).
+        // d. If testResult is true, return kValue.
+        var kValue = o[k];
+        if (predicate.call(thisArg, kValue, k, o)) {
+          return kValue;
         }
-    });
+        // e. Increase k by 1.
+        k++;
+      }
+
+      // 7. Return undefined.
+      return undefined;
+    }
+  });
 }
