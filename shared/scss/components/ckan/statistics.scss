@@ -1,22 +1,17 @@
-// Typography
-
 .statistics-page {
   h1, h2, .statistics-vis-title {
     text-align: center;
     font-weight: normal;
   }
+
   h1 {
     font-size: 40px;
   }
+
   h2 {
     font-size: 40px;
   }
-  h3 {
-  }
 }
-
-// Loading
-
 
 .statistics-loading {
   background-color: $brand-primary;
@@ -29,10 +24,12 @@
   text-align: center;
   top: 0px;
   z-index: 2;
+
   h1 {
     font-family: $font-heading;
   }
 }
+
 @keyframes statistics-loading-bg {
   0%   {background-color: $brand-primary;}
   50%  {background-color: $brand-primary-dark;}
@@ -44,9 +41,7 @@
   animation-name: statistics-loading-bg;
   animation-duration: 1s;
   animation-iteration-count: infinite;
-
   border: solid $brand-white 1px;
-  // display: none;
   height: 20px;
   line-height: 1;
   overflow: hidden;
@@ -54,9 +49,6 @@
   padding: 0;
   text-align: left;
   width: 100%;
-
-  @media (min-width: $width-sm) {
-  }
 
   @media (min-width: $width-md) {
     width: 960px;
@@ -79,24 +71,21 @@
 .statistics-loading-loaded {
   animation-name: statistics-loading-webpage;
   animation-duration: 10s;
-
   background-color: $brand-white;
   height: 100%;
   display: block;
   width: 60%;
 }
+
 .statistics-loading-text {
   margin-top: $margin-large-vertical;
   font-size: $font-size-large;
   font-family: $font;
 }
 
-// Nav
-
 .statistics-nav {
   background-color: transparent;
   padding: $padding-base-vertical $padding-base-horizontal;
-  text-align: center;
   width: 100%;
   z-index: 1;
 
@@ -106,8 +95,8 @@
 
     a {
       cursor: pointer;
-      &.active {
-        border-bottom: solid $brand-primary 5px;
+      &:hover {
+        border-bottom: solid $brand-secondary 5px;
       }
     }
   }
@@ -115,6 +104,7 @@
   .statistics-nav-items {
     padding: $padding-large-vertical 0px;
     margin: 0;
+    text-align: center;
 
     li {
       a {
@@ -132,57 +122,8 @@
 .statistics-nav-filters {
   width: 100%;
   padding: $padding-large-vertical 0;
-
-  .statistics-filter-container {
-    height: auto;
-    display: inline-block;
-    width: 100%;
-
-    &.statistics-filter-container-left,
-    &.statistics-filter-container-right{
-      float: none;
-    }
-
-    .form-control {
-      width: 100%;
-      margin-top: 5px;
-    }
-
-    &.statistics-filter-datespan {
-      width: 100%;
-    }
-
-    @media(min-width: $width-xs) {
-      width: 48%;
-
-      &.statistics-filter-datespan {
-        .form-control {
-          width: 47%;
-        }
-      }
-    }
-
-    @media(min-width: $width-sm) {
-      width: 25%;
-
-      .form-control {
-        margin-top: 0;
-      }
-
-      &.statistics-filter-datespan {
-        width: 50%;
-      }
-
-      &.statistics-filter-container-left {
-        float: left;
-      }
-
-      &.statistics-filter-container-right {
-        float: right;
-      }
-    }
-  }
 }
+
 .js-statistics-filter-datespan-fields {
   position: relative;
 
@@ -193,15 +134,20 @@
 
 .statistics-filter-datespan-quicklinks {
   margin: $margin-small-vertical 0;
+  text-align: center;
 
-  > a {
+  > a,
+  > a:focus,
+  > a:active {
     cursor: pointer;
     display: inline-block;
     margin: 0px $margin-base-horizontal;
     border-bottom: solid transparent 5px;
+    color: $brand-white;
 
+    &:hover,
     &.statistics-active {
-      border-color: $brand-primary;
+      border-color: $brand-secondary;
     }
   }
 }
@@ -250,6 +196,7 @@
   padding-top: 100px;
   padding-bottom: 100px;
 }
+
 .summary-section .statistics-section-content {
   padding: 0px;
 }
@@ -262,26 +209,25 @@
     color: $brand-white;
   }
 }
+
 .statistics-dataset-section {
   background-color: $datavis-color-1;
 }
+
 .statistics-app-section {
   background-color: $datavis-color-1-dark;
 }
+
 .statistics-article-section {
   background-color: $brand-white;
   color: $text-color;
 }
-
-// Visualization elements
 
 .statistics-vis {
   padding-top: 25px;
   padding-bottom: 75px;
 }
 
-.statistics-legend {
-}
 .statistics-legend-coloring {
   fill: $brand-white;
   stroke: $brand-white;
@@ -289,11 +235,13 @@
   stroke-linejoin: 'round';
   stroke-width: 1px;
 }
+
 .statistics-legend-row {
   &:nth-child(2) .statistics-legend-coloring {
     fill: none;
   }
 }
+
 .statistics-legend-text {
   fill: $brand-white;
   font-family: $font;
@@ -306,6 +254,7 @@
   stroke-linejoin: 'round';
   stroke-width: 3px;
 }
+
 .statistics-tick-year {
   font-size: 12px;
   font-weight: bold;
@@ -348,6 +297,7 @@
     fill: $brand-white;
   }
 }
+
 .statistics-axis {
   .tick:not(:first-of-type) line {
     stroke-dasharray: 2,2;
@@ -367,13 +317,7 @@
     fill: $brand-white;
     font: 10px sans-serif;
   }
-  &:hover {
-    // fill: #5faf59;
-  }
 }
-
-
-// Attention numbers
 
 .attention-numbers {
   text-align: center;
@@ -387,23 +331,25 @@
     width: 24%;
   }
 }
+
 .attention-number-title {
   font-size: $font-size;
   font-weight: bold;
 }
+
 .attention-number-value {
   font-family: $font-heading;
   font-size: $font-size-base * 4.0;
 }
+
 .attention-number-detail {
   font-size: $font-size;
 }
+
 .attention-number-detail-text,
 .attention-number-detail-value {
   display: block;
 }
-
-// Top histogram
 
 .statistics-top-histogram {
   .statistics-bar text {
@@ -411,16 +357,11 @@
   }
 }
 
-
-// UI components
-
 .statistics-download-button {
   display: block;
   float: right;
 }
-.statistics-start-date {
 
-}
 .statistics-end-date {
   float: right;
 }
@@ -435,6 +376,7 @@
   color: $brand-primary;
   outline: 0px;
 }
+
 .statistics-page option {
   padding: 5px;
   border-bottom: solid #eee 1px;
@@ -448,6 +390,7 @@
   font-size: 18px;
   padding: 12px;
 }
+
 .statistics-page button:hover {
   background-color: #f8f8f8;
 }

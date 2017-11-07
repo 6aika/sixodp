@@ -82,7 +82,6 @@ StatisticsNav.prototype.onHashChange = function (hash) {
   }
 
   self._scrollToSection(section);
-  self._highlightSection(section);
   self._state.selectedSectionId = section.id
 };
 
@@ -132,7 +131,6 @@ StatisticsNav.prototype.onScroll = function (y) {
   });
 
   if (self._state.selectedSectionId !== newActiveSection.id) {
-    self._highlightSection(newActiveSection);
     self._state.selectedSectionId = newActiveSection.id;
     self._callbacks.broadcastHashState(newActiveSection.id)
   }
@@ -311,12 +309,6 @@ StatisticsNav.prototype._setCategories = function (categories) {
   .attr('value', function (d) {
     return d.id;
   })
-};
-
-StatisticsNav.prototype._highlightSection = function (section) {
-  var self = this;
-  self._elem.navItems.find('a').removeClass('active');
-  section.navLink.addClass('active');
 };
 
 StatisticsNav.prototype._scrollToSection = function (section) {
