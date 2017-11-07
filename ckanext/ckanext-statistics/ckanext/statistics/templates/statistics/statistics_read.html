@@ -23,12 +23,6 @@
     <div class="statistics-section summary-section js-statistics-summary-section">
       <div class="statistics-section-content">
         <div class="js-summary-attention-numbers"></div>
-      </div>
-    </div>
-
-    <div class="statistics-section statistics-dataset-section js-statistics-datasets-section">
-      <div class="statistics-section-content">
-        <h2 class="js-statistics-datasets-section-title"></h2>
 
         <nav class="statistics-nav">
           <div class="statistics-nav-content">
@@ -36,13 +30,13 @@
 
               <div class="row js-statistics-filter-datespan-fields">
                 <div class="col-sm-4 col-sm-offset-2">
-                  <div class="form-group">
+                  <div class="form-group has-datepicker">
                     <label class="control-label">{{ _('Starting') }}</label>
                     <input class="form-control js-statistics-filter-start-date" type="date" />
                   </div>
                 </div>
                 <div class="col-sm-4">
-                  <div class="form-group">
+                  <div class="form-group has-datepicker">
                     <label class="control-label">{{ _('Ending') }}</label>
                     <input class="form-control js-statistics-filter-end-date" type="date" />
                   </div>
@@ -82,7 +76,12 @@
             </div>
           </div>
         </nav>
+      </div>
+    </div>
 
+    <div class="statistics-section statistics-dataset-section js-statistics-datasets-section">
+      <div class="statistics-section-content">
+        <h2 class="js-statistics-datasets-section-title"></h2>
         <div class="js-most-visited-datasets"></div>
         <div class="js-dataset-totals-timeline"></div>
         <div class="js-category-dataset-counts"></div>
@@ -94,40 +93,6 @@
     <div class="statistics-section statistics-app-section js-statistics-apps-section">
       <div class="statistics-section-content">
         <h2 class="js-statistics-apps-section-title"></h2>
-
-        <nav class="statistics-nav">
-          <div class="statistics-nav-content">
-            <div class="statistics-nav-filters">
-
-              <div class="row js-statistics-filter-datespan-fields">
-                <div class="col-sm-4 col-sm-offset-2">
-                  <div class="form-group">
-                    <label class="control-label">{{ _('Starting') }}</label>
-                    <input class="form-control js-statistics-filter-start-date" type="date" />
-                  </div>
-                </div>
-                <div class="col-sm-4">
-                  <div class="form-group">
-                    <label class="control-label">{{ _('Ending') }}</label>
-                    <input class="form-control js-statistics-filter-end-date" type="date" />
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-xs-12">
-                  <div class="form-group statistics-filter-datespan-quicklinks">
-                    <a class="js-statistics-filter-datespan-all"></a>
-                    <a class="js-statistics-filter-datespan-back-2-years"></a>
-                    <a class="js-statistics-filter-datespan-back-1-year"></a>
-                    <a class="js-statistics-filter-datespan-this-year"></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </nav>
-
         <div class="js-app-totals-timeline"></div>
         <div class="js-category-app-counts"></div>
       </div>

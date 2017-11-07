@@ -89,24 +89,15 @@
   width: 100%;
   z-index: 1;
 
-  li {
-    display: inline-block;
-    margin: 0px $margin-large-horizontal;
-
-    a {
-      cursor: pointer;
-      &:hover {
-        border-bottom: solid $brand-secondary 5px;
-      }
-    }
-  }
-
   .statistics-nav-items {
     padding: $padding-large-vertical 0px;
     margin: 0;
     text-align: center;
 
     li {
+      display: inline-block;
+      margin: 0 $margin-large-horizontal;
+
       a {
         &:hover,
         &:focus,
@@ -190,8 +181,8 @@
 
 // Summary section
 .summary-section {
-  background-color: $gray-lighter;
-  color: $text-color;
+  background-color: $brand-primary-dark;
+  color: $brand-white;
   min-height: 200px;
   padding-top: 100px;
   padding-bottom: 100px;
@@ -215,7 +206,7 @@
 }
 
 .statistics-app-section {
-  background-color: $datavis-color-1-dark;
+  background-color: $brand-primary-dark;
 }
 
 .statistics-article-section {

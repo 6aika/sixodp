@@ -57,10 +57,8 @@ function StatisticsNav (params) {
   self._elem.inputs.categoryFilter.change(function () {
     self._callbacks.broadcastCategory(self._elem.inputsD3.categoryFilter.node().value);
   });
-  self._elem.inputs.startDateFilter.change(function () { self._broadcastDateInputValues() });
-  self._elem.inputs.endDateFilter.change(function () { self._broadcastDateInputValues() });
-
-  self._fixDatepickers();
+  self._elem.inputs.startDateFilter.on('dp.change', function (e) { self._broadcastDateInputValues() });
+  self._elem.inputs.endDateFilter.on('dp.change', function (e) { self._broadcastDateInputValues() });
 
   // Callbacks to main
   self._callbacks = {};
@@ -70,7 +68,6 @@ function StatisticsNav (params) {
   self._callbacks.broadcastCategory = params.broadcastCategory;
   self._callbacks.broadcastDateRange = params.broadcastDateRange;
 }
-
 
 // Called by main when browser hash is changed. Scrolls to the given section and selects it in nav
 StatisticsNav.prototype.onHashChange = function (hash) {
@@ -84,7 +81,6 @@ StatisticsNav.prototype.onHashChange = function (hash) {
   self._scrollToSection(section);
   self._state.selectedSectionId = section.id
 };
-
 
 // Called from main when the data is loaded
 StatisticsNav.prototype.dataLoaded = function (params) {
@@ -136,14 +132,12 @@ StatisticsNav.prototype.onScroll = function (y) {
   }
 };
 
-
 StatisticsNav.prototype._getSectionByHash = function (hash) {
   var self = this;
   return self._sections.find(function (section) {
     return section.id == hash;
   });
 };
-
 
 // Overwrite date input texts and broadcast values
 StatisticsNav.prototype._setDateRange = function (dates) {
@@ -153,7 +147,6 @@ StatisticsNav.prototype._setDateRange = function (dates) {
   self._highlightDateQuicklink();
   self._callbacks.broadcastDateRange(dates);
 };
-
 
 // Broadcast input values if they are valid
 StatisticsNav.prototype._broadcastDateInputValues = function () {
@@ -175,7 +168,6 @@ StatisticsNav.prototype._broadcastDateInputValues = function () {
     self._callbacks.broadcastDateRange(dates);
   }
 };
-
 
 StatisticsNav.prototype._updateDateRangeQuicklinks = function (maxDateRange) {
   var self = this;
@@ -231,7 +223,6 @@ StatisticsNav.prototype._updateDateRangeQuicklinks = function (maxDateRange) {
   self._highlightDateQuicklink();
 };
 
-
 StatisticsNav.prototype._highlightDateQuicklink = function () {
   var self = this;
   if (!self._quicklinks) {
@@ -253,7 +244,6 @@ StatisticsNav.prototype._highlightDateQuicklink = function () {
   }
 };
 
-
 StatisticsNav.prototype._setOrganizations = function (organizations) {
   var self = this;
 
@@ -273,7 +263,6 @@ StatisticsNav.prototype._setOrganizations = function (organizations) {
     .attr('value', function (d) { return d.value })
 };
 
-
 StatisticsNav.prototype._addOrganizationsWithChildren = function (organizations, parentText) {
   if (!parentText)
     parentText = '';
@@ -288,7 +277,6 @@ StatisticsNav.prototype._addOrganizationsWithChildren = function (organizations,
   });
   return result;
 };
-
 
 StatisticsNav.prototype._setCategories = function (categories) {
   var self = this;
@@ -333,37 +321,6 @@ StatisticsNav.prototype._updateSectionPositions = function () {
     else {
       section.position = section.element.offset().top;
     }
-  })
-};
-
-StatisticsNav.prototype._fixDatepickers = function () {
-  var self = this;
-  var container = $('.js-statistics-filter-datespan-fields');
-
-  function fixDatepicker(inputField) {
-    inputField.datepicker({
-      format: self._props.dateFormatBootstrap
-    });
-
-    var datepicker = $('.datepicker');
-    var width = datepicker.css('width');
-    if (datepicker.hasClass('datepicker-orient-bottom')) {
-      var detached = datepicker.detach();
-      detached.appendTo(container);
-      detached.css({
-        top: inputField.position().top + 18,
-        left: inputField.position().left,
-        width: width
-      })
-    }
-  }
-
-  self._elem.inputs.startDateFilter.click(function () {
-    fixDatepicker(self._elem.inputs.startDateFilter)
-  });
-
-  self._elem.inputs.endDateFilter.click(function () {
-    fixDatepicker(self._elem.inputs.endDateFilter)
   })
 };
 
