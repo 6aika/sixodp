@@ -2,87 +2,72 @@
   border: none;
   border-radius: 0;
   background: $navbar-background-color;
-}
 
+  .navbar-nav {
+    margin-top: 0;
+    margin-bottom: 0;
 
-.navbar-default .navbar-nav li,
-.navbar-default .navbar-nav li:focus,
-.navbar-default .navbar-nav li:active {
-  position: relative;
-
-  @media(min-width: $grid-float-breakpoint) {
-    position: static;
-  }
-
-  > a {
-    border-top: $base/2 solid transparent;
-    border-bottom: $base/2 solid transparent;
-    padding-top: $navbar-height/4;
-    padding-bottom: $navbar-height/4;
-  }
-
-  .subnav {
-    visibility: hidden;
-    display: block;
-    max-height: 0;
-    border: 0;
-
-    @media(min-width: $grid-float-breakpoint) {
-      visibility: visible;
-      display: none;
-      transition: none;
-      max-height: $base*4;
-      border-width: 0 1px 1px 1px;
-      border-style: solid;
-      border-radius: 0 0 $border-radius-small $border-radius-small;
-      border-color: $navbar-secondary-border-color;
-    }
-  }
-
-  &.active {
-    .subnav-toggle {
-      color: $navbar-secondary-active-toggle-color;
-    }
-
-    > a {
-      background-color: $navbar-default-link-active-bg;
-      color: $navbar-default-link-active-color;
-      border-bottom-color: $navbar-default-link-active-border-color;
+    li,
+    li:focus,
+    li:active {
+      position: relative;
 
       @media(min-width: $grid-float-breakpoint) {
-        background-color: $navbar-default-link-active-bg-desktop;
-        color: $navbar-default-link-active-color-desktop;
-        border-bottom-color: $navbar-default-link-active-border-color-desktop;
+        position: static;
+      }
 
-        &:hover {
-          background-color: $navbar-default-link-hover-bg-desktop;
-          color: $navbar-default-link-hover-color;
+      &.nav-inline {
+        display: inline-block;
+      }
+
+      > a {
+        border-top: $base/2 solid transparent;
+        border-bottom: $base/2 solid transparent;
+        padding-top: $navbar-height/4;
+        padding-bottom: $navbar-height/4;
+      }
+
+      &.active {
+        .subnav-toggle {
+          color: $navbar-secondary-active-toggle-color;
+        }
+
+        > a {
+          background-color: $navbar-default-link-active-bg;
+          color: $navbar-default-link-active-color;
+          border-bottom-color: $navbar-default-link-active-border-color;
+
+          @media(min-width: $grid-float-breakpoint) {
+            background-color: $navbar-default-link-active-bg-desktop;
+            color: $navbar-default-link-active-color-desktop;
+            border-bottom-color: $navbar-default-link-active-border-color-desktop;
+
+            &:hover {
+              background-color: $navbar-default-link-hover-bg-desktop;
+              color: $navbar-default-link-hover-color;
+            }
+          }
+        }
+      }
+
+      &.active-hover {
+        .subnav {
+          visibility: visible;
+          max-height: 100%;
+          padding: 0;
+
+          @media(min-width: $grid-float-breakpoint) {
+            width: auto;
+            max-height: none;
+            visibility: visible;
+            display: block;
+            z-index: $zindex-navbar-fixed;
+            position: absolute;
+          }
         }
       }
     }
-
   }
-
-  &.active-hover {
-    .subnav {
-      visibility: visible;
-      max-height: 100%;
-      padding: 0;
-
-      @media(min-width: $grid-float-breakpoint) {
-        width: auto;
-        max-height: none;
-        visibility: visible;
-        display: block;
-        z-index: $zindex-navbar-fixed;
-        position: absolute;
-      }
-    }
-  }
-}
-
-.navbar-right .nav-link {
-  text-transform: uppercase;
 }
 
 .navbar-default {
@@ -121,6 +106,24 @@
     margin: 14px 10px;
     height: auto;
     padding: 0;
+  }
+}
+
+.subnav {
+  visibility: hidden;
+  display: block;
+  max-height: 0;
+  border: 0;
+
+  @media(min-width: $grid-float-breakpoint) {
+    visibility: visible;
+    display: none;
+    transition: none;
+    max-height: $base*4;
+    border-width: 0 1px 1px 1px;
+    border-style: solid;
+    border-radius: 0 0 $border-radius-small $border-radius-small;
+    border-color: $navbar-secondary-border-color;
   }
 }
 
@@ -218,7 +221,6 @@
     height: auto;
     position: relative;
   }
-
 }
 
 // Compensate for the wp admin bar and notification bar
