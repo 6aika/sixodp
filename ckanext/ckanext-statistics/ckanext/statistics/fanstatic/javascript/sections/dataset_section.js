@@ -74,15 +74,11 @@ var DatasetSection = function (params) {
     element: self._element.select('.js-format-dataset-counts'),
     texts: {
       title: self._texts.formatsTitle,
-      amount: self._texts.amount,
+      amount: self._texts.amount
     },
     legend: [
-      {
-        title: self._texts.usedInApp,
-      },
-      {
-        title: self._texts.notUsedInApp,
-      },
+      { title: self._texts.usedInApp },
+      { title: self._texts.notUsedInApp }
     ],
     limit: 10, // Before show more button is used
 
@@ -91,24 +87,20 @@ var DatasetSection = function (params) {
     schema: {
       labelField: 'name',
       valueField: 'all',
-      valueSpecificField: 'specific',
+      valueSpecificField: 'specific'
     }
-  })
+  });
 
   self.organizationDatasets = new TopHistogram({
     id: 'organizationDatasets',
     element: self._element.select('.js-organization-dataset-counts'),
     texts: {
       title: self._texts.topPublishersTitle,
-      amount: self._texts.amount,
+      amount: self._texts.amount
     },
     legend: [
-      {
-        title: self._texts.usedInApp,
-      },
-      {
-        title: self._texts.notUsedInApp,
-      },
+      { title: self._texts.usedInApp },
+      { title: self._texts.notUsedInApp }
     ],
     limit: 10, // Before show more button is used
 
@@ -117,10 +109,10 @@ var DatasetSection = function (params) {
     schema: {
       labelField: 'name',
       valueField: 'all',
-      valueSpecificField: 'specific',
+      valueSpecificField: 'specific'
     }
   })
-}
+};
 
 DatasetSection.prototype.updateSectionData = function(context, dateRange) {
   var self = this;
@@ -138,7 +130,7 @@ DatasetSection.prototype.updateSectionData = function(context, dateRange) {
       var result = [];
       for (var index in datasets) {
         var resultItem = {
-          name: datasets[index].package_name,
+          name: datasets[index].title_translated[context.locale] || datasets[index].title,
           all: datasets[index].visits,
           specific: 0
         };

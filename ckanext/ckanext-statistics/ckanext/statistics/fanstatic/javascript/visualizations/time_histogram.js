@@ -78,8 +78,7 @@ TimeHistogram.prototype.transform = function () {
       return moment.utc(date).add(1, 'years')
     }
   )
-}
-
+};
 
 TimeHistogram.prototype.setDateFilter = function (dates) {
   var self = this
@@ -91,14 +90,11 @@ TimeHistogram.prototype.setDateFilter = function (dates) {
   // Resize y axis
   // Choose between monthly and yearly histogram
   // Re-render histogram
-}
-
+};
 
 TimeHistogram.prototype._renderBase = function () {
-
   self.visual.histogramCanvas = self._elem.dataCanvas.append('g')
-}
-
+};
 
 // Create histogram bars
 TimeHistogram.prototype.render = function () {
@@ -134,10 +130,7 @@ TimeHistogram.prototype.render = function () {
     .text(function(d) {
       return d.length > 0 ? ('+' + d.length) : d.length
     })
-}
-
-
-
+};
 
 // Animate new size of y or x axis based on new date filter or organization/category filter
 TotalsTimeline.prototype.resizeAxis = function (axis) {

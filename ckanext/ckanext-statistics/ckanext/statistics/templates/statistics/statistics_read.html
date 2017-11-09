@@ -17,37 +17,65 @@
           <li><a href="#datasets"></a></li>
           <li><a href="#apps"></a></li>
         </ul>
-
-        <div class="form-inline statistics-nav-filters">
-          <div class="statistics-filter-datespan statistics-filter-container">
-            <div class="js-statistics-filter-datespan-fields">
-              <input class="form-control statistics-filter js-statistics-filter-start-date" type="date" />
-              <input class="form-control statistics-filter js-statistics-filter-end-date" type="date" />
-            </div>
-            <div class="statistics-filter-datespan-quicklinks">
-              <a class="js-statistics-filter-datespan-all"></a>
-              <a class="js-statistics-filter-datespan-back-2-years"></a>
-              <a class="js-statistics-filter-datespan-back-1-year"></a>
-              <a class="js-statistics-filter-datespan-this-year"></a>
-            </div>
-          </div>
-          <div class="statistics-filter-container statistics-filter-container-left">
-            <select class="form-control js-statistics-filter-organization statistics-filter statistics-filter-organization">
-              <option>-</option>
-            </select>
-          </div>
-          <div class="statistics-filter-container statistics-filter-container-right">
-            <select class="form-control js-statistics-filter-category statistics-filter statistics-filter-category">
-              <option>-</option>
-            </select>
-          </div>
-        </div>
       </div>
     </nav>
 
     <div class="statistics-section summary-section js-statistics-summary-section">
       <div class="statistics-section-content">
         <div class="js-summary-attention-numbers"></div>
+
+        <nav class="statistics-nav">
+          <div class="statistics-nav-content">
+            <div class="statistics-nav-filters">
+
+              <div class="row js-statistics-filter-datespan-fields">
+                <div class="col-sm-4 col-sm-offset-2">
+                  <div class="form-group has-datepicker">
+                    <label class="control-label">{{ _('Starting') }}</label>
+                    <input class="form-control js-statistics-filter-start-date" type="date" />
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group has-datepicker">
+                    <label class="control-label">{{ _('Ending') }}</label>
+                    <input class="form-control js-statistics-filter-end-date" type="date" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="form-group statistics-filter-datespan-quicklinks">
+                    <a class="js-statistics-filter-datespan-all"></a>
+                    <a class="js-statistics-filter-datespan-back-2-years"></a>
+                    <a class="js-statistics-filter-datespan-back-1-year"></a>
+                    <a class="js-statistics-filter-datespan-this-year"></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-4 col-sm-offset-2">
+                  <div class="form-group">
+                    <label class="control-label">{{ _('Publisher') }}</label>
+                    <select class="form-control js-statistics-filter-organization statistics-filter statistics-filter-organization">
+                      <option>-</option>
+                    </select>
+                  </div>
+
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label class="control-label">{{ _('Category') }}</label>
+                    <select class="form-control js-statistics-filter-category statistics-filter statistics-filter-category">
+                      <option>-</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
       </div>
     </div>
 
