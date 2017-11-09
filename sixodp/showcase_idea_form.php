@@ -83,7 +83,7 @@ get_header(); ?>
                 </a>
               </li>
           </div>
-          <div class="article-wrapper col-xs-12 col-sm-9">
+          <div class="col-xs-12 col-sm-9">
             <?php
 
             if ($welcome_page && sizeof($errors) == 0) {
