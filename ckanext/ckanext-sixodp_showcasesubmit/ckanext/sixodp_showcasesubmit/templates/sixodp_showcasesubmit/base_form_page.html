@@ -1,23 +1,33 @@
 {% extends "sixodp_showcasesubmit/base.html" %}
 
 {% block pre_primary %}
-<div class="container primary-content">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-xs-12">
+  <div class="page-hero"></div>
+  <div class="page-hero-content container">
+    <div class="wrapper">
       {% block pre_primary_content %}
-        <h1>{{ _('Submit a showcase') }}</h1>
-        <p>
-          {% trans %}
-            By filling this form you can submit your open-data showcase to be published on this website.
-            Fill in at least the desired title of your showcase and leave your contact information.
-            The site adminstrator will contact you for further information after a few days.
-          {% endtrans %}
-        </p>
-        {%- snippet 'sixodp_showcasesubmit/snippets/new_package_form.html', c=c, data=data, errors=errors, error_summary=error_summary, message=message -%}
+
+        <div class="headingbar">
+          <h1 class="heading-main">{{ _('Submit a showcase') }}</h1>
+        </div>
+
+        <div class="row">
+          <div class="sidebar col-sm-3"></div>
+
+          <div class="col-xs-12 col-sm-9">
+            <p>
+              {% trans %}
+                By filling this form you can submit your open-data showcase to be published on this website.
+                Fill in at least the desired title of your showcase and leave your contact information.
+                The site adminstrator will contact you for further information after a few days.
+              {% endtrans %}
+            </p>
+            {%- snippet 'sixodp_showcasesubmit/snippets/new_package_form.html', c=c, data=data, errors=errors, error_summary=error_summary, message=message -%}
+          </div>
+        </div>
+
       {% endblock %}
     </div>
   </div>
-</div>
 {% endblock %}
 
 {% block breadcrumb %}{% endblock %}
