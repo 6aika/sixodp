@@ -29,7 +29,6 @@ jQuery(document).ready(function($) {
 
   $(document).keypress(function(e) {
     if(e.which == 13) {
-      console.log("!");
       if($('#q').is(":focus")){
         var q = $('#q').val();
         var domain = $('#selected-domain').data('value');
@@ -43,16 +42,15 @@ jQuery(document).ready(function($) {
   });
 
   $('.navbar-search-btn').on('click', function(e) {
-    e.stopPropagation()
+    e.stopPropagation();
 
     $(this).hide();
-    $('.navbar-search-form').css('display', 'table');
+    var container = $('.navbar-search-form');
+    container.css('display', 'table');
 
     $(document).on('click', function(e) {
-      var container = $('.navbar-search-form')
-
       if (!container.is(e.target) && container.has(e.target).length === 0) {
-        $('.navbar-search-form').hide();
+        container.hide();
         $('.navbar-search-btn').show();
 
         $(document).off('click');

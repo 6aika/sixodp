@@ -88,8 +88,18 @@
   height: $navbar-height;
   padding: $navbar-height/4;
 
-  .navbar-search-form {
+  .navbar-search-btn {
     display: none;
+  }
+
+  @media(min-width: $grid-float-breakpoint) {
+    .navbar-search-form {
+      display: none;
+    }
+
+    .navbar-search-btn {
+      display: block;
+    }
   }
 
   .navbar-search-btn {
@@ -221,6 +231,10 @@
     height: auto;
     position: relative;
   }
+}
+
+.language-changer {
+  text-transform: uppercase;
 }
 
 // Compensate for the wp admin bar and notification bar
