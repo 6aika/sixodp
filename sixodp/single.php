@@ -130,19 +130,13 @@ get_header(); ?>
           <div class="col-md-9 news-content">
             <h1 class="heading-content"><?php the_title() ?></h1>
             <article class="article"><?php the_content() ?></article>
-
-            <div class="addthis_toolbox">
-              <a class="addthis_button_facebook_like at300b"></a>
-              <a class="addthis_button_tweet at300b"></a>
-            </div>
             
             <?php
-
-            // If comments are open or we have at least one comment, load up the comment template.
-            if ( comments_open() || get_comments_number() ) :
-              echo '<a name="comments"></a>';
-              comments_template();
-            endif;
+              // If comments are open or we have at least one comment, load up the comment template.
+              if ( comments_open() || get_comments_number() ) :
+                echo '<a name="comments"></a>';
+                comments_template();
+              endif;
             ?>
           </div>
         </div>
