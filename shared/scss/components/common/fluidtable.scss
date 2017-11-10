@@ -77,3 +77,16 @@
     margin: 0;
   }
 }
+
+.fluidtable__navbar {
+  .nav {
+    li {
+      margin: 0;
+
+      a {
+        padding: $base*1.5;
+      }
+    }
+  }
+
+}
