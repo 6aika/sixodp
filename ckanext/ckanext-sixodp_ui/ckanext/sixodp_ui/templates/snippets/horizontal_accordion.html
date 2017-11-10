@@ -1,4 +1,4 @@
-{% set truncate = truncate or 180 %}
+{% set truncate = truncate or 240 %}
 {% set lang = h.get_current_lang() %}
 
 <div class="horizontal-accordion-wrapper collapse in" id="horizontal-accordion">
@@ -17,7 +17,7 @@
                   {% endfor %}
                 </h2>
               {% endif %}
-              <p>{{ h.get_translated(item, 'notes') | truncate }}</p>
+              <p>{{ h.markdown_extract(h.get_translated(item, 'notes'), extract_length=truncate)  }}</p>
             </div>
           </a>
         </li>
