@@ -1,3 +1,11 @@
+.nav-wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: $zindex-navbar-fixed;
+}
+
 .navbar {
   border: none;
   border-radius: 0;
@@ -267,40 +275,13 @@
 $admin-bar-height: 46px;
 $admin-bar-height-desktop: 32px;
 
-.notification {
-  ~ .navbar-fixed-top {
-    margin-top: $notificationbar-height;
-  }
-
-  ~ #main .statistics-nav.affix {
-    top: $navbar-height + $notificationbar-height;
-  }
-}
-
 .admin-bar {
-  .navbar-fixed-top {
+  .nav-wrapper {
     margin-top: $admin-bar-height;
 
     @media(min-width: 783px) {
       margin-top: $admin-bar-height-desktop;
     }
-  }
-
-  .notification {
-    margin-top: $admin-bar-height;
-
-    ~ .navbar-fixed-top {
-      margin-top: $admin-bar-height + $notificationbar-height;
-    }
-
-    @media(min-width: 783px) {
-      margin-top: $admin-bar-height-desktop;
-
-      ~ .navbar-fixed-top {
-        margin-top: $admin-bar-height-desktop + $notificationbar-height;
-      }
-    }
-
   }
 
   #wpadminbar {

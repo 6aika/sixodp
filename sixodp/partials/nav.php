@@ -4,7 +4,7 @@
 *
 **/
 ?>
-<nav class="navbar navbar-default navbar-fixed-top" id="main-navbar" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'sixodp' ); ?>">
+<nav class="navbar navbar-default" id="main-navbar" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'sixodp' ); ?>">
   <div class="container-fluid">
 
     <div class="navbar-header">

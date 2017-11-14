@@ -3,11 +3,10 @@
   color: $notificationbar-text-color;
   padding: $base/2 $base;
   font-size: $font-size-base;
-  position: fixed;
+  position: relative;
   z-index: $zindex-navbar-fixed;
   width: 100%;
-  top: 0;
-  height: $notificationbar-height;
+  min-height: $notificationbar-height;
   box-sizing: border-box;
 
   @media (min-width: $width-md) {
@@ -15,7 +14,7 @@
   }
 }
 
-.notification__text {
+.notification-content {
   margin: 0;
 
   .fa {
