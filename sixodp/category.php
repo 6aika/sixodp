@@ -43,7 +43,7 @@ get_header();
               if (count($categories) > 0) {
             ?>
               <?php foreach ( $categories as $cat ) :
-              $child_categories = get_categories(array('parent' => $cat->term_id, 'hide_empty' => false));
+                $child_categories = get_categories(array('parent' => $cat->term_id, 'hide_empty' => false));
               ?>
               <ul>
                 <li class="sidebar-item--highlight">
