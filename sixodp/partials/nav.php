@@ -61,6 +61,15 @@
           }
         ?>
       </ul>
+      <div class="navbar-footer">
+        <button type="button"
+                class="navbar-toggle-footer collapsed"
+                data-toggle="collapse"
+                data-target="#top-nav-collapse"
+                aria-expanded="false">
+          <span class="fa fa-chevron-up"></span>
+        </button>
+      </div>
     </div>
   </div>
 </nav><!-- .main-navigation -->
