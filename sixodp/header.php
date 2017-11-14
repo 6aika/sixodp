@@ -41,15 +41,17 @@
 		    $notificationclass = $type;
 		}
 	?>
-	<div class="notification <?php echo $notificationclass; ?>">
-		<p class="notification__text">
-			<i class="fa fa-exclamation-circle"></i>
-			<?php foreach (get_posts(array('post_type' => 'notification')) as $notification) : ?>
-			<span class="bold"><?php echo $notification->post_title; ?></span>
-				<?php echo $notification->post_content; ?>
-			<?php endforeach; ?>
-		</p>
-	</div>
-	<?php endif; ?>
+  <div class="nav-wrapper">
+    <div class="notification <?php echo $notificationclass; ?>">
+      <p class="notification-content">
+        <i class="fa fa-exclamation-circle"></i>
+        <?php foreach (get_posts(array('post_type' => 'notification')) as $notification) : ?>
+        <span class="bold"><?php echo $notification->post_title; ?></span>
+          <?php echo $notification->post_content; ?>
+        <?php endforeach; ?>
+      </p>
+    </div>
+    <?php endif; ?>
 
-	<?php require_once('partials/nav.php'); ?>
+    <?php require_once('partials/nav.php'); ?>
+  </div>

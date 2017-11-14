@@ -4,7 +4,7 @@
 *
 **/
 ?>
-<nav class="navbar navbar-default navbar-fixed-top" id="main-navbar" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'sixodp' ); ?>">
+<nav class="navbar navbar-default" id="main-navbar" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'sixodp' ); ?>">
   <div class="container-fluid">
 
     <div class="navbar-header">
@@ -61,6 +61,15 @@
           }
         ?>
       </ul>
+      <div class="navbar-footer">
+        <button type="button"
+                class="navbar-toggle-footer collapsed"
+                data-toggle="collapse"
+                data-target="#top-nav-collapse"
+                aria-expanded="false">
+          <span class="fa fa-chevron-up"></span>
+        </button>
+      </div>
     </div>
   </div>
 </nav><!-- .main-navigation -->

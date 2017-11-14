@@ -1,3 +1,11 @@
+.nav-wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: $zindex-navbar-fixed;
+}
+
 .navbar {
   border: none;
   border-radius: 0;
@@ -23,8 +31,13 @@
       > a {
         border-top: $base/2 solid transparent;
         border-bottom: $base/2 solid transparent;
-        padding-top: $navbar-height/4;
-        padding-bottom: $navbar-height/4;
+        padding-top: $navbar-height/6;
+        padding-bottom: $navbar-height/6;
+
+        @media(min-width: $grid-float-breakpoint) {
+          padding-top: $navbar-height/4;
+          padding-bottom: $navbar-height/4;
+        }
       }
 
       &.active {
@@ -144,7 +157,7 @@
   right: 0;
   top: 0;
   width: $navbar-height;
-  height: $navbar-height;
+  height: $navbar-height - $navbar-height/6;
   color: $navbar-secondary-toggle-color;
   transition: all $transition-speed-base $transition-curve-base;
 
@@ -153,7 +166,7 @@
   }
 
   .fa {
-    line-height: $navbar-height;
+    line-height: $navbar-height - $navbar-height/6;
     vertical-align: middle;
     width: 100%;
   }
@@ -233,6 +246,27 @@
   }
 }
 
+.navbar-footer {
+  display: block;
+  background: $navbar-secondary-bg;
+  color: $navbar-secondary-link-color;
+  margin: 0 -15px;
+  padding: 0;
+
+  @media(min-width: $grid-float-breakpoint) {
+    display: none;
+  }
+
+  .navbar-toggle-footer {
+    display: inline-block;
+    width: 100%;
+    height: $navbar-height/2;
+    color: $navbar-secondary-link-color;
+    background: transparent;
+    border: none;
+  }
+}
+
 .language-changer {
   text-transform: uppercase;
 }
@@ -241,40 +275,13 @@
 $admin-bar-height: 46px;
 $admin-bar-height-desktop: 32px;
 
-.notification {
-  ~ .navbar-fixed-top {
-    margin-top: $notificationbar-height;
-  }
-
-  ~ #main .statistics-nav.affix {
-    top: $navbar-height + $notificationbar-height;
-  }
-}
-
 .admin-bar {
-  .navbar-fixed-top {
+  .nav-wrapper {
     margin-top: $admin-bar-height;
 
     @media(min-width: 783px) {
       margin-top: $admin-bar-height-desktop;
     }
-  }
-
-  .notification {
-    margin-top: $admin-bar-height;
-
-    ~ .navbar-fixed-top {
-      margin-top: $admin-bar-height + $notificationbar-height;
-    }
-
-    @media(min-width: 783px) {
-      margin-top: $admin-bar-height-desktop;
-
-      ~ .navbar-fixed-top {
-        margin-top: $admin-bar-height-desktop + $notificationbar-height;
-      }
-    }
-
   }
 
   #wpadminbar {
