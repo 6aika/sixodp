@@ -15,7 +15,7 @@ $card-border-radius: $border-radius-small;
 }
 
 .card {
-  min-height: 420px;
+  min-height: 480px;
   position: relative;
   max-width: 75%;
   border-radius: $card-border-radius;
@@ -35,6 +35,10 @@ $card-border-radius: $border-radius-small;
     &.card-hover-light {
       @extend %box-shadow-light;
     }
+  }
+
+  @media(min-width: $width-xs) {
+    min-height: 360px;
   }
 
   @media (min-width: $width-sm) {
