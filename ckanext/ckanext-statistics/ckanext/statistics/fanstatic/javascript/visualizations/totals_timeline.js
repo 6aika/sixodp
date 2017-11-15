@@ -46,6 +46,19 @@ function TotalsTimeline (params) {
 // Update all: language, data visuals, input elements, etc.
 TotalsTimeline.prototype.setData = function (data) {
   var self = this;
+  self._elem.container.select('.vis-notification').remove();
+
+  // Skip update if no data exists
+  if(data.length === 0) {
+    self._elem.svg.style('display', 'none');
+    self._elem.container.append('p')
+      .attr('class', 'vis-notification')
+      .text(this._texts.noDataText);
+
+    return false;
+  }
+
+  self._elem.svg.style('display', 'block');
   self._data.raw = data;
   self._data.line = self._transformLineData(data);
   self._renderLine();

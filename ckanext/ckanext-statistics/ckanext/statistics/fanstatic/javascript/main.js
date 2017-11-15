@@ -235,6 +235,7 @@ ckan.module('statistics', function($){
       this.sections.datasetSection = new DatasetSection({
         texts: {
           sectionTitle: this._('Datas'),
+          noDataText: this._('No data available'),
           mostVisitedDatasetsTitle: this._('Most visited'),
           timelineTitle: this._('Timeline'),
           amount: this._('pcs'),
@@ -255,6 +256,7 @@ ckan.module('statistics', function($){
       this.sections.appSection = new AppSection({
         texts: {
           sectionTitle: this._('Apps'),
+          noDataText: this._('No data available'),
           timelineTitle: this._('Timeline'),
           categoriesTitle: this._('Categories'),
           amount: this._('pcs')
