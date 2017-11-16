@@ -266,7 +266,8 @@ StatisticsNav.prototype._setOrganizations = function (organizations) {
   label.append('input')
     .attr('type', 'radio')
     .attr('name', 'organization-radio')
-    .attr('value', function (d) { return d.value });
+    .attr('value', function (d) { return d.value })
+    .property('checked', function (d) { return d.value === ''; });
 
   label.append('span')
     .attr('class', 'radio-label')
@@ -309,7 +310,8 @@ StatisticsNav.prototype._setCategories = function (categories) {
   label.append('input')
     .attr('type', 'radio')
     .attr('name', 'category-radio')
-    .attr('value', function (d) { return d.id });
+    .attr('value', function (d) { return d.id })
+    .property('checked', function (d) { return d.id === ''; });
 
   label.append('span')
     .attr('class', 'radio-label')
