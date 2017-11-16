@@ -52,10 +52,10 @@ function StatisticsNav (params) {
   }
 
   self._elem.inputs.organizationFilter.change(function () {
-    self._callbacks.broadcastOrganization(self._elem.inputsD3.organizationFilter.node().value);
+    self._callbacks.broadcastOrganization(self._elem.inputsD3.organizationFilter.select(':checked').node().value);
   });
   self._elem.inputs.categoryFilter.change(function () {
-    self._callbacks.broadcastCategory(self._elem.inputsD3.categoryFilter.node().value);
+    self._callbacks.broadcastCategory(self._elem.inputsD3.categoryFilter.select(':checked').node().value);
   });
   self._elem.inputs.startDateFilter.on('dp.change', function (e) { self._broadcastDateInputValues() });
   self._elem.inputs.endDateFilter.on('dp.change', function (e) { self._broadcastDateInputValues() });
@@ -254,13 +254,23 @@ StatisticsNav.prototype._setOrganizations = function (organizations) {
     label: self._texts.allPublishers
   }].concat(self._addOrganizationsWithChildren(self._state.filters.organizations));
 
-  self._elem.inputsD3.organizationFilter.selectAll('option').remove();
-  var options = self._elem.inputsD3.organizationFilter.selectAll('option')
-    .data(optionData);
+  self._elem.inputsD3.organizationFilter.selectAll('.radio').remove();
+  var options = self._elem.inputsD3.organizationFilter.selectAll('.radio')
+    .data(optionData)
+    .enter()
+    .append('div')
+    .attr('class', 'radio');
 
-  options.enter().append('option')
-    .text(function (d) { return d.label })
-    .attr('value', function (d) { return d.value })
+  var label = options.append('label');
+
+  label.append('input')
+    .attr('type', 'radio')
+    .attr('name', 'organization-radio')
+    .attr('value', function (d) { return d.value });
+
+  label.append('span')
+    .attr('class', 'radio-label')
+    .text(function (d) { return d.label });
 };
 
 StatisticsNav.prototype._addOrganizationsWithChildren = function (organizations, parentText) {
@@ -287,16 +297,23 @@ StatisticsNav.prototype._setCategories = function (categories) {
     display_name: self._texts.allCategories,
   }].concat(self._state.filters.categories);
 
-  self._elem.inputsD3.categoryFilter.selectAll('option').remove();
-  var options = self._elem.inputsD3.categoryFilter.selectAll('option')
-    .data(optionData);
+  self._elem.inputsD3.categoryFilter.selectAll('.radio').remove();
+  var options = self._elem.inputsD3.categoryFilter.selectAll('.radio')
+    .data(optionData)
+    .enter()
+    .append('div')
+    .attr('class', 'radio');
 
-  options.enter().append('option').text(function (d) {
-    return d.display_name;
-  })
-  .attr('value', function (d) {
-    return d.id;
-  })
+  var label = options.append('label');
+
+  label.append('input')
+    .attr('type', 'radio')
+    .attr('name', 'category-radio')
+    .attr('value', function (d) { return d.id });
+
+  label.append('span')
+    .attr('class', 'radio-label')
+    .text(function (d) { return d.display_name });
 };
 
 StatisticsNav.prototype._scrollToSection = function (section) {

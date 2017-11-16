@@ -143,6 +143,14 @@
   }
 }
 
+.statistics-filter-dropdown {
+  margin-top: 0;
+
+  @media(min-width: $grid-float-breakpoint) {
+    margin-top: 28px;
+  }
+}
+
 // Sections
 
 .statistics-section {
@@ -371,19 +379,6 @@
 .statistics-page option {
   padding: 5px;
   border-bottom: solid #eee 1px;
-}
-
-.statistics-page button {
-  background-color: white;
-  color: $brand-info;
-  border: 0;
-  cursor: pointer;
-  font-size: 18px;
-  padding: 12px;
-}
-
-.statistics-page button:hover {
-  background-color: #f8f8f8;
 }
 
 .choose-organization {
