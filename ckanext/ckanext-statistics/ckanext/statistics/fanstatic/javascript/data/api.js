@@ -25,7 +25,7 @@ Api.prototype.getAllData = function (callback, delay) {
   return Promise.all([
     self.get('group_tree'),
     self.get('group_list?all_fields=true&include_extras=true'),
-    self.get('package_search'),
+    self.get('package_search?include_private=false'),
     self.get('ckanext_showcase_list?include_private=false')
   ])
   .spread(function(organizations, categories, datasets, apps) {
@@ -110,7 +110,7 @@ Api.prototype._preprocess = function (data) {
     for (iResource in dataset.resources) {
       var resource = dataset.resources[iResource]
       // Add the file format of the resource into the list of formats if it's not there yet
-      if (data.formats.indexOf(resource.format) === -1) {
+      if (resource.format && data.formats.indexOf(resource.format) === -1) {
         data.formats.push(resource.format)
       }
     }

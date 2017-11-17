@@ -61,7 +61,7 @@ def sendNewDatasetNotifications(package_name):
     message_body = _('A user has submitted a new dataset') + ': ' + dataset_url
 
     for email in recipient_emails:
-        mail_recipient(email, email, _('New dataset notification'), message_body)
+        mail_recipient("", email, _('New dataset notification'), message_body)
 
 
 class DatasubmitterController(p.toolkit.BaseController):

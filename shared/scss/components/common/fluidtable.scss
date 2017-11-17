@@ -5,7 +5,7 @@
 }
 
 .fluidtable__heading {
-  @extend .heading--main;
+  @extend .heading-main;
 }
 
 .fluidtable__body {
@@ -76,4 +76,17 @@
   .heading {
     margin: 0;
   }
+}
+
+.fluidtable__navbar {
+  .nav {
+    li {
+      margin: 0;
+
+      a {
+        padding: $base*1.5;
+      }
+    }
+  }
+
 }

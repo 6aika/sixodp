@@ -47,20 +47,18 @@ function StatisticsNav (params) {
     endDateFilter: $('.js-statistics-filter-end-date')
   };
   self._elem.inputsD3 = {};
-  for (key in self._elem.inputs) {
+  for (var key in self._elem.inputs) {
     self._elem.inputsD3[key] = d3.select(self._elem.inputs[key].get(0));
   }
 
   self._elem.inputs.organizationFilter.change(function () {
-    self._callbacks.broadcastOrganization(self._elem.inputsD3.organizationFilter.node().value);
+    self._callbacks.broadcastOrganization(self._elem.inputsD3.organizationFilter.select(':checked').node().value);
   });
   self._elem.inputs.categoryFilter.change(function () {
-    self._callbacks.broadcastCategory(self._elem.inputsD3.categoryFilter.node().value);
+    self._callbacks.broadcastCategory(self._elem.inputsD3.categoryFilter.select(':checked').node().value);
   });
-  self._elem.inputs.startDateFilter.change(function () { self._broadcastDateInputValues() });
-  self._elem.inputs.endDateFilter.change(function () { self._broadcastDateInputValues() });
-
-  self._fixDatepickers();
+  self._elem.inputs.startDateFilter.on('dp.change', function (e) { self._broadcastDateInputValues() });
+  self._elem.inputs.endDateFilter.on('dp.change', function (e) { self._broadcastDateInputValues() });
 
   // Callbacks to main
   self._callbacks = {};
@@ -70,7 +68,6 @@ function StatisticsNav (params) {
   self._callbacks.broadcastCategory = params.broadcastCategory;
   self._callbacks.broadcastDateRange = params.broadcastDateRange;
 }
-
 
 // Called by main when browser hash is changed. Scrolls to the given section and selects it in nav
 StatisticsNav.prototype.onHashChange = function (hash) {
@@ -82,11 +79,8 @@ StatisticsNav.prototype.onHashChange = function (hash) {
   }
 
   self._scrollToSection(section);
-  self._highlightSection(section);
-  self._updateFilterVisibility(section.id);
   self._state.selectedSectionId = section.id
 };
-
 
 // Called from main when the data is loaded
 StatisticsNav.prototype.dataLoaded = function (params) {
@@ -133,22 +127,17 @@ StatisticsNav.prototype.onScroll = function (y) {
   });
 
   if (self._state.selectedSectionId !== newActiveSection.id) {
-    self._highlightSection(newActiveSection);
-    self._updateFilterVisibility(newActiveSection.id);
     self._state.selectedSectionId = newActiveSection.id;
     self._callbacks.broadcastHashState(newActiveSection.id)
   }
 };
 
-
 StatisticsNav.prototype._getSectionByHash = function (hash) {
   var self = this;
-  var section = self._sections.find(function (section) {
+  return self._sections.find(function (section) {
     return section.id == hash;
   });
-  return section;
 };
-
 
 // Overwrite date input texts and broadcast values
 StatisticsNav.prototype._setDateRange = function (dates) {
@@ -158,7 +147,6 @@ StatisticsNav.prototype._setDateRange = function (dates) {
   self._highlightDateQuicklink();
   self._callbacks.broadcastDateRange(dates);
 };
-
 
 // Broadcast input values if they are valid
 StatisticsNav.prototype._broadcastDateInputValues = function () {
@@ -181,7 +169,6 @@ StatisticsNav.prototype._broadcastDateInputValues = function () {
   }
 };
 
-
 StatisticsNav.prototype._updateDateRangeQuicklinks = function (maxDateRange) {
   var self = this;
   var thisYear = maxDateRange[1].year();
@@ -190,11 +177,13 @@ StatisticsNav.prototype._updateDateRangeQuicklinks = function (maxDateRange) {
   self._quicklinks = {
     all: {
       elem: self._elem.container.find('.js-statistics-filter-datespan-all'),
+      id: '.js-statistics-filter-datespan-all',
       title: self._texts.wholeDatespan,
       dates: maxDateRange
     },
     thisYear: {
       elem: self._elem.container.find('.js-statistics-filter-datespan-this-year'),
+      id: '.js-statistics-filter-datespan-this-year',
       title: thisYear,
       dates: [
         moment.utc([thisYear, 0, 1]),
@@ -203,6 +192,7 @@ StatisticsNav.prototype._updateDateRangeQuicklinks = function (maxDateRange) {
     },
     back1year: {
       elem: self._elem.container.find('.js-statistics-filter-datespan-back-1-year'),
+      id: '.js-statistics-filter-datespan-back-1-year',
       title: thisYear - 1,
       dates: [
         moment.utc([thisYear - 1, 0, 1]),
@@ -211,6 +201,7 @@ StatisticsNav.prototype._updateDateRangeQuicklinks = function (maxDateRange) {
     },
     back2years: {
       elem: self._elem.container.find('.js-statistics-filter-datespan-back-2-years'),
+      id: '.js-statistics-filter-datespan-back-2-years',
       title: thisYear - 2,
       dates: [
         moment.utc([thisYear - 2, 0, 1]),
@@ -219,23 +210,35 @@ StatisticsNav.prototype._updateDateRangeQuicklinks = function (maxDateRange) {
     }
   };
 
-  for (id in self._quicklinks) {
+  for (var id in self._quicklinks) {
     var quicklink = self._quicklinks[id];
-    if (
-      quicklink.title === self._texts.wholeDatespan
-      || firstYear <= quicklink.title
-    ) {
-      quicklink.elem.text(quicklink.title);
+    if (quicklink.title === self._texts.wholeDatespan || firstYear <= quicklink.title) {
       quicklink.elem.click({dates: quicklink.dates}, function (e) {
         self._setDateRange(e.data.dates);
-      })
-    } else {
+      });
+
+      var quicklinkElement = d3.select(quicklink.id)
+        .append('div').attr('class', 'radio');
+
+      var label = quicklinkElement.append('label');
+
+      label.append('input')
+        .attr('type', 'radio')
+        .attr('name', 'quicklink-radio')
+        .attr('value', quicklink.title)
+        .property('checked', function () { return quicklink.title === self._texts.wholeDatespan; });
+
+      label.append('span')
+        .attr('class', 'radio-label')
+        .text(quicklink.title);
+    }
+    else {
       quicklink.elem.remove();
     }
   }
+
   self._highlightDateQuicklink();
 };
-
 
 StatisticsNav.prototype._highlightDateQuicklink = function () {
   var self = this;
@@ -258,7 +261,6 @@ StatisticsNav.prototype._highlightDateQuicklink = function () {
   }
 };
 
-
 StatisticsNav.prototype._setOrganizations = function (organizations) {
   var self = this;
 
@@ -269,15 +271,25 @@ StatisticsNav.prototype._setOrganizations = function (organizations) {
     label: self._texts.allPublishers
   }].concat(self._addOrganizationsWithChildren(self._state.filters.organizations));
 
-  self._elem.inputsD3.organizationFilter.selectAll('option').remove();
-  var options = self._elem.inputsD3.organizationFilter.selectAll('option')
-    .data(optionData);
+  self._elem.inputsD3.organizationFilter.selectAll('.radio').remove();
+  var options = self._elem.inputsD3.organizationFilter.selectAll('.radio')
+    .data(optionData)
+    .enter()
+    .append('div')
+    .attr('class', 'radio');
 
-  options.enter().append('option')
-    .text(function (d) { return d.label })
+  var label = options.append('label');
+
+  label.append('input')
+    .attr('type', 'radio')
+    .attr('name', 'organization-radio')
     .attr('value', function (d) { return d.value })
-};
+    .property('checked', function (d) { return d.value === ''; });
 
+  label.append('span')
+    .attr('class', 'radio-label')
+    .text(function (d) { return d.label });
+};
 
 StatisticsNav.prototype._addOrganizationsWithChildren = function (organizations, parentText) {
   if (!parentText)
@@ -287,13 +299,12 @@ StatisticsNav.prototype._addOrganizationsWithChildren = function (organizations,
   organizations.forEach(function(organization) {
     result.push({
       value: organization.id,
-      label: parentText + organization.title,
+      label: parentText + organization.title
     });
     result = result.concat(self._addOrganizationsWithChildren(organization.children, parentText + organization.title + ' > '))
   });
   return result;
 };
-
 
 StatisticsNav.prototype._setCategories = function (categories) {
   var self = this;
@@ -304,40 +315,25 @@ StatisticsNav.prototype._setCategories = function (categories) {
     display_name: self._texts.allCategories,
   }].concat(self._state.filters.categories);
 
-  self._elem.inputsD3.categoryFilter.selectAll('option').remove();
-  var options = self._elem.inputsD3.categoryFilter.selectAll('option')
-    .data(optionData);
+  self._elem.inputsD3.categoryFilter.selectAll('.radio').remove();
+  var options = self._elem.inputsD3.categoryFilter.selectAll('.radio')
+    .data(optionData)
+    .enter()
+    .append('div')
+    .attr('class', 'radio');
 
-  options.enter().append('option').text(function (d) {
-    return d.display_name;
-  })
-  .attr('value', function (d) {
-    return d.id;
-  })
-}
+  var label = options.append('label');
 
+  label.append('input')
+    .attr('type', 'radio')
+    .attr('name', 'category-radio')
+    .attr('value', function (d) { return d.id })
+    .property('checked', function (d) { return d.id === ''; });
 
-StatisticsNav.prototype._highlightSection = function (section) {
-  var self = this;
-  self._elem.navItems.find('a').removeClass('active');
-  section.navLink.addClass('active');
+  label.append('span')
+    .attr('class', 'radio-label')
+    .text(function (d) { return d.display_name });
 };
-
-
-StatisticsNav.prototype._updateFilterVisibility = function (sectionId) {
-  var self = this;
-  // Filters
-  //  || self._state.selectedSectionId === 'summary' || self._state.selectedSectionId === ''
-  if (sectionId === 'datasets') {
-    self._elem.inputs.organizationFilter.slideDown();
-    self._elem.inputs.categoryFilter.slideDown();
-  }
-  else {
-    self._elem.inputs.organizationFilter.slideUp();
-    self._elem.inputs.categoryFilter.slideUp();
-  }
-};
-
 
 StatisticsNav.prototype._scrollToSection = function (section) {
   var self = this;
@@ -347,17 +343,9 @@ StatisticsNav.prototype._scrollToSection = function (section) {
   })
 };
 
-
 // Update positions of each section on page
 StatisticsNav.prototype._updateSectionPositions = function () {
   var self = this;
-
-  // Calibrate affix nav
-  self._elem.container.affix({
-    offset: {
-      top: $('.statistics-nav').offset().top
-    }
-  });
 
   $('.js-summary-section').css('margin-top', self._state.height + 'px');
 
@@ -372,79 +360,47 @@ StatisticsNav.prototype._updateSectionPositions = function () {
   })
 };
 
-
-StatisticsNav.prototype._fixDatepickers = function () {
-  var self = this;
-  var container = $('.js-statistics-filter-datespan-fields');
-
-  function fixDatepicker(inputField) {
-    inputField.datepicker({
-      format: self._props.dateFormatBootstrap
-    });
-
-    var datepicker = $('.datepicker');
-    var width = datepicker.css('width');
-    if (datepicker.hasClass('datepicker-orient-bottom')) {
-      var detached = datepicker.detach();
-      detached.appendTo(container);
-      detached.css({
-        top: inputField.position().top + 18,
-        left: inputField.position().left,
-        width: width
-      })
-    }
-  }
-
-  self._elem.inputs.startDateFilter.click(function () {
-    fixDatepicker(self._elem.inputs.startDateFilter)
-  });
-
-  self._elem.inputs.endDateFilter.click(function () {
-    fixDatepicker(self._elem.inputs.endDateFilter)
-  })
-};
-
 // https://tc39.github.io/ecma262/#sec-array.prototype.find
 if (!Array.prototype.find) {
-    Object.defineProperty(Array.prototype, 'find', {
-        value: function(predicate) {
-            // 1. Let O be ? ToObject(this value).
-            if (this == null) {
-                throw new TypeError('"this" is null or not defined');
-            }
+  Object.defineProperty(Array.prototype, 'find', {
+    value: function(predicate) {
+      // 1. Let O be ? ToObject(this value).
+      if (this == null) {
+        throw new TypeError('"this" is null or not defined');
+      }
 
-            var o = Object(this);
+      var o = Object(this);
 
-            // 2. Let len be ? ToLength(? Get(O, "length")).
-            var len = o.length >>> 0;
+      // 2. Let len be ? ToLength(? Get(O, "length")).
+      var len = o.length >>> 0;
 
-            // 3. If IsCallable(predicate) is false, throw a TypeError exception.
-            if (typeof predicate !== 'function') {
-                throw new TypeError('predicate must be a function');
-            }
+      // 3. If IsCallable(predicate) is false, throw a TypeError exception.
+      if (typeof predicate !== 'function') {
+        throw new TypeError('predicate must be a function');
+      }
 
-            // 4. If thisArg was supplied, let T be thisArg; else let T be undefined.
-            var thisArg = arguments[1];
+      // 4. If thisArg was supplied, let T be thisArg; else let T be undefined.
+      var thisArg = arguments[1];
 
-            // 5. Let k be 0.
-            var k = 0;
+      // 5. Let k be 0.
+      var k = 0;
 
-            // 6. Repeat, while k < len
-            while (k < len) {
-                // a. Let Pk be ! ToString(k).
-                // b. Let kValue be ? Get(O, Pk).
-                // c. Let testResult be ToBoolean(? Call(predicate, T, « kValue, k, O »)).
-                // d. If testResult is true, return kValue.
-                var kValue = o[k];
-                if (predicate.call(thisArg, kValue, k, o)) {
-                    return kValue;
-                }
-                // e. Increase k by 1.
-                k++;
-            }
-
-            // 7. Return undefined.
-            return undefined;
+      // 6. Repeat, while k < len
+      while (k < len) {
+        // a. Let Pk be ! ToString(k).
+        // b. Let kValue be ? Get(O, Pk).
+        // c. Let testResult be ToBoolean(? Call(predicate, T, « kValue, k, O »)).
+        // d. If testResult is true, return kValue.
+        var kValue = o[k];
+        if (predicate.call(thisArg, kValue, k, o)) {
+          return kValue;
         }
-    });
+        // e. Increase k by 1.
+        k++;
+      }
+
+      // 7. Return undefined.
+      return undefined;
+    }
+  });
 }

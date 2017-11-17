@@ -659,7 +659,7 @@ function get_count($type) {
 }
 
 function get_ckan_categories() {
-  $data = get_ckan_data(CKAN_API_URL.'/action/group_list?all_fields=true&include_extras=true&sort=name asc');
+  $data = get_ckan_data(CKAN_API_URL.'/action/group_list?all_fields=true&include_extras=true&sort=name%20asc');
   return $data['result'];
 }
 
@@ -715,7 +715,7 @@ function format_ckan_row($row) {
     'type' => array('link' => CKAN_BASE_URL .'/'. get_current_locale_ckan() .'/'. $row['type'], 'label' => $row['type']),
     'link' => CKAN_BASE_URL .'/'. get_current_locale_ckan() .'/'. $row['type'] .'/'. $row['name'],
     'title' => $row['title'],
-    'title_translated' => isset($row['title_translated']) ? $row['title_translated'] : $row['title'],
+    'title_translated' => isset($row['title_translated']) ? $row['title_translated'] : (object) array('fi' => $row['title'], 'sv' => $row['title'], 'en_GB' => $row['title']),
     'notes_translated' => $row['notes_translated']
   );
 }
@@ -783,7 +783,7 @@ function get_lang() {
 
 function get_translated($object, $field) {
   $lang = get_lang();
-  if( isset($object[$field . '_translated']) and $object[$field . '_translated'] ) {
+  if( isset($object[$field . '_translated']) and is_array($object[$field . '_translated']) and $object[$field . '_translated'] ) {
     $translated_value = $object[$field . '_translated'][$lang];
 
     // Return default language if the translation was missing

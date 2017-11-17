@@ -17,18 +17,18 @@
           <?php if ($index % 3 === 0) echo '</div><div class="row cards">'; ?>
           <div class="card card-hover card-hover-light" onclick="window.location.href='<?php echo $item['link']?>'">
 
-            <h3 class="card__title">
+            <h3 class="card-title">
               <a href="<?php echo $item['link'] ?>">
                 <?php echo get_translated($item, 'title'); ?>
               </a>
             </h3>
 
-            <p class="card__description">
-              <span class="card__timestamp"><?php echo parse_date($item['date_updated']); ?></span><br />
+            <p>
+              <span class="card-timestamp"><?php echo parse_date($item['date_updated']); ?></span><br />
               <?php echo wp_html_excerpt( strip_shortcodes(render_markdown(get_translated($item, 'notes'))), 240, '...'); ?>
             </p>
 
-            <div class="card__meta">
+            <div class="card-meta">
               <?php
                 $label = is_array($item['type']) ? $item['type']['label'] : $item['type'];
                 switch ($label) {

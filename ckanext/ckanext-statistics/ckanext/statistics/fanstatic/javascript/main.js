@@ -39,7 +39,7 @@ ckan.module('statistics', function($){
           nameField: 'title_translated',
           dateField: 'date_released',
           skip: function (dataset) {
-            return !!dataset.private
+            return false
           }
         },
         apps: {
@@ -50,7 +50,7 @@ ckan.module('statistics', function($){
           }
         }
       },
-      locale: jQuery('html').attr('lang'),
+      locale: jQuery('html').attr('lang').split('_')[0],
       onScroll: null
     },
     state: {
@@ -69,7 +69,6 @@ ckan.module('statistics', function($){
       datasetSection: null,
       appSection: null
     },
-
 
     getVisHeight: function (contentWidth) {
       if (contentWidth < 720) {
@@ -236,6 +235,7 @@ ckan.module('statistics', function($){
       this.sections.datasetSection = new DatasetSection({
         texts: {
           sectionTitle: this._('Datas'),
+          noDataText: this._('No data available'),
           mostVisitedDatasetsTitle: this._('Most visited'),
           timelineTitle: this._('Timeline'),
           amount: this._('pcs'),
@@ -256,6 +256,7 @@ ckan.module('statistics', function($){
       this.sections.appSection = new AppSection({
         texts: {
           sectionTitle: this._('Apps'),
+          noDataText: this._('No data available'),
           timelineTitle: this._('Timeline'),
           categoriesTitle: this._('Categories'),
           amount: this._('pcs')
@@ -266,26 +267,6 @@ ckan.module('statistics', function($){
         schema: this.options.schemas.apps,
         locale: this.options.locale
       })
-    },
-
-    createMostVisitedDatasets: function (datasets, dateRange) {
-      //var query = '?start_date=' + this.options.dateRange[0].format('DD-MM-YYYY') + '&end_date=' + this.options.dateRange[1].format('DD-MM-YYYY');
-      this.options.api.get('most_visited_packages')
-      .then(function(response) {
-        var datasets = response.packages;
-        var result = [];
-        for (var index in datasets) {
-          var resultItem = {
-            name: datasets[index].package_name,
-            all: datasets[index].visits,
-            specific: 0
-          };
-
-          result.push(resultItem);
-        }
-        console.log(result)
-        return result;
-      });
     },
 
     createCategoryDatasets: function (datasets, categories, dateRange) {

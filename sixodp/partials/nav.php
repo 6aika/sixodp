@@ -4,7 +4,7 @@
 *
 **/
 ?>
-<nav class="navbar navbar-default navbar-fixed-top" id="main-navbar" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'sixodp' ); ?>">
+<nav class="navbar navbar-default" id="main-navbar" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'sixodp' ); ?>">
   <div class="container-fluid">
 
     <div class="navbar-header">
@@ -57,15 +57,19 @@
         </li>
         <?php
           foreach ( get_nav_menu_items("secondary") as $navItem ) {
-            $class = '';
-            $lang = substr(get_current_locale(), 0, 2);
-            if ( $navItem["title"] === $lang ) {
-              $class = 'active';
-            }
-            echo '<li class="'.$class.'"><a href="'.$navItem["url"].'" title="'.$navItem["title"].'" class="nav-link">'.$navItem["title"].'</a></li>';
+            echo '<li class="language-changer nav-inline"><a href="'.$navItem["url"].'" title="'.$navItem["title"].'" class="nav-link">'.$navItem["title"].'</a></li>';
           }
         ?>
       </ul>
+      <div class="navbar-footer">
+        <button type="button"
+                class="navbar-toggle-footer collapsed"
+                data-toggle="collapse"
+                data-target="#top-nav-collapse"
+                aria-expanded="false">
+          <span class="fa fa-chevron-up"></span>
+        </button>
+      </div>
     </div>
   </div>
 </nav><!-- .main-navigation -->

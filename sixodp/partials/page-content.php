@@ -4,16 +4,16 @@
   */
 ?>
 
-<div class="page__breadcrumb-wrapper">
-  <ul class="page__breadcrumb">
+<div class="page-breadcrumb-wrapper">
+  <ul class="page-breadcrumb">
     <li>Ajankohtaista</li>
     <li>Blogit</li>
   </ul>
 </div>
 
-<div class="page__body">
-  <h1 class="heading--main"><?php the_title(); ?></h1>
-  <div class="page__text article"><?php the_content(); ?></div>
+<div class="page-body">
+  <h1 class="heading-main"><?php the_title(); ?></h1>
+  <div class="article"><?php the_content(); ?></div>
   <div class="article__footer">
     <div class="author">
       <div class="author__img">

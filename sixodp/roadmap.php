@@ -18,17 +18,23 @@ get_header(); ?>
 <div id="primary" class="content-area">
 	<main id="main" class="site-main site-main--home" role="main">
 
-		<?php
-
+    <?php
       get_template_part('partials/header-logos');
+    ?>
 
-			// Get the board id for retrieving the lists
-			$board_id = get_option('wptsettings_settings')['wptsettings_helper_boards'];
-			
-			// Render the widget
-			echo do_shortcode('[wp-trello type="lists" id="'.$board_id.'" link="yes"]');
-			
-		?>
+    <div class="page-hero"></div>
+    <div class="page-hero-content container">
+      <?php
+        // Start the loop.
+        while ( have_posts() ) : the_post();
+
+          // Include the page content template.
+          get_template_part('partials/roadmap-content');
+
+          // End of the loop.
+        endwhile;
+      ?>
+    </div>
 
 	</main><!-- .site-main -->
 

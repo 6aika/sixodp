@@ -17,37 +17,96 @@
           <li><a href="#datasets"></a></li>
           <li><a href="#apps"></a></li>
         </ul>
-
-        <div class="form-inline statistics-nav-filters">
-          <div class="statistics-filter-datespan statistics-filter-container">
-            <div class="js-statistics-filter-datespan-fields">
-              <input class="form-control statistics-filter js-statistics-filter-start-date" type="date" />
-              <input class="form-control statistics-filter js-statistics-filter-end-date" type="date" />
-            </div>
-            <div class="statistics-filter-datespan-quicklinks">
-              <a class="js-statistics-filter-datespan-all"></a>
-              <a class="js-statistics-filter-datespan-back-2-years"></a>
-              <a class="js-statistics-filter-datespan-back-1-year"></a>
-              <a class="js-statistics-filter-datespan-this-year"></a>
-            </div>
-          </div>
-          <div class="statistics-filter-container statistics-filter-container-left">
-            <select class="form-control js-statistics-filter-organization statistics-filter statistics-filter-organization">
-              <option>-</option>
-            </select>
-          </div>
-          <div class="statistics-filter-container statistics-filter-container-right">
-            <select class="form-control js-statistics-filter-category statistics-filter statistics-filter-category">
-              <option>-</option>
-            </select>
-          </div>
-        </div>
       </div>
     </nav>
 
     <div class="statistics-section summary-section js-statistics-summary-section">
       <div class="statistics-section-content">
         <div class="js-summary-attention-numbers"></div>
+
+        <nav class="statistics-nav">
+          <div class="statistics-nav-content">
+            <div class="statistics-nav-filters">
+
+              <div class="row js-statistics-filter-datespan-fields">
+                <div class="col-lg-10 col-lg-offset-1 col-md-12 col-md-offset-0 col-sm-10 col-sm-offset-1 col-xs-12">
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-3 col-xs-6">
+                      <div class="form-group has-datepicker">
+                        <label class="control-label">{{ _('Starting') }}</label>
+                        <input class="form-control input-lg js-statistics-filter-start-date" type="date" />
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-xs-6">
+                      <div class="form-group has-datepicker">
+                        <label class="control-label">{{ _('Ending') }}</label>
+                        <input class="form-control input-lg js-statistics-filter-end-date" type="date" />
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-xs-12 text-right">
+
+                      <div class="dropdown dropdown-modal statistics-filter-dropdown">
+                        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button">
+                          <span class="fa fa-clock-o"></span>&nbsp{{ _('Ranges') }}
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                          <div class="dropdown-menu-container">
+                            <span class="js-statistics-filter-datespan js-statistics-filter-datespan-all"></span>
+                            <span class="js-statistics-filter-datespan js-statistics-filter-datespan-back-2-years"></span>
+                            <span class="js-statistics-filter-datespan js-statistics-filter-datespan-back-1-year"></span>
+                            <span class="js-statistics-filter-datespan js-statistics-filter-datespan-this-year"></span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="dropdown dropdown-modal statistics-filter-dropdown">
+                        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button">
+                          <span class="fa fa-filter"></span>&nbsp{{ _('Filter') }}
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                          <div class="panel-group">
+                            <div class="panel panel-default">
+                              <div class="panel-heading">
+                            <span class="panel-title">
+                              <a data-toggle="collapse" class="collapsed" href="#publishers-panel-body">
+                                {{ _('Publisher') }}<span class="fa fa-plus collapse-icon"></span>
+                              </a>
+                            </span>
+                              </div>
+                              <div id="publishers-panel-body" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                  <div class="js-statistics-filter-organization"></div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="panel panel-default">
+                              <div class="panel-heading">
+                            <span class="panel-title">
+                              <a data-toggle="collapse" class="collapsed" href="#categories-panel-body">
+                                {{ _('Category') }}<span class="fa fa-plus collapse-icon"></span>
+                              </a>
+                            </span>
+                              </div>
+                              <div id="categories-panel-body" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                  <div class="js-statistics-filter-category"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </nav>
       </div>
     </div>
 

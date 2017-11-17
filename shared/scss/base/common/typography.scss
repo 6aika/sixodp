@@ -11,6 +11,11 @@ h1, h2, h3, h4, h5, h6 {
 a {
   color: $link-color;
   word-break: break-word;
+  cursor: pointer;
+  -ms-hyphens: none;
+  -moz-hyphens: none;
+  -webkit-hyphens: none;
+  hyphens: none;
 
   &:hover {
     color: $link-color-active;
@@ -28,9 +33,14 @@ a {
   @include heading;
 }
 
-.heading--main {
+.heading-main {
   @include heading();
   font-size: 3rem;
+}
+
+.heading-content {
+  @extend .heading-main;
+  margin-top: 0;
 }
 
 .heading--inverse {
@@ -72,5 +82,5 @@ a {
 }
 
 .heading--archive {
-  @extend .heading--main;
+  @extend .heading-main;
 }

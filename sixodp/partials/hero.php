@@ -11,7 +11,7 @@
     ?>
     <div class="container">
       <div class="row">
-        <h1 class="heading--main text-center"><?php echo bloginfo('title') ?></h1>
+        <h1 class="heading-main text-center"><?php echo bloginfo('title') ?></h1>
         <h3 class="subheading text-center"><?php  echo bloginfo('description') ?></h3>
 
         <div class="col-md-8 col-md-offset-2">
