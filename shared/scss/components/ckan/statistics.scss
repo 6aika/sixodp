@@ -124,9 +124,6 @@
 }
 
 .statistics-filter-datespan-quicklinks {
-  margin: $margin-small-vertical 0;
-  text-align: center;
-
   > a,
   > a:focus,
   > a:active {
@@ -140,6 +137,25 @@
     &.statistics-active {
       border-color: $brand-secondary;
     }
+  }
+}
+
+.statistics-filter-dropdown {
+  display: inline-block;
+  margin-top: 0;
+  margin-left: $margin-large-horizontal;
+  margin-right: $margin-large-horizontal;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @media(min-width: $width-md) {
+    margin-top: 28px;
   }
 }
 
@@ -373,19 +389,10 @@
   border-bottom: solid #eee 1px;
 }
 
-.statistics-page button {
-  background-color: white;
-  color: $brand-info;
-  border: 0;
-  cursor: pointer;
-  font-size: 18px;
-  padding: 12px;
-}
-
-.statistics-page button:hover {
-  background-color: #f8f8f8;
-}
-
 .choose-organization {
   width: 500px;
+}
+
+.vis-notification {
+  text-align: center;
 }

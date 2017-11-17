@@ -12,7 +12,8 @@ var DatasetSection = function (params) {
     element: self._element.select('.js-most-visited-datasets'),
     texts: {
       title: self._texts.mostVisitedDatasetsTitle,
-      amount: self._texts.amount
+      amount: self._texts.amount,
+      noDataText: self._texts.noDataText
     },
     legend: [],
     limit: 10, // Before show more button is used
@@ -32,6 +33,7 @@ var DatasetSection = function (params) {
     texts: {
       title: self._texts.timelineTitle,
       amount: self._texts.amount,
+      noDataText: self._texts.noDataText
     },
     width: params.width,
     height: params.visHeight,
@@ -49,6 +51,7 @@ var DatasetSection = function (params) {
     texts: {
       title: self._texts.categoriesTitle,
       amount: self._texts.amount,
+      noDataText: self._texts.noDataText
     },
     legend: [
       {
@@ -74,7 +77,8 @@ var DatasetSection = function (params) {
     element: self._element.select('.js-format-dataset-counts'),
     texts: {
       title: self._texts.formatsTitle,
-      amount: self._texts.amount
+      amount: self._texts.amount,
+      noDataText: self._texts.noDataText
     },
     legend: [
       { title: self._texts.usedInApp },
@@ -96,7 +100,8 @@ var DatasetSection = function (params) {
     element: self._element.select('.js-organization-dataset-counts'),
     texts: {
       title: self._texts.topPublishersTitle,
-      amount: self._texts.amount
+      amount: self._texts.amount,
+      noDataText: self._texts.noDataText
     },
     legend: [
       { title: self._texts.usedInApp },

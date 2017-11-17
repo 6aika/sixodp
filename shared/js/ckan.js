@@ -1,4 +1,5 @@
 // Common js
+require('./components/common/dropdown-modal');
 require('./components/common/navbar');
 require('./components/common/search');
 require('./components/common/polyfills');

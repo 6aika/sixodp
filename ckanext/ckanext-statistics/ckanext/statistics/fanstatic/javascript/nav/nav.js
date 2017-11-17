@@ -52,10 +52,10 @@ function StatisticsNav (params) {
   }
 
   self._elem.inputs.organizationFilter.change(function () {
-    self._callbacks.broadcastOrganization(self._elem.inputsD3.organizationFilter.node().value);
+    self._callbacks.broadcastOrganization(self._elem.inputsD3.organizationFilter.select(':checked').node().value);
   });
   self._elem.inputs.categoryFilter.change(function () {
-    self._callbacks.broadcastCategory(self._elem.inputsD3.categoryFilter.node().value);
+    self._callbacks.broadcastCategory(self._elem.inputsD3.categoryFilter.select(':checked').node().value);
   });
   self._elem.inputs.startDateFilter.on('dp.change', function (e) { self._broadcastDateInputValues() });
   self._elem.inputs.endDateFilter.on('dp.change', function (e) { self._broadcastDateInputValues() });
@@ -177,11 +177,13 @@ StatisticsNav.prototype._updateDateRangeQuicklinks = function (maxDateRange) {
   self._quicklinks = {
     all: {
       elem: self._elem.container.find('.js-statistics-filter-datespan-all'),
+      id: '.js-statistics-filter-datespan-all',
       title: self._texts.wholeDatespan,
       dates: maxDateRange
     },
     thisYear: {
       elem: self._elem.container.find('.js-statistics-filter-datespan-this-year'),
+      id: '.js-statistics-filter-datespan-this-year',
       title: thisYear,
       dates: [
         moment.utc([thisYear, 0, 1]),
@@ -190,6 +192,7 @@ StatisticsNav.prototype._updateDateRangeQuicklinks = function (maxDateRange) {
     },
     back1year: {
       elem: self._elem.container.find('.js-statistics-filter-datespan-back-1-year'),
+      id: '.js-statistics-filter-datespan-back-1-year',
       title: thisYear - 1,
       dates: [
         moment.utc([thisYear - 1, 0, 1]),
@@ -198,6 +201,7 @@ StatisticsNav.prototype._updateDateRangeQuicklinks = function (maxDateRange) {
     },
     back2years: {
       elem: self._elem.container.find('.js-statistics-filter-datespan-back-2-years'),
+      id: '.js-statistics-filter-datespan-back-2-years',
       title: thisYear - 2,
       dates: [
         moment.utc([thisYear - 2, 0, 1]),
@@ -208,18 +212,31 @@ StatisticsNav.prototype._updateDateRangeQuicklinks = function (maxDateRange) {
 
   for (var id in self._quicklinks) {
     var quicklink = self._quicklinks[id];
-    if (
-      quicklink.title === self._texts.wholeDatespan
-      || firstYear <= quicklink.title
-    ) {
-      quicklink.elem.text(quicklink.title);
+    if (quicklink.title === self._texts.wholeDatespan || firstYear <= quicklink.title) {
       quicklink.elem.click({dates: quicklink.dates}, function (e) {
         self._setDateRange(e.data.dates);
-      })
-    } else {
+      });
+
+      var quicklinkElement = d3.select(quicklink.id)
+        .append('div').attr('class', 'radio');
+
+      var label = quicklinkElement.append('label');
+
+      label.append('input')
+        .attr('type', 'radio')
+        .attr('name', 'quicklink-radio')
+        .attr('value', quicklink.title)
+        .property('checked', function () { return quicklink.title === self._texts.wholeDatespan; });
+
+      label.append('span')
+        .attr('class', 'radio-label')
+        .text(quicklink.title);
+    }
+    else {
       quicklink.elem.remove();
     }
   }
+
   self._highlightDateQuicklink();
 };
 
@@ -254,13 +271,24 @@ StatisticsNav.prototype._setOrganizations = function (organizations) {
     label: self._texts.allPublishers
   }].concat(self._addOrganizationsWithChildren(self._state.filters.organizations));
 
-  self._elem.inputsD3.organizationFilter.selectAll('option').remove();
-  var options = self._elem.inputsD3.organizationFilter.selectAll('option')
-    .data(optionData);
+  self._elem.inputsD3.organizationFilter.selectAll('.radio').remove();
+  var options = self._elem.inputsD3.organizationFilter.selectAll('.radio')
+    .data(optionData)
+    .enter()
+    .append('div')
+    .attr('class', 'radio');
 
-  options.enter().append('option')
-    .text(function (d) { return d.label })
+  var label = options.append('label');
+
+  label.append('input')
+    .attr('type', 'radio')
+    .attr('name', 'organization-radio')
     .attr('value', function (d) { return d.value })
+    .property('checked', function (d) { return d.value === ''; });
+
+  label.append('span')
+    .attr('class', 'radio-label')
+    .text(function (d) { return d.label });
 };
 
 StatisticsNav.prototype._addOrganizationsWithChildren = function (organizations, parentText) {
@@ -287,16 +315,24 @@ StatisticsNav.prototype._setCategories = function (categories) {
     display_name: self._texts.allCategories,
   }].concat(self._state.filters.categories);
 
-  self._elem.inputsD3.categoryFilter.selectAll('option').remove();
-  var options = self._elem.inputsD3.categoryFilter.selectAll('option')
-    .data(optionData);
+  self._elem.inputsD3.categoryFilter.selectAll('.radio').remove();
+  var options = self._elem.inputsD3.categoryFilter.selectAll('.radio')
+    .data(optionData)
+    .enter()
+    .append('div')
+    .attr('class', 'radio');
 
-  options.enter().append('option').text(function (d) {
-    return d.display_name;
-  })
-  .attr('value', function (d) {
-    return d.id;
-  })
+  var label = options.append('label');
+
+  label.append('input')
+    .attr('type', 'radio')
+    .attr('name', 'category-radio')
+    .attr('value', function (d) { return d.id })
+    .property('checked', function (d) { return d.id === ''; });
+
+  label.append('span')
+    .attr('class', 'radio-label')
+    .text(function (d) { return d.display_name });
 };
 
 StatisticsNav.prototype._scrollToSection = function (section) {
