@@ -141,15 +141,21 @@
 }
 
 .statistics-filter-dropdown {
+  display: inline-block;
   margin-top: 0;
+  margin-left: $margin-large-horizontal;
+  margin-right: $margin-large-horizontal;
 
-  @media(min-width: $width-sm) {
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @media(min-width: $width-md) {
     margin-top: 28px;
-    width: 100%;
-
-    .btn {
-      width: 100%;
-    }
   }
 }
 
