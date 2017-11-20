@@ -396,3 +396,18 @@
 .vis-notification {
   text-align: center;
 }
+
+.statistics-tooltip {
+  background: $navbar-default-bg;
+  color: $text-color;
+  padding: $padding-xs-vertical $padding-small-horizontal;
+  position: absolute;
+  border-radius: $border-radius-large;
+  font-size: $font-size-small;
+  opacity: 0;
+  transition: opacity $transition-speed-base $transition-curve-base;
+
+  &.active {
+    opacity: 0.8;
+  }
+}

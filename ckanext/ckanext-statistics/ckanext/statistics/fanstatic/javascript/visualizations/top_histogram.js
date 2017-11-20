@@ -209,27 +209,56 @@ TopHistogram.prototype._renderBase = function (container) {
   });
 };
 
-
 // Draw or update the histogram bars with the given data
 TopHistogram.prototype._renderHistogram = function (histogramData) {
   var self = this;
+
+  var tooltip = d3.select('body')
+    .append('div')
+    .attr('class', 'statistics-tooltip')
+
   // Join new data
   self._elem.histogramBars = self._elem.histogramCanvas.selectAll('.statistics-bar')
     .data(histogramData, function(d) { return d ? d.name : this.id })
     .attr('transform', function(d, i) { return (
       'translate(0,' + self._helpers.yScale(d[self._schema.labelField]) + ')'
     )});
+
   self._elem.histogramBars.selectAll('.statistics-bar-main')
     .data(histogramData, function(d) { return d ? d.name : this.id })
-    .attr('width', function (d) { return (
+    .attr('width', function (d) {
+      return (
         d[self._schema.valueField] > 0 ? self._helpers.xScale(d[self._schema.valueField]) - 1 : self._helpers.xScale(d[self._schema.valueField])
-    )});
+      )
+    })
+    .on('mouseover', function(d) {
+      tooltip.text(d.all);
+      return tooltip.classed('active', true);
+    })
+    .on('mousemove', function() {
+      return tooltip.style('top', (d3.event.pageY + 20) + 'px')
+        .style('left',(d3.event.pageX + 10) + 'px');
+    })
+    .on('mouseout', function() {
+      return tooltip.classed('active', false);
+    });
 
   self._elem.histogramBars.selectAll('.statistics-bar-portion')
     .data(histogramData, function(d) { return d ? d.name : this.id })
     .attr('width', function (d) { return (
       self._helpers.xScale(d[self._schema.valueSpecificField])
-    )});
+    )})
+    .on('mouseover', function(d) {
+      tooltip.text(d.specific);
+      return tooltip.classed('active', true);
+    })
+    .on('mousemove', function() {
+      return tooltip.style('top', (d3.event.pageY + 20) + 'px')
+        .style('left',(d3.event.pageX + 10) + 'px');
+    })
+    .on('mouseout', function() {
+      return tooltip.classed('active', false);
+    });
 
   function wrap(text, width, yMiddle) {
     width = width - 10;
