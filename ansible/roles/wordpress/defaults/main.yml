@@ -12,6 +12,7 @@ wordpress_plugins:
   - wpcustom-category-image
   - disqus-comment-system
   - wp-recaptcha-integration
+  - wordpress-importer
 
 polylang_languages: 
   - { name: 'Suomi', code: 'fi', locale: 'fi', flag: 'fi' }
