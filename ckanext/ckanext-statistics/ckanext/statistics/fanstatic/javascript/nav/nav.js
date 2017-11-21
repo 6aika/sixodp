@@ -52,7 +52,9 @@ function StatisticsNav (params) {
   }
 
   self._elem.inputs.organizationFilter.change(function () {
-    self._callbacks.broadcastOrganization(self._elem.inputsD3.organizationFilter.select(':checked').node().value);
+    var selectedOrganizationId = self._elem.inputsD3.organizationFilter.select(':checked').node().value;
+    self._callbacks.broadcastOrganization(selectedOrganizationId);
+    self._setOrganizations(self._state.filters.organizations, selectedOrganizationId);
   });
   self._elem.inputs.categoryFilter.change(function () {
     self._callbacks.broadcastCategory(self._elem.inputsD3.categoryFilter.select(':checked').node().value);
@@ -90,6 +92,7 @@ StatisticsNav.prototype.dataLoaded = function (params) {
   self._setDateRange(params.dateRange);
   self._updateDateRangeQuicklinks(params.maxDateRange);
 
+  self._state.filters.organizations = params.organizations;
   self._setOrganizations(params.organizations);
   self._setCategories(params.categories);
 
@@ -261,15 +264,13 @@ StatisticsNav.prototype._highlightDateQuicklink = function () {
   }
 };
 
-StatisticsNav.prototype._setOrganizations = function (organizations) {
+StatisticsNav.prototype._setOrganizations = function (organizations, selectedOrganizationId) {
   var self = this;
 
-  // List whole hierarchy as options
-  self._state.filters.organizations = organizations;
   var optionData = [{
     value: '',
     label: self._texts.allPublishers
-  }].concat(self._addOrganizationsWithChildren(self._state.filters.organizations));
+  }].concat(self.getOrganizationsBySelection(organizations, selectedOrganizationId));
 
   self._elem.inputsD3.organizationFilter.selectAll('.radio').remove();
   var options = self._elem.inputsD3.organizationFilter.selectAll('.radio')
@@ -284,26 +285,39 @@ StatisticsNav.prototype._setOrganizations = function (organizations) {
     .attr('type', 'radio')
     .attr('name', 'organization-radio')
     .attr('value', function (d) { return d.value })
-    .property('checked', function (d) { return d.value === ''; });
+    .property('checked', function (d) {
+      return selectedOrganizationId ? selectedOrganizationId === d.value : d.value === '';
+    });
 
   label.append('span')
     .attr('class', 'radio-label')
     .text(function (d) { return d.label });
 };
 
-StatisticsNav.prototype._addOrganizationsWithChildren = function (organizations, parentText) {
-  if (!parentText)
-    parentText = '';
+StatisticsNav.prototype.getOrganizationsBySelection = function (organizations, selectedOrganizationId) {
   var self = this;
   var result = [];
+  var topLevelOrganization = self.getTopLevelOrganization(selectedOrganizationId, organizations);
+
   organizations.forEach(function(organization) {
     result.push({
       value: organization.id,
-      label: parentText + organization.title
+      label: organization.title
     });
-    result = result.concat(self._addOrganizationsWithChildren(organization.children, parentText + organization.title + ' > '))
+
+    if(topLevelOrganization && organization.id === topLevelOrganization.id || selectedOrganizationId === organization.id) {
+      result = result.concat(self.getOrganizationsBySelection(organization.children, selectedOrganizationId))
+    }
   });
+
   return result;
+};
+
+StatisticsNav.prototype.getTopLevelOrganization = function(selectedOrganizationId, organizations) {
+  var self = this;
+  return organizations.find(function(organization) {
+    return organization.id === selectedOrganizationId ? organization : self.getTopLevelOrganization(selectedOrganizationId, organization.children);
+  });
 };
 
 StatisticsNav.prototype._setCategories = function (categories) {
@@ -404,3 +418,22 @@ if (!Array.prototype.find) {
     }
   });
 }
+
+$(document).ready(function() {
+  // Show fixed filters nav after user scroll beneath specific anchor
+  $(window).on('scroll', function () {
+    var anchorOffset = $('#filters-nav-trigger').offset().top;
+    var mainNavWrapper = $('.nav-wrapper');
+    var filtersNavWrapper = $('#statistics-filters-navbar');
+    var statisticsFilters = $('#statistics-filters');
+
+    // User has scrolled past the anchor
+    if ($(window).scrollTop() > anchorOffset) {
+      statisticsFilters.detach().appendTo(mainNavWrapper);
+    }
+    // User scrolls back up, move filters to original position
+    else if (!$("#statistics-filters-navbar #statistics-filters").length) {
+      statisticsFilters.detach().appendTo(filtersNavWrapper);
+    }
+  });
+});

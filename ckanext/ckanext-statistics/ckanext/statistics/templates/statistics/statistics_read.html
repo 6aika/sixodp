@@ -19,94 +19,92 @@
         </ul>
       </div>
     </nav>
+    <nav class="statistics-nav statistics-nav-filters" id="statistics-filters-navbar">
+     <div class="statistics-nav-content" id="statistics-filters">
+       <div class="js-statistics-filter-datespan-fields">
+
+         <div class="row">
+           <div class="col-lg-2 col-lg-offset-3 col-md-3 col-md-offset-1 col-xs-4 col-statistics-condensed">
+             <div class="form-group has-datepicker">
+               <input class="form-control js-statistics-filter-start-date" type="text" />
+             </div>
+           </div>
+           <div class="col-lg-2 col-md-3 col-xs-4 col-statistics-condensed">
+             <div class="form-group has-datepicker">
+               <input class="form-control js-statistics-filter-end-date" type="text" />
+             </div>
+           </div>
+           <div class="col-lg-2 col-md-4 col-xs-4 col-statistics-condensed">
+             <div class="dropdown dropdown-modal statistics-filter-dropdown">
+               <button class="btn btn-block btn-secondary dropdown-toggle" type="button">
+                 <span class="fa fa-filter"></span>&nbsp{{ _('Filter') }}
+               </button>
+               <div class="dropdown-menu dropdown-menu-right">
+                 <div class="panel-group">
+
+                   <div class="panel panel-default">
+                     <div class="panel-heading">
+                        <span class="panel-title">
+                          <a data-toggle="collapse" class="collapsed" href="#range-panel-body">
+                            {{ _('Range') }}<span class="fa fa-plus collapse-icon"></span>
+                          </a>
+                        </span>
+                     </div>
+                     <div id="range-panel-body" class="panel-collapse collapse">
+                       <div class="panel-body">
+                         <span class="js-statistics-filter-datespan js-statistics-filter-datespan-all"></span>
+                         <span class="js-statistics-filter-datespan js-statistics-filter-datespan-back-2-years"></span>
+                         <span class="js-statistics-filter-datespan js-statistics-filter-datespan-back-1-year"></span>
+                         <span class="js-statistics-filter-datespan js-statistics-filter-datespan-this-year"></span>
+                       </div>
+                     </div>
+                   </div>
+
+                   <div class="panel panel-default">
+                     <div class="panel-heading">
+                        <span class="panel-title">
+                          <a data-toggle="collapse" class="collapsed" href="#publishers-panel-body">
+                            {{ _('Publisher') }}<span class="fa fa-plus collapse-icon"></span>
+                          </a>
+                        </span>
+                     </div>
+                     <div id="publishers-panel-body" class="panel-collapse collapse">
+                       <div class="panel-body">
+                         <div class="js-statistics-filter-organization"></div>
+                       </div>
+                     </div>
+                   </div>
+
+                   <div class="panel panel-default">
+                     <div class="panel-heading">
+                        <span class="panel-title">
+                          <a data-toggle="collapse" class="collapsed" href="#categories-panel-body">
+                            {{ _('Category') }}<span class="fa fa-plus collapse-icon"></span>
+                          </a>
+                        </span>
+                     </div>
+                     <div id="categories-panel-body" class="panel-collapse collapse">
+                       <div class="panel-body">
+                         <div class="js-statistics-filter-category"></div>
+                       </div>
+                     </div>
+                   </div>
+
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+    </nav>
+
+
+    <span id="filters-nav-trigger"></span>
 
     <div class="statistics-section summary-section js-statistics-summary-section">
       <div class="statistics-section-content">
         <div class="js-summary-attention-numbers"></div>
-
-        <nav class="statistics-nav">
-          <div class="statistics-nav-content">
-            <div class="statistics-nav-filters">
-
-              <div class="row js-statistics-filter-datespan-fields">
-                <div class="col-lg-10 col-lg-offset-1 col-md-12 col-md-offset-0 col-sm-10 col-sm-offset-1 col-xs-12">
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-3 col-xs-6">
-                      <div class="form-group has-datepicker">
-                        <label class="control-label">{{ _('Starting') }}</label>
-                        <input class="form-control input-lg js-statistics-filter-start-date" type="date" />
-                      </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-xs-6">
-                      <div class="form-group has-datepicker">
-                        <label class="control-label">{{ _('Ending') }}</label>
-                        <input class="form-control input-lg js-statistics-filter-end-date" type="date" />
-                      </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-xs-12 text-right">
-
-                      <div class="dropdown dropdown-modal statistics-filter-dropdown">
-                        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button">
-                          <span class="fa fa-clock-o"></span>&nbsp{{ _('Ranges') }}
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                          <div class="dropdown-menu-container">
-                            <span class="js-statistics-filter-datespan js-statistics-filter-datespan-all"></span>
-                            <span class="js-statistics-filter-datespan js-statistics-filter-datespan-back-2-years"></span>
-                            <span class="js-statistics-filter-datespan js-statistics-filter-datespan-back-1-year"></span>
-                            <span class="js-statistics-filter-datespan js-statistics-filter-datespan-this-year"></span>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="dropdown dropdown-modal statistics-filter-dropdown">
-                        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button">
-                          <span class="fa fa-filter"></span>&nbsp{{ _('Filter') }}
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                          <div class="panel-group">
-                            <div class="panel panel-default">
-                              <div class="panel-heading">
-                            <span class="panel-title">
-                              <a data-toggle="collapse" class="collapsed" href="#publishers-panel-body">
-                                {{ _('Publisher') }}<span class="fa fa-plus collapse-icon"></span>
-                              </a>
-                            </span>
-                              </div>
-                              <div id="publishers-panel-body" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                  <div class="js-statistics-filter-organization"></div>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                              <div class="panel-heading">
-                            <span class="panel-title">
-                              <a data-toggle="collapse" class="collapsed" href="#categories-panel-body">
-                                {{ _('Category') }}<span class="fa fa-plus collapse-icon"></span>
-                              </a>
-                            </span>
-                              </div>
-                              <div id="categories-panel-body" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                  <div class="js-statistics-filter-category"></div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </nav>
       </div>
     </div>
 
