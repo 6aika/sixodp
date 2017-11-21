@@ -28,6 +28,10 @@
   h1 {
     font-family: $font-heading;
   }
+
+  @media(min-width: $grid-float-breakpoint) {
+    padding: 30% 10px;
+  }
 }
 
 @keyframes statistics-loading-bg {
