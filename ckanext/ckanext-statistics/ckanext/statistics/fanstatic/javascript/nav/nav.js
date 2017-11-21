@@ -418,3 +418,20 @@ if (!Array.prototype.find) {
     }
   });
 }
+
+// Show fixed filters nav after user scroll beneath specific anchor
+$(window).on('scroll', function() {
+  var anchorOffset = $('#filters-nav-trigger').offset().top;
+  var mainNavWrapper = $('.nav-wrapper');
+  var filtersNavWrapper = $('#statistics-filters-navbar');
+  var statisticsFilters = $('#statistics-filters');
+
+  // User has scrolled past the anchor
+  if ($(window).scrollTop() > anchorOffset) {
+    statisticsFilters.detach().appendTo(mainNavWrapper);
+  }
+  // User scrolls back up, move filters to original position
+  else if (!$("#statistics-filters-navbar #statistics-filters").length) {
+    statisticsFilters.detach().appendTo(filtersNavWrapper);
+  }
+});
