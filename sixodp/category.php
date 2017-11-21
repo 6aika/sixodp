@@ -33,7 +33,7 @@ get_header();
         </div>
 
         <div class="row">
-          <div class="sidebar col-md-3">
+          <div class="sidebar col-md-3 col-sm-5 col-xs-12">
             <?php
               $categories=get_categories(array(
                 'parent' => $grandparent_id,
@@ -68,7 +68,7 @@ get_header();
             <?php }
             ?>
           </div>
-          <div class="col-md-9 news-content">
+          <div class="col-md-9 col-sm-7 col-xs-12 news-content">
             <div class="cards cards--2 cards--image">
               <?php
               while ( have_posts() ) : the_post(); ?>

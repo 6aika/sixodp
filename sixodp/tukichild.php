@@ -26,38 +26,31 @@ $category = get_queried_object();
     ?>
     <div class="page-hero"></div>
     <div class="page-hero-content container">
-      <?php
-        while ( have_posts() ) : the_post();
-        ?>
-          <div class="wrapper">
-            <div class="container">
-
-              <?php
-                include( locate_template('partials/tuki-headingbar.php') );
-              ?>
-              <div class="row">
-                <?php
-                  include( locate_template('partials/tuki-sidebar.php') );
-                  get_template_part( 'partials/content' );
-                ?>
-              </div>
-            </div>
+      <div class="wrapper">
+        <?php while ( have_posts() ) : the_post(); ?>
+          <div class="row">
+            <?php
+              include( locate_template('partials/tuki-sidebar.php') );
+              get_template_part( 'partials/content' );
+            ?>
           </div>
+
           <?php
-          $morelinks_title = "Lisää aiheesta";
+            $morelinks_title = "Lisää aiheesta";
 
-          $args = array(
-            'cat' => array_map(function($category) { return $category->term_id; }, get_the_category()),
-            'post_type' => 'page',
-            'exclude' => get_the_id(),
-            'posts_per_page' => 4
-          );
+            $args = array(
+              'cat' => array_map(function($category) { return $category->term_id; }, get_the_category()),
+              'post_type' => 'page',
+              'exclude' => get_the_id(),
+              'posts_per_page' => 4
+            );
 
-          $links = get_posts($args);
+            $links = get_posts($args);
 
-          include(locate_template( 'partials/morelinks.php' ));
-        endwhile;
-      ?>
+            include(locate_template( 'partials/morelinks.php' ));
+          ?>
+        <?php endwhile; ?>
+      </div>
     </div>
   </main><!-- .site-main -->
 </div><!-- .content-area -->

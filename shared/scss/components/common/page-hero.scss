@@ -21,13 +21,13 @@
 }
 
 .page-hero-content {
+  @extend %box-shadow;
   position: relative;
   min-height: $base*50;
   z-index: 1;
   margin-top: 0;
   background: $brand-white;
-  padding-bottom: $base*4;
-  @extend %box-shadow;
+  padding: $base*2;
 
   @media(min-width: $width-md) {
     margin-top: -$base*50;

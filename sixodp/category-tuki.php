@@ -25,16 +25,15 @@ $category = get_queried_object();
 
       <div class="wrapper">
         <div class="headingbar">
-          <h1 class="heading-main">
-            <a href="<?php echo get_category_link($parent_category) ?>"><?php echo $parent_category->name ?></a>
-            <?php if ($parent_category->term_id != $category->term_id) {
-              ?>
-                <i class="material-icons">navigate_next</i>
-                <span><?php echo $category->name ?></span>
-              <?php
-            }
-            ?>
-          </h1>
+          <h1 class="heading-main"><?php echo $category->name ?></h1>
+
+          <ol class="breadcrumb">
+            <li><a href="<?php echo get_home_url() ?>"><?php echo _('Home') ?></a></li>
+            <li><a href="<?php echo get_category_link($parent_category) ?>"><?php echo $parent_category->name ?></a></li>
+            <?php if ($parent_category->term_id != $category->term_id) { ?>
+              <li><a href="<?php echo get_category_link($category) ?>"><?php echo $category->name ?></a></li>
+            <?php } ?>
+          </ol>
         </div>
 
         <div class="row">

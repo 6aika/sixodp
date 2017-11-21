@@ -4,7 +4,7 @@
   */
 ?>
 
-<div class="sidebar col-md-3 col-sm-5">
+<div class="sidebar col-md-3 col-sm-5 col-xs-12">
   <?php
     $categories=get_categories(array(
       'parent' => $parent_category->term_id,
