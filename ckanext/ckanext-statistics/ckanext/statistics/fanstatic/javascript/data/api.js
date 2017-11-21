@@ -32,10 +32,7 @@ Api.prototype.getAllData = function (callback, delay) {
     data.organizations = organizations;
     data.categories = categories;
     data.apps = apps;
-    return self.get('current_package_list_with_resources?limit=' + datasets.count);
-  })
-  .then(function(datasetsWithResources) {
-    data.datasets = datasetsWithResources;
+    data.datasets = datasets.results;
 
     return Promise.map(data.apps, function(app, index) {
       return self.get('ckanext_showcase_package_list?showcase_id=' + app.id)

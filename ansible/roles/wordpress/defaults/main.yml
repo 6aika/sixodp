@@ -12,6 +12,7 @@ wordpress_plugins:
   - wpcustom-category-image
   - disqus-comment-system
   - wp-recaptcha-integration
+  - wordpress-importer
 
 polylang_languages: 
   - { name: 'Suomi', code: 'fi', locale: 'fi', flag: 'fi' }
@@ -27,4 +28,4 @@ polylang_config:
 wp_cli_version: "1.4.0"
 wp_cli_checksum: sha512:da1abdced95e6f90986c66ad3239a573824ef9a7dd0078b8f1df685e19a62af68325b9b7388d5406df5383b35e48c50cc82c0c529d05fc01dcc4c9175229b517
 
-wordpress_version: "4.8.1" # Replace with latest once wp install with wp cli is fixed
+wordpress_version: "latest"
