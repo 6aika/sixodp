@@ -170,6 +170,11 @@
   &:last-child {
     margin-right: 0;
   }
+
+  .dropdown-toggle {
+    box-shadow: none;
+    height: $input-height-base;
+  }
 }
 
 // Sections
