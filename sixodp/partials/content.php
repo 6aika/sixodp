@@ -4,7 +4,7 @@
   */
 ?>
 
-<div class="article-wrapper col-xs-12 col-sm-9">
+<div class="col-md-9 col-sm-7 col-xs-12">
   <h1 class="heading-content"><?php the_title(); ?></h1>
   <article class="article" role="article">
     <?php the_content(); ?>

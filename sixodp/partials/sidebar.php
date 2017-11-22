@@ -4,7 +4,7 @@
   */
 ?>
 
-<div class="sidebar col-sm-3">
+<div class="sidebar col-md-3 col-sm-5 col-xs-12">
   <?php
     $pages= get_pages(array("parent" => $parent_page->ID));
 
