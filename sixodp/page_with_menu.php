@@ -27,9 +27,7 @@ get_header(); ?>
       <div class="page-hero-content container">
         <?php
 
-          while ( have_posts() ) :       
-            include(locate_template( 'partials/headingbar.php' ));
-            ?>
+          while ( have_posts() ) : ?>
             <div class="row">
               <?php
               include(locate_template( 'partials/sidebar.php' ));
