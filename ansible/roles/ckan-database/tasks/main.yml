@@ -24,7 +24,8 @@
 
 - name: Initialize Harvest database
   command: ./bin/paster --plugin=ckanext-harvest harvester initdb "--config={{ ckan_ini }}" chdir={{ virtualenv }}
-
+  when: "'ckanext-harvest' in ckan_extensions"
+  
 - name: Initialize archiver database
   command: ./bin/paster --plugin=ckanext-archiver archiver init "--config={{ ckan_ini }}" chdir={{ virtualenv }}
 
