@@ -8,9 +8,6 @@
   cron: name="Harvester run" minute="0" job="/usr/lib/ckan/default/bin/paster --plugin=ckanext-harvest harvester run --config={{ ckan_ini }}"
   when: "'ckanext-harvest' in ckan_extensions"
 
-- name: Ensure qa cronjob
-  cron: name="Qa run" minute="0" hour="3" job="/usr/lib/ckan/default/bin/paster --plugin=ckanext-qa qa update --config={{ ckan_ini }}"
-
 - name: Ensure reminder cronjob
   cron: name="Reminder send" minute="0" hour="7" job="/usr/lib/ckan/default/bin/paster --plugin=ckanext-reminder reminder send --config={{ckan_ini}}"
 
