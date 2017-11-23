@@ -5,4 +5,6 @@ supervisor_log_path: /var/log/ckan
 supervisor_services:
   # - ckan_gather_consumer
   # - ckan_fetch_consumer
-  - celery
+  # - celery
+  - celery-bulk
+  - celery-priority
