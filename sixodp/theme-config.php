@@ -102,16 +102,31 @@
   define( 'PRIMARY_MENU_ITEMS_FI', array(
     array('menu-item-title' => 'Etusivu', 'menu-item-type' => 'post_type', 'menu-item-object-slug' => 'fi', 'menu-item-object' => 'page'),
     array('menu-item-title' => 'Tietoaineistot', 'menu-item-url' => '/data/fi/dataset/', 'children' => array(
-      array('menu-item-title' => 'Työnalla', 'menu-item-type' => 'post_type', 'menu-item-object-slug' => 'tyon-alla', 'menu-item-object' => 'page'),
-      array('menu-item-title' => 'Uusi datatoive', 'menu-item-type' => 'post_type', 'menu-item-object-slug' => 'uusi-datatoive', 'menu-item-object' => 'page'),
+      array('menu-item-title' => 'Datahaku', 'menu-item-url' => '/data/fi/dataset/'),
+      array('menu-item-title' => 'Työn alla', 'menu-item-type' => 'post_type', 'menu-item-object-slug' => 'tyon-alla', 'menu-item-object' => 'page'),
       array('menu-item-title' => 'Datakokoelmat', 'menu-item-url' => '/data/fi/collection/'),
+      array('menu-item-title' => 'Kategoriat', 'menu-item-url' => '/data/fi/group/'),
+      array('menu-item-title' => 'Organisaatiot', 'menu-item-url' => '/data/fi/organization/'),
+      array('menu-item-title' => 'Datatoiveet', 'menu-item-type' => 'post_type', 'menu-item-object-slug' => 'datatoiveet', 'menu-item-object' => 'page'),
+      array('menu-item-title' => 'Uusi datatoive', 'menu-item-type' => 'post_type', 'menu-item-object-slug' => 'uusi-datatoive', 'menu-item-object' => 'page'),
     )),
     array('menu-item-title' => 'Sovellukset', 'menu-item-url' => '/data/fi/showcase', 'children' => array(
       array('menu-item-title' => 'Ilmoita sovellus', 'menu-item-url' => '/data/fi/submit-showcase/'),
+      array('menu-item-title' => 'Sovellusideat', 'menu-item-type' => 'post_type', 'menu-item-object-slug' => 'showcase_idea', 'menu-item-object' => 'page'),
       array('menu-item-title' => 'Uusi sovellusidea', 'menu-item-type' => 'post_type', 'menu-item-object-slug' => 'uusi-sovellusidea', 'menu-item-object' => 'page'),
     )),
-    array('menu-item-title' => 'Ajankohtaista', 'menu-item-type' => 'post_type', 'menu-item-object-slug' => 'ajankohtaista', 'menu-item-object' => 'page'),
-    array('menu-item-title' => 'Tuki', 'menu-item-type' => 'post_type', 'menu-item-object-slug' => 'tuki', 'menu-item-object' => 'page'),
+    array('menu-item-title' => 'Ajankohtaista', 'menu-item-type' => 'post_type', 'menu-item-object-slug' => 'ajankohtaista', 'menu-item-object' => 'page', 'children' => array(
+      array('menu-item-title' => 'Kaikki', 'menu-item-type' => 'post_type', 'menu-item-object-slug' => 'ajankohtaista', 'menu-item-object' => 'page'),
+      array('menu-item-title' => 'Uutiset', 'menu-item-url' => '/fi/category/ajankohtaista/uutiset/'),
+      array('menu-item-title' => 'Blogit', 'menu-item-url' => '/fi/category/ajankohtaista/blogit/'),
+      array('menu-item-title' => 'Viimeisimmät päivitykset', 'menu-item-type' => 'post_type', 'menu-item-object-slug' => 'viimeisimmat-paivitykset', 'menu-item-object' => 'page')
+    )),
+    array('menu-item-title' => 'Ohjeet', 'menu-item-type' => 'post_type', 'menu-item-object-slug' => 'tuki', 'menu-item-object' => 'page'),
+    array('menu-item-title' => 'Analytiikka', 'menu-item-url' => '/data/fi/statistics/', 'children' => array(
+      array('menu-item-title' => 'Dashboard', 'menu-item-url' => '/data/fi/statistics/'),
+      array('menu-item-title' => 'Raportit', 'menu-item-url' => '/data/fi/reports/'),
+    )),
+    array('menu-item-title' => 'Palvelu', 'menu-item-type' => 'post_type', 'menu-item-object-slug' => 'palvelu', 'menu-item-object' => 'page'),
   ) );
 
   define( 'PRIMARY_MENU_ITEMS_EN', array(
