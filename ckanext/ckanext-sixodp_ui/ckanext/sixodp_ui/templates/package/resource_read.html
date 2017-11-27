@@ -164,14 +164,6 @@
   {% endblock %}
 
   {% block package_openness %}
-    {% if c.pkg_dict %}
-      <div class="module module-narrow module-shallow context-info">
-        <h2 class="module-heading">{{ _('Openness') }}</h2>
-        <section class="module-content">
-          {{ h.get_qa_openness(c.pkg_dict) }}<br>
-        </section>
-      </div>
-    {% endif %}
   {% endblock %}
 
   {% block secondary_help_content %}{% endblock %}

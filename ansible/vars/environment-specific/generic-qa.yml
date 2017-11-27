@@ -131,6 +131,8 @@ enabled_ckan_extensions:
     - recline_map_view
     - sixodp_showcase
     - googleanalytics
+    - qa
+    - archiver
     - sixodp_ui
     - datastore
     - datasetcopy
@@ -144,8 +146,6 @@ enabled_ckan_extensions:
     - rating
     - sixodp_routes
     - sixodp_feed
-    - qa
-    - archiver
     - hierarchy_display
     - hierarchy_form
     - reminder
