@@ -51,6 +51,7 @@ $text-transition: all 0.1s 0.1s ease-in-out;
   .horizontal-accordion-tab {
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center center;
     background: $accordion-tab-bg;
     border-right: $accordion-tab-border-color 1px solid;
     width: 100%;
@@ -234,6 +235,10 @@ $text-transition: all 0.1s 0.1s ease-in-out;
       }
 
       .horizontal-accordion-tab {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+
         .tab-content p {
           top: 0;
         }
