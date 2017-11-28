@@ -31,26 +31,27 @@
 
 <body <?php body_class(); ?> id="wordpress-indicator">
   <div id="mobile-indicator"></div>
-	<?php $notifications = get_posts(array('post_type' => 'notification')); ?>
-	<?php if ( count($notifications) > 0 && ($notifications[0]->post_title !== '' || $notifications[0]->post_content !== '') ) : ?>
-	<?php
-		$type = get_post_meta( $notifications[0]->ID, 'type', true );
-		// Check if the custom field has a value.
-		$notificationclass = '';
-		if ( ! empty( $type ) ) {
-		    $notificationclass = $type;
-		}
-	?>
   <div class="nav-wrapper">
-    <div class="notification <?php echo $notificationclass; ?>">
-      <p class="notification-content">
-        <i class="fa fa-exclamation-circle"></i>
-        <?php foreach (get_posts(array('post_type' => 'notification')) as $notification) : ?>
-        <span class="bold"><?php echo $notification->post_title; ?></span>
-          <?php echo $notification->post_content; ?>
-        <?php endforeach; ?>
-      </p>
-    </div>
+    <?php $notifications = get_posts(array('post_type' => 'notification')); ?>
+    <?php if ( count($notifications) > 0 && ($notifications[0]->post_title !== '' || $notifications[0]->post_content !== '') ) : ?>
+      <?php
+        $type = get_post_meta( $notifications[0]->ID, 'type', true );
+        // Check if the custom field has a value.
+        $notificationclass = '';
+        if ( ! empty( $type ) ) {
+            $notificationclass = $type;
+        }
+      ?>
+
+      <div class="notification <?php echo $notificationclass; ?>">
+        <p class="notification-content">
+          <i class="fa fa-exclamation-circle"></i>
+          <?php foreach (get_posts(array('post_type' => 'notification')) as $notification) : ?>
+          <span class="bold"><?php echo $notification->post_title; ?></span>
+            <?php echo $notification->post_content; ?>
+          <?php endforeach; ?>
+        </p>
+      </div>
     <?php endif; ?>
 
     <?php require_once('partials/nav.php'); ?>
