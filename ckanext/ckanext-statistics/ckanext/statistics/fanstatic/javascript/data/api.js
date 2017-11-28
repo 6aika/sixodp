@@ -25,14 +25,14 @@ Api.prototype.getAllData = function (callback, delay) {
   return Promise.all([
     self.get('group_tree'),
     self.get('group_list?all_fields=true&include_extras=true'),
-    self.get('package_search?include_private=false'),
+    self.get('get_all_public_datasets'),
     self.get('ckanext_showcase_list?include_private=false')
   ])
   .spread(function(organizations, categories, datasets, apps) {
     data.organizations = organizations;
     data.categories = categories;
     data.apps = apps;
-    data.datasets = datasets.results;
+    data.datasets = datasets;
 
     return Promise.map(data.apps, function(app, index) {
       return self.get('ckanext_showcase_package_list?showcase_id=' + app.id)
