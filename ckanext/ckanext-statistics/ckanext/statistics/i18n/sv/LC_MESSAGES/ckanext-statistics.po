@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-statistics 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-11-09 07:05+0000\n"
+"POT-Creation-Date: 2017-11-28 15:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Language-Team: Swedish (https://www.transifex.com/6aika-dataportal/teams/68018/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -70,7 +70,7 @@ msgid "Datas"
 msgstr ""
 
 #: ckanext/statistics/fanstatic/javascript/main.js:95
-#: ckanext/statistics/fanstatic/javascript/main.js:257
+#: ckanext/statistics/fanstatic/javascript/main.js:258
 msgid "Apps"
 msgstr ""
 
@@ -99,42 +99,47 @@ msgid "Last three months"
 msgstr ""
 
 #: ckanext/statistics/fanstatic/javascript/main.js:228
-#: ckanext/statistics/fanstatic/javascript/main.js:240
-#: ckanext/statistics/fanstatic/javascript/main.js:260
+#: ckanext/statistics/fanstatic/javascript/main.js:241
+#: ckanext/statistics/fanstatic/javascript/main.js:262
 msgid "pcs"
 msgstr ""
 
 #: ckanext/statistics/fanstatic/javascript/main.js:238
-msgid "Most visited"
+#: ckanext/statistics/fanstatic/javascript/main.js:259
+msgid "No data available"
 msgstr ""
 
 #: ckanext/statistics/fanstatic/javascript/main.js:239
-#: ckanext/statistics/fanstatic/javascript/main.js:258
+msgid "Most visited"
+msgstr ""
+
+#: ckanext/statistics/fanstatic/javascript/main.js:240
+#: ckanext/statistics/fanstatic/javascript/main.js:260
 msgid "Timeline"
 msgstr ""
 
-#: ckanext/statistics/fanstatic/javascript/main.js:241
+#: ckanext/statistics/fanstatic/javascript/main.js:242
 msgid "Publishers"
 msgstr ""
 
-#: ckanext/statistics/fanstatic/javascript/main.js:242
-#: ckanext/statistics/fanstatic/javascript/main.js:259
+#: ckanext/statistics/fanstatic/javascript/main.js:243
+#: ckanext/statistics/fanstatic/javascript/main.js:261
 msgid "Categories"
 msgstr ""
 
-#: ckanext/statistics/fanstatic/javascript/main.js:243
+#: ckanext/statistics/fanstatic/javascript/main.js:244
 msgid "File formats"
 msgstr ""
 
-#: ckanext/statistics/fanstatic/javascript/main.js:244
+#: ckanext/statistics/fanstatic/javascript/main.js:245
 msgid "Used in an app"
 msgstr ""
 
-#: ckanext/statistics/fanstatic/javascript/main.js:245
+#: ckanext/statistics/fanstatic/javascript/main.js:246
 msgid "Not used in any app"
 msgstr ""
 
-#: ckanext/statistics/fanstatic/javascript/main.js:682
+#: ckanext/statistics/fanstatic/javascript/main.js:684
 msgid "Site analytics"
 msgstr ""
 
@@ -142,18 +147,18 @@ msgstr ""
 msgid "function"
 msgstr ""
 
-#: ckanext/statistics/templates/statistics/statistics_read.html:34
-msgid "Starting"
-msgstr ""
-
 #: ckanext/statistics/templates/statistics/statistics_read.html:40
-msgid "Ending"
+msgid "Filter"
 msgstr ""
 
-#: ckanext/statistics/templates/statistics/statistics_read.html:60
+#: ckanext/statistics/templates/statistics/statistics_read.html:49
+msgid "Range"
+msgstr ""
+
+#: ckanext/statistics/templates/statistics/statistics_read.html:67
 msgid "Publisher"
 msgstr ""
 
-#: ckanext/statistics/templates/statistics/statistics_read.html:69
+#: ckanext/statistics/templates/statistics/statistics_read.html:82
 msgid "Category"
 msgstr ""

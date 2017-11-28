@@ -23,7 +23,6 @@
               <ul class="dropdown-menu dropdown-menu-right">
                 <li><a data-value="/dataset"><?php _e('Datasets', 'sixodp');?> </a></li>
                 <li><a data-value="/showcase"><?php _e('Applications', 'sixodp');?> </a></li>
-                <li><a data-value="/collection"><?php _e('Collections', 'sixodp');?> </a></li>
                 <li><a data-value="/posts"><?php _e('Articles', 'sixodp');?> </a></li>
                 <li role="separator" class="divider"></li>
                 <li><a data-value="/posts"><?php _e('Other', 'sixodp');?> </a></li>

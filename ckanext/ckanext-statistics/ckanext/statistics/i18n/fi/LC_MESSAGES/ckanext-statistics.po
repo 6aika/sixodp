@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-statistics 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-11-09 07:05+0000\n"
+"POT-Creation-Date: 2017-11-28 15:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Mikko Nieminen <mikko.nieminen@gofore.com>, 2017\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
@@ -71,7 +71,7 @@ msgid "Datas"
 msgstr "Tietoaineistot"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:95
-#: ckanext/statistics/fanstatic/javascript/main.js:257
+#: ckanext/statistics/fanstatic/javascript/main.js:258
 msgid "Apps"
 msgstr "Sovellukset"
 
@@ -100,42 +100,47 @@ msgid "Last three months"
 msgstr "Viimeiset kolme kuukautta"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:228
-#: ckanext/statistics/fanstatic/javascript/main.js:240
-#: ckanext/statistics/fanstatic/javascript/main.js:260
+#: ckanext/statistics/fanstatic/javascript/main.js:241
+#: ckanext/statistics/fanstatic/javascript/main.js:262
 msgid "pcs"
 msgstr "kpl"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:238
+#: ckanext/statistics/fanstatic/javascript/main.js:259
+msgid "No data available"
+msgstr "Dataa ei saatavilla"
+
+#: ckanext/statistics/fanstatic/javascript/main.js:239
 msgid "Most visited"
 msgstr "Suosituimmat"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:239
-#: ckanext/statistics/fanstatic/javascript/main.js:258
+#: ckanext/statistics/fanstatic/javascript/main.js:240
+#: ckanext/statistics/fanstatic/javascript/main.js:260
 msgid "Timeline"
 msgstr "Aikajana"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:241
+#: ckanext/statistics/fanstatic/javascript/main.js:242
 msgid "Publishers"
 msgstr "Julkaisijat"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:242
-#: ckanext/statistics/fanstatic/javascript/main.js:259
+#: ckanext/statistics/fanstatic/javascript/main.js:243
+#: ckanext/statistics/fanstatic/javascript/main.js:261
 msgid "Categories"
 msgstr "Kategoriat"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:243
+#: ckanext/statistics/fanstatic/javascript/main.js:244
 msgid "File formats"
 msgstr "Formaatit"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:244
+#: ckanext/statistics/fanstatic/javascript/main.js:245
 msgid "Used in an app"
 msgstr "Käytetty sovelluksessa"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:245
+#: ckanext/statistics/fanstatic/javascript/main.js:246
 msgid "Not used in any app"
 msgstr "Ei käytetty sovelluksessa"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:682
+#: ckanext/statistics/fanstatic/javascript/main.js:684
 msgid "Site analytics"
 msgstr "Analytiikka"
 
@@ -143,18 +148,18 @@ msgstr "Analytiikka"
 msgid "function"
 msgstr ""
 
-#: ckanext/statistics/templates/statistics/statistics_read.html:34
-msgid "Starting"
-msgstr "Alkaen"
-
 #: ckanext/statistics/templates/statistics/statistics_read.html:40
-msgid "Ending"
-msgstr "Päättyen"
+msgid "Filter"
+msgstr "Suodata"
 
-#: ckanext/statistics/templates/statistics/statistics_read.html:60
+#: ckanext/statistics/templates/statistics/statistics_read.html:49
+msgid "Range"
+msgstr "Aikaväli"
+
+#: ckanext/statistics/templates/statistics/statistics_read.html:67
 msgid "Publisher"
 msgstr "Julkaisija"
 
-#: ckanext/statistics/templates/statistics/statistics_read.html:69
+#: ckanext/statistics/templates/statistics/statistics_read.html:82
 msgid "Category"
 msgstr "Kategoria"

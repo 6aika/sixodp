@@ -48,11 +48,9 @@ get_header(); ?>
 
 <div id="primary" class="content-area">
   <main id="main" class="site-main site-main--home" role="main">
-    <?php
-      get_template_part('partials/header-logos');
-    ?>
 
-    <div class="page-hero"></div>
+    <?php get_template_part('partials/page-hero'); ?>
+
     <div class="page-hero-content container">
       <h1 class="heading-main"><?php _e('Latest updates', 'sixodp') ?></h1>
       <form action="" method="GET">

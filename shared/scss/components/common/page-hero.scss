@@ -23,14 +23,14 @@
 .page-hero-content {
   @extend %box-shadow;
   position: relative;
-  min-height: $base*50;
+  min-height: $base*45;
   z-index: 1;
   margin-top: 0;
   background: $brand-white;
   padding: $base*2;
 
   @media(min-width: $width-md) {
-    margin-top: -$base*50;
+    margin-top: -$base*45;
   }
 
   &.container {
@@ -38,7 +38,7 @@
     padding-right: 15px;
 
     @media(min-width: $width-md) {
-      margin-top: -$base*50;
+      margin-top: -$base*45;
     }
   }
 }
