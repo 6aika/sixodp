@@ -14,12 +14,9 @@ get_header(); ?>
 
 <div id="primary" class="content-area">
   <main id="main" class="site-main wrapper" role="main">
-    
-    <?php
-      get_template_part('partials/header-logos');
-    ?>
 
-    <div class="page-hero"></div>
+    <?php get_template_part('partials/page-hero'); ?>
+
     <div class="page-content page-hero-content container">
       <?php
       // Start the loop.

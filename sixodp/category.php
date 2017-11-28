@@ -20,9 +20,9 @@ get_header();
 
  <div id="primary" class="content-area">
   <main id="main" class="site-main site-main--news" role="main">
-    <?php get_template_part('partials/header-logos'); ?>
 
-    <div class="page-hero"></div>
+    <?php get_template_part('partials/page-hero'); ?>
+
     <div class="page-hero-content container">
       <div class="wrapper">
 

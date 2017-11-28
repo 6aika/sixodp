@@ -14,6 +14,8 @@
   z-index: 1;
 
   .logos {
+    position: static;
+    height: auto;
     margin-top: $content-padding-top - $navbar-height;
 
     @media(min-width: $grid-float-breakpoint) {
