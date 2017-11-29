@@ -1,14 +1,12 @@
 .logos {
-  margin-top: 0;
-  top: $content-padding-top - $navbar-height;
+  margin-top: $content-padding-top - $navbar-height;
   padding: 0 $base;
-  position: relative;
-  height: 0;
+  position: static;
+  height: auto;
   z-index: 1;
 
   @media(min-width: $grid-float-breakpoint) {
-    margin-top: 0;
-    top: $content-padding-top-desktop - $navbar-height;
+    margin-top: $content-padding-top-desktop - $navbar-height;
   }
 
   &:after {
@@ -57,6 +55,20 @@
       img {
         height: $base*6;
       }
+    }
+  }
+}
+
+.page-hero {
+  .logos {
+    margin-top: 0;
+    top: $content-padding-top - $navbar-height;
+    position: relative;
+    height: 0;
+
+    @media(min-width: $grid-float-breakpoint) {
+      margin-top: 0;
+      top: $content-padding-top-desktop - $navbar-height;
     }
   }
 }
