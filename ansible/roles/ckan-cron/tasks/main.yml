@@ -9,7 +9,7 @@
   when: "'ckanext-harvest' in ckan_extensions"
 
 - name: Ensure QA cronjob
-  cron: name="QA update" minute="0" job="/usr/lib/ckan/default/bin/paster --plugin=ckanext-qa qa update --config={{ ckan_ini }}"
+  cron: name="QA update" minute="0" hour="0" job="/usr/lib/ckan/default/bin/paster --plugin=ckanext-qa qa update --config={{ ckan_ini }}"
   when: "'ckanext-qa' in ckan_extensions"
   
 - name: Ensure reminder cronjob
