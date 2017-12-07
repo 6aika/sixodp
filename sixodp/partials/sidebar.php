@@ -11,7 +11,7 @@
     if (count($pages) > 0) {
   ?>
     <?php foreach ( $pages as $page ) : 
-    $child_pages = get_pages(array('parent' => $page->ID));
+      $child_pages = get_pages(array('parent' => $page->ID, 'sort_column' => 'menu_order'));
     ?>
       <ul>
         <li class="sidebar-item--highlight">
