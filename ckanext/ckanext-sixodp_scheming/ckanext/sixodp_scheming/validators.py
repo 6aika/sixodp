@@ -63,7 +63,7 @@ def set_private_if_not_admin(private):
 
 def convert_to_list(value):
     if isinstance(value, basestring):
-        tags = [tag.strip().lower() \
+        tags = [tag.strip() \
                 for tag in value.split(',') \
                 if tag.strip()]
     else:
