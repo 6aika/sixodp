@@ -1,0 +1,35 @@
+.pagination {
+  width: 100%;
+  text-align: center;
+
+  .screen-reader-text {
+    display: none;
+  }
+
+  .page-numbers,
+  .page-numbers:focus,
+  .page-numbers:active {
+    background: $pagination-bg;
+    color: $pagination-color;
+    border: 1px solid $pagination-border;
+    border-radius: 50%;
+    height: 38px;
+    width: 38px;
+    line-height: 38px;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+
+    &:hover {
+      background: $pagination-hover-bg;
+      color: $pagination-hover-color;
+      border-color: $pagination-hover-border;
+    }
+
+    &.current {
+      background: $pagination-active-bg;
+      color: $pagination-active-color;
+      border-color: $pagination-active-border;
+    }
+  }
+}

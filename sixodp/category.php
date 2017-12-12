@@ -93,14 +93,13 @@ get_header();
               wp_reset_postdata();
               ?>
             </div>
-            <div class="paginate">
-              <div class="paginate-prev">
-                <?php previous_posts_link() ?>
-              </div>
-              <div class="paginate-next">
-                <?php next_posts_link() ?>
-              </div>
-            </div>
+            <?php
+              the_posts_pagination( array(
+                'prev_text'          => '<span class="fa fa-chevron-left" title="' . __( 'Previous page', 'sixodp' ) . '"></span>',
+                'next_text'          => '<span class="fa fa-chevron-right" title="' . __( 'Next page', 'sixodp' ) . '"></span>',
+                'mid_size'  => 2
+              ) );
+            ?>
           </div>
         </div>
       </div>
