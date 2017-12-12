@@ -11,9 +11,11 @@ $border-base: $border-radius-base;
 $border-radius-round: 15px;
 
 // Typography
-$font: 'Open Sans',sans-serif;
-$font-heading: 'Roboto Slab',sans-serif;
+$font: 'Roboto', sans-serif;
+$font-heading: 'Roboto', sans-serif;
 $headings-font-family: $font-heading;
+
+$headings-font-weight: 400;
 
 // Brand-colors
 $lighten-intensity: 10%;
@@ -86,7 +88,7 @@ $showcase-card-text-color: $brand-white;
 $latest-bg: $brand-primary;
 
 // Button
-$btn-font-weight: 100;
+$btn-font-weight: 300;
 $btn-border-radius-base: $border-radius-small;
 $btn-border-radius-small: $border-radius-small;
 $btn-border-radius-large: $border-radius-small;
