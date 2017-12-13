@@ -1,3 +1,12 @@
+$media-grid-item-height: 300px;
+$media-grid-item-content-height: 110px;
+$heading-rows: 3;
+$fadeout-area-height: 20px;
+
+$media-grid-item-img-height: $media-grid-item-height - $media-grid-item-content-height;
+$media-grid-item-padding: $padding-large-horizontal;
+$media-grid-item-line-height: ($media-grid-item-content-height - $media-grid-item-padding * 3) / ($heading-rows + 1);
+
 .media-grid {
   margin: 0 15px 20px -15px;
   list-style: none;
@@ -9,17 +18,18 @@
 
   .media-item {
     width: 100%;
-    height: auto;
+    height: $media-grid-item-height;
     padding: 0;
     position: relative;
     float: left;
     margin: 15px 0 0 15px;
     background-color: $media-item-background-color;
-    border-radius: $border-radius-large;
+    border: 1px solid $card-border-color;
+    border-radius: $card-border-radius;
+    overflow: hidden;
 
     @media(min-width: $width-xs-sm) {
       width: 282.5px;
-      height: 345px;
     }
 
     @media(min-width: $grid-float-breakpoint) {
@@ -28,20 +38,24 @@
 
     @media(min-width: $width-lg) {
       width: 263.33px;
-      height: 365px;
     }
 
     img {
-      border-radius: $border-radius-large $border-radius-large 0 0;
+      border-radius: $card-border-radius $card-border-radius 0 0;
       object-fit: cover;
       font-family: 'object-fit: cover;';
       width: 100%;
-      height: 150px;
+      height: $media-grid-item-img-height;
     }
 
     .media-heading {
-      text-align: center;
+      text-align: left;
       font-size: $font-size-large;
+      word-wrap: break-word;
+      overflow: hidden;
+      height: $media-grid-item-content-height - $media-grid-item-padding * 2;
+      line-height: $media-grid-item-line-height;
+      margin-bottom: $media-grid-item-padding;
     }
 
     .media-subheading {
@@ -55,13 +69,13 @@
       left: 0;
       right: 0;
       bottom: 0;
-      border: 1px solid $table-border-color;
+      border: 1px solid transparent;
       overflow: hidden;
       -webkit-transition: all 0.2s ease-in;
       -moz-transition: all 0.2s ease-in;
       -o-transition: all 0.2s ease-in;
       transition: all 0.2s ease-in;
-      border-radius: $border-radius-large;
+      border-radius: 0 0 $card-border-radius;
 
       span {
         display: none;
@@ -77,35 +91,91 @@
     }
 
     .item-content {
-      padding: $padding-large-vertical $padding-large-horizontal;
+      padding: $media-grid-item-padding;
       text-align: left;
+      position: relative;
+      background: $card-bg;
+      height: $media-grid-item-content-height;
+
+      &.item-content-slide-up {
+        transition: $transition;
+        top: 0;
+        height: $media-grid-item-height;
+
+        .media-heading {
+          height: $media-grid-item-line-height * $heading-rows;
+        }
+      }
 
       .empty {
         text-align: center;
       }
 
+      .item-description {
+        font-size: $font-size-base;
+        margin-top: $media-grid-item-padding;
+        height: $media-grid-item-content-height + $fadeout-area-height;
+        overflow: hidden;
+        word-break: break-word;
+        word-wrap: break-word;
+      }
+
       .star-rating {
+        height: $media-grid-item-line-height;
+        line-height: $media-grid-item-line-height;
         display: block;
         position: relative;
-        bottom: 0;
-        left: 0;
-        margin-top: $margin-small-vertical;
-
-        @media(min-width: $width-xs-sm) {
-          display: inline;
-          position: absolute;
-          bottom: $padding-large-vertical;
-          left: $padding-large-horizontal;
-          margin-top: 0;
-        }
 
         .star-rating-stars {
           display: inline;
           margin-right: $margin-small-horizontal;
+
+          .icon {
+            font-size: $font-size-base;
+
+            &:first-child {
+              padding-left: 0;
+            }
+          }
         }
 
         .rating-description {
-          color: $text-muted;
+          display: none;
+        }
+      }
+    }
+
+    // Wrapper for the card link button with a fade-in effect from above content
+    .media-link-wrapper {
+      height: $media-grid-item-content-height + $fadeout-area-height;
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: -webkit-linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+      background-image: -moz-linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+      background-image: -o-linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+      background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+      background-image: -ms-linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+      background-position: 0 -30px;
+    }
+
+    .media-link {
+      position: absolute;
+      bottom: $media-grid-item-padding * 2;
+      left: 50%;
+      width: 100px;
+      margin-left: -50px;
+    }
+
+    &:hover {
+      .item-content-slide-up {
+        top: -$media-grid-item-img-height;
+
+        .media-heading {
+          height: auto;
+          max-height: $media-grid-item-line-height * $heading-rows;
         }
       }
     }
