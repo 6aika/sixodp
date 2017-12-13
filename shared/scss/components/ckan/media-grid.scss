@@ -1,9 +1,11 @@
 $media-grid-item-height: 300px;
 $media-grid-item-content-height: 120px;
+$heading-rows: 3;
+$fadeout-area-height: 10px;
+
 $media-grid-item-img-height: $media-grid-item-height - $media-grid-item-content-height;
 $media-grid-item-padding: $padding-large-horizontal;
-$media-grid-item-line-height: ($media-grid-item-content-height - $media-grid-item-padding * 2) / 5;
-
+$media-grid-item-line-height: ($media-grid-item-content-height - $media-grid-item-padding * 2) / ($heading-rows + 1);
 
 .media-grid {
   margin: 0 15px 20px -15px;
@@ -49,6 +51,8 @@ $media-grid-item-line-height: ($media-grid-item-content-height - $media-grid-ite
     .media-heading {
       text-align: left;
       font-size: $font-size-large;
+      word-wrap: break-word;
+      overflow: hidden;
     }
 
     .media-subheading {
@@ -95,9 +99,8 @@ $media-grid-item-line-height: ($media-grid-item-content-height - $media-grid-ite
         height: $media-grid-item-height;
 
         .media-heading {
-          height: $media-grid-item-line-height * 4;
+          height: $media-grid-item-line-height * $heading-rows;
           line-height: $media-grid-item-line-height;
-          margin: 0;
         }
       }
 
@@ -108,8 +111,10 @@ $media-grid-item-line-height: ($media-grid-item-content-height - $media-grid-ite
       .item-description {
         font-size: $font-size-base;
         margin-top: 5px;
-        height: $media-grid-item-content-height + 20px;
+        height: $media-grid-item-content-height + $fadeout-area-height;
         overflow: hidden;
+        word-break: break-word;
+        word-wrap: break-word;
       }
 
       .star-rating {
@@ -139,7 +144,7 @@ $media-grid-item-line-height: ($media-grid-item-content-height - $media-grid-ite
 
     // Wrapper for the card link button with a fade-in effect from above content
     .media-link-wrapper {
-      height: $media-grid-item-content-height;
+      height: $media-grid-item-content-height + $fadeout-area-height;
       display: block;
       position: absolute;
       bottom: 0;
@@ -150,7 +155,7 @@ $media-grid-item-line-height: ($media-grid-item-content-height - $media-grid-ite
       background-image: -o-linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
       background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
       background-image: -ms-linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
-      background-position: 0 -40px;
+      background-position: 0 -45px;
     }
 
     .media-link {
@@ -167,7 +172,7 @@ $media-grid-item-line-height: ($media-grid-item-content-height - $media-grid-ite
 
         .media-heading {
           height: auto;
-          margin-bottom: $padding-large-vertical;
+          max-height: $media-grid-item-line-height * $heading-rows;
         }
       }
     }
