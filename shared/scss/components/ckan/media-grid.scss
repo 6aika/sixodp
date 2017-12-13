@@ -108,7 +108,7 @@ $media-grid-item-line-height: ($media-grid-item-content-height - $media-grid-ite
       .item-description {
         font-size: $font-size-base;
         margin-top: 5px;
-        height: 140px;
+        height: $media-grid-item-content-height + 20px;
         overflow: hidden;
       }
 
@@ -137,8 +137,9 @@ $media-grid-item-line-height: ($media-grid-item-content-height - $media-grid-ite
       }
     }
 
+    // Wrapper for the card link button with a fade-in effect from above content
     .media-link-wrapper {
-      height: 120px;
+      height: $media-grid-item-content-height;
       display: block;
       position: absolute;
       bottom: 0;
@@ -163,6 +164,11 @@ $media-grid-item-line-height: ($media-grid-item-content-height - $media-grid-ite
     &:hover {
       .item-content-slide-up {
         top: -$media-grid-item-img-height;
+
+        .media-heading {
+          height: auto;
+          margin-bottom: $padding-large-vertical;
+        }
       }
     }
   }
