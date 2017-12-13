@@ -5,6 +5,7 @@ $content-padding-top-desktop: $base*18;
 
 // Borders
 $border-radius-base: 6px;
+$border-radius-medium: 8px;
 $border-radius-large: 10px;
 $border-radius-small: 3px;
 $border-base: $border-radius-base;
@@ -104,7 +105,7 @@ $card-text-color-active: $text-color;
 $card-link-color: $brand-primary;
 $card-border-color: $gray-light;
 $card-border-color-active: $gray-light;
-$card-border-radius: $border-radius-small;
+$card-border-radius: $border-radius-medium;
 
 // Navigation
 $navbar-background-color: #f8f8f8;

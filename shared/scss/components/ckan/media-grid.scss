@@ -1,11 +1,11 @@
 $media-grid-item-height: 300px;
-$media-grid-item-content-height: 120px;
+$media-grid-item-content-height: 110px;
 $heading-rows: 3;
-$fadeout-area-height: 10px;
+$fadeout-area-height: 20px;
 
 $media-grid-item-img-height: $media-grid-item-height - $media-grid-item-content-height;
 $media-grid-item-padding: $padding-large-horizontal;
-$media-grid-item-line-height: ($media-grid-item-content-height - $media-grid-item-padding * 2) / ($heading-rows + 1);
+$media-grid-item-line-height: ($media-grid-item-content-height - $media-grid-item-padding * 3) / ($heading-rows + 1);
 
 .media-grid {
   margin: 0 15px 20px -15px;
@@ -53,6 +53,9 @@ $media-grid-item-line-height: ($media-grid-item-content-height - $media-grid-ite
       font-size: $font-size-large;
       word-wrap: break-word;
       overflow: hidden;
+      height: $media-grid-item-content-height - $media-grid-item-padding * 2;
+      line-height: $media-grid-item-line-height;
+      margin-bottom: $media-grid-item-padding;
     }
 
     .media-subheading {
@@ -92,6 +95,7 @@ $media-grid-item-line-height: ($media-grid-item-content-height - $media-grid-ite
       text-align: left;
       position: relative;
       background: $card-bg;
+      height: $media-grid-item-content-height;
 
       &.item-content-slide-up {
         transition: $transition;
@@ -100,7 +104,6 @@ $media-grid-item-line-height: ($media-grid-item-content-height - $media-grid-ite
 
         .media-heading {
           height: $media-grid-item-line-height * $heading-rows;
-          line-height: $media-grid-item-line-height;
         }
       }
 
@@ -110,7 +113,7 @@ $media-grid-item-line-height: ($media-grid-item-content-height - $media-grid-ite
 
       .item-description {
         font-size: $font-size-base;
-        margin-top: 5px;
+        margin-top: $media-grid-item-padding;
         height: $media-grid-item-content-height + $fadeout-area-height;
         overflow: hidden;
         word-break: break-word;
@@ -155,7 +158,7 @@ $media-grid-item-line-height: ($media-grid-item-content-height - $media-grid-ite
       background-image: -o-linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
       background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
       background-image: -ms-linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
-      background-position: 0 -45px;
+      background-position: 0 -30px;
     }
 
     .media-link {

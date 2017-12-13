@@ -8,7 +8,7 @@ truncate_title - The length to truncate the title to (default: 80).
 show_remove    - If True, show the remove button to remove showcase/dataset association.
 
 #}
-{% set truncate = truncate or 240 %}
+{% set truncate = truncate or 300 %}
 {% set truncate_title = truncate_title or 80 %}
 {% set title = package.title or package.name %}
 {% set notes = h.markdown_extract(h.get_translated(package, 'notes'), extract_length=truncate) %}
