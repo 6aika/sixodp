@@ -1,6 +1,9 @@
 $media-grid-item-height: 300px;
 $media-grid-item-content-height: 120px;
 $media-grid-item-img-height: $media-grid-item-height - $media-grid-item-content-height;
+$media-grid-item-padding: $padding-large-horizontal;
+$media-grid-item-line-height: ($media-grid-item-content-height - $media-grid-item-padding * 2) / 5;
+
 
 .media-grid {
   margin: 0 15px 20px -15px;
@@ -19,6 +22,7 @@ $media-grid-item-img-height: $media-grid-item-height - $media-grid-item-content-
     float: left;
     margin: 15px 0 0 15px;
     background-color: $media-item-background-color;
+    border: 1px solid $card-border-color;
     border-radius: $card-border-radius;
     overflow: hidden;
 
@@ -80,7 +84,7 @@ $media-grid-item-img-height: $media-grid-item-height - $media-grid-item-content-
     }
 
     .item-content {
-      padding: $padding-large-vertical $padding-large-horizontal;
+      padding: $media-grid-item-padding;
       text-align: left;
       position: relative;
       background: $card-bg;
@@ -89,6 +93,12 @@ $media-grid-item-img-height: $media-grid-item-height - $media-grid-item-content-
         transition: $transition;
         top: 0;
         height: $media-grid-item-height;
+
+        .media-heading {
+          height: $media-grid-item-line-height * 4;
+          line-height: $media-grid-item-line-height;
+          margin: 0;
+        }
       }
 
       .empty {
@@ -97,13 +107,16 @@ $media-grid-item-img-height: $media-grid-item-height - $media-grid-item-content-
 
       .item-description {
         font-size: $font-size-base;
-        margin-top: $padding-base-vertical;
+        margin-top: 5px;
+        height: 140px;
+        overflow: hidden;
       }
 
       .star-rating {
+        height: $media-grid-item-line-height;
+        line-height: $media-grid-item-line-height;
         display: block;
         position: relative;
-        margin-top: $margin-small-vertical;
 
         .star-rating-stars {
           display: inline;
@@ -119,9 +132,32 @@ $media-grid-item-img-height: $media-grid-item-height - $media-grid-item-content-
         }
 
         .rating-description {
-          color: $text-muted;
+          display: none;
         }
       }
+    }
+
+    .media-link-wrapper {
+      height: 120px;
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: -webkit-linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+      background-image: -moz-linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+      background-image: -o-linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+      background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+      background-image: -ms-linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+      background-position: 0 -40px;
+    }
+
+    .media-link {
+      position: absolute;
+      bottom: $media-grid-item-padding * 2;
+      left: 50%;
+      width: 100px;
+      margin-left: -50px;
     }
 
     &:hover {
