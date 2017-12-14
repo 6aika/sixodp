@@ -13,7 +13,7 @@
   transition: $target $time $type;
 }
 
-@mixin box-shadow($box: 0 1px 6px, $rgba: rgba(0,0,0,0.2)) {
+@mixin box-shadow($box: 0 1px 32px, $rgba: rgba(0,0,0,0.2)) {
   -webkit-box-shadow: $box $rgba;
   box-shadow: $box $rgba;
 }
@@ -141,8 +141,13 @@
 }
 
 %box {
-  @extend %box-shadow;
   @extend %border-radius;
+  position: relative;
+
+  &:hover {
+    @extend %box-shadow;
+    transform: translateY(-3px);
+  }
 }
 
 %vertically-centered {
