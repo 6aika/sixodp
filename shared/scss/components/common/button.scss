@@ -18,6 +18,8 @@
 
 .btn-primary {
   background-color: $btn-primary-bg;
+  font-size: $font-size-base;
+  text-transform: uppercase;
 
   &:hover, &:focus, &:active {
     background-color: $brand-primary-light;
@@ -28,6 +30,8 @@
 .btn-secondary {
   background-color: $btn-main-bg;
   color: $btn-main-color;
+  font-size: $font-size-base;
+  text-transform: uppercase;
 
   &:hover, &:focus, &:active {
     background-color: $btn-main-active-bg;
@@ -65,7 +69,7 @@
 .btn-lg {
   padding-left: $base*2;
   padding-right: $base*2;
-  font-size: $font-size-large
+  font-size: $font-size-small;
 }
 
 .btn-wrapper--right {
@@ -80,6 +84,7 @@
   background: transparent;
   border: 1px solid white;
   color: $brand-white;
+  text-transform: uppercase;
 
   &:hover, &:focus, &:active {
     background: transparent;

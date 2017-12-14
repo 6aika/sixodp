@@ -32,7 +32,7 @@
         </div>
       </a>
       <div class="stat__wrapper">
-        <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale_ckan(); ?>/dataset" class="btn btn-lg btn-secondary"><?php _e('All datasets', 'sixodp');?></a>
+        <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale_ckan(); ?>/dataset" class="btn btn-lg btn-transparent"><?php _e('All datasets', 'sixodp');?></a>
       </div>
     </div>
   </div>
