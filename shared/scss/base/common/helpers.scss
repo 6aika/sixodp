@@ -77,7 +77,6 @@
 
 // Placeholder classes
 %button {
-  @extend %box-shadow;
   border: 0;
   font-weight: $btn-font-weight;
   transition: $transition;
