@@ -40,9 +40,9 @@
   display: table;
 
   input {
-    height: 38px;
+    height: $input-height-large;
     border: none;
-    font-size: 14px;
+    font-size: $font-size-base;
 
     &:focus {
       border: none;
@@ -50,14 +50,14 @@
     }
 
     &::placeholder {
-      font-size: 12px;
+      font-size: $font-size-small + 1;
       letter-spacing: 1px;
     }
   }
 
   button.btn-secondary {
-    font-size: 12px;
-    padding: $base $base*2;
+    font-size: $font-size-small + 1;
+    padding: $padding-large-vertical $padding-large-horizontal*2;
     letter-spacing: 2px;
     text-transform: uppercase;
   }
@@ -70,8 +70,8 @@
   @media(min-width: $width-sm) {
 
     button {
-      padding-left: $base*4;
-      padding-right: $base*4;
+      padding-left: $padding-large-horizontal*4;
+      padding-right: $padding-large-horizontal*4;
     }
   }
 
