@@ -50,6 +50,16 @@
     box-shadow: none;
     border: none;
   }
+
+  &:focus {
+    &:active {
+      outline: 0;
+    }
+  }
+
+  &:hover {
+    background-color: $gray-lighter;
+  }
 }
 
 .btn-lg {
