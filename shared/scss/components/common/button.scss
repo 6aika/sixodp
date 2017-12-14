@@ -36,9 +36,17 @@
 }
 
 .btn-secondary--search {
-  background-color: $brand-white;
+  @extend .btn-secondary;
+  color: $btn-main-bg;
+  background-color: $btn-main-color;
   border-radius-top-left: none;
   border-radius-bottom-left: none;
+  padding: $padding-base-horizontal $padding-base-vertical;
+
+  &:hover, &:focus, &:active {
+    color: $btn-main-bg;
+    background-color: $btn-main-color;
+  }
 }
 
 .btn-lg {
