@@ -35,4 +35,7 @@
           </div><!-- /input-group -->
         </div>
       </div>
+      <?php include(locate_template('/partials/stats.php')); ?>
     </div>
+  </div> <!-- end hero__inner in categories -->
+</div> <!-- end hero in categories -->

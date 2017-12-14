@@ -6,6 +6,7 @@
 
   @media (min-width: $width-sm) {
     display: flex;
+    justify-content: center;
   }
   .stat__link {
     color: $stats-text-color;;
