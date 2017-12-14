@@ -42,10 +42,16 @@
   input {
     height: 38px;
     border: none;
+    font-size: 14px;
 
     &:focus {
       border: none;
       box-shadow: none;
+    }
+
+    &::placeholder {
+      font-size: 12px;
+      letter-spacing: 1px;
     }
   }
 

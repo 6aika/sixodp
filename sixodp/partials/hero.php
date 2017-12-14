@@ -28,7 +28,7 @@
                 <li><a data-value="/posts"><?php _e('Other', 'sixodp');?> </a></li>
               </ul>
             </div><!-- /btn-group -->
-            <input type="text" id="q" class="form-control input-lg" aria-label="...">
+            <input type="text" id="q" class="form-control input-lg" aria-label="..." placeholder="<?php _e('Keyword', 'sixodp');?>">
             <span class="input-group-btn">
               <button id="search" class="btn btn-secondary--search" type="button"><?php _e('Search', 'sixodp');?> </button>
             </span>
