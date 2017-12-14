@@ -41,6 +41,12 @@
 
   input {
     height: 38px;
+    border: none;
+
+    &:focus {
+      border: none;
+      box-shadow: none;
+    }
   }
 
   button {
