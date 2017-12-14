@@ -35,6 +35,12 @@
   }
 }
 
+.btn-secondary--search {
+  background-color: $brand-white;
+  border-radius-top-left: none;
+  border-radius-bottom-left: none;
+}
+
 .btn-lg {
   padding-left: $base*2;
   padding-right: $base*2;

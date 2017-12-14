@@ -30,7 +30,7 @@
             </div><!-- /btn-group -->
             <input type="text" id="q" class="form-control input-lg" aria-label="...">
             <span class="input-group-btn">
-              <button id="search" class="btn btn-secondary" type="button"><?php _e('Search', 'sixodp');?> </button>
+              <button id="search" class="btn btn-secondary--search" type="button"><?php _e('Search', 'sixodp');?> </button>
             </span>
           </div><!-- /input-group -->
         </div>
