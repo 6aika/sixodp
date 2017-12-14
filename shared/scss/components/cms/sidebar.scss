@@ -75,6 +75,14 @@
   }
 }
 
+.sidebar-item.active {
+  a,
+  .sidebar-item-inner {
+    background: $sidebar-item-bg-active;
+    color: $sidebar-item-color-active;
+  }
+}
+
 .sidebar-item--highlight {
   @extend .sidebar-item;
 
@@ -89,6 +97,14 @@
       background: $sidebar-item-bg-active--highlight;
       color: $sidebar-item-color-active--highlight;
     }
+  }
+}
+
+.sidebar-item--highlight.active {
+  a,
+  .sidebar-item-inner {
+    background: $sidebar-item-bg-active--highlight;
+    color: $sidebar-item-color-active--highlight;
   }
 }
 
