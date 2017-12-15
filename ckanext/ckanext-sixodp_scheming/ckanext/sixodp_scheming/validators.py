@@ -239,7 +239,7 @@ def only_default_lang_required(field, schema):
         prefix = key[-1] + '-'
         extras = data.get(key[:-1] + ('__extras',), {})
 
-        if extras.get(prefix + default_lang) == '':
-            errors[key[:-1] + (key[-1] + '-' + default_lang,)] = [_('Missing value')]
+        if extras.get(prefix + default_lang) == '' or extras.get(prefix + default_lang) is None:
+            errors[key].append(_('Required language "%s" missing') % default_lang)
 
     return  validator
