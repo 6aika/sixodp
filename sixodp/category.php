@@ -69,11 +69,11 @@ get_header();
             ?>
           </div>
           <div class="col-md-9 col-sm-7 col-xs-12 news-content">
-            <div class="cards cards--2 cards--image">
+            <div class="cards cards--2">
               <?php
               while ( have_posts() ) : the_post(); ?>
 
-              <a class="card" href="<?php the_permalink(); ?>">
+              <a class="card card--image" href="<?php the_permalink(); ?>">
                 <?php
                   if (has_post_thumbnail( $post->ID ) ):
                     $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );

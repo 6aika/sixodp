@@ -38,7 +38,7 @@ get_header(); ?>
           </div>
 
           <div class="col-md-9 col-sm-7 col-xs-12">
-            <div class="cards cards--2 cards--image">
+            <div class="cards cards--2">
               <?php
                 // Start the loop.
                 while ( have_posts() ) : the_post();

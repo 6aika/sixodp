@@ -1,3 +1,12 @@
+$card-height: 300px;
+$card-content-height: 110px;
+$heading-rows: 3;
+$fadeout-area-height: 20px;
+
+$card-img-height: $card-height - $card-content-height;
+$card-padding: $padding-large-horizontal;
+$card-line-height: ($card-content-height - $card-padding * 3) / ($heading-rows + 1);
+
 .cards,
 .cards--3 {
   margin-bottom: 0;
@@ -13,7 +22,7 @@
 }
 
 .card {
-  min-height: 480px;
+  height: $card-height;
   position: relative;
   max-width: 75%;
   border-radius: $card-border-radius;
@@ -23,6 +32,7 @@
   transition: background-color $transition-speed-base $transition-curve-base;
   margin: 0 auto $base/2 auto;
   display: block;
+  overflow: hidden;
 
   &.card-hover:hover {
     @extend %box-shadow;
@@ -35,12 +45,7 @@
     }
   }
 
-  @media(min-width: $width-xs) {
-    min-height: 360px;
-  }
-
   @media (min-width: $width-sm) {
-    min-height: 480px;
     flex: 1 1 32%;
     max-width: 32%;
     margin: 0 1% $padding-base-vertical 1%;
@@ -55,82 +60,21 @@
     }
   }
 
-  @media(min-width: $width-md) {
-    min-height: 380px;
-  }
-
-  @media(min-width: $width-lg) {
-    min-height: 340px;
-  }
-}
-
-.card-title {
-  @include heading();
-  margin-bottom: $base;
-  margin-top: 0;
-  font-size: $font-size-large;
-}
-
-// Cards with an image as the main content
-.cards--image {
-  .card {
+  .card-content {
+    padding: $card-padding;
+    text-align: left;
+    position: relative;
     background: $card-bg;
-    padding: 0;
-    min-height: 0;
-
-    .card-content {
-      padding: $base;
-      position: relative;
-      background: $card-bg;
-      border-bottom-left-radius: 0 0 $card-border-radius $card-border-radius;
-    }
-
-    .card-title {
-      color: $card-link-color;
-      margin: 0;
-    }
+    height: $card-content-height;
   }
-}
 
-.cards--image--dark {
-  @extend .cards--image;
-
-  .card {
-    background: $brand-primary;
-
-    .card-content {
-      background: $brand-primary;
-    }
-
-    .card-title {
-      color: $brand-white;
-    }
+  img {
+    border-radius: $card-border-radius $card-border-radius 0 0;
+    object-fit: cover;
+    font-family: 'object-fit: cover;';
+    width: 100%;
+    height: $card-img-height;
   }
-}
-
-.card-image {
-  height: 180px;
-  text-align: center;
-  display: block;
-  background-size: cover;
-  background-position: center center;
-}
-
-.card-meta {
-  border-top: 1px solid $card-border-color;
-  padding: $base*1.5 0;
-  font-size: $font-size-base;
-  color: $card-text-color--highlight;
-  position: absolute;
-  bottom: 0;
-  left: $base*2;
-  right: $base*2;
-  width: auto;
-}
-
-.card-timestamp {
-  color: $card-text-color--highlight;
-  font-family: $headings-font-family;
 }
 
 .cards--4 {
@@ -223,6 +167,65 @@
       }
     }
   }
+}
+
+.card-title {
+  text-align: left;
+  font-size: $font-size-large;
+  word-wrap: break-word;
+  overflow: hidden;
+  height: $card-content-height - $card-padding * 2;
+  line-height: $card-line-height;
+  margin-bottom: $card-padding;
+}
+
+.card--image {
+  @extend .card;
+  background: $card-bg;
+  background-size: cover;
+  background-position: center center;
+  padding: 0;
+  min-height: 0;
+  text-align: center;
+  display: block;
+
+  .card-content-slide-up {
+    transition: $transition;
+    top: 0;
+    height: $card-height;
+
+    .card-title {
+      height: $card-line-height * $heading-rows;
+    }
+  }
+
+  &:hover {
+    .card-content{
+      top: -$card-img-height;
+
+      .media-heading {
+        height: auto;
+        max-height: $card-line-height * $heading-rows;
+      }
+    }
+  }
+}
+
+.card-meta {
+  border-top: 1px solid $card-border-color;
+  padding: $base*1.5 0;
+  font-size: $font-size-base;
+  color: $card-text-color--highlight;
+  position: absolute;
+  bottom: 0;
+  left: $base*2;
+  right: $base*2;
+  width: auto;
+}
+
+.card-timestamp {
+  color: $card-text-color--highlight;
+  font-family: $headings-font-family;
 }
 
 // Secondary cards

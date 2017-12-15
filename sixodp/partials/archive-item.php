@@ -11,7 +11,7 @@
       $image = array("/assets/images/frontpage.jpg");
     endif;
   ?>
-  <div class="card-image" style="background-image: url(<?php echo $image[0]; ?>);"></div>
+  <img src="<?php echo $image[0]; ?>">
   <div class="card-content">
     <h4 class="card-title text-left"><?php the_title(); ?></h4>
     <span class="card-timestamp"><?php echo parse_date(get_the_date('c')); ?></span>

@@ -40,11 +40,11 @@ $category = get_queried_object();
           <?php include( locate_template('partials/tuki-sidebar.php') ); ?>
 
           <div class="col-xs-12 col-md-9 col-sm-7">
-            <div class="cards cards--2 cards--image">
+            <div class="cards cards--2">
               <?php
               while ( have_posts() ) : the_post(); ?>
 
-              <a href="<?php the_permalink(); ?>" class="card">
+              <a href="<?php the_permalink(); ?>" class="card card--image">
                 <?php
                   if (has_post_thumbnail( $post->ID ) ):
                     $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
