@@ -176,7 +176,21 @@ $card-line-height: ($card-content-height - $card-padding * 3) / ($heading-rows +
   overflow: hidden;
   height: $card-content-height - $card-padding * 2;
   line-height: $card-line-height;
+  margin-top: 0;
   margin-bottom: $card-padding;
+}
+
+.card-title-secondary {
+  height: $card-line-height;
+  line-height: $card-line-height;
+  display: block;
+  position: relative;
+
+  .fa {
+    font-size: $font-size-base;
+    display: inline;
+    margin-right: $margin-small-horizontal;
+  }
 }
 
 .card--image {
