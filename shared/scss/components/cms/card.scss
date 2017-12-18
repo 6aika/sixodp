@@ -33,16 +33,13 @@ $card-line-height: ($card-content-height - $card-padding * 3) / ($heading-rows +
   margin: 0 auto $base/2 auto;
   display: block;
   overflow: hidden;
+  box-shadow: none;
 
-  &.card-hover:hover {
+  &:hover {
     @extend %box-shadow;
     background: $card-bg-active;
     border-color: $card-border-color-active;
     cursor: pointer;
-
-    &.card-hover-light {
-      @extend %box-shadow-light;
-    }
   }
 
   @media (min-width: $width-sm) {
@@ -169,12 +166,48 @@ $card-line-height: ($card-content-height - $card-padding * 3) / ($heading-rows +
   }
 }
 
+.card--image {
+  @extend .card;
+  background: $card--image-bg;
+  background-size: cover;
+  background-position: center center;
+  padding: 0;
+  min-height: 0;
+  text-align: center;
+  display: block;
+
+  .card-content-slide-up {
+    background: $card--image-bg;
+    transition: $transition;
+    top: 0;
+    height: $card-height;
+
+    .card-title {
+      height: $card-line-height * $heading-rows;
+    }
+  }
+
+  &:hover {
+    .card-content{
+      top: -$card-img-height;
+      background: $card--image-bg-active;
+
+      .card-title {
+        height: auto;
+        max-height: $card-line-height * $heading-rows;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
 .card-title {
   text-align: left;
+  color: $card-text-color;
   font-size: $font-size-large;
   word-wrap: break-word;
   overflow: hidden;
-  height: $card-content-height - $card-padding * 2;
+  height: auto;
   line-height: $card-line-height;
   margin-top: 0;
   margin-bottom: $card-padding;
@@ -190,39 +223,24 @@ $card-line-height: ($card-content-height - $card-padding * 3) / ($heading-rows +
     font-size: $font-size-base;
     display: inline;
     margin-right: $margin-small-horizontal;
+
+    &.star-filled {
+      color: $card-star-filled;
+    }
+
+    &.star-empty {
+      color: $card-star-empty;
+    }
   }
 }
 
-.card--image {
-  @extend .card;
-  background: $card-bg;
-  background-size: cover;
-  background-position: center center;
-  padding: 0;
-  min-height: 0;
-  text-align: center;
-  display: block;
-
-  .card-content-slide-up {
-    transition: $transition;
-    top: 0;
-    height: $card-height;
-
-    .card-title {
-      height: $card-line-height * $heading-rows;
-    }
-  }
-
-  &:hover {
-    .card-content{
-      top: -$card-img-height;
-
-      .media-heading {
-        height: auto;
-        max-height: $card-line-height * $heading-rows;
-      }
-    }
-  }
+.card-description {
+  font-size: $font-size-base;
+  margin-top: $card-padding;
+  height: $card-content-height + $fadeout-area-height;
+  overflow: hidden;
+  word-break: break-word;
+  word-wrap: break-word;
 }
 
 .card-meta {
@@ -240,6 +258,38 @@ $card-line-height: ($card-content-height - $card-padding * 3) / ($heading-rows +
 .card-timestamp {
   color: $card-text-color--highlight;
   font-family: $headings-font-family;
+}
+
+.card-link-wrapper {
+  height: $card-content-height + $fadeout-area-height;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+  background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+  background-image: -ms-linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+  background-position: 0 -30px;
+}
+
+.card-link,
+.card-link:active,
+.card-link:focus {
+  position: absolute;
+  bottom: $card-padding * 2;
+  left: 50%;
+  width: 100px;
+  margin-left: -50px;
+  border-color: $card--image-text-color--highlight;
+  color: $card--image-text-color--highlight;
+
+  &:hover {
+    border-color: $card--image-text-color--highlight;
+    color: $card--image-text-color--highlight;
+  }
 }
 
 // Secondary cards

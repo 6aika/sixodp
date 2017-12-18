@@ -33,6 +33,11 @@ $brand-secondary-light: lighten($brand-secondary, 10%);
 $brand-secondary-dark: darken($brand-secondary, 10%);
 
 $brand-success: #97ba54;
+$brand-success-light: lighten($brand-success, 10%);
+$brand-success-dark: darken($brand-success, 10%);
+$brand-success-extralight: lighten($brand-success, 35%);
+$brand-success-extradark: darken($brand-success, 15%);
+
 $brand-info: #446eb5;
 $brand-warning: #f0ad4e;
 $brand-danger: #d9534f;
@@ -97,15 +102,24 @@ $btn-padding-small: 4px 6px;
 $btn-padding-large: 8px 12px;
 
 // Card
-$card-bg: $brand-white;
-$card-bg-active: $brand-lightgray;
+$card-bg: $brand-lightgray;
+$card-bg-active: $brand-white;
+$card--image-bg: $brand-success-extralight;
+$card--image-bg-active: $brand-white;
+
 $card-text-color: $text-color;
 $card-text-color--highlight: $brand-primary;
 $card-text-color-active: $text-color;
+$card--image-text-color: $text-color;
+$card--image-text-color--highlight: $brand-success-light;
+$card--image-text-color-active: $text-color;
+
 $card-link-color: $brand-primary;
 $card-border-color: transparent;
 $card-border-color-active: transparent;
 $card-border-radius: $border-radius-medium;
+$card-star-filled: $text-color;
+$card-star-empty: $card--image-text-color--highlight;
 
 // Navigation
 $navbar-background-color: #f8f8f8;
