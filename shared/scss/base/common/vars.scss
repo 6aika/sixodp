@@ -31,6 +31,8 @@ $brand-primary-extradark: darken($brand-primary, 15%);
 $brand-secondary: #a55efa;
 $brand-secondary-light: lighten($brand-secondary, 10%);
 $brand-secondary-dark: darken($brand-secondary, 10%);
+$brand-secondary-extralight: lighten($brand-secondary, 35%);
+$brand-secondary-extradark: darken($brand-secondary, 15%);
 
 $brand-success: #97ba54;
 $brand-success-light: lighten($brand-success, 10%);
@@ -39,8 +41,22 @@ $brand-success-extralight: lighten($brand-success, 35%);
 $brand-success-extradark: darken($brand-success, 15%);
 
 $brand-info: #446eb5;
+$brand-info-light: lighten($brand-info, 10%);
+$brand-info-dark: darken($brand-info, 10%);
+$brand-info-extralight: lighten($brand-info, 35%);
+$brand-info-extradark: darken($brand-info, 15%);
+
 $brand-warning: #f0ad4e;
+$brand-warning-light: lighten($brand-warning, 10%);
+$brand-warning-dark: darken($brand-warning, 10%);
+$brand-warning-extralight: lighten($brand-warning, 35%);
+$brand-warning-extradark: darken($brand-warning, 15%);
+
 $brand-danger: #d9534f;
+$brand-danger-light: lighten($brand-danger, 10%);
+$brand-danger-dark: darken($brand-danger, 10%);
+$brand-danger-extralight: lighten($brand-danger, 35%);
+$brand-danger-extradark: darken($brand-danger, 15%);
 
 $brand-black: #000000;
 $brand-white: #ffffff;
@@ -109,11 +125,13 @@ $card--image-bg: $brand-success-extralight;
 $card--image-bg-active: $brand-white;
 
 $card-text-color: $text-color;
-$card-text-color--highlight: $brand-primary;
+$card-text-color--highlight: $brand-danger;
 $card-text-color-active: $text-color;
+$card-text-color--highlight-active: $brand-danger-light;
 $card--image-text-color: $text-color;
-$card--image-text-color--highlight: $brand-success-light;
+$card--image-text-color--highlight: $brand-success;
 $card--image-text-color-active: $text-color;
+$card--image-text-color--highlight-active: $brand-success-light;
 
 $card-title-secondary-color: $text-muted;
 $card-link-color: $brand-primary;

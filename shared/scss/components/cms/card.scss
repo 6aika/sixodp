@@ -191,6 +191,18 @@ $card-line-height: ($card-content-height - $card-padding * 3) / ($heading-rows +
     }
   }
 
+  .card-link,
+  .card-link:active,
+  .card-link:focus {
+    border-color: $card--image-text-color--highlight;
+    color: $card--image-text-color--highlight;
+
+    &:hover {
+      border-color: $card--image-text-color--highlight-active;
+      color: $card--image-text-color--highlight-active;
+    }
+  }
+
   &:hover {
     .card-content{
       top: -$card-img-height;
@@ -261,11 +273,6 @@ $card-line-height: ($card-content-height - $card-padding * 3) / ($heading-rows +
   margin: $card-padding*2 0 $card-padding 0;
 }
 
-.card-timestamp {
-  color: $card-text-color--highlight;
-  font-family: $headings-font-family;
-}
-
 .card-link-wrapper {
   height: $card-content-height;
   display: block;
@@ -294,12 +301,12 @@ $card-line-height: ($card-content-height - $card-padding * 3) / ($heading-rows +
   left: 50%;
   width: 100px;
   margin-left: -50px;
-  border-color: $card--image-text-color--highlight;
-  color: $card--image-text-color--highlight;
+  border-color: $card-text-color--highlight;
+  color: $card-text-color--highlight;
 
   &:hover {
-    border-color: $card--image-text-color--highlight;
-    color: $card--image-text-color--highlight;
+    border-color: $card-text-color--highlight-active;
+    color: $card-text-color--highlight-active;
   }
 }
 
