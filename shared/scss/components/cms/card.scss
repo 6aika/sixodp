@@ -1,4 +1,4 @@
-$card-height: 300px;
+$card-height: 280px;
 $card-content-height: 110px;
 $heading-rows: 3;
 $fadeout-area-height: 20px;
@@ -27,18 +27,19 @@ $card-line-height: ($card-content-height - $card-padding * 3) / ($heading-rows +
   max-width: 75%;
   border-radius: $card-border-radius;
   background: $card-bg;
-  padding: $base*2;
-  border: 1px solid $card-border-color;
-  transition: background-color $transition-speed-base $transition-curve-base;
-  margin: 0 auto $base/2 auto;
+  padding: 0;
+  border: none;
+  transition:
+          background-color $transition-speed-base $transition-curve-base,
+          box-shadow $transition-speed-base $transition-curve-base;
+  margin: 0 auto $padding-large-vertical auto;
   display: block;
   overflow: hidden;
   box-shadow: none;
 
   &:hover {
-    @extend %box-shadow;
+    @include box-shadow();
     background: $card-bg-active;
-    border-color: $card-border-color-active;
     cursor: pointer;
   }
 
@@ -61,7 +62,6 @@ $card-line-height: ($card-content-height - $card-padding * 3) / ($heading-rows +
     padding: $card-padding;
     text-align: left;
     position: relative;
-    background: $card-bg;
     height: $card-content-height;
   }
 
@@ -83,7 +83,7 @@ $card-line-height: ($card-content-height - $card-padding * 3) / ($heading-rows +
     @media (min-width: $width-sm) {
       flex: 1 1 49%;
       max-width: 49.5%;
-      margin: 0 0.5% $base/2 0.5%;
+      margin: 0 0.5% $padding-large-vertical 0.5%;
 
       &:nth-child(even) {
         margin-right: 0;
@@ -104,7 +104,7 @@ $card-line-height: ($card-content-height - $card-padding * 3) / ($heading-rows +
 
     @media (min-width: $width-md) {
       flex: 1 1 23.5%;
-      margin: 0 1% $base/2 1%;
+      margin: 0 1% $padding-large-vertical 1%;
       max-width: 23.5%;
 
       &:nth-child(even),
@@ -145,7 +145,7 @@ $card-line-height: ($card-content-height - $card-padding * 3) / ($heading-rows +
     @media (min-width: $width-md) {
       flex: 1 1 49%;
       max-width: 49.5%;
-      margin: 0 0.5% $base/2 0.5%;
+      margin: 0 0.5% $padding-large-vertical 0.5%;
 
       &:nth-child(even) {
         margin-right: 0;
@@ -237,22 +237,22 @@ $card-line-height: ($card-content-height - $card-padding * 3) / ($heading-rows +
 .card-description {
   font-size: $font-size-base;
   margin-top: $card-padding;
-  height: $card-content-height + $fadeout-area-height;
+  height: $card-content-height;
   overflow: hidden;
   word-break: break-word;
   word-wrap: break-word;
 }
 
 .card-meta {
-  border-top: 1px solid $card-border-color;
-  padding: $base*1.5 0;
-  font-size: $font-size-base;
-  color: $card-text-color--highlight;
-  position: absolute;
-  bottom: 0;
-  left: $base*2;
-  right: $base*2;
-  width: auto;
+  border-left: 4px solid $card-meta-color;
+  color: $card-meta-color;
+  font-size: $font-size-small;
+  height: $font-size-small;
+  line-height: $font-size-small;
+  width: 100%;
+  text-transform: uppercase;
+  padding: 0 $card-padding - 3px;
+  margin: $card-padding*2 0 $card-padding 0;
 }
 
 .card-timestamp {
@@ -261,7 +261,7 @@ $card-line-height: ($card-content-height - $card-padding * 3) / ($heading-rows +
 }
 
 .card-link-wrapper {
-  height: $card-content-height + $fadeout-area-height;
+  height: $card-content-height;
   display: block;
   position: absolute;
   bottom: 0;

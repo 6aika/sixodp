@@ -24,7 +24,7 @@ $media-grid-item-line-height: ($media-grid-item-content-height - $media-grid-ite
     float: left;
     margin: 15px 0 0 15px;
     background-color: $media-item-background-color;
-    border: 1px solid $card-border-color;
+    border: none;
     border-radius: $card-border-radius;
     overflow: hidden;
 
