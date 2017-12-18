@@ -65,14 +65,16 @@
         <div class="card" onclick="window.location.href='<?php echo CKAN_BASE_URL.'/'.get_current_locale_ckan().'/dataset/'.$dataset['name']; ?>'">
           <div class="card-meta"><?php echo _e('Dataset', 'sixodp'); ?></div>
           <div class="card-content">
-            <h3 class="card-title">
-              <a href="<?php echo CKAN_BASE_URL.'/'.get_current_locale_ckan().'/dataset/'.$dataset['name']; ?>">
-                <?php echo get_translated($dataset, 'title'); ?>
-              </a>
-            </h3>
+            <div class="card-title"><?php echo get_translated($dataset, 'title'); ?></div>
             <div class="card-title-secondary"><?php echo parse_date($dataset['date_released']); ?></div>
             <div class="card-description">
               <?php echo wp_html_excerpt( strip_shortcodes(render_markdown(get_translated($dataset, 'notes'))), 240, '...'); ?>
+            </div>
+            <div class="card-link-wrapper card-link-slide-up">
+              <a href="<?php echo CKAN_BASE_URL.'/'.get_current_locale_ckan().'/dataset/'.$dataset['name']; ?>"
+                 class="btn btn-transparent card-link">
+                <?php _e('Read more', 'sixodp') ?>
+              </a>
             </div>
           </div>
         </div><?php

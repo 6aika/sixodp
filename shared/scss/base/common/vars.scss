@@ -58,6 +58,7 @@ $brand-background: #ffffff;
 $brand-secondary-background: $brand-lightgray;
 
 $text-color: $gray-base;
+$text-muted: $brand-gray;
 $headings-color: $brand-primary;
 $headings-small-color: $brand-primary;
 $headings-secondary-color: $brand-primary;
@@ -114,6 +115,7 @@ $card--image-text-color: $text-color;
 $card--image-text-color--highlight: $brand-success-light;
 $card--image-text-color-active: $text-color;
 
+$card-title-secondary-color: $text-muted;
 $card-link-color: $brand-primary;
 $card-meta-color: $brand-danger;
 $card-border-radius: $border-radius-medium;

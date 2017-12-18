@@ -42,14 +42,16 @@
               ?>
             </div>
             <div class="card-content">
-              <h3 class="card-title">
-                <a href="<?php echo $item['link'] ?>">
-                  <?php echo get_translated($item, 'title'); ?>
-                </a>
-              </h3>
+              <div class="card-title"><?php echo get_translated($item, 'title'); ?></div>
               <div class="card-title-secondary"><?php echo parse_date($item['date_updated']); ?></div>
               <div class="card-description">
                 <?php echo wp_html_excerpt( strip_shortcodes(render_markdown(get_translated($item, 'notes'))), 240, '...'); ?>
+              </div>
+              <div class="card-link-wrapper card-link-slide-up">
+                <a href="<?php echo $item['link'] ?>"
+                   class="btn btn-transparent card-link">
+                  <?php _e('Read more', 'sixodp') ?>
+                </a>
               </div>
             </div>
           </div><?php
