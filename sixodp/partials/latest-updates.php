@@ -47,9 +47,9 @@
               <div class="card-description">
                 <?php echo wp_html_excerpt( strip_shortcodes(render_markdown(get_translated($item, 'notes'))), 240, '...'); ?>
               </div>
-              <div class="card-link-wrapper card-link-slide-up">
+              <div class="card-link-wrapper">
                 <a href="<?php echo $item['link'] ?>"
-                   class="btn btn-transparent card-link">
+                   class="btn btn-transparent card-link card-link-slide-up">
                   <?php _e('Read more', 'sixodp') ?>
                 </a>
               </div>
