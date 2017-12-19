@@ -24,8 +24,38 @@ $media-grid-item-line-height: ($card-content-height - $media-grid-item-padding *
     border-radius: $card-border-radius;
     overflow: hidden;
     transition:
-        background-color $transition-speed-base $transition-curve-base,
-        box-shadow $transition-speed-base $transition-curve-base;
+            background-color $transition-speed-base $transition-curve-base,
+            box-shadow $transition-speed-base $transition-curve-base;
+
+    &.media-item-success {
+      background: $brand-success-extralight;
+
+      .media-link,
+      .media-link:active,
+      .media-link:focus {
+        border-color: $brand-success;
+        color: $brand-success;
+
+        &:hover {
+          border-color: $brand-success-light;
+          color: $brand-success-light;
+        }
+      }
+    }
+
+    &.media-item-danger {
+      .media-link,
+      .media-link:active,
+      .media-link:focus {
+        border-color: $brand-danger;
+        color: $brand-danger;
+
+        &:hover {
+          border-color: $brand-danger-light;
+          color: $brand-danger-light;
+        }
+      }
+    }
 
     @media(min-width: $width-xs-sm) {
       width: 282.5px;
@@ -170,12 +200,12 @@ $media-grid-item-line-height: ($card-content-height - $media-grid-item-padding *
     .media-link:focus {
       position: relative;
       top: 60px;
-      border-color: $card--image-text-color;
-      color: $card--image-text-color;
+      border-color: $card-text-color;
+      color: $card-text-color;
 
       &:hover {
-        border-color: $card--image-text-color-active;
-        color: $card--image-text-color-active;
+        border-color: $card-text-color-active;
+        color: $card-text-color-active;
       }
     }
 

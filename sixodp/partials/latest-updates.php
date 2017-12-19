@@ -39,6 +39,7 @@
           }
 
           $item = array(
+            'external_card_class' => 'card-danger',
             'title' => get_translated($updated_item, 'title'),
             'meta' => $meta_label,
             'timestamp' => $updated_item['date_updated'],

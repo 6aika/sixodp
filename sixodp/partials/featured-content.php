@@ -37,6 +37,7 @@
         $showcases = get_latest_showcases(4);
         foreach ($showcases as $showcase) {
           $item = array(
+            'external_card_class' => 'card-success',
             'image_url' => CKAN_BASE_URL . "/uploads/showcase/".$showcase['featured_image'],
             'title' => get_translated($showcase, 'title'),
             'show_rating' => true,
@@ -69,6 +70,7 @@
         <?php if ($index % 4 === 0) echo '</div><div class="row cards cards--4">'; ?>
         <?php
           $item = array(
+            'external_card_class' => 'card-danger',
             'title' => get_translated($dataset, 'title'),
             'meta' => __('Dataset', 'sixodp'),
             'timestamp' => $dataset['date_released'],
