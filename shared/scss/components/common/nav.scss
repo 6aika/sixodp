@@ -9,7 +9,6 @@
 .navbar {
   border: none;
   border-radius: 0;
-  background: $navbar-background-color;
 
   .navbar-nav {
     margin-top: 0;
@@ -22,6 +21,7 @@
 
       @media(min-width: $grid-float-breakpoint) {
         position: static;
+        max-height: $navbar-height;
       }
 
       &.nav-inline {
@@ -37,29 +37,6 @@
         @media(min-width: $grid-float-breakpoint) {
           padding-top: $navbar-height/4;
           padding-bottom: $navbar-height/4;
-        }
-      }
-
-      &.active {
-        .subnav-toggle {
-          color: $navbar-secondary-active-toggle-color;
-        }
-
-        > a {
-          background-color: $navbar-default-link-active-bg;
-          color: $navbar-default-link-active-color;
-          border-bottom-color: $navbar-default-link-active-border-color;
-
-          @media(min-width: $grid-float-breakpoint) {
-            background-color: $navbar-default-link-active-bg-desktop;
-            color: $navbar-default-link-active-color-desktop;
-            border-bottom-color: $navbar-default-link-active-border-color-desktop;
-
-            &:hover {
-              background-color: $navbar-default-link-hover-bg-desktop;
-              color: $navbar-default-link-hover-color;
-            }
-          }
         }
       }
 
@@ -172,7 +149,17 @@
   }
 
   @media(min-width: $grid-float-breakpoint) {
-    display: none;
+    position: relative;
+    width: 100%;
+    height: 10px;
+    display: inline;
+    top: -25px;
+
+    .fa {
+      line-height: 10px;
+      font-size: 10px;
+      vertical-align: middle;
+    }
   }
 }
 
@@ -240,9 +227,10 @@
     }
   }
 
-  @media(min-width: $width-md) {
+  @media(min-width: $grid-float-breakpoint) {
     height: auto;
     position: relative;
+    top: $navbar-height;
   }
 }
 

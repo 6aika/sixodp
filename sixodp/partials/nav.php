@@ -23,9 +23,9 @@
             if ( count($navItem["children"]) > 0 ) {
               $class = '';
               if ( $navItem["isActive"] ) {
-                $class = 'active';
+                $class = ' active';
               }
-              echo '<li class="'.$class.'"><a href="'.$navItem["url"].'" title="'.$navItem["title"].'">'.$navItem["title"].'</a>
+              echo '<li class="has-subnav' . $class.'"><a href="'.$navItem["url"].'" title="'.$navItem["title"].'">'.$navItem["title"].'</a>
               <span class="subnav-toggle"><i class="fa fa-chevron-down"></i></span><ul class="nav navbar-nav subnav">';
               foreach ($navItem["children"] as $sub_nav_item) {
                 $class = '';
