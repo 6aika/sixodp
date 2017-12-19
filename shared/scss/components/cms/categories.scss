@@ -3,17 +3,23 @@
 }
 
 .categories {
-  display: flex;
-  flex-wrap: wrap;
   padding-top: $base*5;
-  justify-content: center;
+
+  @media (min-width: $width-xs) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 .category__wrapper {
-  width: $base*18;
   padding-left: $base;
   padding-right: $base;
   padding-bottom: $base*1.5;
+
+  @media (min-width: $width-xs) {
+    width: $base*18;
+  }
 }
 
 .category--box {
@@ -32,9 +38,13 @@
 
 .category__link {
   height: 100%;
-  display: block;
+  display: flex;
   margin: auto;
   text-align: center;
+
+  @media (min-width: $width-xs) {
+    display: block;
+  }
 }
 
 .category__icon {
@@ -48,6 +58,11 @@
   display: block;
   padding-right: $base*0.5;
   color: $category-box-text-color;
+  margin: 0 $base/2;
+
+  @media (min-width: $width-xs) {
+    margin: $base/2 auto;
+  }
 }
 
 .category__count {

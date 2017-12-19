@@ -10,15 +10,12 @@
   }
   .stat__link {
     color: $stats-text-color;;
-    height: 70px;
   }
 }
 
 
 .stat__wrapper {
   text-align: center;
-  height: 70px;
-  line-height: 70px;
   border-left: 1px solid $stats-text-color;
 
   @media (min-width: $width-md) {
@@ -46,8 +43,7 @@
   padding-right: $base*2;
 
   & > div {
-    display: inline-block;
-    vertical-align: middle;
+    display: block;
     padding-left: $base;
     padding-right: $base;
   }
@@ -55,5 +51,11 @@
 
 .stat__value {
   font-family: $font-heading;
-  font-size: 5rem;
+  font-size: 3rem;
+  background: rgba(0,0,0,0.3);
+  border-radius: 5px;
+}
+
+.stat__description {
+  margin-top: $base;
 }
