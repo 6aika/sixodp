@@ -36,11 +36,16 @@
       <?php
         $showcases = get_latest_showcases(4);
         foreach ($showcases as $showcase) {
-          $showcaseUrl = CKAN_BASE_URL . "/showcase/" . $showcase['name'];
-          $imgUrl = CKAN_BASE_URL . "/uploads/showcase/".$showcase['featured_image'];
-          $packageId = $showcase['id'];
-          $notes = get_translated($showcase, 'notes');
-          include(locate_template( 'partials/showcase.php' ));
+          $item = array(
+            'image_url' => CKAN_BASE_URL . "/uploads/showcase/".$showcase['featured_image'],
+            'title' => get_translated($showcase, 'title'),
+            'show_rating' => true,
+            'date_updated' => $showcase['date_updated'],
+            'notes' => get_translated($showcase, 'notes'),
+            'url' => CKAN_BASE_URL . "/showcase/" . $showcase['name'],
+            'package_id' => $showcase['id']
+          );
+          include(locate_template( 'partials/card-image.php' ));
         }
       ?>
     </div>
@@ -62,23 +67,17 @@
     <div class="row cards cards--4">
       <?php foreach ( get_latest_datasets() as $index => $dataset ) : ?>
         <?php if ($index % 4 === 0) echo '</div><div class="row cards cards--4">'; ?>
-        <div class="card" onclick="window.location.href='<?php echo CKAN_BASE_URL.'/'.get_current_locale_ckan().'/dataset/'.$dataset['name']; ?>'">
-          <div class="card-meta"><?php echo _e('Dataset', 'sixodp'); ?></div>
-          <div class="card-content">
-            <div class="card-title"><?php echo get_translated($dataset, 'title'); ?></div>
-            <div class="card-title-secondary"><?php echo parse_date($dataset['date_released']); ?></div>
-            <div class="card-description">
-              <?php echo wp_html_excerpt( strip_shortcodes(render_markdown(get_translated($dataset, 'notes'))), 240, '...'); ?>
-            </div>
-            <div class="card-link-wrapper">
-              <a href="<?php echo CKAN_BASE_URL.'/'.get_current_locale_ckan().'/dataset/'.$dataset['name']; ?>"
-                 class="btn btn-transparent card-link card-link-slide-up">
-                <?php _e('Read more', 'sixodp') ?>
-              </a>
-            </div>
-          </div>
-        </div><?php
-      endforeach; ?>
+        <?php
+          $item = array(
+            'title' => get_translated($dataset, 'title'),
+            'meta' => __('Dataset', 'sixodp'),
+            'timestamp' => $dataset['date_released'],
+            'notes' => get_translated($dataset, 'notes'),
+            'url' => CKAN_BASE_URL.'/'.get_current_locale_ckan().'/dataset/'.$dataset['name'],
+          );
+          include(locate_template( 'partials/card.php' ));
+        ?>
+      <?php endforeach; ?>
     </div>
   </div>
 

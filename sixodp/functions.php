@@ -692,6 +692,16 @@ function get_notes_excerpt($str) {
   return $truncatedNotes;
 }
 
+function get_post_thumbnail_url($post) {
+  if (has_post_thumbnail( $post->ID ) ):
+    $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
+  else :
+    $image = array("/assets/images/frontpage.jpg");
+  endif;
+
+  return $image[0];
+}
+
 function assets_url() {
   return site_url().'/assets';
 }

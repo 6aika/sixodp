@@ -72,22 +72,17 @@ get_header();
             <div class="cards cards--2">
               <?php
               while ( have_posts() ) : the_post(); ?>
-
-              <a class="card card--image" href="<?php the_permalink(); ?>">
                 <?php
-                  if (has_post_thumbnail( $post->ID ) ):
-                    $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
-                  else :
-                    $image = array("/assets/images/frontpage.jpg");
-                  endif;
+                  $item = array(
+                    'image_url' => get_post_thumbnail_url($post),
+                    'title' => $post->post_title,
+                    'show_rating' => false,
+                    'date_updated' => $post->post_date,
+                    'notes' => $post->post_content,
+                    'url' => get_the_permalink(),
+                  );
+                  include(locate_template( 'partials/card-image.php' ));
                 ?>
-                <div class="card-image" style="background-image: url(<?php echo $image[0]; ?>);"></div>
-                <div class="card-content">
-                  <h4 class="card-title text-left"><?php the_title(); ?></h4>
-                  <span class="card-timestamp"><?php echo parse_date(get_the_date('c')); ?></span>
-                </div>
-              </a>
-
               <?php
               endwhile;
               wp_reset_postdata();
