@@ -1,11 +1,6 @@
-$card-height: 280px;
-$card-content-height: 110px;
-$heading-rows: 3;
-$fadeout-area-height: 20px;
-
 $card-img-height: $card-height - $card-content-height;
 $card-padding: $padding-large-horizontal;
-$card-line-height: ($card-content-height - $card-padding * 3) / ($heading-rows + 1);
+$card-line-height: ($card-content-height - $card-padding * 3) / ($card-heading-rows + 1);
 $card-meta-height: $font-size-small + $card-padding * 3;
 
 .cards,
@@ -188,7 +183,7 @@ $card-meta-height: $font-size-small + $card-padding * 3;
     height: $card-height;
 
     .card-title {
-      height: $card-line-height * $heading-rows;
+      height: $card-line-height * $card-heading-rows;
     }
 
     .card-link-wrapper {
@@ -199,12 +194,12 @@ $card-meta-height: $font-size-small + $card-padding * 3;
   .card-link,
   .card-link:active,
   .card-link:focus {
-    border-color: $card--image-text-color--highlight;
-    color: $card--image-text-color--highlight;
+    border-color: $card--image-text-color;
+    color: $card--image-text-color;
 
     &:hover {
-      border-color: $card--image-text-color--highlight-active;
-      color: $card--image-text-color--highlight-active;
+      border-color: $card--image-text-color-active;
+      color: $card--image-text-color-active;
     }
   }
 
@@ -215,7 +210,7 @@ $card-meta-height: $font-size-small + $card-padding * 3;
 
       .card-title {
         height: auto;
-        max-height: $card-line-height * $heading-rows;
+        max-height: $card-line-height * $card-heading-rows;
         overflow: hidden;
       }
     }

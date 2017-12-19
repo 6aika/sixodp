@@ -119,6 +119,10 @@ $btn-padding-small: 4px 6px;
 $btn-padding-large: 8px 12px;
 
 // Card
+$card-height: 280px;
+$card-content-height: 110px;
+$card-heading-rows: 3;
+
 $card-bg: $brand-lightgray;
 $card-bg-active: $brand-white;
 $card--image-bg: $brand-success-extralight;
@@ -129,16 +133,14 @@ $card-text-color--highlight: $brand-danger;
 $card-text-color-active: $text-color;
 $card-text-color--highlight-active: $brand-danger-light;
 $card--image-text-color: $text-color;
-$card--image-text-color--highlight: $brand-success;
 $card--image-text-color-active: $text-color;
-$card--image-text-color--highlight-active: $brand-success-light;
 
 $card-title-secondary-color: $text-muted;
 $card-link-color: $brand-primary;
 $card-meta-color: $brand-danger;
 $card-border-radius: $border-radius-medium;
 $card-star-filled: $text-color;
-$card-star-empty: $card--image-text-color--highlight;
+$card-star-empty: $brand-success-light;
 
 // Navigation
 $navbar-background-color: #f8f8f8;
