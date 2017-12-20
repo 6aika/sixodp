@@ -5,11 +5,15 @@ body.category {
 }
 
 .wrapper {
-  padding: 0;
+  padding: $base*6 0;
+
+  &:nth-child(odd) {
+    background-color: $featured-bg;
+  }
 }
 
 .container--heading {
-  margin-top: $base*3;
+  margin-bottom: $base*3;
 }
 
 .alignright {
