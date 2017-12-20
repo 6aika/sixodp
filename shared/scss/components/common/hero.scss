@@ -67,6 +67,43 @@
     margin-bottom: $base;
   }
 
+  @media (max-width: $width-xs) {
+    display: block;
+
+    div.input-group-btn {
+      display: block;
+      width: 100%;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+
+      .btn-secondary.dropdown-toggle {
+        width: 100%;
+      }
+    }
+
+    .open .dropdown-menu-right {
+      left: 0;
+    }
+
+    button#search {
+      width: 100%;
+      line-height: 1.5;
+      border-top-right-radius: 0;
+    }
+
+    #q {
+      float: left;
+      width: 70%;
+      margin: 0;
+      border-bottom-left-radius: 3px;
+    }
+
+    span.input-group-btn {
+      float: right;
+      width: 30%;
+    }
+  }
+
   @media(min-width: $width-sm) {
 
     button {
@@ -96,6 +133,13 @@
   color: $brand-white;
   font-size: 3rem;
   text-shadow: 0 1px 4px $brand-gray;
+}
+
+.hero .search-container {
+  max-width: $base*60;
+  margin: $base*4 auto 0;
+  padding-left: $base;
+  padding-right: $base;
 }
 
 .wrapper {

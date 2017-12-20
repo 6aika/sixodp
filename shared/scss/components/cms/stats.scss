@@ -38,13 +38,9 @@
 .stat {
   display: inline-block;
   text-align: center;
-  padding-left: $base*2;
-  padding-right: $base*2;
 
   & > div {
     display: block;
-    padding-left: $base;
-    padding-right: $base;
   }
 }
 

@@ -14,7 +14,7 @@
         <h1 class="heading-main text-center"><?php echo bloginfo('title') ?></h1>
         <h3 class="subheading text-center"><?php  echo bloginfo('description') ?></h3>
 
-        <div class="col-md-8 col-md-offset-2">
+        <div class="search-container">
           <div class="input-group">
             <div class="input-group-btn">
               <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
