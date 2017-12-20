@@ -1,12 +1,11 @@
 .stats {
-  display: none;
-  margin-top: $base*4;
-  padding-bottom: $base*6;
+  display: flex;
+  justify-content: space-around;
+  margin: $base*4 auto $base*6 auto;
   color: $stats-text-color;
 
   @media (min-width: $width-sm) {
-    display: flex;
-    justify-content: center;
+    max-width: 600px;
   }
   .stat__link {
     color: $stats-text-color;;
