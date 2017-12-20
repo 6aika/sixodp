@@ -18,7 +18,7 @@
 - name: Configure php max file size
   ini_file:
     path:  /etc/php/7.0/fpm/php.ini
-    section: php
+    section: PHP
     option: upload_max_filesize
     value: 100M
     backup: yes
@@ -26,7 +26,7 @@
 - name: Configure php max post size
   ini_file:
     path:  /etc/php/7.0/fpm/php.ini
-    section: php
+    section: PHP
     option: post_max_size
     value: 100M
     backup: yes
@@ -35,7 +35,12 @@
 - name: Configure php max input time
   ini_file:
     path:  /etc/php/7.0/fpm/php.ini
-    section: php
+    section: PHP
     option: max_input_time
     value: 300
     backup: yes
+
+- name: Restart PHP FPM
+  service:
+    name: php7.0-fpm
+    state: restarted
