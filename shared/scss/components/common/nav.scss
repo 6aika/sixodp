@@ -9,7 +9,6 @@
 .navbar {
   border: none;
   border-radius: 0;
-  background: $navbar-background-color;
 
   .navbar-nav {
     margin-top: 0;
@@ -22,6 +21,7 @@
 
       @media(min-width: $grid-float-breakpoint) {
         position: static;
+        max-height: $navbar-height;
       }
 
       &.nav-inline {
@@ -37,29 +37,6 @@
         @media(min-width: $grid-float-breakpoint) {
           padding-top: $navbar-height/4;
           padding-bottom: $navbar-height/4;
-        }
-      }
-
-      &.active {
-        .subnav-toggle {
-          color: $navbar-secondary-active-toggle-color;
-        }
-
-        > a {
-          background-color: $navbar-default-link-active-bg;
-          color: $navbar-default-link-active-color;
-          border-bottom-color: $navbar-default-link-active-border-color;
-
-          @media(min-width: $grid-float-breakpoint) {
-            background-color: $navbar-default-link-active-bg-desktop;
-            color: $navbar-default-link-active-color-desktop;
-            border-bottom-color: $navbar-default-link-active-border-color-desktop;
-
-            &:hover {
-              background-color: $navbar-default-link-hover-bg-desktop;
-              color: $navbar-default-link-hover-color;
-            }
-          }
         }
       }
 
@@ -172,7 +149,19 @@
   }
 
   @media(min-width: $grid-float-breakpoint) {
-    display: none;
+    position: relative;
+    width: 100%;
+    height: 10px;
+    display: inline;
+    top: -25px;
+    pointer-events: none;
+    background: none;
+
+    .fa {
+      line-height: 10px;
+      font-size: 10px;
+      vertical-align: middle;
+    }
   }
 }
 
@@ -219,30 +208,53 @@
     > a,
     > a:focus {
       color: $navbar-secondary-link-color;
-      padding-top: $base/2;
-      padding-bottom: $base/2;
-    }
+      padding: $padding-large-vertical/2 $padding-large-horizontal*3;
 
-    &:hover {
-      > a {
-        background: $navbar-secondary-link-hover-bg;
-        color: $navbar-secondary-link-active-color;
+      .fa {
+        display: none;
       }
     }
 
-    &.active {
-      border-bottom-color: $navbar-secondary-link-active-border-color;
+    @media(min-width: $grid-float-breakpoint) {
+      > a,
+      > a:focus {
+        padding: $padding-large-vertical/2
+                $padding-large-horizontal*3
+                $padding-large-vertical/2
+                $padding-large-horizontal;
+        transition: padding $transition-speed-base $transition-curve-base;
 
-      > a {
-        background: $navbar-secondary-link-active-bg;
-        color: $navbar-secondary-link-active-color;
+        .fa {
+          display: inline;
+          width: 0;
+          opacity: 0;
+          transition:
+                  opacity $transition-speed-base $transition-curve-base,
+                  width $transition-speed-base $transition-curve-base,
+                  margin $transition-speed-base $transition-curve-base;
+        }
+      }
+
+      &:hover {
+        > a {
+          padding-right: $padding-large-horizontal*2;
+          background: $navbar-secondary-link-hover-bg;
+          color: $navbar-secondary-link-active-color;
+
+          .fa {
+            width: $padding-large-horizontal;
+            opacity: 1;
+            margin-right: $margin-large-horizontal;
+          }
+        }
       }
     }
   }
 
-  @media(min-width: $width-md) {
+  @media(min-width: $grid-float-breakpoint) {
     height: auto;
     position: relative;
+    top: $navbar-height;
   }
 }
 
