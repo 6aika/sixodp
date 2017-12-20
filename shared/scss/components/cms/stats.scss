@@ -41,16 +41,22 @@
 
   & > div {
     display: block;
+
+    &.stat__value {
+      display: inline-block;
+      padding: $base/5 $base*2;
+    }
   }
 }
 
 .stat__value {
   font-family: $font-heading;
-  font-size: 3rem;
+  font-size: 2.5rem;
   background: rgba(0,0,0,0.3);
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 .stat__description {
   margin-top: $base;
+  font-size: 13px;
 }

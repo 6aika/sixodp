@@ -41,9 +41,11 @@
   display: flex;
   margin: auto;
   text-align: center;
+  font-size: 12px;
 
   @media (min-width: $width-xs) {
     display: block;
+    font-size: 14px;
   }
 }
 
