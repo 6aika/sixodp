@@ -28,7 +28,7 @@ $card-meta-height: $font-size-small + $card-padding * 3;
   transition:
           background-color $transition-speed-base $transition-curve-base,
           box-shadow $transition-speed-base $transition-curve-base;
-  margin: 0 auto $padding-large-vertical auto;
+  margin: $padding-large-vertical*2 auto;
   display: block;
   overflow: hidden;
   box-shadow: none;
