@@ -594,7 +594,7 @@ function get_recent_content($date = false) {
 }
 
 function get_latest_datasets() {
-  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_updated%20desc&rows=6');
+  $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_updated%20desc&rows=4');
   return $data['result']['results'];
 }
 
@@ -692,6 +692,16 @@ function get_notes_excerpt($str) {
   return $truncatedNotes;
 }
 
+function get_post_thumbnail_url($post) {
+  if (has_post_thumbnail( $post->ID ) ):
+    $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
+  else :
+    $image = array("/assets/images/frontpage.jpg");
+  endif;
+
+  return $image[0];
+}
+
 function assets_url() {
   return site_url().'/assets';
 }
@@ -744,7 +754,7 @@ function get_recent_posts($type, $date = false) {
   return $data;
 }
 
-function get_latest_updates($types = array(), $date = false, $limit = 12) {
+function get_latest_updates($types = array(), $date = false, $limit = 4) {
   $defaults = array(
     'datasets' => true,
     'showcases' => true,

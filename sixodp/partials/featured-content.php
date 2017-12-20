@@ -33,28 +33,21 @@
   </div>
 
   <div class="container">
-    <div class="row cards">
+    <div class="row cards cards--4">
       <?php foreach ( get_latest_datasets() as $index => $dataset ) : ?>
-        <?php if ($index % 3 === 0) echo '</div><div class="row cards">'; ?>
-        <div class="card card-hover" onclick="window.location.href='<?php echo CKAN_BASE_URL.'/'.get_current_locale_ckan().'/dataset/'.$dataset['name']; ?>'">
-          <h3 class="card-title">
-            <a href="<?php echo CKAN_BASE_URL.'/'.get_current_locale_ckan().'/dataset/'.$dataset['name']; ?>">
-              <?php echo get_translated($dataset, 'title'); ?>
-            </a>
-          </h3>
-
-          <p>
-            <span class="card-timestamp"><?php echo parse_date($dataset['date_released']); ?></span><br />
-            <?php echo wp_html_excerpt( strip_shortcodes(render_markdown(get_translated($dataset, 'notes'))), 240, '...'); ?>
-          </p>
-
-          <div class="card-meta">
-            <span>
-              <span class="fa fa-database"></span>&nbsp;<?php echo _e('Dataset', 'sixodp'); ?>
-            </span>
-          </div>
-        </div><?php
-      endforeach; ?>
+        <?php if ($index % 4 === 0) echo '</div><div class="row cards cards--4">'; ?>
+        <?php
+          $item = array(
+            'external_card_class' => 'card-danger',
+            'title' => get_translated($dataset, 'title'),
+            'meta' => __('Dataset', 'sixodp'),
+            'timestamp' => $dataset['date_released'],
+            'notes' => get_translated($dataset, 'notes'),
+            'url' => CKAN_BASE_URL.'/'.get_current_locale_ckan().'/dataset/'.$dataset['name'],
+          );
+          include(locate_template( 'partials/card.php' ));
+        ?>
+      <?php endforeach; ?>
     </div>
   </div>
 

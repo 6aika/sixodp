@@ -131,3 +131,9 @@
   margin-top: $base*2.5;
   text-align: center;
 }
+
+.btn-danger--inverse {
+  background: transparent;
+  border: 1px solid #d9534f;
+  color: #d9534f;
+}

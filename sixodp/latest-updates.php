@@ -105,8 +105,8 @@ get_header(); ?>
       </ul>
 
       <?php
-      $args = $_GET;
-      $uri = parse_url($_SERVER['REQUEST_URI']);
+        $args = $_GET;
+        $uri = parse_url($_SERVER['REQUEST_URI']);
       ?>
 
       <div class="paginate">

@@ -13,7 +13,7 @@
   transition: $target $time $type;
 }
 
-@mixin box-shadow($box: 0 1px 32px, $rgba: rgba(0,0,0,0.3)) {
+@mixin box-shadow($box: 0 1px 40px, $rgba: rgba(0,0,0,0.2)) {
   -webkit-box-shadow: $box $rgba;
   box-shadow: $box $rgba;
 }
