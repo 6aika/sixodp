@@ -154,6 +154,8 @@
     height: 10px;
     display: inline;
     top: -25px;
+    pointer-events: none;
+    background: none;
 
     .fa {
       line-height: 10px;
@@ -206,23 +208,45 @@
     > a,
     > a:focus {
       color: $navbar-secondary-link-color;
-      padding-top: $base/2;
-      padding-bottom: $base/2;
-    }
+      padding: $padding-large-vertical/2 $padding-large-horizontal*3;
 
-    &:hover {
-      > a {
-        background: $navbar-secondary-link-hover-bg;
-        color: $navbar-secondary-link-active-color;
+      .fa {
+        display: none;
       }
     }
 
-    &.active {
-      border-bottom-color: $navbar-secondary-link-active-border-color;
+    @media(min-width: $grid-float-breakpoint) {
+      > a,
+      > a:focus {
+        padding: $padding-large-vertical/2
+                $padding-large-horizontal*3
+                $padding-large-vertical/2
+                $padding-large-horizontal;
+        transition: padding $transition-speed-base $transition-curve-base;
 
-      > a {
-        background: $navbar-secondary-link-active-bg;
-        color: $navbar-secondary-link-active-color;
+        .fa {
+          display: inline;
+          width: 0;
+          opacity: 0;
+          transition:
+                  opacity $transition-speed-base $transition-curve-base,
+                  width $transition-speed-base $transition-curve-base,
+                  margin $transition-speed-base $transition-curve-base;
+        }
+      }
+
+      &:hover {
+        > a {
+          padding-right: $padding-large-horizontal*2;
+          background: $navbar-secondary-link-hover-bg;
+          color: $navbar-secondary-link-active-color;
+
+          .fa {
+            width: $padding-large-horizontal;
+            opacity: 1;
+            margin-right: $margin-large-horizontal;
+          }
+        }
       }
     }
   }

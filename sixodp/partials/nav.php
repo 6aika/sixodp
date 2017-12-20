@@ -32,7 +32,7 @@
                 if ( isset($sub_nav_item["isActive"]) and $sub_nav_item["isActive"] ) {
                   $class = 'active';
                 }
-                echo '<li class="'.$class.'"><a href="'.$sub_nav_item["url"].'" title="'.$sub_nav_item["title"].'">'.$sub_nav_item["title"].'</a></li>';
+                echo '<li class="'.$class.'"><a href="'.$sub_nav_item["url"].'" title="'.$sub_nav_item["title"].'"><span class="fa fa-long-arrow-right"></span>'.$sub_nav_item["title"].'</a></li>';
               }
               echo '</ul></li>';
             } else {

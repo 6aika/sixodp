@@ -127,12 +127,12 @@ $navbar-toggle-color-active: lighten($navbar-toggle-color, 30%);
 $navbar-secondary-border-color: $brand-lightgray;
 $navbar-secondary-bg: $brand-lightgray;
 $navbar-secondary-link-color: $text-color;
-$navbar-secondary-link-active-color: $brand-white;
+$navbar-secondary-link-active-color: $navbar-secondary-link-color;
 $navbar-secondary-link-active-border-color: transparent;
 $navbar-secondary-link-hover-bg: $gray-light;
 $navbar-secondary-link-active-bg: $brand-lightgray;
-$navbar-secondary-toggle-color: $gray-light;
-$navbar-secondary-active-toggle-color: $brand-white;
+$navbar-secondary-toggle-color: $navbar-secondary-link-color;
+$navbar-secondary-active-toggle-color: $navbar-secondary-link-color;
 
 $navbar-default-link-color: $gray-base;
 $navbar-default-link-active-color: $navbar-default-link-color;
