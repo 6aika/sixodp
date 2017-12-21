@@ -30,14 +30,19 @@
   float: left;
 
   @media (min-width: $width-sm) {
-    width: $base*20;
+    width: 100%;
+    text-align: center;
+
+    img {
+      width: $base*20;
+    }
   }
 }
 
 .logos--eu {
-  float: right;
   height: $base*12;
-  text-align: center;
+  position: absolute;
+  right: $base*2;
 
   .logo--erdf, .logo--eu {
     width: auto;

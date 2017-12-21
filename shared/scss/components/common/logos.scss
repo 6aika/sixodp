@@ -32,7 +32,12 @@
   float: left;
 
   @media (min-width: $width-sm) {
-    width: $base*20;
+    width: 100%;
+    text-align: center;
+
+    img {
+      width: $base*20;
+    }
   }
 }
 

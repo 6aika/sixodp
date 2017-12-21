@@ -16,11 +16,7 @@
   .logos {
     position: static;
     height: auto;
-    margin-top: $content-padding-top - $navbar-height;
-
-    @media(min-width: $grid-float-breakpoint) {
-      margin-top: $content-padding-top-desktop - $navbar-height;
-    }
+    margin-top: $navbar-height*1.5;
   }
 }
 
@@ -121,18 +117,18 @@
 }
 
 .hero .heading-main {
-  margin: $base*2 auto 0;
-  color: $brand-white;
+  margin: $base*4 auto 0;
+  color: $brand-primary;
   font-size: 5rem;
-  text-shadow: 0 1px 4px $brand-gray;
+  font-weight: bold;
 }
 
 .hero .subheading {
   margin: 0 auto $base*2;
-  font-weight: 300;
   color: $brand-white;
-  font-size: 3rem;
-  text-shadow: 0 1px 4px $brand-gray;
+  font-weight: 400;
+  font-size: 2rem;
+  letter-spacing: 2px;
 }
 
 .hero .search-container {
