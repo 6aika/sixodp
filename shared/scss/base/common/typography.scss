@@ -27,7 +27,8 @@ a {
   font-size: $font-size-large;
   font-weight: $headings-font-weight;
   font-family: $font-heading;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .heading {
@@ -84,4 +85,11 @@ a {
 
 .heading--archive {
   @extend .heading-main;
+}
+
+.heading--small {
+  color: $gray-light !important;
+  letter-spacing: 1px;
+  text-transform: none;
+  font-weight: 500;
 }

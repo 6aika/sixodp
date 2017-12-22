@@ -41,9 +41,6 @@
       <a type="button" href="<?php echo get_category_link(get_translated_category_by_slug('ajankohtaista')) ?>" class="btn btn-transparent--inverse btn--show-all">
         <?php _e('Show all', 'sixodp');?>
       </a>
-      <a type="button" href="<?php echo get_permalink(get_translated_page_by_title('Ajankohtaista')); ?>" class="btn btn-transparent--inverse btn--ajankohtaista">
-        <?php _e('Latest updates', 'sixodp');?>
-      </a>
     </div>
   </div>
 </div>

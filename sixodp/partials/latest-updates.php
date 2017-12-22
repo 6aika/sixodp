@@ -11,7 +11,7 @@
 
   <div class="container">
     <div class="row cards cards--4">
-      <?php foreach ( get_latest_updates() as $index => $updated_item ) : ?>
+      <?php foreach ( get_latest_updates(array(), false, 8) as $index => $updated_item ) : ?>
         <?php if ($index % 4 === 0) echo '</div><div class="row cards cards--4">'; ?>
         <?php
           $label = is_array($updated_item['type']) ? $updated_item['type']['label'] : $updated_item['type'];
@@ -53,7 +53,7 @@
 
   <div class="container">
     <div class="row btn-container">
-      <a href="<?php echo get_permalink(get_translated_page_by_title('Viimeisimmät päivitykset')); ?>" class="btn btn-danger--inverse btn--sovellukset">
+      <a href="<?php echo get_permalink(get_translated_page_by_title('Viimeisimmät päivitykset')); ?>" class="bttn btn-latest--inverse btn--sovellukset">
         <?php _e('More updates', 'sixodp');?>
       </a>
     </div>

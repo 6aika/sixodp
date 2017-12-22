@@ -16,7 +16,7 @@ $font: 'Roboto', sans-serif;
 $font-heading: 'Roboto', sans-serif;
 $headings-font-family: $font-heading;
 
-$headings-font-weight: 400;
+$headings-font-weight: 700;
 
 // Brand-colors
 $lighten-intensity: 10%;
@@ -80,6 +80,12 @@ $headings-small-color: $brand-primary;
 $headings-secondary-color: $brand-primary;
 $headings-extra-color: $brand-gray;
 
+$brand-app: #62AF5D;
+$brand-app-dark: darken($brand-app, 15%);
+
+$brand-dataset: #E12854;
+$brand-dataset-dark: darken($brand-dataset, 15%);
+
 // Frontpage elements
 $btn-main-bg: $brand-secondary;
 $btn-main-color: $brand-white;
@@ -87,7 +93,7 @@ $btn-main-active-bg: $brand-secondary-light;
 $btn-main-active-color: $brand-white;
 
 $category-box-bg: $brand-primary;
-$category-box-text-color: $brand-white;
+$category-box-text-color: $brand-secondary;
 $category-box-count-color: $brand-white;
 $stats-text-color: $brand-white;
 

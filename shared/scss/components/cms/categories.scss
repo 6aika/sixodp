@@ -41,7 +41,7 @@
   display: flex;
   margin: auto;
   text-align: center;
-  font-size: 12px;
+  font-size: 11px;
 
   @media (min-width: $width-xs) {
     display: block;
@@ -61,6 +61,7 @@
   padding-right: $base*0.5;
   color: $category-box-text-color;
   margin: 0 $base/2;
+  text-transform: uppercase;
 
   @media (min-width: $width-xs) {
     margin: $base/2 auto;
@@ -69,8 +70,5 @@
 
 .category__count {
   font-weight: normal;
-  padding: 0 7px;
-  border: 1px solid $category-box-count-color;
   color: $category-box-count-color;
-  border-radius: 50%;
 }

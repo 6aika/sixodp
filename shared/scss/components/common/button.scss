@@ -2,7 +2,6 @@
   @extend %button;
   padding: $padding-base-vertical $padding-base-horizontal*2;
   font-size: $font-size-base;
-  line-height: $line-height-base;
 
   &:hover {
     color: $brand-black;
@@ -14,6 +13,15 @@
     margin-right: 0;
     font-weight: bold;
   }
+}
+
+.bttn {
+  @extend .btn;
+  font-size: $font-size-small;
+  line-height: 2;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
 }
 
 .btn-primary {
@@ -136,4 +144,64 @@
   background: transparent;
   border: 1px solid #d9534f;
   color: #d9534f;
+}
+
+.btn-app {
+  background-color: $brand-app;
+  color: $brand-white;
+
+  &:hover {
+    background-color: $brand-app-dark;
+    color: $brand-white;
+  }
+}
+
+.btn-app--inverse {
+  color: $brand-app;
+  border: 1px solid $brand-app;
+
+  &:hover {
+    color: $brand-app-dark;
+    border-color: $brand-app-dark;
+  }
+}
+
+.btn-dataset {
+  background-color: $brand-dataset;
+  color: $brand-white;
+
+  &:hover {
+    background-color: $brand-dataset-dark;
+    color: $brand-white;
+  }
+}
+
+.btn-dataset--inverse {
+  color: $brand-dataset;
+  border: 1px solid $brand-dataset;
+
+  &:hover {
+    color: $brand-dataset-dark;
+    border-color: $brand-dataset-dark;
+  }
+}
+
+.btn-latest {
+  background-color: $gray-light;
+  color: $brand-white;
+
+  &:hover {
+    background-color: $gray-dark;
+    color: $brand-white;
+  }
+}
+
+.btn-latest--inverse {
+  color: $gray-light;
+  border: 1px solid $gray-light;
+
+  &:hover {
+    color: $gray-dark;
+    border-color: $gray-dark;
+  }
 }
