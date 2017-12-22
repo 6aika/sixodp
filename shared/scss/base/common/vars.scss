@@ -145,7 +145,7 @@ $card-star-filled: $text-color;
 $card-star-empty: $brand-success-light;
 
 // Navigation
-$navbar-background-color: #f8f8f8;
+$navbar-default-bg: #f8f8f8;
 $notificationbar-bg: $brand-info;
 $notificationbar-text-color: $brand-white;
 $notificationbar-height: $base + 24px;
@@ -162,26 +162,26 @@ $navbar-toggle-color: $brand-primary;
 $navbar-toggle-color-active: lighten($navbar-toggle-color, 30%);
 
 $navbar-secondary-border-color: $brand-lightgray;
-$navbar-secondary-bg: $brand-primary;
-$navbar-secondary-link-color: $brand-white;
-$navbar-secondary-link-active-color: $brand-white;
+$navbar-secondary-bg: $brand-lightgray;
+$navbar-secondary-link-color: $text-color;
+$navbar-secondary-link-active-color: $navbar-secondary-link-color;
 $navbar-secondary-link-active-border-color: transparent;
-$navbar-secondary-link-hover-bg: $brand-secondary;
-$navbar-secondary-link-active-bg: $brand-secondary;
-$navbar-secondary-toggle-color: $brand-primary;
-$navbar-secondary-active-toggle-color: $brand-white;
+$navbar-secondary-link-hover-bg: $gray-light;
+$navbar-secondary-link-active-bg: $brand-lightgray;
+$navbar-secondary-toggle-color: $navbar-secondary-link-color;
+$navbar-secondary-active-toggle-color: $navbar-secondary-link-color;
 
 $navbar-default-link-color: $gray-base;
-$navbar-default-link-active-color: $brand-white;
-$navbar-default-link-active-border-color: $brand-secondary;
-$navbar-default-link-hover-bg: #f0f0f0;
-$navbar-default-link-active-bg: $brand-primary;
+$navbar-default-link-active-color: $navbar-default-link-color;
+$navbar-default-link-active-border-color: $brand-primary;
+$navbar-default-link-hover-bg: $gray-light;
+$navbar-default-link-active-bg: $navbar-default-bg;
 
 $navbar-default-link-color-desktop: $gray-base;
-$navbar-default-link-active-color-desktop: $brand-primary;
-$navbar-default-link-active-border-color-desktop: $brand-secondary;
-$navbar-default-link-hover-bg-desktop: #f0f0f0;
-$navbar-default-link-active-bg-desktop: $brand-lightgray;
+$navbar-default-link-active-color-desktop: $navbar-default-link-color-desktop;
+$navbar-default-link-active-border-color-desktop: transparent;
+$navbar-default-link-hover-bg-desktop: $navbar-default-bg;
+$navbar-default-link-active-bg-desktop: $navbar-default-bg;
 
 $nav-tabs-background: transparent;
 $nav-tabs-background-active: $brand-primary;
@@ -197,7 +197,7 @@ $nav-tabs-active-link-hover-border-color:   $brand-primary;
 // Navbar offcanvas
 $navbar-offcanvas-toggle-background-color: $brand-primary;
 $navbar-offcanvas-toggle-icon-color: $brand-white;
-$navbar-offcanvas-background-color: $navbar-background-color;
+$navbar-offcanvas-background-color: $navbar-default-bg;
 $navbar-offcanvas-link-background-color: transparent;
 $navbar-offcanvas-link-background-color-hover: $brand-primary-light;
 $navbar-offcanvas-link-background-color-active: $brand-primary-light;
@@ -247,7 +247,7 @@ $stages-text-color-filled: $brand-white;
 $sidebar-item-bg: $gray-lighter;
 $sidebar-item-bg--highlight: $brand-secondary;
 $sidebar-item-bg-active: $gray-light;
-$sidebar-item-bg-active--highlight: $brand-secondary-light;
+$sidebar-item-bg-active--highlight: $brand-secondary-dark;
 
 $sidebar-item-color: $text-color;
 $sidebar-item-color--highlight: $brand-white;
@@ -262,9 +262,9 @@ $breadcrumb-separator: ">";
 // Misc component colors
 $badge-background-color: $brand-primary;
 $badge-background-color-active: $brand-primary;
-$image-slider-background-color: $navbar-background-color;
+$image-slider-background-color: $navbar-default-bg;
 $label-text-color: $brand-success;
-$label-background-color: $navbar-background-color;
+$label-background-color: $navbar-default-bg;
 $media-item-background-color: $brand-background;
 $table-border-color: #dddddd;
 $topic-list-background-color: $gray-lighter;

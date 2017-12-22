@@ -249,7 +249,7 @@ def check_if_active(parent_menu, menu):
 def build_nav_main():
     navigation_tree = get_navigation_items_by_menu_location(config.get('ckanext.sixodp_ui.wp_main_menu_location'), True)
 
-    def construct_menu_tree(menu):
+    def construct_menu_tree(menu, is_submenu = False):
         active = check_if_active(None, menu)
         children = ''
 
@@ -262,28 +262,33 @@ def build_nav_main():
                 if check_if_active(menu, child_item):
                     active = True
 
-                children += construct_menu_tree(child_item)
+                children += construct_menu_tree(child_item, True)
 
         if len(children) > 0:
             subnav_toggle = literal('<span class="subnav-toggle"><i class="fa fa-chevron-down"></i></span>')
             subnav = literal('<ul class="nav navbar-nav subnav">') + children + literal('</ul>')
-            return make_menu_item(menu, active) + subnav_toggle + subnav + literal('</li>')
+            return make_menu_item(menu, active, is_submenu) + subnav_toggle + subnav + literal('</li>')
         else:
-            return make_menu_item(menu, active) + literal('</li>')
+            return make_menu_item(menu, active, is_submenu) + literal('</li>')
 
     navigation_html = ''
     for menu in navigation_tree:
-        navigation_html += construct_menu_tree(menu)
+        navigation_html += construct_menu_tree(menu, False)
 
     return navigation_html
 
 
-def make_menu_item(menu_item, active):
-    link = literal('<a href="') + menu_item.get('url') + literal('">') + menu_item.get('title') + literal('</a>')
+def make_menu_item(menu_item, active = False, is_submenu = False):
+    icon = ''
+    if is_submenu:
+        icon = literal('<span class="fa fa-long-arrow-right"></span>')
+
+    link = literal('<a href="') + menu_item.get('url') + literal('">') + icon + menu_item.get('title') + literal('</a>')
+    item_classes = ''
 
     if active:
-        return literal('<li class="active">') + link
-    return literal('<li>') + link
+        item_classes += 'active';
+    return literal('<li class="' + item_classes + '">') + link
 
 
 def get_search_tags(facets_dict, visible_fields):
