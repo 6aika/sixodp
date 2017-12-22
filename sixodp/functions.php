@@ -992,3 +992,5 @@ jQuery("#post-status-info #wp-word-count .word-count").after(" Character count: 
 }
 add_action( 'admin_head-post.php', 'excerpt_count_js');
 add_action( 'admin_head-post-new.php', 'excerpt_count_js');
+
+add_filter('disqus_language_filter', 'get_lang');
