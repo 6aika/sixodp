@@ -68,6 +68,14 @@ $card-meta-height: $font-size-small + $card-padding * 3;
 
     .wrapper:nth-child(even) & {
       background-color: #f7f7f7;
+
+      .card-link-wrapper {
+        background: -webkit-linear-gradient(rgba(247, 247, 247, 0) 0%, rgba(247, 247, 247, 1) 55%);
+        background-image: -moz-linear-gradient(rgba(247, 247, 247, 0) 0%, rgba(247, 247, 247, 1) 55%);
+        background-image: -o-linear-gradient(rgba(247, 247, 247, 0) 0%, rgba(247, 247, 247, 1) 55%);
+        background-image: linear-gradient(rgba(247, 247, 247, 0) 0%, rgba(247, 247, 247, 1) 55%);
+        background-image: -ms-linear-gradient(rgba(247, 247, 247, 0) 0%, rgba(247, 247, 247, 1) 55%);
+      }
     }
 
     .wrapper:nth-child(odd) & {
@@ -89,6 +97,17 @@ $card-meta-height: $font-size-small + $card-padding * 3;
     .card-meta {
       color: $brand-danger;
       border-color: $brand-danger;
+    }
+
+    &:hover {
+
+      .card-link-wrapper {
+        background: -webkit-linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 55%);
+        background-image: -moz-linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 55%);
+        background-image: -o-linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 55%);
+        background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 55%);
+        background-image: -ms-linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 55%);
+      }
     }
   }
 
@@ -336,11 +355,6 @@ $card-meta-height: $font-size-small + $card-padding * 3;
   background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
   background-image: -ms-linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
   background-position: 0 0;
-
-  .wrapper--featured & {
-    background-image: none;
-    background: transparent;
-  }
 }
 
 .card-link,
