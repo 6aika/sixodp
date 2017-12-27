@@ -1,0 +1,15 @@
+User-agent: *
+{% if not robots_allowed %}
+Disallow: /
+{% else %}
+Disallow: /wp-admin/
+Disallow: /data/revision/
+Disallow: /data/dataset/*/history
+Disallow: /data/api/
+Allow: /wp-admin/admin-ajax.php
+{% endif %}
+
+{% for bot in blocked_bots %}
+User-agent: {{ bot }}
+Disallow: /
+{% endfor %}

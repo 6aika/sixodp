@@ -173,7 +173,7 @@ email:
   error_from: error@{{ email_domain }}
   contact: not-implemented@localhost
 
-robots_allowed: false
+robots_allowed: true
 
 debug_enabled: false
 

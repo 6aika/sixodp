@@ -22,6 +22,9 @@
 - name: Ensure static file permissions
   command: chmod -R "0775" "{{ static_path }}"
 
+- name: Copy Robots.txt
+  template: src="robots.txt.j2" dest="{{ static_path }}/robots.txt" mode=0644 owner=www-data group=www-data
+
 - name: Synchronize asset directory
   synchronize: src="{{ playbook_dir }}/../shared/assets/" dest="{{ assets_path }}/"
   when: deployment_environment_id != "vagrant"
