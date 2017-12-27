@@ -13,6 +13,10 @@ server {
     internal;
   }
 
+  location = /robots.txt {
+    root {{ static_path }};
+  }
+
   ### CKAN
 
   location /data/ {
