@@ -11,3 +11,7 @@ static_path: /var/www/static
 assets_path: /var/www/assets
 
 nginx_max_resource_size: 50000
+
+blocked_bots:
+  - MJ12bot
+  - AhrefsBot

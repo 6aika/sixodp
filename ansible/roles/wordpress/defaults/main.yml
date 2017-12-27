@@ -13,6 +13,7 @@ wordpress_plugins:
   - disqus-comment-system
   - wp-recaptcha-integration
   - wordpress-importer
+  - wp-user-avatar
 
 polylang_languages: 
   - { name: 'Suomi', code: 'fi', locale: 'fi', flag: 'fi' }
