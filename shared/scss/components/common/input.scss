@@ -1,6 +1,11 @@
 input[type="submit"] {
+  @extend .btn;
+  @extend .btn-primary;
+}
 
-    @extend .btn;
-    @extend .btn-primary;
+.input-group-btn {
 
+  .btn {
+    border: 0;
+  }
 }

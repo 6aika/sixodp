@@ -64,8 +64,8 @@
       <h4 class="heading--small"><?php _e('Do you have a dataset or an application to share?', 'sixodp');?> <?php _e('Share it!', 'sixodp');?></h4>
     </div>
     <div class="row btn-container">
-      <a href="<?php echo CKAN_BASE_URL.'/'.get_current_locale_ckan() ?>/submit-showcase" class="bttn btn-app btn--banner-jaa"><?php _e('Submit an application', 'sixodp');?></a>
-      <a href="<?php echo CKAN_BASE_URL.'/'.get_current_locale_ckan() ?>/submit-data" class="bttn btn-app--inverse btn--banner-jaa"><?php _e('Submit a dataset', 'sixodp');?></a>
+      <a href="<?php echo CKAN_BASE_URL.'/'.get_current_locale_ckan() ?>/submit-showcase" class="btn btn-app btn--banner-jaa"><?php _e('Submit an application', 'sixodp');?></a>
+      <a href="<?php echo CKAN_BASE_URL.'/'.get_current_locale_ckan() ?>/submit-data" class="btn btn-app--inverse btn--banner-jaa"><?php _e('Submit a dataset', 'sixodp');?></a>
     </div>
   </div>
 </div>

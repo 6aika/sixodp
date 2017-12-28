@@ -56,8 +56,8 @@
       <h4 class="heading--small"><?php _e('Do you have a request for a dataset or an idea for application?', 'sixodp');?> <?php _e('Tell us!', 'sixodp');?></h4>
     </div>
     <div class="row btn-container">
-      <a href="<?php echo get_permalink(get_translated_page_by_title('Uusi datatoive')); ?>" class="bttn btn-dataset btn--banner-jaa"><?php _e('Share an open data idea', 'sixodp');?></a>
-      <a href="<?php echo get_permalink(get_translated_page_by_title('Uusi sovellusidea')); ?>" class="bttn btn-dataset--inverse btn--banner-jaa"><?php _e('Share an application', 'sixodp');?></a>
+      <a href="<?php echo get_permalink(get_translated_page_by_title('Uusi datatoive')); ?>" class="btn btn-dataset btn--banner-jaa"><?php _e('Share an open data idea', 'sixodp');?></a>
+      <a href="<?php echo get_permalink(get_translated_page_by_title('Uusi sovellusidea')); ?>" class="btn btn-dataset--inverse btn--banner-jaa"><?php _e('Share an application', 'sixodp');?></a>
     </div>
   </div>
 

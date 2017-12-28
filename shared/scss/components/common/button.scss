@@ -1,7 +1,26 @@
+@mixin btn-colors($background, $text, $border) {
+  background: $background;
+  color: $text;
+  border-color: $border;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: lighten($background, 10%);
+    color: lighten($text, 10%);
+    border-color: lighten($border, 10%);
+  }
+}
+
 .btn {
   @extend %button;
   padding: $padding-base-vertical $padding-base-horizontal*2;
-  font-size: $font-size-base;
+  font-size: $font-size-small;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 400;
+  border-width: 1px;
+  border-style: solid;
 
   &:hover {
     color: $brand-black;
@@ -15,36 +34,12 @@
   }
 }
 
-.bttn {
-  @extend .btn;
-  font-size: $font-size-small;
-  line-height: 2;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 500;
-}
-
 .btn-primary {
-  background-color: $btn-primary-bg;
-  font-size: $font-size-base;
-  text-transform: uppercase;
-
-  &:hover, &:focus, &:active {
-    background-color: $brand-primary-light;
-    color: $btn-primary-color;
-  }
+  @include btn-colors($btn-primary-bg, $btn-primary-color, $btn-primary-bg);
 }
 
 .btn-secondary {
-  background-color: $btn-main-bg;
-  color: $btn-main-color;
-  font-size: $font-size-base;
-  text-transform: uppercase;
-
-  &:hover, &:focus, &:active {
-    background-color: $btn-main-active-bg;
-    color: $btn-main-active-color;
-  }
+  @include btn-colors($btn-main-bg, $btn-main-color, $btn-main-bg);
 }
 
 .btn-secondary--search {
@@ -148,6 +143,7 @@
 
 .btn-app {
   background-color: $brand-app;
+  border-color: $brand-app;
   color: $brand-white;
 
   &:hover {
