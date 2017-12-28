@@ -18,9 +18,11 @@
             <div class="category__wrapper">
               <div class="category--box">
                 <a href="<?php echo $url; ?>" class="category__link">
-                  <img class="category__icon" src="<?php echo $image_url; ?>">
-                  <span class="category__name"><?php echo $title; ?></span>
-                  <span class="category__count"><?php echo $package_count; ?></span>
+                  <div class="category__link-content">
+                    <span class="category__icon"><?php echo file_get_contents($image_url); ?></span>
+                    <span class="category__name"><?php echo $title; ?></span>
+                    <span class="category__count"><?php echo $package_count; ?></span>
+                  </div>
                 </a>
               </div>
             </div><?php

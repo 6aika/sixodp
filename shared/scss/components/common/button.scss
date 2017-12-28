@@ -42,6 +42,42 @@
   @include btn-colors($btn-main-bg, $btn-main-color, $btn-main-bg);
 }
 
+.btn-transparent {
+  @include btn-colors(transparent, $brand-white, $brand-lightgray);
+}
+
+.btn-transparent--inverse {
+  @include btn-colors(transparent, $brand-primary, $brand-primary);
+}
+
+.btn-danger--inverse {
+  @include btn-colors(transparent, $brand-danger, $brand-danger);
+}
+
+.btn-app {
+  @include btn-colors($brand-app, $brand-white, $brand-app);
+}
+
+.btn-app--inverse {
+  @include btn-colors(transparent, $brand-app, $brand-app);
+}
+
+.btn-dataset {
+  @include btn-colors($brand-dataset, $brand-white, $brand-dataset);
+}
+
+.btn-dataset--inverse {
+  @include btn-colors(transparent, $brand-dataset, $brand-dataset);
+}
+
+.btn-latest {
+  @include btn-colors($gray-light, $brand-white, $gray-light);
+}
+
+.btn-latest--inverse {
+  @include btn-colors(transparent, $gray-light, $gray-light);
+}
+
 .btn-secondary--search {
   @extend .btn-secondary;
   color: $btn-main-bg;
@@ -83,46 +119,9 @@
   }
 }
 
-.btn-transparent {
-  background: transparent;
-  border: 1px solid white;
-  color: $brand-white;
-  text-transform: uppercase;
-
-  &:hover, &:focus, &:active {
-    background: transparent;
-    color: $brand-lightgray;
-    border-color: $brand-lightgray;
-  }
-}
-
-.btn-transparent--inverse {
-  background: transparent;
-  border: 1px solid $brand-primary;
-  color: $brand-primary;
-
-  &:hover, &:focus, &:active {
-    background: transparent;
-    color: $brand-primary-light;
-    border-color: $brand-primary-light;
-  }
-}
-
 .btn--sovellukset {
   position: relative;
   z-index: 1;
-}
-
-.btn--ajankohtaista, .btn--show-all {
-  margin-top: $base*2;
-}
-
-.btn--request-show-all {
-  margin-bottom: $base;
-}
-
-.page-template-ajankohtaista .btn--ajankohtaista {
-  display: none;
 }
 
 .btn-list-item {
@@ -133,71 +132,4 @@
 .btn-container {
   margin-top: $base*2.5;
   text-align: center;
-}
-
-.btn-danger--inverse {
-  background: transparent;
-  border: 1px solid #d9534f;
-  color: #d9534f;
-}
-
-.btn-app {
-  background-color: $brand-app;
-  border-color: $brand-app;
-  color: $brand-white;
-
-  &:hover {
-    background-color: $brand-app-dark;
-    color: $brand-white;
-  }
-}
-
-.btn-app--inverse {
-  color: $brand-app;
-  border: 1px solid $brand-app;
-
-  &:hover {
-    color: $brand-app-dark;
-    border-color: $brand-app-dark;
-  }
-}
-
-.btn-dataset {
-  background-color: $brand-dataset;
-  color: $brand-white;
-
-  &:hover {
-    background-color: $brand-dataset-dark;
-    color: $brand-white;
-  }
-}
-
-.btn-dataset--inverse {
-  color: $brand-dataset;
-  border: 1px solid $brand-dataset;
-
-  &:hover {
-    color: $brand-dataset-dark;
-    border-color: $brand-dataset-dark;
-  }
-}
-
-.btn-latest {
-  background-color: $gray-light;
-  color: $brand-white;
-
-  &:hover {
-    background-color: $gray-dark;
-    color: $brand-white;
-  }
-}
-
-.btn-latest--inverse {
-  color: $gray-light;
-  border: 1px solid $gray-light;
-
-  &:hover {
-    color: $gray-dark;
-    border-color: $gray-dark;
-  }
 }

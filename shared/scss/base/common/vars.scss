@@ -87,14 +87,17 @@ $brand-dataset: #E12854;
 $brand-dataset-dark: darken($brand-dataset, 15%);
 
 // Frontpage elements
+$hero-main-heading-color: $brand-white;
+$hero-secondary-heading-color: $brand-white;
 $btn-main-bg: $brand-secondary;
 $btn-main-color: $brand-white;
 $btn-main-active-bg: $brand-secondary-light;
 $btn-main-active-color: $brand-white;
 
 $category-box-bg: $brand-primary;
-$category-box-text-color: $brand-secondary;
-$category-box-count-color: $brand-white;
+$category-box-icon-color: $brand-white;
+$category-box-text-color: $brand-success-light;
+$category-box-count-color: $brand-primary-extralight;
 $stats-text-color: $brand-white;
 
 $accordion-bg: $brand-primary;

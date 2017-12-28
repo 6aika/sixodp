@@ -118,14 +118,14 @@
 
 .hero .heading-main {
   margin: $base*4 auto 0;
-  color: $brand-primary;
+  color: $hero-main-heading-color;
   font-size: 5rem;
   font-weight: bold;
 }
 
 .hero .subheading {
   margin: 0 auto $base*2;
-  color: $brand-white;
+  color: $hero-secondary-heading-color;
   font-weight: 400;
   font-size: 2rem;
   letter-spacing: 2px;
