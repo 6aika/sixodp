@@ -4,7 +4,7 @@
   */
 ?>
 
-<div class="wrapper wrapper--featured">
+<div class="wrapper--featured">
   <!--
   <div class="container container--heading">
     <h2 class="heading--featured"><?php _e('Latest applications', 'sixodp');?> </h2>

@@ -5,7 +5,12 @@ body.category {
 }
 
 .wrapper {
-  padding: $base*6 0;
+  padding: 0;
+}
+
+.wrapper--featured {
+  @extend .wrapper;
+  padding: $padding-large-vertical*4 0;
 
   &:nth-child(odd) {
     background-color: $featured-bg;
