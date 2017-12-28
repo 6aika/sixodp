@@ -98,6 +98,9 @@
 
     .filters {
       padding: 0;
+      text-transform: uppercase;
+      letter-spacing: $letter-spacing-xs;
+      font-size: $font-size-small;
 
       .module {
         padding: $padding-large-vertical 0;
@@ -109,9 +112,9 @@
         }
 
         .module-heading {
-          font-size: $font-size;
+          font-size: $font-size-small;
           color: $navbar-offcanvas-heading-color;
-          font-weight: bold;
+          font-weight: $headings-font-weight;
           font-family: $font;
         }
       }

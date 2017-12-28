@@ -15,6 +15,8 @@ $border-radius-round: 15px;
 $font: 'Roboto', sans-serif;
 $font-heading: 'Roboto', sans-serif;
 $headings-font-family: $font-heading;
+$letter-spacing: 2px;
+$letter-spacing-xs: 1.1px;
 
 $headings-font-weight: 700;
 
@@ -76,6 +78,7 @@ $brand-secondary-background: $brand-lightgray;
 $text-color: $gray-base;
 $text-muted: $brand-gray;
 $headings-color: $brand-primary;
+$headings-muted-color: $gray;
 $headings-small-color: $brand-primary;
 $headings-secondary-color: $brand-primary;
 $headings-extra-color: $brand-gray;
@@ -125,7 +128,7 @@ $btn-border-radius-base: $border-radius-small;
 $btn-border-radius-small: $border-radius-small;
 $btn-border-radius-large: $border-radius-small;
 $btn-padding-small: 4px 6px;
-$btn-padding-large: 8px 12px;
+$btn-padding-large: 8px 20px;
 
 // Card
 $card-height: 280px;
@@ -259,8 +262,8 @@ $sidebar-item-color-active--highlight: $brand-white;
 
 // Breadcrumb
 $breadcrumb-bg: transparent;
-$breadcrumb-color: $link-color;
-$breadcrumb-separator: ">";
+$breadcrumb-color: $headings-muted-color;
+$breadcrumb-separator: "/";
 
 // Misc component colors
 $badge-background-color: $brand-primary;

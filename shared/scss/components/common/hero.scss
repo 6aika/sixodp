@@ -56,6 +56,10 @@
     padding: $padding-large-vertical $padding-large-horizontal*2;
     letter-spacing: 2px;
     text-transform: uppercase;
+
+    .fa {
+      margin-left: $padding-large-horizontal;
+    }
   }
 
   .form-control {

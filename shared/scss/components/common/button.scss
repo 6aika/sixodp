@@ -14,11 +14,11 @@
 
 .btn {
   @extend %button;
-  padding: $padding-base-vertical $padding-base-horizontal*2;
+  padding: $btn-padding-large;
   font-size: $font-size-small;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 400;
+  letter-spacing: $letter-spacing-xs;
+  font-weight: 600;
   border-width: 1px;
   border-style: solid;
 
@@ -31,6 +31,10 @@
     line-height: $line-height-computed;
     margin-right: 0;
     font-weight: bold;
+  }
+
+  .fa {
+    line-height: $line-height-base;
   }
 }
 

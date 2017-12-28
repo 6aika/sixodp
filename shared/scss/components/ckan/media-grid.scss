@@ -86,6 +86,11 @@ $media-grid-item-line-height: ($card-content-height - $media-grid-item-padding *
       height: $card-content-height - $media-grid-item-padding * 2;
       line-height: $media-grid-item-line-height;
       margin-bottom: $media-grid-item-padding;
+      color: $card-text-color;
+
+      a {
+        color: $card-text-color;
+      }
     }
 
     .media-subheading {

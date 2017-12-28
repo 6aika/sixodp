@@ -18,7 +18,7 @@
           <div class="input-group">
             <div class="input-group-btn">
               <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span id="selected-domain" data-value="/dataset"><?php _e('Datasets', 'sixodp');?> </span> <span class="caret"></span>
+                <span id="selected-domain" data-value="/dataset"><?php _e('Datasets', 'sixodp');?> </span>&nbsp;<span class="fa fa-chevron-down"></span>
               </button>
               <ul class="dropdown-menu dropdown-menu-right">
                 <li><a data-value="/dataset"><?php _e('Datasets', 'sixodp');?> </a></li>
