@@ -58,7 +58,7 @@
       padding: $padding-large-vertical $padding-large-horizontal;
 
       .module-heading {
-        @include heading;
+        @include heading-sidebar;
         color: $navbar-offcanvas-heading-color;
         padding: 0;
         margin: 0;
@@ -70,7 +70,7 @@
 
       .module-content {
         .heading {
-          @include heading;
+          @include heading-sidebar;
           margin-bottom: 0;
         }
 
@@ -97,10 +97,8 @@
     }
 
     .filters {
+      @include heading-sidebar;
       padding: 0;
-      text-transform: uppercase;
-      letter-spacing: $letter-spacing-xs;
-      font-size: $font-size-small;
 
       .module {
         padding: $padding-large-vertical 0;
@@ -112,10 +110,7 @@
         }
 
         .module-heading {
-          font-size: $font-size-small;
           color: $navbar-offcanvas-heading-color;
-          font-weight: $headings-font-weight;
-          font-family: $font;
         }
       }
     }
