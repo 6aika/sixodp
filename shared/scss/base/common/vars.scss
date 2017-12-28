@@ -22,27 +22,27 @@ $headings-font-weight: 400;
 $lighten-intensity: 10%;
 $darken-intensity: 20%;
 
-$brand-primary: #534f97;
+$brand-primary: #2b989b;
 $brand-primary-light: lighten($brand-primary, 10%);
 $brand-primary-dark: darken($brand-primary, 10%);
 $brand-primary-extralight: lighten($brand-primary, 15%);
 $brand-primary-extradark: darken($brand-primary, 15%);
 
-$brand-secondary: #a55efa;
+$brand-secondary: #57c4c7;
 $brand-secondary-light: lighten($brand-secondary, 10%);
 $brand-secondary-dark: darken($brand-secondary, 10%);
 
-$brand-success: #97ba54;
-$brand-info: #446eb5;
-$brand-warning: #f0ad4e;
-$brand-danger: #d9534f;
+$brand-success: #95ecee;
+$brand-info: #627f9a;
+$brand-warning: #ee7656;
+$brand-danger: #ee7656;
 
 $brand-black: #000000;
 $brand-white: #ffffff;
-$brand-gray: #57575b;
+$brand-gray: #2d4960;
 $brand-lightgray: #f8f8f8;
 
-$gray-base: $brand-gray;
+$gray-base: #333333;
 $gray-darker:            darken($gray-base, $darken-intensity*2);
 $gray-dark:              darken($gray-base, $darken-intensity);
 $gray:                   lighten($gray-base, $lighten-intensity*1.5);
@@ -59,9 +59,9 @@ $headings-secondary-color: $brand-primary;
 $headings-extra-color: $brand-gray;
 
 // Frontpage elements
-$btn-main-bg: $brand-secondary;
+$btn-main-bg: $brand-warning;
 $btn-main-color: $brand-white;
-$btn-main-active-bg: $brand-secondary-light;
+$btn-main-active-bg: lighten($brand-warning, 10%);
 $btn-main-active-color: $brand-white;
 
 $category-box-bg: $brand-white;
@@ -77,7 +77,7 @@ $accordion-tab-text-color: $brand-white;
 $accordion-tab-heading-color: $brand-white;
 $accordion-tab-meta-color: $brand-white;
 
-$banner-bg: $brand-primary;
+$banner-bg: $gray-base;
 $banner-heading-color: $brand-white;
 $banner-text-color: $brand-white;
 
@@ -86,7 +86,7 @@ $showcase-card-bg: $brand-primary;
 $showcase-card-heading-color: $brand-white;
 $showcase-card-text-color: $brand-white;
 
-$latest-bg: $brand-primary;
+$latest-bg: $brand-info;
 
 // Button
 $btn-font-weight: 300;
@@ -129,7 +129,7 @@ $navbar-secondary-bg: $brand-lightgray;
 $navbar-secondary-link-color: $text-color;
 $navbar-secondary-link-active-color: $navbar-secondary-link-color;
 $navbar-secondary-link-active-border-color: transparent;
-$navbar-secondary-link-hover-bg: $gray-light;
+$navbar-secondary-link-hover-bg: darken($navbar-secondary-bg, 10%);
 $navbar-secondary-link-active-bg: $brand-lightgray;
 $navbar-secondary-toggle-color: $navbar-secondary-link-color;
 $navbar-secondary-active-toggle-color: $navbar-secondary-link-color;
@@ -137,7 +137,7 @@ $navbar-secondary-active-toggle-color: $navbar-secondary-link-color;
 $navbar-default-link-color: $gray-base;
 $navbar-default-link-active-color: $navbar-default-link-color;
 $navbar-default-link-active-border-color: $brand-primary;
-$navbar-default-link-hover-bg: $gray-light;
+$navbar-default-link-hover-bg: darken($navbar-default-bg, 10%);
 $navbar-default-link-active-bg: $navbar-default-bg;
 
 $navbar-default-link-color-desktop: $gray-base;
@@ -177,7 +177,7 @@ $link-secondary-color: $brand-success;
 $link-secondary-color-active: lighten($link-secondary-color, 20%);
 
 // Rating (ckan extension)
-$rating-stars-color: $brand-success;
+$rating-stars-color: $brand-warning;
 $rating-stars-color-hover: lighten($rating-stars-color, 20%);
 $rating-text-color: $brand-primary;
 
@@ -186,7 +186,7 @@ $datavis-color-1: $brand-primary;
 $datavis-color-2: #d0db32;
 
 // Footer
-$footer-background-color: $brand-primary;
+$footer-background-color: $gray-base;
 $footer-text-color: $brand-white;
 $footer-link-color: $brand-white;
 $footer-link-color-active: $gray-lighter;
