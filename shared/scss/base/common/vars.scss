@@ -10,6 +10,7 @@ $border-radius-large: 10px;
 $border-radius-small: 3px;
 $border-base: $border-radius-base;
 $border-radius-round: 15px;
+$border-color: #dddddd;
 
 // Typography
 $font: 'Roboto', sans-serif;
@@ -73,7 +74,7 @@ $gray-light:             lighten($gray-base, $lighten-intensity*4.5);
 $gray-lighter:           lighten($gray-base, $lighten-intensity*6);
 
 $brand-background: #ffffff;
-$brand-secondary-background: $brand-lightgray;
+$brand-secondary-background: $brand-background;
 
 $text-color: $gray-base;
 $text-muted: $brand-gray;
@@ -203,15 +204,21 @@ $nav-tabs-active-link-hover-border-color:   $brand-primary;
 // Navbar offcanvas
 $navbar-offcanvas-toggle-background-color: $brand-primary;
 $navbar-offcanvas-toggle-icon-color: $brand-white;
-$navbar-offcanvas-background-color: $navbar-default-bg;
+$navbar-offcanvas-background-color: $brand-background;
 $navbar-offcanvas-link-background-color: transparent;
 $navbar-offcanvas-link-background-color-hover: $brand-primary-light;
 $navbar-offcanvas-link-background-color-active: $brand-primary-light;
 $navbar-offcanvas-link-color: $brand-primary;
 $navbar-offcanvas-link-color-hover: $brand-white;
 $navbar-offcanvas-link-color-active: $brand-white;
-$navbar-offcanvas-border-color: $brand-primary;
+$navbar-offcanvas-border-color: $border-color;
 $navbar-offcanvas-heading-color: $brand-primary;
+
+// Filters
+$filter-bg: transparent;
+$filter-bg-active: $gray-light;
+$filter-color: $gray;
+$filter-color-active: $gray;
 
 // Links
 $link-color: $brand-primary;
@@ -272,7 +279,7 @@ $image-slider-background-color: $navbar-default-bg;
 $label-text-color: $brand-success;
 $label-background-color: $navbar-default-bg;
 $media-item-background-color: $brand-background;
-$table-border-color: #dddddd;
+$table-border-color: $border-color;
 $topic-list-background-color: $gray-lighter;
 
 // Breakpoints

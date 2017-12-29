@@ -1,13 +1,6 @@
 .search-form-container {
   width: 100%;
-  border-style: solid;
-  border-width: 0 0 1px 0;
-  border-color: $table-border-color;
   margin-bottom: $margin-large-vertical*2;
-
-  &-borderless {
-    border: none;
-  }
 
   .search-form {
     padding-bottom: $padding-large-vertical*4;

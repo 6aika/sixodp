@@ -1,9 +1,19 @@
 .breadcrumb {
+  @include heading;
   margin-bottom: 0;
-  font-family: $headings-font-family;
+  font-size: $font-size-small;
+  text-transform: uppercase;
+  padding: $padding-large-vertical $padding-large-horizontal*2;
 
-  li,
-  li a {
+  > li {
     color: $breadcrumb-color;
+
+    a {
+      color: $breadcrumb-color;
+    }
+
+    + li:before {
+      padding: 0 $padding-large-horizontal;
+    }
   }
 }

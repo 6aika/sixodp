@@ -1,13 +1,32 @@
-.nav-facet {
-  .nav-item {
-    background: none;
+.navbar-offcanvas .nav-facet {
+  li.nav-item {
+    border: none;
+    margin: 0;
+    padding: 0;
+
+    a,
+    a:hover,
+    a:focus,
+    a:active {
+      padding: $padding-large-vertical $padding-large-horizontal;
+      width: 100%;
+      margin: 0;
+      background: $filter-bg;
+      color: $filter-color;
+    }
+
+    .plusglyph {
+      display: inline-block;
+    }
+
+    .minusglyph {
+      display: none;
+    }
 
     &.active {
-      background: $brand-primary;
-      color: $brand-white;
-
-      * {
-        color: $brand-white;
+      a {
+        background: $filter-bg-active;
+        color: $filter-color-active;
       }
 
       .plusglyph {
@@ -17,18 +36,6 @@
       .minusglyph {
         display: inline-block;
       }
-    }
-
-    a {
-      padding: $padding-large-vertical $padding-large-horizontal;
-    }
-
-    .plusglyph {
-      display: inline-block;
-    }
-
-    .minusglyph {
-      display: none;
     }
   }
 }
