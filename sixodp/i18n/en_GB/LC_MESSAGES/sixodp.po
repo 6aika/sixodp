@@ -1,11 +1,15 @@
 # Copyright (C) 2017
 # This file is distributed under the same license as the  package.
+# Translators:
+# Juha Härkönen <juha.harkonen@ouka.fi>, 2017
+# Joonas Dukpa <joonas.dukpa@tampere.fi>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sixodp\n"
-"POT-Creation-Date: 2017-11-28 14:57:06+00:00\n"
+"POT-Creation-Date: 2017-12-29 07:39:41+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Joonas Dukpa <joonas.dukpa@tampere.fi>, 2017\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/6aika-dataportal/teams/68018/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,7 +21,7 @@ msgstr ""
 #: partials/featured-datasets.php:16 partials/horizontal-accordion.php:51
 #: partials/latest-updates.php:10
 msgid "Latest updates"
-msgstr ""
+msgstr "Latest updates"
 
 #: ajankohtaista.php:33
 msgid "Twitter"
@@ -25,11 +29,11 @@ msgstr ""
 
 #: archive-data_request.php:23 latest-updates.php:62
 msgid "Data Requests"
-msgstr ""
+msgstr "Data requests"
 
 #: archive-data_request.php:31
 msgid "New data request"
-msgstr ""
+msgstr "New data request"
 
 #: archive-showcase_idea.php:23
 msgid "Showcase ideas"
@@ -37,12 +41,20 @@ msgstr ""
 
 #: archive-showcase_idea.php:31
 msgid "New showcase idea"
-msgstr ""
+msgstr "Submit an idea for a new application"
 
 #. #-#-#-#-#  sixodp.pot  #-#-#-#-#
 #. Template Name of the plugin/theme
 #: category-tuki.php:31
 msgid "Home"
+msgstr ""
+
+#: category.php:92 index.php:46
+msgid "Previous page"
+msgstr ""
+
+#: category.php:93 index.php:47
+msgid "Next page"
 msgstr ""
 
 #: data_request_form.php:30 showcase_idea_form.php:30
@@ -71,7 +83,7 @@ msgstr ""
 
 #: data_request_form.php:66
 msgid "New Data Request"
-msgstr ""
+msgstr "New data request"
 
 #: data_request_form.php:74
 msgid "All data requests"
@@ -87,22 +99,26 @@ msgid ""
 "similar requests. Moderated request will be published on this site and will "
 "be forwarded to person responsible for the data if possible."
 msgstr ""
+"With this form, you can send us your data request. Your request is "
+"evaluated, it may be modified and may be combined with other similar "
+"requests. The modified requests will be published on this site and "
+"forwarded, if possible, to the ones responsible for the data."
 
 #: data_request_form.php:95 showcase_idea_form.php:98
 msgid "Title"
-msgstr ""
+msgstr "* Title"
 
 #: data_request_form.php:97 showcase_idea_form.php:100
 msgid "eg. A descriptive title"
-msgstr ""
+msgstr "e.g. name or category of your idea "
 
 #: data_request_form.php:107
 msgid "Your request"
-msgstr ""
+msgstr "* Your data request"
 
 #: data_request_form.php:125 showcase_idea_form.php:128
 msgid "Name"
-msgstr ""
+msgstr "* Name"
 
 #: data_request_form.php:130
 msgid "Your name will not be published with data request."
@@ -110,7 +126,7 @@ msgstr ""
 
 #: data_request_form.php:140 showcase_idea_form.php:143
 msgid "Email"
-msgstr ""
+msgstr "* Email address"
 
 #: data_request_form.php:145
 msgid "Your email will not be published with data request."
@@ -118,7 +134,7 @@ msgstr ""
 
 #: data_request_form.php:155 showcase_idea_form.php:158
 msgid "Submit"
-msgstr ""
+msgstr "Submit"
 
 #: footer.php:22
 msgid "Data portal"
@@ -207,14 +223,6 @@ msgstr ""
 msgid "ago"
 msgstr ""
 
-#: index.php:46
-msgid "Previous page"
-msgstr ""
-
-#: index.php:47
-msgid "Next page"
-msgstr ""
-
 #: index.php:48 partials/latest-updates.php:49
 msgid "Page"
 msgstr ""
@@ -224,13 +232,13 @@ msgstr ""
 #: partials/search-content-data.php:25 partials/search-content.php:26
 #: partials/stats.php:14
 msgid "Datasets"
-msgstr ""
+msgstr "Datasets"
 
 #: latest-updates.php:58 partials/hero.php:25
 #: partials/search-content-data.php:28 partials/search-content.php:29
 #: partials/stats.php:22
 msgid "Applications"
-msgstr ""
+msgstr "Applications"
 
 #: latest-updates.php:59
 msgid "Comments"
@@ -275,11 +283,11 @@ msgstr ""
 
 #: partials/featured-content.php:12
 msgid "Do you have a dataset or an application to share?"
-msgstr ""
+msgstr "Do you have data or data request?"
 
 #: partials/featured-content.php:13
 msgid "Share it!"
-msgstr ""
+msgstr "Why not publish it in our service?"
 
 #: partials/featured-content.php:15
 msgid "Submit an application"
@@ -291,11 +299,11 @@ msgstr ""
 
 #: partials/featured-content.php:20
 msgid "Do you have a request for a dataset or an idea for application?"
-msgstr ""
+msgstr "Do you have an application or an application idea?"
 
 #: partials/featured-content.php:21
 msgid "Tell us!"
-msgstr ""
+msgstr "Why not share it with us?"
 
 #: partials/featured-content.php:23
 msgid "Share an open data idea"
@@ -315,7 +323,7 @@ msgstr ""
 
 #: partials/featured-content.php:58
 msgid "Latest datasets"
-msgstr ""
+msgstr "Newest datasets"
 
 #: partials/featured-content.php:79 partials/latest-updates.php:37
 msgid "Dataset"
@@ -323,7 +331,7 @@ msgstr ""
 
 #: partials/featured-content.php:90 partials/stats.php:35
 msgid "All datasets"
-msgstr ""
+msgstr "All datasets"
 
 #: partials/featured-datasets.php:46 partials/latest-updates.php:69
 msgid "More updates"
@@ -331,19 +339,19 @@ msgstr ""
 
 #: partials/hero.php:26
 msgid "Articles"
-msgstr ""
+msgstr "Articles"
 
 #: partials/hero.php:28
 msgid "Other"
-msgstr ""
+msgstr "Other content"
 
 #: partials/hero.php:33 searchform.php:8
 msgid "Search"
-msgstr ""
+msgstr "Search"
 
 #: partials/horizontal-accordion.php:48
 msgid "Show all"
-msgstr ""
+msgstr "Show all"
 
 #: partials/latest-updates.php:41
 msgid "Showcase"
@@ -385,23 +393,23 @@ msgstr ""
 
 #: partials/stats.php:30
 msgid "Interfaces"
-msgstr ""
+msgstr "APIs"
 
 #: partials/tuki-contactbanner.php:16
 msgid "Any questions?"
-msgstr ""
+msgstr "Questions?"
 
 #: partials/tuki-contactbanner.php:18
 msgid "Contact us"
-msgstr ""
+msgstr "Contact us"
 
 #: partials/tuki-sidebar.php:47 tuki.php:34
 msgid "Themes"
-msgstr ""
+msgstr "Themes"
 
 #: search.php:16
 msgid "Search from site"
-msgstr ""
+msgstr "Search from site"
 
 #: searchform.php:4
 msgctxt "placeholder"
@@ -449,7 +457,7 @@ msgstr ""
 
 #: single.php:85
 msgid "Tags"
-msgstr ""
+msgstr "Tags"
 
 #: tag.php:20
 msgid "Content with tag"

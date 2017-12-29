@@ -11,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-27 11:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2017\n"
+"Last-Translator: Joonas Dukpa <joonas.dukpa@tampere.fi>, 2017\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -65,7 +65,7 @@ msgstr ""
 "Aineistoa kuvaavat avainsanat, joiden kautta tiedon hakijat löytävät "
 "tietoaineiston helpommin. Syöttökenttä ehdottaa dataportaalin olemassa "
 "olevia avainsanoja. Uusien avainsanojen olisi hyvä hyödyntää ontologioita "
-"kuten yleinen suomalainen ontologia YSO: finto.fi/yso/fi."
+"kuten yleinen suomalainen ontologia YSO: http://finto.fi/yso/fi/"
 
 #: ckanext/sixodp_scheming/translations.py:13
 msgid "Geographical Coverage"
@@ -308,7 +308,7 @@ msgstr ""
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:49
 #: ckanext/sixodp_scheming/translations.py:78
 msgid "Size"
-msgstr "Koko"
+msgstr "Tiedoston koko"
 
 #: ckanext/sixodp_scheming/translations.py:79
 msgid ""
@@ -321,11 +321,11 @@ msgstr ""
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:42
 #: ckanext/sixodp_scheming/translations.py:81
 msgid "Format"
-msgstr "Muoto"
+msgstr "Formaatti"
 
 #: ckanext/sixodp_scheming/translations.py:82
 msgid "File format of the selected resource."
-msgstr "Valitun resurssitiedoston tiedostotyyppi."
+msgstr "Valitun resurssitiedoston formaatti."
 
 #: ckanext/sixodp_scheming/translations.py:85
 msgid ""
@@ -345,7 +345,7 @@ msgstr "Koordinaatit, jotka kuvaavat aluetta, johon lisätty resurssi liittyy."
 
 #: ckanext/sixodp_scheming/translations.py:90
 msgid "Time series start"
-msgstr "Aikasarja alkaen"
+msgstr "Aikasarja alkaa"
 
 #: ckanext/sixodp_scheming/translations.py:91
 msgid "A moment in time after which the data is relevant."
@@ -353,7 +353,7 @@ msgstr "Ajanhetki, jonka jälkeen data on relevanttia"
 
 #: ckanext/sixodp_scheming/translations.py:93
 msgid "Time series end"
-msgstr "Aikasarja päättyen"
+msgstr "Aikasarja päättyy"
 
 #: ckanext/sixodp_scheming/translations.py:94
 msgid "A moment in time after which the data is no longer relevant."
@@ -488,7 +488,7 @@ msgstr "tuntematon"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:34
 msgid "Created"
-msgstr "Luotu"
+msgstr "Julkaistu"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:53
 msgid "GB"
