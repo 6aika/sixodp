@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sixodp\n"
-"POT-Creation-Date: 2017-11-28 14:57:06+00:00\n"
+"POT-Creation-Date: 2017-12-29 07:39:41+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -41,6 +41,14 @@ msgstr ""
 #. Template Name of the plugin/theme
 #: category-tuki.php:31
 msgid "Home"
+msgstr ""
+
+#: category.php:92 index.php:46
+msgid "Previous page"
+msgstr ""
+
+#: category.php:93 index.php:47
+msgid "Next page"
 msgstr ""
 
 #: data_request_form.php:30 showcase_idea_form.php:30
@@ -203,14 +211,6 @@ msgstr ""
 
 #: functions.php:684 partials/featured-datasets.php:25
 msgid "ago"
-msgstr ""
-
-#: index.php:46
-msgid "Previous page"
-msgstr ""
-
-#: index.php:47
-msgid "Next page"
 msgstr ""
 
 #: index.php:48 partials/latest-updates.php:49
