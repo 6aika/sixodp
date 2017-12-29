@@ -79,7 +79,6 @@
       "label": "Source",
       "form_placeholder": "http://example.com/dataset.json",
       "display_property": "foaf:homepage",
-      "display_snippet": "link.html",
       "description": "The original author of the dataset. Can also be an external author such as Statistics Finland. The field can e.g. be used to describe a situation where the dataset is published by a single unit but it has multiple authors."
     },
     {
