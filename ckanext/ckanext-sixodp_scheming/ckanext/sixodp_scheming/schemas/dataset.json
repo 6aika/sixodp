@@ -87,7 +87,8 @@
       "label": "Maintainer",
       "form_placeholder": "Joe Bloggs",
       "display_property": "dc:contributor",
-      "description": "The technical maintainer for the dataset. Can in practice be the maintaining unit, bureau or as an exception a single employee."
+      "description": "The technical maintainer for the dataset. Can in practice be the maintaining unit, bureau or as an exception a single employee.",
+      "display_snippet": null
     },
     {
       "field_name": "maintainer_email",
