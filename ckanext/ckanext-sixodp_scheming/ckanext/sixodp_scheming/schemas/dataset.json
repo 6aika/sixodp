@@ -79,7 +79,6 @@
       "label": "Source",
       "form_placeholder": "http://example.com/dataset.json",
       "display_property": "foaf:homepage",
-      "display_snippet": "link.html",
       "description": "The original author of the dataset. Can also be an external author such as Statistics Finland. The field can e.g. be used to describe a situation where the dataset is published by a single unit but it has multiple authors."
     },
     {
@@ -87,15 +86,16 @@
       "label": "Maintainer",
       "form_placeholder": "Joe Bloggs",
       "display_property": "dc:contributor",
-      "description": "The technical maintainer for the dataset. Can in practice be the maintaining unit, bureau or as an exception a single employee."
+      "description": "The technical maintainer for the dataset. Can in practice be the maintaining unit, bureau or as an exception a single employee.",
+      "display_snippet": "maintainer_email.html",
+      "display_email_field": "maintainer_email"
     },
     {
       "field_name": "maintainer_email",
       "label": "Maintainer Email",
       "form_placeholder": "joe@example.com",
       "display_property": "dc:contributor",
-      "display_snippet": "email.html",
-      "display_email_name_field": "maintainer",
+      "display_snippet": null,
       "required": true,
       "description": "The email address for the maintaining party for the dataset. Use a mailing list or other similar means to direct the message to multiple recipients."
     },
