@@ -8,7 +8,7 @@
 
       .module-content {
         &.main-content {
-          padding-top: 0;
+          padding-top: $padding-large-vertical;
           margin-bottom: $margin-large-vertical;
 
           .page-heading {

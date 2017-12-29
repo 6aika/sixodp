@@ -18,15 +18,13 @@
   box-shadow: $box $rgba;
 }
 
-@mixin list-item() {
+@mixin list-item($margin: $padding-large-vertical) {
   padding: 0;
   background: none;
-  border-style: solid;
-  border-width: 1px 0 0 0;
-  border-color: $table-border-color;
+  margin-bottom: $margin;
 
   &:last-of-type {
-    border-bottom-width: 1px;
+    margin-bottom: 0;
   }
 }
 
