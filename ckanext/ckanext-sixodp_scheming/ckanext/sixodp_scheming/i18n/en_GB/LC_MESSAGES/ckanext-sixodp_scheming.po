@@ -11,6 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-27 11:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Joonas Dukpa <joonas.dukpa@tampere.fi>, 2017\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/6aika-dataportal/teams/68018/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -33,6 +34,10 @@ msgid ""
 " to use dates when naming a dataset, since data from multiple years will "
 "usually be published as multiple resources in one dataset."
 msgstr ""
+"A short and concise name for the data. Do not use years, but publish the "
+"data of different years in the same data set as separate resources. Also "
+"mention the city / region that the material refers to in the name as the "
+"information is transferred e.g. in the national data portal."
 
 #: ckanext/sixodp_scheming/translations.py:7
 #: ckanext/sixodp_scheming/translations.py:75
@@ -47,7 +52,7 @@ msgstr ""
 
 #: ckanext/sixodp_scheming/translations.py:10
 msgid "Tags"
-msgstr ""
+msgstr "Tags"
 
 #: ckanext/sixodp_scheming/translations.py:11
 msgid ""
@@ -56,6 +61,10 @@ msgid ""
 "in the portal. New keywords should utilize ontologies such as the generic "
 "finnish ontology YSO: finto.fi/yso/fi."
 msgstr ""
+"Keywords or tags that help users find information from the search page and "
+"through material with the same keywords. In the keywords, you might want to "
+"use the Finton YSO vocabulary <https://finto.fi/yso/fi/>. The computable "
+"words are in plural (e.g. schools); others in singular (e.g. training)."
 
 #: ckanext/sixodp_scheming/translations.py:13
 msgid "Geographical Coverage"
@@ -72,7 +81,7 @@ msgstr ""
 #: ckanext/sixodp_scheming/translations.py:17
 #: ckanext/sixodp_scheming/translations.py:84
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 #: ckanext/sixodp_scheming/translations.py:18
 msgid "E.g. A diverse and detailed description"
@@ -87,7 +96,7 @@ msgstr ""
 
 #: ckanext/sixodp_scheming/translations.py:21
 msgid "Links to additional information concerning the dataset"
-msgstr ""
+msgstr "Links to pages with more information about the data"
 
 #: ckanext/sixodp_scheming/translations.py:22
 msgid ""
@@ -106,7 +115,7 @@ msgstr ""
 #: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:109
 #: ckanext/sixodp_scheming/translations.py:27
 msgid "Source"
-msgstr ""
+msgstr "Source"
 
 #: ckanext/sixodp_scheming/translations.py:28
 msgid "http://example.com/dataset.json"
@@ -118,6 +127,9 @@ msgid ""
 "Statistics Finland. The field can e.g. be used to describe a situation where"
 " the dataset is published by a single unit but it has multiple authors."
 msgstr ""
+"The original producer of the material forming the data basis or material "
+"used in the data set. It can also be an external source to a city "
+"organization, such as Statistics Finland."
 
 #: ckanext/sixodp_scheming/translations.py:31
 msgid "Maintainer"
@@ -158,7 +170,7 @@ msgstr ""
 #: ckanext/sixodp_scheming/templates/scheming/form_snippets/private.html:3
 #: ckanext/sixodp_scheming/translations.py:42
 msgid "Visibility"
-msgstr ""
+msgstr "Visibility"
 
 #: ckanext/sixodp_scheming/translations.py:43
 msgid ""
@@ -166,32 +178,34 @@ msgid ""
 "organization. The private status is used when preparing a new dataset for "
 "publication."
 msgstr ""
+"Private datasets will only be available to logged in users of the dataset "
+"organization. Public datasets will be available to all users."
 
 #: ckanext/sixodp_scheming/translations.py:45
 msgid "Published"
-msgstr ""
+msgstr "Published"
 
 #: ckanext/sixodp_scheming/translations.py:46
 msgid "The dataset publication date."
-msgstr ""
+msgstr "Release date of the material"
 
 #: ckanext/sixodp_scheming/translations.py:48
 msgid "Updated"
-msgstr ""
+msgstr "Updated"
 
 #: ckanext/sixodp_scheming/translations.py:49
 msgid ""
 "A manually maintained date which can be used to notify when the dataset has "
 "been updated."
-msgstr ""
+msgstr "Update date of the material"
 
 #: ckanext/sixodp_scheming/translations.py:51
 msgid "Update Frequency"
-msgstr ""
+msgstr "Update Frequency"
 
 #: ckanext/sixodp_scheming/translations.py:52
 msgid "eg. every second week"
-msgstr ""
+msgstr "e.g. month"
 
 #: ckanext/sixodp_scheming/translations.py:53
 msgid ""
@@ -203,30 +217,37 @@ msgstr ""
 #: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:95
 #: ckanext/sixodp_scheming/translations.py:55
 msgid "License"
-msgstr ""
+msgstr "Licence"
 
 #: ckanext/sixodp_scheming/translations.py:57
 msgid "Reminder date"
-msgstr ""
+msgstr "Update reminder date"
 
 #: ckanext/sixodp_scheming/translations.py:58
 msgid ""
 "A date when a reminder email will be sent to the system administrator "
 "reminding to check this dataset e.g. for a yearly update."
 msgstr ""
+"The date when a reminder message is sent to the data portal admin. It is "
+"possible to change the administrator's e-mail address from the CKAN "
+"administrator's settings."
 
 #: ckanext/sixodp_scheming/translations.py:60
 msgid "Global ID"
-msgstr ""
+msgstr "Global ID"
 
 #: ckanext/sixodp_scheming/translations.py:61
 msgid ""
 "A global id can be assigned to identify the dataset in external services."
 msgstr ""
+"A unique identifyier of dataset. It is especially needed when the data is "
+"copied to other data portals (e.g. avoindata.fi)."
 
 #: ckanext/sixodp_scheming/translations.py:63
 msgid "Search Synonyms"
 msgstr ""
+"Synonyms to make the search more effective (e.g. preschool -> day care, "
+"kindergarten "
 
 #: ckanext/sixodp_scheming/translations.py:64
 msgid ""
@@ -243,6 +264,8 @@ msgid ""
 "under the <a href=\"http://opendatacommons.org/licenses/odbl/1-0/\">Open "
 "Database License</a>."
 msgstr ""
+"The license you have chosen only applies to the data (resources) you add to "
+"this dataset."
 
 #: ckanext/sixodp_scheming/translations.py:72
 msgid "Name"
@@ -250,7 +273,7 @@ msgstr ""
 
 #: ckanext/sixodp_scheming/translations.py:73
 msgid "A short and descriptive name for the resource."
-msgstr ""
+msgstr "Short and descriptive name for a resource"
 
 #: ckanext/sixodp_scheming/translations.py:76
 msgid ""
@@ -260,66 +283,69 @@ msgstr ""
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:49
 #: ckanext/sixodp_scheming/translations.py:78
 msgid "Size"
-msgstr ""
+msgstr "Size"
 
 #: ckanext/sixodp_scheming/translations.py:79
 msgid ""
 "Size of the added resouce file in bytes. Will be automatically filled when "
 "the file is uploaded."
 msgstr ""
+"File size in bytes. Automatically refreshed when a file is downloaded into "
+"server."
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:42
 #: ckanext/sixodp_scheming/translations.py:81
 msgid "Format"
-msgstr ""
+msgstr "Format"
 
 #: ckanext/sixodp_scheming/translations.py:82
 msgid "File format of the selected resource."
-msgstr ""
+msgstr "Resource file format"
 
 #: ckanext/sixodp_scheming/translations.py:85
 msgid ""
 "An universal, compact and easy to understand description of the added "
 "resource."
-msgstr ""
+msgstr "A generic, concise and easy-to-understand description of a resource."
 
 #: ckanext/sixodp_scheming/translations.py:87
 msgid "Position coordinates"
-msgstr ""
+msgstr "Coordinate system"
 
 #: ckanext/sixodp_scheming/translations.py:88
 msgid ""
 "Coordinates which describe the area which the added resource is associated "
 "with."
 msgstr ""
+"Coordinate system used in dataset. Only for GIS datasets. E.g. ETRS-GK24."
 
 #: ckanext/sixodp_scheming/translations.py:90
 msgid "Time series start"
-msgstr ""
+msgstr "Time series starts"
 
 #: ckanext/sixodp_scheming/translations.py:91
 msgid "A moment in time after which the data is relevant."
-msgstr ""
+msgstr "Starting date for a time series "
 
 #: ckanext/sixodp_scheming/translations.py:93
 msgid "Time series end"
-msgstr ""
+msgstr "Time series ends"
 
 #: ckanext/sixodp_scheming/translations.py:94
 msgid "A moment in time after which the data is no longer relevant."
-msgstr ""
+msgstr "Completion date for a time series"
 
 #: ckanext/sixodp_scheming/translations.py:96
 msgid "Time Series Precision"
-msgstr ""
+msgstr "Time series accuracy "
 
 #: ckanext/sixodp_scheming/translations.py:97
 msgid "eg. 2 weeks"
-msgstr ""
+msgstr "e.g. month / year"
 
 #: ckanext/sixodp_scheming/translations.py:98
 msgid "A string which describes the precision of the entered time series."
-msgstr ""
+msgstr "Update interval for a time series"
 
 #: ckanext/sixodp_scheming/translations.py:101
 msgid "Creative Commons Attribution 4.0"
@@ -412,11 +438,11 @@ msgstr ""
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:5
 msgid "Additional Information"
-msgstr ""
+msgstr "Additional information"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:9
 msgid "Metadata API"
-msgstr ""
+msgstr "Metadata API"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:16
 msgid "Field"
@@ -428,7 +454,7 @@ msgstr ""
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:23
 msgid "Last updated"
-msgstr ""
+msgstr "Last updated"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:28
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:36
@@ -438,7 +464,7 @@ msgstr ""
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:34
 msgid "Created"
-msgstr ""
+msgstr "Published"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:53
 msgid "GB"
@@ -458,11 +484,11 @@ msgstr ""
 
 #: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:83
 msgid "Openness"
-msgstr ""
+msgstr "Openness"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:89
 msgid "Rating"
-msgstr ""
+msgstr "User rating"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:107
 msgid "How to reference"

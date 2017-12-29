@@ -120,6 +120,16 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin, DefaultTranslation):
             if keywords_json.get('en'):
                 data_dict['vocab_keywords_en'] = [tag for tag in keywords_json['en']]
 
+        update_frequency = data_dict.get('update_frequency')
+        if update_frequency:
+            update_frequency_json = json.loads(update_frequency)
+            if update_frequency_json.get('fi'):
+                data_dict['vocab_update_frequency_fi'] = [tag for tag in update_frequency_json['fi']]
+            if update_frequency_json.get('sv'):
+                data_dict['vocab_update_frequency_sv'] = [tag for tag in update_frequency_json['sv']]
+            if update_frequency_json.get('en'):
+                data_dict['vocab_update_frequency_en'] = [tag for tag in update_frequency_json['en']]
+
         return data_dict
 
 
