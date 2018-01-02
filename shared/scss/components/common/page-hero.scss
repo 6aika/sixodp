@@ -1,10 +1,11 @@
 .page-hero {
-  height: $base*25;
+  margin-top: $navbar-height;
+  height: $page-hero-height;
   background: url('/assets/images/page_bgr.jpg') no-repeat center center;
   background-size: cover;
 
   @media(min-width: $width-md) {
-    height: $base*75;
+    height: $page-hero-height-desktop;
   }
 
   &:after {
