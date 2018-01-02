@@ -6,6 +6,9 @@
       {{ h.snippet('snippets/search_input.html', query=c.q, placeholder=_('Search datasets...'), query_params=c.fields_grouped, sorting=c.sort_by_selected) }}
     </div>
   </div>
+  {% block toolbar %}
+    {{ super() }}
+  {% endblock %}
 {% endblock %}
 
 {% block primary_content %}

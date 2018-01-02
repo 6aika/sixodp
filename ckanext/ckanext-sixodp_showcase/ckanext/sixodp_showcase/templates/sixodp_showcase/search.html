@@ -14,6 +14,10 @@
     </div>
   </div>
 
+  {% block toolbar %}
+    {{ super() }}
+  {% endblock %}
+
   {% set featured_showcases = h.get_featured_showcases() %}
   {% if featured_showcases %}
     <div class="page-highlight">
