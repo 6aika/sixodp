@@ -28,15 +28,24 @@
 
 .logo--brand {
   width: 100%;
-  text-align: center;
+  text-align: left;
   display: block;
+
+  @media(min-width: $grid-float-breakpoint) {
+    text-align: center;
+  }
 }
 
 .logos--eu {
-  width: 100%;
-  text-align: center;
+  height: auto;
+  width: auto;
+  position: absolute;
   display: block;
-  margin-top: $padding-large-vertical;
+  text-align: right;
+  right: 0;
+  top: 0;
+  background: $body-bg;
+  padding: $padding-large-vertical $padding-large-horizontal;
 
   .logo--erdf, .logo--eu {
     width: auto;

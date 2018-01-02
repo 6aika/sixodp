@@ -75,6 +75,7 @@ $gray-lighter:           lighten($gray-base, $lighten-intensity*6);
 
 $brand-background: #ffffff;
 $brand-secondary-background: $brand-background;
+$brand-bg-alt: $brand-lightgray;
 
 $text-color: $gray-base;
 $text-muted: $brand-gray;
@@ -104,13 +105,13 @@ $category-box-text-color: $brand-success-light;
 $category-box-count-color: $brand-primary-extralight;
 $stats-text-color: $brand-white;
 
-$accordion-bg: $brand-primary;
-$accordion-tab-bg: $brand-primary;
-$accordion-tab-overlay-bg: $brand-primary;
-$accordion-tab-border-color: $brand-white;
-$accordion-tab-text-color: $brand-white;
-$accordion-tab-heading-color: $brand-white;
-$accordion-tab-meta-color: $brand-white;
+$accordion-bg: $brand-bg-alt;
+$accordion-tab-bg: $brand-bg-alt;
+$accordion-tab-overlay-bg: $brand-bg-alt;
+$accordion-tab-border-color: $text-color;
+$accordion-tab-text-color: $text-color;
+$accordion-tab-heading-color: $text-color;
+$accordion-tab-meta-color: $text-color;
 
 $banner-bg: $brand-primary;
 $banner-heading-color: $brand-white;
