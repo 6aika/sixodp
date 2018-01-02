@@ -3,7 +3,7 @@
    * Page hero partial.
    */
 ?>
-<div class="hero page-hero">
+<div class="page-hero">
   <div class="logos">
     <a href="<?php echo site_url(); ?>" class="logo--brand">
       <img src="<?php echo assets_url(); ?>/images/hero_logo.png" />

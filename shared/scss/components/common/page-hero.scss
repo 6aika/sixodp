@@ -20,26 +20,3 @@
     background: linear-gradient(rgba($brand-primary, 0) 0%, rgba($brand-primary-extradark, 0.6) 60%, rgba(darken($brand-primary-extradark, 15%), 0.9) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   }
 }
-
-.page-hero-content {
-  @extend %box-shadow;
-  position: relative;
-  min-height: $base*45;
-  z-index: 1;
-  margin-top: 0;
-  background: $brand-white;
-  padding: $base*2;
-
-  @media(min-width: $width-md) {
-    margin-top: -$base*45;
-  }
-
-  &.container {
-    padding-left: 15px;
-    padding-right: 15px;
-
-    @media(min-width: $width-md) {
-      margin-top: -$base*45;
-    }
-  }
-}

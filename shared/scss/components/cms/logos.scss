@@ -1,12 +1,13 @@
 .logos {
-  margin-top: $content-padding-top - $navbar-height;
+  top: $page-hero-height * 2/6;
   padding: 0 $base;
-  position: static;
-  height: auto;
   z-index: 1;
+  position: absolute;
+  text-align: center;
+  width: 100%;
 
   @media(min-width: $grid-float-breakpoint) {
-    margin-top: $content-padding-top-desktop - $navbar-height;
+    top: $page-hero-height-desktop * 2/6;
   }
 
   &:after {
@@ -16,7 +17,7 @@
   }
 
   img {
-    width: 100%;
+    width: 200px;
     height: auto;
   }
 
@@ -26,23 +27,25 @@
 }
 
 .logo--brand {
-  width: $base*10;
-  float: left;
+  width: 100%;
+  text-align: left;
+  display: block;
 
-  @media (min-width: $width-sm) {
-    width: 100%;
+  @media(min-width: $grid-float-breakpoint) {
     text-align: center;
-
-    img {
-      width: $base*20;
-    }
   }
 }
 
 .logos--eu {
-  height: $base*12;
+  height: auto;
+  width: auto;
   position: absolute;
-  right: $base*2;
+  display: block;
+  text-align: right;
+  right: 0;
+  top: 0;
+  background: $body-bg;
+  padding: $padding-large-vertical $padding-large-horizontal;
 
   .logo--erdf, .logo--eu {
     width: auto;
