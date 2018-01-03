@@ -21,12 +21,9 @@ $category = get_queried_object();
 
     <?php get_template_part('partials/page-hero'); ?>
 
-    <div class="page-hero-content container">
-
-      <div class="wrapper">
-        <div class="headingbar">
-          <h1 class="heading-main"><?php echo $category->name ?></h1>
-
+    <div class="toolbar-wrapper">
+      <div class="toolbar">
+        <div class="container">
           <ol class="breadcrumb">
             <li><a href="<?php echo get_home_url() ?>"><?php echo _('Home') ?></a></li>
             <li><a href="<?php echo get_category_link($parent_category) ?>"><?php echo $parent_category->name ?></a></li>
@@ -35,6 +32,14 @@ $category = get_queried_object();
             <?php } ?>
           </ol>
         </div>
+      </div>
+      <div class="toolbar--site-subtitle">
+        <h1><?php echo $category->name ?></h1>
+      </div>
+    </div>
+    <div class="page-hero-content container">
+
+      <div class="wrapper">
 
         <div class="row">
           <?php include( locate_template('partials/tuki-sidebar.php') ); ?>
