@@ -56,6 +56,14 @@ a {
   margin-top: 0;
 }
 
+.heading-page {
+  @include heading();
+  font-size: 2.8rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: $gray-light;
+}
+
 .heading--inverse {
   color: $brand-white;
 }
