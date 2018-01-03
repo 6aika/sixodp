@@ -1,7 +1,7 @@
 .page-hero {
   margin-top: $navbar-height;
   height: $page-hero-height;
-  background: url('/assets/images/page_bgr.jpg') no-repeat center center;
+  background: url('/assets/images/page_bgr.jpg') no-repeat top center;
   background-size: cover;
 
   @media(min-width: $width-md) {

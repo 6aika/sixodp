@@ -25,6 +25,7 @@ h3, h4, h5, h6, .module-heading {
 
 .page-heading-container {
   min-height: 96px;
+  padding: $padding-large-vertical 10px;
 
   .heading-icon {
     display: inline-block;

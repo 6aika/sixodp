@@ -1,6 +1,11 @@
 {% extends "page.html" %}
 
+{% block offcanvas_button %}{% endblock %}
+
 {% block header %}
   {{ super() }}
   {% resource 'statistics/main' %}
 {% endblock %}
+
+{% block secondary %}{% endblock %}
+{% block primary %}{% endblock %}
