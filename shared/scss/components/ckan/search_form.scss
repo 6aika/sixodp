@@ -1,10 +1,12 @@
+$relative-search-form-position: 4/6;
+
 .search-form-container {
   width: 100%;
   position: absolute;
-  top: $page-hero-height * 5/6;
+  top: $page-hero-height * $relative-search-form-position;
 
   @media(min-width: $grid-float-breakpoint) {
-    top: $page-hero-height-desktop * 5/6;
+    top: $page-hero-height-desktop * $relative-search-form-position;
   }
 
   .search-form {

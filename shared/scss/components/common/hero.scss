@@ -12,24 +12,7 @@
 .hero__inner {
   position: relative;
   z-index: 1;
-
-  .logos {
-    position: static;
-    height: auto;
-    margin-top: $navbar-height*1.5;
-  }
-}
-
-.notification {
-  ~ #primary {
-    .hero__inner .logos {
-      margin-top: $content-padding-top + $notificationbar-height - $navbar-height;
-
-      @media(min-width: $grid-float-breakpoint) {
-        margin-top: $content-padding-top-desktop + $notificationbar-height - $navbar-height;
-      }
-    }
-  }
+  padding-top: 130px;
 }
 
 .hero .input-group {
@@ -145,5 +128,11 @@
 .wrapper {
   &.wrapper--categories {
     padding: 0;
+  }
+}
+
+.has-notification {
+  .hero {
+    margin-top: $notificationbar-height;
   }
 }

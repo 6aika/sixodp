@@ -31,7 +31,9 @@
 
 <body <?php body_class(); ?> id="wordpress-indicator">
   <div id="mobile-indicator"></div>
-  <div class="nav-wrapper">
+  <?php $notifications = get_posts(array('post_type' => 'notification')); ?>
+  <?php $extra_classes = count($notifications) > 0 ? ' has-notification' : '' ?>
+  <div class="nav-wrapper<?php echo $extra_classes ?>">
     <?php $notifications = get_posts(array('post_type' => 'notification')); ?>
     <?php if ( count($notifications) > 0 && ($notifications[0]->post_title !== '' || $notifications[0]->post_content !== '') ) : ?>
       <?php
@@ -55,4 +57,19 @@
     <?php endif; ?>
 
     <?php require_once('partials/nav.php'); ?>
+  </div>
+
+  <div class="logos">
+    <a href="<?php echo site_url(); ?>" class="logo--brand">
+      <img src="<?php echo assets_url(); ?>/images/hero_logo.png" />
+    </a>
+    <div class="logos--eu">
+      <div class="logo--erdf">
+        <img src="<?php echo assets_url(); ?>/images/EU_ERDF_FI.png" alt="European Regional Development Fund logo">
+      </div>
+      <div class="logo--eu">
+        <img src="<?php echo assets_url(); ?>/images/LeverageEU_FI.png" alt="Leverage with EU logo">
+      </div>
+      <div class="flag-ends"></div>
+    </div>
   </div>

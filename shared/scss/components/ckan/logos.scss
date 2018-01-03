@@ -1,5 +1,7 @@
+$relative-logo-position: 3/6;
+
 .logos {
-  top: $page-hero-height * 2/6;
+  top: $page-hero-height * $relative-logo-position;
   padding: 0 $base;
   z-index: 1;
   position: absolute;
@@ -7,7 +9,7 @@
   width: 100%;
 
   @media(min-width: $grid-float-breakpoint) {
-    top: $page-hero-height-desktop * 2/6;
+    padding: 0;
   }
 
   &:after {
@@ -19,10 +21,6 @@
   img {
     width: 200px;
     height: auto;
-  }
-
-  @media (min-width: $width-md) {
-    padding: 0 $base*3.5;
   }
 }
 
@@ -57,7 +55,7 @@
       height: $base*4;
     }
 
-    @media(min-width: $width-sm) {
+    @media(min-width: $grid-float-breakpoint) {
       height: $base*6;
 
       img {
@@ -67,14 +65,8 @@
   }
 }
 
-.notification {
-  ~ #primary .logos,
-  ~ #main .logos,
+.has-notification {
   ~ .logos {
-    margin-top: $content-padding-top + $notificationbar-height;
-
-    @media(min-width: $grid-float-breakpoint) {
-      margin-top: $content-padding-top-desktop + $notificationbar-height;
-    }
+    top: $page-hero-height * $relative-logo-position + $notificationbar-height;
   }
 }
