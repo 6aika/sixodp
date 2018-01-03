@@ -3,7 +3,7 @@
   padding: 0;
 
   .dataset-item {
-    @include list-item($padding-large-vertical*2);
+    @include list-item($padding-large-vertical*4);
 
     &.dataset-item-borderless {
       border: none;
@@ -22,6 +22,7 @@
     display: block;
     width: 100%;
     height: $dataset-metadata-row-height;
+    font-weight: $headings-font-weight;
   }
 
   .dataset-meta-* {
@@ -29,7 +30,7 @@
     height: $dataset-metadata-row-height;
     line-height: $dataset-metadata-row-height;
     display: inline-block;
-    font-size: $font-size-small;
+    font-size: $font-size-base;
     text-transform: uppercase;
   }
 
@@ -41,17 +42,19 @@
     float: right;
 
     .star-rating,
-    .star-rating-stars {
+    .star-rating-stars,
+    .rating-description{
       display: inline-block;
       height: $dataset-metadata-row-height;
       line-height: $dataset-metadata-row-height;
-      font-size: $font-size-small;
+      font-size: $font-size-base;
       vertical-align: middle;
+      color: $headings-muted-color;
     }
   }
 
   .dataset-created {
-    color: $headings-secondary-color;
+    color: $text-muted;
   }
   .dataset-category-link {
     color: $label-text-color;
