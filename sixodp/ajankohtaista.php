@@ -20,8 +20,16 @@ get_header(); ?>
     <?php
       get_template_part('partials/header-logos');
     ?>
-
-    <div class="container">
+    <div style="margin-top:200px;"></div>
+    <div class="toolbar-wrapper">
+      <div class="toolbar">
+        <div class="container">
+          <ol class="breadcrumb">
+            <li><a href="<?php echo get_home_url() ?>"><?php echo _('Home') ?></a></li>
+            <li><a href="<?php echo get_home_url() ?>/ajankohtaista"><?php echo _('Ajankohtaista') ?></a></li>
+          </ol>
+        </div>
+      </div>
       <h1 class="heading-page"><?php _e('Latest updates', 'sixodp') ?></h1>
     </div>
     <?php get_template_part( 'partials/horizontal-accordion' ); ?>
