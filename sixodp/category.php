@@ -22,18 +22,19 @@ get_header();
   <main id="main" class="site-main site-main--news" role="main">
 
     <?php get_template_part('partials/page-hero'); ?>
-
+    <div class="toolbar">
+      <div class="container">
+        <ol class="breadcrumb">
+          <li><a href="<?php echo get_home_url() ?>"><?php echo _('Home') ?></a></li>
+          <li><a href="<?php echo get_home_url() ?>/ajankohtaista"><?php echo _('Ajankohtaista') ?></a></li>
+        </ol>
+      </div>
+    </div>
     <div class="page-hero-content container">
       <div class="wrapper">
-
-        <div class="headingbar">
-          <h1 class="heading-main">
-            <?php echo $category->name ?>
-          </h1>
-        </div>
-
         <div class="row">
           <div class="sidebar col-md-3 col-sm-5 col-xs-12">
+            <h3 class="heading-sidebar"><?php echo 'Ajankohtaista'; // echo $category->name ?></h3>
             <?php
               $categories=get_categories(array(
                 'parent' => $grandparent_id,
@@ -46,12 +47,12 @@ get_header();
                 $child_categories = get_categories(array('parent' => $cat->term_id, 'hide_empty' => false));
               ?>
               <ul>
-                <li class="sidebar-item--highlight">
+                <li class="sidebar-item<?php if ($cat->cat_name === $category->name) { echo '--highlight'; } ?>">
                   <a href="<?php echo get_category_link($cat); ?>">
-                    <?php echo $cat->cat_name; ?>
                     <span class="sidebar-icon-wrapper">
-                      <span class="fa fa-chevron-right"></span>
+                      <span class="fa fa-long-arrow-right"></span>
                     </span>
+                    <?php echo $cat->cat_name; ?>
                   </a>
                 </li>
                 <?php
@@ -69,7 +70,7 @@ get_header();
             ?>
           </div>
           <div class="col-md-9 col-sm-7 col-xs-12 news-content">
-            <div class="cards cards--2">
+            <div class="cards cards--3">
               <?php
               while ( have_posts() ) : the_post(); ?>
                 <?php

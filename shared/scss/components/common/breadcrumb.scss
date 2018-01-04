@@ -3,17 +3,13 @@
   margin-bottom: 0;
   font-size: $font-size-small;
   text-transform: uppercase;
-  padding: $padding-large-vertical $padding-large-horizontal*2;
+  padding: $padding-large-vertical*2 0;
 
   > li {
     color: $breadcrumb-color;
 
     a {
       color: $breadcrumb-color;
-    }
-
-    + li:before {
-      padding: 0 $padding-large-horizontal;
     }
   }
 }
