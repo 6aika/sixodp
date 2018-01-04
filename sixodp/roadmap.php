@@ -24,15 +24,12 @@ get_header(); ?>
         <div class="container">
           <ol class="breadcrumb">
             <li><a href="<?php echo get_home_url() ?>"><?php echo _('Home') ?></a></li>
-            <li><a href="<?php echo get_category_link($parent_category) ?>"><?php echo $parent_category->name ?></a></li>
-            <?php if ($parent_category->term_id != $category->term_id) { ?>
-              <li><a href="<?php echo get_category_link($category) ?>"><?php echo $category->name ?></a></li>
-            <?php } ?>
+            <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
           </ol>
         </div>
       </div>
       <div class="toolbar--site-subtitle">
-        <h1><?php echo $category->name ?></h1>
+        <h1><?php the_title(); ?></h1>
       </div>
     </div>
     <div class="page-hero-content container">
