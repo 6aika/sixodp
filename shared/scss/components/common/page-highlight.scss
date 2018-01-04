@@ -1,0 +1,49 @@
+.page-highlight {
+  background: $brand-bg-alt;
+  border-bottom: 1px solid $border-color;
+
+  .carousel {
+    .card,
+    .card--image {
+      max-width: 250px;
+      margin: $margin-base-vertical*2 auto;
+    }
+
+    .carousel-control {
+      background-image: none;
+
+      .fa {
+        color: $text-color;
+        position: absolute;
+        top: 50%;
+      }
+    }
+
+    .carousel-indicators {
+      position: relative;
+      bottom: 0;
+      margin-bottom: $padding-large-vertical;
+
+      li {
+        width: 30px;
+        height: 6px;
+        margin: 1px;
+        background-color: $gray-light;
+        border-color: $gray-light;
+
+        &.active {
+          background-color: $gray;
+          border-color: $gray
+        }
+      }
+    }
+  }
+
+  .cards {
+    padding: $padding-large-vertical*3 $padding-large-horizontal;
+
+    .card {
+      margin-bottom: 0;
+    }
+  }
+}
