@@ -375,7 +375,7 @@ $card-meta-height: $font-size-small + $card-padding * 3;
 
 .card-link-slide-up {
   transition: $transition;
-  top: $card-content-height;
+  top: $card-height;
 }
 
 // Secondary cards
