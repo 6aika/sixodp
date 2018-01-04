@@ -9,21 +9,13 @@ stars  - The number of stars to be displayed.
 
 {% set ratings_count = h.package_rating(None, {'package_id' : package.id} ).ratings_count%}
 {% set stars = h.package_rating(None, {'package_id' : package.id} ).rating %}
-{% if stars|int < stars %}
-  {% set half_star = 1 %}
-{% else %}
-  {% set half_star = 0 %}
-{% endif %}
 
 {% block main_star_rating %}
   <span class="star-rating{% if stars == 0 %} no-stars{% endif %}">
     {%- for index in range(stars|int) -%}
       <span class="fa fa-star star-filled rating-star rating-star-filled"></span>
     {%- endfor -%}
-    {%- if half_star == 1 -%}
-      <span class="fa fa-star-half-empty rating-star rating-star-filled"></span>
-    {%- endif -%}
-    {%- for index in range(stars|int + half_star, 5) -%}
+    {%- for index in range(stars|int, 5) -%}
       <span class="fa fa-star rating-star rating-star-empty"></span>
     {%- endfor -%}
   </span>
