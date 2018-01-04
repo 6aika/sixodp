@@ -496,7 +496,7 @@ function get_disqus_posts($args, $date = false, $cursor = false) {
 
   if ($date) {
     $start_of_week = strtotime($date);
-    $end_of_week = strtotime($date . ' + 1 WEEK');
+    $end_of_week = strtotime($date . ' + 1 MONTH');
     $fields['since'] = date('Y-m-d\T23:59:59', $end_of_week);
   }
 
@@ -587,7 +587,7 @@ function get_disqus_comment_count($post) {
 
 function get_recent_content($date = false) {
   if ($date) {
-    $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_updated%20desc&rows=8&q=date_updated:['. date('Y-m-d\T00:00:00', strtotime($date)) .'Z%20TO%20'. date('Y-m-d\T00:00:00', strtotime($date . '+ 1 WEEK')) .'Z]');
+    $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_updated%20desc&rows=8&q=date_updated:['. date('Y-m-d\T00:00:00', strtotime($date)) .'Z%20TO%20'. date('Y-m-d\T00:00:00', strtotime($date . '+ 1 MONTH')) .'Z]');
   }
   else $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_updated%20desc&rows=8');
   return $data['result']['results'];
@@ -624,7 +624,7 @@ function get_showcases_count() {
 
 function get_latest_showcases($limit, $date = false) {
   if ($date) {
-    $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=metadata_created%20desc&fq=dataset_type:showcase&rows='.$limit.'&q=metadata_created:['. date('Y-m-d\T00:00:00', strtotime($date)) .'Z%20TO%20'. date('Y-m-d\T00:00:00', strtotime($date . '+ 1 WEEK')) .'Z]');
+    $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=metadata_created%20desc&fq=dataset_type:showcase&rows='.$limit.'&q=metadata_created:['. date('Y-m-d\T00:00:00', strtotime($date)) .'Z%20TO%20'. date('Y-m-d\T00:00:00', strtotime($date . '+ 1 MONTH')) .'Z]');
   }
   else $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=metadata_created%20desc&fq=dataset_type:showcase&rows='.$limit);
   return $data['result']['results'];
@@ -736,7 +736,7 @@ function get_recent_posts($type, $date = false) {
   );
 
   if ($date) {
-    $args['date_query']['before'] = date('Y-m-d', strtotime($date . ' + 1 WEEK'));
+    $args['date_query']['before'] = date('Y-m-d', strtotime($date . ' + 1 MONTH'));
     $args['date_query']['after'] = $date;
   }
 

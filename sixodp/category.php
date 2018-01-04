@@ -34,7 +34,7 @@ get_header();
       <div class="wrapper">
         <div class="row">
           <div class="sidebar col-md-3 col-sm-5 col-xs-12">
-            <h3 class="heading-sidebar"><?php echo 'Ajankohtaista'; // echo $category->name ?></h3>
+            <h3 class="heading-sidebar"><?php echo _('Ajankohtaista') ?></h3>
             <?php
               $categories=get_categories(array(
                 'parent' => $grandparent_id,

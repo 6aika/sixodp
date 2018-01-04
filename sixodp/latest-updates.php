@@ -68,7 +68,7 @@ get_header(); ?>
       <?php
       $updates = get_latest_updates($types, $date, false);
 
-      if (sizeof($updates) == 0) _e('No updates found for selected week.');
+      if (sizeof($updates) == 0) _e('No updates found for selected month.');
       foreach ( $updates as $index => $item ) :
         if ($item['link'] === get_permalink()) continue; // Don't show self
 
@@ -109,12 +109,10 @@ get_header(); ?>
         $uri = parse_url($_SERVER['REQUEST_URI']);
       ?>
 
-      <div class="paginate">
-        <div class="paginate-prev">
-          <?php echo '<a href="'. $uri['path'] .'?'. http_build_query(array_merge($args, array('date' => date('Y-m-d', strtotime($date .'- 1 WEEK'))))) .'">« '.__('Previous week') .'</a>'; ?>
-        </div>
-        <div class="paginate-next">
-          <?php if ($date != date('Y-m-d', strtotime('last monday'))) echo '<a href="'. $uri['path'] .'?'. http_build_query(array_merge($args, array('date' => date('Y-m-d', strtotime($date .'+ 1 WEEK'))))) .'">'.__('Next week') .' »</a>'; ?>
+      <div class="navigation pagination">
+        <div class="nav-links">
+          <?php echo '<a href="'. $uri['path'] .'?'. http_build_query(array_merge($args, array('date' => date('Y-m-d', strtotime($date .'- 1 WEEK'))))) .'" class="next page-numbers"><span class="fa fa-chevron-left" title="Edellinen"></span></a>'; ?>
+          <?php if ($date != date('Y-m-d', strtotime('last monday'))) echo '<a href="'. $uri['path'] .'?'. http_build_query(array_merge($args, array('date' => date('Y-m-d', strtotime($date .'+ 1 WEEK'))))) .'"><span class="fa fa-chevron-right" title="Seuraava"></span></a>'; ?>
         </div>
       </div>
     </div>

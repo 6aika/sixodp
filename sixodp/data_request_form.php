@@ -156,13 +156,6 @@ get_header(); ?>
                 </div>
 
                 <div class="row">
-                  <div class="col-xs-12">
-                    <hr>
-                    <button type="submit" class="btn btn-primary" name="data_request_submit_form"><?php _e('Submit', 'sixodp');?></button>
-                  </div>
-                </div>
-
-                <div class="row">
                     <div class="col-xs-12 col-md-8">
                         <div class="control-group control-medium <?php if (isset($errors['recaptcha'])) echo "error" ?>">
                             <?php
@@ -174,6 +167,13 @@ get_header(); ?>
                             ?>
                         </div>
                     </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-xs-12">
+                    <hr>
+                    <button type="submit" class="btn btn-transparent--inverse" name="data_request_submit_form"><?php _e('Submit', 'sixodp');?></button>
+                  </div>
                 </div>
               </form>
               <?php
