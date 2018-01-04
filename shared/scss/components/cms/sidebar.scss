@@ -1,13 +1,17 @@
 .sidebar {
   margin-bottom: $base;
   border-left: 1px solid #eee;
-  border-bottom: 1px solid #eee;
-  padding: 0 0 $base*2 0;
+  padding: 0;
 
   ul {
     list-style: none;
     margin: 0;
     padding: 0;
+
+    &:last-child {
+      padding: 0 0 $base*2 0;
+      border-bottom: 1px solid #eee;
+    }
   }
 
   .sidebar-section {

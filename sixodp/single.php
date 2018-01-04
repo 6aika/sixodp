@@ -50,21 +50,17 @@ get_header(); ?>
               $categories = get_the_category();
               if (sizeof($categories) > 0) :
             ?>
+              <h3 class="heading-sidebar"><?php _e('Categories') ?></h3>
               <ul>
-                <li class="sidebar-item--highlight">
-                  <span class="sidebar-item-inner">
-                    <i class="material-icons">bookmark</i> <?php _e('Categories') ?>
-                  </span>
-                </li>
                 <?php
                 foreach ($categories as $cat):
                   ?>
                   <li class="sidebar-item">
                     <a href="<?php echo isset($cat->cat_ID) ? get_category_link($cat) : $cat->link ?>">
-                      <?php echo $cat->cat_name; ?>
                       <span class="sidebar-icon-wrapper">
-                        <span class="fa fa-chevron-right"></span>
+                        <span class="fa fa-long-arrow-right"></span>
                       </span>
+                      <?php echo $cat->cat_name; ?>
                     </a>
                   </li>
                   <?php
@@ -79,21 +75,14 @@ get_header(); ?>
             $tags = get_the_tags();
             if ($tags) :
             ?>
+              <h3 class="heading-sidebar"><?php _e('Tags') ?></h3>
               <ul>
-                <li class="sidebar-item--highlight">
-                  <span class="sidebar-item-inner">
-                    <i class="material-icons">label</i> <?php _e('Tags') ?>
-                  </span>
-                </li>
                 <?php
                 foreach ($tags as $tag):
                   ?>
                   <li class="sidebar-item">
                     <a href="<?php echo get_tag_link($tag); ?>">
                       <?php echo $tag->name; ?>
-                      <span class="sidebar-icon-wrapper">
-                        <span class="fa fa-chevron-right"></span>
-                      </span>
                     </a>
                   </li>
                   <?php 
@@ -116,13 +105,6 @@ get_header(); ?>
                 </li>
               </ul>
             <?php endif; ?>
-            <ul>
-              <li class="sidebar-item">
-                <span class="sidebar-item-inner">
-                  <i class="material-icons">event</i> <?php the_date(); ?>
-                </span>
-              </li>
-            </ul>
           </div>
           <div class="col-md-9 col-sm-7 col-xs-12 news-content">
             <h1 class="heading-content"><?php the_title() ?></h1>
