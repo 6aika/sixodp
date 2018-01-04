@@ -80,3 +80,14 @@ form {
     }
   }
 }
+
+.form-container {
+  padding: 20px 20px 0;
+  background-color: #fafafa;
+  margin-bottom: 20px;
+  border: 1px solid #eee;
+
+  label {
+    margin: 0 $base;
+  }
+}
