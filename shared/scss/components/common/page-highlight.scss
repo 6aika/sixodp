@@ -1,0 +1,12 @@
+.page-highlight {
+  background: $brand-bg-alt;
+  border-bottom: 1px solid $border-color;
+
+  .cards {
+    padding: $padding-large-vertical*3 $padding-large-horizontal;
+
+    .card {
+      margin-bottom: 0;
+    }
+  }
+}

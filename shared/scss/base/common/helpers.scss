@@ -185,7 +185,13 @@
 }
 
 .mobile-only {
-  @media(min-width: $width-md) {
+  @media(min-width: $grid-float-breakpoint) {
     display: none;
+  }
+}
+
+.desktop-only {
+  @media(max-width: $grid-float-breakpoint) {
+    display: none !important;
   }
 }

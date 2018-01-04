@@ -162,21 +162,20 @@ $media-grid-item-line-height: ($card-content-height - $media-grid-item-padding *
         display: block;
         position: relative;
 
-        .star-rating-stars {
+        .fa,
+        .icon {
+          font-size: $font-size-base;
           display: inline;
           margin-right: $margin-small-horizontal;
+          padding: 0;
 
-          .icon {
-            font-size: $font-size-base;
-
-            &:first-child {
-              padding-left: 0;
-            }
+          &.rating-star-filled {
+            color: $card-star-filled;
           }
-        }
 
-        .rating-description {
-          display: none;
+          &.rating-star-empty {
+            color: $card-star-empty;
+          }
         }
       }
     }

@@ -9,10 +9,10 @@
           $j = $rating['rating'];
           for ($i = 0; $i < 5; $i++) {
             if($i < $rating) {
-              echo '<span class="fa fa-star star-filled"></span>';
+              echo '<span class="fa fa-star rating-star-filled"></span>';
             }
             else {
-              echo '<span class="fa fa-star star-empty"></span>';
+              echo '<span class="fa fa-star rating-star-empty"></span>';
             }
           }
         }
