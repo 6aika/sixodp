@@ -25,14 +25,14 @@
 
           <div class="item<?php echo $extra_classes ?>">
             <?php
-            $item = array(
-              'image_url' => $image[0],
-              'title' => $post->post_title,
-              'date_updated' => $post->post_date,
-              'notes' => $post->post_content,
-              'url' => get_the_permalink(),
-            );
-            include(locate_template( 'partials/card-image.php' ));
+              $item = array(
+                'image_url' => $image[0],
+                'title' => $post->post_title,
+                'date_updated' => $post->post_date,
+                'notes' => $post->post_content,
+                'url' => get_the_permalink(),
+              );
+              include(locate_template( 'partials/card-image.php' ));
             ?>
           </div>
         <?php endforeach; ?>
@@ -57,29 +57,25 @@
 
     <div class="row cards cards--4 desktop-only">
       <?php
-      foreach ( $posts as $post ) {
-        setup_postdata( $post );
-        if (has_post_thumbnail( $post->ID ) ):
-          $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
-        else :
-          $image = array("/assets/images/frontpage.jpg");
-        endif; ?>
+        foreach ( $posts as $post ) {
+          setup_postdata($post);
+          if (has_post_thumbnail($post->ID)):
+            $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
+          else :
+            $image = array("/assets/images/frontpage.jpg");
+          endif;
 
-        <div class="card--image">
-          <img src="<?php echo $image[0]; ?>">
-          <div class="card-content card-content-slide-up">
-            <h4 class="card-title"><?php the_title(); ?></h4>
-            <div class="card-title-secondary"><?php echo parse_date(get_the_date('c')); ?></div>
-            <div class="card-description"><?php the_excerpt(); ?></div>
-            <div class="card-link-wrapper">
-              <a href="<?php the_permalink(); ?>"
-                 class="btn btn-transparent card-link">
-                <?php _e('Read more', 'sixodp') ?>
-              </a>
-            </div>
-          </div>
-        </div>
-      <?php } wp_reset_postdata();?>
+          $item = array(
+            'image_url' => $image[0],
+            'title' => $post->post_title,
+            'date_updated' => $post->post_date,
+            'notes' => $post->post_content,
+            'url' => get_the_permalink(),
+          );
+          include(locate_template('partials/card-image.php'));
+        }
+        wp_reset_postdata();
+      ?>
     </div>
 
     <div class="row btn-container">
