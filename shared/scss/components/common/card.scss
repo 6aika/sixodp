@@ -20,7 +20,7 @@ $card-meta-height: $font-size-small + $card-padding * 3;
 .card {
   height: $card-height;
   position: relative;
-  max-width: 75%;
+  max-width: $card-max-width;
   border-radius: $card-border-radius;
   background: $card-bg;
   padding: 0;

@@ -6,7 +6,9 @@
 ?>
 <div class="card<?php if (isset($item['external_card_class'])) echo ' ' . $item['external_card_class'] ?>"
   onclick="window.location.href='<?php echo $item['url'] ?>'">
-  <div class="card-meta"><?php echo $item['meta'] ?></div>
+  <?php if(isset($item[$meta])) : ?>
+    <div class="card-meta"><?php echo $item['meta'] ?></div>
+  <?php endif ?>
   <div class="card-content">
     <div class="card-title"><?php echo get_translated($item, 'title'); ?></div>
     <div class="card-title-secondary"><?php echo parse_date($item['timestamp']); ?></div>

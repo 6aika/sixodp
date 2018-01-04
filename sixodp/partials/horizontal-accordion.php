@@ -6,13 +6,58 @@
 
 <div class="wrapper--featured">
   <div class="container">
-    <div class="row cards cards--4">
-      <?php
+    <?php
       $args = array( 'posts_per_page' => 4 );
+      $posts = get_posts( $args );
+    ?>
 
-      $myposts = get_posts( $args );
+    <div id="featured-content-carousel" class="carousel slide mobile-only" data-ride="carousel" data-interval="false">
+      <div class="carousel-inner" role="listbox">
+        <?php foreach($posts as $post) :
+          if (has_post_thumbnail( $post->ID ) ):
+            $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
+          else :
+            $image = array("/assets/images/frontpage.jpg");
+          endif;
 
-      foreach ( $myposts as $post ) {
+          $extra_classes = $post === reset($posts) ? ' active' : '';
+        ?>
+
+          <div class="item<?php echo $extra_classes ?>">
+            <?php
+            $item = array(
+              'image_url' => $image[0],
+              'title' => $post->post_title,
+              'date_updated' => $post->post_date,
+              'notes' => $post->post_content,
+              'url' => get_the_permalink(),
+            );
+            include(locate_template( 'partials/card-image.php' ));
+            ?>
+          </div>
+        <?php endforeach; ?>
+      </div>
+
+      <a class="left carousel-control" href="#featured-content-carousel" role="button" data-slide="prev">
+        <span class="fa fa-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#featured-content-carousel" role="button" data-slide="next">
+        <span class="fa fa-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+
+      <ol class="carousel-indicators">
+        <?php foreach($posts as $index => $post) : ?>
+          <?php $extra_classes = $post === reset($posts) ? 'active' : ''; ?>
+          <li data-target="#featured-content-carousel" data-slide-to="<?php echo $index ?>" class="<?php echo $extra_classes ?>"></li>
+        <?php endforeach; ?>
+      </ol>
+    </div>
+
+    <div class="row cards cards--4 desktop-only">
+      <?php
+      foreach ( $posts as $post ) {
         setup_postdata( $post );
         if (has_post_thumbnail( $post->ID ) ):
           $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
