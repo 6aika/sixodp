@@ -36,3 +36,10 @@ body {
     margin-top: $navbar-height + $notificationbar-height;
   }
 }
+
+.centered-content {
+  max-width: $base*96;
+  padding: $padding-large-vertical*2;
+  width: 100%;
+  margin: 0 auto;
+}

@@ -57,28 +57,26 @@ get_header(); ?>
   <main id="main" role="main">
 
     <?php get_template_part('partials/page-hero'); ?>
-
+    <div class="toolbar-wrapper">
+      <div class="toolbar">
+        <div class="container">
+          <ol class="breadcrumb">
+            <li><a href="<?php echo get_home_url() ?>"><?php echo _('Home') ?></a></li>
+            <li><a href="<?php echo get_category_link($parent_category) ?>"><?php echo $parent_category->name ?></a></li>
+            <?php if ($parent_category->term_id != $category->term_id) { ?>
+              <li><a href="<?php echo get_category_link($category) ?>"><?php echo $category->name ?></a></li>
+            <?php } ?>
+          </ol>
+        </div>
+      </div>
+      <div class="toolbar--site-subtitle">
+        <h1><?php _e('New Data Request', 'sixodp') ?></h1>
+      </div>
+    </div>
     <div class="page-hero-content container">
       <div class="wrapper">
-
-        <div class="headingbar">
-          <h1 class="heading-main">
-            <?php _e('New Data Request', 'sixodp') ?>
-          </h1>
-        </div>
-
         <div class="row">
-          <div class="sidebar col-md-3 col-sm-5 col-xs-12">
-            <ul>
-              <li class="sidebar-item--highlight">
-                <a href="<?php echo get_post_type_archive_link( 'data_request' ); ?>"><?php _e('All data requests', 'sixodp') ?>
-                  <span class="sidebar-icon-wrapper">
-                    <span class="fa fa-chevron-right"></span>
-                  </span>
-                </a>
-              </li>
-          </div>
-          <div class="col-md-9 col-sm-7 col-xs-12">
+          <div class="centered-content">
             <?php
 
             if ($welcome_page && sizeof($errors) == 0) {
@@ -92,7 +90,9 @@ get_header(); ?>
                 <div class="row">
                   <div class="col-xs-12">
                     <div class="control-group control-full <?php if (isset($errors['title'])) echo "error" ?>">
-                      <label class="control-label" for="data_request_title"><span title="This field is required" class="control-required">*</span> <?php _e('Title', 'sixodp');?></label>
+                      <label class="control-label" for="data_request_title">
+                        <?php _e('Title', 'sixodp');?> <span title="This field is required" class="control-required">*</span>    
+                      </label>
                       <div class="controls">
                         <input type="text" name="data_request_title" id="data_request_title" class="form-control" value="<?php echo $title; ?>" placeholder="<?php _e('eg. A descriptive title') ?>" />
                       </div>
@@ -104,7 +104,9 @@ get_header(); ?>
                 <div class="row">
                   <div class="col-xs-12">
                     <div class="control-group control-full <?php if (isset($errors['content'])) echo "error" ?>">
-                      <label class="control-label" for="data_request_content"><span title="This field is required" class="control-required">*</span> <?php _e('Your request', 'sixodp');?></label>
+                      <label class="control-label" for="data_request_content">
+                        <?php _e('Your request', 'sixodp');?> <span title="This field is required" class="control-required">*</span>  
+                      </label>
                       <div class="controls">
                         <?php
                         wp_editor($content, 'data_request_content', array(
@@ -122,7 +124,9 @@ get_header(); ?>
                 <div class="row">
                   <div class="col-xs-12 col-md-8">
                     <div class="control-group control-medium <?php if (isset($errors['name'])) echo "error" ?>">
-                      <label class="control-label" for="data_request_name"><span title="This field is required" class="control-required">*</span> <?php _e('Name', 'sixodp');?></label>
+                      <label class="control-label" for="data_request_name">
+                        <?php _e('Name', 'sixodp');?> <span title="This field is required" class="control-required">*</span>
+                      </label>
                       <div class="controls ">
                         <input type="text" name="data_request_name" id="data_request_name" class="form-control" value="<?php echo $name; ?>" />
                       </div>
@@ -137,7 +141,9 @@ get_header(); ?>
                 <div class="row">
                   <div class="col-xs-12 col-md-8">
                     <div class="control-group control-medium <?php if (isset($errors['email'])) echo "error" ?>">
-                      <label class="control-label" for="data_request_email"><span title="This field is required" class="control-required">*</span> <?php _e('Email', 'sixodp');?></label>
+                      <label class="control-label" for="data_request_email">
+                        <?php _e('Email', 'sixodp');?> <span title="This field is required" class="control-required">*</span>    
+                      </label>
                       <div class="controls ">
                         <input type="text" name="data_request_email" id="data_request_email" class="form-control" value="<?php echo $email; ?>" />
                       </div>
@@ -172,7 +178,6 @@ get_header(); ?>
               </form>
               <?php
             }
-
             ?>
           </div>
         </div>

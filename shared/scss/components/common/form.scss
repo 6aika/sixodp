@@ -4,7 +4,10 @@
 }
 
 .control-label {
-  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: #777 !important;
 }
 
 .form-control {
