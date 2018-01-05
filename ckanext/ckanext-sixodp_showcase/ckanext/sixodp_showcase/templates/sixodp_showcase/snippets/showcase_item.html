@@ -37,7 +37,7 @@ show_remove    - If True, show the remove button to remove showcase/dataset asso
           </div>
 
         {% else %}
-          <p class="empty">{{ _("This showcase has no description") }}</p>
+          <div class="item-description empty">{{ _("This showcase has no description") }}</div>
         {% endif %}
       {% endblock %}
       {% block datasets %}{% endblock %}

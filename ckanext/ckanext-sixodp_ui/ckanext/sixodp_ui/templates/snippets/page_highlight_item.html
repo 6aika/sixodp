@@ -18,7 +18,7 @@
           {{ notes|urlize }}
         </div>
       {% else %}
-        <p class="empty">{{ _("This showcase has no description") }}</p>
+        <div class="card-description empty">{{ _("This showcase has no description") }}</div>
       {% endif %}
     {% endblock %}
     {% block link %}
