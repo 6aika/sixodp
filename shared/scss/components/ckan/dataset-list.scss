@@ -13,6 +13,13 @@
       color: $text-color;
     }
   }
+
+  &.related-datasets {
+    .dataset-content {
+      margin-left: 0;
+      padding: 0;
+    }
+  }
 }
 
 .dataset-content {
