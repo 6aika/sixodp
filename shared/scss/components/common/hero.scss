@@ -70,7 +70,7 @@
 
     button#search {
       width: 100%;
-      line-height: 1.5;
+      line-height: $line-height-computed;
       border-top-right-radius: 0;
     }
 

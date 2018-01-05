@@ -233,9 +233,10 @@ $link-secondary-color: $brand-success;
 $link-secondary-color-active: lighten($link-secondary-color, 20%);
 
 // Rating (ckan extension)
-$rating-stars-color: $brand-success;
-$rating-stars-color-hover: lighten($rating-stars-color, 20%);
-$rating-text-color: $brand-primary;
+$rating-text-color: $text-color;
+$rating-star-color--hover: $brand-primary;
+$rating-star-color--empty: $gray-light;
+$rating-star-color--filled: $text-color;
 
 // Datavis colors
 $datavis-color-1: $brand-primary;

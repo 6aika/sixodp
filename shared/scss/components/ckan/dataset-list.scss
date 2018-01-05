@@ -25,7 +25,8 @@
     font-weight: $headings-font-weight;
   }
 
-  .dataset-meta-* {
+  .dataset-meta-left,
+  .dataset-meta-right {
     margin: 0;
     height: $dataset-metadata-row-height;
     line-height: $dataset-metadata-row-height;
@@ -43,13 +44,16 @@
 
     .star-rating,
     .star-rating-stars,
-    .rating-description{
+    .rating-description {
       display: inline-block;
       height: $dataset-metadata-row-height;
       line-height: $dataset-metadata-row-height;
       font-size: $font-size-base;
       vertical-align: middle;
-      color: $headings-muted-color;
+    }
+
+    .rating-count {
+      display: none;
     }
   }
 
