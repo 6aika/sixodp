@@ -18,3 +18,9 @@
   %}
   {% snippet 'snippets/search_form.html', form_id='organization-datasets-search-form', type='dataset', query=c.q, sorting=sorting, sorting_selected=c.sort_by_selected, count=c.page.item_count, facets=facets, placeholder=_('Search datasets...'), show_empty=request.params, fields=c.fields %}
 {% endblock %}
+
+{% block packages_list %}
+  {% if c.page.items %}
+    {{ h.snippet('snippets/package_list.html', packages=c.page.items, list_class='dataset-list related-datasets') }}
+  {% endif %}
+{% endblock %}
