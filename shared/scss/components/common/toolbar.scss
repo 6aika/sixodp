@@ -4,6 +4,11 @@
   background: $navbar-default-bg;
   margin: 0;
 
+  .container {
+    padding-left $padding-large-horizontal*2;
+    padding-right $padding-large-horizontal*2;
+  }
+
   @media(min-width: $width-md) {
     display: block;
   }
