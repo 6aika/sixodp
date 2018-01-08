@@ -56,8 +56,8 @@ get_header(); ?>
           </ul>
         </div>
 
-        <div class="col-md-9 col-sm-7 col-xs-12 news-content">
-          <div class="cards cards--2">
+        <div class="col-md-9 col-sm-12 col-xs-12 news-content">
+          <div class="cards cards--3">
             <?php
             // Start the loop.
             while ( have_posts() ) : the_post();

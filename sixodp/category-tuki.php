@@ -44,8 +44,8 @@ $category = get_queried_object();
         <div class="row">
           <?php include( locate_template('partials/tuki-sidebar.php') ); ?>
 
-          <div class="col-xs-12 col-md-9 col-sm-7 news-content">
-            <div class="cards cards--2">
+          <div class="col-md-9 col-sm-12 col-xs-12 news-content">
+            <div class="cards cards--3">
               <?php
               while ( have_posts() ) : the_post(); ?>
                 <?php

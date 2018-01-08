@@ -33,7 +33,7 @@ get_header();
     <div class="page-content container">
       <div class="wrapper">
         <div class="row">
-          <div class="sidebar col-md-3 col-sm-5 col-xs-12">
+          <div class="sidebar col-md-3 col-sm-12 col-xs-12">
             <h3 class="heading-sidebar"><?php _e('Ajankohtaista', 'sixodp') ?></h3>
             <?php
               $categories=get_categories(array(
@@ -69,7 +69,7 @@ get_header();
             <?php }
             ?>
           </div>
-          <div class="col-md-9 col-sm-7 col-xs-12 news-content">
+          <div class="col-md-9 col-sm-12 col-xs-12 news-content">
             <div class="cards cards--3">
               <?php
               while ( have_posts() ) : the_post(); ?>

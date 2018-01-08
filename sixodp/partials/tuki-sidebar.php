@@ -4,7 +4,7 @@
   */
 ?>
 
-<div class="sidebar col-md-3 col-sm-5 col-xs-12">
+<div class="sidebar col-md-3 col-sm-12 col-xs-12">
   <h3 class="heading-sidebar"><?php _e('Tuki', 'sixodp'); ?></h3>
   <?php
     $categories=get_categories(array(
