@@ -36,8 +36,8 @@ get_header(); ?>
                   <a href="<?php echo get_post_type_archive_link($post_type->name); ?>">
                     <i class="material-icons">bookmark</i>
                   <?php
-                  if ($post_type->name === 'data_request') _e('Data Request');
-                  else if ($post_type->name === 'showcase_idea') _e('Showcase Idea');
+                  if ($post_type->name === 'data_request') _e('Data Request', 'sixodp');
+                  else if ($post_type->name === 'showcase_idea') _e('Showcase Idea', 'sixodp');
                   else echo $post_type->labels->singular_name; 
                   ?>
                 </a></li>
@@ -50,7 +50,7 @@ get_header(); ?>
               $categories = get_the_category();
               if (sizeof($categories) > 0) :
             ?>
-              <h3 class="heading-sidebar"><?php _e('Categories') ?></h3>
+              <h3 class="heading-sidebar"><?php _e('Categories', 'sixodp') ?></h3>
               <ul>
                 <?php
                 foreach ($categories as $cat):
@@ -75,7 +75,7 @@ get_header(); ?>
             $tags = get_the_tags();
             if ($tags) :
             ?>
-              <h3 class="heading-sidebar"><?php _e('Tags') ?></h3>
+              <h3 class="heading-sidebar"><?php _e('Tags', 'sixodp') ?></h3>
               <ul>
                 <?php
                 foreach ($tags as $tag):

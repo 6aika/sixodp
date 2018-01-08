@@ -17,16 +17,13 @@ get_header(); ?>
 
 <div id="primary" class="content-area">
   <main id="main" class="site-main site-main--home" role="main">
-    <?php
-      get_template_part('partials/header-logos');
-    ?>
-    <div style="margin-top:200px;"></div>
+    <?php get_template_part('partials/page-hero'); ?>
     <div class="toolbar-wrapper">
       <div class="toolbar">
         <div class="container">
           <ol class="breadcrumb">
-            <li><a href="<?php echo get_home_url() ?>"><?php echo _('Home') ?></a></li>
-            <li><a href="<?php echo get_home_url() ?>/ajankohtaista"><?php echo _('Ajankohtaista') ?></a></li>
+            <li><a href="<?php echo get_home_url() ?>"><?php _e('Home', 'sixodp') ?></a></li>
+            <li><a href="<?php echo get_home_url() ?>/ajankohtaista"><?php _e('Ajankohtaista', 'sixodp') ?></a></li>
           </ol>
         </div>
       </div>

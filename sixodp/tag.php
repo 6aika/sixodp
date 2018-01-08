@@ -36,7 +36,7 @@ get_header(); ?>
           <ul>
             <li class="sidebar-item--highlight">
               <span class="sidebar-item-inner">
-                <i class="material-icons">label</i> <?php _e('Popular tags') ?>
+                <i class="material-icons">label</i> <?php _e('Popular tags', 'sixodp') ?>
               </span>
             </li>
             <?php

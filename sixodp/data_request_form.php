@@ -61,7 +61,7 @@ get_header(); ?>
       <div class="toolbar">
         <div class="container">
           <ol class="breadcrumb">
-            <li><a href="<?php echo get_home_url() ?>"><?php echo _('Home') ?></a></li>
+            <li><a href="<?php echo get_home_url() ?>"><?php _e('Home', 'sixodp') ?></a></li>
             <li><a href="<?php echo get_category_link($parent_category) ?>"><?php echo $parent_category->name ?></a></li>
             <?php if ($parent_category->term_id != $category->term_id) { ?>
               <li><a href="<?php echo get_category_link($category) ?>"><?php echo $category->name ?></a></li>
@@ -80,7 +80,7 @@ get_header(); ?>
             <?php
 
             if ($welcome_page && sizeof($errors) == 0) {
-              _e('Thank you for submission.');
+              _e('Thank you for submission.', 'sixodp');
             }
             else {
               ?>
@@ -131,7 +131,7 @@ get_header(); ?>
                         <input type="text" name="data_request_name" id="data_request_name" class="form-control" value="<?php echo $name; ?>" />
                       </div>
                       <div class="editor-info-block">
-                        <?php _e('Your name will not be published with data request.'); ?>
+                        <?php _e('Your name will not be published with data request.', 'sixodp'); ?>
                       </div>
                       <?php if (isset($errors['name'])) echo '<span class="error-block">'. $errors['name'] .'</span>'; ?>
                     </div>
@@ -148,7 +148,7 @@ get_header(); ?>
                         <input type="text" name="data_request_email" id="data_request_email" class="form-control" value="<?php echo $email; ?>" />
                       </div>
                       <div class="editor-info-block">
-                       <?php _e('Your email will not be published with data request.'); ?>
+                       <?php _e('Your email will not be published with data request.', 'sixodp'); ?>
                       </div>
                       <?php if (isset($errors['email'])) echo '<span class="error-block">'. $errors['email'] .'</span>'; ?>
                     </div>

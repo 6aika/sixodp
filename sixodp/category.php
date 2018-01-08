@@ -25,8 +25,8 @@ get_header();
     <div class="toolbar">
       <div class="container">
         <ol class="breadcrumb">
-          <li><a href="<?php echo get_home_url() ?>"><?php echo _('Home') ?></a></li>
-          <li><a href="<?php echo get_home_url() ?>/ajankohtaista"><?php echo _('Ajankohtaista') ?></a></li>
+          <li><a href="<?php echo get_home_url() ?>"><?php _e('Home', 'sixodp') ?></a></li>
+          <li><a href="<?php echo get_home_url() ?>/ajankohtaista"><?php _e('Ajankohtaista', 'sixodp') ?></a></li>
         </ol>
       </div>
     </div>
@@ -34,7 +34,7 @@ get_header();
       <div class="wrapper">
         <div class="row">
           <div class="sidebar col-md-3 col-sm-5 col-xs-12">
-            <h3 class="heading-sidebar"><?php echo _('Ajankohtaista') ?></h3>
+            <h3 class="heading-sidebar"><?php _e('Ajankohtaista', 'sixodp') ?></h3>
             <?php
               $categories=get_categories(array(
                 'parent' => $grandparent_id,

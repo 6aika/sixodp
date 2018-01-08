@@ -5,7 +5,7 @@
 ?>
 
 <div class="sidebar col-md-3 col-sm-5 col-xs-12">
-  <h3 class="heading-sidebar"><?php echo _('Tuki'); ?></h3>
+  <h3 class="heading-sidebar"><?php _e('Tuki', 'sixodp'); ?></h3>
   <?php
     $categories=get_categories(array(
       'parent' => $parent_category->term_id,
@@ -45,7 +45,7 @@
     'hide_empty' => false
   ));
   ?>
-  <h3 class="heading-sidebar"><?php _e('Themes') ?></h2>
+  <h3 class="heading-sidebar"><?php _e('Themes', 'sixodp') ?></h2>
   <ul>
   <?php
   foreach ($teemat as $teema_cat) :?>
