@@ -1,4 +1,4 @@
-# Copyright (C) 2017
+# Copyright (C) 2018
 # This file is distributed under the same license as the  package.
 # Translators:
 # Mikko Nieminen <mikko.nieminen@gofore.com>, 2017
@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sixodp\n"
-"POT-Creation-Date: 2017-12-29 07:39:41+00:00\n"
-"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2018-01-08 07:09:09+00:00\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Joonas Dukpa <joonas.dukpa@tampere.fi>, 2017\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -17,17 +17,30 @@ msgstr ""
 "Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ajankohtaista.php:25 latest-updates.php:55
-#: partials/featured-datasets.php:16 partials/horizontal-accordion.php:51
-#: partials/latest-updates.php:10
+#. #-#-#-#-#  sixodp.pot  #-#-#-#-#
+#. Template Name of the plugin/theme
+#: ajankohtaista.php:28 category-tuki.php:28 category.php:28
+#: data_request_form.php:64 latest-updates.php:57 page_with_menu.php:30
+#: roadmap.php:26 showcase_idea_form.php:65 tuki.php:26
+msgid "Home"
+msgstr "Etusivu"
+
+#. #-#-#-#-#  sixodp.pot  #-#-#-#-#
+#. Template Name of the plugin/theme
+#: ajankohtaista.php:29 category.php:29 category.php:37
+msgid "Ajankohtaista"
+msgstr "Ajankohtaista"
+
+#: ajankohtaista.php:33 partials/featured-datasets.php:16
+#: partials/latest-updates.php:9
 msgid "Latest updates"
 msgstr "Viimeisimmät päivitykset"
 
-#: ajankohtaista.php:33
+#: ajankohtaista.php:41
 msgid "Twitter"
 msgstr "Twitter"
 
-#: archive-data_request.php:23 latest-updates.php:62
+#: archive-data_request.php:23 latest-updates.php:84
 msgid "Data Requests"
 msgstr "Datatoiveet"
 
@@ -43,17 +56,11 @@ msgstr "Sovellusideat"
 msgid "New showcase idea"
 msgstr "Uusi sovellusidea"
 
-#. #-#-#-#-#  sixodp.pot  #-#-#-#-#
-#. Template Name of the plugin/theme
-#: category-tuki.php:31
-msgid "Home"
-msgstr "Etusivu"
-
-#: category.php:92 index.php:46
+#: category.php:93 index.php:46
 msgid "Previous page"
 msgstr "Edellinen"
 
-#: category.php:93 index.php:47
+#: category.php:94 index.php:47
 msgid "Next page"
 msgstr "Seuraava"
 
@@ -81,19 +88,15 @@ msgstr "Nimi on pakollinen tieto ja sen tulee sisältää vähintään 3 merkki�
 msgid "Recaptcha must be validated"
 msgstr ""
 
-#: data_request_form.php:66
+#: data_request_form.php:73
 msgid "New Data Request"
 msgstr "Uusi datatoive"
 
-#: data_request_form.php:74
-msgid "All data requests"
-msgstr "Kaikki datatoiveet"
-
-#: data_request_form.php:85 showcase_idea_form.php:88
+#: data_request_form.php:83 showcase_idea_form.php:84
 msgid "Thank you for submission."
 msgstr "Kiitos ideasta!"
 
-#: data_request_form.php:90
+#: data_request_form.php:88
 msgid ""
 "Your data request will be moderated, it may be modified or combined with "
 "similar requests. Moderated request will be published on this site and will "
@@ -104,41 +107,41 @@ msgstr ""
 "vastaaviin toiveisiin. Muokatut toiveet julkaistaan tällä sivustolla ja "
 "välitetään mahdollisuuksien mukaan datasta vastaavalle taholle."
 
-#: data_request_form.php:95 showcase_idea_form.php:98
+#: data_request_form.php:94 showcase_idea_form.php:95
 msgid "Title"
 msgstr "Otsikko"
 
-#: data_request_form.php:97 showcase_idea_form.php:100
+#: data_request_form.php:97 showcase_idea_form.php:98
 msgid "eg. A descriptive title"
 msgstr "esim. ideasi nimi tai aihealue"
 
-#: data_request_form.php:107
+#: data_request_form.php:108
 msgid "Your request"
 msgstr "Datatoiveesi"
 
-#: data_request_form.php:125 showcase_idea_form.php:128
+#: data_request_form.php:128 showcase_idea_form.php:129
 msgid "Name"
 msgstr "* Nimi"
 
-#: data_request_form.php:130
+#: data_request_form.php:134
 msgid "Your name will not be published with data request."
 msgstr ""
 "Nimeäsi ei julkaista datatoiveen yhteydessä.  Sitä käytetään kontaktointiin "
 "esimerkiksi kontaktoinnissa datatoiveen etenemisen tai tarvittavien "
 "lisätietojen osalta."
 
-#: data_request_form.php:140 showcase_idea_form.php:143
+#: data_request_form.php:145 showcase_idea_form.php:146
 msgid "Email"
 msgstr "* Sähköposti"
 
-#: data_request_form.php:145
+#: data_request_form.php:151
 msgid "Your email will not be published with data request."
 msgstr ""
 "Sähköpostia ei julkaista datatoiveen yhteydessä. Sitä käytetään "
 "kontaktointiin esimerkiksi kontaktoinnissa datatoiveen etenemisen tai "
 "tarvittavien lisätietojen osalta."
 
-#: data_request_form.php:155 showcase_idea_form.php:158
+#: data_request_form.php:175 showcase_idea_form.php:176
 msgid "Submit"
 msgstr "Lähetä"
 
@@ -229,52 +232,44 @@ msgstr "tuntia"
 msgid "ago"
 msgstr "sitten"
 
-#: index.php:48 partials/latest-updates.php:49
+#: index.php:48 partials/latest-updates.php:30
 msgid "Page"
 msgstr "Sivu"
 
-#: latest-updates.php:57 partials/featured-datasets.php:11
-#: partials/hero.php:21 partials/hero.php:24
+#: latest-updates.php:69 partials/featured-datasets.php:11
+#: partials/hero.php:18 partials/hero.php:21
 #: partials/search-content-data.php:25 partials/search-content.php:26
-#: partials/stats.php:14
+#: partials/stats.php:13
 msgid "Datasets"
 msgstr "Datat"
 
-#: latest-updates.php:58 partials/hero.php:25
+#: latest-updates.php:72 partials/hero.php:22
 #: partials/search-content-data.php:28 partials/search-content.php:29
-#: partials/stats.php:22
+#: partials/stats.php:21
 msgid "Applications"
 msgstr "Sovellukset"
 
-#: latest-updates.php:59
+#: latest-updates.php:75
 msgid "Comments"
 msgstr "Kommentit"
 
-#: latest-updates.php:60
+#: latest-updates.php:78
 msgid "Posts"
 msgstr "Artikkelit"
 
-#: latest-updates.php:61
+#: latest-updates.php:81
 msgid "Pages"
 msgstr "Sivut"
 
-#: latest-updates.php:63
+#: latest-updates.php:87
 msgid "App Requests"
 msgstr "Sovellusideat"
 
-#: latest-updates.php:71
-msgid "No updates found for selected week."
-msgstr "Ei päivityksiä valitulta viikolta"
+#: latest-updates.php:96
+msgid "No updates found for selected month."
+msgstr "Ei päivityksiä valitulta kuukaudelta."
 
-#: latest-updates.php:114
-msgid "Previous week"
-msgstr "Edellinen viikko"
-
-#: latest-updates.php:117
-msgid "Next week"
-msgstr "Seuraava viikko"
-
-#: partials/ajankohtaista-links.php:9 single.php:56
+#: partials/ajankohtaista-links.php:9 single.php:53
 msgid "Categories"
 msgstr "Kategoriat"
 
@@ -283,91 +278,88 @@ msgstr "Kategoriat"
 msgid "Author"
 msgstr "Laatija"
 
-#: partials/card.php:16
+#: partials/card-image.php:30 partials/card.php:21
 msgid "Read more"
 msgstr "Lue lisää"
 
-#: partials/featured-content.php:12
-msgid "Do you have a dataset or an application to share?"
-msgstr "Onko sinulla valmis sovellus tai idea sovelluksesta?"
-
-#: partials/featured-content.php:13
-msgid "Share it!"
-msgstr "Laita se jakoon!"
-
-#: partials/featured-content.php:15
-msgid "Submit an application"
-msgstr "Jaa sovellus"
-
-#: partials/featured-content.php:16
-msgid "Submit a dataset"
-msgstr "Jaa aineisto"
-
-#: partials/featured-content.php:20
-msgid "Do you have a request for a dataset or an idea for application?"
-msgstr "Onko sinulla dataa tai datatoive?"
-
-#: partials/featured-content.php:21
-msgid "Tell us!"
-msgstr "Kerro se meille!"
-
-#: partials/featured-content.php:23
-msgid "Share an open data idea"
-msgstr "Kerro aineistotoive"
-
-#: partials/featured-content.php:24
-msgid "Share an application"
-msgstr "Kerro sovellusidea"
-
-#: partials/featured-content.php:31
-msgid "Latest applications"
-msgstr "Uusimmat sovellukset"
-
-#: partials/featured-content.php:52
-msgid "All applications"
-msgstr "Kaikki sovellukset"
-
-#: partials/featured-content.php:58
-msgid "Latest datasets"
-msgstr "Uusimmat datat"
-
-#: partials/featured-content.php:79 partials/latest-updates.php:37
-msgid "Dataset"
-msgstr "Tietoaineisto"
-
-#: partials/featured-content.php:90 partials/stats.php:35
+#: partials/categories.php:34
 msgid "All datasets"
 msgstr "Kaikki datat"
 
-#: partials/featured-datasets.php:46 partials/latest-updates.php:69
+#: partials/featured-apps.php:9
+msgid "Latest applications"
+msgstr "Uusimmat sovellukset"
+
+#: partials/featured-apps.php:76
+msgid "Do you have a dataset or an application to share?"
+msgstr "Onko sinulla valmis sovellus tai idea sovelluksesta?"
+
+#: partials/featured-apps.php:76
+msgid "Share it!"
+msgstr "Laita se jakoon!"
+
+#: partials/featured-apps.php:79
+msgid "Submit an application"
+msgstr "Jaa sovellus"
+
+#: partials/featured-apps.php:80
+msgid "Share an application"
+msgstr "Kerro sovellusidea"
+
+#: partials/featured-content.php:9
+msgid "Latest datasets"
+msgstr "Uusimmat datat"
+
+#: partials/featured-content.php:25 partials/featured-content.php:60
+#: partials/latest-updates.php:21
+msgid "Dataset"
+msgstr "Tietoaineisto"
+
+#: partials/featured-content.php:73
+msgid "Do you have a request for a dataset or an idea for application?"
+msgstr "Onko sinulla dataa tai datatoive?"
+
+#: partials/featured-content.php:73
+msgid "Tell us!"
+msgstr "Kerro se meille!"
+
+#: partials/featured-content.php:76
+msgid "Submit a dataset"
+msgstr "Jaa aineisto"
+
+#: partials/featured-content.php:77
+msgid "Share an open data idea"
+msgstr "Kerro aineistotoive"
+
+#: partials/featured-datasets.php:46 partials/latest-updates.php:57
 msgid "More updates"
 msgstr "Lisää päivityksiä"
 
-#: partials/hero.php:26
-msgid "Articles"
-msgstr "Artikkelit"
-
-#: partials/hero.php:28
+#: partials/hero.php:24
 msgid "Other"
 msgstr "Muu sisältö"
 
-#: partials/hero.php:33 searchform.php:8
+#: partials/hero.php:27
+msgid "Keyword"
+msgstr "Hakusana"
+
+#: partials/hero.php:29 searchform.php:8
 msgid "Search"
 msgstr "Hae"
 
-#: partials/horizontal-accordion.php:48
+#: partials/horizontal-accordion.php:83
 msgid "Show all"
 msgstr "Näytä kaikki"
 
-#: partials/latest-updates.php:41
+#: partials/latest-updates.php:24
 msgid "Showcase"
 msgstr "Sovellus"
 
-#: partials/latest-updates.php:45
+#: partials/latest-updates.php:27
 msgid "Article"
 msgstr "Artikkeli"
 
-#: partials/latest-updates.php:53
+#: partials/latest-updates.php:33
 msgid "Comment"
 msgstr "Kommentti"
 
@@ -397,7 +389,7 @@ msgstr[1] "Löytyi %d tulosta"
 msgid "Follow us"
 msgstr "Seuraa meitä"
 
-#: partials/stats.php:30
+#: partials/stats.php:29
 msgid "Interfaces"
 msgstr "Rajapintaa"
 
@@ -409,7 +401,13 @@ msgstr "Kysymyksiä?"
 msgid "Contact us"
 msgstr "Ota yhteyttä"
 
-#: partials/tuki-sidebar.php:47 tuki.php:34
+#. #-#-#-#-#  sixodp.pot  #-#-#-#-#
+#. Template Name of the plugin/theme
+#: partials/tuki-sidebar.php:8
+msgid "Tuki"
+msgstr "Ohjeet"
+
+#: partials/tuki-sidebar.php:48 tuki.php:44
 msgid "Themes"
 msgstr "Teemat"
 
@@ -427,15 +425,11 @@ msgctxt "label"
 msgid "Search for:"
 msgstr "Etsi:"
 
-#: showcase_idea_form.php:67
+#: showcase_idea_form.php:74
 msgid "New Showcase idea"
 msgstr "Uusi sovellusidea"
 
-#: showcase_idea_form.php:77
-msgid "All showcase ideas"
-msgstr "Kaikki sovellusideat"
-
-#: showcase_idea_form.php:93
+#: showcase_idea_form.php:89
 msgid ""
 "Your showcase idea will be moderated, it may be modified or combined with "
 "similar ideas. Moderated ideas will be published on this site."
@@ -443,18 +437,18 @@ msgstr ""
 "Ilmoitustasi saatetaan muokata ja se saatetaan yhdistää muihin vastaaviin "
 "ideoihin. Ideat julkaistaan tällä sivustolla."
 
-#: showcase_idea_form.php:110
+#: showcase_idea_form.php:109
 msgid "Your idea"
 msgstr "Idean kuvaus"
 
-#: showcase_idea_form.php:133
+#: showcase_idea_form.php:135
 msgid "Your name will not be published with showcase idea."
 msgstr ""
 "Nimeäsi ei julkaista sovellusidean yhteydessä.  Sitä käytetään "
 "kontaktointiin esimerkiksi sovellusidean etenemisen tai tarvittavien "
 "lisätietojen osalta."
 
-#: showcase_idea_form.php:148
+#: showcase_idea_form.php:152
 msgid "Your email will not be published with showcase idea."
 msgstr ""
 "Sähköpostiasi ei julkaista sovellusidean yhteydessä.  Sitä käytetään "
@@ -469,7 +463,7 @@ msgstr "Datatoive"
 msgid "Showcase Idea"
 msgstr "Sovellusidea"
 
-#: single.php:85
+#: single.php:78
 msgid "Tags"
 msgstr "Avainsanat"
 
@@ -481,9 +475,9 @@ msgstr "Sisältöä avainsanalla"
 msgid "Popular tags"
 msgstr "Suositut avainsanat"
 
-#. Template Name of the plugin/theme
-msgid "Ajankohtaista"
-msgstr "Ajankohtaista"
+#: tuki.php:27 tuki.php:32
+msgid "Support"
+msgstr "Ohjeet"
 
 #. Template Name of the plugin/theme
 msgid "Datatoive-lomake"
@@ -503,10 +497,6 @@ msgstr "Työn alla"
 
 #. Template Name of the plugin/theme
 msgid "Sovellusidea-lomake"
-msgstr ""
-
-#. Template Name of the plugin/theme
-msgid "Tuki"
 msgstr ""
 
 #. Template Name of the plugin/theme
