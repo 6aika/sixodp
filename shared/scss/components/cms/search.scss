@@ -18,14 +18,7 @@
         border-bottom-left-radius: 0;
     }
 }
-.site-main--search {
-    h1 {
-        color: $brand-primary;
-        font-family: $font-heading;
-        text-align: center;
 
-    }
-}
 .search-contents {
   padding-left: $base*4;
   border-left: 1px solid $table-border-color;
@@ -47,7 +40,6 @@
   width: 80px;
   min-width: 80px;
 }
-
 
 .search-content__content {
   padding: 0 0 $base 0;
@@ -74,6 +66,15 @@
 .search-content__body {
   color: $brand-primary;
 }
+
+.search-results-heading {
+  font-size: $font-size-base;
+  color: $headings-muted-color;
+  text-transform: uppercase;
+  font-weight: $headings-font-weight;
+  letter-spacing: $letter-spacing;
+}
+
 .search-content .secondary {
    padding: 0;
    margin-bottom: 10px;
