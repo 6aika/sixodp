@@ -17,21 +17,32 @@ get_header(); ?>
 
     <?php get_template_part('partials/page-hero'); ?>
 
+    <div class="toolbar-wrapper">
+      <div class="toolbar">
+        <div class="container">
+          <ol class="breadcrumb">
+            <li><a href="<?php echo get_home_url() ?>"><?php _e('Home', 'sixodp') ?></a></li>
+            <li><a href="<?php echo home_url( $wp->request ) ?>"><?php _e('Showcase ideas', 'sixodp') ?></a></li>
+          </ol>
+        </div>
+      </div>
+      <div class="toolbar--site-subtitle">
+        <h1><?php _e('Showcase ideas', 'sixodp') ?></h1>
+      </div>
+    </div>
+
     <div class="page-content container">
       <div class="wrapper">
-        <div class="headingbar">
-          <h1 class="heading-main"><?php _e('Showcase ideas', 'sixodp') ?></h1>
-        </div>
 
         <div class="row">
           <div class="sidebar col-md-3 col-sm-5 col-xs-12">
             <ul>
               <li class="sidebar-item--highlight">
                 <a href="<?php echo get_permalink(get_translated_page_by_title('Uusi sovellusidea')); ?>">
-                  <?php _e('New showcase idea', 'sixodp') ?>
                   <span class="sidebar-icon-wrapper">
-                    <span class="fa fa-chevron-right"></span>
+                    <span class="fa fa-long-arrow-right"></span>
                   </span>
+                  <?php _e('New showcase idea', 'sixodp') ?>
                 </a>
               </li>
             </ul>

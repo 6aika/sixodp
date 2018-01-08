@@ -39,10 +39,10 @@ get_header(); ?>
             <ul>
               <li class="sidebar-item--highlight">
                 <a href="<?php echo get_permalink(get_translated_page_by_title('Uusi datatoive')); ?>">
-                  <?php _e('New data request', 'sixodp') ?>
                   <span class="sidebar-icon-wrapper">
-                    <span class="fa fa-chevron-right"></span>
+                    <span class="fa fa-long-arrow-right"></span>
                   </span>
+                  <?php _e('New data request', 'sixodp') ?>
                 </a>
               </li>
             </ul>
