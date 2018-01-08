@@ -17,7 +17,7 @@
 <div class="container">
   <div class="row">
 
-    <div class="search-sidebar col-sm-3">
+    <div class="search-sidebar col-md-3 col-sm-12">
       <ul class="sidebar-section">
         <li class="sidebar-heading">
           <?php _e('Results in groups', 'sixodp');?>
@@ -33,8 +33,8 @@
         </li>
       </ul>
     </div>
-    <div class="col-md-9 search-container">
-      <h3 class="heading"><?php printf( esc_html( _n( 'Found %d result', 'Found %d results', $wp_query->found_posts, 'sixodp' ) ), $wp_query->found_posts ); ?></h3>
+    <div class="col-md-9 col-sm-12 search-container">
+      <h3 class="search-results-heading"><?php printf( esc_html( _n( 'Found %d result', 'Found %d results', $wp_query->found_posts, 'sixodp' ) ), $wp_query->found_posts ); ?></h3>
           <ul class="search-content__list">
             <?php
             // Start the loop.

@@ -95,6 +95,7 @@ get_header(); ?>
             $author = get_the_author();
 
             if (get_the_author() !== 'admin') : ?>
+              <h3 class="heading-sidebar"><?php _e('Author', 'sixodp') ?></h3>
               <ul>
                 <li class="sidebar-item">
                   <span class="sidebar-item-inner">

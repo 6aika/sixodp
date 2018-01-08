@@ -1,21 +1,22 @@
 .search-form {
-    max-width: 1000px;
-    margin: 0 auto;
+    margin: $padding-large-vertical auto;
     display: flex;
-    margin-bottom: 25px;
+
     label {
-        margin: auto;
-        display: block;
-        width: 100%;
-        input {
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
-            font-weight: normal;
-        }
+      margin: auto;
+      display: block;
+      width: 100%;
+
+      input {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        font-weight: normal;
+      }
     }
+
     button {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
     }
 }
 

@@ -27,7 +27,11 @@
     </div>
 
     <div class="page-content container">
-      <?php get_search_form(); ?>
+      <div class="search-form-container row">
+        <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12">
+          <?php get_search_form(); ?>
+        </div>
+      </div>
       <?php if(isset($_GET['datasearch'])) {
           get_template_part( 'partials/search-content-data' );
       } else {

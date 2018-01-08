@@ -65,20 +65,6 @@ $relative-logo-position: 3/6;
   }
 }
 
-//.page-hero {
-//  .logos {
-//    margin-top: 0;
-//    top: $content-padding-top - $navbar-height;
-//    position: relative;
-//    height: 0;
-//
-//    @media(min-width: $grid-float-breakpoint) {
-//      margin-top: 0;
-//      top: $content-padding-top-desktop - $navbar-height;
-//    }
-//  }
-//}
-
 .has-notification {
   ~ .logos {
     top: $page-hero-height * $relative-logo-position + $notificationbar-height;
