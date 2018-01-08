@@ -4,7 +4,7 @@
   */
 ?>
 
-<div class="wrapper--gray">
+<div class="wrapper--featured">
   <div class="container">
     <h2 class="heading-page"><?php _e('Categories', 'sixodp') ?></h2>
 

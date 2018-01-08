@@ -17,11 +17,22 @@ get_header(); ?>
 
     <?php get_template_part('partials/page-hero'); ?>
 
-    <div class="page-hero-content container">
-      <div class="wrapper">
-        <div class="headingbar">
-          <h1 class="heading-main"><?php _e('Data Requests', 'sixodp') ?></h1>
+    <div class="toolbar-wrapper">
+      <div class="toolbar">
+        <div class="container">
+          <ol class="breadcrumb">
+            <li><a href="<?php echo get_home_url() ?>"><?php _e('Home', 'sixodp') ?></a></li>
+            <li><a href="<?php echo home_url( $wp->request ) ?>"><?php _e('Data Requests', 'sixodp') ?></a></li>
+          </ol>
         </div>
+      </div>
+      <div class="toolbar--site-subtitle">
+        <h1><?php _e('Data Requests', 'sixodp') ?></h1>
+      </div>
+    </div>
+
+    <div class="page-content container">
+      <div class="wrapper">
 
         <div class="row">
           <div class="sidebar col-md-3 col-sm-5 col-xs-12">

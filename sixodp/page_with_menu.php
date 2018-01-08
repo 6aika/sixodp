@@ -36,7 +36,7 @@ $category = $post;
         <h1><?php the_title(); ?></h1>
       </div>
     </div>
-    <div class="page-hero-content container">
+    <div class="page-content container">
       <?php
 
         while ( have_posts() ) : ?>

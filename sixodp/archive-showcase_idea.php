@@ -17,7 +17,7 @@ get_header(); ?>
 
     <?php get_template_part('partials/page-hero'); ?>
 
-    <div class="page-hero-content container">
+    <div class="page-content container">
       <div class="wrapper">
         <div class="headingbar">
           <h1 class="heading-main"><?php _e('Showcase ideas', 'sixodp') ?></h1>

@@ -24,7 +24,7 @@ $category = get_queried_object();
 
     <?php get_template_part('partials/page-hero'); ?>
 
-    <div class="page-hero-content container">
+    <div class="page-content container">
       <div class="wrapper">
         <?php while ( have_posts() ) : the_post(); ?>
           <div class="row">

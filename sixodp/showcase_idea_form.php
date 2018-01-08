@@ -63,10 +63,7 @@ get_header(); ?>
         <div class="container">
           <ol class="breadcrumb">
             <li><a href="<?php echo get_home_url() ?>"><?php _e('Home', 'sixodp') ?></a></li>
-            <li><a href="<?php echo get_category_link($parent_category) ?>"><?php echo $parent_category->name ?></a></li>
-            <?php if ($parent_category->term_id != $category->term_id) { ?>
-              <li><a href="<?php echo get_category_link($category) ?>"><?php echo $category->name ?></a></li>
-            <?php } ?>
+            <li><a href="<?php echo home_url( $wp->request ) ?>"><?php _e('New Showcase idea', 'sixodp') ?></a></li>
           </ol>
         </div>
       </div>
@@ -74,7 +71,7 @@ get_header(); ?>
         <h1><?php _e('New Showcase idea', 'sixodp') ?></h1>
       </div>
     </div>
-    <div class="page-hero-content container">
+    <div class="page-content container">
       <div class="wrapper">
         <div class="row">
           <div class="centered-content">

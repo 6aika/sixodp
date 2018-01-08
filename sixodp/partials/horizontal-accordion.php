@@ -11,6 +11,10 @@
       $posts = get_posts( $args );
     ?>
 
+    <?php if (isset($horizontal_accordion_heading)): ?>
+      <h1 class="heading-page"><?php echo $horizontal_accordion_heading ?></h1>
+    <?php endif; ?>
+
     <div id="featured-content-carousel" class="carousel slide mobile-only" data-ride="carousel" data-interval="false">
       <div class="carousel-inner" role="listbox">
         <?php foreach($posts as $post) :

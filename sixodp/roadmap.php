@@ -32,7 +32,7 @@ get_header(); ?>
         <h1><?php the_title(); ?></h1>
       </div>
     </div>
-    <div class="page-hero-content container">
+    <div class="page-content container">
       <?php
         // Start the loop.
         while ( have_posts() ) : the_post();

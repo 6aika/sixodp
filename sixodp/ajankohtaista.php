@@ -27,13 +27,15 @@ get_header(); ?>
           </ol>
         </div>
       </div>
-      <h1 class="heading-page"><?php _e('Latest updates', 'sixodp') ?></h1>
     </div>
-    <?php get_template_part( 'partials/horizontal-accordion' ); ?>
+    <?php
+      $horizontal_accordion_heading = __('Latest updates', 'sixodp');
+      include(locate_template( 'partials/horizontal-accordion.php' ));
+    ?>
 
     <?php get_template_part( 'partials/ajankohtaista-links'); ?>
 
-    <div class="wrapper--twitterfeed">
+    <div class="wrapper--twitterfeed wrapper--featured">
       <div class="container">
         <h2 class="heading-page"><?php _e('Twitter', 'sixodp') ?></h2>
       </div>

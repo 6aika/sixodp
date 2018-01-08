@@ -37,7 +37,7 @@ $category = get_queried_object();
         <h1><?php echo $category->name ?></h1>
       </div>
     </div>
-    <div class="page-hero-content container">
+    <div class="page-content container">
 
       <div class="wrapper">
 
@@ -75,7 +75,7 @@ $category = get_queried_object();
           </div>
         </div><!-- .row -->
       </div><!-- .wrapper -->
-    </div><!-- .page-hero-content -->
+    </div><!-- .page-content -->
   </main><!-- .site-main -->
 </div><!-- .content-area -->
 <?php get_footer(); ?>

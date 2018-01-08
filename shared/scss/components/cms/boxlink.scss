@@ -1,6 +1,11 @@
 .wrapper--gray {
   padding: $base*4 0;
-  background: #eee;
+  background: $brand-bg-alt;
+}
+
+.wrapper--white {
+  padding: $base*4 0;
+  background: $brand-white;
 }
 
 .boxlinks {

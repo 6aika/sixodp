@@ -63,7 +63,7 @@ get_header(); ?>
         <h1><?php the_title(); ?></h1>
       </div>
     </div>
-    <div class="page-hero-content container centered-content">
+    <div class="page-content container centered-content">
       <form action="" method="GET" class="form-container text-center">
         <label>
           <input type="checkbox" value="datasets" name="types[]" <?php if ($types['datasets']) echo 'checked="checked"' ?> /> <?php _e('Datasets','sixodp') ?>

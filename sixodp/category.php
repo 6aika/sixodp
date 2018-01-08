@@ -30,7 +30,7 @@ get_header();
         </ol>
       </div>
     </div>
-    <div class="page-hero-content container">
+    <div class="page-content container">
       <div class="wrapper">
         <div class="row">
           <div class="sidebar col-md-3 col-sm-5 col-xs-12">
