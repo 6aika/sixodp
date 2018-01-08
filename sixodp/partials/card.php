@@ -6,7 +6,7 @@
 ?>
 <div class="card<?php if (isset($item['external_card_class'])) echo ' ' . $item['external_card_class'] ?>"
   onclick="window.location.href='<?php echo $item['url'] ?>'">
-  <?php if(isset($item[$meta])) : ?>
+  <?php if ($item['meta']) : ?>
     <div class="card-meta"><?php echo $item['meta'] ?></div>
   <?php endif ?>
   <div class="card-content">
