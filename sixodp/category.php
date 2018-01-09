@@ -13,6 +13,7 @@
 
 $category = get_queried_object();
 $grandparent_id = get_category_grandparent_id($category);
+$grandparent_cat = get_category($grandparent_id);
 
 get_header();
 
@@ -26,7 +27,10 @@ get_header();
       <div class="container">
         <ol class="breadcrumb">
           <li><a href="<?php echo get_home_url() ?>"><?php _e('Home', 'sixodp') ?></a></li>
-          <li><a href="<?php echo get_home_url() ?>/ajankohtaista"><?php _e('Ajankohtaista', 'sixodp') ?></a></li>
+          <?php if ($grandparent_cat != $category) : ?>
+            <li><a href="<?php echo get_category_link($grandparent_id) ?>"><?php echo $grandparent_cat->name ?></a></li>
+          <?php endif;?>
+          <li><a href="<?php echo get_category_link($category) ?>"><?php echo $category->name ?></a></li>
         </ol>
       </div>
     </div>

@@ -35,35 +35,31 @@ get_header(); ?>
       <div class="wrapper">
 
         <div class="row">
-          <div class="sidebar col-md-3 col-sm-12 col-xs-12">
-            <ul>
-              <li class="sidebar-item--highlight">
-                <a href="<?php echo get_permalink(get_translated_page_by_title('Uusi datatoive')); ?>">
-                  <span class="sidebar-icon-wrapper">
-                    <span class="fa fa-long-arrow-right"></span>
-                  </span>
-                  <?php _e('New data request', 'sixodp') ?>
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="col-md-9 col-sm-12 col-xs-12">
-            <div class="cards cards--3">
-              <?php
-                // Start the loop.
-                while ( have_posts() ) : the_post();
-                  $item = array(
-                    'image_url' => get_post_thumbnail_url($post),
-                    'title' => $post->post_title,
-                    'show_rating' => false,
-                    'date_updated' => $post->post_date,
-                    'notes' => $post->post_content,
-                    'url' => get_the_permalink(),
-                  );
-                  include(locate_template( 'partials/card-image.php' ));
-                endwhile;
-              ?>
+          <?php $data_req_url = get_permalink(get_translated_page_by_title('Uusi datatoive')); ?>
+          <div class="news-content">
+            <div class="col-md-offset-2 col-sm-offset-2 col-xs-offset-2 col-md-8 col-sm-8 col-xs-8">
+              <a href="<?php echo $data_req_url; ?>" class="btn btn-transparent--inverse">
+                <?php _e('New data request', 'sixodp') ?>
+              </a>
+            </div>
+            
+            <div class="col-md-offset-2 col-sm-offset-2 col-xs-offset-2 col-md-8 col-sm-8 col-xs-8">
+              <div class="cards cards--3">
+                <?php
+                  // Start the loop.
+                  while ( have_posts() ) : the_post();
+                    $item = array(
+                      'image_url' => get_post_thumbnail_url($post),
+                      'title' => $post->post_title,
+                      'show_rating' => false,
+                      'date_updated' => $post->post_date,
+                      'notes' => $post->post_content,
+                      'url' => get_the_permalink(),
+                    );
+                    include(locate_template( 'partials/card-image.php' ));
+                  endwhile;
+                ?>
+              </div>
             </div>
           </div>
         </div>
