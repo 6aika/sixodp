@@ -58,9 +58,11 @@ get_header(); ?>
             if ($post_type->name !== 'post' && $post_type->name !== 'page') :
             ?>
               <ul>
-                <li class="sidebar-item--highlight">
+                <li class="sidebar-item">
                   <a href="<?php echo get_post_type_archive_link($post_type->name); ?>">
-                    <i class="material-icons">bookmark</i>
+                    <span class="sidebar-icon-wrapper">
+                      <span class="fa fa-long-arrow-right"></span>
+                    </span>
                   <?php
                   if ($post_type->name === 'data_request') _e('Data Request', 'sixodp');
                   else if ($post_type->name === 'showcase_idea') _e('Showcase Idea', 'sixodp');
