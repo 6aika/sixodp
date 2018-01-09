@@ -37,7 +37,7 @@ get_header(); ?>
         <div class="row">
           <div class="sidebar col-md-3 col-sm-12 col-xs-12">
             <ul>
-              <li class="sidebar-item--highlight">
+              <li class="sidebar-item">
                 <a href="<?php echo get_permalink(get_translated_page_by_title('Uusi sovellusidea')); ?>">
                   <span class="sidebar-icon-wrapper">
                     <span class="fa fa-long-arrow-right"></span>
