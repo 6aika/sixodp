@@ -16,7 +16,21 @@ get_header(); ?>
   <main id="main" class="site-main wrapper" role="main">
 
     <?php get_template_part('partials/page-hero'); ?>
-
+    <div class="toolbar-wrapper">
+      <div class="toolbar">
+        <div class="container">
+          <ol class="breadcrumb">
+            <li><a href="<?php echo get_home_url() ?>"><?php _e('Home', 'sixodp') ?></a></li>
+            <li><a href="<?php echo get_category_link(get_translated_category_by_slug('ajankohtaista')) ?>"><?php _e('Ajankohtaista', 'sixodp') ?></a></li>
+            <li><a href="<?php echo get_category_link(get_translated_category_by_slug('blogit')) ?>"><?php _e('Blogit', 'sixodp') ?></a></li>
+            <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+          </ol>
+        </div>
+      </div>
+      <div class="toolbar--site-subtitle">
+        <h1><?php the_title(); ?></h1>
+      </div>
+    </div>
     <div class="page-content container">
       <?php
       // Start the loop.
