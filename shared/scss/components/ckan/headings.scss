@@ -80,6 +80,10 @@ h3, h4, h5, h6, .module-heading {
 .secondary-heading-container {
   text-align: center;
 
+  .secondary-heading {
+    font-size: $font-size-base;
+  }
+
   a {
     &:hover,
     &:focus {
