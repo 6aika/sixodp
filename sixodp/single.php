@@ -122,7 +122,6 @@ get_header(); ?>
             <?php endif; ?>
           </div>
           <div class="col-md-9 col-sm-7 col-xs-12 news-content">
-            <h1 class="heading-content"><?php the_title() ?></h1>
             <article class="article"><?php the_content() ?></article>
             
             <?php
