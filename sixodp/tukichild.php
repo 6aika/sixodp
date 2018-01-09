@@ -33,21 +33,6 @@ $category = get_queried_object();
               get_template_part( 'partials/content' );
             ?>
           </div>
-
-          <?php
-            $morelinks_title = "Lisää aiheesta";
-
-            $args = array(
-              'cat' => array_map(function($category) { return $category->term_id; }, get_the_category()),
-              'post_type' => 'page',
-              'exclude' => get_the_id(),
-              'posts_per_page' => 4
-            );
-
-            $links = get_posts($args);
-
-            include(locate_template( 'partials/morelinks.php' ));
-          ?>
         <?php endwhile; ?>
       </div>
     </div>
