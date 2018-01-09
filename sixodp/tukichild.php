@@ -23,7 +23,20 @@ $category = get_queried_object();
   <main id="main" class="site-main" role="main">
 
     <?php get_template_part('partials/page-hero'); ?>
-
+    <div class="toolbar-wrapper">
+      <div class="toolbar">
+        <div class="container">
+          <ol class="breadcrumb">
+            <li><a href="<?php echo get_home_url() ?>"><?php _e('Home', 'sixodp') ?></a></li>
+            <li><a href="<?php echo home_url( $wp->request ) ?>"><?php _e('Support', 'sixodp') ?></a></li>
+            <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+          </ol>
+        </div>
+      </div>
+      <div class="toolbar--site-subtitle">
+        <h1><?php _e('Support', 'sixodp') ?></h1>
+      </div>
+    </div>
     <div class="page-content container">
       <div class="wrapper">
         <?php while ( have_posts() ) : the_post(); ?>
