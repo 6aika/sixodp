@@ -10,6 +10,16 @@
  * @subpackage Sixodp
  */
 
+$categories = get_the_category();
+$cat = '';
+$cat_parent_id = '';
+$cat_parent = '';
+if ( ! empty( $categories ) ) {
+  $cat = $categories[0];
+  $cat_parent_id = get_category_grandparent_id($cat);
+  $cat_parent = get_category($cat_parent_id);
+}
+
 get_header(); ?>
 
 <div id="primary" class="content-area">
@@ -21,8 +31,10 @@ get_header(); ?>
         <div class="container">
           <ol class="breadcrumb">
             <li><a href="<?php echo get_home_url() ?>"><?php _e('Home', 'sixodp') ?></a></li>
-            <li><a href="<?php echo get_category_link(get_translated_category_by_slug('ajankohtaista')) ?>"><?php _e('Ajankohtaista', 'sixodp') ?></a></li>
-            <li><a href="<?php echo get_category_link(get_translated_category_by_slug('blogit')) ?>"><?php _e('Blogit', 'sixodp') ?></a></li>
+            <?php if ($cat_parent != $category) : ?>
+              <li><a href="<?php echo get_category_link($cat_parent_id) ?>"><?php echo $cat_parent->name ?></a></li>
+            <?php endif;?>
+            <li><a href="<?php echo get_category_link($cat) ?>"><?php echo $cat->name ?></a></li>
             <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
           </ol>
         </div>
@@ -122,6 +134,7 @@ get_header(); ?>
             <?php endif; ?>
           </div>
           <div class="col-md-9 col-sm-7 col-xs-12 news-content">
+            <h1 class="heading-content"><?php the_title() ?></h1>
             <article class="article"><?php the_content() ?></article>
             
             <?php
