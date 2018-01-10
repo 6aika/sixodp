@@ -1,7 +1,22 @@
+.roadmap-content {
+  padding: 0 !important;
+}
+
+.roadmap-filterbar {
+  display: flex;
+  height: 75px;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+
+  select#label-filter {
+    margin-left: auto;
+  }
+}
+
 .fluidtable {
   width: 100%;
   max-width: 1280px;
-  margin: $base*6 auto $base*24;
+  margin: 0 auto $base*24;
 }
 
 .fluidtable__heading {
@@ -11,6 +26,7 @@
 .fluidtable__body {
   opacity: 1;
   transition: opacity .2s ease-in-out;
+  padding: $base*3;
 }
 
 .fluidtable__row {
@@ -64,5 +80,8 @@
       }
     }
   }
+}
 
+#roadmap-hits {
+  font-weight: bold;
 }
