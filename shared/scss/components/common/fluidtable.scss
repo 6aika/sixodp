@@ -3,13 +3,23 @@
 }
 
 .roadmap-filterbar {
-  display: flex;
-  height: 75px;
-  align-items: center;
   border-bottom: 1px solid #eee;
+  padding-bottom: $base*2;
 
-  select#label-filter {
-    margin-left: auto;
+  @media (min-width: 454px) {
+    display: flex;
+    align-items: center;
+    height: 75px;
+    padding-bottom: 0;
+    margin-top: -10px;
+
+    select#label-filter {
+      margin-left: auto;
+    }
+  }
+
+  @media (min-width: 768px) {
+    margin-top: 0px;
   }
 }
 
