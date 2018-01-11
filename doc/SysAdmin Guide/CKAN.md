@@ -1,5 +1,11 @@
 # Komentorivikäskyjä ajettavaksi EC2 koneelta
 
+## Käyttäjien listaus
+
+```
+sudo /usr/lib/ckan/default/bin/paster --plugin=ckan user --config=/etc/ckan/default/production.ini
+```
+
 ## Käyttäjien luonti
 
 ```   
