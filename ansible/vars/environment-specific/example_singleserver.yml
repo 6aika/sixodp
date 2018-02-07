@@ -2,6 +2,9 @@
 
 public_facing_hostname: yourserver.example.com
 internal_hostname: yourserver
+cms_site_url: localhost
+ckan_internal_host: 127.0.0.1:8080
+ckan_internal_url: "{{ 'http://' + ckan_internal_host }}"
 ckan_site_name: Dataportaali
 
 # Sets featured orgs in ckan.ini but not actually used in anything

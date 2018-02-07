@@ -1,25 +1,39 @@
-.datepicker {
+.bootstrap-datetimepicker-widget.dropdown-menu {
   table {
     tr {
+      th {
+        color: $text-color;
+      }
+
       td {
+        color: $text-color;
+
+        &.day {
+          color: $text-color;
+        }
+
         &.today {
           background-image: none;
           background-color: $brand-primary;
           color: $brand-white;
 
-          &:hover:hover {
+          &::before {
+            border-bottom-color: $brand-white;
+          }
+
+          &:hover {
             background-image: none;
             background-color: $brand-secondary;
             color: $brand-white;
           }
         }
 
-        &.active.active {
+        &.active {
           background-image: none;
           background-color: $brand-secondary;
           color: $brand-white;
 
-          &:hover:hover {
+          &:hover {
             background-image: none;
             background-color: $brand-secondary;
             color: $brand-white;

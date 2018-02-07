@@ -19,29 +19,26 @@ get_header(); ?>
 
 <div id="primary" class="content-area">
   <main id="main" class="site-main" role="main">
-    <?php
-      get_template_part('partials/header-logos');
-    ?>
-    <div class="wrapper">
-      <div class="container">
-        <?php
 
-          while ( have_posts() ) :       
-            include(locate_template( 'partials/headingbar.php' ));
-            ?>
-            <div class="row">
-              <?php
-              include(locate_template( 'partials/sidebar.php' ));
-              the_post();
-              get_template_part( 'partials/content' );
-              ?>
-            </div>
+    <?php get_template_part('partials/page-hero'); ?>
+
+    <div class="page-hero-content container">
+      <?php
+
+        while ( have_posts() ) : ?>
+          <div class="row">
             <?php
-          endwhile;
-          
-        ?>
-      </div>
+            include(locate_template( 'partials/sidebar.php' ));
+            the_post();
+            get_template_part( 'partials/content' );
+            ?>
+          </div>
+          <?php
+        endwhile;
+
+      ?>
     </div>
+
   </main><!-- .site-main -->
 
 </div><!-- .content-area -->

@@ -45,3 +45,16 @@ In the ansible directory, run:
     ansible-playbook -v -i inventories/yourenvironment deploy-all.yml
 
 If your secrets file is an Ansible vault, you need to pass the `--ask-vault-pass` argument.
+
+# Installing to multiple Virtual servers
+
+Prerequisites are the same. Example configuration files can be found in:
+
+- ansible/inventories/example_multipleservers
+- ansible/vars/environment_spesific/example_multipleservers.yml
+
+Similar changes to these are required as in single server scenario.
+
+## Run Ansible on multiple servers
+
+    ansible-playbook -v -i inventories/yourenvironment deploy-all-to-multiple.yml

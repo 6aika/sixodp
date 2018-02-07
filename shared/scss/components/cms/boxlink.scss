@@ -13,9 +13,9 @@
 }
 
 .boxlink {
-  border-radius: $base/2;
-  border-bottom-left-radius: $base/2;
-  border-bottom-right-radius: $base/2;
+  border-radius: $border-radius-small;
+  border-bottom-left-radius: $border-radius-small;
+  border-bottom-right-radius: $border-radius-small;
   margin-right: 1%;
   height: $base*20;
   position: relative;

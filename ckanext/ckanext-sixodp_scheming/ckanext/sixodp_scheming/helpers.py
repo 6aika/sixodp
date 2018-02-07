@@ -85,3 +85,13 @@ def get_translated_or_default_locale(data_dict, field):
             return data_dict[field+'_translated'][config.get('ckan.locale_default', 'en')]
     except KeyError:
         return data_dict.get(field, '')
+
+
+def show_qa():
+
+    from ckan.plugins import plugin_loaded
+
+    if plugin_loaded('qa'):
+        return True
+
+    return False

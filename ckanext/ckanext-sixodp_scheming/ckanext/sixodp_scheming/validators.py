@@ -63,7 +63,7 @@ def set_private_if_not_admin(private):
 
 def convert_to_list(value):
     if isinstance(value, basestring):
-        tags = [tag.strip().lower() \
+        tags = [tag.strip() \
                 for tag in value.split(',') \
                 if tag.strip()]
     else:
@@ -232,14 +232,14 @@ def only_default_lang_required(field, schema):
                 errors[key].append(_('expecting JSON object'))
                 return
 
-            if value.get(default_lang) is None:
+            if field.get('only_default_lang_required') is not None and value.get(default_lang) is None:
                 errors[key].append(_('Required language "%s" missing') % default_lang)
             return
 
         prefix = key[-1] + '-'
         extras = data.get(key[:-1] + ('__extras',), {})
 
-        if extras.get(prefix + default_lang) == '':
-            errors[key[:-1] + (key[-1] + '-' + default_lang,)] = [_('Missing value')]
+        if extras.get(prefix + default_lang) == '' or extras.get(prefix + default_lang) is None:
+            errors[key].append(_('Required language "%s" missing') % default_lang)
 
     return  validator

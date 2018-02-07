@@ -5,7 +5,27 @@ var DatasetSection = function (params) {
   self._element = d3.select('.js-statistics-datasets-section')
 
   d3.select('.js-statistics-datasets-section-title')
-    .text(self._texts.sectionTitle)
+    .text(self._texts.sectionTitle);
+
+  self.mostVisitedDatasets = new TopHistogram({
+    id: 'mostVisitedDatasets',
+    element: self._element.select('.js-most-visited-datasets'),
+    texts: {
+      title: self._texts.mostVisitedDatasetsTitle,
+      amount: self._texts.amount,
+      noDataText: self._texts.noDataText
+    },
+    legend: [],
+    limit: 10, // Before show more button is used
+
+    width: params.width,
+    margin: params.visMargins,
+    schema: {
+      labelField: 'name',
+      valueField: 'all',
+      valueSpecificField: 'specific',
+    }
+  });
 
   self.totalsTimeline = new TotalsTimeline({
     id: 'datasetCount',
@@ -13,6 +33,7 @@ var DatasetSection = function (params) {
     texts: {
       title: self._texts.timelineTitle,
       amount: self._texts.amount,
+      noDataText: self._texts.noDataText
     },
     width: params.width,
     height: params.visHeight,
@@ -22,7 +43,7 @@ var DatasetSection = function (params) {
       organizations: true
     },
     locale: params.locale,
-  })
+  });
 
   self.categoryDatasets = new TopHistogram({
     id: 'categoryDatasets',
@@ -30,6 +51,7 @@ var DatasetSection = function (params) {
     texts: {
       title: self._texts.categoriesTitle,
       amount: self._texts.amount,
+      noDataText: self._texts.noDataText
     },
     legend: [
       {
@@ -56,14 +78,11 @@ var DatasetSection = function (params) {
     texts: {
       title: self._texts.formatsTitle,
       amount: self._texts.amount,
+      noDataText: self._texts.noDataText
     },
     legend: [
-      {
-        title: self._texts.usedInApp,
-      },
-      {
-        title: self._texts.notUsedInApp,
-      },
+      { title: self._texts.usedInApp },
+      { title: self._texts.notUsedInApp }
     ],
     limit: 10, // Before show more button is used
 
@@ -72,9 +91,9 @@ var DatasetSection = function (params) {
     schema: {
       labelField: 'name',
       valueField: 'all',
-      valueSpecificField: 'specific',
+      valueSpecificField: 'specific'
     }
-  })
+  });
 
   self.organizationDatasets = new TopHistogram({
     id: 'organizationDatasets',
@@ -82,14 +101,11 @@ var DatasetSection = function (params) {
     texts: {
       title: self._texts.topPublishersTitle,
       amount: self._texts.amount,
+      noDataText: self._texts.noDataText
     },
     legend: [
-      {
-        title: self._texts.usedInApp,
-      },
-      {
-        title: self._texts.notUsedInApp,
-      },
+      { title: self._texts.usedInApp },
+      { title: self._texts.notUsedInApp }
     ],
     limit: 10, // Before show more button is used
 
@@ -98,17 +114,50 @@ var DatasetSection = function (params) {
     schema: {
       labelField: 'name',
       valueField: 'all',
-      valueSpecificField: 'specific',
+      valueSpecificField: 'specific'
     }
   })
-}
+};
 
-DatasetSection.prototype.setData = function (datasets, categoryDatasets, formatDatasets, organizationDatasets) {
+DatasetSection.prototype.updateSectionData = function(context, dateRange) {
+  var self = this;
+
+  if (!dateRange) {
+    dateRange = [new Date(new Date().getFullYear(), 0, 1), new Date()];
+  }
+
+  var dateQuery = '?start_date=' + moment(dateRange[0]).format('DD-MM-YYYY') + '&end_date=' + moment(dateRange[1]).format('DD-MM-YYYY');
+
+  return Promise.all([
+    context.api.get('most_visited_packages' + dateQuery + '&type=dataset')
+    .then(function(response) {
+      var datasets = response.packages;
+      var result = [];
+      for (var index in datasets) {
+        var resultItem = {
+          name: datasets[index].title_translated[context.locale] || datasets[index].title,
+          all: datasets[index].visits,
+          specific: 0
+        };
+
+        result.push(resultItem);
+      }
+      self.mostVisitedDatasets.setData(result);
+    }),
+    // Add rest of the data when implemented with promises
+  ]);
+};
+
+DatasetSection.prototype.setData = function (context, datasets, categoryDatasets, formatDatasets, organizationDatasets) {
   var self = this
-  self.totalsTimeline.setData(datasets)
-  self.categoryDatasets.setData(categoryDatasets)
-  self.formatDatasets.setData(formatDatasets)
-  self.organizationDatasets.setData(organizationDatasets)
+
+  self.totalsTimeline.setData(datasets);
+  self.categoryDatasets.setData(categoryDatasets);
+  self.formatDatasets.setData(formatDatasets);
+  self.organizationDatasets.setData(organizationDatasets);
+
+  // Update rest of the data implemented with promises
+  self.updateSectionData(context);
 }
 
 
@@ -116,6 +165,7 @@ DatasetSection.prototype.onContentResize = function (width, height) {
   if (!height)
     height = undefined
   var self = this
+  self.mostVisitedDatasets.resize(width)
   self.totalsTimeline.resize(width, height)
   self.categoryDatasets.resize(width)
   self.formatDatasets.resize(width)
@@ -124,8 +174,9 @@ DatasetSection.prototype.onContentResize = function (width, height) {
 
 
 // Filter all the visualizations in this section by the given dates
-DatasetSection.prototype.setDateRange = function (dates, categoryDatasets, formatDatasets, organizationDatasets) {
+DatasetSection.prototype.setDateRange = function (context, dates, categoryDatasets, formatDatasets, organizationDatasets) {
   var self = this
+
   self.totalsTimeline.setDateRange(dates)
 
   self.categoryDatasets.setDateRange(dates)
@@ -142,6 +193,9 @@ DatasetSection.prototype.setDateRange = function (dates, categoryDatasets, forma
   if (organizationDatasets) {
     self.organizationDatasets.setData(organizationDatasets)
   }
+
+  // Update rest of the data implemented with promises
+  self.updateSectionData(context, dates);
 }
 
 DatasetSection.prototype.setMaxDateRange = function (dates) {

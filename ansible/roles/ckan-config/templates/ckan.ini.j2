@@ -166,8 +166,7 @@ ckanext.sixodp_showcasesubmit.recaptcha_secret = {{ secret.recaptcha_secret }}
 ckanext.sixodp_showcasesubmit.recipient_emails = {{ ckan_users.admin.email }}
 
 # Disqus configuration
-# Disqus sites should always be named sixodp-CITY-ENVIRONMENT for the configuration to work properly
-disqus.name = sixodp-{{ deployment_environment_id }}
+disqus.name = {{ secret.disqus_short_name }}
 
 # ckanext-googleanalytics
 {% if google_analytics is defined %}

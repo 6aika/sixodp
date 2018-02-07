@@ -32,7 +32,7 @@
   </div>
 
   <div class="container">
-    <div class="row cards--showcase">
+    <div class="row cards cards--4 cards--image cards--image--dark">
       <?php
         $showcases = get_latest_showcases(4);
         foreach ($showcases as $showcase) {
@@ -59,18 +59,25 @@
   </div>
 
   <div class="container">
-    <div class="row cards--dataset">
-      <?php foreach ( get_latest_datasets() as $dataset ) : ?>
-        <div class="card">
-          <h3 class="card__title">
+    <div class="row cards">
+      <?php foreach ( get_latest_datasets() as $index => $dataset ) : ?>
+        <?php if ($index % 3 === 0) echo '</div><div class="row cards">'; ?>
+        <div class="card card-hover" onclick="window.location.href='<?php echo CKAN_BASE_URL.'/'.get_current_locale_ckan().'/dataset/'.$dataset['name']; ?>'">
+          <h3 class="card-title">
             <a href="<?php echo CKAN_BASE_URL.'/'.get_current_locale_ckan().'/dataset/'.$dataset['name']; ?>">
               <?php echo get_translated($dataset, 'title'); ?>
             </a>
           </h3>
-          <div class="card__meta">
-            <span class="card__timestamp"><?php echo parse_date($dataset['date_released']); ?></span>
-            <span style="margin-left: 2px; margin-right: 2px;">&bull;</span>
-            <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale_ckan(); ?>/<?php echo $dataset['type']; ?>" class="card__categorylink"><?php echo $dataset['type']; ?></a>
+
+          <p>
+            <span class="card-timestamp"><?php echo parse_date($dataset['date_released']); ?></span><br />
+            <?php echo wp_html_excerpt( strip_shortcodes(render_markdown(get_translated($dataset, 'notes'))), 240, '...'); ?>
+          </p>
+
+          <div class="card-meta">
+            <span>
+              <span class="fa fa-database"></span>&nbsp;<?php echo _e('Dataset', 'sixodp'); ?>
+            </span>
           </div>
         </div><?php
       endforeach; ?>

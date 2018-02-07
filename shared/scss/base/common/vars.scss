@@ -1,18 +1,22 @@
 // Base
 $base: 10px;
-$content-padding-top: $base*8;
-$content-padding-top-desktop: $base*12;
+$content-padding-top: $base*15;
+$content-padding-top-desktop: $base*18;
 
 // Borders
 $border-radius-base: 6px;
+$border-radius-medium: 8px;
 $border-radius-large: 10px;
 $border-radius-small: 3px;
 $border-base: $border-radius-base;
+$border-radius-round: 15px;
 
 // Typography
-$font: 'Open Sans',sans-serif;
-$font-heading: 'Roboto Slab',sans-serif;
+$font: 'Roboto', sans-serif;
+$font-heading: 'Roboto', sans-serif;
 $headings-font-family: $font-heading;
+
+$headings-font-weight: 400;
 
 // Brand-colors
 $lighten-intensity: 10%;
@@ -36,13 +40,13 @@ $brand-danger: #d9534f;
 $brand-black: #000000;
 $brand-white: #ffffff;
 $brand-gray: #57575b;
-$brand-lightgray: #f5f5f5;
+$brand-lightgray: #f8f8f8;
 
 $gray-base: $brand-gray;
 $gray-darker:            darken($gray-base, $darken-intensity*2);
 $gray-dark:              darken($gray-base, $darken-intensity);
 $gray:                   lighten($gray-base, $lighten-intensity*1.5);
-$gray-light:             lighten($gray-base, $lighten-intensity*3);
+$gray-light:             lighten($gray-base, $lighten-intensity*4.5);
 $gray-lighter:           lighten($gray-base, $lighten-intensity*6);
 
 $brand-background: #ffffff;
@@ -77,27 +81,15 @@ $banner-bg: $brand-primary;
 $banner-heading-color: $brand-white;
 $banner-text-color: $brand-white;
 
-$featured-bg: $brand-white;
-$showcase-card-bg: $brand-gray;
+$featured-bg: $brand-lightgray;
+$showcase-card-bg: $brand-primary;
 $showcase-card-heading-color: $brand-white;
 $showcase-card-text-color: $brand-white;
 
-$dataset-card-bg: $brand-white;
-$dataset-card-border-color: $brand-lightgray;
-$dataset-card-heading-color: $brand-primary;
-$dataset-card-text-color: $text-color;
-$dataset-card-link-color: $brand-success;
-
 $latest-bg: $brand-primary;
-$latest-card-heading-bar-bg: $brand-secondary;
-$latest-card-heading-bar-color: $brand-white;
-$latest-card-bg: $brand-white;
-$latest-card-heading-color: $brand-primary;
-$latest-card-text-color: $brand-primary;
-$latest-card-link-color: $brand-primary;
 
 // Button
-$btn-font-weight: 100;
+$btn-font-weight: 300;
 $btn-border-radius-base: $border-radius-small;
 $btn-border-radius-small: $border-radius-small;
 $btn-border-radius-large: $border-radius-small;
@@ -105,19 +97,23 @@ $btn-padding-small: 4px 6px;
 $btn-padding-large: 8px 12px;
 
 // Card
-$card-background-color: $brand-white;
-$card-background-color-active: $brand-white;
+$card-bg: $brand-white;
+$card-bg-active: $brand-lightgray;
 $card-text-color: $text-color;
+$card-text-color--highlight: $brand-primary;
 $card-text-color-active: $text-color;
-$card-border-highlight-color: $brand-primary;
-$card-border-highlight-color-active: $brand-success;
+$card-link-color: $brand-primary;
+$card-border-color: $gray-light;
+$card-border-color-active: $gray-light;
+$card-border-radius: $border-radius-medium;
 
 // Navigation
-$navbar-background-color: #f8f8f8;
+$navbar-default-bg: #f8f8f8;
 $notificationbar-bg: $brand-info;
 $notificationbar-text-color: $brand-white;
 $notificationbar-height: $base + 24px;
 $navbar-height: 60px;
+$navbar-collapse-max-height: 500px;
 $navbar-margin-bottom: 0;
 $nav-link-hover-bg: transparent;
 
@@ -128,18 +124,27 @@ $navbar-logos-background-color: $brand-white;
 $navbar-toggle-color: $brand-primary;
 $navbar-toggle-color-active: lighten($navbar-toggle-color, 30%);
 
-$navbar-secondary-bg: $brand-primary;
-$navbar-secondary-link-color: $brand-white;
-$navbar-secondary-link-active-color: $brand-white;
-$navbar-secondary-link-active-border-color: $brand-secondary;
-$navbar-secondary-link-hover-bg: $navbar-secondary-bg;
-$navbar-secondary-link-active-bg: $navbar-secondary-link-hover-bg;
+$navbar-secondary-border-color: $brand-lightgray;
+$navbar-secondary-bg: $brand-lightgray;
+$navbar-secondary-link-color: $text-color;
+$navbar-secondary-link-active-color: $navbar-secondary-link-color;
+$navbar-secondary-link-active-border-color: transparent;
+$navbar-secondary-link-hover-bg: $gray-light;
+$navbar-secondary-link-active-bg: $brand-lightgray;
+$navbar-secondary-toggle-color: $navbar-secondary-link-color;
+$navbar-secondary-active-toggle-color: $navbar-secondary-link-color;
 
 $navbar-default-link-color: $gray-base;
-$navbar-default-link-active-color: $brand-primary;
-$navbar-default-link-active-border-color: $brand-secondary;
-$navbar-default-link-hover-bg: #f0f0f0;
-$navbar-default-link-active-bg: $navbar-default-link-hover-bg;
+$navbar-default-link-active-color: $navbar-default-link-color;
+$navbar-default-link-active-border-color: $brand-primary;
+$navbar-default-link-hover-bg: $gray-light;
+$navbar-default-link-active-bg: $navbar-default-bg;
+
+$navbar-default-link-color-desktop: $gray-base;
+$navbar-default-link-active-color-desktop: $navbar-default-link-color-desktop;
+$navbar-default-link-active-border-color-desktop: transparent;
+$navbar-default-link-hover-bg-desktop: $navbar-default-bg;
+$navbar-default-link-active-bg-desktop: $navbar-default-bg;
 
 $nav-tabs-background: transparent;
 $nav-tabs-background-active: $brand-primary;
@@ -155,7 +160,7 @@ $nav-tabs-active-link-hover-border-color:   $brand-primary;
 // Navbar offcanvas
 $navbar-offcanvas-toggle-background-color: $brand-primary;
 $navbar-offcanvas-toggle-icon-color: $brand-white;
-$navbar-offcanvas-background-color: $navbar-background-color;
+$navbar-offcanvas-background-color: $navbar-default-bg;
 $navbar-offcanvas-link-background-color: transparent;
 $navbar-offcanvas-link-background-color-hover: $brand-primary-light;
 $navbar-offcanvas-link-background-color-active: $brand-primary-light;
@@ -178,7 +183,6 @@ $rating-text-color: $brand-primary;
 
 // Datavis colors
 $datavis-color-1: $brand-primary;
-$datavis-color-1-dark: $brand-primary-dark;
 $datavis-color-2: #d0db32;
 
 // Footer
@@ -202,14 +206,28 @@ $stages-text-color: $text-color;
 $stages-text-color-active: $brand-white;
 $stages-text-color-filled: $brand-white;
 
+// Sidebar (CMS only)
+$sidebar-item-bg: $gray-lighter;
+$sidebar-item-bg--highlight: $brand-secondary;
+$sidebar-item-bg-active: $gray-light;
+$sidebar-item-bg-active--highlight: $brand-secondary-dark;
+
+$sidebar-item-color: $text-color;
+$sidebar-item-color--highlight: $brand-white;
+$sidebar-item-color-active: $text-color;
+$sidebar-item-color-active--highlight: $brand-white;
+
+// Breadcrumb
+$breadcrumb-bg: transparent;
+$breadcrumb-color: $link-color;
+$breadcrumb-separator: ">";
+
 // Misc component colors
 $badge-background-color: $brand-primary;
 $badge-background-color-active: $brand-primary;
-$breadcrumb-link-color: $brand-gray;
-$breadcrumb-link-separator-color: $brand-primary;
-$image-slider-background-color: $navbar-background-color;
+$image-slider-background-color: $navbar-default-bg;
 $label-text-color: $brand-success;
-$label-background-color: $navbar-background-color;
+$label-background-color: $navbar-default-bg;
 $media-item-background-color: $brand-background;
 $table-border-color: #dddddd;
 $topic-list-background-color: $gray-lighter;
@@ -257,4 +275,6 @@ $input-height-small: (floor($font-size-small * $line-height-small) + ($padding-s
 $input-border-focus: $brand-secondary-light;
 
 // Animations
-$transition: all .2s ease-in-out;
+$transition-speed-base: .2s;
+$transition-curve-base: ease-in-out;
+$transition: all $transition-speed-base $transition-curve-base;

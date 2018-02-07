@@ -17,33 +17,90 @@
           <li><a href="#datasets"></a></li>
           <li><a href="#apps"></a></li>
         </ul>
-
-        <div class="form-inline statistics-nav-filters">
-          <div class="statistics-filter-datespan statistics-filter-container">
-            <div class="js-statistics-filter-datespan-fields">
-              <input class="form-control statistics-filter js-statistics-filter-start-date" type="date" />
-              <input class="form-control statistics-filter js-statistics-filter-end-date" type="date" />
-            </div>
-            <div class="statistics-filter-datespan-quicklinks">
-              <a class="js-statistics-filter-datespan-all"></a>
-              <a class="js-statistics-filter-datespan-back-2-years"></a>
-              <a class="js-statistics-filter-datespan-back-1-year"></a>
-              <a class="js-statistics-filter-datespan-this-year"></a>
-            </div>
-          </div>
-          <div class="statistics-filter-container statistics-filter-container-left">
-            <select class="form-control js-statistics-filter-organization statistics-filter statistics-filter-organization">
-              <option>-</option>
-            </select>
-          </div>
-          <div class="statistics-filter-container statistics-filter-container-right">
-            <select class="form-control js-statistics-filter-category statistics-filter statistics-filter-category">
-              <option>-</option>
-            </select>
-          </div>
-        </div>
       </div>
     </nav>
+    <nav class="statistics-nav statistics-nav-filters" id="statistics-filters-navbar">
+     <div class="statistics-nav-content" id="statistics-filters">
+       <div class="js-statistics-filter-datespan-fields">
+
+         <div class="row">
+           <div class="col-lg-2 col-lg-offset-3 col-md-3 col-md-offset-1 col-xs-4 col-statistics-condensed">
+             <div class="form-group has-datepicker">
+               <input class="form-control js-statistics-filter-start-date" type="text" />
+             </div>
+           </div>
+           <div class="col-lg-2 col-md-3 col-xs-4 col-statistics-condensed">
+             <div class="form-group has-datepicker">
+               <input class="form-control js-statistics-filter-end-date" type="text" />
+             </div>
+           </div>
+           <div class="col-lg-2 col-md-4 col-xs-4 col-statistics-condensed">
+             <div class="dropdown dropdown-modal statistics-filter-dropdown">
+               <button class="btn btn-block btn-secondary dropdown-toggle" type="button">
+                 <span class="fa fa-filter"></span>&nbsp{{ _('Filter') }}
+               </button>
+               <div class="dropdown-menu dropdown-menu-right">
+                 <div class="panel-group">
+
+                   <div class="panel panel-default">
+                     <div class="panel-heading">
+                        <span class="panel-title">
+                          <a data-toggle="collapse" class="collapsed" href="#range-panel-body">
+                            {{ _('Range') }}<span class="fa fa-plus collapse-icon"></span>
+                          </a>
+                        </span>
+                     </div>
+                     <div id="range-panel-body" class="panel-collapse collapse">
+                       <div class="panel-body">
+                         <span class="js-statistics-filter-datespan js-statistics-filter-datespan-all"></span>
+                         <span class="js-statistics-filter-datespan js-statistics-filter-datespan-back-2-years"></span>
+                         <span class="js-statistics-filter-datespan js-statistics-filter-datespan-back-1-year"></span>
+                         <span class="js-statistics-filter-datespan js-statistics-filter-datespan-this-year"></span>
+                       </div>
+                     </div>
+                   </div>
+
+                   <div class="panel panel-default">
+                     <div class="panel-heading">
+                        <span class="panel-title">
+                          <a data-toggle="collapse" class="collapsed" href="#publishers-panel-body">
+                            {{ _('Publisher') }}<span class="fa fa-plus collapse-icon"></span>
+                          </a>
+                        </span>
+                     </div>
+                     <div id="publishers-panel-body" class="panel-collapse collapse">
+                       <div class="panel-body">
+                         <div class="js-statistics-filter-organization"></div>
+                       </div>
+                     </div>
+                   </div>
+
+                   <div class="panel panel-default">
+                     <div class="panel-heading">
+                        <span class="panel-title">
+                          <a data-toggle="collapse" class="collapsed" href="#categories-panel-body">
+                            {{ _('Category') }}<span class="fa fa-plus collapse-icon"></span>
+                          </a>
+                        </span>
+                     </div>
+                     <div id="categories-panel-body" class="panel-collapse collapse">
+                       <div class="panel-body">
+                         <div class="js-statistics-filter-category"></div>
+                       </div>
+                     </div>
+                   </div>
+
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+    </nav>
+
+
+    <span id="filters-nav-trigger"></span>
 
     <div class="statistics-section summary-section js-statistics-summary-section">
       <div class="statistics-section-content">
@@ -54,6 +111,7 @@
     <div class="statistics-section statistics-dataset-section js-statistics-datasets-section">
       <div class="statistics-section-content">
         <h2 class="js-statistics-datasets-section-title"></h2>
+        <div class="js-most-visited-datasets"></div>
         <div class="js-dataset-totals-timeline"></div>
         <div class="js-category-dataset-counts"></div>
         <div class="js-format-dataset-counts"></div>

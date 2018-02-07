@@ -15,12 +15,9 @@ get_header(); ?>
 <div id="primary" class="content-area">
 	<main id="main" class="site-main wrapper" role="main">
 		
-		<?php
-			get_template_part('partials/header-logos');
-		?>
+		<?php get_template_part('partials/page-hero'); ?>
 
-		<div class="page__hero"></div>
-		<div class="page__content container">
+		<div class="page-content page-hero-content container">
 			<?php
 			// Start the loop.
 			while ( have_posts() ) : the_post();

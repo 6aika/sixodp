@@ -20,15 +20,57 @@
 ;autorestart=true
 ;startsecs=10
 
-[program:celery]
+;[program:celery]
 
-command={{ virtualenv }}/bin/paster --plugin=ckanext-archiver celeryd2 run all --config={{ ckan_ini }}
+;command={{ virtualenv }}/bin/paster --plugin=ckanext-archiver celeryd2 run all --config={{ ckan_ini }}
+;user={{ www_user }}
+;numprocs=1
+;stdout_logfile={{ supervisor_log_path }}/celeryd.log
+;stderr_logfile={{ supervisor_log_path }}/celeryd.log
+;autostart=true
+;autorestart=true
+;startsecs=10
+;stopwaitsecs = 600
+;priority=998
+
+
+
+[program:celery-priority]
+
+command={{ virtualenv }}/bin/paster --plugin=ckanext-archiver celeryd2 run priority --config={{ ckan_ini }}
 user={{ www_user }}
+
 numprocs=1
-stdout_logfile={{ supervisor_log_path }}/celeryd.log
-stderr_logfile={{ supervisor_log_path }}/celeryd.log
+stdout_logfile=/var/log/ckan/celeryd-priority.log
+stderr_logfile=/var/log/ckan/celeryd-priority.log
 autostart=true
 autorestart=true
 startsecs=10
+
+; Need to wait for currently executing tasks to finish at shutdown.
+; Increase this if you have very long running tasks.
 stopwaitsecs = 600
+
+; if rabbitmq is supervised, set its priority higher
+; so it starts first
+priority=998
+
+[program:celery-bulk]
+
+command={{ virtualenv }}/bin/paster --plugin=ckanext-archiver celeryd2 run bulk --config={{ ckan_ini }}
+user={{ www_user }}
+
+numprocs=1
+stdout_logfile=/var/log/ckan/celeryd-bulk.log
+stderr_logfile=/var/log/ckan/celeryd-bulk.log
+autostart=true
+autorestart=true
+startsecs=10
+
+; Need to wait for currently executing tasks to finish at shutdown.
+; Increase this if you have very long running tasks.
+stopwaitsecs = 600
+
+; if rabbitmq is supervised, set its priority higher
+; so it starts first
 priority=998

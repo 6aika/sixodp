@@ -44,7 +44,7 @@
       border-width: $base*1.5 0 0 0;
       border-style: solid;
       border-color: $navbar-offcanvas-border-color;
-      border-radius: 0 0 $border-radius-base $border-radius-base;
+      border-radius: $border-radius-small $border-radius-round $border-radius-small $border-radius-round;
     }
 
     .main-heading {

@@ -94,7 +94,7 @@ ckan_extensions:
   - ckanext-scheming
   - ckanext-showcase
   - ckanext-fluent
-  - ckanext-harvest
+  #- ckanext-harvest
   - ckanext-cloudstorage
   - ckanext-report
   - ckanext-ga-report
@@ -107,10 +107,10 @@ ckan_extensions:
   - ckanext-editor
   - ckanext-collection
   - ckanext-datasetcopy
-  - ckanext-spatial
+  #- ckanext-spatial
   - ckanext-datasubmitter
   - ckanext-statistics
-  - ckanext-sixodp_harvester
+  #- ckanext-sixodp_harvester
   - ckanext-sixodp_showcasesubmit
   #- ckanext-googleanalytics
 
@@ -126,6 +126,8 @@ enabled_ckan_extensions:
     - recline_map_view
     - sixodp_showcase
     #- googleanalytics
+    - qa
+    - archiver
     - sixodp_ui
     - datastore
     - datasetcopy
@@ -139,20 +141,18 @@ enabled_ckan_extensions:
     - rating
     - sixodp_routes
     - sixodp_feed
-    - qa
-    - archiver
     - hierarchy_display
     - hierarchy_form
     - reminder
     - editor
     - collection
-    - spatial_metadata
-    - spatial_query
+    #- spatial_metadata
+    #- spatial_query
     - datasubmitter
-    - harvest
+    #- harvest
     - statistics
-    - csw_harvester
-    - sixodp_harvester
+    #- csw_harvester
+    #- sixodp_harvester
     - sixodp_showcasesubmit
 
 

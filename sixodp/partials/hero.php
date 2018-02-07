@@ -11,7 +11,7 @@
     ?>
     <div class="container">
       <div class="row">
-        <h1 class="heading--main text-center"><?php echo bloginfo('title') ?></h1>
+        <h1 class="heading-main text-center"><?php echo bloginfo('title') ?></h1>
         <h3 class="subheading text-center"><?php  echo bloginfo('description') ?></h3>
 
         <div class="col-md-8 col-md-offset-2">
@@ -23,7 +23,6 @@
               <ul class="dropdown-menu dropdown-menu-right">
                 <li><a data-value="/dataset"><?php _e('Datasets', 'sixodp');?> </a></li>
                 <li><a data-value="/showcase"><?php _e('Applications', 'sixodp');?> </a></li>
-                <li><a data-value="/collection"><?php _e('Collections', 'sixodp');?> </a></li>
                 <li><a data-value="/posts"><?php _e('Articles', 'sixodp');?> </a></li>
                 <li role="separator" class="divider"></li>
                 <li><a data-value="/posts"><?php _e('Other', 'sixodp');?> </a></li>

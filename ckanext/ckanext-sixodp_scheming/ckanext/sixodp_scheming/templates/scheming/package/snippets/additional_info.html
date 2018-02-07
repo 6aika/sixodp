@@ -79,17 +79,7 @@
     {%- endif -%}
   {%- endfor -%}
 
-  <tr>
-    <th>{{ _('Openness') }}</th>
-    <td class="dataset-details">{{ h.get_qa_openness(pkg_dict) }}</td>
-  </tr>
 
-  {% if h.show_rating_in_type(pkg_dict.type) %}
-    <tr>
-      <th scope="row" class="dataset-label">{{ _("Rating") }}</th>
-      <td class="dataset-details">{% snippet "rating/snippets/rating_single_flat.html", package=pkg_dict, enable_input=true %}</td>
-    </tr>
-  {% endif %}
 
   <tr>
     <th>{{ _('License') }}</th>

@@ -1,4 +1,10 @@
 ---
-- name: Install MySQL
+- name: Install MySQL Server
   apt:
     name: mysql-server
+  when: mysql.server.installed_locally
+
+- name: install MySQL Client
+  apt:
+    name: mysql-client
+  when: not mysql.server.installed_locally

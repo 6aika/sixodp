@@ -14,6 +14,12 @@
             <span class="text">{{ _('Admin') }}</span>
           </a>
         </li>
+        <li>
+          <a href="{{ h.url_for(controller='ckanext.editor.controller:EditorController', action='package_search') }}" class="nav-link" title="{{ _('Dataset Editor') }}">
+            <i class="icon-edit" aria-hidden="true"></i>
+            <span class="text">{{ _('Dataset Editor') }}</span>
+          </a>
+        </li>
         {% endif %}
 
         <li>

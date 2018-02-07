@@ -2,22 +2,22 @@ function TotalsTimeline (params) {
   var self = this
 
   // Immutable
-  self._texts = params.texts
+  self._texts = params.texts;
   self._props = {
     id: params.id,
     margin: params.margin,
-    dateFormat: 'YYYY-MM-DD', // Used in the data, not screen
-  }
-  self._elem = {}
+    dateFormat: 'YYYY-MM-DD' // Used in the data, not screen
+  };
+  self._elem = {};
   self._helpers = {
     isYearChangeDate: function (date) {
       return (
         (date.month() === 0 && date.date() === 1)
         || (date.month() === 11 && date.date() === 31 && date.hour() > 20)
       )
-    },
-  }
-  self._schema = params.schema
+    }
+  };
+  self._schema = params.schema;
 
   // Mutable
   self._state = {
@@ -34,7 +34,7 @@ function TotalsTimeline (params) {
     organization: '',
     category: '',
     locale: params.locale,
-  }
+  };
 
   self._data = {}
 
@@ -45,74 +45,88 @@ function TotalsTimeline (params) {
 
 // Update all: language, data visuals, input elements, etc.
 TotalsTimeline.prototype.setData = function (data) {
-  var self = this
-  self._data.raw = data
-  self._data.line = self._transformLineData(data)
-  self._renderLine()
-  self._renderFocusPoint()
-  self._resizeAxis('x')
-  self._resizeAxis('y')
-}
+  var self = this;
+  self._elem.container.select('.vis-notification').remove();
+
+  // Skip update if no data exists
+  if(data.length === 0) {
+    self._elem.svg.style('display', 'none');
+    self._elem.container.append('p')
+      .attr('class', 'vis-notification')
+      .text(this._texts.noDataText);
+
+    return false;
+  }
+
+  self._elem.svg.style('display', 'block');
+  self._data.raw = data;
+  self._data.line = self._transformLineData(data);
+  self._renderLine();
+  self._renderFocusPoint();
+  self._resizeAxis('x');
+  self._resizeAxis('y');
+};
 
 
 // Limit the view to these dates (doesn't change the data given to this element)
 TotalsTimeline.prototype.setDateRange = function (dates) {
-  var self = this
-  self._state.dateRange = dates
-  self._resizeAxis('x')
-  self._resizeAxis('y')
-}
+  var self = this;
+  self._state.dateRange = dates;
+  self._resizeAxis('x');
+  self._resizeAxis('y');
+};
 
 
 TotalsTimeline.prototype.setMaxDateRange = function (dates) {
-  var self = this
+  var self = this;
   self._state.maxDateRange = dates
-}
+};
 
 
 // Resize the visualization to a new pixel size on the screen
 TotalsTimeline.prototype.resize = function (contentWidth, contentHeight) {
-  if (!contentHeight)
-    contentHeight = undefined
+  if (!contentHeight) {
+    contentHeight = undefined;
+  }
 
-  var self = this
+  var self = this;
 
-  self._state.contentArea.width = contentWidth
+  self._state.contentArea.width = contentWidth;
   if (typeof contentHeight !== 'undefined') {
     self._state.contentArea.height = contentHeight
   }
   self._elem.svg
     .attr('width', self._state.contentArea.width)
-    .attr('height', self._state.contentArea.height)
+    .attr('height', self._state.contentArea.height);
 
   self._state.dataArea = {
     width: self._state.contentArea.width - self._props.margin.left - self._props.margin.right,
-    height: self._state.contentArea.height - self._props.margin.top - self._props.margin.bottom,
-  }
+    height: self._state.contentArea.height - self._props.margin.top - self._props.margin.bottom
+  };
 
   self._elem.dataCanvas
     .attr('width', self._state.dataArea.width)
-    .attr('height', self._state.dataArea.height)
+    .attr('height', self._state.dataArea.height);
 
   self._elem.dataClipper
     .attr('width', self._state.dataArea.width + 2)
-    .attr('height', self._state.dataArea.height + 1)
+    .attr('height', self._state.dataArea.height + 1);
 
   self._elem.focusPointClipper
     .attr('width', self._state.dataArea.width + 2 + 5)
-    .attr('height', self._state.dataArea.height + 1)
+    .attr('height', self._state.dataArea.height + 1);
 
   self._elem.mouseEvents
     .attr('width', self._state.dataArea.width)
-    .attr('height', self._state.dataArea.height + 25)
+    .attr('height', self._state.dataArea.height + 25);
 
   // Update pixel ranges for x and y dimension
-  self._helpers.xScale.rangeRound([0, self._state.dataArea.width])
-  self._helpers.yScale.rangeRound([self._state.dataArea.height, 0])
+  self._helpers.xScale.rangeRound([0, self._state.dataArea.width]);
+  self._helpers.yScale.rangeRound([self._state.dataArea.height, 0]);
 
-  self._resizeAxis('x')
-  self._resizeAxis('y')
-}
+  self._resizeAxis('x');
+  self._resizeAxis('y');
+};
 
 
 // Turns a list of items with publishing dates (datasets, apps, etc.) into a list of dates with cumulative number of published items on each date
@@ -360,9 +374,9 @@ TotalsTimeline.prototype._resizeAxis = function (axis) {
         self._helpers[axis + 'Scale'].domain(axisScaleInterpolator(t))
 
         // Redraw axis with new scale
-        self._elem[axis + 'Axis'].call(self._helpers[axis + 'AxisGenerator'])
+        self._elem[axis + 'Axis'].call(self._helpers[axis + 'AxisGenerator']);
         // Redraw the line with new scale
-        self._elem.line.attr('d', self._helpers.lineDrawer)
+        self._elem.line.attr('d', self._helpers.lineDrawer);
 
         // Redraw point with new scale
         self._renderFocusPoint()
@@ -371,10 +385,10 @@ TotalsTimeline.prototype._resizeAxis = function (axis) {
     .on('end', function () {
       // Update ticks for axis
       if (axis === 'x') {
-        self._updateXAxisGenerator()
+        self._updateXAxisGenerator();
         self._elem.xAxis.call(self._helpers.xAxisGenerator)
       } else {
-        self._updateYAxisGenerator()
+        self._updateYAxisGenerator();
         self._elem.yAxis.call(self._helpers.yAxisGenerator)
       }
     })
@@ -432,7 +446,7 @@ TotalsTimeline.prototype._updateXAxisGenerator = function () {
 
   self._helpers.xAxisGenerator = function (g) {
 
-    var tickValues = self._helpers.xScale.ticks(8)
+    var tickValues = self._helpers.xScale.ticks(4);
     // Show tick in the beginning also
     if (tickValues.indexOf(xDomain[0]) === -1) {
       tickValues = tickValues.concat(xDomain[0])

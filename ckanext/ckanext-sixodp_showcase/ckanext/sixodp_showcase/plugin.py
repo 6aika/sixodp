@@ -125,7 +125,7 @@ class Sixodp_ShowcasePlugin(ShowcasePlugin):
             'ckanext_showcase_package_list':
                 showcase_action.get.showcase_package_list,
             'ckanext_package_showcase_list':
-                showcase_action.get.package_showcase_list,
+                get.package_showcase_list,
             'ckanext_showcase_admin_add':
                 showcase_action.create.showcase_admin_add,
             'ckanext_showcase_admin_remove':

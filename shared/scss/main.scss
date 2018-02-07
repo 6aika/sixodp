@@ -7,7 +7,6 @@
 // Components
 @import "components/common/notification";
 @import "components/common/nav";
-@import "components/common/logos";
 @import "components/common/hero";
 @import "components/common/form";
 @import "components/common/footer";
@@ -23,6 +22,11 @@
 @import "components/common/dropdown.scss";
 @import "components/common/mobile-indicator";
 @import "components/common/control-group";
+@import "components/common/pill";
+@import "components/common/page-hero";
+@import "components/common/headingbar";
+@import "components/common/dropdown-modal";
+@import "components/common/breadcrumb";
 
 @import "components/ckan/icons";
 @import "components/ckan/layout";
@@ -63,4 +67,6 @@
 @import "components/ckan/pagination";
 @import "components/ckan/datapreview";
 @import "components/ckan/nav-tabs";
-@import "components/ckan/image-upload";@import "components/ckan/modal";
+@import "components/ckan/image-upload";
+@import "components/ckan/modal";
+@import "components/ckan/logos";

@@ -1,9 +1,9 @@
-{% set truncate = truncate or 180 %}
+{% set truncate = truncate or 240 %}
 {% set lang = h.get_current_lang() %}
 
 <div class="horizontal-accordion-wrapper collapse in" id="horizontal-accordion">
   <div class="horizontal-accordion-container">
-    <ul class="horizontal-accordion">
+    <ul class="horizontal-accordion horizontal-accordion-static">
       {% for item in items %}
         <li class="horizontal-accordion-tab" style="background-image: url({{item[image_identifier]}});">
           <a class="tab-overlay" href="{{ h.url_for(controller=controller, action='read', id=item.name) }}">
@@ -17,7 +17,7 @@
                   {% endfor %}
                 </h2>
               {% endif %}
-              <p>{{ h.get_translated(item, 'notes') | truncate }}</p>
+              <p>{{ h.markdown_extract(h.get_translated(item, 'notes'), extract_length=truncate)  }}</p>
             </div>
           </a>
         </li>

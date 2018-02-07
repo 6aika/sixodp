@@ -10,9 +10,16 @@
     mode: 0755
     checksum: "{{ wp_cli_checksum }}"
 
-- name: Upgrade WP-cli
-  command:
-    wp cli update --yes --allow-root
+- block:
+  - name: Check WP-CLI version
+    command: wp cli version --yes --allow-root
+    register: results
+
+  - name: Update WP CLI
+    command: wp cli update --yes --allow-root
+    when: results.stdout | regex_search('(?<=WP-CLI.)(.*)') < wp_cli_version
+
+  become: yes
 
 - name: Create database
   mysql_db:
@@ -79,6 +86,19 @@
         --admin_user={{ wordpress_users.admin.username }}
         --admin_password={{ wordpress_users.admin.password }}
         --admin_email={{ wordpress_users.admin.email }}
+    when: deployment_environment_id != "vagrant"
+
+  - name: Install WordPress and activate debug on vagrant
+    command: >
+      wp core install
+        --path=/opt/wordpress
+        --url=https://{{ public_facing_hostname }}/
+        --title=6aika
+        --admin_user={{ wordpress_users.admin.username }}
+        --admin_password={{ wordpress_users.admin.password }}
+        --admin_email={{ wordpress_users.admin.email }}
+        --debug=true
+    when: deployment_environment_id == "vagrant"
 
   - name: Install and activate plugins
     command: >
@@ -131,6 +151,17 @@
     WP_CLI_CACHE_DIR: /opt/wp-cli/cache
     WP_CLI_CONFIG_PATH: /opt/wp-cli/config.yml
     WP_CLI_PACKAGES_DIR: /opt/wp-cli/packages
+
+
+- block:
+  - name: Configure ReCaptcha sitekey
+    command: wp option update recaptcha_publickey {{ recaptcha_sitekey }} --path=/opt/wordpress
+
+  - name: Configure ReCaptcha sitekey
+    command: wp option update recaptcha_privatekey {{ secret.recaptcha_secret }} --path=/opt/wordpress
+
+  when: secret.recaptcha_secret is defined
+  become_user: www-data
 
 - name: Create symbolic link to sixodp theme
   file:

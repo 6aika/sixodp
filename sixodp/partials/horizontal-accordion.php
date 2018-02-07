@@ -7,7 +7,7 @@
 <div class="horizontal-accordion-wrapper" id="horizontal-accordion">
   <div class="horizontal-accordion-container">
     <div class="horizontal-accordion-btn-group"></div>
-    <ul class="horizontal-accordion">
+    <ul class="horizontal-accordion horizontal-accordion-static">
       <?php
       $args = array( 'posts_per_page' => 4 );
 
@@ -34,7 +34,7 @@
                 }
                 ?>
               </h2>
-              <p><?php the_excerpt(); ?></p>
+              <p><?php wp_strip_all_tags( the_excerpt() ); ?></p>
             </div>
           </a>
         </li>

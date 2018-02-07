@@ -2,13 +2,14 @@ import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 from ckanext.report.interfaces import IReport
 from ckan.lib.plugins import DefaultTranslation
-
+from logic.get import get_all_public_datasets
 
 class StatisticsPlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IRoutes, inherit=True)
     if toolkit.check_ckan_version(min_version='2.5.0'):
         plugins.implements(plugins.ITranslation, inherit=True)
+    plugins.implements(plugins.IActions)
 
     # IConfigurer
 
@@ -29,6 +30,9 @@ class StatisticsPlugin(plugins.SingletonPlugin, DefaultTranslation):
 
         return map
 
+    # IActions
+    def get_actions(self):
+        return {'get_all_public_datasets': get_all_public_datasets}
 
 class PublisherActivityReportPlugin(plugins.SingletonPlugin):
     plugins.implements(IReport)

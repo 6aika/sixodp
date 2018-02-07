@@ -6,9 +6,13 @@
 # Check new harvester jobs every hour, does not execute harvesting if there are no new jobs
 - name: Ensure harvester cronjob
   cron: name="Harvester run" minute="0" job="/usr/lib/ckan/default/bin/paster --plugin=ckanext-harvest harvester run --config={{ ckan_ini }}"
+  when: "'ckanext-harvest' in ckan_extensions"
 
-- name: Ensure qa cronjob
-  cron: name="Qa run" minute="0" hour="0" job="/usr/lib/ckan/default/bin/paster --plugin=ckanext-qa qa update --config={{ ckan_ini }}"
+- name: Disable qa update
+  cron: name="QA update" state=absent
+
+- name: Disable qa update
+  cron: name="Qa run" state=absent
 
 - name: Ensure reminder cronjob
   cron: name="Reminder send" minute="0" hour="7" job="/usr/lib/ckan/default/bin/paster --plugin=ckanext-reminder reminder send --config={{ckan_ini}}"

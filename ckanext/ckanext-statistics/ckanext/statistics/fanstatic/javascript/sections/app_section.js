@@ -13,6 +13,7 @@ var AppSection = function (params) {
     texts: {
       title: self._texts.timelineTitle,
       amount: self._texts.amount,
+      noDataText: self._texts.noDataText
     },
     width: params.width,
     height: params.visHeight,
@@ -30,6 +31,7 @@ var AppSection = function (params) {
     texts: {
       title: self._texts.categoriesTitle,
       amount: self._texts.amount,
+      noDataText: self._texts.noDataText
     },
     legend: [
     ],

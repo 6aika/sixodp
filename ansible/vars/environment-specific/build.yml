@@ -96,7 +96,7 @@ ckan_extensions:
   - ckanext-scheming
   - ckanext-showcase
   - ckanext-fluent
-  - ckanext-harvest
+  #- ckanext-harvest
   - ckanext-cloudstorage
   - ckanext-report
   - ckanext-ga-report
@@ -109,10 +109,10 @@ ckan_extensions:
   - ckanext-editor
   - ckanext-collection
   - ckanext-datasetcopy
-  - ckanext-spatial
+  #- ckanext-spatial
   - ckanext-datasubmitter
   - ckanext-statistics
-  - ckanext-sixodp_harvester
+  #- ckanext-sixodp_harvester
   - ckanext-sixodp_showcasesubmit
 
 # List of enabled CKAN extensions in load order. Order matters, when templates call super()
@@ -146,13 +146,13 @@ enabled_ckan_extensions:
     - reminder
     - editor
     - collection
-    - spatial_metadata
-    - spatial_query
+    #- spatial_metadata
+    #- spatial_query
     - datasubmitter
-    - harvest
+    #- harvest
     - statistics
-    - csw_harvester
-    - sixodp_harvester
+    #- csw_harvester
+    #- sixodp_harvester
     - sixodp_showcasesubmit
 
 enabled_ckan_aws_extensions: cloudstorage

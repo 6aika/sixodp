@@ -13,26 +13,12 @@
   }
 }
 
-.page__hero {
-  height: $base*32;
-  background: url('/assets/images/blog_bgr.png') no-repeat center center;
-  background-size: cover;
-}
-
-.page__content {
+.page-content {
   @extend %pagew;
-  margin-top: -$base*24;
-  background: $brand-white;
+  padding: $base*2;
 }
 
-.page__content {
-
-  .single & {
-    padding: $base*4 $base*2;
-  }
-}
-
-.page__breadcrumb {
+.page-breadcrumb {
   margin: 0;
   border-bottom: 1px solid $gray-lighter;
   height: $base*6;
@@ -60,7 +46,7 @@
   }
 }
 
-.page__body {
+.page-body {
   position: relative;
   padding-top: $base*6;
 }
