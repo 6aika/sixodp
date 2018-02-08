@@ -1,7 +1,7 @@
 <footer id="colophon" class="site-footer bgcolor-primary" role="contentinfo">
   <div class="container">
     {% block footer_content %}
-      <div class="row row-compensate">
+      <div class="row row-compensate footer-row">
         <div class="col-md-4 pull-right text-right footer-column">
           <div class="popper">
             <ul class="popper__list">
@@ -27,7 +27,7 @@
         </div>
         <div class="col-md-6 pull-right footer-column">
           {% set social_links = h.get_social_links() %}
-          <div class="row row-compensate">
+          <div class="row row-compensate footer-row">
             <div class="col-xs-12 text-right">
               <div class="footer-follow-links">
                 <span class="footer-follow-title">{{ _('Follow us') }}</span>
@@ -42,7 +42,8 @@
       </div>
 
       <hr />
-      <div class="row row-compensate">
+      
+      <div class="row row-compensate footer-row">
         <div class="col-md-12 footer-section footer-section--links">
           <ul class="footer-links">
             {% for item in h.get_footer_navigation_items() %}
@@ -50,10 +51,6 @@
             {% endfor %}
           </ul>
         </div>
-      </div>
-      <hr />
-      <div class="copyrights">
-        © 6Aika
       </div>
     {% endblock %}
   </div>
