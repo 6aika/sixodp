@@ -79,7 +79,7 @@
 }
 
 .btn-latest--inverse {
-  @include btn-colors(transparent, $gray-light, $gray-light);
+  @include btn-colors(transparent, $gray, $gray);
 }
 
 .btn-secondary--search {
