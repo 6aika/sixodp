@@ -33,6 +33,13 @@ get_header(); ?>
       </div>
     </div>
     <div class="page-content container">
+      <!--
+      <div class="row">
+        <div class="sidebar col-md-3 col-sm-5 col-xs-12">
+
+        </div>
+        <div class="col-md-9 col-sm-7 col-xs-12 news-content">
+      -->
       <?php
         // Start the loop.
         while ( have_posts() ) : the_post();
