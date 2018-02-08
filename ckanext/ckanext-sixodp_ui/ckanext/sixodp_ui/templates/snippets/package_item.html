@@ -23,34 +23,10 @@ Example:
   <li class="dataset-item">
     <div class="row">
       {% block content %}
-        <div class="{% if show_rating %}col-md-8 {% endif %} col-sm-12 dataset-col-left">
-          <div class="dataset-content">
-            {% block heading %}
-            <a href="{{ h.url_for(controller='package', action='read', id=package.name) }}">
-              <h3 class="dataset-heading">
-                {% block heading_private %}
-                  {% if package.private %}
-                    <span class="dataset-private label label-inverse">
-                      <i class="icon-lock"></i>
-                      {{ _('Private') }}
-                    </span>
-                  {% endif %}
-                {% endblock %}
-                <span>{{ title[h.get_lang_prefix()] or title['fi'] or title }}</span>
-                {% block heading_meta %}
-                  {% if package.get('state', '').startswith('draft') %}
-                    <span class="label label-info">{{ _('Draft') }}</span>
-                  {% elif package.get('state', '').startswith('deleted') %}
-                    <span class="label label-important">{{ _('Deleted') }}</span>
-                  {% endif %}
-                  {{ h.popular('recent views', package.tracking_summary.recent, min=10) if package.tracking_summary }}
-                {% endblock %}
-              </h3>
-            </a>
-            {% endblock %}
-
-            {% block metadata %}
-              <p class="dataset-metadata">
+        <div class="col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0 dataset-content">
+          {% block metadata %}
+            <div class="dataset-metadata">
+              <div class="dataset-meta-left">
                 <span class="dataset-created">{{ h.render_datetime(package.date_released, '%-d.%-m.%Y') }}</span>
                 {% if groups %}
                   <span> - </span>
@@ -59,46 +35,73 @@ Example:
                       {{ h.get_translated(group, 'title') or group.name }}</a>{% if not loop.last %}, {% endif %}
                   {% endfor %}
                 {% endif %}
-              </p>
-            {% endblock %}
+              </div>
 
-            {% block banner %}
-              {% if banner %}
-                <span class="banner">{{ _('Popular') }}</span>
-              {% endif %}
-            {% endblock %}
-            {% block notes %}
-              {% if notes %}
-                <div>{{ notes|urlize }}</div>
-              {% else %}
-                <p class="empty">{{ _("This dataset has no description") }}</p>
-              {% endif %}
-            {% endblock %}
-
-            {% block resources %}
-              {% if package.resources and not hide_resources %}
-                {% block resources_outer %}
-                <ul class="dataset-resources unstyled">
-                  {% block resources_inner %}
-                  {% for resource in h.dict_list_reduce(package.resources, 'format') %}
-                  <a href="{{ h.url_for(controller='package', action='read', id=package.name) }}">
-                    <li class="label" data-format="{{ resource.lower() }}">
-                        {{ resource }}
-                    </li>
-                  </a>
-                  {% endfor %}
+              {% if show_rating %}
+                <div class="dataset-meta-right">
+                  {% block rating %}
+                    {% snippet "rating/snippets/rating_single_flat.html", package=package %}
                   {% endblock %}
-                </ul>
-                {% endblock %}
+                </div>
               {% endif %}
-            {% endblock %}
-          </div>
+            </div>
+          {% endblock %}
+
+          {% block heading %}
+          <a class="dataset-heading" href="{{ h.url_for(controller='package', action='read', id=package.name) }}">
+            <h3>
+              {% block heading_private %}
+                {% if package.private %}
+                  <span class="dataset-private label label-inverse">
+                    <i class="icon-lock"></i>
+                    {{ _('Private') }}
+                  </span>
+                {% endif %}
+              {% endblock %}
+              <span>{{ title[h.get_lang_prefix()] or title['fi'] or title }}</span>
+              {% block heading_meta %}
+                {% if package.get('state', '').startswith('draft') %}
+                  <span class="label label-info">{{ _('Draft') }}</span>
+                {% elif package.get('state', '').startswith('deleted') %}
+                  <span class="label label-important">{{ _('Deleted') }}</span>
+                {% endif %}
+                {{ h.popular('recent views', package.tracking_summary.recent, min=10) if package.tracking_summary }}
+              {% endblock %}
+            </h3>
+          </a>
+          {% endblock %}
+
+          {% block banner %}
+            {% if banner %}
+              <span class="banner">{{ _('Popular') }}</span>
+            {% endif %}
+          {% endblock %}
+          {% block notes %}
+            {% if notes %}
+              <div>{{ notes|urlize }}</div>
+            {% else %}
+              <p class="empty">{{ _("This dataset has no description") }}</p>
+            {% endif %}
+          {% endblock %}
+
+          {% block resources %}
+            {% if package.resources and not hide_resources %}
+              {% block resources_outer %}
+              <ul class="dataset-resources unstyled">
+                {% block resources_inner %}
+                {% for resource in h.dict_list_reduce(package.resources, 'format') %}
+                <a href="{{ h.url_for(controller='package', action='read', id=package.name) }}">
+                  <li class="label" data-format="{{ resource.lower() }}">
+                      {{ resource }}
+                  </li>
+                </a>
+                {% endfor %}
+                {% endblock %}
+              </ul>
+              {% endblock %}
+            {% endif %}
+          {% endblock %}
         </div>
-        {% if show_rating %}
-          <div class="col-md-4 col-sm-12 dataset-col-right">
-            {% snippet "rating/snippets/rating_single.html", package=package %}
-          </div>
-        {% endif %}
       {% endblock %}
     </div>
   </li>

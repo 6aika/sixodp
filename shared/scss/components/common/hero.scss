@@ -1,7 +1,7 @@
 .hero {
   padding: $navbar-height 0 0;
   background-size: cover;
-  background-position: center center;
+  background-position: center top;
   position: relative;
 
   &:after {
@@ -12,41 +12,37 @@
 .hero__inner {
   position: relative;
   z-index: 1;
-
-  .logos {
-    position: static;
-    height: auto;
-    margin-top: $content-padding-top - $navbar-height;
-
-    @media(min-width: $grid-float-breakpoint) {
-      margin-top: $content-padding-top-desktop - $navbar-height;
-    }
-  }
-}
-
-.notification {
-  ~ #primary {
-    .hero__inner .logos {
-      margin-top: $content-padding-top + $notificationbar-height - $navbar-height;
-
-      @media(min-width: $grid-float-breakpoint) {
-        margin-top: $content-padding-top-desktop + $notificationbar-height - $navbar-height;
-      }
-    }
-  }
+  padding-top: 130px;
 }
 
 .hero .input-group {
   display: table;
 
   input {
-    height: 37px;
+    height: $input-height-large;
+    border: none;
+    font-size: $font-size-base;
+
+    &:focus {
+      border: none;
+      box-shadow: none;
+    }
+
+    &::placeholder {
+      font-size: $font-size-small + 1;
+      letter-spacing: 1px;
+    }
   }
 
-  button {
-    font-size: 16px;
-    padding-left: $base;
-    padding-right: $base;
+  button.btn-secondary {
+    font-size: $font-size-small + 1;
+    padding: $padding-large-vertical $padding-large-horizontal*2;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    .fa {
+      margin-left: $padding-large-horizontal;
+    }
   }
 
   .form-control {
@@ -54,15 +50,48 @@
     margin-bottom: $base;
   }
 
-  @media(min-width: $width-sm) {
-    input {
-      height: $input-height-large;
+  @media (max-width: $width-xs) {
+    display: block;
+
+    div.input-group-btn {
+      display: block;
+      width: 100%;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+
+      .btn-secondary.dropdown-toggle {
+        width: 100%;
+      }
     }
 
+    .open .dropdown-menu-right {
+      left: 0;
+    }
+
+    button#search {
+      width: 100%;
+      line-height: $line-height-computed;
+      border-top-right-radius: 0;
+    }
+
+    #q {
+      float: left;
+      width: 70%;
+      margin: 0;
+      border-bottom-left-radius: 3px;
+    }
+
+    span.input-group-btn {
+      float: right;
+      width: 30%;
+    }
+  }
+
+  @media(min-width: $width-sm) {
+
     button {
-      font-size: $font-size-large;
-      padding-left: $base*2;
-      padding-right: $base*2;
+      padding-left: $padding-large-horizontal*4;
+      padding-right: $padding-large-horizontal*4;
     }
   }
 
@@ -75,22 +104,35 @@
 }
 
 .hero .heading-main {
-  margin: $base*2 auto 0;
-  color: $brand-white;
+  margin: $base*4 auto 0;
+  color: $hero-main-heading-color;
   font-size: 5rem;
-  text-shadow: 0 1px 4px $brand-gray;
+  font-weight: bold;
 }
 
 .hero .subheading {
   margin: 0 auto $base*2;
-  font-weight: 300;
-  color: $brand-white;
-  font-size: 3rem;
-  text-shadow: 0 1px 4px $brand-gray;
+  color: $hero-secondary-heading-color;
+  font-weight: 400;
+  font-size: 2rem;
+  letter-spacing: 2px;
+}
+
+.hero .search-container {
+  max-width: $base*60;
+  margin: $base*4 auto 0;
+  padding-left: $base;
+  padding-right: $base;
 }
 
 .wrapper {
   &.wrapper--categories {
-    padding: 0 $base*1.5;
+    padding: 0;
+  }
+}
+
+.has-notification {
+  .hero {
+    margin-top: $notificationbar-height;
   }
 }

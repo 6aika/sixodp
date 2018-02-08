@@ -10,14 +10,40 @@
  * @subpackage Sixodp
  */
 
+$categories = get_the_category();
+$cat = '';
+$cat_parent_id = '';
+$cat_parent = '';
+if ( ! empty( $categories ) ) {
+  $cat = $categories[0];
+  $cat_parent_id = get_category_grandparent_id($cat);
+  $cat_parent = get_category($cat_parent_id);
+}
+
 get_header(); ?>
 
 <div id="primary" class="content-area">
   <main id="main" class="site-main wrapper" role="main">
 
     <?php get_template_part('partials/page-hero'); ?>
-
-    <div class="page-content page-hero-content container">
+    <div class="toolbar-wrapper">
+      <div class="toolbar">
+        <div class="container">
+          <ol class="breadcrumb">
+            <li><a href="<?php echo get_home_url() ?>"><?php _e('Home', 'sixodp') ?></a></li>
+            <?php if ($cat_parent != $category) : ?>
+              <li><a href="<?php echo get_category_link($cat_parent_id) ?>"><?php echo $cat_parent->name ?></a></li>
+            <?php endif;?>
+            <li><a href="<?php echo get_category_link($cat) ?>"><?php echo $cat->name ?></a></li>
+            <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+          </ol>
+        </div>
+      </div>
+      <div class="toolbar--site-subtitle">
+        <h1><?php echo $cat->name; ?></h1>
+      </div>
+    </div>
+    <div class="page-content container">
       <?php
       // Start the loop.
       while ( have_posts() ) : the_post();
@@ -32,12 +58,14 @@ get_header(); ?>
             if ($post_type->name !== 'post' && $post_type->name !== 'page') :
             ?>
               <ul>
-                <li class="sidebar-item--highlight">
+                <li class="sidebar-item">
                   <a href="<?php echo get_post_type_archive_link($post_type->name); ?>">
-                    <i class="material-icons">bookmark</i>
+                    <span class="sidebar-icon-wrapper">
+                      <span class="fa fa-long-arrow-right"></span>
+                    </span>
                   <?php
-                  if ($post_type->name === 'data_request') _e('Data Request');
-                  else if ($post_type->name === 'showcase_idea') _e('Showcase Idea');
+                  if ($post_type->name === 'data_request') _e('Data Request', 'sixodp');
+                  else if ($post_type->name === 'showcase_idea') _e('Showcase Idea', 'sixodp');
                   else echo $post_type->labels->singular_name; 
                   ?>
                 </a></li>
@@ -50,21 +78,17 @@ get_header(); ?>
               $categories = get_the_category();
               if (sizeof($categories) > 0) :
             ?>
+              <h3 class="heading-sidebar"><?php _e('Categories', 'sixodp') ?></h3>
               <ul>
-                <li class="sidebar-item--highlight">
-                  <span class="sidebar-item-inner">
-                    <i class="material-icons">bookmark</i> <?php _e('Categories') ?>
-                  </span>
-                </li>
                 <?php
                 foreach ($categories as $cat):
                   ?>
                   <li class="sidebar-item">
                     <a href="<?php echo isset($cat->cat_ID) ? get_category_link($cat) : $cat->link ?>">
-                      <?php echo $cat->cat_name; ?>
                       <span class="sidebar-icon-wrapper">
-                        <span class="fa fa-chevron-right"></span>
+                        <span class="fa fa-long-arrow-right"></span>
                       </span>
+                      <?php echo $cat->cat_name; ?>
                     </a>
                   </li>
                   <?php
@@ -79,21 +103,14 @@ get_header(); ?>
             $tags = get_the_tags();
             if ($tags) :
             ?>
+              <h3 class="heading-sidebar"><?php _e('Tags', 'sixodp') ?></h3>
               <ul>
-                <li class="sidebar-item--highlight">
-                  <span class="sidebar-item-inner">
-                    <i class="material-icons">label</i> <?php _e('Tags') ?>
-                  </span>
-                </li>
                 <?php
                 foreach ($tags as $tag):
                   ?>
                   <li class="sidebar-item">
                     <a href="<?php echo get_tag_link($tag); ?>">
                       <?php echo $tag->name; ?>
-                      <span class="sidebar-icon-wrapper">
-                        <span class="fa fa-chevron-right"></span>
-                      </span>
                     </a>
                   </li>
                   <?php 
@@ -106,6 +123,7 @@ get_header(); ?>
             $author = get_the_author();
 
             if (get_the_author() !== 'admin') : ?>
+              <h3 class="heading-sidebar"><?php _e('Author', 'sixodp') ?></h3>
               <ul>
                 <li class="sidebar-item">
                   <span class="sidebar-item-inner">
@@ -116,13 +134,6 @@ get_header(); ?>
                 </li>
               </ul>
             <?php endif; ?>
-            <ul>
-              <li class="sidebar-item">
-                <span class="sidebar-item-inner">
-                  <i class="material-icons">event</i> <?php the_date(); ?>
-                </span>
-              </li>
-            </ul>
           </div>
           <div class="col-md-9 col-sm-7 col-xs-12 news-content">
             <h1 class="heading-content"><?php the_title() ?></h1>

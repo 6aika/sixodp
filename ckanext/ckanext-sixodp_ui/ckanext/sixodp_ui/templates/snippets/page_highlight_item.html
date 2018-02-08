@@ -1,0 +1,34 @@
+{% set truncate = truncate or 300 %}
+{% set truncate_title = truncate_title or 80 %}
+{% set title = item.title or item.name %}
+{% set notes = h.markdown_extract(h.get_translated(item, 'notes'), extract_length=truncate) %}
+
+<div class="card--image">
+  <img src="{{ image_url }}">
+  <div class="card-content card-content-slide-up">
+    <h4 class="card-title">{{ h.get_translated(item, 'title') }}</h4>
+    <div class="card-title-secondary">
+      {% block rating %}
+        {% snippet "rating/snippets/stars_inactive.html", package=item %}
+      {% endblock %}
+    </div>
+    {% block notes %}
+      {% if notes %}
+        <div class="card-description">
+          {{ notes|urlize }}
+        </div>
+      {% else %}
+        <div class="card-description empty">{{ _("This showcase has no description") }}</div>
+      {% endif %}
+    {% endblock %}
+    {% block link %}
+      <div class="card-link-wrapper">
+        <a href="{{ h.url_for(controller='ckanext.sixodp_showcase.controller:Sixodp_ShowcaseController', action='read', id=item.name) }}"
+           title="{{ _('View {showcase_title}').format(showcase_title=title) }}"
+           class="btn btn-transparent card-link">
+          {{ _('Read more') }}
+        </a>
+      </div>
+    {% endblock %}
+  </div>
+</div>

@@ -11,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-27 11:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Mikko Nieminen <mikko.nieminen@gofore.com>, 2017\n"
+"Last-Translator: Joonas Dukpa, 2018\n"
 "Language-Team: Swedish (https://www.transifex.com/6aika-dataportal/teams/68018/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -22,11 +22,11 @@ msgstr ""
 
 #: ckanext/sixodp_scheming/helpers.py:62
 msgid "Dataset not found"
-msgstr ""
+msgstr "Dataset hittades inte"
 
 #: ckanext/sixodp_scheming/translations.py:4
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 #: ckanext/sixodp_scheming/translations.py:5
 msgid ""
@@ -38,7 +38,7 @@ msgstr ""
 #: ckanext/sixodp_scheming/translations.py:7
 #: ckanext/sixodp_scheming/translations.py:75
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: ckanext/sixodp_scheming/translations.py:8
 msgid ""
@@ -48,7 +48,7 @@ msgstr ""
 
 #: ckanext/sixodp_scheming/translations.py:10
 msgid "Tags"
-msgstr ""
+msgstr "Taggar"
 
 #: ckanext/sixodp_scheming/translations.py:11
 msgid ""
@@ -73,7 +73,7 @@ msgstr ""
 #: ckanext/sixodp_scheming/translations.py:17
 #: ckanext/sixodp_scheming/translations.py:84
 msgid "Description"
-msgstr ""
+msgstr "Beskrivning"
 
 #: ckanext/sixodp_scheming/translations.py:18
 msgid "E.g. A diverse and detailed description"
@@ -98,7 +98,7 @@ msgstr ""
 
 #: ckanext/sixodp_scheming/translations.py:24
 msgid "Organization"
-msgstr ""
+msgstr "Organisation"
 
 #: ckanext/sixodp_scheming/translations.py:25
 msgid "The organization which owns the dataset."
@@ -107,7 +107,7 @@ msgstr ""
 #: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:109
 #: ckanext/sixodp_scheming/translations.py:27
 msgid "Source"
-msgstr ""
+msgstr "Källa"
 
 #: ckanext/sixodp_scheming/translations.py:28
 msgid "http://example.com/dataset.json"
@@ -122,7 +122,7 @@ msgstr ""
 
 #: ckanext/sixodp_scheming/translations.py:31
 msgid "Maintainer"
-msgstr ""
+msgstr "Förvaltare"
 
 #: ckanext/sixodp_scheming/translations.py:32
 msgid "Joe Bloggs"
@@ -136,7 +136,7 @@ msgstr ""
 
 #: ckanext/sixodp_scheming/translations.py:35
 msgid "Maintainer Email"
-msgstr ""
+msgstr "E-post till förvaltare"
 
 #: ckanext/sixodp_scheming/translations.py:36
 msgid "joe@example.com"
@@ -159,7 +159,7 @@ msgstr ""
 #: ckanext/sixodp_scheming/templates/scheming/form_snippets/private.html:3
 #: ckanext/sixodp_scheming/translations.py:42
 msgid "Visibility"
-msgstr ""
+msgstr "Synlighet"
 
 #: ckanext/sixodp_scheming/translations.py:43
 msgid ""
@@ -178,7 +178,7 @@ msgstr ""
 
 #: ckanext/sixodp_scheming/translations.py:48
 msgid "Updated"
-msgstr ""
+msgstr "Uppdaterad"
 
 #: ckanext/sixodp_scheming/translations.py:49
 msgid ""
@@ -204,7 +204,7 @@ msgstr ""
 #: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:95
 #: ckanext/sixodp_scheming/translations.py:55
 msgid "License"
-msgstr ""
+msgstr "Licens"
 
 #: ckanext/sixodp_scheming/translations.py:57
 msgid "Reminder date"
@@ -244,10 +244,15 @@ msgid ""
 "under the <a href=\"http://opendatacommons.org/licenses/odbl/1-0/\">Open "
 "Database License</a>."
 msgstr ""
+"Den <i>datalicens</i> du valt ovan gäller bara innehållet i resursfiler som "
+"du lägger till i detta dataset. Genom att bekräfta detta formulär godkänner "
+"du att de <i>metadata</i> du registrerar i formuläret släpps under licensen "
+"<a href=\"http://opendatacommons.org/licenses/odbl/1-0/\">Open Database "
+"License</a>."
 
 #: ckanext/sixodp_scheming/translations.py:72
 msgid "Name"
-msgstr ""
+msgstr "* Namn"
 
 #: ckanext/sixodp_scheming/translations.py:73
 msgid "A short and descriptive name for the resource."
@@ -261,7 +266,7 @@ msgstr ""
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:49
 #: ckanext/sixodp_scheming/translations.py:78
 msgid "Size"
-msgstr ""
+msgstr "Filstorlek"
 
 #: ckanext/sixodp_scheming/translations.py:79
 msgid ""
@@ -272,7 +277,7 @@ msgstr ""
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:42
 #: ckanext/sixodp_scheming/translations.py:81
 msgid "Format"
-msgstr ""
+msgstr "Format"
 
 #: ckanext/sixodp_scheming/translations.py:82
 msgid "File format of the selected resource."
@@ -345,7 +350,7 @@ msgstr ""
 #: ckanext/sixodp_scheming/validators.py:57
 #: ckanext/sixodp_scheming/validators.py:243
 msgid "Missing value"
-msgstr ""
+msgstr "Värde saknas"
 
 #: ckanext/sixodp_scheming/validators.py:152
 msgid "expecting list of strings"
@@ -380,66 +385,66 @@ msgstr ""
 
 #: ckanext/sixodp_scheming/templates/scheming/form_snippets/organization_ex.html:26
 msgid "No organization"
-msgstr ""
+msgstr "Ingen organisation"
 
 #: ckanext/sixodp_scheming/templates/scheming/form_snippets/private.html:6
 msgid "Private"
-msgstr ""
+msgstr "Privat"
 
 #: ckanext/sixodp_scheming/templates/scheming/form_snippets/private.html:6
 msgid "Public"
-msgstr ""
+msgstr "Offentlig"
 
 #: ckanext/sixodp_scheming/templates/scheming/form_snippets/state.html:3
 #: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:101
 msgid "State"
-msgstr ""
+msgstr "Status"
 
 #: ckanext/sixodp_scheming/templates/scheming/form_snippets/state.html:6
 msgid "Active"
-msgstr ""
+msgstr "Aktiv"
 
 #: ckanext/sixodp_scheming/templates/scheming/form_snippets/state.html:7
 msgid "Deleted"
-msgstr ""
+msgstr "Raderad"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/read.html:18
 msgid "Show more"
-msgstr ""
+msgstr "Visa mer"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/read.html:19
 msgid "Show less"
-msgstr ""
+msgstr "Visa mindre"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:5
 msgid "Additional Information"
-msgstr ""
+msgstr "Mer information"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:9
 msgid "Metadata API"
-msgstr ""
+msgstr "Metadata API"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:16
 msgid "Field"
-msgstr ""
+msgstr "Fält"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:17
 msgid "Value"
-msgstr ""
+msgstr "Värde"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:23
 msgid "Last updated"
-msgstr ""
+msgstr "Senast uppdaterad"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:28
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:36
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:43
 msgid "unknown"
-msgstr ""
+msgstr "okänd"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:34
 msgid "Created"
-msgstr ""
+msgstr "Skapad"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:53
 msgid "GB"
@@ -451,15 +456,15 @@ msgstr "MB"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:27
 msgid "Groups"
-msgstr ""
+msgstr "Grupper"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:42
 msgid "Collections"
-msgstr ""
+msgstr "Datainsamlingar"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:83
 msgid "Openness"
-msgstr ""
+msgstr "Öppenhet"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:89
 msgid "Rating"

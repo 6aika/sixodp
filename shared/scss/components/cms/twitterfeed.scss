@@ -1,8 +1,9 @@
 .wrapper--twitterfeed {
   @extend .wrapper;
-  padding-bottom: 0;
   max-width: $base*44;
   margin: 0 auto;
+  padding-top: $base*4;
+  padding-bottom: $base*4;
 
   @media (min-width: $width-sm) {
     max-width: none;
@@ -16,7 +17,7 @@
     @extend .container;
     display: flex;
     flex-wrap: wrap;
-    padding-bottom: $base*10;
+    padding-bottom: $base*4;
   }
 }
 
@@ -25,7 +26,7 @@
   .ctf-item {
     width: 100%;
     border-radius: $border-radius-small;
-    border: 1px solid $gray-lighter;
+    border: 1px solid #eee;
     margin-top: $base*4;
     padding: 0;
     position: relative;
@@ -40,12 +41,14 @@
       width: 32%;
       margin-right: 1%;
     }
+
+    &:first-child {
+      border-top: 1px solid #eee !important;
+    }
   }
 
   .ctf-author-box {
     margin-left: 0 !important;
-    background: $brand-primary;
-    color: $brand-white;
     padding: $base;
 
     .ctf-author-box-link {
@@ -56,7 +59,6 @@
         vertical-align: middle;
         line-height: $base*3;
         margin-top: 0;
-        color: $brand-white !important;
       }
     }
 

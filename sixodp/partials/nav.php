@@ -5,7 +5,7 @@
 **/
 ?>
 <nav class="navbar navbar-default" id="main-navbar" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'sixodp' ); ?>">
-  <div class="container-fluid">
+  <div class="container">
 
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-nav-collapse" aria-expanded="false">

@@ -5,9 +5,6 @@
 ?>
 
 <div class="wrapper">
-  <div class="headingbar">
-    <h1 class="heading-main"><?php the_title(); ?></h1>
-  </div>
 
   <div class="article"><?php the_content(); ?></div>
 

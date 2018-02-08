@@ -3,7 +3,7 @@
   padding: 0;
 
   .dataset-item {
-    @include list-item();
+    @include list-item($padding-large-vertical*4);
 
     &.dataset-item-borderless {
       border: none;
@@ -12,55 +12,80 @@
     > a {
       color: $text-color;
     }
+  }
 
-    .row {
-      margin-left: -15px;
-      margin-right: -15px;
-
-      .dataset-col {
-        &-left,
-        &-right {
-          padding-top: $padding-large-vertical*2;
-          padding-bottom: $padding-large-vertical*2;
-        }
-
-        &-right {
-          text-align: center;
-        }
-      }
-    }
-
+  &.related-datasets {
     .dataset-content {
-      font-size: $font-size-base;
+      margin-left: 0;
       padding: 0;
-      color: $brand-primary;
+    }
+  }
+}
 
-      .dataset-heading {
-        margin: 0;
-        font-size: $font-size-large;
-        font-weight: bold;
-        font-family: $font-heading;
-      }
+.dataset-content {
+  $dataset-metadata-row-height: 22px;
 
-      .dataset-metadata {
-        font-size: $font-size-base;
+  .dataset-metadata {
+    display: block;
+    width: 100%;
+    height: $dataset-metadata-row-height;
+    font-weight: $headings-font-weight;
+  }
 
-        .dataset-created {
-          color: $headings-secondary-color;
-        }
-        .dataset-category-link {
-          color: $label-text-color;
-        }
-      }
+  .dataset-meta-left,
+  .dataset-meta-right {
+    margin: 0;
+    height: $dataset-metadata-row-height;
+    line-height: $dataset-metadata-row-height;
+    display: inline-block;
+    font-size: $font-size-base;
+    text-transform: uppercase;
+  }
+
+  .dataset-meta-left {
+    float: left;
+  }
+
+  .dataset-meta-right {
+    float: right;
+
+    .star-rating,
+    .star-rating-stars,
+    .rating-description {
+      display: inline-block;
+      height: $dataset-metadata-row-height;
+      line-height: $dataset-metadata-row-height;
+      font-size: $font-size-base;
+      vertical-align: middle;
     }
 
-    .dataset-resources {
-      padding: $padding-large-vertical 0 0 0;
-
-      .label {
-        display: inline-block;
-        padding: $padding-small-vertical $padding-small-horizontal;
-      }
+    .rating-count {
+      display: none;
     }
+  }
+
+  .dataset-created {
+    color: $text-muted;
+  }
+  .dataset-category-link {
+    color: $label-text-color;
+  }
+
+  .dataset-heading {
+    display: inline-block;
+
+    h1, h2, h3, h4, h5, h6 {
+      @include heading;
+      margin: 0;
+    }
+  }
+}
+
+.dataset-resources {
+  padding: $padding-large-vertical 0 0 0;
+
+  .label {
+    display: inline-block;
+    padding: $padding-small-vertical $padding-small-horizontal;
   }
 }

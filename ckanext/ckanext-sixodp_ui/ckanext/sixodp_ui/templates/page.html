@@ -38,29 +38,35 @@
             rendering of the main content columns of the page.
             #}
             <div class="pre-primary">
-              {% block pre_primary %}{% endblock %}
+              {% block pre_primary %}
+                <div class="page-hero"></div>
+                {% block toolbar %}
+                  <div class="toolbar">
+                    <div class="container">
+                      {% block breadcrumb %}
+                        {% if self.breadcrumb_content() | trim %}
+                          <ol class="breadcrumb">
+                            {% snippet 'snippets/home_breadcrumb_item.html' %}
+                            {% block breadcrumb_content %}{% endblock %}
+                          </ol>
+                        {% endif %}
+                      {% endblock %}
+                    </div>
+                  </div>
+                  <div class="toolbar--site-subtitle">
+                    <h1>{% block subtitle %}{% endblock %}</h1>
+                  </div>
+                {% endblock %}
+              {% endblock %}
             </div>
 
             <div class="container">
-              {% block toolbar %}
-                <div class="toolbar">
-                  {% block breadcrumb %}
-                    {% if self.breadcrumb_content() | trim %}
-                      <ol class="breadcrumb">
-                        {% snippet 'snippets/home_breadcrumb_item.html' %}
-                        {% block breadcrumb_content %}{% endblock %}
-                      </ol>
-                    {% endif %}
-                  {% endblock %}
-                </div>
-              {% endblock %}
-
               {% block primary %}
 
               {% block offcanvas_button %}
                 {% snippet 'snippets/sixodp_offcanvas-button.html' %}
               {% endblock %}
-                <div class="primary border-left col-xs-12 col-sm-9">
+                <div class="primary border-left col-md-9 col-sm-12 col-xs-12">
                   {#
                   The primary_content block can be used to add content to the page.
                   This is the main block that is likely to be used within a template.
@@ -102,7 +108,7 @@
 
               {% block secondary %}
                 {% block offcanvas_navigation %}
-                  <aside class="secondary border-right col-sm-3 navbar-offcanvas navbar-offcanvas-touch" id="js-bootstrap-offcanvas">
+                  <aside class="secondary border-right col-md-3 col-sm-12 navbar-offcanvas navbar-offcanvas-touch" id="js-bootstrap-offcanvas">
                     {% snippet 'snippets/sixodp_offcanvas-close-button.html' %}
                     {% block secondary_content %}{% endblock %}
                   </aside>

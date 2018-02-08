@@ -4,6 +4,9 @@ select {
   height: $input-height-small;
   line-height: $line-height-small;
   color: $input-color;
+  text-transform: uppercase;
+  font-weight: $headings-font-weight;
+  letter-spacing: $letter-spacing;
 }
 
 .form-select {

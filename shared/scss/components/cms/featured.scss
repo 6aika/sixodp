@@ -1,22 +1,5 @@
-.wrapper--featured {
-  @extend .wrapper;
-  padding: $base*4 $base*1.5;
-  background: $featured-bg;
-
-  .heading--featured {
-    text-align: center;
-
-    @media(min-width: $width-sm) {
-      text-align: left;
-    }
-  }
-
-  .featured-btn-container {
-    margin-top: $base;
-    text-align: center;
-
-    @media (min-width: $width-sm) {
-      text-align: right;
-    }
-  }
+.heading--featured {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
 }

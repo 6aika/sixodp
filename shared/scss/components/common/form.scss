@@ -4,7 +4,10 @@
 }
 
 .control-label {
-  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: #777 !important;
 }
 
 .form-control {
@@ -75,5 +78,16 @@ form {
     .control-required-message {
       margin: $margin-large-vertical*2 0;
     }
+  }
+}
+
+.form-container {
+  padding: 20px 20px 0;
+  background-color: #fafafa;
+  margin-bottom: 20px;
+  border: 1px solid #eee;
+
+  label {
+    margin: 0 $base;
   }
 }

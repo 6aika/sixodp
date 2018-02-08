@@ -1,5 +1,29 @@
 .toolbar {
-  position: relative;
-  margin: $base 0;
-  padding: $base/2 0;
+  display: none;
+  border-bottom: 1px solid $border-color;
+  background: $navbar-default-bg;
+  margin: 0;
+
+  .container {
+    padding-left: $padding-large-horizontal*2;
+    padding-right: $padding-large-horizontal*2;
+  }
+
+  @media(min-width: $width-md) {
+    display: block;
+  }
+}
+
+.toolbar--site-subtitle {
+  background: $navbar-default-bg;
+  border-bottom: 1px solid $border-color;
+  padding: $padding-large-vertical*3 0;
+  text-align: center;
+
+  h1, h2, h3, h4, h5, h6 {
+    @include heading;
+    text-transform: uppercase;
+    font-size: $font-size-xlarge;
+    color: $headings-muted-color;
+  }
 }

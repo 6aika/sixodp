@@ -50,26 +50,54 @@ get_header(); ?>
   <main id="main" class="site-main site-main--home" role="main">
 
     <?php get_template_part('partials/page-hero'); ?>
-
-    <div class="page-hero-content container">
-      <h1 class="heading-main"><?php _e('Latest updates', 'sixodp') ?></h1>
-      <form action="" method="GET">
-        <input type="checkbox" value="datasets" name="types[]" <?php if ($types['datasets']) echo 'checked="checked"' ?> /> <?php _e('Datasets','sixodp') ?>
-        <input type="checkbox" value="showcases" name="types[]" <?php if ($types['showcases']) echo 'checked="checked"' ?> /> <?php _e('Applications','sixodp') ?>
-        <input type="checkbox" value="comments" name="types[]" <?php if ($types['comments']) echo 'checked="checked"' ?> /> <?php _e('Comments', 'sixodp') ?>
-        <input type="checkbox" value="posts" name="types[]" <?php if ($types['posts']) echo 'checked="checked"' ?> /> <?php _e('Posts', 'sixodp') ?>
-        <input type="checkbox" value="pages" name="types[]" <?php if ($types['pages']) echo 'checked="checked"' ?> /> <?php _e('Pages', 'sixodp') ?>
-        <input type="checkbox" value="data_requests" name="types[]" <?php if ($types['data_requests']) echo 'checked="checked"' ?> /> <?php _e('Data Requests', 'sixodp') ?>
-        <input type="checkbox" value="app_requests" name="types[]" <?php if ($types['app_requests']) echo 'checked="checked"' ?> /> <?php _e('App Requests', 'sixodp') ?>
-        <input type="submit" value="Päivitä" class="btn btn-secondary" />
+    <div class="toolbar-wrapper">
+      <div class="toolbar">
+        <div class="container">
+          <ol class="breadcrumb">
+            <li><a href="<?php echo get_home_url() ?>"><?php _e('Home', 'sixodp') ?></a></li>
+            <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+          </ol>
+        </div>
+      </div>
+      <div class="toolbar--site-subtitle">
+        <h1><?php the_title(); ?></h1>
+      </div>
+    </div>
+    <div class="page-content container centered-content">
+      <form action="" method="GET" class="form-container text-center">
+        <label>
+          <input type="checkbox" value="datasets" name="types[]" <?php if ($types['datasets']) echo 'checked="checked"' ?> /> <?php _e('Datasets','sixodp') ?>
+        </label>
+        <label>
+          <input type="checkbox" value="showcases" name="types[]" <?php if ($types['showcases']) echo 'checked="checked"' ?> /> <?php _e('Applications','sixodp') ?>
+        </label>
+        <label>
+          <input type="checkbox" value="comments" name="types[]" <?php if ($types['comments']) echo 'checked="checked"' ?> /> <?php _e('Comments', 'sixodp') ?>
+        </label>
+        <label>
+          <input type="checkbox" value="posts" name="types[]" <?php if ($types['posts']) echo 'checked="checked"' ?> /> <?php _e('Posts', 'sixodp') ?>
+        </label>
+        <label>
+          <input type="checkbox" value="pages" name="types[]" <?php if ($types['pages']) echo 'checked="checked"' ?> /> <?php _e('Pages', 'sixodp') ?>
+        </label>
+        <label>
+          <input type="checkbox" value="data_requests" name="types[]" <?php if ($types['data_requests']) echo 'checked="checked"' ?> /> <?php _e('Data Requests', 'sixodp') ?>
+        </label>
+        <label>
+          <input type="checkbox" value="app_requests" name="types[]" <?php if ($types['app_requests']) echo 'checked="checked"' ?> /> <?php _e('App Requests', 'sixodp') ?>
+        </label>
+        <div class="centered-content text-center">
+          <input type="submit" value="Päivitä" class="btn btn-transparent--inverse" />
+        </div>
       </form>
-
-      <ul class="items-list">
       <?php
       $updates = get_latest_updates($types, $date, false);
+      if (sizeof($updates) == 0) { ?>
+        <h3 class="heading-sidebar text-center"><?php _e('No updates found for selected month.'); ?></h3>
+      <?php } else { ?>
+      <ul class="items-list">
 
-      if (sizeof($updates) == 0) _e('No updates found for selected week.');
-      foreach ( $updates as $index => $item ) :
+      <?php foreach ( $updates as $index => $item ) :
         if ($item['link'] === get_permalink()) continue; // Don't show self
 
         ?>
@@ -103,18 +131,17 @@ get_header(); ?>
       <?php
       endforeach; ?>
       </ul>
+      <?php } ?>
 
       <?php
-      $args = $_GET;
-      $uri = parse_url($_SERVER['REQUEST_URI']);
+        $args = $_GET;
+        $uri = parse_url($_SERVER['REQUEST_URI']);
       ?>
 
-      <div class="paginate">
-        <div class="paginate-prev">
-          <?php echo '<a href="'. $uri['path'] .'?'. http_build_query(array_merge($args, array('date' => date('Y-m-d', strtotime($date .'- 1 WEEK'))))) .'">« '.__('Previous week') .'</a>'; ?>
-        </div>
-        <div class="paginate-next">
-          <?php if ($date != date('Y-m-d', strtotime('last monday'))) echo '<a href="'. $uri['path'] .'?'. http_build_query(array_merge($args, array('date' => date('Y-m-d', strtotime($date .'+ 1 WEEK'))))) .'">'.__('Next week') .' »</a>'; ?>
+      <div class="navigation pagination">
+        <div class="nav-links">
+          <?php echo '<a href="'. $uri['path'] .'?'. http_build_query(array_merge($args, array('date' => date('Y-m-d', strtotime($date .'- 1 WEEK'))))) .'" class="next page-numbers"><span class="fa fa-chevron-left" title="Edellinen"></span></a>'; ?>
+          <?php if ($date != date('Y-m-d', strtotime('last monday'))) echo '<a href="'. $uri['path'] .'?'. http_build_query(array_merge($args, array('date' => date('Y-m-d', strtotime($date .'+ 1 WEEK'))))) .'" class="prev page-numbers"><span class="fa fa-chevron-right" title="Seuraava"></span></a>'; ?>
         </div>
       </div>
     </div>

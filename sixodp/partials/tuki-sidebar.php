@@ -4,7 +4,8 @@
   */
 ?>
 
-<div class="sidebar col-md-3 col-sm-5 col-xs-12">
+<div class="sidebar col-md-3 col-sm-12 col-xs-12">
+  <h3 class="heading-sidebar"><?php _e('Tuki', 'sixodp'); ?></h3>
   <?php
     $categories=get_categories(array(
       'parent' => $parent_category->term_id,
@@ -18,12 +19,12 @@
     $child_categories = get_categories(array('parent' => $cat->term_id, 'hide_empty' => false));
     ?>
     <ul>
-      <li class="sidebar-item--highlight">
+      <li class="sidebar-item<?php if ($cat->cat_name === $category->name) { echo '--highlight'; } ?>">
         <a href="<?php echo get_category_link($cat); ?>">
-          <?php echo $cat->cat_name; ?>
           <span class="sidebar-icon-wrapper">
-            <span class="fa fa-chevron-right"></span>
+            <span class="fa fa-long-arrow-right"></span>
           </span>
+          <?php echo $cat->cat_name; ?>
         </a>
       </li>
       <?php
@@ -44,11 +45,11 @@
     'hide_empty' => false
   ));
   ?>
-  <h2 class="module-heading"><?php _e('Themes') ?></h2>
+  <h3 class="heading-sidebar"><?php _e('Themes', 'sixodp') ?></h2>
   <ul>
   <?php
   foreach ($teemat as $teema_cat) :?>
-    <li class="sidebar-item">
+    <li class="sidebar-item<?php if ($teema_cat->name === $category->name) { echo '--highlight'; } ?>">
       <a href="<?php echo get_category_link($teema_cat); ?>">
         <?php echo $teema_cat->name; ?>
         <span class="sidebar-icon-wrapper">

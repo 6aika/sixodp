@@ -1,6 +1,7 @@
 {% block header_wrapper %}
   {% block header_account %}
-    <div class="nav-wrapper">
+    {%- set extra_classes = ' has-notification' if h.get_notifications() | length > 0 else '' -%}
+    <div class="nav-wrapper{{ extra_classes }}">
       {% for notification in h.get_notifications() %}
         <div class="notification">
             <p class="notification-content">
@@ -9,7 +10,7 @@
         </div>
       {% endfor %}
       <nav class="navbar navbar-default" id="main-navbar">
-        <div class="container-fluid">
+        <div class="container">
 
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-nav-collapse" aria-expanded="false">

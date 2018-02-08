@@ -58,30 +58,23 @@ get_header(); ?>
   <main id="main" role="main">
 
     <?php get_template_part('partials/page-hero'); ?>
-
-    <div class="page-hero-content container">
-      <div class="wrapper">
-
-        <div class="headingbar">
-          <h1 class="heading-main">
-            <?php _e('New Showcase idea', 'sixodp') ?>
-          </h1>
+    <div class="toolbar-wrapper">
+      <div class="toolbar">
+        <div class="container">
+          <ol class="breadcrumb">
+            <li><a href="<?php echo get_home_url() ?>"><?php _e('Home', 'sixodp') ?></a></li>
+            <li><a href="<?php echo home_url( $wp->request ) ?>"><?php _e('New Showcase idea', 'sixodp') ?></a></li>
+          </ol>
         </div>
-
-
+      </div>
+      <div class="toolbar--site-subtitle">
+        <h1><?php _e('New Showcase idea', 'sixodp') ?></h1>
+      </div>
+    </div>
+    <div class="page-content container">
+      <div class="wrapper">
         <div class="row">
-          <div class="sidebar col-md-3 col-sm-5 col-xs-12">
-            <ul>
-              <li class="sidebar-item--highlight">
-                <a href="<?php echo get_post_type_archive_link( 'showcase_idea' ); ?>">
-                  <?php _e('All showcase ideas', 'sixodp') ?>
-                  <span class="sidebar-icon-wrapper">
-                    <span class="fa fa-chevron-right"></span>
-                  </span>
-                </a>
-              </li>
-          </div>
-          <div class="col-md-9 col-sm-7 col-xs-12">
+          <div class="centered-content">
             <?php
 
             if ($welcome_page && sizeof($errors) == 0) {
@@ -95,7 +88,9 @@ get_header(); ?>
                 <div class="row">
                   <div class="col-xs-12">
                     <div class="control-group control-full <?php if (isset($errors['title'])) echo "error" ?>">
-                      <label class="control-label" for="showcase_idea_title"><span title="This field is required" class="control-required">*</span> <?php _e('Title', 'sixodp');?></label>
+                      <label class="control-label" for="showcase_idea_title">
+                        <?php _e('Title', 'sixodp');?> <span title="This field is required" class="control-required">*</span>  
+                      </label>
                       <div class="controls">
                         <input type="text" name="showcase_idea_title" id="showcase_idea_title" class="form-control" value="<?php echo $title; ?>" placeholder="<?php _e('eg. A descriptive title') ?>" />
                       </div>
@@ -107,7 +102,9 @@ get_header(); ?>
                 <div class="row">
                   <div class="col-xs-12">
                     <div class="control-group control-full <?php if (isset($errors['content'])) echo "error" ?>">
-                      <label class="control-label" for="showcase_idea_content"><span title="This field is required" class="control-required">*</span> <?php _e('Your idea', 'sixodp');?></label>
+                      <label class="control-label" for="showcase_idea_content">
+                        <?php _e('Your idea', 'sixodp');?> <span title="This field is required" class="control-required">*</span>  
+                      </label>
                       <div class="controls">
                         <?php
                         wp_editor($content, 'showcase_idea_content', array(
@@ -125,7 +122,9 @@ get_header(); ?>
                 <div class="row">
                   <div class="col-xs-12 col-md-8">
                     <div class="control-group control-medium <?php if (isset($errors['name'])) echo "error" ?>">
-                      <label class="control-label" for="showcase_idea_name"><span title="This field is required" class="control-required">*</span> <?php _e('Name', 'sixodp');?></label>
+                      <label class="control-label" for="showcase_idea_name">
+                        <?php _e('Name', 'sixodp');?> <span title="This field is required" class="control-required">*</span>    
+                      </label>
                       <div class="controls ">
                         <input type="text" name="showcase_idea_name" id="showcase_idea_name" class="form-control" value="<?php echo $name; ?>" />
                       </div>
@@ -140,7 +139,9 @@ get_header(); ?>
                 <div class="row">
                   <div class="col-xs-12 col-md-8">
                     <div class="control-group control-medium <?php if (isset($errors['email'])) echo "error" ?>">
-                      <label class="control-label" for="showcase_idea_email"><span title="This field is required" class="control-required">*</span> <?php _e('Email', 'sixodp');?></label>
+                      <label class="control-label" for="showcase_idea_email">
+                        <?php _e('Email', 'sixodp');?> <span title="This field is required" class="control-required">*</span>    
+                      </label>
                       <div class="controls ">
                         <input type="text" name="showcase_idea_email" id="showcase_idea_email" class="form-control" value="<?php echo $email; ?>" />
                       </div>
@@ -149,13 +150,6 @@ get_header(); ?>
                       </div>
                       <?php if (isset($errors['email'])) echo '<span class="error-block">'. $errors['email'] .'</span>'; ?>
                     </div>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-xs-12">
-                    <hr>
-                    <button type="submit" class="btn btn-primary" name="showcase_idea_submit_form"><?php _e('Submit', 'sixodp');?></button>
                   </div>
                 </div>
 
@@ -171,6 +165,13 @@ get_header(); ?>
                             ?>
                         </div>
                     </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-xs-12">
+                    <hr>
+                    <button type="submit" class="btn btn-transparent--inverse" name="showcase_idea_submit_form"><?php _e('Submit', 'sixodp');?></button>
+                  </div>
                 </div>
               </form>
               <?php

@@ -1,0 +1,35 @@
+.rating-stars-wrapper {
+  padding: 0;
+}
+
+.star-rating {
+  line-height: $line-height-base;
+  display: block;
+  font-size: $font-size-base;
+
+  .star-rating-stars {
+    display: block;
+    line-height: $line-height-base;;
+  }
+
+  .rating-star {
+    font-size: $font-size-base;
+    display: inline;
+    margin-right: $margin-small-horizontal;
+    padding: 0;
+    line-height: $line-height-base;
+    white-space: nowrap;
+
+    &.rating-star-filled {
+      color: $rating-star-color--filled;
+    }
+
+    &.rating-star-empty {
+      color: $rating-star-color--empty;
+    }
+
+    &.rating-star-hover {
+      color: $rating-star-color--hover;
+    }
+  }
+}

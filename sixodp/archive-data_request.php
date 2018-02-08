@@ -17,37 +17,49 @@ get_header(); ?>
 
     <?php get_template_part('partials/page-hero'); ?>
 
-    <div class="page-hero-content container">
-      <div class="wrapper">
-        <div class="headingbar">
-          <h1 class="heading-main"><?php _e('Data Requests', 'sixodp') ?></h1>
+    <div class="toolbar-wrapper">
+      <div class="toolbar">
+        <div class="container">
+          <ol class="breadcrumb">
+            <li><a href="<?php echo get_home_url() ?>"><?php _e('Home', 'sixodp') ?></a></li>
+            <li><a href="<?php echo home_url( $wp->request ) ?>"><?php _e('Data Requests', 'sixodp') ?></a></li>
+          </ol>
         </div>
+      </div>
+      <div class="toolbar--site-subtitle">
+        <h1><?php _e('Data Requests', 'sixodp') ?></h1>
+      </div>
+    </div>
+
+    <div class="page-content container">
+      <div class="wrapper">
 
         <div class="row">
-          <div class="sidebar col-md-3 col-sm-5 col-xs-12">
-            <ul>
-              <li class="sidebar-item--highlight">
-                <a href="<?php echo get_permalink(get_translated_page_by_title('Uusi datatoive')); ?>">
-                  <?php _e('New data request', 'sixodp') ?>
-                  <span class="sidebar-icon-wrapper">
-                    <span class="fa fa-chevron-right"></span>
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="col-md-9 col-sm-7 col-xs-12">
-            <div class="cards cards--2 cards--image">
-              <?php
-                // Start the loop.
-                while ( have_posts() ) : the_post();
-                  // Include the page content template.
-                  get_template_part('partials/archive-item');
-
-                  // End of the loop.
-                endwhile;
-              ?>
+          <?php $data_req_url = get_permalink(get_translated_page_by_title('Uusi datatoive')); ?>
+          <div class="news-content">
+            <div class="col-md-offset-2 col-sm-offset-2 col-xs-offset-2 col-md-8 col-sm-8 col-xs-8">
+              <a href="<?php echo $data_req_url; ?>" class="btn btn-transparent--inverse">
+                <?php _e('New data request', 'sixodp') ?>
+              </a>
+            </div>
+            
+            <div class="col-md-offset-2 col-sm-offset-2 col-xs-offset-2 col-md-8 col-sm-8 col-xs-8">
+              <div class="cards cards--3">
+                <?php
+                  // Start the loop.
+                  while ( have_posts() ) : the_post();
+                    $item = array(
+                      'image_url' => get_post_thumbnail_url($post),
+                      'title' => $post->post_title,
+                      'show_rating' => false,
+                      'date_updated' => $post->post_date,
+                      'notes' => $post->post_content,
+                      'url' => get_the_permalink(),
+                    );
+                    include(locate_template( 'partials/card-image.php' ));
+                  endwhile;
+                ?>
+              </div>
             </div>
           </div>
         </div>

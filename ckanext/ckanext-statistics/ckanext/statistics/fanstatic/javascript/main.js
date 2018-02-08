@@ -23,7 +23,6 @@ ckan.module('statistics', function($){
       });
 
       d3.timeFormatDefaultLocale(this.localeData.timeFormats[this.options.locale]);
-      d3.select('#js-bootstrap-offcanvas, .container').style('display', 'none');
       this.loadDataToPage()
     },
 

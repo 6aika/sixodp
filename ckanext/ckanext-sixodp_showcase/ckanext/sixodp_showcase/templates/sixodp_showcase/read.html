@@ -23,16 +23,31 @@
 
 {% block breadcrumb_content_selected %} class="active"{% endblock %}
 
-{% block breadcrumb_content %}
-  {% set showcase = pkg.title or pkg.name %}
-  <li>{{ h.nav_link(_('Showcases'), controller='ckanext.showcase.controller:ShowcaseController', action='search', highlight_actions = 'new index') }}</li>
-  <li{{ self.breadcrumb_content_selected() }}>{% link_for showcase|truncate(30), controller='ckanext.showcase.controller:ShowcaseController', action='read', id=pkg.name %}</li>
-{% endblock %}
-
 {% block page_header %}
 {% endblock %}
 
 {% block pre_primary %}
+  <div class="page-hero"></div>
+
+  {% block toolbar %}
+    <div class="toolbar">
+      <div class="container">
+        {% block breadcrumb %}
+          {% if self.breadcrumb_content() | trim %}
+            <ol class="breadcrumb">
+              {% snippet 'snippets/home_breadcrumb_item.html' %}
+              {% block breadcrumb_content %}
+                {% set showcase = pkg.title or pkg.name %}
+                <li>{{ h.nav_link(_('Showcases'), controller='ckanext.showcase.controller:ShowcaseController', action='search', highlight_actions = 'new index') }}</li>
+                <li{{ self.breadcrumb_content_selected() }}>{% link_for showcase|truncate(30), controller='ckanext.showcase.controller:ShowcaseController', action='read', id=pkg.name %}</li>
+              {% endblock %}
+            </ol>
+          {% endif %}
+        {% endblock %}
+      </div>
+    </div>
+  {% endblock %}
+
   <div class="container">
     <div class="page-heading-container">
       {% if pkg.icon_display_url %}
@@ -143,7 +158,7 @@
   {% block package_info %}
     <h2 class="module-heading">{{ _('Used datasets') }}</h2>
     {% if c.showcase_pkgs %}
-      {{ h.snippet('snippets/package_list.html', packages=c.showcase_pkgs) }}
+      {{ h.snippet('snippets/package_list.html', packages=c.showcase_pkgs, list_class='dataset-list related-datasets') }}
     {% else %}
       <p class="module-content empty">{{_('There are no Datasets in this Showcase')}}</p>
     {% endif %}

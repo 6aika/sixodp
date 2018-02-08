@@ -13,9 +13,10 @@
   }
 }
 
+// Page content wrapper, keep top padding at 0 to keep sidebar attached to toolbar
 .page-content {
   @extend %pagew;
-  padding: $base*2;
+  padding: 0 $base*2 $base*2 $base*2;
 }
 
 .page-breadcrumb {

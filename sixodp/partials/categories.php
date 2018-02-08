@@ -4,32 +4,34 @@
   */
 ?>
 
-    <div class="wrapper wrapper--categories">
-      <div class="container">
-        <div class="row">
-          <div class="categories">
-            <?php
-              foreach(get_ckan_categories() as $category) : 
-                $title     = get_translated($category, 'title');
-                $name      = $category['name'];
-                $url       = CKAN_BASE_URL.'/groups/'.$name;
-                $image_url = $category['image_display_url'];
-                $package_count = $category['package_count']; ?>
-                <div class="category__wrapper">
-                  <div class="category--box">
-                    <a href="<?php echo $url; ?>" class="category__link">
-                      <img class="category__icon" src="<?php echo $image_url; ?>">
-                      <span class="category__name"><?php echo $title; ?></span>
-                      <span class="category__count"><?php echo $package_count; ?></span>
-                    </a>
+<div class="wrapper wrapper--categories">
+  <div class="container">
+    <div class="row">
+      <div class="categories">
+        <?php
+          foreach(get_ckan_categories() as $category) : 
+            $title     = get_translated($category, 'title');
+            $name      = $category['name'];
+            $url       = CKAN_BASE_URL.'/groups/'.$name;
+            $image_url = $category['image_display_url'];
+            $package_count = $category['package_count']; ?>
+            <div class="category__wrapper">
+              <div class="category--box">
+                <a href="<?php echo $url; ?>" class="category__link">
+                  <div class="category__link-content">
+                    <span class="category__icon"><?php echo file_get_contents($image_url); ?></span>
+                    <span class="category__name"><?php echo $title; ?></span>
+                    <span class="category__count"><?php echo $package_count; ?></span>
                   </div>
-                </div><?php
-              endforeach;
-            ?>
-          </div>
-        </div>
+                </a>
+              </div>
+            </div><?php
+          endforeach;
+        ?>
       </div>
-      <?php include(locate_template('/partials/stats.php')); ?>
     </div>
-  </div> <!-- end hero__inner in categories -->
-</div> <!-- end hero in categories -->
+    <div class="row" style="text-align: center; padding: 32px 0;">
+      <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale_ckan(); ?>/dataset" class="btn btn-transparent"><?php _e('All datasets', 'sixodp');?></a>
+    </div>
+  </div>
+</div>

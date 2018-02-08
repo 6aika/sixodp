@@ -18,15 +18,28 @@ body {
 .container {
   width: 100%;
 
-  @media (min-width: $width-md) {
-    width: 960px;
+  @media(min-width: $width-lg) {
+    width: 1170px;
   }
 
-  @media (min-width: $width-lg) {
-    width: 1170px;
+  @media(min-width: $width-xl) {
+    width: 1370px;
   }
 }
 
 .content-area {
-  margin-bottom: $base*3;
+  margin-top: $navbar-height;
+}
+
+.has-notification {
+  ~ .content-area {
+    margin-top: $navbar-height + $notificationbar-height;
+  }
+}
+
+.centered-content {
+  max-width: $base*96;
+  padding: $padding-large-vertical*2;
+  width: 100%;
+  margin: 0 auto;
 }

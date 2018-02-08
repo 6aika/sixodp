@@ -1,11 +1,14 @@
-# Copyright (C) 2017
+# Copyright (C) 2018
 # This file is distributed under the same license as the  package.
+# Translators:
+# Joonas Dukpa, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sixodp\n"
-"POT-Creation-Date: 2017-12-29 07:39:41+00:00\n"
-"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2018-01-08 12:45:53+00:00\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Joonas Dukpa, 2018\n"
 "Language-Team: Swedish (https://www.transifex.com/6aika-dataportal/teams/68018/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,132 +16,141 @@ msgstr ""
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ajankohtaista.php:25 latest-updates.php:55
-#: partials/featured-datasets.php:16 partials/horizontal-accordion.php:51
-#: partials/latest-updates.php:10
-msgid "Latest updates"
-msgstr ""
-
-#: ajankohtaista.php:33
-msgid "Twitter"
-msgstr ""
-
-#: archive-data_request.php:23 latest-updates.php:62
-msgid "Data Requests"
-msgstr ""
-
-#: archive-data_request.php:31
-msgid "New data request"
-msgstr ""
-
-#: archive-showcase_idea.php:23
-msgid "Showcase ideas"
-msgstr ""
-
-#: archive-showcase_idea.php:31
-msgid "New showcase idea"
-msgstr ""
+#. #-#-#-#-#  sixodp.pot  #-#-#-#-#
+#. Template Name of the plugin/theme
+#: ajankohtaista.php:25 archive-data_request.php:24
+#: archive-showcase_idea.php:24 category-tuki.php:28 category.php:28
+#: data_request_form.php:64 latest-updates.php:57 page_with_menu.php:30
+#: roadmap.php:26 search.php:19 showcase_idea_form.php:65 tuki.php:26
+msgid "Home"
+msgstr "Framsida"
 
 #. #-#-#-#-#  sixodp.pot  #-#-#-#-#
 #. Template Name of the plugin/theme
-#: category-tuki.php:31
-msgid "Home"
+#: ajankohtaista.php:26 category.php:29 category.php:37
+msgid "Ajankohtaista"
+msgstr "Aktuellt"
+
+#: ajankohtaista.php:32 partials/featured-datasets.php:16
+#: partials/latest-updates.php:9
+msgid "Latest updates"
 msgstr ""
 
-#: category.php:92 index.php:46
+#: ajankohtaista.php:40
+msgid "Twitter"
+msgstr "Twitter"
+
+#: archive-data_request.php:25 archive-data_request.php:30
+#: latest-updates.php:84
+msgid "Data Requests"
+msgstr "Dataförfrågor"
+
+#: archive-data_request.php:45
+msgid "New data request"
+msgstr "Ny dataförfrågan"
+
+#: archive-showcase_idea.php:25 archive-showcase_idea.php:30
+msgid "Showcase ideas"
+msgstr "Applikationsidéer"
+
+#: archive-showcase_idea.php:45
+msgid "New showcase idea"
+msgstr "Publicera din applikationsidé"
+
+#: category.php:93 index.php:46
 msgid "Previous page"
-msgstr ""
+msgstr "Föregående sida"
 
-#: category.php:93 index.php:47
+#: category.php:94 index.php:47
 msgid "Next page"
-msgstr ""
+msgstr "Nästa sida"
 
 #: data_request_form.php:30 showcase_idea_form.php:30
 msgid "Content is required"
-msgstr ""
+msgstr "Detta fält måste fyllas i"
 
 #: data_request_form.php:31 showcase_idea_form.php:31
 msgid "Title is required"
-msgstr ""
+msgstr "Detta fält måste fyllas i"
 
 #: data_request_form.php:32 showcase_idea_form.php:32
 msgid "Email is required"
-msgstr ""
+msgstr "Detta fält måste fyllas i"
 
 #: data_request_form.php:33 showcase_idea_form.php:33
 msgid "Email must be valid"
-msgstr ""
+msgstr "Email måste vara giltig"
 
 #: data_request_form.php:34 showcase_idea_form.php:34
 msgid "Name is required and must be over 3 characters long"
-msgstr ""
+msgstr "Namn måste vara minst 3 tecken"
 
 #: data_request_form.php:36 showcase_idea_form.php:36
 msgid "Recaptcha must be validated"
-msgstr ""
+msgstr "Recaptcha måste valideras"
 
-#: data_request_form.php:66
+#: data_request_form.php:65 data_request_form.php:70
 msgid "New Data Request"
-msgstr ""
+msgstr "Ny dataförfrågan"
 
-#: data_request_form.php:74
-msgid "All data requests"
-msgstr ""
-
-#: data_request_form.php:85 showcase_idea_form.php:88
+#: data_request_form.php:80 showcase_idea_form.php:81
 msgid "Thank you for submission."
-msgstr ""
+msgstr "Tack för inlägget."
 
-#: data_request_form.php:90
+#: data_request_form.php:85
 msgid ""
 "Your data request will be moderated, it may be modified or combined with "
 "similar requests. Moderated request will be published on this site and will "
 "be forwarded to person responsible for the data if possible."
 msgstr ""
+"Med denna blankett kan du skicka oss din dataförfrågan. Din förfrågan "
+"utvärderas, den kan ändras och kombineras med andra liknande förfrågningar. "
+"De modifierade förfrågningarna kommer att publiceras på denna sida och "
+"vidarebefordras om möjligt till de som ansvarar för datauppgifterna."
 
-#: data_request_form.php:95 showcase_idea_form.php:98
+#: data_request_form.php:91 showcase_idea_form.php:92
 msgid "Title"
-msgstr ""
+msgstr "* Rubrik"
 
-#: data_request_form.php:97 showcase_idea_form.php:100
+#: data_request_form.php:94 showcase_idea_form.php:95
 msgid "eg. A descriptive title"
-msgstr ""
+msgstr "t.ex. en beskrivande rubrik"
 
-#: data_request_form.php:107
+#: data_request_form.php:105
 msgid "Your request"
-msgstr ""
+msgstr "* Din dataförfrågan"
 
-#: data_request_form.php:125 showcase_idea_form.php:128
+#: data_request_form.php:125 showcase_idea_form.php:126
 msgid "Name"
-msgstr ""
+msgstr "* Namn"
 
-#: data_request_form.php:130
+#: data_request_form.php:131
 msgid "Your name will not be published with data request."
-msgstr ""
+msgstr "Ditt namn kommer inte att publiceras med dataförfrågan."
 
-#: data_request_form.php:140 showcase_idea_form.php:143
+#: data_request_form.php:142 showcase_idea_form.php:143
 msgid "Email"
-msgstr ""
+msgstr "* E-postadress"
 
-#: data_request_form.php:145
+#: data_request_form.php:148
 msgid "Your email will not be published with data request."
-msgstr ""
+msgstr "Din e-postadress kommer inte att publiceras med dataförfrågan."
 
-#: data_request_form.php:155 showcase_idea_form.php:158
+#: data_request_form.php:172 showcase_idea_form.php:173
 msgid "Submit"
-msgstr ""
+msgstr "Skicka"
 
 #: footer.php:22
 msgid "Data portal"
-msgstr ""
+msgstr "Dataportalen "
 
 #: footer.php:25
 msgid "Content manangement system"
-msgstr ""
+msgstr "Innehållshanteringssystem"
 
 #: footer.php:29
 msgid "Management"
-msgstr ""
+msgstr "Underhåll"
 
 #: functions.php:45 partials/nav.php:7
 msgid "Primary Menu"
@@ -205,157 +217,146 @@ msgstr ""
 
 #: functions.php:684 partials/featured-datasets.php:23
 msgid "days"
-msgstr ""
+msgstr "dagar"
 
 #: functions.php:684 partials/featured-datasets.php:24
 msgid "hours"
-msgstr ""
+msgstr "timmar"
 
 #: functions.php:684 partials/featured-datasets.php:25
 msgid "ago"
-msgstr ""
+msgstr "sedan"
 
-#: index.php:48 partials/latest-updates.php:49
+#: index.php:48 partials/latest-updates.php:30
 msgid "Page"
-msgstr ""
+msgstr "Sidan"
 
-#: latest-updates.php:57 partials/featured-datasets.php:11
-#: partials/hero.php:21 partials/hero.php:24
-#: partials/search-content-data.php:25 partials/search-content.php:26
-#: partials/stats.php:14
+#: latest-updates.php:69 partials/featured-datasets.php:11
+#: partials/hero.php:18 partials/hero.php:21
+#: partials/search-content-data.php:23 partials/search-content-data.php:24
+#: partials/search-content.php:26 partials/stats.php:13
 msgid "Datasets"
-msgstr ""
+msgstr "Dataset"
 
-#: latest-updates.php:58 partials/hero.php:25
-#: partials/search-content-data.php:28 partials/search-content.php:29
-#: partials/stats.php:22
+#: latest-updates.php:72 partials/hero.php:22
+#: partials/search-content-data.php:28 partials/search-content-data.php:29
+#: partials/search-content.php:29 partials/stats.php:21
 msgid "Applications"
-msgstr ""
+msgstr "Applikationer"
 
-#: latest-updates.php:59
+#: latest-updates.php:75
 msgid "Comments"
-msgstr ""
+msgstr "Kommentar"
 
-#: latest-updates.php:60
+#: latest-updates.php:78
 msgid "Posts"
-msgstr ""
+msgstr "Artiklar"
 
-#: latest-updates.php:61
+#: latest-updates.php:81
 msgid "Pages"
-msgstr ""
+msgstr "Sidor"
 
-#: latest-updates.php:63
+#: latest-updates.php:87
 msgid "App Requests"
-msgstr ""
+msgstr "Applikationsidéer"
 
-#: latest-updates.php:71
-msgid "No updates found for selected week."
-msgstr ""
+#: latest-updates.php:96
+msgid "No updates found for selected month."
+msgstr "Inga uppdateringar hittades för vald månad."
 
-#: latest-updates.php:114
-msgid "Previous week"
-msgstr ""
-
-#: latest-updates.php:117
-msgid "Next week"
-msgstr ""
-
-#: partials/ajankohtaista-links.php:9 single.php:56
+#: partials/ajankohtaista-links.php:9 single.php:53
 msgid "Categories"
-msgstr ""
+msgstr "Kategorier"
 
 #: partials/article-footer.php:12 partials/content.php:18
 #: partials/page-content.php:23
 msgid "Author"
-msgstr ""
+msgstr "Författare"
 
-#: partials/card.php:16
+#: partials/card-image.php:30 partials/card.php:21
 msgid "Read more"
-msgstr ""
+msgstr "Läs mer"
 
-#: partials/featured-content.php:12
-msgid "Do you have a dataset or an application to share?"
-msgstr ""
-
-#: partials/featured-content.php:13
-msgid "Share it!"
-msgstr ""
-
-#: partials/featured-content.php:15
-msgid "Submit an application"
-msgstr ""
-
-#: partials/featured-content.php:16
-msgid "Submit a dataset"
-msgstr ""
-
-#: partials/featured-content.php:20
-msgid "Do you have a request for a dataset or an idea for application?"
-msgstr ""
-
-#: partials/featured-content.php:21
-msgid "Tell us!"
-msgstr ""
-
-#: partials/featured-content.php:23
-msgid "Share an open data idea"
-msgstr ""
-
-#: partials/featured-content.php:24
-msgid "Share an application"
-msgstr ""
-
-#: partials/featured-content.php:31
-msgid "Latest applications"
-msgstr ""
-
-#: partials/featured-content.php:52
-msgid "All applications"
-msgstr ""
-
-#: partials/featured-content.php:58
-msgid "Latest datasets"
-msgstr ""
-
-#: partials/featured-content.php:79 partials/latest-updates.php:37
-msgid "Dataset"
-msgstr ""
-
-#: partials/featured-content.php:90 partials/stats.php:35
+#: partials/categories.php:34
 msgid "All datasets"
-msgstr ""
+msgstr "All data"
 
-#: partials/featured-datasets.php:46 partials/latest-updates.php:69
+#: partials/featured-apps.php:9
+msgid "Latest applications"
+msgstr "Nyaste applikationer"
+
+#: partials/featured-apps.php:76
+msgid "Do you have a dataset or an application to share?"
+msgstr "Har du data eller en dataförfrågan?"
+
+#: partials/featured-apps.php:76
+msgid "Share it!"
+msgstr "Publicera den i vår tjäns!"
+
+#: partials/featured-apps.php:79
+msgid "Submit an application"
+msgstr "Skicka in ny applikation"
+
+#: partials/featured-apps.php:80
+msgid "Share an application"
+msgstr "Skicka in en ny applikationsidé"
+
+#: partials/featured-content.php:9
+msgid "Latest datasets"
+msgstr "Nyaste data"
+
+#: partials/featured-content.php:25 partials/featured-content.php:60
+#: partials/latest-updates.php:21
+msgid "Dataset"
+msgstr "Dataset"
+
+#: partials/featured-content.php:73
+msgid "Do you have a request for a dataset or an idea for application?"
+msgstr "Har du en färdig applikation eller  en idé om en applikation?"
+
+#: partials/featured-content.php:73
+msgid "Tell us!"
+msgstr "Berätta det för oss!"
+
+#: partials/featured-content.php:76
+msgid "Submit a dataset"
+msgstr "Skicka in ny dataset"
+
+#: partials/featured-content.php:77
+msgid "Share an open data idea"
+msgstr "Skicka in dataförfrågan"
+
+#: partials/featured-datasets.php:46 partials/latest-updates.php:57
 msgid "More updates"
-msgstr ""
+msgstr "Fler uppdateringar"
 
-#: partials/hero.php:26
-msgid "Articles"
-msgstr ""
-
-#: partials/hero.php:28
+#: partials/hero.php:24
 msgid "Other"
-msgstr ""
+msgstr "Andra"
 
-#: partials/hero.php:33 searchform.php:8
+#: partials/hero.php:27
+msgid "Keyword"
+msgstr "Tag"
+
+#: partials/hero.php:29 search.php:20 searchform.php:8
 msgid "Search"
-msgstr ""
+msgstr "Sök"
 
-#: partials/horizontal-accordion.php:48
+#: partials/horizontal-accordion.php:87
 msgid "Show all"
-msgstr ""
+msgstr "Visa allt"
 
-#: partials/latest-updates.php:41
+#: partials/latest-updates.php:24
 msgid "Showcase"
-msgstr ""
+msgstr "Applikation"
 
-#: partials/latest-updates.php:45
+#: partials/latest-updates.php:27
 msgid "Article"
-msgstr ""
+msgstr "Artikeln"
 
-#: partials/latest-updates.php:53
+#: partials/latest-updates.php:33
 msgid "Comment"
-msgstr ""
+msgstr "Komment"
 
 #: partials/more-links.php:11
 msgid "More about the subject"
@@ -365,15 +366,16 @@ msgstr ""
 msgid "Toggle navigation"
 msgstr ""
 
-#: partials/search-content-data.php:22 partials/search-content.php:23
+#: partials/search-content-data.php:20 partials/search-content.php:23
 msgid "Results in groups"
 msgstr ""
 
-#: partials/search-content-data.php:31 partials/search-content.php:32
+#: partials/search-content-data.php:33 partials/search-content-data.php:34
+#: partials/search-content.php:32
 msgid "Others"
 msgstr ""
 
-#: partials/search-content-data.php:46 partials/search-content.php:37
+#: partials/search-content-data.php:50 partials/search-content.php:37
 msgid "Found %d result"
 msgid_plural "Found %d results"
 msgstr[0] ""
@@ -381,87 +383,92 @@ msgstr[1] ""
 
 #: partials/social_links.php:4
 msgid "Follow us"
-msgstr ""
+msgstr "Följa oss"
 
-#: partials/stats.php:30
+#: partials/stats.php:29
 msgid "Interfaces"
-msgstr ""
+msgstr "APIs"
 
 #: partials/tuki-contactbanner.php:16
 msgid "Any questions?"
-msgstr ""
+msgstr "Några frågor?"
 
 #: partials/tuki-contactbanner.php:18
 msgid "Contact us"
-msgstr ""
+msgstr "Kontakta oss"
 
-#: partials/tuki-sidebar.php:47 tuki.php:34
+#. #-#-#-#-#  sixodp.pot  #-#-#-#-#
+#. Template Name of the plugin/theme
+#: partials/tuki-sidebar.php:8
+msgid "Tuki"
+msgstr "Stöd"
+
+#: partials/tuki-sidebar.php:48 tuki.php:44
 msgid "Themes"
-msgstr ""
+msgstr "Teman"
 
-#: search.php:16
+#: search.php:25
 msgid "Search from site"
-msgstr ""
+msgstr "Sök från webbsidan"
 
 #: searchform.php:4
 msgctxt "placeholder"
-msgid "Search …"
-msgstr ""
+msgid "Search…"
+msgstr "Sök"
 
 #: searchform.php:6
 msgctxt "label"
-msgid "Search for:"
-msgstr ""
+msgid "Search for"
+msgstr "Söka efter"
 
-#: showcase_idea_form.php:67
+#: showcase_idea_form.php:66 showcase_idea_form.php:71
 msgid "New Showcase idea"
-msgstr ""
+msgstr "Publicera din applikationsidé"
 
-#: showcase_idea_form.php:77
-msgid "All showcase ideas"
-msgstr ""
-
-#: showcase_idea_form.php:93
+#: showcase_idea_form.php:86
 msgid ""
 "Your showcase idea will be moderated, it may be modified or combined with "
 "similar ideas. Moderated ideas will be published on this site."
 msgstr ""
+"Din applikationsidé utvärderas, den kan ändras och kombineras med andra "
+"liknande applikationsidéer. De modifierade applikationsidéer kommer att "
+"publiceras på denna sida."
 
-#: showcase_idea_form.php:110
+#: showcase_idea_form.php:106
 msgid "Your idea"
-msgstr ""
+msgstr "* Din applikationsidé"
 
-#: showcase_idea_form.php:133
+#: showcase_idea_form.php:132
 msgid "Your name will not be published with showcase idea."
-msgstr ""
+msgstr "Ditt namn kommer inte att publiceras med applikationsidé."
 
-#: showcase_idea_form.php:148
+#: showcase_idea_form.php:149
 msgid "Your email will not be published with showcase idea."
-msgstr ""
+msgstr "Ditt e-postadress kommer inte att publiceras med applikationsidé."
 
 #: single.php:39
 msgid "Data Request"
-msgstr ""
+msgstr "Dataförfrågan"
 
 #: single.php:40
 msgid "Showcase Idea"
-msgstr ""
+msgstr "Applikationsidé"
 
-#: single.php:85
+#: single.php:78
 msgid "Tags"
-msgstr ""
+msgstr "Taggar"
 
 #: tag.php:20
 msgid "Content with tag"
-msgstr ""
+msgstr "Innehåll med tagg"
 
 #: tag.php:39
 msgid "Popular tags"
-msgstr ""
+msgstr "Populära taggar"
 
-#. Template Name of the plugin/theme
-msgid "Ajankohtaista"
-msgstr ""
+#: tuki.php:27 tuki.php:32
+msgid "Support"
+msgstr "Stöd"
 
 #. Template Name of the plugin/theme
 msgid "Datatoive-lomake"
@@ -481,10 +488,6 @@ msgstr ""
 
 #. Template Name of the plugin/theme
 msgid "Sovellusidea-lomake"
-msgstr ""
-
-#. Template Name of the plugin/theme
-msgid "Tuki"
 msgstr ""
 
 #. Template Name of the plugin/theme

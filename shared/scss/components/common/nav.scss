@@ -4,6 +4,7 @@
   right: 0;
   left: 0;
   z-index: $zindex-navbar-fixed;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
 .navbar {
@@ -93,6 +94,7 @@
   }
 
   .navbar-search-btn {
+    font-size: $font-size-base;
     float: left;
   }
 

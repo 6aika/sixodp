@@ -1,23 +1,20 @@
 .stats {
-  display: none;
-  margin-top: $base*2;
-  padding-bottom: $base*6;
+  display: flex;
+  justify-content: space-around;
+  margin: $base*4 auto $base*6 auto;
   color: $stats-text-color;
 
   @media (min-width: $width-sm) {
-    display: flex;
+    max-width: 600px;
   }
   .stat__link {
     color: $stats-text-color;;
-    height: 70px;
   }
 }
 
 
 .stat__wrapper {
   text-align: center;
-  height: 70px;
-  line-height: 70px;
   border-left: 1px solid $stats-text-color;
 
   @media (min-width: $width-md) {
@@ -41,18 +38,25 @@
 .stat {
   display: inline-block;
   text-align: center;
-  padding-left: $base*2;
-  padding-right: $base*2;
 
   & > div {
-    display: inline-block;
-    vertical-align: middle;
-    padding-left: $base;
-    padding-right: $base;
+    display: block;
+
+    &.stat__value {
+      display: inline-block;
+      padding: $base/5 $base*2;
+    }
   }
 }
 
 .stat__value {
   font-family: $font-heading;
-  font-size: 5rem;
+  font-size: 2.5rem;
+  background: rgba(0,0,0,0.5);
+  border-radius: 3px;
+}
+
+.stat__description {
+  margin-top: $base;
+  font-size: 13px;
 }

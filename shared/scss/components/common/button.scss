@@ -1,8 +1,26 @@
+@mixin btn-colors($background, $text, $border) {
+  background: $background;
+  color: $text;
+  border-color: $border;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: lighten($background, 10%);
+    color: lighten($text, 10%);
+    border-color: lighten($border, 10%);
+  }
+}
+
 .btn {
   @extend %button;
-  padding: $padding-base-vertical $padding-base-horizontal*2;
-  font-size: $font-size-base;
-  line-height: $line-height-base;
+  padding: $btn-padding-large;
+  font-size: $font-size-small;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-xs;
+  font-weight: 600;
+  border-width: 1px;
+  border-style: solid;
 
   &:hover {
     color: $brand-black;
@@ -14,31 +32,87 @@
     margin-right: 0;
     font-weight: bold;
   }
-}
 
-.btn-primary {
-  background-color: $btn-primary-bg;
-
-  &:hover, &:focus, &:active {
-    background-color: $brand-primary-light;
-    color: $btn-primary-color;
+  .fa {
+    line-height: $line-height-base;
   }
 }
 
+.btn-primary {
+  @include btn-colors($btn-primary-bg, $btn-primary-color, $btn-primary-bg);
+}
+
 .btn-secondary {
-  background-color: $btn-main-bg;
-  color: $btn-main-color;
+  @include btn-colors($btn-main-bg, $btn-main-color, $btn-main-bg);
+}
+
+.btn-transparent {
+  @include btn-colors(transparent, $brand-white, $brand-lightgray);
+}
+
+.btn-transparent--inverse {
+  @include btn-colors(transparent, $brand-primary, $brand-primary);
+}
+
+.btn-danger--inverse {
+  @include btn-colors(transparent, $brand-danger, $brand-danger);
+}
+
+.btn-app {
+  @include btn-colors($brand-app, $brand-white, $brand-app);
+}
+
+.btn-app--inverse {
+  @include btn-colors(transparent, $brand-app, $brand-app);
+}
+
+.btn-dataset {
+  @include btn-colors($brand-dataset, $brand-white, $brand-dataset);
+}
+
+.btn-dataset--inverse {
+  @include btn-colors(transparent, $brand-dataset, $brand-dataset);
+}
+
+.btn-latest {
+  @include btn-colors($gray-light, $brand-white, $gray-light);
+}
+
+.btn-latest--inverse {
+  @include btn-colors(transparent, $gray, $gray);
+}
+
+.btn-secondary--search {
+  @extend .btn-secondary;
+  color: $btn-main-bg;
+  background-color: $btn-main-color;
+  border-radius-top-left: none;
+  border-radius-bottom-left: none;
+  padding: $padding-base-horizontal $padding-base-vertical;
 
   &:hover, &:focus, &:active {
-    background-color: $btn-main-active-bg;
-    color: $btn-main-active-color;
+    color: $btn-main-bg;
+    background-color: $btn-main-color;
+    outline: 0;
+    box-shadow: none;
+    border: none;
+  }
+
+  &:focus {
+    &:active {
+      outline: 0;
+    }
+  }
+
+  &:hover {
+    background-color: $gray-lighter;
   }
 }
 
 .btn-lg {
   padding-left: $base*2;
   padding-right: $base*2;
-  font-size: $font-size-large
+  font-size: $font-size-small;
 }
 
 .btn-wrapper--right {
@@ -49,48 +123,17 @@
   }
 }
 
-.btn-transparent {
-  background: transparent;
-  border: 1px solid white;
-  color: $brand-white;
-
-  &:hover, &:focus, &:active {
-    background: transparent;
-    color: $brand-lightgray;
-    border-color: $brand-lightgray;
-  }
-}
-
-.btn-transparent--inverse {
-  background: transparent;
-  border: 1px solid $brand-primary;
-  color: $brand-primary;
-
-  &:hover, &:focus, &:active {
-    background: transparent;
-    color: $brand-primary-light;
-    border-color: $brand-primary-light;
-  }
-}
-
 .btn--sovellukset {
   position: relative;
   z-index: 1;
 }
 
-.btn--ajankohtaista, .btn--show-all {
-  margin-top: $base*2;
-}
-
-.btn--request-show-all {
-  margin-bottom: $base;
-}
-
-.page-template-ajankohtaista .btn--ajankohtaista {
-  display: none;
-}
-
 .btn-list-item {
   padding-left: $padding-large-horizontal;
   padding-right: $padding-large-horizontal;
+}
+
+.btn-container {
+  margin-top: $base*2.5;
+  text-align: center;
 }

@@ -1,8 +1,9 @@
 .wrapper--morelinks {
   clear: both;
   background: $gray-lighter;
-  padding: $base*4 0 $base*6;
-  margin-top: $base;
+  padding: $base*4 $base*2 $base*6;
+  flex-wrap: wrap;
+  display: flex;
 
   &:after {
     content: "";
@@ -13,6 +14,10 @@
 
 .morelink {
   padding: $base*2 0 0;
-  width: 50%;
-  float: left;
+  width: 100%;
+  max-width: 240px;
+
+  @media (min-width: 660px) {
+    width: 48%;
+  }
 }

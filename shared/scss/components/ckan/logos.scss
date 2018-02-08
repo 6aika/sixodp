@@ -1,10 +1,15 @@
+$relative-logo-position: 3/6;
+
 .logos {
-  margin-top: $content-padding-top;
+  top: $page-hero-height * $relative-logo-position;
   padding: 0 $base;
   z-index: 1;
+  position: absolute;
+  text-align: center;
+  width: 100%;
 
   @media(min-width: $grid-float-breakpoint) {
-    margin-top: $content-padding-top-desktop;
+    padding: 0;
   }
 
   &:after {
@@ -14,28 +19,31 @@
   }
 
   img {
-    width: 100%;
+    width: 200px;
     height: auto;
-  }
-
-  @media (min-width: $width-md) {
-    padding: 0 $base*3.5;
   }
 }
 
 .logo--brand {
-  width: $base*10;
-  float: left;
+  width: 100%;
+  text-align: left;
+  display: block;
 
-  @media (min-width: $width-sm) {
-    width: $base*20;
+  @media(min-width: $grid-float-breakpoint) {
+    text-align: center;
   }
 }
 
 .logos--eu {
-  float: right;
-  height: $base*12;
-  text-align: center;
+  height: auto;
+  width: auto;
+  position: absolute;
+  display: block;
+  text-align: right;
+  right: 0;
+  top: 0;
+  background: $body-bg;
+  padding: $padding-large-vertical $padding-large-horizontal;
 
   .logo--erdf, .logo--eu {
     width: auto;
@@ -47,7 +55,7 @@
       height: $base*4;
     }
 
-    @media(min-width: $width-sm) {
+    @media(min-width: $grid-float-breakpoint) {
       height: $base*6;
 
       img {
@@ -57,14 +65,8 @@
   }
 }
 
-.notification {
-  ~ #primary .logos,
-  ~ #main .logos,
+.has-notification {
   ~ .logos {
-    margin-top: $content-padding-top + $notificationbar-height;
-
-    @media(min-width: $grid-float-breakpoint) {
-      margin-top: $content-padding-top-desktop + $notificationbar-height;
-    }
+    top: $page-hero-height * $relative-logo-position + $notificationbar-height;
   }
 }

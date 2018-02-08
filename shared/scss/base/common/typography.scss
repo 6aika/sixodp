@@ -27,10 +27,23 @@ a {
   font-size: $font-size-large;
   font-weight: $headings-font-weight;
   font-family: $font-heading;
+  letter-spacing: $letter-spacing;
+}
+
+@mixin heading-sidebar() {
+  font-size: $font-size-small;
+  font-weight: $headings-font-weight;
+  font-family: $font-heading;
+  letter-spacing: $letter-spacing-xs;
+  text-transform: uppercase;
 }
 
 .heading {
   @include heading;
+}
+
+.heading-sidebar {
+  @include heading-sidebar;
 }
 
 .heading-main {
@@ -41,6 +54,14 @@ a {
 .heading-content {
   @extend .heading-main;
   margin-top: 0;
+}
+
+.heading-page {
+  @include heading();
+  font-size: 2.8rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: $gray-light;
 }
 
 .heading--inverse {
@@ -83,4 +104,11 @@ a {
 
 .heading--archive {
   @extend .heading-main;
+}
+
+.heading--small {
+  color: $gray !important;
+  letter-spacing: 1px;
+  text-transform: none;
+  font-weight: 500;
 }

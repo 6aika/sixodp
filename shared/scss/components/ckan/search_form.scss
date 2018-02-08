@@ -1,16 +1,15 @@
+$relative-search-form-position: 4/6;
+
 .search-form-container {
   width: 100%;
-  border-style: solid;
-  border-width: 0 0 1px 0;
-  border-color: $table-border-color;
-  margin-bottom: $margin-large-vertical*2;
+  position: absolute;
+  top: $page-hero-height * $relative-search-form-position;
 
-  &-borderless {
-    border: none;
+  @media(min-width: $grid-float-breakpoint) {
+    top: $page-hero-height-desktop * $relative-search-form-position;
   }
 
   .search-form {
-    padding-bottom: $padding-large-vertical*4;
     margin: auto;
     width: 100%;
 
@@ -24,5 +23,6 @@
   h1, h2, h3, h4, h5, h6 {
     line-height: $input-height-base;
     vertical-align: middle;
+    text-transform: uppercase;
   }
 }

@@ -25,6 +25,7 @@ h3, h4, h5, h6, .module-heading {
 
 .page-heading-container {
   min-height: 96px;
+  padding: $padding-large-vertical 10px;
 
   .heading-icon {
     display: inline-block;
@@ -79,16 +80,16 @@ h3, h4, h5, h6, .module-heading {
 .secondary-heading-container {
   text-align: center;
 
+  .secondary-heading {
+    font-size: $font-size-base;
+  }
+
   a {
     &:hover,
     &:focus {
       text-decoration: none;
       color: $link-color;
     }
-  }
-
-  .rating-star {
-    color: $rating-stars-color;
   }
 
   .heading-icon {

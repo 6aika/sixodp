@@ -1,7 +1,8 @@
 .headingbar {
-  border-bottom: 1px solid $card-border-color;
+  border-bottom: 1px solid $brand-lightgray;
   margin-bottom: $base*2;
   padding-bottom: $breadcrumb-padding-vertical;
+  background-color: #eee;
 
   .heading-main {
     margin: 0;

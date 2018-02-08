@@ -27,6 +27,9 @@
 @import "components/common/headingbar";
 @import "components/common/dropdown-modal";
 @import "components/common/breadcrumb";
+@import "components/common/card";
+@import "components/common/page-highlight";
+@import "components/common/carousel";
 
 @import "components/ckan/icons";
 @import "components/ckan/layout";
@@ -63,10 +66,11 @@
 @import "components/ckan/statistics";
 @import "components/ckan/headings";
 @import "components/ckan/datepicker";
-@import "components/ckan/star-rating";
+@import "components/ckan/rating";
 @import "components/ckan/pagination";
 @import "components/ckan/datapreview";
 @import "components/ckan/nav-tabs";
 @import "components/ckan/image-upload";
 @import "components/ckan/modal";
 @import "components/ckan/logos";
+@import "components/ckan/report";

@@ -3,21 +3,35 @@
 
 {% block subtitle %}{{ _("Showcases") }}{% endblock %}
 
-{% block breadcrumb_content %}
-  <li class="active">{{ h.nav_link(_('Showcases'), controller='ckanext.showcase.controller:ShowcaseController', action='search', highlight_actions = 'new index') }}</li>
-{% endblock %}
-
 {% block pre_primary %}
+  <div class="page-hero"></div>
   <div class="search-form-container search-form-container-borderless row">
     <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12">
       {{ h.snippet('snippets/search_input.html', query=c.q, placeholder=_('Search showcases...'), query_params=c.fields_grouped, sorting=c.sort_by_selected) }}
     </div>
   </div>
 
+  {% block toolbar %}
+    <div class="toolbar">
+      <div class="container">
+        {% block breadcrumb %}
+          {% if self.breadcrumb_content() | trim %}
+            <ol class="breadcrumb">
+              {% snippet 'snippets/home_breadcrumb_item.html' %}
+              {% block breadcrumb_content %}
+                <li class="active">{{ h.nav_link(_('Showcases'), controller='ckanext.showcase.controller:ShowcaseController', action='search', highlight_actions = 'new index') }}</li>
+              {% endblock %}
+            </ol>
+          {% endif %}
+        {% endblock %}
+      </div>
+    </div>
+  {% endblock %}
+
   {% set featured_showcases = h.get_featured_showcases() %}
   {% if featured_showcases %}
     <div class="page-highlight">
-      {{ h.snippet('snippets/horizontal_accordion.html', items=featured_showcases, image_identifier="featured_image_display_url", meta_identifier="category", controller='ckanext.sixodp_showcase.controller:Sixodp_ShowcaseController') }}
+      {{ h.snippet('snippets/page_highlight.html', items=featured_showcases, image_identifier="featured_image_display_url", meta_identifier="category", controller='ckanext.sixodp_showcase.controller:Sixodp_ShowcaseController') }}
     </div>
   {% endif %}
 {% endblock %}

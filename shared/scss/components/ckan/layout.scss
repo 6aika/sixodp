@@ -16,15 +16,6 @@
 
 .primary {
   float: right;
-  width: 100%;
-
-  @media (min-width: $width-md) {
-    width: $base*62;
-  }
-
-  @media (min-width: $width-lg) {
-    width: $base*84;
-  }
 }
 
 .primary-content {
@@ -35,8 +26,6 @@
   position: relative;
   z-index: 1;
   float: left;
-  max-width: 0;
-  width: 100%;
   overflow: auto;
   max-height: 0;
 
@@ -44,12 +33,7 @@
     overflow: hidden;
   }
 
-  @media (max-width: ($width-md)-1 ) {
-    width: $base*25;
-  }
-
   @media (min-width: $width-md) {
-    max-width: $base*30;
     max-height: none;
     max-height: initial;
   }

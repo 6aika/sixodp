@@ -8,8 +8,17 @@ body.category {
   padding: 0;
 }
 
+.wrapper--featured {
+  @extend .wrapper;
+  padding: $padding-large-vertical*4 0;
+
+  &:nth-child(odd) {
+    background-color: $featured-bg;
+  }
+}
+
 .container--heading {
-  margin-top: $base*3;
+  margin-bottom: $base*3;
 }
 
 .alignright {

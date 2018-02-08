@@ -2,25 +2,42 @@
 
 {% block pre_primary %}
   <div class="page-hero"></div>
-  <div class="page-hero-content container">
-    <div class="wrapper">
+
+  {% block toolbar %}
+    <div class="toolbar">
+      <div class="container">
+        {% block breadcrumb %}
+          {% if self.breadcrumb_content() | trim %}
+            <ol class="breadcrumb">
+              {% snippet 'snippets/home_breadcrumb_item.html' %}
+              {% block breadcrumb_content %}{% endblock %}
+            </ol>
+          {% endif %}
+        {% endblock %}
+      </div>
+    </div>
+    <div class="toolbar--site-subtitle">
+      <h1>{% block subtitle %}{{ _('Submit a showcase') }}{% endblock %}</h1>
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 col-xs-12">
+          <p class="text-center">
+            {% trans %}
+              By filling this form you can submit your open-data showcase to be published on this website.
+              Fill in at least the desired title of your showcase and leave your contact information.
+              The site adminstrator will contact you for further information after a few days.
+            {% endtrans %}
+          </p>
+        </div>
+      </div>
+    </div>
+  {% endblock %}
+
+  <div class="container">
+    <div class="module-content main-content">
       {% block pre_primary_content %}
 
-        <div class="headingbar">
-          <h1 class="heading-main">{{ _('Submit a showcase') }}</h1>
-        </div>
-
         <div class="row">
-          <div class="sidebar col-sm-3"></div>
-
-          <div class="col-xs-12 col-sm-9">
-            <p>
-              {% trans %}
-                By filling this form you can submit your open-data showcase to be published on this website.
-                Fill in at least the desired title of your showcase and leave your contact information.
-                The site adminstrator will contact you for further information after a few days.
-              {% endtrans %}
-            </p>
+          <div class="col-sm-8 col-sm-offset-2 col-xs-12">
             {%- snippet 'sixodp_showcasesubmit/snippets/new_package_form.html', c=c, data=data, errors=errors, error_summary=error_summary, message=message -%}
           </div>
         </div>
@@ -30,7 +47,6 @@
   </div>
 {% endblock %}
 
-{% block breadcrumb %}{% endblock %}
 {% block offcanvas_button %}{% endblock %}
 {% block primary %}{% endblock %}
 {% block secondary %}{% endblock %}

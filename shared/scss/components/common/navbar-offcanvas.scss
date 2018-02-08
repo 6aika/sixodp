@@ -12,32 +12,6 @@
     max-width: initial !important;
   }
 
-  .nav-facet {
-    li.nav-item {
-      border: none;
-      margin: 0;
-      padding: 0;
-
-      &.active {
-        a {
-          background-color: $navbar-offcanvas-link-background-color-active;
-          color: $navbar-offcanvas-link-color-active;
-        }
-      }
-
-      a {
-        font-size: $font-size*0.9;
-        width: 100%;
-        margin: 0;
-
-        &:hover {
-          background-color: $navbar-offcanvas-link-background-color-hover;
-          color: $navbar-offcanvas-link-color-hover;
-        }
-      }
-    }
-  }
-
   .nav-simple {
     li.nav-item {
       margin: 0;
@@ -63,7 +37,6 @@
       }
     }
   }
-
 }
 
 @media (max-width: $width-md - 1) {
@@ -244,7 +217,7 @@
   }
 }
 
-.notification  {
+.has-notification  {
   ~ #main .navbar-offcanvas {
     padding-top: $navbar-height + $notificationbar-height;
 

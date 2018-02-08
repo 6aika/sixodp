@@ -17,7 +17,7 @@ get_header(); ?>
 		
 		<?php get_template_part('partials/page-hero'); ?>
 
-		<div class="page-content page-hero-content container">
+		<div class="page-content container">
 			<?php
 			// Start the loop.
 			while ( have_posts() ) : the_post();

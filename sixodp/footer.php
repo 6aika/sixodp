@@ -14,7 +14,7 @@
 
 		<footer id="colophon" class="site-footer bgcolor-primary" role="contentinfo">
 			<div class="container">
-				<div class="row">
+				<div class="row footer-row">
 					<div class="col-md-4 pull-right text-right footer-column">
 						<div class="popper">
 							<ul class="popper__list">
@@ -29,7 +29,7 @@
 						<button type="button" class="btn btn-transparent" data-trigger="popper"><?php _e('Management', 'sixodp');?></button>
 					</div>
 				</div>
-				<div class="row">
+				<div class="row footer-row">
 					<div class="col-md-2 footer-column">
 						<div class="footer-logo-wrapper">
 							<img class="footer-logo" src="<?php echo assets_url(); ?>/images/footer_logo.png" alt="6Aika logo">
@@ -51,8 +51,9 @@
 					</div>
 				</div>
 
-				<hr />
-				<div class="row">
+        <hr>
+
+				<div class="row footer-row">
 			    <div class="col-md-12 footer-section footer-section--links">
 						<ul class="footer-links">
 							<?php
@@ -67,16 +68,6 @@
 						</ul>
 			    </div>
 			  </div>
-				<hr />
-        <div class="copyrights">
-          © 6Aika
-        </div>
-        <?php
-        if( current_user_can( 'manage_options' ) ) {
-          // Print active template for debug reasons when signed in as content manager
-          echo '<hr>Active template: ' . get_page_template();
-        }
-        ?>
 			</div>
 		</footer><!-- .site-footer -->
 	</div><!-- .site-inner -->

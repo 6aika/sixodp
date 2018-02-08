@@ -1,53 +1,63 @@
-# Copyright (C) 2017 
+# Copyright (C) 2018 
 # This file is distributed under the same license as the  package.
 msgid ""
 msgstr ""
 "Project-Id-Version:  \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sixodp\n"
-"POT-Creation-Date: 2017-12-29 07:39:41+00:00\n"
+"POT-Creation-Date: 2018-01-08 12:45:53+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: ajankohtaista.php:25 latest-updates.php:55 partials/featured-datasets.php:16
-#: partials/horizontal-accordion.php:51 partials/latest-updates.php:10
-msgid "Latest updates"
-msgstr ""
-
-#: ajankohtaista.php:33
-msgid "Twitter"
-msgstr ""
-
-#: archive-data_request.php:23 latest-updates.php:62
-msgid "Data Requests"
-msgstr ""
-
-#: archive-data_request.php:31
-msgid "New data request"
-msgstr ""
-
-#: archive-showcase_idea.php:23
-msgid "Showcase ideas"
-msgstr ""
-
-#: archive-showcase_idea.php:31
-msgid "New showcase idea"
+#. #-#-#-#-#  sixodp.pot  #-#-#-#-#
+#. Template Name of the plugin/theme
+#: ajankohtaista.php:25 archive-data_request.php:24
+#: archive-showcase_idea.php:24 category-tuki.php:28 category.php:28
+#: data_request_form.php:64 latest-updates.php:57 page_with_menu.php:30
+#: roadmap.php:26 search.php:19 showcase_idea_form.php:65 tuki.php:26
+msgid "Home"
 msgstr ""
 
 #. #-#-#-#-#  sixodp.pot  #-#-#-#-#
 #. Template Name of the plugin/theme
-#: category-tuki.php:31
-msgid "Home"
+#: ajankohtaista.php:26 category.php:29 category.php:37
+msgid "Ajankohtaista"
 msgstr ""
 
-#: category.php:92 index.php:46
+#: ajankohtaista.php:32 partials/featured-datasets.php:16
+#: partials/latest-updates.php:9
+msgid "Latest updates"
+msgstr ""
+
+#: ajankohtaista.php:40
+msgid "Twitter"
+msgstr ""
+
+#: archive-data_request.php:25 archive-data_request.php:30
+#: latest-updates.php:84
+msgid "Data Requests"
+msgstr ""
+
+#: archive-data_request.php:45
+msgid "New data request"
+msgstr ""
+
+#: archive-showcase_idea.php:25 archive-showcase_idea.php:30
+msgid "Showcase ideas"
+msgstr ""
+
+#: archive-showcase_idea.php:45
+msgid "New showcase idea"
+msgstr ""
+
+#: category.php:93 index.php:46
 msgid "Previous page"
 msgstr ""
 
-#: category.php:93 index.php:47
+#: category.php:94 index.php:47
 msgid "Next page"
 msgstr ""
 
@@ -75,54 +85,50 @@ msgstr ""
 msgid "Recaptcha must be validated"
 msgstr ""
 
-#: data_request_form.php:66
+#: data_request_form.php:65 data_request_form.php:70
 msgid "New Data Request"
 msgstr ""
 
-#: data_request_form.php:74
-msgid "All data requests"
-msgstr ""
-
-#: data_request_form.php:85 showcase_idea_form.php:88
+#: data_request_form.php:80 showcase_idea_form.php:81
 msgid "Thank you for submission."
 msgstr ""
 
-#: data_request_form.php:90
+#: data_request_form.php:85
 msgid ""
 "Your data request will be moderated, it may be modified or combined with "
 "similar requests. Moderated request will be published on this site and will "
 "be forwarded to person responsible for the data if possible."
 msgstr ""
 
-#: data_request_form.php:95 showcase_idea_form.php:98
+#: data_request_form.php:91 showcase_idea_form.php:92
 msgid "Title"
 msgstr ""
 
-#: data_request_form.php:97 showcase_idea_form.php:100
+#: data_request_form.php:94 showcase_idea_form.php:95
 msgid "eg. A descriptive title"
 msgstr ""
 
-#: data_request_form.php:107
+#: data_request_form.php:105
 msgid "Your request"
 msgstr ""
 
-#: data_request_form.php:125 showcase_idea_form.php:128
+#: data_request_form.php:125 showcase_idea_form.php:126
 msgid "Name"
 msgstr ""
 
-#: data_request_form.php:130
+#: data_request_form.php:131
 msgid "Your name will not be published with data request."
 msgstr ""
 
-#: data_request_form.php:140 showcase_idea_form.php:143
+#: data_request_form.php:142 showcase_idea_form.php:143
 msgid "Email"
 msgstr ""
 
-#: data_request_form.php:145
+#: data_request_form.php:148
 msgid "Your email will not be published with data request."
 msgstr ""
 
-#: data_request_form.php:155 showcase_idea_form.php:158
+#: data_request_form.php:172 showcase_idea_form.php:173
 msgid "Submit"
 msgstr ""
 
@@ -213,51 +219,44 @@ msgstr ""
 msgid "ago"
 msgstr ""
 
-#: index.php:48 partials/latest-updates.php:49
+#: index.php:48 partials/latest-updates.php:30
 msgid "Page"
 msgstr ""
 
-#: latest-updates.php:57 partials/featured-datasets.php:11 partials/hero.php:21
-#: partials/hero.php:24 partials/search-content-data.php:25
-#: partials/search-content.php:26 partials/stats.php:14
+#: latest-updates.php:69 partials/featured-datasets.php:11 partials/hero.php:18
+#: partials/hero.php:21 partials/search-content-data.php:23
+#: partials/search-content-data.php:24 partials/search-content.php:26
+#: partials/stats.php:13
 msgid "Datasets"
 msgstr ""
 
-#: latest-updates.php:58 partials/hero.php:25
-#: partials/search-content-data.php:28 partials/search-content.php:29
-#: partials/stats.php:22
+#: latest-updates.php:72 partials/hero.php:22
+#: partials/search-content-data.php:28 partials/search-content-data.php:29
+#: partials/search-content.php:29 partials/stats.php:21
 msgid "Applications"
 msgstr ""
 
-#: latest-updates.php:59
+#: latest-updates.php:75
 msgid "Comments"
 msgstr ""
 
-#: latest-updates.php:60
+#: latest-updates.php:78
 msgid "Posts"
 msgstr ""
 
-#: latest-updates.php:61
+#: latest-updates.php:81
 msgid "Pages"
 msgstr ""
 
-#: latest-updates.php:63
+#: latest-updates.php:87
 msgid "App Requests"
 msgstr ""
 
-#: latest-updates.php:71
-msgid "No updates found for selected week."
+#: latest-updates.php:96
+msgid "No updates found for selected month."
 msgstr ""
 
-#: latest-updates.php:114
-msgid "Previous week"
-msgstr ""
-
-#: latest-updates.php:117
-msgid "Next week"
-msgstr ""
-
-#: partials/ajankohtaista-links.php:9 single.php:56
+#: partials/ajankohtaista-links.php:9 single.php:53
 msgid "Categories"
 msgstr ""
 
@@ -266,91 +265,88 @@ msgstr ""
 msgid "Author"
 msgstr ""
 
-#: partials/card.php:16
+#: partials/card-image.php:30 partials/card.php:21
 msgid "Read more"
 msgstr ""
 
-#: partials/featured-content.php:12
-msgid "Do you have a dataset or an application to share?"
-msgstr ""
-
-#: partials/featured-content.php:13
-msgid "Share it!"
-msgstr ""
-
-#: partials/featured-content.php:15
-msgid "Submit an application"
-msgstr ""
-
-#: partials/featured-content.php:16
-msgid "Submit a dataset"
-msgstr ""
-
-#: partials/featured-content.php:20
-msgid "Do you have a request for a dataset or an idea for application?"
-msgstr ""
-
-#: partials/featured-content.php:21
-msgid "Tell us!"
-msgstr ""
-
-#: partials/featured-content.php:23
-msgid "Share an open data idea"
-msgstr ""
-
-#: partials/featured-content.php:24
-msgid "Share an application"
-msgstr ""
-
-#: partials/featured-content.php:31
-msgid "Latest applications"
-msgstr ""
-
-#: partials/featured-content.php:52
-msgid "All applications"
-msgstr ""
-
-#: partials/featured-content.php:58
-msgid "Latest datasets"
-msgstr ""
-
-#: partials/featured-content.php:79 partials/latest-updates.php:37
-msgid "Dataset"
-msgstr ""
-
-#: partials/featured-content.php:90 partials/stats.php:35
+#: partials/categories.php:34
 msgid "All datasets"
 msgstr ""
 
-#: partials/featured-datasets.php:46 partials/latest-updates.php:69
+#: partials/featured-apps.php:9
+msgid "Latest applications"
+msgstr ""
+
+#: partials/featured-apps.php:76
+msgid "Do you have a dataset or an application to share?"
+msgstr ""
+
+#: partials/featured-apps.php:76
+msgid "Share it!"
+msgstr ""
+
+#: partials/featured-apps.php:79
+msgid "Submit an application"
+msgstr ""
+
+#: partials/featured-apps.php:80
+msgid "Share an application"
+msgstr ""
+
+#: partials/featured-content.php:9
+msgid "Latest datasets"
+msgstr ""
+
+#: partials/featured-content.php:25 partials/featured-content.php:60
+#: partials/latest-updates.php:21
+msgid "Dataset"
+msgstr ""
+
+#: partials/featured-content.php:73
+msgid "Do you have a request for a dataset or an idea for application?"
+msgstr ""
+
+#: partials/featured-content.php:73
+msgid "Tell us!"
+msgstr ""
+
+#: partials/featured-content.php:76
+msgid "Submit a dataset"
+msgstr ""
+
+#: partials/featured-content.php:77
+msgid "Share an open data idea"
+msgstr ""
+
+#: partials/featured-datasets.php:46 partials/latest-updates.php:57
 msgid "More updates"
 msgstr ""
 
-#: partials/hero.php:26
-msgid "Articles"
-msgstr ""
-
-#: partials/hero.php:28
+#: partials/hero.php:24
 msgid "Other"
 msgstr ""
 
-#: partials/hero.php:33 searchform.php:8
+#: partials/hero.php:27
+msgid "Keyword"
+msgstr ""
+
+#: partials/hero.php:29 search.php:20 searchform.php:8
 msgid "Search"
 msgstr ""
 
-#: partials/horizontal-accordion.php:48
+#: partials/horizontal-accordion.php:87
 msgid "Show all"
 msgstr ""
 
-#: partials/latest-updates.php:41
+#: partials/latest-updates.php:24
 msgid "Showcase"
 msgstr ""
 
-#: partials/latest-updates.php:45
+#: partials/latest-updates.php:27
 msgid "Article"
 msgstr ""
 
-#: partials/latest-updates.php:53
+#: partials/latest-updates.php:33
 msgid "Comment"
 msgstr ""
 
@@ -362,15 +358,16 @@ msgstr ""
 msgid "Toggle navigation"
 msgstr ""
 
-#: partials/search-content-data.php:22 partials/search-content.php:23
+#: partials/search-content-data.php:20 partials/search-content.php:23
 msgid "Results in groups"
 msgstr ""
 
-#: partials/search-content-data.php:31 partials/search-content.php:32
+#: partials/search-content-data.php:33 partials/search-content-data.php:34
+#: partials/search-content.php:32
 msgid "Others"
 msgstr ""
 
-#: partials/search-content-data.php:46 partials/search-content.php:37
+#: partials/search-content-data.php:50 partials/search-content.php:37
 msgid "Found %d result"
 msgid_plural "Found %d results"
 msgstr[0] ""
@@ -380,7 +377,7 @@ msgstr[1] ""
 msgid "Follow us"
 msgstr ""
 
-#: partials/stats.php:30
+#: partials/stats.php:29
 msgid "Interfaces"
 msgstr ""
 
@@ -392,47 +389,49 @@ msgstr ""
 msgid "Contact us"
 msgstr ""
 
-#: partials/tuki-sidebar.php:47 tuki.php:34
+#. #-#-#-#-#  sixodp.pot  #-#-#-#-#
+#. Template Name of the plugin/theme
+#: partials/tuki-sidebar.php:8
+msgid "Tuki"
+msgstr ""
+
+#: partials/tuki-sidebar.php:48 tuki.php:44
 msgid "Themes"
 msgstr ""
 
-#: search.php:16
+#: search.php:25
 msgid "Search from site"
 msgstr ""
 
 #: searchform.php:4
 msgctxt "placeholder"
-msgid "Search …"
+msgid "Search…"
 msgstr ""
 
 #: searchform.php:6
 msgctxt "label"
-msgid "Search for:"
+msgid "Search for"
 msgstr ""
 
-#: showcase_idea_form.php:67
+#: showcase_idea_form.php:66 showcase_idea_form.php:71
 msgid "New Showcase idea"
 msgstr ""
 
-#: showcase_idea_form.php:77
-msgid "All showcase ideas"
-msgstr ""
-
-#: showcase_idea_form.php:93
+#: showcase_idea_form.php:86
 msgid ""
 "Your showcase idea will be moderated, it may be modified or combined with "
 "similar ideas. Moderated ideas will be published on this site."
 msgstr ""
 
-#: showcase_idea_form.php:110
+#: showcase_idea_form.php:106
 msgid "Your idea"
 msgstr ""
 
-#: showcase_idea_form.php:133
+#: showcase_idea_form.php:132
 msgid "Your name will not be published with showcase idea."
 msgstr ""
 
-#: showcase_idea_form.php:148
+#: showcase_idea_form.php:149
 msgid "Your email will not be published with showcase idea."
 msgstr ""
 
@@ -444,7 +443,7 @@ msgstr ""
 msgid "Showcase Idea"
 msgstr ""
 
-#: single.php:85
+#: single.php:78
 msgid "Tags"
 msgstr ""
 
@@ -456,8 +455,8 @@ msgstr ""
 msgid "Popular tags"
 msgstr ""
 
-#. Template Name of the plugin/theme
-msgid "Ajankohtaista"
+#: tuki.php:27 tuki.php:32
+msgid "Support"
 msgstr ""
 
 #. Template Name of the plugin/theme
@@ -478,10 +477,6 @@ msgstr ""
 
 #. Template Name of the plugin/theme
 msgid "Sovellusidea-lomake"
-msgstr ""
-
-#. Template Name of the plugin/theme
-msgid "Tuki"
 msgstr ""
 
 #. Template Name of the plugin/theme

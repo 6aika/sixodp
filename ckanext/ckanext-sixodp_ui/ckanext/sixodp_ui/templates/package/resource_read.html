@@ -1,6 +1,11 @@
 {% ckan_extends %}
 
-{% block pre_primary %}{% endblock %}
+{% block pre_primary %}
+  <div class="page-hero"></div>
+  {% block toolbar %}
+    {{ super() }}
+  {% endblock %}
+{% endblock %}
 
 {% block primary_content %}
 
@@ -15,9 +20,7 @@
           {% endif %}
 
           <div class="heading-container">
-            {% block resource_read_title %}
-              <h1 class="page-heading resource-heading">{{ h.resource_display_name(res) }}</h1>
-            {% endblock %}
+            {% block resource_read_title %}{% endblock %}
             {% block page_subheading %}
               <h2 class="page-subheading">
                 <span>{{ h.render_datetime(c.resource.created, '%-d.%-m.%Y') }}</span>

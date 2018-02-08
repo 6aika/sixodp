@@ -15,7 +15,7 @@ show_remove    - If True, show the remove button to remove showcase/dataset asso
 
 {% block package_item %}
 
-<li class="media-item">
+<li class="media-item media-item-success">
   {% block item_inner %}
     {% block image %}
       <img src="{{ package.image_1_display_url or h.url_for_static('/base/images/placeholder-group.png') }}" alt="{{ package.name }}" class="media-image">
@@ -37,7 +37,7 @@ show_remove    - If True, show the remove button to remove showcase/dataset asso
           </div>
 
         {% else %}
-          <p class="empty">{{ _("This showcase has no description") }}</p>
+          <div class="item-description empty">{{ _("This showcase has no description") }}</div>
         {% endif %}
       {% endblock %}
       {% block datasets %}{% endblock %}
@@ -45,7 +45,7 @@ show_remove    - If True, show the remove button to remove showcase/dataset asso
         <div class="media-link-wrapper">
           <a href="{{ h.url_for(controller='ckanext.sixodp_showcase.controller:Sixodp_ShowcaseController', action='read', id=package.name) }}"
              title="{{ _('View {showcase_title}').format(showcase_title=package.title) }}"
-             class="btn btn-primary-transparent media-link">
+             class="btn btn-transparent media-link">
             {{ _('Read more') }}
           </a>
         </div>

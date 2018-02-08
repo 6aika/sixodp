@@ -1,6 +1,11 @@
 .wrapper--gray {
   padding: $base*4 0;
-  background: $brand-gray;
+  background: $brand-bg-alt;
+}
+
+.wrapper--white {
+  padding: $base*4 0;
+  background: $brand-white;
 }
 
 .boxlinks {
@@ -22,6 +27,7 @@
   width: 100%;
   max-width: $base*41;
   margin: $base auto;
+  transition: box-shadow .2s ease-in-out, transform .2s ease-in-out;
 
   @media (min-width: $width-sm) {
     max-width: $base*48;
@@ -34,6 +40,11 @@
     height: $base*20;
     margin: auto;
   }
+
+  &:hover {
+    box-shadow: 0 1px 32px rgba(0,0,0,0.3);
+    transform: translateY(-2px);
+  }
 }
 
 .boxlink__footer {
@@ -41,10 +52,10 @@
     right: 0;
     bottom: 0;
     left: 0;
-  padding: $base;
+  padding: $base $base*2;
   border-bottom-left-radius: $base/2;
   border-bottom-right-radius: $base/2;
-  background: rgba($brand-primary, 0.8);
+  background-color: $brand-white;
 
   .heading {
     float: left;
@@ -52,7 +63,9 @@
     margin-bottom: $base/2;
 
     a {
-      color: $brand-white;
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 1px;
     }
   }
 

@@ -4,9 +4,9 @@
   */
 ?>
 
-<div class="wrapper--gray">
+<div class="wrapper--featured">
   <div class="container">
-    <h2 class="heading-main heading--inverse"><?php _e('Categories', 'sixodp') ?></h2>
+    <h2 class="heading-page"><?php _e('Categories', 'sixodp') ?></h2>
 
     <div class="row boxlinks">
       <?php

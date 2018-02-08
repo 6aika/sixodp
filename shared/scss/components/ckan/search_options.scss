@@ -1,15 +1,24 @@
 .search-options {
+  margin: $padding-large-vertical*2 -15px;
+  padding: 0 $padding-large-vertical*3 $padding-large-vertical*3 $padding-large-vertical*3;
+  border-bottom: 1px solid $border-color;
+
   form {
     display: inline-block;
     width: 100%;
+    height: $input-height-base + $padding-large-vertical*2;
 
     .form-select {
+      margin: $padding-large-vertical 0;
       display: inline-block;
       float: right;
     }
 
     h4 {
+      margin: $padding-large-vertical 0;
       display: inline-block;
+      font-size: $font-size-base;
+      color: $headings-muted-color;
     }
   }
 }

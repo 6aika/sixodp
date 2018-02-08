@@ -1,32 +1,25 @@
 .sidebar {
   margin-bottom: $base;
+  border-left: 1px solid #eee;
+  padding: 0;
 
   ul {
     list-style: none;
     margin: 0;
     padding: 0;
 
-    li:first-child {
-      a,
-      .sidebar-item-inner {
-        border-top-right-radius: $border-radius-round;
-      }
+    &:last-child {
+      padding: 0 0 $base*2 0;
+      border-bottom: 1px solid #eee;
     }
-
-    li:last-child {
-      a,
-      .sidebar-item-inner {
-        border-bottom-left-radius: $border-radius-round;
-      }
-    }
-  }
-
-  ul + ul {
-    margin-top: $base;
   }
 
   .sidebar-section {
     padding: $padding-large-vertical 0;
+  }
+
+  .heading-sidebar {
+    padding-left: $padding-large-horizontal*2;
   }
 }
 
@@ -38,7 +31,7 @@
   .sidebar-item-inner {
     transition: all $transition-speed-base $transition-curve-base;
     width: 100%;
-    padding: $padding-large-vertical $padding-large-horizontal*1.5;
+    padding: $padding-small-vertical $padding-large-horizontal*2;
     position: relative;
     display: block;
     background: $sidebar-item-bg;
@@ -60,12 +53,7 @@
     transition: all $transition-speed-base $transition-curve-base;
     display: inline-block;
     height: $base*3.2;
-    width: $base*3.2;
-    text-align: center;
-    position: absolute;
-    right: 5px;
-    top: 50%;
-    transform: translateY(-50%);
+    width: $base*2.4;
 
     span {
       font-size: $font-size-large;

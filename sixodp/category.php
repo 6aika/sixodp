@@ -13,6 +13,7 @@
 
 $category = get_queried_object();
 $grandparent_id = get_category_grandparent_id($category);
+$grandparent_cat = get_category($grandparent_id);
 
 get_header();
 
@@ -22,18 +23,22 @@ get_header();
   <main id="main" class="site-main site-main--news" role="main">
 
     <?php get_template_part('partials/page-hero'); ?>
-
-    <div class="page-hero-content container">
+    <div class="toolbar">
+      <div class="container">
+        <ol class="breadcrumb">
+          <li><a href="<?php echo get_home_url() ?>"><?php _e('Home', 'sixodp') ?></a></li>
+          <?php if ($grandparent_cat != $category) : ?>
+            <li><a href="<?php echo get_category_link($grandparent_id) ?>"><?php echo $grandparent_cat->name ?></a></li>
+          <?php endif;?>
+          <li><a href="<?php echo get_category_link($category) ?>"><?php echo $category->name ?></a></li>
+        </ol>
+      </div>
+    </div>
+    <div class="page-content container">
       <div class="wrapper">
-
-        <div class="headingbar">
-          <h1 class="heading-main">
-            <?php echo $category->name ?>
-          </h1>
-        </div>
-
         <div class="row">
-          <div class="sidebar col-md-3 col-sm-5 col-xs-12">
+          <div class="sidebar col-md-3 col-sm-12 col-xs-12">
+            <h3 class="heading-sidebar"><?php _e('Ajankohtaista', 'sixodp') ?></h3>
             <?php
               $categories=get_categories(array(
                 'parent' => $grandparent_id,
@@ -46,12 +51,12 @@ get_header();
                 $child_categories = get_categories(array('parent' => $cat->term_id, 'hide_empty' => false));
               ?>
               <ul>
-                <li class="sidebar-item--highlight">
+                <li class="sidebar-item<?php if ($cat->cat_name === $category->name) { echo '--highlight'; } ?>">
                   <a href="<?php echo get_category_link($cat); ?>">
-                    <?php echo $cat->cat_name; ?>
                     <span class="sidebar-icon-wrapper">
-                      <span class="fa fa-chevron-right"></span>
+                      <span class="fa fa-long-arrow-right"></span>
                     </span>
+                    <?php echo $cat->cat_name; ?>
                   </a>
                 </li>
                 <?php
@@ -68,24 +73,24 @@ get_header();
             <?php }
             ?>
           </div>
-          <div class="col-md-9 col-sm-7 col-xs-12 news-content">
-            <div class="cards cards--2 cards--image">
-              <?php while ( have_posts() ) : the_post(); ?>
-                <a class="card" href="<?php the_permalink(); ?>">
-                  <?php
-                    if (has_post_thumbnail( $post->ID ) ):
-                      $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
-                    else :
-                      $image = array("/assets/images/frontpage.jpg");
-                    endif;
-                  ?>
-                  <div class="card-image" style="background-image: url(<?php echo $image[0]; ?>);"></div>
-                  <div class="card-content">
-                    <h4 class="card-title text-left"><?php the_title(); ?></h4>
-                    <span class="card-timestamp"><?php echo parse_date(get_the_date('c')); ?></span>
-                  </div>
-                </a>
-              <?php endwhile; ?>
+          <div class="col-md-9 col-sm-12 col-xs-12 news-content">
+            <div class="cards cards--3">
+              <?php
+              while ( have_posts() ) : the_post(); ?>
+                <?php
+                  $item = array(
+                    'image_url' => get_post_thumbnail_url($post),
+                    'title' => $post->post_title,
+                    'show_rating' => false,
+                    'date_updated' => $post->post_date,
+                    'notes' => $post->post_content,
+                    'url' => get_the_permalink(),
+                  );
+                  include(locate_template( 'partials/card-image.php' ));
+                ?>
+              <?php
+              endwhile;
+              ?>
             </div>
             <?php
               the_posts_pagination( array(
