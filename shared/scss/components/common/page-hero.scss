@@ -1,6 +1,6 @@
 .page-hero {
   height: $page-hero-height;
-  background: url('/assets/images/page_bgr.jpg') no-repeat top center;
+  background: url('/assets/images/page_bgr.jpg') no-repeat center center;
   background-size: cover;
 
   @media(min-width: $width-md) {

@@ -94,6 +94,11 @@ $brand-dataset-dark: darken($brand-dataset, 15%);
 // Frontpage elements
 $hero-main-heading-color: $brand-white;
 $hero-secondary-heading-color: $brand-white;
+$hero-overlay-start: $brand-primary;
+$hero-overlay-stop: $brand-primary-extradark;
+$hero-overlay-opacity-start: 0.0;
+$hero-overlay-opacity-center: 0.6;
+$hero-overlay-opacity-end: 0.9;
 $btn-main-bg: $brand-secondary;
 $btn-main-color: $brand-white;
 $btn-main-active-bg: $brand-secondary-light;
