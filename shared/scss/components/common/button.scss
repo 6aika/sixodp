@@ -58,6 +58,10 @@
   @include btn-colors(transparent, $brand-danger, $brand-danger);
 }
 
+.btn-warning--inverse {
+  @include btn-colors(transparent, $brand-warning, $brand-warning);
+}
+
 .btn-app {
   @include btn-colors($brand-app, $brand-white, $brand-app);
 }

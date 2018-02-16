@@ -64,7 +64,7 @@ $brand-danger-extradark: darken($brand-danger, 15%);
 $brand-black: #000000;
 $brand-white: #ffffff;
 $brand-gray: #57575b;
-$brand-lightgray: #f8f8f8;
+$brand-lightgray: #f4f4f5;
 
 $gray-base: $brand-gray;
 $gray-darker:            darken($gray-base, $darken-intensity*2);
@@ -92,6 +92,7 @@ $brand-dataset: #E12854;
 $brand-dataset-dark: darken($brand-dataset, 15%);
 
 // Frontpage elements
+$main-logo-width: 200px;
 $hero-main-heading-color: $brand-white;
 $hero-secondary-heading-color: $brand-white;
 $hero-overlay-start: $brand-primary;
