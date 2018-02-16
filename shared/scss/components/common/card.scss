@@ -67,7 +67,7 @@ $card-meta-height: $font-size-small + $card-padding * 3;
   &.card-danger {
 
     .wrapper:nth-child(even) & {
-      background-color: #f7f7f7;
+      background-color: $brand-lightgray;
 
       .card-link-wrapper {
         background: -webkit-linear-gradient(rgba(247, 247, 247, 0) 0%, rgba(247, 247, 247, 1) 55%);
