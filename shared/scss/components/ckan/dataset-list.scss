@@ -28,14 +28,14 @@
   .dataset-metadata {
     display: block;
     width: 100%;
-    height: $dataset-metadata-row-height;
+    min-height: $dataset-metadata-row-height;
     font-weight: $headings-font-weight;
   }
 
   .dataset-meta-left,
   .dataset-meta-right {
     margin: 0;
-    height: $dataset-metadata-row-height;
+    min-height: $dataset-metadata-row-height;
     line-height: $dataset-metadata-row-height;
     display: inline-block;
     font-size: $font-size-base;
