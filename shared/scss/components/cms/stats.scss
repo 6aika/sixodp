@@ -1,17 +1,16 @@
 .stats {
   display: flex;
   justify-content: space-around;
-  margin: $base*4 auto $base*6 auto;
+  margin: $base*6 auto $base*6 auto;
   color: $stats-text-color;
 
   @media (min-width: $width-sm) {
     max-width: 600px;
   }
   .stat__link {
-    color: $stats-text-color;;
+    color: $stats-text-color;
   }
 }
-
 
 .stat__wrapper {
   text-align: center;
@@ -52,7 +51,7 @@
 .stat__value {
   font-family: $font-heading;
   font-size: 2.5rem;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.3);
   border-radius: 3px;
 }
 
