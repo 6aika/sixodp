@@ -26,7 +26,7 @@ polylang_config:
   - { option: 'hide_default', value: 0 }
   - { option: 'redirect_lang', value: 1 }
 
-wp_cli_version: "1.4.0"
-wp_cli_checksum: sha512:da1abdced95e6f90986c66ad3239a573824ef9a7dd0078b8f1df685e19a62af68325b9b7388d5406df5383b35e48c50cc82c0c529d05fc01dcc4c9175229b517
+wp_cli_version: "1.5.0"
+wp_cli_checksum: sha512:9385c63ab835c7c450529035cdb1f524b5878a67c7565c3497628e5ec4ec07ae4a34ef25c59a9e7d6edea7cdb039fcef7a1f731b922782b8c70418480bdff122
 
 wordpress_version: "latest"
