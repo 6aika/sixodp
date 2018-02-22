@@ -11,6 +11,7 @@ EXTENSIONS_TO_UPDATE=(
   datasetcopy
   datasubmitter
   editor
+  googleanalytics
   qa
   rating
   reminder
