@@ -6,14 +6,14 @@ jQuery(document).ready(function($) {
     // Handle search differently when in wordpress
     if (wordpressIndicator)  {
       if(domain == "/posts") {
-        window.location.href= '/' + locale + '/?s=' + q;
+        window.location.href= '/' + locale + '/?s=' + encodeURI(q);
       }
       else {
-        window.location.href= '/data/' + locale_ckan+domain + '?q=' + q + '&sort=title+asc';
+        window.location.href= '/data/' + locale_ckan+domain + '?q=' + encodeURI(q) + '&sort=title+asc';
       }
     }
     else {
-      window.location.href='/' + jQuery('html').attr('lang') + '/?s=' + q;
+      window.location.href='/' + jQuery('html').attr('lang') + '/?s=' + encodeURI(q);
     }
   };
 
