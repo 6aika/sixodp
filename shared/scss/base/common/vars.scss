@@ -311,10 +311,18 @@ $margin-base-horizontal: 6px;
 
 $font-size-base: 14px;
 $font-size: $font-size-base;
+$font-size-xxlarge: floor(($font-size-base * 2.6));
 $font-size-xlarge: ceil(($font-size-base * 1.6)); // ~23px
 $font-size-large: ceil(($font-size-base * 1.25)); // ~18px
 $font-size-medium: floor(($font-size-base * 1.15)); // ~16px
 $font-size-small: ceil(($font-size-base * 0.85)); // ~12px
+
+$font-size-h1: floor(($font-size-base * 2.4)); // ~36px
+$font-size-h2: floor(($font-size-base * 2.15)); // ~30px
+$font-size-h3: ceil(($font-size-base * 1.7)); // ~24px
+$font-size-h4: ceil(($font-size-base * 1.25)); // ~18px
+$font-size-h5: $font-size-base;
+$font-size-h6: ceil(($font-size-base * 0.85));
 
 $padding-large-vertical: 10px;
 $padding-large-horizontal: 10px;
