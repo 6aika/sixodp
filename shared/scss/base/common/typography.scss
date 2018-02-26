@@ -48,7 +48,7 @@ a {
 
 .heading-main {
   @include heading();
-  font-size: 3rem;
+  font-size: $font-size-xxlarge;
 }
 
 .heading-content {
@@ -58,7 +58,7 @@ a {
 
 .heading-page {
   @include heading();
-  font-size: 2.8rem;
+  font-size: $font-size-xlarge;
   text-align: center;
   text-transform: uppercase;
   color: $gray-light;
@@ -68,16 +68,9 @@ a {
   color: $brand-white;
 }
 
-.heading--tuki {
-  @include heading();
-  font-size: 3.5rem;
-  text-align: center;
-  font-weight: 700;
-}
-
 .heading--themes {
   @include heading();
-  font-size: 2.5rem;
+  font-size: $font-size-xlarge;
   font-weight: 700;
 }
 

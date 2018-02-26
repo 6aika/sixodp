@@ -17,6 +17,7 @@ EXTENSIONS_TO_CONCAT=(
   datasetcopy
   datasubmitter
   editor
+  googleanalytics
   qa
   rating
   reminder

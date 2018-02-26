@@ -18,3 +18,9 @@ sudo /usr/lib/ckan/default/bin/paster --plugin=ckan user add tunnus email=sÃ¤hkÃ
 ```   
 sudo /usr/lib/ckan/default/bin/paster --plugin=ckan sysadmin add tunnus --config=/etc/ckan/default/production.ini
 ```
+
+## Solr kannan uudelleen indeksointi
+
+```   
+sudo /usr/lib/ckan/default/bin/paster --plugin=ckan search-index rebuild --config=/etc/ckan/default/production.ini
+```
