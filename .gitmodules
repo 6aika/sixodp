@@ -48,7 +48,7 @@
 	url = https://github.com/ckan/ckanext-spatial.git
 [submodule "wordpress/wp-trello"]
 	path = wordpress/wp-trello
-	url = https://github.com/6aika/wp-trello
+	url = https://github.com/6aika/wp-trello.git
 [submodule "wordpress/wp-api-menus"]
 	path = wordpress/wp-api-menus
 	url = https://github.com/6aika/wp-api-menus
