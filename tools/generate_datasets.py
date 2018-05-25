@@ -17,17 +17,18 @@ def name_generator():
     while True:
         yield "-".join([random.choice(words) for i in range(3)]).lower()
 
-def create_dataset(api, name, title, tag_string, collection_type, content_type, license_id, notes, organization_name):
+def create_dataset(api, name, title, license_id, notes, organization_name, keywords, date_released, geographical_coverage, maintainer_email):
     print("Creating dataset %s for organization %s" % (name, organization_name))
     api.action.package_create(**{
         "name": name,
-        "title": title,
-        "tag_string": tag_string,
-        "collection_type": collection_type,
-        "content_type": content_type,
+        "title_translated": {"fi": title},
         "license_id": license_id,
-        "notes": notes,
-        "owner_org": organization_name
+        "notes_translated": {"fi": notes},
+        "owner_org": organization_name,
+        "keywords": {"fi": keywords},
+        "date_released": date_released,
+        "geographical_coverage": geographical_coverage,
+        "maintainer_email": maintainer_email
     })
 
 def main():
@@ -56,13 +57,14 @@ def main():
         organization_name = random.choice(organizations)
         name = next(names)
         title = name.replace('-', ' ')
-        tag_string = "generated"
-        collection_type = "Open data"
-        content_type = "API"
         license_id = "cc-by-4.0"
         notes = name * 5
+        keywords = ["generated word", "another keyword"]
+        date_released = datetime.datetime.now().isoformat()
+        geographical_coverage = "generated city"
+        maintainer_email = "generated@example.com"
 
-        create_dataset(api, name, title, tag_string, collection_type, content_type, license_id, notes, organization_name)
+        create_dataset(api, name, title, license_id, notes, organization_name, keywords, date_released, geographical_coverage, maintainer_email)
 
 
 if __name__ == '__main__':
