@@ -128,9 +128,9 @@ def get_all_groups():
 
     return groups
 
-def get_single_group(group_name, groups):
+def get_single_group(group_dict, groups):
 
-    return next(group for group in groups if group.name is group_name)
+    return next(group for group in groups if group.get('name') == group_dict.get('name'))
 
 
 

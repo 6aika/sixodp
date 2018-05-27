@@ -30,7 +30,7 @@ Example:
                 {% if package.groups %}
                   <span> - </span>
                   {% for group in package.groups %}
-                    {% set group_dict = h.get_single_group(group, groups) %}
+                    {% set group_dict = h.get_single_group(group, all_groups) %}
                     <a class="dataset-category-link" href="{{h.url_for(controller='group', action='read', id=group_dict.name)}}">
                       {{ h.get_translated(group_dict, 'title') or group_dict.name }}</a>{% if not loop.last %}, {% endif %}
                   {% endfor %}
