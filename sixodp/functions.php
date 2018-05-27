@@ -672,6 +672,53 @@ function get_ckan_package_rating($package_id) {
   );
 }
 
+$showcases = null;
+$datasets = null;
+$api_collection = null;
+function cache_frontpage_ckan_data($dataset_limit, $showcase_limit){
+    global $showcases, $datasets, $api_collection;
+    $showcases = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=metadata_created%20desc&fq=dataset_type:showcase&rows='.$showcase_limit)['result'];
+    $datasets = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_updated%20desc&rows=' . $dataset_limit)['result'];
+    $api_collection = get_ckan_data(CKAN_API_URL."/action/api_collection_show");
+
+}
+
+function get_dataset_count_from_cache(){
+    global $datasets;
+    return $datasets['count'] ? $datasets['count'] : 0;
+}
+
+function get_showcases_count_from_cache(){
+    global $showcases;
+    return $showcases['count'] ? $showcases['count'] : 0;
+}
+
+function get_api_count_from_cache(){
+    global $api_collection;
+    if($api_collection['result']['package_count']) {
+        return $api_collection['result']['package_count'];
+    }
+    return 0;
+}
+
+function get_api_link_from_cache(){
+    global $api_collection;
+    if($api_collection['result']['name']) {
+        return CKAN_BASE_URL . '/'. get_current_locale_ckan() . '/collection/'. $api_collection['result']['name'];
+    }
+    return '';
+}
+
+function get_latest_datasets_from_cache(){
+    global $datasets;
+    return $datasets['results'];
+}
+
+function get_latest_showcases_from_cache(){
+    global $showcases;
+    return $showcases['results'];
+}
+
 function parse_date($date) {
   $d = new DateTime($date);
   return $d->format('d.m.Y');

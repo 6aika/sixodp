@@ -10,7 +10,7 @@
   </div>
 
   <div class="container">
-    <?php $datasets = get_latest_datasets(4); ?>
+    <?php $datasets = get_latest_datasets_from_cache(); ?>
 
     <div id="featured-datasets-carousel" class="carousel slide mobile-only" data-ride="carousel" data-interval="false">
       <div class="carousel-inner" role="listbox">
