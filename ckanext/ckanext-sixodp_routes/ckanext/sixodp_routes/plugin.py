@@ -446,13 +446,9 @@ class Sixodp_PackageController(PackageController):
                     parameter_name='_%s_limit' % facet))
             c.search_facets_limits[facet] = limit
 
-        maintain.deprecate_context_item(
-            'facets',
-            'Use `c.search_facets` instead.')
 
         self._setup_template_variables(context, {},
                                        package_type=package_type)
-
         return render(self._search_template(package_type),
                       extra_vars={'dataset_type': package_type})
 
