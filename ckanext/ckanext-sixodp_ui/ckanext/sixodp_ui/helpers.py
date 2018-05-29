@@ -115,6 +115,25 @@ def menu_is_active(menu_url, current_path):
     return current_path in menu_url
 
 
+def get_all_groups():
+    context = {'model': model, 'session': model.Session,
+               'for_view': True, 'use_cache': False}
+
+    data_dict = {
+        'all_fields': True,
+        'include_extras': True
+    }
+
+    groups = get_action('group_list')(context, data_dict)
+
+    return groups
+
+def get_single_group(group_dict, groups):
+
+    return next(group for group in groups if group.get('name') == group_dict.get('name'))
+
+
+
 # This is not the most efficient way of listing package groups that include all group schema fields, however
 # at this point the only way without major CKAN core changes
 def get_package_groups(package_id):
