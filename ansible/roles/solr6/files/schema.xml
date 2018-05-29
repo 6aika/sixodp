@@ -135,6 +135,7 @@
 
     <field name="date_released" type="date" indexed="true" stored="true" multiValued="false"/>
     <field name="date_updated" type="date" indexed="true" stored="true" multiValued="false"/>
+    <field name="rating" type="float" indexed="true" stored="false"/>
 
     <field name="indexed_ts" type="date" indexed="true" stored="true" default="NOW" multiValued="false"/>
 
