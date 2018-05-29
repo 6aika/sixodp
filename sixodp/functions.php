@@ -709,14 +709,14 @@ function get_api_link_from_cache(){
     return '';
 }
 
-function get_latest_datasets_from_cache(){
+function get_latest_datasets_from_cache($limit=4){
     global $datasets;
-    return $datasets['results'];
+    return array_slice($datasets['results'], 0, $limit);
 }
 
-function get_latest_showcases_from_cache(){
+function get_latest_showcases_from_cache($limit=4){
     global $showcases;
-    return $showcases['results'];
+    return array_slice($showcases['results'], 0, $limit);
 }
 
 function parse_date($date) {
@@ -814,8 +814,8 @@ function get_latest_updates($types = array(), $date = false, $limit = 4) {
 
   $types = array_merge($defaults, $types);
 
-  $datasets   = $types['datasets'] ? array_map('format_ckan_row', get_recent_content($date)) : [];
-  $showcases  = $types['showcases'] ? array_map('format_ckan_row', get_latest_showcases(20, $date)) : [];
+  $datasets   = $types['datasets'] ? array_map('format_ckan_row', get_latest_datasets_from_cache($limit)) : [];
+  $showcases  = $types['showcases'] ? array_map('format_ckan_row', get_latest_showcases_from_cache($limit)) : [];
   $comments   = $types['comments'] ? get_recent_comments($date) : [];
   $posts = $types['posts'] ? get_recent_posts('post', $date) : [];
   $pages = $types['pages'] ? get_recent_posts('page', $date) : [];
