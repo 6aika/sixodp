@@ -10,7 +10,7 @@
   </div>
 
   <div class="container">
-    <?php $showcases = get_latest_showcases(4); ?>
+    <?php $showcases = get_latest_showcases_from_cache(); ?>
 
     <div id="featured-apps-carousel" class="carousel slide mobile-only" data-ride="carousel" data-interval="false">
       <div class="carousel-inner" role="listbox">

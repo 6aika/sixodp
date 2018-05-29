@@ -13,7 +13,8 @@
  */
 
 
-get_header(); ?>
+get_header();
+cache_frontpage_ckan_data(8,8); ?>
 
 <div id="primary">
 	<main id="main" class="site-main site-main--home" role="main">
