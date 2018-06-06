@@ -814,8 +814,15 @@ function get_latest_updates($types = array(), $date = false, $limit = 4) {
 
   $types = array_merge($defaults, $types);
 
-  $datasets   = $types['datasets'] ? array_map('format_ckan_row', get_latest_datasets_from_cache($limit)) : [];
-  $showcases  = $types['showcases'] ? array_map('format_ckan_row', get_latest_showcases_from_cache($limit)) : [];
+  if ( $date != false){
+      $datasets   = $types['datasets'] ? array_map('format_ckan_row', get_recent_content($date)) : [];
+      $showcases  = $types['showcases'] ? array_map('format_ckan_row', get_latest_showcases(20, $date)) : [];
+  }
+  else{
+      $datasets   = $types['datasets'] ? array_map('format_ckan_row', get_latest_datasets_from_cache($limit)) : [];
+      $showcases  = $types['showcases'] ? array_map('format_ckan_row', get_latest_showcases_from_cache($limit)) : [];
+  }
+  
   $comments   = $types['comments'] ? get_recent_comments($date) : [];
   $posts = $types['posts'] ? get_recent_posts('post', $date) : [];
   $pages = $types['pages'] ? get_recent_posts('page', $date) : [];
