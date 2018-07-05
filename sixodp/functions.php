@@ -681,6 +681,7 @@ function cache_frontpage_ckan_data($dataset_limit, $showcase_limit){
     $datasets = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_updated%20desc&rows=' . $dataset_limit)['result'];
     $api_collection = get_ckan_data(CKAN_API_URL."/action/api_collection_show");
 
+    get_recent_dates($datasets);
 }
 
 function get_dataset_count_from_cache(){
@@ -757,7 +758,7 @@ function sort_results($arr) {
   $temp = array();
   foreach ($arr as $key => $row)
   {
-    $temp[$key] = strtotime($row['date_updated'] ? $row['date_updated'] : $row['date']);
+    $temp[$key] = strtotime($row['date_recent'] ? $row['date_recent'] : $row['date']);
   }
 
   array_multisort($temp, SORT_DESC, $arr);
@@ -765,10 +766,20 @@ function sort_results($arr) {
   return $arr;
 }
 
+function get_recent_dates(&$arr){
+    array_walk($arr['results'], function(&$dataset) {
+        $dataset['date_recent'] = $dataset['date_released'];
+        if ($dataset['date_updated'] && $dataset['date_updated'] > $dataset['date_released']) {
+            $dataset['date_recent'] = $dataset['date_updated'];
+        }
+    });
+
+}
+
 function format_ckan_row($row) {
   return array(
     'date' => isset($row['date_created']) ? $row['date_created'] : $row['metadata_created'],
-    'date_updated' => isset($row['date_updated']) ? $row['date_updated'] : $row['metadata_created'],
+    'date_recent' => isset($row['date_recent']) ? $row['date_recent'] : $row['date_released'],
     'type' => array('link' => CKAN_BASE_URL .'/'. get_current_locale_ckan() .'/'. $row['type'], 'label' => $row['type']),
     'link' => CKAN_BASE_URL .'/'. get_current_locale_ckan() .'/'. $row['type'] .'/'. $row['name'],
     'title' => $row['title'],
