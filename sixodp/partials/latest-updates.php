@@ -41,7 +41,7 @@
             'external_card_class' => 'card-danger',
             'title' => get_translated($updated_item, 'title'),
             'meta' => $meta_label,
-            'timestamp' => $updated_item['date_updated'],
+            'timestamp' => $updated_item['date_recent'],
             'notes' => get_translated($updated_item, 'notes'),
             'url' => $updated_item['link'],
           );

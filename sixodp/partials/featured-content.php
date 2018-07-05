@@ -10,7 +10,7 @@
   </div>
 
   <div class="container">
-    <?php $datasets = get_latest_datasets_from_cache(); ?>
+    <?php $datasets = get_latest_updates(array($datasets => true, $showcases => false, $comments => false, $posts => false, $pages => false), false, 4); ?>
 
     <div id="featured-datasets-carousel" class="carousel slide mobile-only" data-ride="carousel" data-interval="false">
       <div class="carousel-inner" role="listbox">
@@ -23,7 +23,7 @@
               'external_card_class' => 'card-danger',
               'title' => get_translated($dataset, 'title'),
               'meta' => __('Dataset', 'sixodp'),
-              'timestamp' => $dataset['date_released'],
+              'timestamp' => $dataset['date_recent'],
               'notes' => get_translated($dataset, 'notes'),
               'url' => CKAN_BASE_URL.'/'.get_current_locale_ckan().'/dataset/'.$dataset['name'],
             );
@@ -58,9 +58,9 @@
             'external_card_class' => 'card-danger',
             'title' => get_translated($dataset, 'title'),
             'meta' => __('Dataset', 'sixodp'),
-            'timestamp' => $dataset['date_released'],
+            'timestamp' => $dataset['date_recent'],
             'notes' => get_translated($dataset, 'notes'),
-            'url' => CKAN_BASE_URL.'/'.get_current_locale_ckan().'/dataset/'.$dataset['name'],
+            'url' => $dataset['link'],
           );
           include(locate_template( 'partials/card.php' ));
         ?>
