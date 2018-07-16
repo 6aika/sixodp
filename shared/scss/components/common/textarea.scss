@@ -1,3 +1,4 @@
 textarea {
   @extend .form-control;
+  resize: vertical;
 }
