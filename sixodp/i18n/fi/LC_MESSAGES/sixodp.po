@@ -123,25 +123,24 @@ msgstr "Datatoiveesi"
 
 #: data_request_form.php:125 showcase_idea_form.php:126
 msgid "Name"
-msgstr "* Nimi"
+msgstr "Nimi"
 
 #: data_request_form.php:131
 msgid "Your name will not be published with data request."
 msgstr ""
 "Nimeäsi ei julkaista datatoiveen yhteydessä.  Sitä käytetään kontaktointiin "
-"esimerkiksi kontaktoinnissa datatoiveen etenemisen tai tarvittavien "
-"lisätietojen osalta."
+"tarvittaessa esimerkiksi datatoiveen etenemisen tai lisätietojen osalta."
 
 #: data_request_form.php:142 showcase_idea_form.php:143
 msgid "Email"
-msgstr "* Sähköposti"
+msgstr "Sähköposti"
 
 #: data_request_form.php:148
 msgid "Your email will not be published with data request."
 msgstr ""
 "Sähköpostia ei julkaista datatoiveen yhteydessä. Sitä käytetään "
-"kontaktointiin esimerkiksi kontaktoinnissa datatoiveen etenemisen tai "
-"tarvittavien lisätietojen osalta."
+"kontaktointiin tarvittaessa esimerkiksi datatoiveen etenemisen tai "
+"lisätietojen osalta."
 
 #: data_request_form.php:172 showcase_idea_form.php:173
 msgid "Submit"

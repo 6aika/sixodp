@@ -1,15 +1,15 @@
 # Translations template for ckanext-sixodp_scheming.
-# Copyright (C) 2017 ORGANIZATION
+# Copyright (C) 2018 ORGANIZATION
 # This file is distributed under the same license as the ckanext-sixodp_scheming
 # project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_scheming 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-09-27 11:49+0000\n"
+"POT-Creation-Date: 2018-07-16 09:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Joonas Dukpa, 2018\n"
 "Language-Team: Swedish (https://www.transifex.com/6aika-dataportal/teams/68018/sv/)\n"
@@ -104,7 +104,7 @@ msgstr "Organisation"
 msgid "The organization which owns the dataset."
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:109
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:97
 #: ckanext/sixodp_scheming/translations.py:27
 msgid "Source"
 msgstr "Källa"
@@ -201,7 +201,7 @@ msgid ""
 " new value can also be created if required."
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:95
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:83
 #: ckanext/sixodp_scheming/translations.py:55
 msgid "License"
 msgstr "Licens"
@@ -348,7 +348,6 @@ msgid "Other (Open)"
 msgstr ""
 
 #: ckanext/sixodp_scheming/validators.py:57
-#: ckanext/sixodp_scheming/validators.py:243
 msgid "Missing value"
 msgstr "Värde saknas"
 
@@ -379,6 +378,7 @@ msgid "expecting JSON object"
 msgstr ""
 
 #: ckanext/sixodp_scheming/validators.py:236
+#: ckanext/sixodp_scheming/validators.py:243
 #, python-format
 msgid "Required language \"%s\" missing"
 msgstr ""
@@ -396,7 +396,7 @@ msgid "Public"
 msgstr "Offentlig"
 
 #: ckanext/sixodp_scheming/templates/scheming/form_snippets/state.html:3
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:101
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:89
 msgid "State"
 msgstr "Status"
 
@@ -462,36 +462,32 @@ msgstr "Grupper"
 msgid "Collections"
 msgstr "Datainsamlingar"
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:83
-msgid "Openness"
-msgstr "Öppenhet"
-
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:89
-msgid "Rating"
-msgstr ""
-
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:107
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:95
 msgid "How to reference"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:114
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:102
 msgid ""
 "The maintainer of the dataset is {maintainer} and the original author is "
 "{author}"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:117
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:105
 msgid "The maintainer of the dataset is {maintainer}"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:120
-msgid "The dataset has been downloaded from {site_title} service on {date}"
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:108
+msgid "The dataset has been downloaded from"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:123
-msgid "using the license {license}"
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:108
+msgid "service on {date}"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:125
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:111
+msgid "using the license"
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:113
 msgid "The license can be found on the maintainer's service"
 msgstr ""

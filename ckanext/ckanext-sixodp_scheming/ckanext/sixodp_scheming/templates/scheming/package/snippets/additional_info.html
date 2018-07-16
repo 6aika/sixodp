@@ -79,8 +79,6 @@
     {%- endif -%}
   {%- endfor -%}
 
-
-
   <tr>
     <th>{{ _('License') }}</th>
     <td class="dataset-details">{{ license_string(pkg_dict) }}</td>
@@ -100,20 +98,20 @@
       <a href="{{ h.url_for(controller='package', action='read', id=pkg_dict.name) -}}">
         {{- h.get_translated(pkg_dict, 'title') -}}.
       </a>
-      {% if pkg_dict.maintainer and pkg_dict.organization.title %}
+      {% if pkg_dict.maintainer and pkg_dict.url %}
         {{- ' ' + _('The maintainer of the dataset is {maintainer} and the original author is {author}')
-        .format(maintainer=pkg_dict.maintainer, author=pkg_dict.organization.title) -}}.
-      {% elif pkg_dict.maintainer and not pkg_dict.organization.title %}
+        .format(maintainer=pkg_dict.maintainer, author=pkg_dict.url) -}}.
+      {% elif pkg_dict.maintainer and not pkg_dict.url %}
         {{- ' ' + _('The maintainer of the dataset is {maintainer}')
         .format(maintainer=pkg_dict.maintainer) -}}.
       {% endif %}
-      {{- ' ' + _('The dataset has been downloaded from {site_title} service on {date}')
-        .format(site_title=g.site_title, date=h.get_current_date()) -}}
+      {{- ' ' + _('The dataset has been downloaded from') + ' ' -}}<a href="{{g.site_url}}">{{g.site_title}}</a>{{- ' ' + _('service on {date}')
+        .format(date=h.get_current_date()) -}}
       {% if pkg_dict.license_title and pkg_dict.license_title != 'Other (Open)' %}
-        {{- ' ' + _('using the license {license}').format(license=pkg_dict.license_title) -}}
+        {{- ' ' + _('using the license') + ' ' -}}<a href="{{pkg_dict.license_url}}">{{pkg_dict.license_title}}</a>.
       {% else %}
-        {{- '. ' + _('The license can be found on the maintainer\'s service') -}}
-      {% endif %}.
+        {{- '. ' + _('The license can be found on the maintainer\'s service') -}}.
+      {% endif %}
     </td>
   </tr>
 
