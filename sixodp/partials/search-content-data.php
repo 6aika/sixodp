@@ -16,21 +16,24 @@
 ?>
 
 <div class="row">
-  <div class="search-sidebar col-md-3 col-sm-12">
+  <div class="sidebar col-md-3 col-sm-12">
     <h3 class="heading-sidebar"><?php _e('Results in groups', 'sixodp');?></h3>
     <ul>
       <li class="sidebar-item">
         <a href="<?php echo get_site_url(); ?>/<?php echo get_current_locale() ?>/?s=<?php echo $searchterm;?>&datasearch" title="<?php _e('Datasets', 'sixodp');?>">
+          <span class="sidebar-icon-wrapper"><span class="fa fa-long-arrow-right"></span></span>
           <?php _e('Datasets', 'sixodp');?>&nbsp;(<?php echo $data_dataset['count']; ?>)
         </a>
       </li>
       <li class="sidebar-item">
         <a href="<?php echo get_site_url(); ?>/<?php echo get_current_locale() ?>/?s=<?php echo $searchterm;?>&datasearch&showcase" title="<?php _e('Applications', 'sixodp');?>">
+          <span class="sidebar-icon-wrapper"><span class="fa fa-long-arrow-right"></span></span>
           <?php _e('Applications', 'sixodp');?>&nbsp;(<?php echo $data_showcase['count']; ?>)
         </a>
       </li>
       <li class="sidebar-item">
         <a href="<?php echo get_site_url(); ?>/<?php echo get_current_locale() ?>/?s=<?php echo $searchterm;?>" title="<?php _e('Others', 'sixodp');?>">
+          <span class="sidebar-icon-wrapper"><span class="fa fa-long-arrow-right"></span></span>
           <?php _e('Others', 'sixodp');?>&nbsp;(<?php echo $searchcount; ?>)
         </a>
       </li>

@@ -46,8 +46,8 @@ get_header(); ?>
                 <a href="<?php echo get_tag_link($tag); ?>">
                   <?php echo $tag->name; ?>
                   <span class="sidebar-icon-wrapper">
-                      <span class="fa fa-chevron-right"></span>
-                    </span>
+                    <span class="fa fa-chevron-right"></span>
+                  </span>
                 </a>
               </li>
               <?php
