@@ -75,7 +75,7 @@
                   ?>
                 </span>
               </div>
-              <p class="search-content__info"><?php echo wp_trim_words( get_translated($result, 'notes'), 55, '...' ); ?></p>
+              <p class="search-content__info"><?php echo wp_html_excerpt( strip_shortcodes(render_markdown(get_translated($result, 'notes'))), 300, '...'); ?></p>
             </div>
           </div>
         </div>
