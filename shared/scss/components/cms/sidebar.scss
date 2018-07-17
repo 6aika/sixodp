@@ -42,6 +42,7 @@
     a {
       background: $sidebar-item-bg-active;
       color: $sidebar-item-color-active;
+      padding-left: $padding-large-horizontal*2 + 5px;
     }
 
     .sidebar-icon-wrapper {
