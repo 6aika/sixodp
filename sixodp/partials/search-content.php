@@ -16,7 +16,6 @@
   <div class="row">
 
     <div class="sidebar col-md-3 col-sm-12">
-      <h3 class="heading-sidebar"><?php _e('Results in groups', 'sixodp');?></h3>
       <ul>
         <li class="sidebar-item">
           <a href="<?php echo get_site_url(); ?>/<?php echo get_current_locale() ?>/?s=<?php echo $searchterm;?>&datasearch" title="">
@@ -42,30 +41,24 @@
       <div class="search-options">
         <h3 class="search-results-heading"><?php printf( esc_html( _n( 'Found %d result', 'Found %d results', $wp_query->found_posts, 'sixodp' ) ), $wp_query->found_posts ); ?></h3>
       </div>
-      <ul class="search-content__list">
+      <div>
         <?php
         // Start the loop.
         while ( have_posts() ) : the_post(); ?>
-          <div class="row">
-            <div class="col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0">
-              <li class="search-content">
-                <div class="search-content__content">
-                  <span class="search-content__type"><?php echo $item['type']; ?></span>
-                  <h4 class="search-content__title">
-                    <a class="search-content__link" href="<?php the_permalink(); ?>">
-                      <?php the_title(); ?>
-                    </a>
-                  </h4>
-                  <div class="search-content__body">
-                    <div class="metadata">
-                  <span class="time">
-                      <?php echo get_the_date();?>
-                  </span>
-                    </div>
-                    <p class="search-content__info"><?php the_excerpt(); ?></p>
-                  </div>
+          <div class="row search-item">
+            <div class="col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0 search-item-content">
+              <span class="search-content__type"><?php echo $item['type']; ?></span>
+              <h4 class="search-content__title">
+                <a class="search-content__link" href="<?php the_permalink(); ?>">
+                  <?php the_title(); ?>
+                </a>
+              </h4>
+              <div class="search-content__body">
+                <div class="metadata">
+                  <span class="time"><?php echo get_the_date();?></span>
                 </div>
-              </li>
+                <p class="search-content__info"><?php the_excerpt(); ?></p>
+              </div>
             </div>
           </div>
         <?php
@@ -73,7 +66,7 @@
         endwhile;
         wp_reset_postdata();
         ?>
-    </ul>
+    </div>
 
     <div class="paginate">
       <div class="paginate-prev">
