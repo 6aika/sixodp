@@ -4,20 +4,21 @@
   */
 
   global $wp_query;
+  $page_size = 25;
+  $page_index = get_query_var('page', 1) - 1;
+  $offset = (int)$page_index * $page_size;
   $searchterm = trim($_GET['s']);
   $baseurl = CKAN_API_URL;
   $url = $baseurl."/action/package_search?q=".$searchterm;
-  $data_dataset = get_ckan_data($url."&fq=dataset_type:dataset");
+  $data_dataset = get_ckan_data($url."&fq=dataset_type:dataset&rows=" . (string)$page_size . '&start=' . $offset);
   $data_dataset = $data_dataset['result'];
-  $data_showcase = get_ckan_data($url."&fq=dataset_type:showcase");
+  $data_showcase = get_ckan_data($url."&fq=dataset_type:showcase&rows=" . (string)$page_size . '&start=' . $offset);
   $data_showcase = $data_showcase['result'];
-  $searchcount = get_posts(array('s' => $searchterm, 'post_type' => 'any' ));
-  $searchcount =  count($searchcount);
+  $count = $wp_query->found_posts;
 ?>
 
 <div class="row">
   <div class="sidebar col-md-3 col-sm-12">
-    <h3 class="heading-sidebar"><?php _e('Results in groups', 'sixodp');?></h3>
     <ul>
       <li class="sidebar-item">
         <a href="<?php echo get_site_url(); ?>/<?php echo get_current_locale() ?>/?s=<?php echo $searchterm;?>&datasearch" title="<?php _e('Datasets', 'sixodp');?>">
@@ -34,7 +35,7 @@
       <li class="sidebar-item">
         <a href="<?php echo get_site_url(); ?>/<?php echo get_current_locale() ?>/?s=<?php echo $searchterm;?>" title="<?php _e('Others', 'sixodp');?>">
           <span class="sidebar-icon-wrapper"><span class="fa fa-long-arrow-right"></span></span>
-          <?php _e('Others', 'sixodp');?>&nbsp;(<?php echo $searchcount; ?>)
+          <?php _e('Others', 'sixodp');?>&nbsp;(<?php echo $count; ?>)
         </a>
       </li>
     </ul>
@@ -80,5 +81,19 @@
         </div>
       <?php endforeach; ?>
     </div>
+
+    <div class="paginate">
+      <?php if (get_previous_page_link()): ?>
+        <div class="paginate-prev">
+          <a href="<?php echo get_previous_page_link(); ?>"><?php _e('Previous page', 'sixodp'); ?></a>
+        </div>
+      <?php endif; ?>
+      <?php if (get_next_page_link($results['count'], $page_size)): ?>
+        <div class="paginate-next">
+          <a href="<?php echo get_next_page_link($results['count'], $page_size); ?>"><?php _e('Next page', 'sixodp'); ?></a>
+        </div>
+      <?php endif; ?>
+    </div>
+
   </div>
 </div>

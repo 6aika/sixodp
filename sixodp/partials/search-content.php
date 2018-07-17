@@ -11,6 +11,7 @@
   $data_dataset = $data_dataset['result'];
   $data_showcase = get_ckan_data($url."&fq=dataset_type:showcase");
   $data_showcase = $data_showcase['result'];
+  $count = $wp_query->found_posts;
 ?>
 <div class="container">
   <div class="row">
@@ -32,14 +33,14 @@
         <li class="sidebar-item">
           <a href="<?php echo get_site_url(); ?>/<?php echo get_current_locale() ?>/?s=<?php echo $searchterm;?>" title="" class="active">
             <span class="sidebar-icon-wrapper"><span class="fa fa-long-arrow-right"></span></span>
-            <span><?php _e('Others', 'sixodp');?>  (<?php  echo $wp_query->found_posts; ?>)</span>
+            <span><?php _e('Others', 'sixodp');?>  (<?php  echo $count; ?>)</span>
           </a>
         </li>
       </ul>
     </div>
     <div class="col-md-9 col-sm-12 search-container">
       <div class="search-options">
-        <h3 class="search-results-heading"><?php printf( esc_html( _n( 'Found %d result', 'Found %d results', $wp_query->found_posts, 'sixodp' ) ), $wp_query->found_posts ); ?></h3>
+        <h3 class="search-results-heading"><?php printf( esc_html( _n( 'Found %d result', 'Found %d results', $count, 'sixodp' ) ), $count ); ?></h3>
       </div>
       <div>
         <?php

@@ -870,6 +870,18 @@ function get_translated($object, $field) {
   return $object[$field];
 }
 
+function get_previous_page_link() {
+  $page = get_query_var( 'page', 1 );
+  $page--;
+  return $page <= 0 ? false : add_query_arg( 'page', $page, 'https://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
+}
+
+function get_next_page_link($total_items, $page_size) {
+  $page = get_query_var( 'page', 1 );
+  $page++;
+  return ($page * $page_size) >= (int)$total_items ? false : add_query_arg( 'page', $page, 'https://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
+}
+
 function new_subcategory_hierarchy() { 
     $category = get_queried_object();
 
