@@ -11,8 +11,6 @@
   $data_dataset = $data_dataset['result'];
   $data_showcase = get_ckan_data($url."&fq=dataset_type:showcase");
   $data_showcase = $data_showcase['result'];
-  $searchcount = get_posts(array('s' => $searchterm, 'post_type' => 'any' ));
-  $searchcount =  count($searchcount);
 ?>
 <div class="container">
   <div class="row">
@@ -35,50 +33,57 @@
         <li class="sidebar-item">
           <a href="<?php echo get_site_url(); ?>/<?php echo get_current_locale() ?>/?s=<?php echo $searchterm;?>" title="" class="active">
             <span class="sidebar-icon-wrapper"><span class="fa fa-long-arrow-right"></span></span>
-            <span><?php _e('Others', 'sixodp');?>  (<?php  echo $searchcount; ?>)</span>
+            <span><?php _e('Others', 'sixodp');?>  (<?php  echo $wp_query->found_posts; ?>)</span>
           </a>
         </li>
       </ul>
     </div>
     <div class="col-md-9 col-sm-12 search-container">
-      <h3 class="search-results-heading"><?php printf( esc_html( _n( 'Found %d result', 'Found %d results', $wp_query->found_posts, 'sixodp' ) ), $wp_query->found_posts ); ?></h3>
-          <ul class="search-content__list">
-            <?php
-            // Start the loop.
-            while ( have_posts() ) : the_post(); ?>
-            <li class="search-content">
-              <div class="search-content__content">
-                <span class="search-content__type"><?php echo $item['type']; ?></span>
-                <h4 class="search-content__title">
-                  <a class="search-content__link" href="<?php the_permalink(); ?>">
-                    <?php the_title(); ?>
-                  </a>
-                </h4>
-                <div class="search-content__body">
-                  <div class="metadata">
-                      <span class="time">
-                          <?php echo get_the_date();?>
-                      </span>
+      <div class="search-options">
+        <h3 class="search-results-heading"><?php printf( esc_html( _n( 'Found %d result', 'Found %d results', $wp_query->found_posts, 'sixodp' ) ), $wp_query->found_posts ); ?></h3>
+      </div>
+      <ul class="search-content__list">
+        <?php
+        // Start the loop.
+        while ( have_posts() ) : the_post(); ?>
+          <div class="row">
+            <div class="col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0">
+              <li class="search-content">
+                <div class="search-content__content">
+                  <span class="search-content__type"><?php echo $item['type']; ?></span>
+                  <h4 class="search-content__title">
+                    <a class="search-content__link" href="<?php the_permalink(); ?>">
+                      <?php the_title(); ?>
+                    </a>
+                  </h4>
+                  <div class="search-content__body">
+                    <div class="metadata">
+                  <span class="time">
+                      <?php echo get_the_date();?>
+                  </span>
+                    </div>
+                    <p class="search-content__info"><?php the_excerpt(); ?></p>
                   </div>
-                  <p class="search-content__info"><?php the_excerpt(); ?></p>
                 </div>
-              </div>
-            </li>
-            <?php /*
-            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-              <header class="entry-header">
-                  <?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
-              </header><!-- .entry-header -->
-              <div class="entry-summary">
-                  <?php the_excerpt(); ?>
-              </div><!-- .entry-summary -->
-            </article><!-- #post-## -->
-            */ ?>
-            <?php
-            // End the loop.
-            endwhile;
-            ?>
-        </ul>
+              </li>
+            </div>
+          </div>
+        <?php
+        // End the loop.
+        endwhile;
+        wp_reset_postdata();
+        ?>
+    </ul>
+
+    <div class="paginate">
+      <div class="paginate-prev">
+        <?php previous_posts_link() ?>
+      </div>
+      <div class="paginate-next">
+        <?php next_posts_link() ?>
+      </div>
+    </div>
+
     </div>
   </div>
 </div>
