@@ -371,6 +371,14 @@ function get_translated_page_by_title ($title) {
   return get_page($translated_page_id);
 }
 
+function get_translated_page_by_slug ($slug) {
+  $orig_page = get_page_by_path($slug);
+  if (!$orig_page) return false;
+  $translated_page_id = pll_get_post($orig_page->ID);
+  if (!$translated_page_id) return false;
+  return get_page($translated_page_id);
+}
+
 function get_translated_category_by_slug ($slug, $lang = null) {
   $categories = get_categories(array(
     'slug' => $slug,

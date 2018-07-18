@@ -53,7 +53,7 @@
 
   <div class="container">
     <div class="row btn-container">
-      <a href="<?php echo get_permalink(get_translated_page_by_title('Viimeisimmät päivitykset')); ?>" class="btn btn-latest--inverse btn--sovellukset">
+      <a href="<?php echo get_permalink(get_translated_page_by_slug('viimeisimmat-paivitykset')); ?>" class="btn btn-latest--inverse btn--sovellukset">
         <?php _e('More updates', 'sixodp');?>
       </a>
     </div>

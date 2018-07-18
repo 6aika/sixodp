@@ -31,7 +31,7 @@ get_header(); ?>
         <div class="container">
           <ol class="breadcrumb">
             <li><a href="<?php echo get_home_url() ?>"><?php _e('Home', 'sixodp') ?></a></li>
-            <?php if ($cat_parent != $category) : ?>
+            <?php if ($cat_parent != $category && $cat_parent->name != $cat->name) : ?>
               <li><a href="<?php echo get_category_link($cat_parent_id) ?>"><?php echo $cat_parent->name ?></a></li>
             <?php endif;?>
             <li><a href="<?php echo get_category_link($cat) ?>"><?php echo $cat->name ?></a></li>
@@ -128,7 +128,7 @@ get_header(); ?>
               <ul>
                 <li class="sidebar-item">
                   <span class="sidebar-item-inner">
-                    <img src="<?php echo get_avatar_url(get_the_author_meta('id'), ['size' => 128]) ?>" class="avatar" />
+                    <?php echo get_avatar( get_the_author_meta('ID'), 128); ?>
                     <p class="text-center"><strong><?php echo trim(get_the_author_meta('first_name') . ' ' . get_the_author_meta('last_name')) ?></strong></p>
                     <p><?php echo wp_html_excerpt(get_the_author_meta('description'), 240, '...'); ?></p>
                   </span>
