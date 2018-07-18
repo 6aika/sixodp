@@ -20,12 +20,16 @@
 
   .heading-sidebar {
     padding-left: $padding-large-horizontal*2;
+    color: $sidebar-heading-color;
   }
 }
 
 .sidebar-item {
   padding: 0;
   background: transparent;
+  text-transform: uppercase;
+  font-size: $font-size-small;
+  font-weight: $headings-font-weight;
 
   a,
   .sidebar-item-inner {
@@ -95,12 +99,4 @@
     background: $sidebar-item-bg-active--highlight;
     color: $sidebar-item-color-active--highlight;
   }
-}
-
-.sidebar-heading {
-  @extend .sidebar-item;
-  font-size: $font-size-large;
-  color: $headings-color;
-  font-family: $headings-font-family;
-  font-weight: $headings-font-weight;
 }
