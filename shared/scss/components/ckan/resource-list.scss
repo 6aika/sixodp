@@ -9,11 +9,6 @@
       position: absolute;
       top: $padding-large-vertical;
       left: $padding-large-horizontal;
-      display: none;
-
-      @media(min-width: $width-lg) {
-        display: inline-block;
-      }
     }
 
     .container-fluid {
@@ -29,11 +24,7 @@
         height: 100%;
         width: 100%;
         display: inline-block;
-        padding: 18px 0 17px 0px;
-
-        @media(min-width: $width-lg) {
-          padding: 18px 0 17px 60px;
-        }
+        padding: 18px 0 17px 50px;
       }
 
       &.dropdown-toggle {

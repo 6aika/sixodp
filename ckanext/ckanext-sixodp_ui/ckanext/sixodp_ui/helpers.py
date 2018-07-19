@@ -180,14 +180,14 @@ def get_package_groups(package_id):
 
 _LOCALE_ALIASES = {'en_GB': 'en'}
 
-def get_translated(data_dict, field):
+def get_translated(data_dict, field, fallback_language=None):
     if(data_dict.get(field+'_translated')):
         language = i18n.get_lang()
         if language in _LOCALE_ALIASES:
             language = _LOCALE_ALIASES[language]
 
         try:
-            return data_dict[field+'_translated'][language]
+            return data_dict[field+'_translated'][language] or data_dict[field+'_translated'][fallback_language]
         except KeyError:
             return data_dict.get(field, '')
     if data_dict.get('display_name', None) is not None:
@@ -202,7 +202,7 @@ def get_current_lang():
 # Copied from core ckan to call over ridden get_translated
 def dataset_display_name(package_or_package_dict):
     if isinstance(package_or_package_dict, dict):
-        return get_translated(package_or_package_dict, 'title') or \
+        return get_translated(package_or_package_dict, 'title', 'fi') or \
                package_or_package_dict['name']
     else:
         # FIXME: we probably shouldn't use the same functions for

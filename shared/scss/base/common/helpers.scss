@@ -19,6 +19,7 @@
 }
 
 @mixin list-item($margin: $padding-large-vertical) {
+  list-style: none;
   padding: 0;
   background: none;
   margin-bottom: $margin;

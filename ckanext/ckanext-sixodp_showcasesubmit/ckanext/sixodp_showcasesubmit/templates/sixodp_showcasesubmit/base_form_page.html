@@ -10,7 +10,9 @@
           {% if self.breadcrumb_content() | trim %}
             <ol class="breadcrumb">
               {% snippet 'snippets/home_breadcrumb_item.html' %}
-              {% block breadcrumb_content %}{% endblock %}
+              {% block breadcrumb_content %}
+                <li class="active">{{ _('Submit a showcase') }}</li>
+              {% endblock %}
             </ol>
           {% endif %}
         {% endblock %}

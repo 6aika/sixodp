@@ -8,6 +8,12 @@
   letter-spacing: 2px;
   font-weight: bold;
   color: #777 !important;
+
+  + .controls {
+    textarea {
+      padding-right: 50px;
+    }
+  }
 }
 
 .form-control {
@@ -67,6 +73,13 @@ form {
   }
 
   .form-actions {
+    &.form-actions-section {
+      border-top: $border-base solid $border-color;
+      margin-top: $padding-large-vertical*5;
+      padding-top: $padding-large-vertical*3;
+      margin-bottom: $padding-large-vertical*3;
+    }
+
     .action-info {
       margin: $margin-large-vertical*2 0;
     }

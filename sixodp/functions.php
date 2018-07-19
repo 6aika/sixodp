@@ -371,6 +371,14 @@ function get_translated_page_by_title ($title) {
   return get_page($translated_page_id);
 }
 
+function get_translated_page_by_slug ($slug) {
+  $orig_page = get_page_by_path($slug);
+  if (!$orig_page) return false;
+  $translated_page_id = pll_get_post($orig_page->ID);
+  if (!$translated_page_id) return false;
+  return get_page($translated_page_id);
+}
+
 function get_translated_category_by_slug ($slug, $lang = null) {
   $categories = get_categories(array(
     'slug' => $slug,
@@ -868,6 +876,18 @@ function get_translated($object, $field) {
     return $translated_value;
   }
   return $object[$field];
+}
+
+function get_previous_page_link() {
+  $page = get_query_var( 'page', 1 );
+  $page--;
+  return $page <= 0 ? false : add_query_arg( 'page', $page, 'https://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
+}
+
+function get_next_page_link($total_items, $page_size) {
+  $page = get_query_var( 'page', 1 );
+  $page++;
+  return ($page * $page_size) >= (int)$total_items ? false : add_query_arg( 'page', $page, 'https://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
 }
 
 function new_subcategory_hierarchy() { 

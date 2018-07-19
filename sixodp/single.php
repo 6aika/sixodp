@@ -31,7 +31,7 @@ get_header(); ?>
         <div class="container">
           <ol class="breadcrumb">
             <li><a href="<?php echo get_home_url() ?>"><?php _e('Home', 'sixodp') ?></a></li>
-            <?php if ($cat_parent != $category) : ?>
+            <?php if ($cat_parent != $category && $cat_parent->name != $cat->name) : ?>
               <li><a href="<?php echo get_category_link($cat_parent_id) ?>"><?php echo $cat_parent->name ?></a></li>
             <?php endif;?>
             <li><a href="<?php echo get_category_link($cat) ?>"><?php echo $cat->name ?></a></li>
@@ -53,10 +53,13 @@ get_header(); ?>
         ?>
         <div class="row">
           <div class="sidebar col-md-3 col-sm-5 col-xs-12">
+            <h2 class="heading-sidebar"><?php echo get_the_date('j.n.Y') ?></h2>
             <?php 
             $post_type = get_post_type_object(get_post_type());
-            if ($post_type->name !== 'post' && $post_type->name !== 'page') :
-            ?>
+            if ($post_type->name !== 'post' && $post_type->name !== 'page') : ?>
+              <?php if ($post_type->name === 'data_request' or $post_type->name === 'showcase_idea'): ?>
+                <h3 class="heading-sidebar"><?php _e('Categories', 'sixodp') ?></h3>
+              <?php endif ?>
               <ul>
                 <li class="sidebar-item">
                   <a href="<?php echo get_post_type_archive_link($post_type->name); ?>">
@@ -70,9 +73,7 @@ get_header(); ?>
                   ?>
                 </a></li>
               </ul>
-            <?php 
-            endif; 
-            ?>
+            <?php endif; ?>
 
             <?php
               $categories = get_the_category();
@@ -122,12 +123,12 @@ get_header(); ?>
             <?php 
             $author = get_the_author();
 
-            if (get_the_author() !== 'admin') : ?>
+            if (get_the_author() !== 'admin' && $post_type->name != 'data_request' && $post_type->name != 'showcase_idea') : ?>
               <h3 class="heading-sidebar"><?php _e('Author', 'sixodp') ?></h3>
               <ul>
                 <li class="sidebar-item">
                   <span class="sidebar-item-inner">
-                    <img src="<?php echo get_avatar_url(get_the_author_meta('id'), ['size' => 128]) ?>" class="avatar" />
+                    <?php echo get_avatar( get_the_author_meta('ID'), 128); ?>
                     <p class="text-center"><strong><?php echo trim(get_the_author_meta('first_name') . ' ' . get_the_author_meta('last_name')) ?></strong></p>
                     <p><?php echo wp_html_excerpt(get_the_author_meta('description'), 240, '...'); ?></p>
                   </span>

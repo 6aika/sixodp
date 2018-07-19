@@ -5,6 +5,12 @@
 ?>
 
 <div class="wrapper--featured">
+  <?php if (!isset($horizontal_accordion_heading)): ?>
+    <div class="container container--heading">
+      <h2 class="heading--featured"><?php _e('Current', 'sixodp');?> </h2>
+    </div>
+  <?php endif; ?>
+
   <div class="container">
     <?php
       $args = array( 'posts_per_page' => 4 );

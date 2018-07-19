@@ -11,67 +11,73 @@
   $data_dataset = $data_dataset['result'];
   $data_showcase = get_ckan_data($url."&fq=dataset_type:showcase");
   $data_showcase = $data_showcase['result'];
-  $searchcount = get_posts(array('s' => $searchterm, 'post_type' => 'any' ));
-  $searchcount =  count($searchcount);
+  $count = $wp_query->found_posts;
 ?>
 <div class="container">
   <div class="row">
 
-    <div class="search-sidebar col-md-3 col-sm-12">
-      <ul class="sidebar-section">
-        <li class="sidebar-heading">
-          <?php _e('Results in groups', 'sixodp');?>
+    <div class="sidebar col-md-3 col-sm-12">
+      <ul>
+        <li class="sidebar-item">
+          <a href="<?php echo get_site_url(); ?>/<?php echo get_current_locale() ?>/?s=<?php echo $searchterm;?>&datasearch" title="">
+            <span class="sidebar-icon-wrapper"><span class="fa fa-long-arrow-right"></span></span>
+            <span><?php _e('Datasets', 'sixodp');?>  (<?php echo $data_dataset['count']; ?>)</span>
+          </a>
         </li>
         <li class="sidebar-item">
-            <a href="<?php echo get_site_url(); ?>/<?php echo get_current_locale() ?>/?s=<?php echo $searchterm;?>&datasearch" title=""> <span><?php _e('Datasets', 'sixodp');?>  (<?php echo $data_dataset['count']; ?>)</span></a>
+          <a href="<?php echo get_site_url(); ?>/<?php echo get_current_locale() ?>/?s=<?php echo $searchterm;?>&datasearch&showcase" title="">
+            <span class="sidebar-icon-wrapper"><span class="fa fa-long-arrow-right"></span></span>
+            <span><?php _e('Applications', 'sixodp');?>  (<?php echo $data_showcase['count']; ?>)</span>
+          </a>
         </li>
         <li class="sidebar-item">
-            <a href="<?php echo get_site_url(); ?>/<?php echo get_current_locale() ?>/?s=<?php echo $searchterm;?>&datasearch&showcase" title=""> <span><?php _e('Applications', 'sixodp');?>  (<?php echo $data_showcase['count']; ?>)</span></a>
-        </li>
-        <li class="sidebar-item">
-            <a href="<?php echo get_site_url(); ?>/<?php echo get_current_locale() ?>/?s=<?php echo $searchterm;?>" title="" class="active"> <span><?php _e('Others', 'sixodp');?>  (<?php  echo $searchcount; ?>)</span></a>
+          <a href="<?php echo get_site_url(); ?>/<?php echo get_current_locale() ?>/?s=<?php echo $searchterm;?>" title="" class="active">
+            <span class="sidebar-icon-wrapper"><span class="fa fa-long-arrow-right"></span></span>
+            <span><?php _e('Others', 'sixodp');?>  (<?php  echo $count; ?>)</span>
+          </a>
         </li>
       </ul>
     </div>
     <div class="col-md-9 col-sm-12 search-container">
-      <h3 class="search-results-heading"><?php printf( esc_html( _n( 'Found %d result', 'Found %d results', $wp_query->found_posts, 'sixodp' ) ), $wp_query->found_posts ); ?></h3>
-          <ul class="search-content__list">
-            <?php
-            // Start the loop.
-            while ( have_posts() ) : the_post(); ?>
-            <li class="search-content">
-              <div class="search-content__content">
-                <span class="search-content__type"><?php echo $item['type']; ?></span>
-                <h4 class="search-content__title">
-                  <a class="search-content__link" href="<?php the_permalink(); ?>">
-                    <?php the_title(); ?>
-                  </a>
-                </h4>
-                <div class="search-content__body">
-                  <div class="metadata">
-                      <span class="time">
-                          <?php echo get_the_date();?>
-                      </span>
-                  </div>
-                  <p class="search-content__info"><?php the_excerpt(); ?></p>
+      <div class="search-options">
+        <h3 class="search-results-heading"><?php printf( esc_html( _n( 'Found %d result', 'Found %d results', $count, 'sixodp' ) ), $count ); ?></h3>
+      </div>
+      <div>
+        <?php
+        // Start the loop.
+        while ( have_posts() ) : the_post(); ?>
+          <div class="row search-item">
+            <div class="col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0 search-item-content">
+              <span class="search-content__type"><?php echo $item['type']; ?></span>
+              <h4 class="search-content__title">
+                <a class="search-content__link" href="<?php the_permalink(); ?>">
+                  <?php the_title(); ?>
+                </a>
+              </h4>
+              <div class="search-content__body">
+                <div class="metadata">
+                  <span class="time"><?php echo get_the_date();?></span>
                 </div>
+                <p class="search-content__info"><?php the_excerpt(); ?></p>
               </div>
-            </li>
-            <?php /*
-            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-              <header class="entry-header">
-                  <?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
-              </header><!-- .entry-header -->
-              <div class="entry-summary">
-                  <?php the_excerpt(); ?>
-              </div><!-- .entry-summary -->
-            </article><!-- #post-## -->
-            */ ?>
-            <?php
-            // End the loop.
-            endwhile;
-            ?>
-        </ul>
+            </div>
+          </div>
+        <?php
+        // End the loop.
+        endwhile;
+        wp_reset_postdata();
+        ?>
+    </div>
+
+    <div class="paginate">
+      <div class="paginate-prev">
+        <?php previous_posts_link() ?>
+      </div>
+      <div class="paginate-next">
+        <?php next_posts_link() ?>
+      </div>
+    </div>
+
     </div>
   </div>
 </div>

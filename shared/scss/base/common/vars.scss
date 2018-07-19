@@ -8,7 +8,7 @@ $border-radius-base: 3px;
 $border-radius-medium: 8px;
 $border-radius-large: 10px;
 $border-radius-small: 3px;
-$border-base: $border-radius-base;
+$border-base: 1px;
 $border-radius-round: 15px;
 $border-color: #dddddd;
 
@@ -180,17 +180,7 @@ $navbar-logos-background-color: $brand-white;
 $navbar-toggle-color: $brand-primary;
 $navbar-toggle-color-active: lighten($navbar-toggle-color, 30%);
 
-$navbar-secondary-border-color: $brand-lightgray;
-$navbar-secondary-bg: $brand-lightgray;
-$navbar-secondary-link-color: $text-color;
-$navbar-secondary-link-active-color: $navbar-secondary-link-color;
-$navbar-secondary-link-active-border-color: transparent;
-$navbar-secondary-link-hover-bg: $gray-light;
-$navbar-secondary-link-active-bg: $brand-lightgray;
-$navbar-secondary-toggle-color: $navbar-secondary-link-color;
-$navbar-secondary-active-toggle-color: $navbar-secondary-link-color;
-
-$navbar-default-link-color: $gray-base;
+$navbar-default-link-color: $gray;
 $navbar-default-link-active-color: $navbar-default-link-color;
 $navbar-default-link-active-border-color: $brand-primary;
 $navbar-default-link-hover-bg: $gray-light;
@@ -201,6 +191,16 @@ $navbar-default-link-active-color-desktop: $navbar-default-link-color-desktop;
 $navbar-default-link-active-border-color-desktop: transparent;
 $navbar-default-link-hover-bg-desktop: $navbar-default-bg;
 $navbar-default-link-active-bg-desktop: $navbar-default-bg;
+
+$navbar-secondary-border-color: $brand-lightgray;
+$navbar-secondary-bg: $brand-lightgray;
+$navbar-secondary-link-color: $text-color;
+$navbar-secondary-link-active-color: $navbar-secondary-link-color;
+$navbar-secondary-link-active-border-color: transparent;
+$navbar-secondary-link-hover-bg: $navbar-default-link-hover-bg;
+$navbar-secondary-link-active-bg: $brand-lightgray;
+$navbar-secondary-toggle-color: $navbar-secondary-link-color;
+$navbar-secondary-active-toggle-color: $navbar-secondary-link-color;
 
 $nav-tabs-background: transparent;
 $nav-tabs-background-active: $brand-primary;
@@ -270,12 +270,13 @@ $stages-text-color-active: $brand-white;
 $stages-text-color-filled: $brand-white;
 
 // Sidebar (CMS only)
-$sidebar-item-bg: $gray-lighter;
+$sidebar-heading-color: $gray-light;
+$sidebar-item-bg: $brand-white;
 $sidebar-item-bg--highlight: $brand-secondary;
-$sidebar-item-bg-active: $gray-light;
+$sidebar-item-bg-active: $gray-lighter;
 $sidebar-item-bg-active--highlight: $brand-secondary-dark;
 
-$sidebar-item-color: $text-color;
+$sidebar-item-color: $navbar-default-link-color;
 $sidebar-item-color--highlight: $brand-white;
 $sidebar-item-color-active: $text-color;
 $sidebar-item-color-active--highlight: $brand-white;

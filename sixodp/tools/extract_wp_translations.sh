@@ -17,6 +17,8 @@ function extract_messages {
 
   # Plugins
   php makepot.php wp-theme ../../wordpress/wp-trello/ ../../wordpress/wp-trello/lang/wp-trello.pot
+
+  echo -e Translation keys extracted successfully
 }
 
 function help_and_exit {

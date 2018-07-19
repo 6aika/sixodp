@@ -23,7 +23,7 @@ get_header(); ?>
         <div class="container">
           <ol class="breadcrumb">
             <li><a href="<?php echo get_home_url() ?>"><?php _e('Home', 'sixodp') ?></a></li>
-            <li><a href="<?php echo get_home_url() ?>/ajankohtaista"><?php _e('Ajankohtaista', 'sixodp') ?></a></li>
+            <li><a href="<?php echo get_home_url() ?>/ajankohtaista"><?php _e('Current', 'sixodp') ?></a></li>
           </ol>
         </div>
       </div>

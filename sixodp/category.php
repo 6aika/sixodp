@@ -38,7 +38,7 @@ get_header();
       <div class="wrapper">
         <div class="row">
           <div class="sidebar col-md-3 col-sm-12 col-xs-12">
-            <h3 class="heading-sidebar"><?php _e('Ajankohtaista', 'sixodp') ?></h3>
+            <h3 class="heading-sidebar"><?php _e('Current', 'sixodp') ?></h3>
             <?php
               $categories=get_categories(array(
                 'parent' => $grandparent_id,

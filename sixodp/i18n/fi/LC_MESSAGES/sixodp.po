@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sixodp\n"
-"POT-Creation-Date: 2018-01-08 12:45:53+00:00\n"
+"POT-Creation-Date: 2018-07-19 06:00:36+00:00\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Joonas Dukpa, 2017\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
@@ -20,16 +20,15 @@ msgstr ""
 #. #-#-#-#-#  sixodp.pot  #-#-#-#-#
 #. Template Name of the plugin/theme
 #: ajankohtaista.php:25 archive-data_request.php:24
-#: archive-showcase_idea.php:24 category-tuki.php:28 category.php:28
+#: archive-showcase_idea.php:24 category-tuki.php:28 category.php:29
 #: data_request_form.php:64 latest-updates.php:57 page_with_menu.php:30
-#: roadmap.php:26 search.php:19 showcase_idea_form.php:65 tuki.php:26
+#: roadmap.php:26 search.php:24 showcase_idea_form.php:65 single.php:33
+#: tuki.php:26 tukichild.php:30
 msgid "Home"
 msgstr "Etusivu"
 
-#. #-#-#-#-#  sixodp.pot  #-#-#-#-#
-#. Template Name of the plugin/theme
-#: ajankohtaista.php:26 category.php:29 category.php:37
-msgid "Ajankohtaista"
+#: ajankohtaista.php:26 category.php:41 partials/horizontal-accordion.php:10
+msgid "Current"
 msgstr "Ajankohtaista"
 
 #: ajankohtaista.php:32 partials/featured-datasets.php:16
@@ -46,7 +45,7 @@ msgstr "Twitter"
 msgid "Data Requests"
 msgstr "Datatoiveet"
 
-#: archive-data_request.php:45
+#: archive-data_request.php:42
 msgid "New data request"
 msgstr "Uusi datatoive"
 
@@ -54,15 +53,15 @@ msgstr "Uusi datatoive"
 msgid "Showcase ideas"
 msgstr "Sovellusideat"
 
-#: archive-showcase_idea.php:45
+#: archive-showcase_idea.php:41
 msgid "New showcase idea"
 msgstr "Uusi sovellusidea"
 
-#: category.php:93 index.php:46
+#: category.php:97 index.php:46 partials/search-content-data.php:88
 msgid "Previous page"
 msgstr "Edellinen"
 
-#: category.php:94 index.php:47
+#: category.php:98 index.php:47 partials/search-content-data.php:93
 msgid "Next page"
 msgstr "Seuraava"
 
@@ -123,25 +122,24 @@ msgstr "Datatoiveesi"
 
 #: data_request_form.php:125 showcase_idea_form.php:126
 msgid "Name"
-msgstr "* Nimi"
+msgstr "Nimi"
 
 #: data_request_form.php:131
 msgid "Your name will not be published with data request."
 msgstr ""
 "Nimeäsi ei julkaista datatoiveen yhteydessä.  Sitä käytetään kontaktointiin "
-"esimerkiksi kontaktoinnissa datatoiveen etenemisen tai tarvittavien "
-"lisätietojen osalta."
+"tarvittaessa esimerkiksi datatoiveen etenemisen tai lisätietojen osalta."
 
 #: data_request_form.php:142 showcase_idea_form.php:143
 msgid "Email"
-msgstr "* Sähköposti"
+msgstr "Sähköposti"
 
 #: data_request_form.php:148
 msgid "Your email will not be published with data request."
 msgstr ""
 "Sähköpostia ei julkaista datatoiveen yhteydessä. Sitä käytetään "
-"kontaktointiin esimerkiksi kontaktoinnissa datatoiveen etenemisen tai "
-"tarvittavien lisätietojen osalta."
+"kontaktointiin tarvittaessa esimerkiksi datatoiveen etenemisen tai "
+"lisätietojen osalta."
 
 #: data_request_form.php:172 showcase_idea_form.php:173
 msgid "Submit"
@@ -222,32 +220,32 @@ msgstr "Ilmoituksia ei löytynyt"
 msgid "No notifications found in the Trash"
 msgstr "Ei ilmoituksia roskakorissa"
 
-#: functions.php:684 partials/featured-datasets.php:23
+#: functions.php:740 partials/featured-datasets.php:23
 msgid "days"
 msgstr "päivää"
 
-#: functions.php:684 partials/featured-datasets.php:24
+#: functions.php:740 partials/featured-datasets.php:24
 msgid "hours"
 msgstr "tuntia"
 
-#: functions.php:684 partials/featured-datasets.php:25
+#: functions.php:740 partials/featured-datasets.php:25
 msgid "ago"
 msgstr "sitten"
 
-#: index.php:48 partials/latest-updates.php:30
+#: index.php:48 partials/latest-updates.php:35 partials/latest-updates.php:93
 msgid "Page"
 msgstr "Sivu"
 
 #: latest-updates.php:69 partials/featured-datasets.php:11
 #: partials/hero.php:18 partials/hero.php:21
-#: partials/search-content-data.php:23 partials/search-content-data.php:24
-#: partials/search-content.php:26 partials/stats.php:13
+#: partials/search-content-data.php:24 partials/search-content-data.php:26
+#: partials/search-content.php:24 partials/stats.php:13
 msgid "Datasets"
 msgstr "Datat"
 
 #: latest-updates.php:72 partials/hero.php:22
-#: partials/search-content-data.php:28 partials/search-content-data.php:29
-#: partials/search-content.php:29 partials/stats.php:21
+#: partials/search-content-data.php:30 partials/search-content-data.php:32
+#: partials/search-content.php:30 partials/stats.php:21
 msgid "Applications"
 msgstr "Sovellukset"
 
@@ -271,12 +269,12 @@ msgstr "Sovellusideat"
 msgid "No updates found for selected month."
 msgstr "Ei päivityksiä valitulta kuukaudelta."
 
-#: partials/ajankohtaista-links.php:9 single.php:53
+#: partials/ajankohtaista-links.php:9 single.php:61 single.php:82
 msgid "Categories"
 msgstr "Kategoriat"
 
 #: partials/article-footer.php:12 partials/content.php:18
-#: partials/page-content.php:23
+#: partials/page-content.php:23 single.php:127
 msgid "Author"
 msgstr "Laatija"
 
@@ -313,7 +311,7 @@ msgid "Latest datasets"
 msgstr "Uusimmat datat"
 
 #: partials/featured-content.php:25 partials/featured-content.php:60
-#: partials/latest-updates.php:21
+#: partials/latest-updates.php:26 partials/latest-updates.php:84
 msgid "Dataset"
 msgstr "Tietoaineisto"
 
@@ -333,7 +331,7 @@ msgstr "Jaa aineisto"
 msgid "Share an open data idea"
 msgstr "Kerro aineistotoive"
 
-#: partials/featured-datasets.php:46 partials/latest-updates.php:57
+#: partials/featured-datasets.php:46 partials/latest-updates.php:120
 msgid "More updates"
 msgstr "Lisää päivityksiä"
 
@@ -345,44 +343,36 @@ msgstr "Muu sisältö"
 msgid "Keyword"
 msgstr "Hakusana"
 
-#: partials/hero.php:29 search.php:20 searchform.php:8
+#: partials/hero.php:29 search.php:25 searchform.php:8
 msgid "Search"
 msgstr "Hae"
 
-#: partials/horizontal-accordion.php:87
+#: partials/horizontal-accordion.php:93
 msgid "Show all"
 msgstr "Näytä kaikki"
 
-#: partials/latest-updates.php:24
+#: partials/latest-updates.php:29 partials/latest-updates.php:87
 msgid "Showcase"
 msgstr "Sovellus"
 
-#: partials/latest-updates.php:27
+#: partials/latest-updates.php:32 partials/latest-updates.php:90
 msgid "Article"
 msgstr "Artikkeli"
 
-#: partials/latest-updates.php:33
+#: partials/latest-updates.php:38 partials/latest-updates.php:96
 msgid "Comment"
 msgstr "Kommentti"
-
-#: partials/more-links.php:11
-msgid "More about the subject"
-msgstr "Lisää aiheesta"
 
 #: partials/nav.php:12
 msgid "Toggle navigation"
 msgstr "Näytä tai piilota valikko"
 
-#: partials/search-content-data.php:20 partials/search-content.php:23
-msgid "Results in groups"
-msgstr "Tulosta ryhmissä"
-
-#: partials/search-content-data.php:33 partials/search-content-data.php:34
-#: partials/search-content.php:32
+#: partials/search-content-data.php:36 partials/search-content-data.php:38
+#: partials/search-content.php:36
 msgid "Others"
 msgstr "Muu sisältö"
 
-#: partials/search-content-data.php:50 partials/search-content.php:37
+#: partials/search-content-data.php:55 partials/search-content.php:43
 msgid "Found %d result"
 msgid_plural "Found %d results"
 msgstr[0] "Löytyi %d tulos"
@@ -414,7 +404,7 @@ msgstr "Ohjeet"
 msgid "Themes"
 msgstr "Teemat"
 
-#: search.php:25
+#: search.php:30
 msgid "Search from site"
 msgstr "Etsi sivustolta"
 
@@ -458,15 +448,15 @@ msgstr ""
 "kontaktointiin esimerkiksi sovellusidean etenemisen tai tarvittavien "
 "lisätietojen osalta."
 
-#: single.php:39
+#: single.php:70
 msgid "Data Request"
 msgstr "Datatoive"
 
-#: single.php:40
+#: single.php:71
 msgid "Showcase Idea"
 msgstr "Sovellusidea"
 
-#: single.php:78
+#: single.php:107
 msgid "Tags"
 msgstr "Avainsanat"
 
@@ -478,9 +468,13 @@ msgstr "Sisältöä avainsanalla"
 msgid "Popular tags"
 msgstr "Suositut avainsanat"
 
-#: tuki.php:27 tuki.php:32
+#: tuki.php:27 tuki.php:32 tukichild.php:31 tukichild.php:37
 msgid "Support"
 msgstr "Ohjeet"
+
+#. Template Name of the plugin/theme
+msgid "Ajankohtaista"
+msgstr "Ajankohtaista"
 
 #. Template Name of the plugin/theme
 msgid "Datatoive-lomake"
