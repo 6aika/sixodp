@@ -11,6 +11,7 @@ ckan_patches:
   - { file: "update_to_bootstrap_3" }
   - { file: "bs3-modal" }
   - { file: "enable_multiple_image_uploads" }
+  - { file: "fix-default-search-field" }
 
 files_created_by_patches:
   - { file: '/usr/lib/ckan/default/src/ckan/ckan/lib/csrf_token.py'}
