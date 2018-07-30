@@ -1,0 +1,15 @@
+diff --git a/ckan/lib/search/query.py b/ckan/lib/search/query.py
+index 5276703..6a42e50 100644
+--- a/ckan/lib/search/query.py
++++ b/ckan/lib/search/query.py
+@@ -306,6 +306,10 @@ class PackageSearchQuery(SearchQuery):
+             invalid_params = [s for s in set(query.keys()) - VALID_SOLR_PARAMETERS]
+             raise SearchQueryError("Invalid search parameters: %s" % invalid_params)
+ 
++
++        # Set default search field
++        query['df'] = 'text'
++
+         # default query is to return all documents
+         q = query.get('q')
+         if not q or q == '""' or q == "''":
