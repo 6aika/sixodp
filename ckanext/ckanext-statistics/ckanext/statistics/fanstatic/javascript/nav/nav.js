@@ -2,6 +2,7 @@
 function StatisticsNav (params) {
   var self = this;
   self._texts = params.texts;
+  self._locale = params.locale;
 
   self._props = {
     dateFormatMoment: 'YYYY-MM-DD', // 'D.M.YYYY',
@@ -326,7 +327,7 @@ StatisticsNav.prototype._setCategories = function (categories) {
 
   var optionData = [{
     id: '',
-    display_name: self._texts.allCategories,
+    title: self._texts.allCategories,
   }].concat(self._state.filters.categories);
 
   self._elem.inputsD3.categoryFilter.selectAll('.radio').remove();
@@ -346,7 +347,12 @@ StatisticsNav.prototype._setCategories = function (categories) {
 
   label.append('span')
     .attr('class', 'radio-label')
-    .text(function (d) { return d.display_name });
+    .text(function (d) {
+      if ( d.title_translated === undefined){
+        return d.title
+      }
+      return d.title_translated[self._locale]
+    });
 };
 
 StatisticsNav.prototype._scrollToSection = function (section) {
