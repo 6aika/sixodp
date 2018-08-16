@@ -113,7 +113,7 @@
           <hr>
 
           {% block resource_content %}
-            <div class="prose notes show-more-content hide-content" property="rdfs:label">
+            <div class="prose notes show-more-content hide-content embedded-content" property="rdfs:label">
               <div class="text-content">
                 {% if res.description %}
                   {{ h.render_markdown(h.get_translated(res, 'description')) }}

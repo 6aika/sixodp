@@ -99,6 +99,7 @@ ckan.module('statistics', function($){
           allCategories: this._('All categories'),
           wholeDatespan: this._('All')
         },
+        locale: this.options.locale,
 
         // Disable scroll events for a moment when scrolling automatically
         setAutoscrolling: function (value) {
