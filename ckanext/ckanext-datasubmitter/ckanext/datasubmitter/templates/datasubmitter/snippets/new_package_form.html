@@ -6,7 +6,7 @@
   }
 </script>
 
-<form id="submit-dataset-form" class="dataset-form form-horizontal" method="post" action="submit-data" data-module="basic-form" novalidate>
+<form id="submit-dataset-form" class="dataset-form form-horizontal" method="post" action="submit-data" data-module="basic-form">
 
   <h2 class="h3">{{ _('Dataset info') }}</h2>
 
@@ -125,15 +125,24 @@
           </div>
         {% endif %}
         <div class="form-actions form-actions-section">
-          <button class="btn btn-transparent--inverse g-recaptcha"
+          <div id='recaptcha' class="g-recaptcha"
+               data-sitekey="{{ h.get_showcasesubmit_recaptcha_sitekey() }}"
+               data-callback="onSubmit"
+               data-size="invisible"></div>
+          <button class="btn btn-transparent--inverse"
                   type="submit"
-                  name="save"
-                  data-sitekey="{{ h.get_datasubmitter_recaptcha_sitekey() }}"
-                  data-callback="onSubmit">
+                  name="save">
             {% block save_button_text %}{{ _('Submit') }}{% endblock %}
           </button>
         </div>
       {% endblock %}
     </div>
   </div>
+  <script type="text/javascript">
+      document.getElementById("submit-dataset-form").addEventListener('submit', function(event){
+          event.preventDefault();
+          grecaptcha.reset();
+          grecaptcha.execute();
+      })
+  </script>
 </form>

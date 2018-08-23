@@ -3,11 +3,11 @@
 
 <script>
   function onSubmit() {
-    document.getElementById("submit-showcase-form").submit();
+      document.getElementById("submit-showcase-form").submit();
   }
 </script>
 
-<form id="submit-showcase-form" enctype="multipart/form-data" class="dataset-form form-horizontal" method="post" action="submit-showcase" data-module="basic-form" novalidate>
+<form id="submit-showcase-form" enctype="multipart/form-data" class="dataset-form form-horizontal" method="post" action="submit-showcase" data-module="basic-form" >
   {% block errors %}{% endblock %}
 
   <div class="row row-compensate">
@@ -294,6 +294,22 @@
   </div>
 
   <div class="row row-compensate">
+    <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12">
+      {% call form.checkbox(
+      'accepted',
+      id='accepted',
+      label=_('I accept that metadata of the application is distributed to other data portals.'),
+      value=data['accepted'],
+      error=errors['accepted'],
+      classes=['control-medium'],
+      attrs={'required': 'required'}
+      )
+      %}
+      {% endcall %}
+    </div>
+  </div>
+
+  <div class="row row-compensate">
     <div class="col-xs-12">
       {% block form_actions %}
         {% if message %}
@@ -302,15 +318,25 @@
           </div>
         {% endif %}
         <div class="form-actions form-actions-section">
-          <button class="btn btn-transparent--inverse g-recaptcha"
+          <div id='recaptcha' class="g-recaptcha"
+               data-sitekey="{{ h.get_showcasesubmit_recaptcha_sitekey() }}"
+               data-callback="onSubmit"
+               data-size="invisible"></div>
+          <button class="btn btn-transparent--inverse"
                   type="submit"
-                  name="save"
-                  data-sitekey="{{ h.get_showcasesubmit_recaptcha_sitekey() }}"
-                  data-callback="onSubmit">
+                  name="save">
             {% block save_button_text %}{{ _('Submit') }}{% endblock %}
           </button>
         </div>
       {% endblock %}
     </div>
   </div>
+
+  <script type="text/javascript">
+    document.getElementById("submit-showcase-form").addEventListener('submit', function(event){
+        event.preventDefault();
+        grecaptcha.reset();
+        grecaptcha.execute();
+    })
+  </script>
 </form>
