@@ -1,20 +1,6 @@
 {% import 'macros/form.html' as form %}
 {% import 'scheming/macros/form.html' as scheming_form %}
 
-{% macro sixodp_checkbox(name, id='', label='', value='', checked=false, placeholder='', error="", classes=[], attrs={}, is_required=false) %}
-{%- set extra_html = caller() if caller -%}
-<div class="form-group{{ " " ~ classes | join(" ") }}{% if error %} error{% endif %}">
-<div class="controls">
-  <label class="checkbox" for="{{ id or name }}">
-    <input id="{{ id or name }}" type="checkbox" name="{{ name }}" value="{{ value | empty_and_escape }}" {{ "checked " if checked }} {{ form.attributes(attrs) }} {% if is_required %}required{% endif %} />
-    {{ label or name }}
-    {% if error and error is iterable %}<strong class="error-inline">{{ error|join(', ') }}</strong>{% endif %}
-  </label>
-  {{ extra_html }}
-</div>
-</div>
-{% endmacro %}
-
 <script>
   function onSubmit() {
       document.getElementById("submit-showcase-form").submit();
