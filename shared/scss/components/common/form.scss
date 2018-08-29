@@ -47,7 +47,8 @@ form {
       &:not(.group-label) {
         display: inline;
         position: absolute;
-        right: 10px;
+        right: 20px;
+        top: 8px;
         z-index: 2;
       }
     }
