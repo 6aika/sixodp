@@ -5,7 +5,8 @@
   text-transform: uppercase;
   padding: $padding-large-vertical*2 0;
 
-  > li {
+  > li,
+  > li.active {
     color: $breadcrumb-color;
 
     a {
