@@ -40,7 +40,7 @@
       </li>
     </ul>
   </div>
-  <div class="col-md-9 col-sm-12 search-container">
+  <div class="col-md-9 col-sm-12 search-container border-left">
     <?php
       $type = 'dataset';
       if(isset($_GET['showcase'])) {

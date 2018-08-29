@@ -38,7 +38,7 @@
         </li>
       </ul>
     </div>
-    <div class="col-md-9 col-sm-12 search-container">
+    <div class="col-md-9 col-sm-12 search-container border-left">
       <div class="search-options">
         <h3 class="search-results-heading"><?php printf( esc_html( _n( 'Found %d result', 'Found %d results', $count, 'sixodp' ) ), $count ); ?></h3>
       </div>
