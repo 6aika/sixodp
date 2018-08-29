@@ -27,7 +27,7 @@
   z-index: 1;
   float: left;
   overflow: auto;
-  max-height: 0;
+  max-height: none;
 
   @media (min-width: $width-sm) {
     overflow: hidden;
@@ -36,6 +36,7 @@
   @media (min-width: $width-md) {
     max-height: none;
     max-height: initial;
+    max-height: 0;
   }
 
   &.open {
