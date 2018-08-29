@@ -17,6 +17,7 @@
   <div class="row">
 
     <div class="sidebar col-md-3 col-sm-12">
+      <h3 class="heading-sidebar"><?php _e('Results in groups', 'sixodp');?></h3>
       <ul>
         <li class="sidebar-item">
           <a href="<?php echo get_site_url(); ?>/<?php echo get_current_locale() ?>/?s=<?php echo $searchterm;?>&datasearch" title="">
@@ -38,9 +39,12 @@
         </li>
       </ul>
     </div>
-    <div class="col-md-9 col-sm-12 search-container">
+    <div class="col-md-9 col-sm-12 search-container border-left">
       <div class="search-options">
-        <h3 class="search-results-heading"><?php printf( esc_html( _n( 'Found %d result', 'Found %d results', $count, 'sixodp' ) ), $count ); ?></h3>
+        <h3 class="search-results-heading">
+          <?php $heading = esc_html( _n('Search results: Others (%d)', 'Search results: Others (%d)', $results['count'], 'sixodp') ); ?>
+          <h3 class="search-results-heading"><?php printf($heading, $results['count']) ?></h3>
+        </h3>
       </div>
       <div>
         <?php

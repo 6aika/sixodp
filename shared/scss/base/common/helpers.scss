@@ -196,3 +196,13 @@
     display: none !important;
   }
 }
+
+.border {
+  &-left {
+    border-left: $border-base solid $border-color;
+  }
+
+  &-right {
+    border-right: $border-base solid $border-color;
+  }
+}
