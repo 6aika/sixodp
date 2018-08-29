@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sixodp\n"
-"POT-Creation-Date: 2018-07-19 06:00:36+00:00\n"
+"POT-Creation-Date: 2018-08-29 05:38:29+00:00\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Joonas Dukpa, 2017\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
@@ -57,11 +57,11 @@ msgstr "Sovellusideat"
 msgid "New showcase idea"
 msgstr "Uusi sovellusidea"
 
-#: category.php:97 index.php:46 partials/search-content-data.php:88
+#: category.php:97 index.php:46 partials/search-content-data.php:91
 msgid "Previous page"
 msgstr "Edellinen"
 
-#: category.php:98 index.php:47 partials/search-content-data.php:93
+#: category.php:98 index.php:47 partials/search-content-data.php:96
 msgid "Next page"
 msgstr "Seuraava"
 
@@ -238,14 +238,14 @@ msgstr "Sivu"
 
 #: latest-updates.php:69 partials/featured-datasets.php:11
 #: partials/hero.php:18 partials/hero.php:21
-#: partials/search-content-data.php:24 partials/search-content-data.php:26
-#: partials/search-content.php:24 partials/stats.php:13
+#: partials/search-content-data.php:25 partials/search-content-data.php:27
+#: partials/search-content.php:25 partials/stats.php:13
 msgid "Datasets"
 msgstr "Datat"
 
 #: latest-updates.php:72 partials/hero.php:22
-#: partials/search-content-data.php:30 partials/search-content-data.php:32
-#: partials/search-content.php:30 partials/stats.php:21
+#: partials/search-content-data.php:31 partials/search-content-data.php:33
+#: partials/search-content.php:31 partials/stats.php:21
 msgid "Applications"
 msgstr "Sovellukset"
 
@@ -367,16 +367,32 @@ msgstr "Kommentti"
 msgid "Toggle navigation"
 msgstr "Näytä tai piilota valikko"
 
-#: partials/search-content-data.php:36 partials/search-content-data.php:38
-#: partials/search-content.php:36
+#: partials/search-content-data.php:22 partials/search-content.php:20
+msgid "Results in groups"
+msgstr "Hakutulokset kategorioittain"
+
+#: partials/search-content-data.php:37 partials/search-content-data.php:39
+#: partials/search-content.php:37
 msgid "Others"
 msgstr "Muu sisältö"
 
-#: partials/search-content-data.php:55 partials/search-content.php:43
-msgid "Found %d result"
-msgid_plural "Found %d results"
-msgstr[0] "Löytyi %d tulos"
-msgstr[1] "Löytyi %d tulosta"
+#: partials/search-content-data.php:50
+msgid "Search results: Applications (%d)"
+msgid_plural "Search results: Applications (%d)"
+msgstr[0] "Hakutulokset: Sovellukset (%d)"
+msgstr[1] "Hakutulokset: Sovellukset (%d)"
+
+#: partials/search-content-data.php:54
+msgid "Search results: Datasets (%d)"
+msgid_plural "Search results: Datasets (%d)"
+msgstr[0] "Hakutulokset: Datat (%d)"
+msgstr[1] "Hakutulokset: Datat (%d)"
+
+#: partials/search-content.php:45
+msgid "Search results: Others (%d)"
+msgid_plural "Search results: Others (%d)"
+msgstr[0] "Hakutulokset: Muu sisältö (%d)"
+msgstr[1] "Hakutulokset: Muu sisältö (%d)"
 
 #: partials/social_links.php:4
 msgid "Follow us"

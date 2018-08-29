@@ -19,6 +19,7 @@
 
 <div class="row">
   <div class="sidebar col-md-3 col-sm-12">
+    <h3 class="heading-sidebar"><?php _e('Results in groups', 'sixodp');?></h3>
     <ul>
       <li class="sidebar-item">
         <a href="<?php echo get_site_url(); ?>/<?php echo get_current_locale() ?>/?s=<?php echo $searchterm;?>&datasearch" title="<?php _e('Datasets', 'sixodp');?>">
@@ -46,13 +47,15 @@
       if(isset($_GET['showcase'])) {
         $results = $data_showcase;
         $type = 'showcase';
+        $heading = esc_html( _n('Search results: Applications (%d)', 'Search results: Applications (%d)', $results['count'], 'sixodp') );
       }
       else {
         $results = $data_dataset;
+        $heading = esc_html( _n('Search results: Datasets (%d)', 'Search results: Datasets (%d)', $results['count'], 'sixodp') );
       }
     ?>
     <div class="search-options">
-      <h3 class="search-results-heading"><?php printf( esc_html( _n( 'Found %d result', 'Found %d results', $results['count'], 'sixodp' ) ), $results['count'] ); ?></h3>
+      <h3 class="search-results-heading"><?php printf($heading, $results['count']) ?></h3>
     </div>
     <div>
       <?php foreach ( $results['results'] as $result ) : ?>
