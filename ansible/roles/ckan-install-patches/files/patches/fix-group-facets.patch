@@ -1,0 +1,34 @@
+From 62028a37b714064ad46e2c35e9e9ede1bdb6e73f Mon Sep 17 00:00:00 2001
+From: Jari Voutilainen <jari.voutilainen@iki.fi>
+Date: Tue, 31 Jul 2018 08:59:40 +0300
+Subject: [PATCH] Align IGroupForm customized facets with IDatasetForm
+
+---
+ ckan/controllers/group.py | 7 ++-----
+ 1 file changed, 2 insertions(+), 5 deletions(-)
+
+diff --git a/ckan/controllers/group.py b/ckan/controllers/group.py
+index 3bbe20fbad..e1fe5efe34 100644
+--- a/ckan/controllers/group.py
++++ b/ckan/controllers/group.py
+@@ -322,7 +322,8 @@ def pager_url(q=None, page=None):
+                     facets[facet] = facet
+ 
+             # Facet titles
+-            self._update_facet_titles(facets, group_type)
++            for plugin in plugins.PluginImplementations(plugins.IFacets):
++                facets = plugin.group_facets(facets, group_type, None)
+ 
+             c.facet_titles = facets
+ 
+@@ -369,10 +370,6 @@ def pager_url(q=None, page=None):
+         self._setup_template_variables(context, {'id': id},
+                                        group_type=group_type)
+ 
+-    def _update_facet_titles(self, facets, group_type):
+-        for plugin in plugins.PluginImplementations(plugins.IFacets):
+-            facets = plugin.group_facets(
+-                facets, group_type, None)
+ 
+     def bulk_process(self, id):
+         ''' Allow bulk processing of datasets for an organization.  Make

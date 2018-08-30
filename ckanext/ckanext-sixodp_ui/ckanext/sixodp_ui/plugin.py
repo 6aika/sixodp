@@ -213,14 +213,34 @@ class Sixodp_UiPlugin(plugins.SingletonPlugin, DefaultTranslation):
     # IFacets #
 
     def dataset_facets(self, facets_dict, package_type):
-        if(package_type == 'dataset'):
+        if package_type == 'dataset':
             facets_dict = OrderedDict()
             facets_dict.update({'res_format': _('Formats')})
             facets_dict.update({'vocab_geographical_coverage': _('Geographical Coverage')})
             facets_dict.update({'groups': _('Groups')})
-            facets_dict.update({'organization': _('Organization')})
+            facets_dict.update({'organization': _('Organizations')})
             facets_dict.update({'collections': _('Collections')})
 
+        return facets_dict
+
+    def organization_facets(self, facets_dict, organization_type, package_type):
+        if organization_type == 'organization':
+            facets_dict = OrderedDict()
+            facets_dict.update({'res_format': _('Formats')})
+            facets_dict.update({'vocab_geographical_coverage': _('Geographical Coverage')})
+            facets_dict.update({'groups': _('Groups')})
+            facets_dict.update({'organization': _('Organizations')})
+            facets_dict.update({'collections': _('Collections')})
+        return facets_dict
+
+    def group_facets(self, facets_dict, group_type, package_type):
+        if group_type == 'group':
+            facets_dict = OrderedDict()
+            facets_dict.update({'res_format': _('Formats')})
+            facets_dict.update({'vocab_geographical_coverage': _('Geographical Coverage')})
+            facets_dict.update({'groups': _('Groups')})
+            facets_dict.update({'organization': _('Organizations')})
+            facets_dict.update({'collections': _('Collections')})
         return facets_dict
 
     def get_helpers(self):
