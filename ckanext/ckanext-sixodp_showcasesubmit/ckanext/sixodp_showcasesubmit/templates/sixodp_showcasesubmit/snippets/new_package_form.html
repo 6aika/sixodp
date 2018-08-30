@@ -10,6 +10,18 @@
 <form id="submit-showcase-form" enctype="multipart/form-data" class="dataset-form form-horizontal" method="post" action="submit-showcase" data-module="basic-form" >
   {% block errors %}{% endblock %}
 
+  {% if message %}
+  <div class="row row-compensate">
+    <div class="col-xs-12">
+      <div class="control-group control-medium">
+        <div class="alert alert-{{message.class}}">
+          {{ message.text }}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
   <div class="row row-compensate">
     <div class="col-xs-12">
       {% call form.input(
@@ -312,11 +324,6 @@
   <div class="row row-compensate">
     <div class="col-xs-12">
       {% block form_actions %}
-        {% if message %}
-          <div class="alert alert-{{message.class}}">
-            {{ message.text }}
-          </div>
-        {% endif %}
         <div class="form-actions form-actions-section">
           <div id='recaptcha' class="g-recaptcha"
                data-sitekey="{{ h.get_showcasesubmit_recaptcha_sitekey() }}"
