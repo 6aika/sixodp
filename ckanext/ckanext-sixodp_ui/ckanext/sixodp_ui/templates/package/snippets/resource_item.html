@@ -4,7 +4,7 @@
 
 <li class="resource-item" data-id="{{ res.id }}">
   <div class="row">
-    <div class="col-xs-11 resource-col">
+    <div class="col-xs-9 resource-col">
       <a href="{{ url }}" title="{{ res.name or res.description }}">
         {% block resource_item_title %}
           {{ h.resource_display_name(res) }}
@@ -16,13 +16,27 @@
         {% block resource_item_description %}{% endblock %}
       </a>
     </div>
-    <div class="col-xs-1 hidden-xs resource-col">
+    <div class="col-xs-3 hidden-xs resource-col">
       {% block resource_item_explore %}
+        <div class="pull-right">
         {% if not url_is_edit %}
-          <a href="{{ res.url }}" class="resource-action resource-url-analytics">
-            <span class="icon icon-download"></span>
-          </a>
+        <a href="{{ res.url }}" class="btn btn-primary resource-url-analytics resource-download" target="_blank">
+          <i class="icon-large icon-download"></i>
+          {{ _('Download') }}
+        </a>
+
         {% endif %}
+
+        {% if 'datastore' in g.plugins %}
+          {% if res.datastore_active %}
+            {% set datastore_root_url = h.url_for('/', locale='default', qualified=true) + 'api/action' %}
+            {% set loading_text = _('Loading...') %}
+            {% set api_info_url = h.url_for(controller='api', action='snippet', ver=1, snippet_path='api_info.html', datastore_root_url=datastore_root_url, resource_id=res.id) %}
+            <a class="btn btn-success resource-download" href="{{ api_info_url }}" data-module="api-info" data-module-template="{{ api_info_url }}" data-loading-text="{{ loading_text }}"><i class="icon-beaker icon-large"></i> {{ _('Data API') }}</a>
+          {% endif %}
+
+        {% endif %}
+        </div>
       {% endblock %}
     </div>
   </div>
