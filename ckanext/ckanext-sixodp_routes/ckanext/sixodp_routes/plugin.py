@@ -16,6 +16,7 @@ import ckan.lib.base as base
 #import ckan.lib.csrf_token as csrf_token
 import ckan.lib.mailer as mailer
 from ckan.plugins import toolkit
+import ckan.plugins as p
 
 from ckan.controllers.user import set_repoze_user
 
@@ -206,7 +207,13 @@ class Sixodp_OrganizationController(OrganizationController):
                     facets[facet] = facet
 
             # Facet titles
-            self._update_facet_titles(facets, group_type)
+            for plugin in p.PluginImplementations(p.IFacets):
+                if group_type == 'organization':
+                    facets = plugin.organization_facets(
+                        facets, group_type, None)
+                else:
+                    facets = plugin.group_facets(
+                        facets, group_type, None)
 
             if 'capacity' in facets and (group_type != 'organization' or
                                              not user_member_of_orgs):

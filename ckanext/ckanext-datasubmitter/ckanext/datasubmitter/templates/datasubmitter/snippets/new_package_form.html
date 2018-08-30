@@ -8,6 +8,18 @@
 
 <form id="submit-dataset-form" class="dataset-form form-horizontal" method="post" action="submit-data" data-module="basic-form">
 
+  {% if message %}
+  <div class="row row-compensate">
+    <div class="col-xs-12">
+      <div class="control-group control-medium">
+        <div class="alert alert-{{message.class}}">
+          {{ message.text }}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
   <h2 class="h3">{{ _('Dataset info') }}</h2>
 
   <div class="row row-compensate">
@@ -119,11 +131,6 @@
   <div class="row row-compensate">
     <div class="col-xs-12">
       {% block form_actions %}
-        {% if message %}
-          <div class="alert alert-{{message.class}}">
-            {{ message.text }}
-          </div>
-        {% endif %}
         <div class="form-actions form-actions-section">
           <div id='recaptcha' class="g-recaptcha"
                data-sitekey="{{ h.get_showcasesubmit_recaptcha_sitekey() }}"
