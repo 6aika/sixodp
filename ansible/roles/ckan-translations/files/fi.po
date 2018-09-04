@@ -3975,7 +3975,7 @@ msgstr "Tällä haulla ei löydy {facet_type} -tyypin sisältöä"
 
 #: ckan/templates/snippets/home_breadcrumb_item.html:2
 msgid "Home"
-msgstr "Aloitussivu"
+msgstr "Etusivu"
 
 #: ckan/templates/snippets/language_selector.html:4
 msgid "Language"
