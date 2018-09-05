@@ -16,9 +16,9 @@
         {% block resource_item_description %}{% endblock %}
       </a>
     </div>
-    <div class="col-xs-3 hidden-xs resource-col">
+    <div class="col-xs-3 resource-col">
       {% block resource_item_explore %}
-        <div class="pull-right">
+        <div class="pull-right resource-labels">
         {% if not url_is_edit %}
         <a href="{{ res.url }}" class="btn btn-primary resource-url-analytics resource-download" target="_blank">
           <i class="icon-large icon-download"></i>
@@ -29,10 +29,12 @@
 
         {% if 'datastore' in g.plugins %}
           {% if res.datastore_active %}
+          <div class="xs-hidden">
             {% set datastore_root_url = h.url_for('/', locale='default', qualified=true) + 'api/action' %}
             {% set loading_text = _('Loading...') %}
             {% set api_info_url = h.url_for(controller='api', action='snippet', ver=1, snippet_path='api_info.html', datastore_root_url=datastore_root_url, resource_id=res.id) %}
             <a class="btn btn-success resource-download" href="{{ api_info_url }}" data-module="api-info" data-module-template="{{ api_info_url }}" data-loading-text="{{ loading_text }}"><i class="icon-beaker icon-large"></i> {{ _('Data API') }}</a>
+          </div>
           {% endif %}
 
         {% endif %}
