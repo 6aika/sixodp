@@ -29,12 +29,12 @@
 
         {% if 'datastore' in g.plugins %}
           {% if res.datastore_active %}
-          <div class="xs-hidden">
+          <span class="hidden-xs">
             {% set datastore_root_url = h.url_for('/', locale='default', qualified=true) + 'api/action' %}
             {% set loading_text = _('Loading...') %}
             {% set api_info_url = h.url_for(controller='api', action='snippet', ver=1, snippet_path='api_info.html', datastore_root_url=datastore_root_url, resource_id=res.id) %}
             <a class="btn btn-success resource-download" href="{{ api_info_url }}" data-module="api-info" data-module-template="{{ api_info_url }}" data-loading-text="{{ loading_text }}"><i class="icon-beaker icon-large"></i> {{ _('Data API') }}</a>
-          </div>
+          </span>
           {% endif %}
 
         {% endif %}
