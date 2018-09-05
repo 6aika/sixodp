@@ -42,6 +42,10 @@
   @include btn-colors($btn-primary-bg, $btn-primary-color, $btn-primary-bg);
 }
 
+.btn-success {
+  @include btn-colors($btn-success-bg, $btn-success-color, $btn-success-bg);
+}
+
 .btn-secondary {
   @include btn-colors($btn-main-bg, $btn-main-color, $btn-main-bg);
 }
