@@ -30,6 +30,10 @@
 
           {% block resource_action_inner %}
             <div class="resource-url-action">
+              {% if 'datastore' in g.plugins %}
+                {% set datastore_root_url = h.url_for('/', locale='default', qualified=true) + 'api/action' %}
+                {% snippet 'package/snippets/data_api_button.html', resource=res, datastore_root_url=datastore_root_url %}
+              {% endif %}
               {% if res.url and h.is_url(res.url) %}
                 <a class="btn btn-lg btn-primary resource-url-analytics resource-type-{{ res.resource_type }}" href="{{ res.url }}">
                   {% if res.resource_type in ('listing', 'service') %}
@@ -40,10 +44,6 @@
                   <i class="icon-download icon-large"></i> {{ _('Download') }}
                   {% endif %}
                 </a>
-              {% endif %}
-              {% if 'datastore' in g.plugins %}
-                {% set datastore_root_url = h.url_for('/', locale='default', qualified=true) + 'api/action' %}
-                {% snippet 'package/snippets/data_api_button.html', resource=res, datastore_root_url=datastore_root_url %}
               {% endif %}
             </div>
           {% endblock %}

@@ -19,13 +19,6 @@
     <div class="col-xs-3 resource-col">
       {% block resource_item_explore %}
         <div class="pull-right resource-labels">
-        {% if not url_is_edit %}
-        <a href="{{ res.url }}" class="btn btn-primary resource-url-analytics resource-download" target="_blank">
-          <i class="icon-large icon-download"></i>
-          {{ _('Download') }}
-        </a>
-
-        {% endif %}
 
         {% if 'datastore' in g.plugins %}
           {% if res.datastore_active %}
@@ -36,6 +29,14 @@
             <a class="btn btn-success resource-download" href="{{ api_info_url }}" data-module="api-info" data-module-template="{{ api_info_url }}" data-loading-text="{{ loading_text }}"><i class="icon-beaker icon-large"></i> {{ _('Data API') }}</a>
           </span>
           {% endif %}
+
+        {% endif %}
+
+        {% if not url_is_edit %}
+        <a href="{{ res.url }}" class="btn btn-primary resource-url-analytics resource-download" target="_blank">
+          <i class="icon-large icon-download"></i>
+          {{ _('Download') }}
+        </a>
 
         {% endif %}
         </div>
