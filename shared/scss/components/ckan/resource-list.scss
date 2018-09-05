@@ -7,7 +7,7 @@
 
     .format-label {
       position: absolute;
-      top: $padding-large-vertical;
+      top: 40%;
       left: $padding-large-horizontal;
     }
 
@@ -17,6 +17,10 @@
 
     .resource-col {
       padding: 0;
+    }
+
+    .resource-col + .resource-col{
+      margin-left: 15px;
     }
 
     a {
@@ -49,10 +53,25 @@
       &.resource-download {
         padding: 5px;
         display: inline;
-        margin-right: 5px;
         width: initial;
       }
+
+      &.resource-download + &.resource-download{
+        margin-left: 5px;
+      }
+
     }
+
+    & .resource-labels {
+      position: absolute;
+      top: 40%;
+      right: 0;
+    }
+
+    & .row{
+      display: flex;
+    }
+
   }
 
   &.reordering {
