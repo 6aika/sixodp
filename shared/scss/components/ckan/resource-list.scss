@@ -55,23 +55,18 @@
         display: inline;
         width: initial;
       }
-
-      &.resource-download + &.resource-download{
-        margin-left: 5px;
-      }
-
     }
 
     & .resource-labels {
       position: absolute;
       top: 25px;
       right: 0;
+      text-align: right;
     }
 
     & .row{
       display: flex;
     }
-
   }
 
   &.reordering {
