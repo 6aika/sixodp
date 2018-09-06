@@ -842,13 +842,12 @@ function get_latest_updates($types = array(), $date = false, $limit = 4) {
       $showcases  = $types['showcases'] ? array_map('format_ckan_row', get_latest_showcases_from_cache($limit)) : [];
   }
   
-  $comments   = $types['comments'] ? get_recent_comments($date) : [];
   $posts = $types['posts'] ? get_recent_posts('post', $date) : [];
   $pages = $types['pages'] ? get_recent_posts('page', $date) : [];
   $data_requests = $types['data_requests'] ? get_recent_posts('data_request', $date) : [];
   $showcase_ideas = $types['showcase_ideas'] ? get_recent_posts('showcase_idea', $date) : [];
 
-  $arr = array_merge($datasets, $showcases, $comments, $posts, $pages, $data_requests, $showcase_ideas);
+  $arr = array_merge($datasets, $showcases, $posts, $pages, $data_requests, $showcase_ideas);
 
   if ($limit) return array_slice(sort_results($arr), 0, $limit);
   else return sort_results($arr);
