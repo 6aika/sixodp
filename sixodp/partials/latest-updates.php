@@ -10,7 +10,7 @@
   </div>
 
   <div class="container">
-    <?php $updated_items = get_latest_updates(array($comments => false), false, 8); ?>
+    <?php $updated_items = get_latest_updates(array('comments' => false), false, 8); ?>
 
     <div id="latest-updates-carousel" class="carousel slide mobile-only" data-ride="carousel" data-interval="false">
       <div class="carousel-inner" role="listbox">
