@@ -34,7 +34,8 @@
         "en"
       ],
       "label": "Description",
-      "display_snippet": null
+      "display_snippet": null,
+      "rows": 10
     },
     {
       "field_name": "image_url",
