@@ -1,4 +1,4 @@
-{% import 'macros/form.html' as form %}
+{% import 'scheming/macros/form.html' as form %}
 
 <div class="form-group-fluent control-group">
   <label class="control-label group-label">{{_(field.label)}}</label>
@@ -12,7 +12,8 @@
           or data.get(field.field_name, {})[lang],
       error=errors[field.field_name + '-' + lang],
       attrs=field.form_attrs or {},
-      is_required=h.scheming_field_only_default_required(field, lang)
+      is_required=h.scheming_field_only_default_required(field, lang),
+  rows=field.rows if 'rows' in field else 5
       ) %}
       {%- snippet 'scheming/form_snippets/fluent_help_text.html',
         field=field,

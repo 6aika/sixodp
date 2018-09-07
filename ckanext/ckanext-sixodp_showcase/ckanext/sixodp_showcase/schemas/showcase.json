@@ -101,7 +101,8 @@
       "form_placeholder": "eg. A detailed description",
       "form_languages": ["fi", "en", "sv"],
       "description": "An universal, compact and easy to understand description of the added resource.",
-      "only_default_lang_required": true
+      "only_default_lang_required": true,
+      "rows": 10
     },
     {
       "field_name": "featured",

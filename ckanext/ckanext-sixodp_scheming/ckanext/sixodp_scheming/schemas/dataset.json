@@ -57,7 +57,9 @@
       "label": "Description",
       "display_snippet": null,
       "only_default_lang_required": true,
-      "description": "An universal and easy to understand, but also diverse description of the added dataset. Describe the dataset creation process, use case and possible limitations and shortcomings as well as possible."
+      "description": "An universal and easy to understand, but also diverse description of the added dataset. Describe the dataset creation process, use case and possible limitations and shortcomings as well as possible.",
+      "rows": 10
+
     },
     {
       "field_name": "external_urls",
@@ -166,7 +168,8 @@
       "label": "Search Synonyms",
       "display_snippet": null,
       "description": "Keywords can be provided here to improve the findability of the dataset. E.g. words from spoken language can be provided to make the dataset searchable by those words.",
-      "form_snippet": "textarea.html"
+      "form_snippet": "textarea.html",
+      "rows": 10
     },
     {
       "field_name": "state",
@@ -208,7 +211,8 @@
       "validators": "fluent_text",
       "form_placeholder": "eg. A detailed description",
       "form_languages": ["fi", "en", "sv"],
-      "description": "An universal, compact and easy to understand description of the added resource."
+      "description": "An universal, compact and easy to understand description of the added resource.",
+      "rows": 10
     },
     {
       "field_name": "position_info",

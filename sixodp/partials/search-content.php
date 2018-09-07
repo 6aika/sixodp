@@ -42,8 +42,8 @@
     <div class="col-md-9 col-sm-12 search-container border-left">
       <div class="search-options">
         <h3 class="search-results-heading">
-          <?php $heading = esc_html( _n('Search results: Others (%d)', 'Search results: Others (%d)', $results['count'], 'sixodp') ); ?>
-          <h3 class="search-results-heading"><?php printf($heading, $results['count']) ?></h3>
+          <?php $heading = esc_html( _n('Search results: Others (%d)', 'Search results: Others (%d)', $count, 'sixodp') ); ?>
+          <h3 class="search-results-heading"><?php printf($heading, $count) ?></h3>
         </h3>
       </div>
       <div>
