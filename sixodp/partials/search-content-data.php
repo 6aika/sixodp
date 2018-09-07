@@ -4,7 +4,7 @@
   */
 
   global $wp_query;
-  $page_size = 25;
+  $page_size = 12;
   $page_index = get_query_var('page', 1) - 1;
   $offset = (int)$page_index * $page_size;
   $searchterm = trim($_GET['s']);
