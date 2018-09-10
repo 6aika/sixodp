@@ -75,10 +75,10 @@
 
     <div class="paginate">
       <div class="paginate-prev">
-        <?php previous_posts_link() ?>
+        <?php previous_posts_link(__('Previous page', 'sixodp')) ?>
       </div>
       <div class="paginate-next">
-        <?php next_posts_link() ?>
+        <?php next_posts_link(__('Next page', 'sixodp')) ?>
       </div>
     </div>
 
