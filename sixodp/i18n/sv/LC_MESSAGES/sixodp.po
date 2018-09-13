@@ -2,12 +2,13 @@
 # This file is distributed under the same license as the  package.
 # Translators:
 # Joonas Dukpa, 2018
+# Hami Kekkonen <hami.kekkonen@hel.fi>, 2018
 # Mikko Nieminen <mikko.nieminen@gofore.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sixodp\n"
-"POT-Creation-Date: 2018-08-29 05:38:29+00:00\n"
+"POT-Creation-Date: 2018-09-13 11:56:41+00:00\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Mikko Nieminen <mikko.nieminen@gofore.com>, 2018\n"
 "Language-Team: Swedish (https://www.transifex.com/6aika-dataportal/teams/68018/sv/)\n"
@@ -34,7 +35,7 @@ msgstr "Aktuell"
 #: ajankohtaista.php:32 partials/featured-datasets.php:16
 #: partials/latest-updates.php:9
 msgid "Latest updates"
-msgstr ""
+msgstr "Senaste uppdateringar"
 
 #: ajankohtaista.php:40
 msgid "Twitter"
@@ -114,7 +115,7 @@ msgstr "* Rubrik"
 
 #: data_request_form.php:94 showcase_idea_form.php:95
 msgid "eg. A descriptive title"
-msgstr "t.ex. en beskrivande rubrik"
+msgstr "Namn på din dataförfrågan / tema"
 
 #: data_request_form.php:105
 msgid "Your request"
@@ -234,13 +235,13 @@ msgstr "Sidan"
 #: latest-updates.php:69 partials/featured-datasets.php:11
 #: partials/hero.php:18 partials/hero.php:21
 #: partials/search-content-data.php:25 partials/search-content-data.php:27
-#: partials/search-content.php:25 partials/stats.php:13
+#: partials/search-content.php:25
 msgid "Datasets"
 msgstr "Dataset"
 
 #: latest-updates.php:72 partials/hero.php:22
 #: partials/search-content-data.php:31 partials/search-content-data.php:33
-#: partials/search-content.php:31 partials/stats.php:21
+#: partials/search-content.php:31
 msgid "Applications"
 msgstr "Applikationer"
 
@@ -291,7 +292,7 @@ msgstr "Har du data eller en dataförfrågan?"
 
 #: partials/featured-apps.php:76
 msgid "Share it!"
-msgstr "Publicera den i vår tjäns!"
+msgstr "Publicera den i vår tjänst!"
 
 #: partials/featured-apps.php:79
 msgid "Submit an application"
@@ -393,6 +394,14 @@ msgstr[1] ""
 msgid "Follow us"
 msgstr "Följa oss"
 
+#: partials/stats.php:13
+msgid "Dataset_count"
+msgstr "Dataset"
+
+#: partials/stats.php:21
+msgid "Application_count"
+msgstr "Applikationer"
+
 #: partials/stats.php:29
 msgid "Interfaces"
 msgstr "APIs"
@@ -488,7 +497,7 @@ msgstr ""
 
 #. Template Name of the plugin/theme
 msgid "Viimeisimmät päivitykset"
-msgstr ""
+msgstr "Senaste uppdateringar"
 
 #. Template Name of the plugin/theme
 msgid "Oletuspohja valikolla"

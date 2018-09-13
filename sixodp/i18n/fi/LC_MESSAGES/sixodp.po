@@ -3,13 +3,14 @@
 # Translators:
 # Mikko Nieminen <mikko.nieminen@gofore.com>, 2017
 # Joonas Dukpa, 2017
+# Hami Kekkonen <hami.kekkonen@hel.fi>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sixodp\n"
-"POT-Creation-Date: 2018-08-29 05:38:29+00:00\n"
+"POT-Creation-Date: 2018-09-13 11:56:41+00:00\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Joonas Dukpa, 2017\n"
+"Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2017\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -87,7 +88,7 @@ msgstr "Nimi on pakollinen tieto ja sen tulee sisältää vähintään 3 merkki�
 
 #: data_request_form.php:36 showcase_idea_form.php:36
 msgid "Recaptcha must be validated"
-msgstr "Vahvista valinnalla ettet ole botti."
+msgstr "Vahvista valinnalla, ettet ole botti."
 
 #: data_request_form.php:65 data_request_form.php:70
 msgid "New Data Request"
@@ -127,8 +128,8 @@ msgstr "Nimi"
 #: data_request_form.php:131
 msgid "Your name will not be published with data request."
 msgstr ""
-"Nimeäsi ei julkaista datatoiveen yhteydessä.  Sitä käytetään kontaktointiin "
-"tarvittaessa esimerkiksi datatoiveen etenemisen tai lisätietojen osalta."
+"Nimeäsi ei julkaista datatoiveen yhteydessä.  Sitä käytetään tarvittaessa "
+"yhteydenottoon esimerkiksi datatoiveen edistämisen tai lisätietojen osalta."
 
 #: data_request_form.php:142 showcase_idea_form.php:143
 msgid "Email"
@@ -137,8 +138,8 @@ msgstr "Sähköposti"
 #: data_request_form.php:148
 msgid "Your email will not be published with data request."
 msgstr ""
-"Sähköpostia ei julkaista datatoiveen yhteydessä. Sitä käytetään "
-"kontaktointiin tarvittaessa esimerkiksi datatoiveen etenemisen tai "
+"Sähköpostiosoitettasi ei julkaista datatoiveen yhteydessä. Sitä käytetään "
+"tarvittaessa yhteydenottoon esimerkiksi datatoiveen edistämisen tai "
 "lisätietojen osalta."
 
 #: data_request_form.php:172 showcase_idea_form.php:173
@@ -239,13 +240,13 @@ msgstr "Sivu"
 #: latest-updates.php:69 partials/featured-datasets.php:11
 #: partials/hero.php:18 partials/hero.php:21
 #: partials/search-content-data.php:25 partials/search-content-data.php:27
-#: partials/search-content.php:25 partials/stats.php:13
+#: partials/search-content.php:25
 msgid "Datasets"
 msgstr "Datat"
 
 #: latest-updates.php:72 partials/hero.php:22
 #: partials/search-content-data.php:31 partials/search-content-data.php:33
-#: partials/search-content.php:31 partials/stats.php:21
+#: partials/search-content.php:31
 msgid "Applications"
 msgstr "Sovellukset"
 
@@ -296,11 +297,11 @@ msgstr "Onko sinulla valmis sovellus tai idea sovelluksesta?"
 
 #: partials/featured-apps.php:76
 msgid "Share it!"
-msgstr "Laita se jakoon!"
+msgstr "Julkaise se palvelussamme!"
 
 #: partials/featured-apps.php:79
 msgid "Submit an application"
-msgstr "Jaa sovellus"
+msgstr "Ilmoita sovellus"
 
 #: partials/featured-apps.php:80
 msgid "Share an application"
@@ -325,7 +326,7 @@ msgstr "Kerro se meille!"
 
 #: partials/featured-content.php:76
 msgid "Submit a dataset"
-msgstr "Jaa aineisto"
+msgstr "Ilmoita aineisto"
 
 #: partials/featured-content.php:77
 msgid "Share an open data idea"
@@ -398,6 +399,14 @@ msgstr[1] "Hakutulokset: Muu sisältö (%d)"
 msgid "Follow us"
 msgstr "Seuraa meitä"
 
+#: partials/stats.php:13
+msgid "Dataset_count"
+msgstr "Dataa"
+
+#: partials/stats.php:21
+msgid "Application_count"
+msgstr "Sovellusta"
+
 #: partials/stats.php:29
 msgid "Interfaces"
 msgstr "Rajapintaa"
@@ -422,7 +431,7 @@ msgstr "Teemat"
 
 #: search.php:30
 msgid "Search from site"
-msgstr "Etsi sivustolta"
+msgstr "Hae sivustolta"
 
 #: searchform.php:4
 msgctxt "placeholder"
@@ -432,7 +441,7 @@ msgstr "Hae..."
 #: searchform.php:6
 msgctxt "label"
 msgid "Search for"
-msgstr "Etsi"
+msgstr "Hae"
 
 #: showcase_idea_form.php:66 showcase_idea_form.php:71
 msgid "New Showcase idea"
@@ -453,16 +462,16 @@ msgstr "Idean kuvaus"
 #: showcase_idea_form.php:132
 msgid "Your name will not be published with showcase idea."
 msgstr ""
-"Nimeäsi ei julkaista sovellusidean yhteydessä.  Sitä käytetään "
-"kontaktointiin esimerkiksi sovellusidean etenemisen tai tarvittavien "
+"Nimeäsi ei julkaista sovellusidean yhteydessä.  Sitä käytetään tarvittaessa "
+"yhteydenottoon esimerkiksi sovellusidean edistämisen tai tarvittavien "
 "lisätietojen osalta."
 
 #: showcase_idea_form.php:149
 msgid "Your email will not be published with showcase idea."
 msgstr ""
-"Sähköpostiasi ei julkaista sovellusidean yhteydessä.  Sitä käytetään "
-"kontaktointiin esimerkiksi sovellusidean etenemisen tai tarvittavien "
-"lisätietojen osalta."
+"Sähköpostiosoitettasi ei julkaista sovellusidean yhteydessä.  Sitä käytetään"
+" tarvittaessa yhteydenottoon esimerkiksi sovellusidean edistämisen tai "
+"tarvittavien lisätietojen osalta."
 
 #: single.php:70
 msgid "Data Request"

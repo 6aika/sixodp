@@ -91,7 +91,7 @@ get_header(); ?>
                         <?php _e('Title', 'sixodp');?> <span title="This field is required" class="control-required">*</span>    
                       </label>
                       <div class="controls">
-                        <input type="text" name="data_request_title" id="data_request_title" class="form-control" value="<?php echo $title; ?>" placeholder="<?php _e('eg. A descriptive title') ?>" />
+                        <input type="text" name="data_request_title" id="data_request_title" class="form-control" value="<?php echo $title; ?>" placeholder="<?php _e('eg. A descriptive title', 'sixodp') ?>" />
                       </div>
                       <?php if (isset($errors['title'])) echo '<span class="error-block">'. $errors['title'] .'</span>'; ?>
                     </div>
