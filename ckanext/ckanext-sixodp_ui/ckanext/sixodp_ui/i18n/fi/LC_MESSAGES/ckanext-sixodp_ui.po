@@ -26,7 +26,7 @@ msgstr "Tietoaineistoa ei löytynyt"
 
 #: ckanext/sixodp_ui/plugin.py:218
 msgid "Formats"
-msgstr "Tiedostomuodot"
+msgstr "Formaatit"
 
 #: ckanext/sixodp_ui/plugin.py:219
 msgid "Geographical Coverage"
@@ -859,7 +859,7 @@ msgstr "Data ja resurssit"
 
 #: ckanext/sixodp_ui/templates/report/index.html:22
 msgid "View Report"
-msgstr ""
+msgstr "Avaa raportti"
 
 #: ckanext/sixodp_ui/templates/report/view.html:9
 msgid "Generated"
@@ -939,11 +939,11 @@ msgstr "Etsi sovelluksia..."
 
 #: ckanext/sixodp_ui/templates/snippets/facet_list.html:27
 msgid "Show More {facet_type}"
-msgstr "Näytä lisää {facet_type}"
+msgstr "Näytä lisää"
 
 #: ckanext/sixodp_ui/templates/snippets/facet_list.html:30
 msgid "Show Only Popular {facet_type}"
-msgstr "Näytä vain suositut {facet_type}"
+msgstr "Näytä vain yleisimmät"
 
 #: ckanext/sixodp_ui/templates/snippets/facet_list.html:34
 msgid "There are no {facet_type} that match this search"
@@ -959,15 +959,15 @@ msgstr "Avaa esittely"
 
 #: ckanext/sixodp_ui/templates/snippets/license.html:14
 msgid "No License Provided"
-msgstr ""
+msgstr "Lisenssiä ei määritelty"
 
 #: ckanext/sixodp_ui/templates/snippets/license.html:21
 msgid "License"
-msgstr ""
+msgstr "Lisenssi"
 
 #: ckanext/sixodp_ui/templates/snippets/license.html:33
 msgid "This dataset satisfies the Open Definition."
-msgstr ""
+msgstr "Tämä tietoaineisto täyttää avoimen datan määritelmän"
 
 #: ckanext/sixodp_ui/templates/snippets/package_item.html:74
 msgid "This dataset has no description"

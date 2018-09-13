@@ -1,17 +1,17 @@
 # Translations template for ckanext-sixodp_showcasesubmit.
-# Copyright (C) 2017 ORGANIZATION
+# Copyright (C) 2018 ORGANIZATION
 # This file is distributed under the same license as the
 # ckanext-sixodp_showcasesubmit project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_showcasesubmit 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-09-25 10:20+0000\n"
+"POT-Creation-Date: 2018-08-30 06:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2017\n"
+"Last-Translator: Joonas Dukpa, 2017\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -48,27 +48,28 @@ msgstr ""
 "Sähköpostiosoitteet, joihin ilmoitetaan uudesta sovelluksesta (erota "
 "osoitteet välilyönnillä)"
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/base_form_page.html:8
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/base_form_page.html:14
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/base_form_page.html:22
 msgid "Submit a showcase"
 msgstr "Ilmoita sovellus"
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/base_form_page.html:10
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/base_form_page.html:26
 msgid ""
 " By filling this form you can submit your open-data showcase to be published"
 " on this website. Fill in at least the desired title of your showcase and "
 "leave your contact information. The site adminstrator will contact you for "
 "further information after a few days. "
 msgstr ""
-"Täyttämällä tämän lomakkeen voit ilmoittaa kehittämäsi sovelluksen "
-"esitettäväksi tällä sivustolla. Täytä ainakin tähdellä merkityt pakolliset "
-"kentät. Sivuston ylläpitäjä ottaa yhteyttä lisätietoja varten muutaman "
+"Tällä lomakkeella voit ilmoittaa kehittämäsi sovelluksen esitettäväksi tällä"
+" sivustolla. Täytä ainakin tähdellä merkityt pakolliset kentät. Sivuston "
+"ylläpitäjä ottaa tarvittaessa yhteyttä lisätietoja varten muutaman "
 "vuorokauden kuluessa."
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:46
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:58
 msgid "Name or organization of the author"
 msgstr "Tekijän nimi tai organisaatio"
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:57
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:69
 msgid ""
 " Can be a person's name or the name of the organization which has developed "
 "the showcase. "
@@ -76,54 +77,54 @@ msgstr ""
 "Voi olla yksittäisen henkilön tai sovelluksen kehittäneen organisaation "
 "nimi."
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:67
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:79
 msgid "Application website"
-msgstr "Sovelluksen verkkosivusto"
+msgstr "Sovelluksen tekijän verkkosivusto"
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:78
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:90
 msgid " The original source url or a website dedicated for the showcase "
 msgstr ""
-"Sovelluksen alkuperäisen lähteen osoite tai sovellukselle tehty "
-"esittelysivusto."
+"Sovelluksen tekijän verkkosivu. Ilmoita tässä mahdollinen sovelluksen "
+"tekijän kotisivu tai sovellukselle rakennettu oma esittelysivu."
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:88
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:100
 msgid "Platform"
 msgstr "Alusta"
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:89
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:101
 msgid "e.g. android"
-msgstr "esim. Android"
+msgstr "esim. Android, iOS tai Windows Phone"
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:103
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:115
 msgid ""
 " Type in separately every platform that the showcase supports. First type "
 "the name of the platform and press enter to select it. You can remove "
 "platforms by clicking the remove icon before the platform name or remove the"
 " last one with backspace. "
 msgstr ""
-"Syötä tähän sovelluksen tukemien alustojen nimet. Kirjoita ensin alustan "
-"nimi ja paina enter valitaksesi sen. Voit poistaa alustoja painamalla ennen "
-"alustan nimeä olevaa poista-kuvaketta. Viimeisimmän alustan saa poistettua "
-"backspace-näppäimellä."
+"Syötä tähän sovelluksen tukemien alustojen nimet. Syöttökenttä hakee "
+"automaattisesti käytössä olevien sovellusalustojen nimiä."
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:115
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:127
 msgid "Store urls"
-msgstr "Sovelluskauppasivujen osoitteet"
+msgstr "Sovelluksen www-osoite"
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:123
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:135
 msgid ""
 " Enter at least one url to the showcase in platform specific application "
 "stores (e.g. Apple App Store, Google Play or Windows App Store) "
 msgstr ""
-"Syötä ainakin yksi osoite sovelluksen alustakohtaiselle "
-"sovelluskauppasivulle (esim. Apple App Store, Google Play tai Windows App "
-"Store)"
+"Sovelluksen www-osoite. Mobiilisovelluksilla linkki sovelluskauppaan (esim. "
+"Google Play, Apple App Store, tai Windows App Store). Muun tyyppisillä "
+"sovelluksilla linkki sivulle, josta sovellusta voi käyttää tai jonka kautta "
+"sen voi ladata. Linkeistä luodaan automaattisesti jakelualustan tunnistava "
+"latauspainike sovelluksen esittelysivulle."
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:131
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:143
 msgid "Showcase images"
 msgstr "Sovelluksen kuvat"
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:133
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:145
 msgid ""
 " Upload or provide a link for up to three images which will be presented in "
 "the showcase info page. "
@@ -131,27 +132,27 @@ msgstr ""
 "Lähetä tai lisää linkki korkeintaan kolmeen kuvatiedostoon, jotka tullaan "
 "esittämään sovelluksen tietosivulla."
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:150
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:151
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:162
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:163
 msgid "Image 1"
 msgstr "Kuva 1"
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:168
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:169
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:180
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:181
 msgid "Image 2"
 msgstr "Kuva 2"
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:186
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:187
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:198
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:199
 msgid "Image 3"
 msgstr "Kuva 3"
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:204
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:205
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:216
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:217
 msgid "Icon"
 msgstr "Kuvake"
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:210
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:222
 msgid ""
 " Upload or provide a link to an icon image file. This image will be shown as"
 " the icon for the showcase. "
@@ -159,12 +160,12 @@ msgstr ""
 "Lataa tai lisää linkki kuvatiedostoon. Kuva tullaan näyttämään sovelluksen "
 "kuvakkeena."
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:227
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:228
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:239
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:240
 msgid "Featured image"
 msgstr "Esittelykuva"
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:233
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:245
 msgid ""
 " Upload or provide a link to an image file which will be shown elsewhere in "
 "the site as an advert for the showcase. "
@@ -172,18 +173,38 @@ msgstr ""
 "Lataa tai lisää linkki tiedostoon, joka näytetään muualla sivustolla "
 "esiteltäessä sovellusta."
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:240
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:252
 msgid "Related datasets"
 msgstr "Liittyvät aineistot"
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:242
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:254
 msgid "Select one or multiple datasets"
 msgstr "Valitse yksi tai useampi aineisto"
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:246
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:258
 msgid "Search for a dataset"
 msgstr "Etsi aineistoa"
 
 #: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:270
+msgid "Submitter info"
+msgstr "Ilmoittajan tiedot"
+
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:277
+msgid "Name of the submitter"
+msgstr "Ilmoittajan nimi"
+
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:295
+msgid "Submitter email"
+msgstr "Ilmoittajan sähköpostiosoite"
+
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:313
+msgid ""
+"I accept that metadata of the application is distributed to other data "
+"portals."
+msgstr ""
+"Hyväksyn, että lähettämäni metatiedot ja kuvat sovelluksesta välitetään "
+"muihin dataportaaleihin, kuten avoindata.fi:hin."
+
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:335
 msgid "Submit"
 msgstr "Lähetä"
