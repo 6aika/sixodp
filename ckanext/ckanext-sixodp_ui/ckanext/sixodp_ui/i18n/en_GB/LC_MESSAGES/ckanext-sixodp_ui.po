@@ -920,7 +920,7 @@ msgstr ""
 
 #: ckanext/sixodp_ui/templates/snippets/facet_list.html:27
 msgid "Show More {facet_type}"
-msgstr "Show More{}"
+msgstr "Show More"
 
 #: ckanext/sixodp_ui/templates/snippets/facet_list.html:30
 msgid "Show Only Popular {facet_type}"
