@@ -2,6 +2,6 @@
 
 {% block packages_list %}
   {% if c.page.items %}
-    {{ h.snippet('snippets/package_list.html', packages=c.page.items, list_class='dataset-list related-datasets') }}
+    {{ h.snippet('snippets/package_list.html', packages=c.page.items, list_class='dataset-list') }}
   {% endif %}
 {% endblock %}
