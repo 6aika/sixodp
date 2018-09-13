@@ -11,6 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-28 15:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Joonas Dukpa, 2018\n"
 "Language-Team: Swedish (https://www.transifex.com/6aika-dataportal/teams/68018/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -22,27 +23,27 @@ msgstr ""
 #: ckanext/statistics/fanstatic/javascript/main.js:12
 #: ckanext/statistics/templates/statistics/statistics_read.html:10
 msgid "Loading"
-msgstr ""
+msgstr "Laddar ned"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:13
 msgid "Loading web page"
-msgstr ""
+msgstr "Laddar ned"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:14
 msgid "Loading organizations"
-msgstr ""
+msgstr "Laddar ned organisationer"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:15
 msgid "Loading categories"
-msgstr ""
+msgstr "Laddar ned kategorier"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:16
 msgid "Loading data"
-msgstr ""
+msgstr "Laddar ned data"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:17
 msgid "Loading apps"
-msgstr ""
+msgstr "Laddar ned applikationer"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:18
 msgid "Loading relations"
@@ -50,11 +51,11 @@ msgstr ""
 
 #: ckanext/statistics/fanstatic/javascript/main.js:19
 msgid "Preprocessing"
-msgstr ""
+msgstr "Förbearbetning"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:20
 msgid "Rendering"
-msgstr ""
+msgstr "Ritar"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:21
 msgid "Done"
@@ -62,52 +63,52 @@ msgstr ""
 
 #: ckanext/statistics/fanstatic/javascript/main.js:87
 msgid "Summary"
-msgstr ""
+msgstr "Sammandrag"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:91
 #: ckanext/statistics/fanstatic/javascript/main.js:237
 msgid "Datas"
-msgstr ""
+msgstr "Data"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:95
 #: ckanext/statistics/fanstatic/javascript/main.js:258
 msgid "Apps"
-msgstr ""
+msgstr "Applikationer"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:99
 msgid "All publishers"
-msgstr ""
+msgstr "Alla administratörer"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:100
 msgid "All categories"
-msgstr ""
+msgstr "Alla kategorier"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:101
 msgid "All"
-msgstr ""
+msgstr "Allt"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:225
 msgid "Data opened"
-msgstr ""
+msgstr "Ny data"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:226
 msgid "Apps created"
-msgstr ""
+msgstr "Nya applikationer"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:227
 msgid "Last three months"
-msgstr ""
+msgstr "De senaste tre månaderna"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:228
 #: ckanext/statistics/fanstatic/javascript/main.js:241
 #: ckanext/statistics/fanstatic/javascript/main.js:262
 msgid "pcs"
-msgstr ""
+msgstr "st"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:238
 #: ckanext/statistics/fanstatic/javascript/main.js:259
 msgid "No data available"
-msgstr ""
+msgstr "Ingen data tillgänglig"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:239
 msgid "Most visited"
@@ -116,32 +117,32 @@ msgstr ""
 #: ckanext/statistics/fanstatic/javascript/main.js:240
 #: ckanext/statistics/fanstatic/javascript/main.js:260
 msgid "Timeline"
-msgstr ""
+msgstr "Tidslinje"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:242
 msgid "Publishers"
-msgstr ""
+msgstr "Administratörer"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:243
 #: ckanext/statistics/fanstatic/javascript/main.js:261
 msgid "Categories"
-msgstr ""
+msgstr "Kategorier"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:244
 msgid "File formats"
-msgstr ""
+msgstr "Format"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:245
 msgid "Used in an app"
-msgstr ""
+msgstr "Används i applikationen"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:246
 msgid "Not used in any app"
-msgstr ""
+msgstr "Används ej i applikationen"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:684
 msgid "Site analytics"
-msgstr ""
+msgstr "Webbplatsanalys"
 
 #: ckanext/statistics/fanstatic/javascript/vendor/d3.js:15895
 msgid "function"
@@ -149,16 +150,16 @@ msgstr ""
 
 #: ckanext/statistics/templates/statistics/statistics_read.html:40
 msgid "Filter"
-msgstr ""
+msgstr "Filter"
 
 #: ckanext/statistics/templates/statistics/statistics_read.html:49
 msgid "Range"
-msgstr ""
+msgstr "Räckvidd"
 
 #: ckanext/statistics/templates/statistics/statistics_read.html:67
 msgid "Publisher"
-msgstr ""
+msgstr "Organisation"
 
 #: ckanext/statistics/templates/statistics/statistics_read.html:82
 msgid "Category"
-msgstr ""
+msgstr "Kategorier"

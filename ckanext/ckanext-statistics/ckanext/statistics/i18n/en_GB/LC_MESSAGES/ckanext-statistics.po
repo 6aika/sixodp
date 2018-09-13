@@ -11,6 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-28 15:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Juha Härkönen <juha.harkonen@ouka.fi>, 2017\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/6aika-dataportal/teams/68018/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -22,39 +23,39 @@ msgstr ""
 #: ckanext/statistics/fanstatic/javascript/main.js:12
 #: ckanext/statistics/templates/statistics/statistics_read.html:10
 msgid "Loading"
-msgstr ""
+msgstr "Downloaded"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:13
 msgid "Loading web page"
-msgstr ""
+msgstr "Downloaded"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:14
 msgid "Loading organizations"
-msgstr ""
+msgstr "Download organisations"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:15
 msgid "Loading categories"
-msgstr ""
+msgstr "Download categories"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:16
 msgid "Loading data"
-msgstr ""
+msgstr "Download data"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:17
 msgid "Loading apps"
-msgstr ""
+msgstr "Download applications"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:18
 msgid "Loading relations"
-msgstr ""
+msgstr "Download statistics"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:19
 msgid "Preprocessing"
-msgstr ""
+msgstr "Pre-processed"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:20
 msgid "Rendering"
-msgstr ""
+msgstr "Drawn"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:21
 msgid "Done"
@@ -62,17 +63,17 @@ msgstr ""
 
 #: ckanext/statistics/fanstatic/javascript/main.js:87
 msgid "Summary"
-msgstr ""
+msgstr "Summary"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:91
 #: ckanext/statistics/fanstatic/javascript/main.js:237
 msgid "Datas"
-msgstr ""
+msgstr "Data"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:95
 #: ckanext/statistics/fanstatic/javascript/main.js:258
 msgid "Apps"
-msgstr ""
+msgstr "Applications"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:99
 msgid "All publishers"
@@ -80,29 +81,29 @@ msgstr ""
 
 #: ckanext/statistics/fanstatic/javascript/main.js:100
 msgid "All categories"
-msgstr ""
+msgstr "All categories"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:101
 msgid "All"
-msgstr ""
+msgstr "All"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:225
 msgid "Data opened"
-msgstr ""
+msgstr "New data"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:226
 msgid "Apps created"
-msgstr ""
+msgstr "New applications"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:227
 msgid "Last three months"
-msgstr ""
+msgstr "Last three months"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:228
 #: ckanext/statistics/fanstatic/javascript/main.js:241
 #: ckanext/statistics/fanstatic/javascript/main.js:262
 msgid "pcs"
-msgstr ""
+msgstr "pcs"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:238
 #: ckanext/statistics/fanstatic/javascript/main.js:259
@@ -116,7 +117,7 @@ msgstr ""
 #: ckanext/statistics/fanstatic/javascript/main.js:240
 #: ckanext/statistics/fanstatic/javascript/main.js:260
 msgid "Timeline"
-msgstr ""
+msgstr "Timeline"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:242
 msgid "Publishers"
@@ -125,23 +126,23 @@ msgstr ""
 #: ckanext/statistics/fanstatic/javascript/main.js:243
 #: ckanext/statistics/fanstatic/javascript/main.js:261
 msgid "Categories"
-msgstr ""
+msgstr "Categories"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:244
 msgid "File formats"
-msgstr ""
+msgstr "File formats"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:245
 msgid "Used in an app"
-msgstr ""
+msgstr "Used in the application"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:246
 msgid "Not used in any app"
-msgstr ""
+msgstr "Not used in the applications"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:684
 msgid "Site analytics"
-msgstr ""
+msgstr "Site analytics"
 
 #: ckanext/statistics/fanstatic/javascript/vendor/d3.js:15895
 msgid "function"
