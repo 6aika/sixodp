@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sixodp\n"
-"POT-Creation-Date: 2018-08-29 05:38:29+00:00\n"
+"POT-Creation-Date: 2018-09-13 11:56:41+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -225,13 +225,12 @@ msgstr ""
 #: latest-updates.php:69 partials/featured-datasets.php:11 partials/hero.php:18
 #: partials/hero.php:21 partials/search-content-data.php:25
 #: partials/search-content-data.php:27 partials/search-content.php:25
-#: partials/stats.php:13
 msgid "Datasets"
 msgstr ""
 
 #: latest-updates.php:72 partials/hero.php:22
 #: partials/search-content-data.php:31 partials/search-content-data.php:33
-#: partials/search-content.php:31 partials/stats.php:21
+#: partials/search-content.php:31
 msgid "Applications"
 msgstr ""
 
@@ -382,6 +381,14 @@ msgstr[1] ""
 
 #: partials/social_links.php:4
 msgid "Follow us"
+msgstr ""
+
+#: partials/stats.php:13
+msgid "Dataset_count"
+msgstr ""
+
+#: partials/stats.php:21
+msgid "Application_count"
 msgstr ""
 
 #: partials/stats.php:29
