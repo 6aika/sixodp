@@ -92,7 +92,7 @@ get_header(); ?>
                         <?php _e('Title', 'sixodp');?> <span title="This field is required" class="control-required">*</span>  
                       </label>
                       <div class="controls">
-                        <input type="text" name="showcase_idea_title" id="showcase_idea_title" class="form-control" value="<?php echo $title; ?>" placeholder="<?php _e('eg. A descriptive title') ?>" />
+                        <input type="text" name="showcase_idea_title" id="showcase_idea_title" class="form-control" value="<?php echo $title; ?>" placeholder="<?php _e('eg. A descriptive title', 'sixodp') ?>" />
                       </div>
                       <?php if (isset($errors['title'])) echo '<span class="error-block">'. $errors['title'] .'</span>'; ?>
                     </div>
@@ -129,7 +129,7 @@ get_header(); ?>
                         <input type="text" name="showcase_idea_name" id="showcase_idea_name" class="form-control" value="<?php echo $name; ?>" />
                       </div>
                       <div class="editor-info-block">
-                        <?php _e('Your name will not be published with showcase idea.'); ?>
+                        <?php _e('Your name will not be published with showcase idea.', 'sixodp'); ?>
                       </div>
                       <?php if (isset($errors['name'])) echo '<span class="error-block">'. $errors['name'] .'</span>'; ?>
                     </div>
@@ -146,7 +146,7 @@ get_header(); ?>
                         <input type="text" name="showcase_idea_email" id="showcase_idea_email" class="form-control" value="<?php echo $email; ?>" />
                       </div>
                       <div class="editor-info-block">
-                       <?php _e('Your email will not be published with showcase idea.'); ?>
+                       <?php _e('Your email will not be published with showcase idea.', 'sixodp'); ?>
                       </div>
                       <?php if (isset($errors['email'])) echo '<span class="error-block">'. $errors['email'] .'</span>'; ?>
                     </div>
