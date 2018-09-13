@@ -51,6 +51,7 @@
           visibility: visible;
           max-height: 100%;
           padding: 0;
+          @include box-shadow();
 
           @media(min-width: $grid-float-breakpoint) {
             width: auto;
