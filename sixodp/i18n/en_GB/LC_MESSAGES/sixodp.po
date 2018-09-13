@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sixodp\n"
-"POT-Creation-Date: 2018-08-29 05:38:29+00:00\n"
+"POT-Creation-Date: 2018-09-13 11:56:41+00:00\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2018\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/6aika-dataportal/teams/68018/en_GB/)\n"
@@ -235,13 +235,13 @@ msgstr ""
 #: latest-updates.php:69 partials/featured-datasets.php:11
 #: partials/hero.php:18 partials/hero.php:21
 #: partials/search-content-data.php:25 partials/search-content-data.php:27
-#: partials/search-content.php:25 partials/stats.php:13
+#: partials/search-content.php:25
 msgid "Datasets"
 msgstr "Datasets"
 
 #: latest-updates.php:72 partials/hero.php:22
 #: partials/search-content-data.php:31 partials/search-content-data.php:33
-#: partials/search-content.php:31 partials/stats.php:21
+#: partials/search-content.php:31
 msgid "Applications"
 msgstr "Applications"
 
@@ -394,6 +394,14 @@ msgstr[1] ""
 msgid "Follow us"
 msgstr ""
 
+#: partials/stats.php:13
+msgid "Dataset_count"
+msgstr "Datasets"
+
+#: partials/stats.php:21
+msgid "Application_count"
+msgstr "Applications"
+
 #: partials/stats.php:29
 msgid "Interfaces"
 msgstr "APIs"
@@ -410,7 +418,7 @@ msgstr "Contact us"
 #. Template Name of the plugin/theme
 #: partials/tuki-sidebar.php:8
 msgid "Tuki"
-msgstr ""
+msgstr "Support"
 
 #: partials/tuki-sidebar.php:48 tuki.php:44
 msgid "Themes"
@@ -478,15 +486,15 @@ msgstr ""
 
 #. Template Name of the plugin/theme
 msgid "Ajankohtaista"
-msgstr ""
+msgstr "News"
 
 #. Template Name of the plugin/theme
 msgid "Datatoive-lomake"
-msgstr ""
+msgstr "Data request"
 
 #. Template Name of the plugin/theme
 msgid "Viimeisimmät päivitykset"
-msgstr ""
+msgstr "Latest updates"
 
 #. Template Name of the plugin/theme
 msgid "Oletuspohja valikolla"
