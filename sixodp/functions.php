@@ -792,7 +792,8 @@ function format_ckan_row($row) {
     'link' => CKAN_BASE_URL .'/'. get_current_locale_ckan() .'/'. $row['type'] .'/'. $row['name'],
     'title' => $row['title'],
     'title_translated' => isset($row['title_translated']) ? $row['title_translated'] : (object) array('fi' => $row['title'], 'sv' => $row['title'], 'en_GB' => $row['title']),
-    'notes_translated' => $row['notes_translated']
+    'notes_translated' => $row['notes_translated'],
+    'name' => $row['name']
   );
 }
 
