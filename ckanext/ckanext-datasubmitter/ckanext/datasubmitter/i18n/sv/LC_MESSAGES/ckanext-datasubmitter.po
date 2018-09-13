@@ -1,15 +1,15 @@
 # Translations template for ckanext-datasubmitter.
-# Copyright (C) 2017 ORGANIZATION
+# Copyright (C) 2018 ORGANIZATION
 # This file is distributed under the same license as the ckanext-datasubmitter
 # project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-datasubmitter 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-09-25 10:24+0000\n"
+"POT-Creation-Date: 2018-08-30 06:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Joonas Dukpa, 2018\n"
 "Language-Team: Swedish (https://www.transifex.com/6aika-dataportal/teams/68018/sv/)\n"
@@ -37,7 +37,7 @@ msgid "Organization"
 msgstr "Organisation"
 
 #: ckanext/datasubmitter/controller.py:114
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:68
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:80
 msgid "Dataset url"
 msgstr ""
 
@@ -61,11 +61,12 @@ msgid ""
 msgstr ""
 
 #: ckanext/datasubmitter/templates/datasubmitter/base.html:11
-#: ckanext/datasubmitter/templates/datasubmitter/base_form_page.html:8
+#: ckanext/datasubmitter/templates/datasubmitter/base_form_page.html:14
+#: ckanext/datasubmitter/templates/datasubmitter/base_form_page.html:22
 msgid "Open your data"
 msgstr ""
 
-#: ckanext/datasubmitter/templates/datasubmitter/base_form_page.html:10
+#: ckanext/datasubmitter/templates/datasubmitter/base_form_page.html:26
 msgid ""
 " By filling this form you can submit your data to be published on this "
 "website. Fill in at least the desired title of your dataset and leave your "
@@ -73,34 +74,34 @@ msgid ""
 "information after a few days. "
 msgstr ""
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:11
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:23
 msgid "Dataset info"
 msgstr ""
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:18
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:30
 msgid "Title"
 msgstr "Titel"
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:19
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:31
 msgid "A descriptive title for the dataset"
 msgstr ""
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:50
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:62
 msgid "Owner organization"
 msgstr ""
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:81
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:93
 msgid "Submitter info"
 msgstr ""
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:88
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:100
 msgid "Name of the submitter"
 msgstr ""
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:106
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:118
 msgid "Submitter email"
 msgstr "E-post till författare"
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:133
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:142
 msgid "Submit"
 msgstr "Skicka"

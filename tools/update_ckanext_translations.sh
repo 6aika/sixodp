@@ -17,9 +17,10 @@ EXTENSIONS_TO_UPDATE=(
   reminder
   showcase
   sixodp_scheming
-  sidodp_showcase
+  sixodp_showcase
   sixodp_showcasesubmit
   sixodp_ui
+  statistics
 )
 
 HELPTEXT="Usage: $0 \n\n\

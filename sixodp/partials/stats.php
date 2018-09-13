@@ -10,7 +10,7 @@
       <div class="stat__wrapper">
         <div class="stat">
           <div class="stat__value counter"><?php echo get_dataset_count_from_cache(); ?></div>
-          <div class="stat__description"><?php _e('Datasets', 'sixodp');?></div>
+          <div class="stat__description"><?php _e('Dataset_count', 'sixodp');?></div>
         </div>
       </div>
     </a>
@@ -18,7 +18,7 @@
       <div class="stat__wrapper">
         <div class="stat">
           <div class="stat__value counter"><?php echo get_showcases_count_from_cache(); ?></div>
-          <div class="stat__description"><?php _e('Applications', 'sixodp');?></div>
+          <div class="stat__description"><?php _e('Application_count', 'sixodp');?></div>
         </div>
       </div>
     </a>
