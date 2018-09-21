@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sixodp\n"
-"POT-Creation-Date: 2018-09-13 11:56:41+00:00\n"
+"POT-Creation-Date: 2018-09-21 12:39:20+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -53,10 +53,12 @@ msgid "New showcase idea"
 msgstr ""
 
 #: category.php:97 index.php:46 partials/search-content-data.php:91
+#: partials/search-content.php:78
 msgid "Previous page"
 msgstr ""
 
 #: category.php:98 index.php:47 partials/search-content-data.php:96
+#: partials/search-content.php:81
 msgid "Next page"
 msgstr ""
 
@@ -103,8 +105,8 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: data_request_form.php:94 showcase_idea_form.php:95
-msgid "eg. A descriptive title"
+#: data_request_form.php:94
+msgid "eg. A descriptive title for the data request"
 msgstr ""
 
 #: data_request_form.php:105
@@ -435,6 +437,10 @@ msgstr ""
 msgid ""
 "Your showcase idea will be moderated, it may be modified or combined with "
 "similar ideas. Moderated ideas will be published on this site."
+msgstr ""
+
+#: showcase_idea_form.php:95
+msgid "eg. A descriptive title"
 msgstr ""
 
 #: showcase_idea_form.php:106
