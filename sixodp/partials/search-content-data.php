@@ -85,18 +85,16 @@
       <?php endforeach; ?>
     </div>
 
-    <div class="paginate">
-      <?php if (get_previous_page_link()): ?>
-        <div class="paginate-prev">
-          <a href="<?php echo get_previous_page_link(); ?>"><?php _e('Previous page', 'sixodp'); ?></a>
-        </div>
-      <?php endif; ?>
-      <?php if (get_next_page_link($results['count'], $page_size)): ?>
-        <div class="paginate-next">
-          <a href="<?php echo get_next_page_link($results['count'], $page_size); ?>"><?php _e('Next page', 'sixodp'); ?></a>
-        </div>
-      <?php endif; ?>
-    </div>
-
+      <div class="navigation pagination">
+          <div class="nav-links">
+              <?php if (get_previous_page_link()): ?>
+              <a href="<?php echo get_previous_page_link(); ?>" class="next page-numbers"><span class="fa fa-chevron-left" title="<?php _e('Previous page', 'sixodp'); ?>"></span></a>
+              <?php endif; ?>
+              <?php if (get_next_page_link($results['count'], $page_size)): ?>
+              <a href="<?php echo get_next_page_link($results['count'], $page_size); ?>" class="prev page-numbers"><span class="fa fa-chevron-right" title="<?php _e('Next page', 'sixodp'); ?>"></span></a>
+              <?php endif; ?>
+          </div>
+      </div>
   </div>
 </div>
+

@@ -72,16 +72,17 @@
         wp_reset_postdata();
         ?>
     </div>
-
-    <div class="paginate">
-      <div class="paginate-prev">
-        <?php previous_posts_link(__('Previous page', 'sixodp')) ?>
-      </div>
-      <div class="paginate-next">
-        <?php next_posts_link(__('Next page', 'sixodp')) ?>
-      </div>
+        
+    <div class="navigation pagination">
+        <div class="nav-links">
+            <?php if (get_previous_posts_link()): ?>
+                <a href="<?php echo get_previous_posts_link(); ?>" class="next page-numbers"><span class="fa fa-chevron-left" title="<?php _e('Previous page', 'sixodp'); ?>"></span></a>
+            <?php endif; ?>
+            <?php if (get_next_posts_link()): ?>
+                <a href="<?php echo get_next_posts_link(); ?>" class="prev page-numbers"><span class="fa fa-chevron-right" title="<?php _e('Next page', 'sixodp'); ?>"></span></a>
+            <?php endif; ?>
+        </div>
     </div>
-
     </div>
   </div>
 </div>
