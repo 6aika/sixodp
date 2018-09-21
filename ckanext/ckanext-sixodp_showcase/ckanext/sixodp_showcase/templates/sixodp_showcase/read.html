@@ -158,7 +158,7 @@
   {% block package_info %}
     <h2 class="module-heading">{{ _('Used datasets') }}</h2>
     {% if c.showcase_pkgs %}
-      {{ h.snippet('snippets/package_list.html', packages=c.showcase_pkgs, list_class='dataset-list related-datasets') }}
+      {{ h.snippet('snippets/package_list.html', packages=c.showcase_pkgs, list_class='dataset-list') }}
     {% else %}
       <p class="module-content empty">{{_('There are no Datasets in this Showcase')}}</p>
     {% endif %}
