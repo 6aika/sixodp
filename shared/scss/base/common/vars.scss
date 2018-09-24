@@ -219,7 +219,7 @@ $navbar-offcanvas-toggle-icon-color: $brand-white;
 $navbar-offcanvas-background-color: $brand-background;
 $navbar-offcanvas-link-background-color: transparent;
 $navbar-offcanvas-link-background-color-hover: $brand-primary-light;
-$navbar-offcanvas-link-background-color-active: $brand-primary-light;
+$navbar-offcanvas-link-background-color-active: $brand-secondary;
 $navbar-offcanvas-link-color: $brand-primary;
 $navbar-offcanvas-link-color-hover: $brand-white;
 $navbar-offcanvas-link-color-active: $brand-white;
@@ -228,9 +228,11 @@ $navbar-offcanvas-heading-color: $brand-primary;
 
 // Filters
 $filter-bg: transparent;
-$filter-bg-active: $gray-light;
+$filter-bg-active: $brand-secondary;
 $filter-color: $gray;
-$filter-color-active: $gray;
+$filter-color-active: $brand-white;
+$filter-bg-hover: $gray-lighter;
+$filter-hover: $text-color;
 
 // Links
 $link-color: $brand-primary;
