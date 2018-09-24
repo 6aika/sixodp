@@ -31,7 +31,7 @@
             <span><?php _e('Applications', 'sixodp');?>  (<?php echo $data_showcase['count']; ?>)</span>
           </a>
         </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item active">
           <a href="<?php echo get_site_url(); ?>/<?php echo get_current_locale() ?>/?s=<?php echo $searchterm;?>" title="" class="active">
             <span class="sidebar-icon-wrapper"><span class="fa fa-long-arrow-right"></span></span>
             <span><?php _e('Others', 'sixodp');?>  (<?php  echo $count; ?>)</span>
