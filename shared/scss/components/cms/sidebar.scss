@@ -93,8 +93,8 @@
 
   &:hover {
     a {
-      background: $sidebar-item-bg-active;
-      color: $sidebar-item-color-active;
+      background: $sidebar-item-bg--highlight;
+      color: $sidebar-item-color--highlight;
     }
   }
 }
