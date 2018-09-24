@@ -87,14 +87,14 @@
 
   a,
   .sidebar-item-inner {
-    background: $sidebar-item-bg--highlight;
-    color: $sidebar-item-color--highlight;
+    background: $sidebar-item-bg;
+    color: $sidebar-item-color;
   }
 
   &:hover {
     a {
-      background: $sidebar-item-bg-active--highlight;
-      color: $sidebar-item-color-active--highlight;
+      background: $sidebar-item-bg-active;
+      color: $sidebar-item-color-active;
     }
   }
 }
