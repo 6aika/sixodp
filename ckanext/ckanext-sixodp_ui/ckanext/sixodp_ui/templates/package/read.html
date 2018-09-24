@@ -35,12 +35,21 @@
 
   {% block package_info_mobile_only %}
     <div class="mobile-only">
-      {% snippet "snippets/social.html" %}
+      {% snippet "snippets/license.html", pkg_dict=pkg %}
+      {% block package_openness_mobile %}
+      {% endblock %}
+      {% snippet "package/snippets/info.html", pkg=pkg %}
       {% block package_subscribe_mobile %}
         <h2 class="module-heading">{{ _('Subscribe for dataset updates') }}</h2>
         {% snippet "reminder/snippets/subscription_form.html", package=pkg %}
       {% endblock %}
+      {% snippet "snippets/social.html" %}
     </div>
+  {% endblock %}
+
+
+  {% block disqus_comments %}
+    {{ h.disqus_comments() }}
   {% endblock %}
 
 {% endblock %}
