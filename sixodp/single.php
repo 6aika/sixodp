@@ -53,8 +53,11 @@ get_header(); ?>
         ?>
         <div class="row">
           <div class="sidebar col-md-3 col-sm-5 col-xs-12">
-            <h2 class="heading-sidebar"><?php echo get_the_date('j.n.Y') ?></h2>
-            <?php 
+            <h2 class="heading-sidebar"><?php _e('Date', 'sixodp') ?></h2>
+              <div class="sidebar-item">
+                  <div class="sidebar-item-inner"><?php echo get_the_date('j.n.Y') ?></div>
+              </div>
+            <?php
             $post_type = get_post_type_object(get_post_type());
             if ($post_type->name !== 'post' && $post_type->name !== 'page') : ?>
               <?php if ($post_type->name === 'data_request' or $post_type->name === 'showcase_idea'): ?>
