@@ -30,6 +30,9 @@
   text-transform: uppercase;
   font-size: $font-size-small;
   font-weight: $headings-font-weight;
+  vertical-align: middle;
+  line-height: $base*3.2;
+  margin: 0 0 0 2px;
 
   a,
   .sidebar-item-inner {
@@ -40,6 +43,8 @@
     display: block;
     background: $sidebar-item-bg;
     color: $sidebar-item-color;
+    height: $base*4.2;
+    border-bottom: 1px solid $border-color;
   }
 
   &:hover {
@@ -51,18 +56,18 @@
 
     .sidebar-icon-wrapper {
       right: 0;
+      display: inline-block;
     }
   }
 
   .sidebar-icon-wrapper {
     transition: all $transition-speed-base $transition-curve-base;
-    display: inline-block;
-    height: $base*3.2;
+    display: none;
+    height: $base*2.4;
     width: $base*2.4;
-
     span {
       font-size: $font-size-large;
-      line-height: $base*3.2;
+      line-height: $base*2.4;
       margin-right: 0;
     }
   }
@@ -78,6 +83,7 @@
 
 .sidebar-item--highlight {
   @extend .sidebar-item;
+  margin: 0;
 
   a,
   .sidebar-item-inner {

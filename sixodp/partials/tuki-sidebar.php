@@ -45,7 +45,7 @@
     'hide_empty' => false
   ));
   ?>
-  <h3 class="heading-sidebar"><?php _e('Themes', 'sixodp') ?></h2>
+  <h3 class="heading-sidebar"><?php _e('Themes', 'sixodp') ?></h3>
   <ul>
   <?php
   foreach ($teemat as $teema_cat) :?>
