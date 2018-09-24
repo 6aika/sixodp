@@ -43,7 +43,8 @@
     background: $sidebar-item-bg;
     color: $sidebar-item-color;
     height: $base*4.2;
-    border-bottom: 1px solid $border-color;
+    margin-top: -1px;
+    border: 1px solid $border-color;
 
   }
 
@@ -75,7 +76,6 @@
 
 .sidebar-item.child{
   margin: 0 0 0 5px;
-  border-left: 1px solid $border-color;
 }
 
 .sidebar-item.active {
@@ -111,4 +111,3 @@
     color: $sidebar-item-color-active--highlight;
   }
 }
-
