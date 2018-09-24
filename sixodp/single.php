@@ -130,7 +130,7 @@ get_header(); ?>
               <h3 class="heading-sidebar"><?php _e('Author', 'sixodp') ?></h3>
               <ul>
                 <li class="sidebar-item">
-                  <span class="sidebar-item-inner">
+                  <span class="sidebar-item-author">
                     <?php echo get_avatar( get_the_author_meta('ID'), 128); ?>
                     <p class="text-center"><strong><?php echo trim(get_the_author_meta('first_name') . ' ' . get_the_author_meta('last_name')) ?></strong></p>
                     <p><?php echo wp_html_excerpt(get_the_author_meta('description'), 240, '...'); ?></p>

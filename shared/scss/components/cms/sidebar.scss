@@ -35,6 +35,20 @@
 
   a,
   .sidebar-item-inner {
+       transition: all $transition-speed-base $transition-curve-base;
+       width: 100%;
+       padding: $padding-small-vertical $padding-large-horizontal*2;
+       position: relative;
+       display: block;
+       background: $sidebar-item-bg;
+       color: $sidebar-item-color;
+       height: $base*4.2;
+       margin-top: -1px;
+       border: 1px solid $border-color;
+
+     }
+
+  .sidebar-item-author {
     transition: all $transition-speed-base $transition-curve-base;
     width: 100%;
     padding: $padding-small-vertical $padding-large-horizontal*2;
@@ -42,7 +56,6 @@
     display: block;
     background: $sidebar-item-bg;
     color: $sidebar-item-color;
-    height: $base*4.2;
     margin-top: -1px;
     border: 1px solid $border-color;
 
