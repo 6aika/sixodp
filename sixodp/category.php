@@ -51,7 +51,7 @@ get_header();
                 $child_categories = get_categories(array('parent' => $cat->term_id, 'hide_empty' => false));
               ?>
               <ul>
-                <li class="sidebar-item<?php if ($cat->cat_name === $category->name) { echo '--highlight'; } ?>">
+                <li class="sidebar-item<?php if ($cat->cat_name === $category->name) { echo ' active'; } ?>">
                   <a href="<?php echo get_category_link($cat); ?>">
                     <span class="sidebar-icon-wrapper">
                       <span class="fa fa-long-arrow-right"></span>
