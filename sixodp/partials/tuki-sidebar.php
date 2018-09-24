@@ -51,10 +51,10 @@
   foreach ($teemat as $teema_cat) :?>
     <li class="sidebar-item<?php if ($teema_cat->name === $category->name) { echo ' active'; } ?>">
       <a href="<?php echo get_category_link($teema_cat); ?>">
-        <?php echo $teema_cat->name; ?>
         <span class="sidebar-icon-wrapper">
-          <span class="fa fa-chevron-right"></span>
-        </span>
+            <span class="fa fa-long-arrow-right"></span>
+          </span>
+          <?php echo $teema_cat->name; ?>
       </a>
     </li>
   <?php endforeach; ?>
