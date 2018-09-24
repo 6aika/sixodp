@@ -25,7 +25,7 @@
         <?php
         foreach ($child_pages as $child_page) : 
         ?>
-        <li class="sidebar-item<?php if (is_page($child_page->post_name)) echo ' active'; ?>">
+        <li class="sidebar-item child<?php if (is_page($child_page->post_name)) echo ' active'; ?>">
           <a href="<?php echo get_permalink($child_page); ?>">
             <span class="sidebar-icon-wrapper">
               <span class="fa fa-long-arrow-right"></span>

@@ -30,7 +30,7 @@
       <?php
       foreach ($child_categories as $child_cat) : 
       ?>
-      <li class="sidebar-item">
+      <li class="sidebar-item child">
         <a href="<?php echo get_category_link($child_cat); ?>">
           <?php echo $child_cat->name; ?>  
         </a>

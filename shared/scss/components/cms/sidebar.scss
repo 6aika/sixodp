@@ -32,7 +32,6 @@
   font-weight: $headings-font-weight;
   vertical-align: middle;
   line-height: $base*3.2;
-  margin: 0 0 0 5px;
 
   a,
   .sidebar-item-inner {
@@ -45,7 +44,7 @@
     color: $sidebar-item-color;
     height: $base*4.2;
     border-bottom: 1px solid $border-color;
-    border-left: 1px solid $border-color;
+
   }
 
   &:hover {
@@ -72,6 +71,11 @@
       margin-right: 0;
     }
   }
+}
+
+.sidebar-item.child{
+  margin: 0 0 0 5px;
+  border-left: 1px solid $border-color;
 }
 
 .sidebar-item.active {
