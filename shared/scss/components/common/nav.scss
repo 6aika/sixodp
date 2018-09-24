@@ -1,6 +1,6 @@
 .nav-wrapper {
   @include box-shadow();
-  position: static;
+  position: fixed;
   top: 0;
   right: 0;
   left: 0;
