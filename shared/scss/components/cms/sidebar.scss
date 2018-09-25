@@ -44,7 +44,8 @@
        color: $sidebar-item-color;
        height: $base*4.2;
        margin-top: -1px;
-       border: 1px solid $border-color;
+       margin-left: -1px;
+       border: 1px solid #eee;
 
      }
 
@@ -57,7 +58,8 @@
     background: $sidebar-item-bg;
     color: $sidebar-item-color;
     margin-top: -1px;
-    border: 1px solid $border-color;
+    margin-left: -1px;
+    border: 1px solid #eee;
 
   }
 
