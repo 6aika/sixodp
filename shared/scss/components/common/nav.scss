@@ -199,8 +199,11 @@
       padding-right: 0;
     }
 
-    max-height: 550px;
   }
+}
+
+.navbar-collapse{
+  max-height: 550px;
 }
 
 .navbar-default .navbar-nav.subnav {
