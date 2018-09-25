@@ -71,7 +71,7 @@
   color: $category-box-text-color;
   margin: 0 $base/2;
   text-transform: uppercase;
-  word-break: break-word;
+  word-break: normal;
   
   @media (min-width: $width-xs) {
     margin: $base/2 auto;
