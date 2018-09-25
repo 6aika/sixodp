@@ -10,7 +10,7 @@
   </div>
 
   <div class="container">
-    <?php $datasets = get_latest_updates(array($datasets => true, $showcases => false, $comments => false, $posts => false, $pages => false), false, 4); ?>
+    <?php $datasets = get_latest_updates(array('datasets' => true, 'showcases' => false, 'comments' => false, 'posts' => false, 'pages' => false), false, 4); ?>
 
     <div id="featured-datasets-carousel" class="carousel slide mobile-only" data-ride="carousel" data-interval="false">
       <div class="carousel-inner" role="listbox">
