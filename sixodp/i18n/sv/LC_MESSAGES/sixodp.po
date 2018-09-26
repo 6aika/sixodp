@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sixodp\n"
-"POT-Creation-Date: 2018-09-13 11:56:41+00:00\n"
+"POT-Creation-Date: 2018-09-24 12:25:44+00:00\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Mikko Nieminen <mikko.nieminen@gofore.com>, 2018\n"
 "Language-Team: Swedish (https://www.transifex.com/6aika-dataportal/teams/68018/sv/)\n"
@@ -59,10 +59,12 @@ msgid "New showcase idea"
 msgstr "Publicera din applikationsidé"
 
 #: category.php:97 index.php:46 partials/search-content-data.php:91
+#: partials/search-content.php:79
 msgid "Previous page"
 msgstr "Föregående sida"
 
-#: category.php:98 index.php:47 partials/search-content-data.php:96
+#: category.php:98 index.php:47 partials/search-content-data.php:94
+#: partials/search-content.php:82
 msgid "Next page"
 msgstr "Nästa sida"
 
@@ -113,8 +115,8 @@ msgstr ""
 msgid "Title"
 msgstr "* Rubrik"
 
-#: data_request_form.php:94 showcase_idea_form.php:95
-msgid "eg. A descriptive title"
+#: data_request_form.php:94
+msgid "eg. A descriptive title for the data request"
 msgstr "Namn på din dataförfrågan / tema"
 
 #: data_request_form.php:105
@@ -265,12 +267,12 @@ msgstr "Applikationsidéer"
 msgid "No updates found for selected month."
 msgstr "Inga uppdateringar hittades för vald månad."
 
-#: partials/ajankohtaista-links.php:9 single.php:61 single.php:82
+#: partials/ajankohtaista-links.php:9 single.php:64 single.php:85
 msgid "Categories"
 msgstr "Kategorier"
 
 #: partials/article-footer.php:12 partials/content.php:18
-#: partials/page-content.php:23 single.php:127
+#: partials/page-content.php:23 single.php:130
 msgid "Author"
 msgstr "Författare"
 
@@ -365,30 +367,30 @@ msgstr ""
 
 #: partials/search-content-data.php:22 partials/search-content.php:20
 msgid "Results in groups"
-msgstr ""
+msgstr "Sökkategori"
 
 #: partials/search-content-data.php:37 partials/search-content-data.php:39
 #: partials/search-content.php:37
 msgid "Others"
-msgstr ""
+msgstr "Annat innehåll"
 
 #: partials/search-content-data.php:50
 msgid "Search results: Applications (%d)"
 msgid_plural "Search results: Applications (%d)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Sökkategori: Applikationer (%d)"
+msgstr[1] "Sökkategori: Applikationer (%d)"
 
 #: partials/search-content-data.php:54
 msgid "Search results: Datasets (%d)"
 msgid_plural "Search results: Datasets (%d)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Sökkategori: Dataset (%d)"
+msgstr[1] "Sökkategori: Dataset (%d)"
 
 #: partials/search-content.php:45
 msgid "Search results: Others (%d)"
 msgid_plural "Search results: Others (%d)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Sökkategori: Annat innehåll ()"
+msgstr[1] "Sökkategori: Annat innehåll (%d)"
 
 #: partials/social_links.php:4
 msgid "Follow us"
@@ -431,7 +433,7 @@ msgstr "Sök från webbsidan"
 #: searchform.php:4
 msgctxt "placeholder"
 msgid "Search…"
-msgstr "Sök"
+msgstr "Sök..."
 
 #: searchform.php:6
 msgctxt "label"
@@ -451,6 +453,10 @@ msgstr ""
 "liknande applikationsidéer. De modifierade applikationsidéer kommer att "
 "publiceras på denna sida."
 
+#: showcase_idea_form.php:95
+msgid "eg. A descriptive title"
+msgstr "Namn på din dataförfrågan / tema"
+
 #: showcase_idea_form.php:106
 msgid "Your idea"
 msgstr "* Din applikationsidé"
@@ -463,15 +469,19 @@ msgstr "Ditt namn kommer inte att publiceras med applikationsidé."
 msgid "Your email will not be published with showcase idea."
 msgstr "Ditt e-postadress kommer inte att publiceras med applikationsidé."
 
-#: single.php:70
+#: single.php:56
+msgid "Date"
+msgstr "Datum"
+
+#: single.php:73
 msgid "Data Request"
 msgstr "Dataförfrågan"
 
-#: single.php:71
+#: single.php:74
 msgid "Showcase Idea"
 msgstr "Applikationsidé"
 
-#: single.php:107
+#: single.php:110
 msgid "Tags"
 msgstr "Taggar"
 
@@ -493,7 +503,7 @@ msgstr "Aktuellt"
 
 #. Template Name of the plugin/theme
 msgid "Datatoive-lomake"
-msgstr ""
+msgstr "Blankett för dataförfrågan"
 
 #. Template Name of the plugin/theme
 msgid "Viimeisimmät päivitykset"
@@ -509,7 +519,7 @@ msgstr ""
 
 #. Template Name of the plugin/theme
 msgid "Sovellusidea-lomake"
-msgstr ""
+msgstr "Blankett för applikationsidé"
 
 #. Template Name of the plugin/theme
 msgid "Tuki childpage"

@@ -11,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-07-16 09:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Joonas Dukpa, 2018\n"
+"Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2018\n"
 "Language-Team: Swedish (https://www.transifex.com/6aika-dataportal/teams/68018/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -64,11 +64,11 @@ msgstr ""
 
 #: ckanext/sixodp_scheming/translations.py:14
 msgid "eg. tampere"
-msgstr ""
+msgstr "t.ex. Tampere"
 
 #: ckanext/sixodp_scheming/translations.py:15
 msgid "Select the municipalities from which the dataset contains data."
-msgstr ""
+msgstr "Välj från vilka områden materialet innehåller information."
 
 #: ckanext/sixodp_scheming/translations.py:17
 #: ckanext/sixodp_scheming/translations.py:84
@@ -78,6 +78,8 @@ msgstr "Beskrivning"
 #: ckanext/sixodp_scheming/translations.py:18
 msgid "E.g. A diverse and detailed description"
 msgstr ""
+"En allmän, kompakt och lättförståelig beskrivning av data. Se exempel på "
+"andra dataposter."
 
 #: ckanext/sixodp_scheming/translations.py:19
 msgid ""
@@ -85,10 +87,13 @@ msgid ""
 "added dataset. Describe the dataset creation process, use case and possible "
 "limitations and shortcomings as well as possible."
 msgstr ""
+"En allmän, kompakt och lättförståelig beskrivning av data. T.ex. vad "
+"materialet innehåller och hur det har beretts. Utifrån detta kan användaren "
+"tolka materialet rätt."
 
 #: ckanext/sixodp_scheming/translations.py:21
 msgid "Links to additional information concerning the dataset"
-msgstr ""
+msgstr "Länkar med ytterligare information"
 
 #: ckanext/sixodp_scheming/translations.py:22
 msgid ""
@@ -102,7 +107,7 @@ msgstr "Organisation"
 
 #: ckanext/sixodp_scheming/translations.py:25
 msgid "The organization which owns the dataset."
-msgstr ""
+msgstr "Organisation som äger data och upprätthåller dess innehåll."
 
 #: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:97
 #: ckanext/sixodp_scheming/translations.py:27
@@ -119,38 +124,43 @@ msgid ""
 "Statistics Finland. The field can e.g. be used to describe a situation where"
 " the dataset is published by a single unit but it has multiple authors."
 msgstr ""
+"Den ursprungliga producenten av material som utgör databasen eller "
+"materialet som används i datasetet.Det kan också vara en extern källa till "
+"en stadsorganisation, t.ex. Statistikcentralen."
 
 #: ckanext/sixodp_scheming/translations.py:31
 msgid "Maintainer"
-msgstr "Förvaltare"
+msgstr "Administratör"
 
 #: ckanext/sixodp_scheming/translations.py:32
 msgid "Joe Bloggs"
-msgstr ""
+msgstr "t.ex. Kaupunkimittaus"
 
 #: ckanext/sixodp_scheming/translations.py:33
 msgid ""
 "The technical maintainer for the dataset. Can in practice be the maintaining"
 " unit, bureau or as an exception a single employee."
-msgstr ""
+msgstr "Teknisk dataadministratör. Oftast densamma som organisationen."
 
 #: ckanext/sixodp_scheming/translations.py:35
 msgid "Maintainer Email"
-msgstr "E-post till förvaltare"
+msgstr "Administratörens e-postadress"
 
 #: ckanext/sixodp_scheming/translations.py:36
 msgid "joe@example.com"
-msgstr ""
+msgstr "organization@example.com"
 
 #: ckanext/sixodp_scheming/translations.py:37
 msgid ""
 "The email address for the maintaining party for the dataset. Use a mailing "
 "list or other similar means to direct the message to multiple recipients."
 msgstr ""
+"Administratörens e-postadress. Använd organisationens allmänna e-postadress "
+"om den finns."
 
 #: ckanext/sixodp_scheming/translations.py:39
 msgid "Maintainer Website"
-msgstr ""
+msgstr "Administratörens webbplats"
 
 #: ckanext/sixodp_scheming/translations.py:40
 msgid "http://www.example.com"
@@ -167,14 +177,17 @@ msgid ""
 "organization. The private status is used when preparing a new dataset for "
 "publication."
 msgstr ""
+"Privata dataset kommer endast att vara tillgängliga för inloggade användare "
+"av datasetorganisationen. Offentliga dataset kommer att vara tillgängliga "
+"för alla användare."
 
 #: ckanext/sixodp_scheming/translations.py:45
 msgid "Published"
-msgstr ""
+msgstr "Publicerad"
 
 #: ckanext/sixodp_scheming/translations.py:46
 msgid "The dataset publication date."
-msgstr ""
+msgstr "Datum för utgivning av material"
 
 #: ckanext/sixodp_scheming/translations.py:48
 msgid "Updated"
@@ -188,11 +201,11 @@ msgstr ""
 
 #: ckanext/sixodp_scheming/translations.py:51
 msgid "Update Frequency"
-msgstr ""
+msgstr "Uppdateringsfrekvens"
 
 #: ckanext/sixodp_scheming/translations.py:52
 msgid "eg. every second week"
-msgstr ""
+msgstr "t.ex. månad"
 
 #: ckanext/sixodp_scheming/translations.py:53
 msgid ""
@@ -200,6 +213,8 @@ msgid ""
 "similar values used in other datasets such as yearly, monthly or realtime. A"
 " new value can also be created if required."
 msgstr ""
+"En kort beskrivning av datauppdateringsintervallet. T.ex. dag / vecka / "
+"månad / år."
 
 #: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:83
 #: ckanext/sixodp_scheming/translations.py:55
@@ -208,26 +223,31 @@ msgstr "Licens"
 
 #: ckanext/sixodp_scheming/translations.py:57
 msgid "Reminder date"
-msgstr ""
+msgstr "Påminnelsedatum för uppdatering"
 
 #: ckanext/sixodp_scheming/translations.py:58
 msgid ""
 "A date when a reminder email will be sent to the system administrator "
 "reminding to check this dataset e.g. for a yearly update."
 msgstr ""
+"Datum då ett påminnelsemeddelande skickas till dataportaladministratören. "
+"Det är möjligt att ändra administratörens e-postadress från CKAN-"
+"administratörens inställningar."
 
 #: ckanext/sixodp_scheming/translations.py:60
 msgid "Global ID"
-msgstr ""
+msgstr "Global ID"
 
 #: ckanext/sixodp_scheming/translations.py:61
 msgid ""
 "A global id can be assigned to identify the dataset in external services."
 msgstr ""
+"En unik identifierare av dataset. Det behövs särskilt när data kopieras till"
+" andra dataportaler (t ex avoindata.fi)."
 
 #: ckanext/sixodp_scheming/translations.py:63
 msgid "Search Synonyms"
-msgstr ""
+msgstr "Sökord"
 
 #: ckanext/sixodp_scheming/translations.py:64
 msgid ""
@@ -235,6 +255,7 @@ msgid ""
 "E.g. words from spoken language can be provided to make the dataset "
 "searchable by those words."
 msgstr ""
+"Synonymer för att göra sökningen effektivare (t.ex. förskola -> dagvård)"
 
 #: ckanext/sixodp_scheming/translations.py:66
 msgid ""
@@ -256,7 +277,7 @@ msgstr "* Namn"
 
 #: ckanext/sixodp_scheming/translations.py:73
 msgid "A short and descriptive name for the resource."
-msgstr ""
+msgstr "Ett kort och beskrivande namn på resursen"
 
 #: ckanext/sixodp_scheming/translations.py:76
 msgid ""
@@ -273,6 +294,8 @@ msgid ""
 "Size of the added resouce file in bytes. Will be automatically filled when "
 "the file is uploaded."
 msgstr ""
+"Filstorlek i byte. Uppdateras automatiskt när en fil laddas upp till en "
+"server."
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:42
 #: ckanext/sixodp_scheming/translations.py:81
@@ -281,51 +304,53 @@ msgstr "Format"
 
 #: ckanext/sixodp_scheming/translations.py:82
 msgid "File format of the selected resource."
-msgstr ""
+msgstr "Resursens filformat"
 
 #: ckanext/sixodp_scheming/translations.py:85
 msgid ""
 "An universal, compact and easy to understand description of the added "
 "resource."
-msgstr ""
+msgstr "En kort och beskrivande beskrivning av resursen."
 
 #: ckanext/sixodp_scheming/translations.py:87
 msgid "Position coordinates"
-msgstr ""
+msgstr "Koordinatsystem"
 
 #: ckanext/sixodp_scheming/translations.py:88
 msgid ""
 "Coordinates which describe the area which the added resource is associated "
 "with."
 msgstr ""
+"Koordinatsystem som använts i dataset. Gäller endast GIS dataset. T.ex. "
+"ETRS-GK24."
 
 #: ckanext/sixodp_scheming/translations.py:90
 msgid "Time series start"
-msgstr ""
+msgstr "Tidsserien börjar"
 
 #: ckanext/sixodp_scheming/translations.py:91
 msgid "A moment in time after which the data is relevant."
-msgstr ""
+msgstr "Datum för början av tidsserien"
 
 #: ckanext/sixodp_scheming/translations.py:93
 msgid "Time series end"
-msgstr ""
+msgstr "Tidsserien slutar"
 
 #: ckanext/sixodp_scheming/translations.py:94
 msgid "A moment in time after which the data is no longer relevant."
-msgstr ""
+msgstr "Slutdatum för tidsserien"
 
 #: ckanext/sixodp_scheming/translations.py:96
 msgid "Time Series Precision"
-msgstr ""
+msgstr "Tidsseriens korrekthet"
 
 #: ckanext/sixodp_scheming/translations.py:97
 msgid "eg. 2 weeks"
-msgstr ""
+msgstr "t.ex. månad / år"
 
 #: ckanext/sixodp_scheming/translations.py:98
 msgid "A string which describes the precision of the entered time series."
-msgstr ""
+msgstr "Uppdateringsintevall för en tidsserie"
 
 #: ckanext/sixodp_scheming/translations.py:101
 msgid "Creative Commons Attribution 4.0"
@@ -345,7 +370,7 @@ msgstr "https://creativecommons.org/publicdomain/zero/1.0/deed.sv"
 
 #: ckanext/sixodp_scheming/translations.py:107
 msgid "Other (Open)"
-msgstr ""
+msgstr "Annat (öppna)"
 
 #: ckanext/sixodp_scheming/validators.py:57
 msgid "Missing value"
@@ -448,7 +473,7 @@ msgstr "Skapad"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:53
 msgid "GB"
-msgstr ""
+msgstr "GB"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:55
 msgid "MB"
@@ -486,7 +511,7 @@ msgstr ""
 
 #: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:111
 msgid "using the license"
-msgstr ""
+msgstr "under the license"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:113
 msgid "The license can be found on the maintainer's service"

@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-datasubmitter 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-30 06:00+0000\n"
+"POT-Creation-Date: 2018-09-26 12:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Joonas Dukpa, 2018\n"
+"Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2018\n"
 "Language-Team: Swedish (https://www.transifex.com/6aika-dataportal/teams/68018/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -37,9 +37,9 @@ msgid "Organization"
 msgstr "Organisation"
 
 #: ckanext/datasubmitter/controller.py:114
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:80
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:81
 msgid "Dataset url"
-msgstr ""
+msgstr "Dataset URL"
 
 #: ckanext/datasubmitter/controller.py:120
 msgid "Unauthorized to create a package"
@@ -86,22 +86,28 @@ msgstr "Titel"
 msgid "A descriptive title for the dataset"
 msgstr ""
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:62
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:49
+msgid ""
+"Example: The dataset includes financial information for Acme corporation "
+"starting from the year 2012"
+msgstr ""
+
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:63
 msgid "Owner organization"
 msgstr ""
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:93
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:94
 msgid "Submitter info"
 msgstr ""
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:100
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:101
 msgid "Name of the submitter"
 msgstr ""
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:118
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:119
 msgid "Submitter email"
 msgstr "E-post till författare"
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:142
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:143
 msgid "Submit"
 msgstr "Skicka"

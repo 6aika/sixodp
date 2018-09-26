@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sixodp\n"
-"POT-Creation-Date: 2018-09-13 11:56:41+00:00\n"
+"POT-Creation-Date: 2018-09-24 12:25:44+00:00\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2017\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
@@ -59,10 +59,12 @@ msgid "New showcase idea"
 msgstr "Uusi sovellusidea"
 
 #: category.php:97 index.php:46 partials/search-content-data.php:91
+#: partials/search-content.php:79
 msgid "Previous page"
 msgstr "Edellinen"
 
-#: category.php:98 index.php:47 partials/search-content-data.php:96
+#: category.php:98 index.php:47 partials/search-content-data.php:94
+#: partials/search-content.php:82
 msgid "Next page"
 msgstr "Seuraava"
 
@@ -113,9 +115,9 @@ msgstr ""
 msgid "Title"
 msgstr "Otsikko"
 
-#: data_request_form.php:94 showcase_idea_form.php:95
-msgid "eg. A descriptive title"
-msgstr "esim. ideasi nimi tai aihealue"
+#: data_request_form.php:94
+msgid "eg. A descriptive title for the data request"
+msgstr "esim. datatoiveesi nimi tai aihealue"
 
 #: data_request_form.php:105
 msgid "Your request"
@@ -270,12 +272,12 @@ msgstr "Sovellusideat"
 msgid "No updates found for selected month."
 msgstr "Ei päivityksiä valitulta kuukaudelta."
 
-#: partials/ajankohtaista-links.php:9 single.php:61 single.php:82
+#: partials/ajankohtaista-links.php:9 single.php:64 single.php:85
 msgid "Categories"
 msgstr "Kategoriat"
 
 #: partials/article-footer.php:12 partials/content.php:18
-#: partials/page-content.php:23 single.php:127
+#: partials/page-content.php:23 single.php:130
 msgid "Author"
 msgstr "Laatija"
 
@@ -455,6 +457,10 @@ msgstr ""
 "Ilmoitustasi saatetaan muokata ja se saatetaan yhdistää muihin vastaaviin "
 "ideoihin. Ideat julkaistaan tällä sivustolla."
 
+#: showcase_idea_form.php:95
+msgid "eg. A descriptive title"
+msgstr "esim. ideasi nimi tai aihealue"
+
 #: showcase_idea_form.php:106
 msgid "Your idea"
 msgstr "Idean kuvaus"
@@ -473,15 +479,19 @@ msgstr ""
 " tarvittaessa yhteydenottoon esimerkiksi sovellusidean edistämisen tai "
 "tarvittavien lisätietojen osalta."
 
-#: single.php:70
+#: single.php:56
+msgid "Date"
+msgstr "Päivämäärä"
+
+#: single.php:73
 msgid "Data Request"
 msgstr "Datatoive"
 
-#: single.php:71
+#: single.php:74
 msgid "Showcase Idea"
 msgstr "Sovellusidea"
 
-#: single.php:107
+#: single.php:110
 msgid "Tags"
 msgstr "Avainsanat"
 

@@ -65,7 +65,7 @@ msgstr "API:n kautta ei ole ladattavissa dataa tälle resurssille"
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/api-info.js:21
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/api-info.min.js:1
 msgid "Failed to load data API information"
-msgstr "Data API:n tietojen lataaminen epäonnistui"
+msgstr "Data-API:n tietojen lataaminen epäonnistui"
 
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/autocomplete.js:31
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/autocomplete.min.js:1
@@ -366,7 +366,7 @@ msgstr "Lisää sivu"
 
 #: ckanext/sixodp_ui/templates/ckanext_pages/snippets/pages_list.html:80
 msgid "There are currently no blog articles here"
-msgstr "Sivustolla ei ole yhtään blogiartikkelia"
+msgstr "Sivustolla ei ole yhtään artikkelia"
 
 #: ckanext/sixodp_ui/templates/ckanext_pages/snippets/pages_list.html:82
 msgid "There are currently no pages here"
@@ -375,7 +375,7 @@ msgstr "Täällä ei tällä hetkellä ole sivuja"
 #: ckanext/sixodp_ui/templates/collection/index.html:6
 #: ckanext/sixodp_ui/templates/collection/index.html:13
 msgid "Search collections..."
-msgstr "Etsi aineistokokonaisuuksista..."
+msgstr "Hae aineistokokonaisuuksista..."
 
 #: ckanext/sixodp_ui/templates/collection/index.html:13
 #: ckanext/sixodp_ui/templates/group/index.html:13
@@ -400,7 +400,7 @@ msgstr "Nimen mukaan laskevasti"
 #: ckanext/sixodp_ui/templates/group/index.html:6
 #: ckanext/sixodp_ui/templates/group/index.html:13
 msgid "Search groups..."
-msgstr "Etsi kategorioita..."
+msgstr "Hae kategorioita..."
 
 #: ckanext/sixodp_ui/templates/group/read_base.html:4
 #: ckanext/sixodp_ui/templates/group/snippets/info.html:12
@@ -522,7 +522,7 @@ msgstr "Tähän organisaatioon ei liity tietoaineistoja"
 #: ckanext/sixodp_ui/templates/organization/index.html:6
 #: ckanext/sixodp_ui/templates/organization/index.html:13
 msgid "Search organizations..."
-msgstr "Etsi organisaatioita..."
+msgstr "Hae organisaatioita..."
 
 #: ckanext/sixodp_ui/templates/organization/read.html:12
 msgid "Last Created"
@@ -555,7 +555,7 @@ msgstr "Viimeksi muokattu"
 #: ckanext/sixodp_ui/templates/package/search.html:6
 #: ckanext/sixodp_ui/templates/snippets/search_form_without_input.html:3
 msgid "Search datasets..."
-msgstr "Etsi tietoaineistoista..."
+msgstr "Hae tietoaineistoista..."
 
 #: ckanext/sixodp_ui/templates/package/edit.html:9
 #: ckanext/sixodp_ui/templates/package/resource_edit.html:9
@@ -638,7 +638,7 @@ msgstr "Klikkaa tästä saadaksesi lisätietoa..."
 
 #: ckanext/sixodp_ui/templates/package/resource_read.html:94
 msgid "Here are some reasons you may not be seeing expected views:"
-msgstr "Tässä joitakin syitä, jos et näe odottamiasi näkymiä:"
+msgstr "Tässä joitain syitä, jos et näe odottamiasi näkymiä:"
 
 #: ckanext/sixodp_ui/templates/package/resource_read.html:96
 msgid "No view has been created that is suitable for this resource"
@@ -773,7 +773,7 @@ msgstr "Nimi"
 
 #: ckanext/sixodp_ui/templates/package/snippets/resource_form.html:28
 msgid "eg. January 2011 Gold Prices"
-msgstr "esim. Kullan hinta tammikuussa 2011"
+msgstr "Resurssin nimi. Esim. vuosiluku tai tiedostoformaatti."
 
 #: ckanext/sixodp_ui/templates/package/snippets/resource_form.html:32
 msgid "Description"
@@ -793,7 +793,7 @@ msgstr "esim. CSV, XML tai JSON"
 
 #: ckanext/sixodp_ui/templates/package/snippets/resource_form.html:40
 msgid "This will be guessed automatically. Leave blank if you wish"
-msgstr "Tämä päätellään automaattisesti. Jätä tyhjäksi, jos haluat"
+msgstr "Tämä päätellään automaattisesti. Jätä tyhjäksi, jos haluat."
 
 #: ckanext/sixodp_ui/templates/package/snippets/resource_form.html:51
 msgid "eg. 2012-06-05"
@@ -935,7 +935,7 @@ msgstr "Avaa sivu"
 
 #: ckanext/sixodp_ui/templates/showcase/search.html:19
 msgid "Search showcases..."
-msgstr "Etsi sovelluksia..."
+msgstr "Hae sovelluksia..."
 
 #: ckanext/sixodp_ui/templates/snippets/facet_list.html:27
 msgid "Show More {facet_type}"
@@ -1043,7 +1043,7 @@ msgstr "Tapahtumia kohteessa:"
 
 #: ckanext/sixodp_ui/templates/user/snippets/followee_dropdown.html:23
 msgid "Search list..."
-msgstr "Etsi listalta..."
+msgstr "Hae listalta..."
 
 #: ckanext/sixodp_ui/templates/user/snippets/followee_dropdown.html:44
 msgid "You are not following anything"

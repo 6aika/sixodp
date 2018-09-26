@@ -27,7 +27,7 @@
       {% call form.input(
         'title',
         id='field-title',
-        label=h.scheming_language_text('Showcase name'),
+        label=_('Showcase name'),
         placeholder=h.scheming_language_text('eg. A descriptive title'),
         value=data['title'],
         error=errors['name'],
@@ -42,9 +42,9 @@
     <div class="col-xs-12">
       {% snippet "scheming/form_snippets/fluent_markdown_ex.html", field={
         "field_name": "notes_translated",
-        "label": "Description",
+        "label": _("Description"),
         "preset": "fluent_core_markdown_translated",
-        "form_placeholder": "eg. A detailed description",
+        "form_placeholder": _("eg. A detailed description"),
         "form_languages": ["fi", "en", "sv"],
         "description": " ",
         "only_default_lang_required": true,

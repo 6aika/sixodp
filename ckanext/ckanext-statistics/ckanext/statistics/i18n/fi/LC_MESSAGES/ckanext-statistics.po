@@ -93,7 +93,7 @@ msgstr "Dataa avattu"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:226
 msgid "Apps created"
-msgstr "Sovelluksia luotu"
+msgstr "Sovelluksia lisätty"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:227
 msgid "Last three months"

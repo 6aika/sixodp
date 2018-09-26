@@ -64,7 +64,7 @@ msgstr "Kategorier"
 
 #: ckanext/sixodp_showcase/plugin.py:103
 msgid "Platform"
-msgstr ""
+msgstr "Plattform"
 
 #: ckanext/sixodp_showcase/templates/admin/base.html:6
 #: ckanext/sixodp_showcase/templates/admin/manage_showcase_admins.html:38
@@ -188,7 +188,7 @@ msgstr "Titel"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:15
 msgid "eg. A descriptive title"
-msgstr ""
+msgstr "Namn på din applikationen"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:24
 msgid "URL"
@@ -257,7 +257,7 @@ msgstr "Utkast"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:91
 msgid "Published"
-msgstr ""
+msgstr "Publicerad"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:93
 msgid "updated"
@@ -278,7 +278,7 @@ msgstr "Öppnä webbsidan"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:159
 msgid "Used datasets"
-msgstr ""
+msgstr "Öppen data som använts i applikationen"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:163
 msgid "There are no Datasets in this Showcase"
@@ -300,7 +300,7 @@ msgstr "Applikationswebbplats"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:207
 msgid "Author website"
-msgstr ""
+msgstr "Applikationens webbplats"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:10
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:66
@@ -313,11 +313,11 @@ msgstr "Lägg till applikationen"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:56
 msgid "Newest first"
-msgstr ""
+msgstr "Nyaste först"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:57
 msgid "Oldest first"
-msgstr ""
+msgstr "Äldsta först"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:58
 msgid "Popular"

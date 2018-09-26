@@ -98,8 +98,8 @@ msgstr "Lisää olemassa oleva käyttäjä"
 msgid ""
 "To make an existing user a Showcase Admin, search for their username below."
 msgstr ""
-"Tehdäksesi olemassaolevasta käyttäjästä sovellusten ylläpitäjän, etsi häntä "
-"käyttäjätunnuksella."
+"Tehdäksesi olemassa olevasta käyttäjästä sovellusten ylläpitäjän, etsi häntä"
+" käyttäjätunnuksella."
 
 #: ckanext/sixodp_showcase/templates/admin/manage_showcase_admins.html:23
 msgid "Username"
@@ -188,11 +188,11 @@ msgstr "Luo sovellus"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:15
 msgid "Title"
-msgstr "Nimike"
+msgstr "Nimi"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:15
 msgid "eg. A descriptive title"
-msgstr "esim. kuvaava otsikko"
+msgstr "Sovelluksen nimi, artikkelin otsikko tms."
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:24
 msgid "URL"
@@ -208,7 +208,7 @@ msgstr "Kuvaus"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:28
 msgid "eg. Some useful notes about the data"
-msgstr "datan sanallinen kuvaus"
+msgstr "Lyhyehkö kuvaus sovelluksesta ja sen tärkeimmistä ominaisuuksista."
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:33
 msgid "eg. economy, mental health, government"

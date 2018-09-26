@@ -63,16 +63,16 @@ msgid ""
 msgstr ""
 "Keywords or tags that help users find information from the search page and "
 "through material with the same keywords. In the keywords, you might want to "
-"use the Finton YSO vocabulary <https://finto.fi/yso/fi/>. The computable "
+"use the Finto YSO vocabulary <https://finto.fi/yso/fi/>. The computable "
 "words are in plural (e.g. schools); others in singular (e.g. training)."
 
 #: ckanext/sixodp_scheming/translations.py:13
 msgid "Geographical Coverage"
-msgstr ""
+msgstr "Geographical coverage"
 
 #: ckanext/sixodp_scheming/translations.py:14
 msgid "eg. tampere"
-msgstr ""
+msgstr "e.g. Tampere"
 
 #: ckanext/sixodp_scheming/translations.py:15
 msgid "Select the municipalities from which the dataset contains data."
@@ -85,7 +85,7 @@ msgstr "Description"
 
 #: ckanext/sixodp_scheming/translations.py:18
 msgid "E.g. A diverse and detailed description"
-msgstr ""
+msgstr "E.g. a diverse and detailed description"
 
 #: ckanext/sixodp_scheming/translations.py:19
 msgid ""
@@ -96,7 +96,7 @@ msgstr ""
 
 #: ckanext/sixodp_scheming/translations.py:21
 msgid "Links to additional information concerning the dataset"
-msgstr "Links to pages with more information about the data"
+msgstr "Links with more information "
 
 #: ckanext/sixodp_scheming/translations.py:22
 msgid ""
@@ -133,21 +133,22 @@ msgstr ""
 
 #: ckanext/sixodp_scheming/translations.py:31
 msgid "Maintainer"
-msgstr ""
+msgstr "Administrator"
 
 #: ckanext/sixodp_scheming/translations.py:32
 msgid "Joe Bloggs"
-msgstr ""
+msgstr "e.g. Kaupunkimittaus"
 
 #: ckanext/sixodp_scheming/translations.py:33
 msgid ""
 "The technical maintainer for the dataset. Can in practice be the maintaining"
 " unit, bureau or as an exception a single employee."
 msgstr ""
+"Technical data administrator. Most often the same as the organization. "
 
 #: ckanext/sixodp_scheming/translations.py:35
 msgid "Maintainer Email"
-msgstr ""
+msgstr "Administrator's email"
 
 #: ckanext/sixodp_scheming/translations.py:36
 msgid "joe@example.com"
@@ -158,10 +159,12 @@ msgid ""
 "The email address for the maintaining party for the dataset. Use a mailing "
 "list or other similar means to direct the message to multiple recipients."
 msgstr ""
+"The admin's e-mail. Please use the organisation's general e-mail address, if"
+" it is available."
 
 #: ckanext/sixodp_scheming/translations.py:39
 msgid "Maintainer Website"
-msgstr ""
+msgstr "Administrator's webpage"
 
 #: ckanext/sixodp_scheming/translations.py:40
 msgid "http://www.example.com"
@@ -213,6 +216,8 @@ msgid ""
 "similar values used in other datasets such as yearly, monthly or realtime. A"
 " new value can also be created if required."
 msgstr ""
+"A brief description of the data update interval. E.g. day / week / month / "
+"year. "
 
 #: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:83
 #: ckanext/sixodp_scheming/translations.py:55
@@ -240,7 +245,7 @@ msgstr "Global ID"
 msgid ""
 "A global id can be assigned to identify the dataset in external services."
 msgstr ""
-"A unique identifyier of dataset. It is especially needed when the data is "
+"An unique identifyier of dataset. It is especially needed when the data is "
 "copied to other data portals (e.g. avoindata.fi)."
 
 #: ckanext/sixodp_scheming/translations.py:63
@@ -506,7 +511,7 @@ msgstr ""
 
 #: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:111
 msgid "using the license"
-msgstr ""
+msgstr "under the license"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:113
 msgid "The license can be found on the maintainer's service"

@@ -11,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-28 15:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Juha Härkönen <juha.harkonen@ouka.fi>, 2017\n"
+"Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2017\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/6aika-dataportal/teams/68018/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -23,39 +23,39 @@ msgstr ""
 #: ckanext/statistics/fanstatic/javascript/main.js:12
 #: ckanext/statistics/templates/statistics/statistics_read.html:10
 msgid "Loading"
-msgstr "Downloaded"
+msgstr ""
 
 #: ckanext/statistics/fanstatic/javascript/main.js:13
 msgid "Loading web page"
-msgstr "Downloaded"
+msgstr ""
 
 #: ckanext/statistics/fanstatic/javascript/main.js:14
 msgid "Loading organizations"
-msgstr "Download organisations"
+msgstr ""
 
 #: ckanext/statistics/fanstatic/javascript/main.js:15
 msgid "Loading categories"
-msgstr "Download categories"
+msgstr ""
 
 #: ckanext/statistics/fanstatic/javascript/main.js:16
 msgid "Loading data"
-msgstr "Download data"
+msgstr ""
 
 #: ckanext/statistics/fanstatic/javascript/main.js:17
 msgid "Loading apps"
-msgstr "Download applications"
+msgstr "Loading showcases"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:18
 msgid "Loading relations"
-msgstr "Download statistics"
+msgstr "Loading statistics"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:19
 msgid "Preprocessing"
-msgstr "Pre-processed"
+msgstr "Pre-processing"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:20
 msgid "Rendering"
-msgstr "Drawn"
+msgstr "Rendering"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:21
 msgid "Done"
@@ -73,7 +73,7 @@ msgstr "Data"
 #: ckanext/statistics/fanstatic/javascript/main.js:95
 #: ckanext/statistics/fanstatic/javascript/main.js:258
 msgid "Apps"
-msgstr "Applications"
+msgstr "Showcases"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:99
 msgid "All publishers"
@@ -89,11 +89,11 @@ msgstr "All"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:225
 msgid "Data opened"
-msgstr "New data"
+msgstr "Datasets"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:226
 msgid "Apps created"
-msgstr "New applications"
+msgstr "Showcases"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:227
 msgid "Last three months"
@@ -134,11 +134,11 @@ msgstr "File formats"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:245
 msgid "Used in an app"
-msgstr "Used in the application"
+msgstr "Used in the showcase"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:246
 msgid "Not used in any app"
-msgstr "Not used in the applications"
+msgstr "Not used in the showcases"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:684
 msgid "Site analytics"

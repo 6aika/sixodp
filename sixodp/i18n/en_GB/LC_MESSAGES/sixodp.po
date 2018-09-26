@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sixodp\n"
-"POT-Creation-Date: 2018-09-13 11:56:41+00:00\n"
+"POT-Creation-Date: 2018-09-24 12:25:44+00:00\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2018\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/6aika-dataportal/teams/68018/en_GB/)\n"
@@ -59,10 +59,12 @@ msgid "New showcase idea"
 msgstr "Submit an idea for a new application"
 
 #: category.php:97 index.php:46 partials/search-content-data.php:91
+#: partials/search-content.php:79
 msgid "Previous page"
 msgstr ""
 
-#: category.php:98 index.php:47 partials/search-content-data.php:96
+#: category.php:98 index.php:47 partials/search-content-data.php:94
+#: partials/search-content.php:82
 msgid "Next page"
 msgstr ""
 
@@ -113,9 +115,9 @@ msgstr ""
 msgid "Title"
 msgstr "* Title"
 
-#: data_request_form.php:94 showcase_idea_form.php:95
-msgid "eg. A descriptive title"
-msgstr "e.g. name or category of your idea "
+#: data_request_form.php:94
+msgid "eg. A descriptive title for the data request"
+msgstr "Short name or theme of your data request"
 
 #: data_request_form.php:105
 msgid "Your request"
@@ -182,27 +184,27 @@ msgstr ""
 #: functions.php:191
 msgctxt "Notification"
 msgid "Add New"
-msgstr ""
+msgstr "Add new"
 
 #: functions.php:192
 msgid "Add New Notification"
-msgstr ""
+msgstr "Add new notification"
 
 #: functions.php:193
 msgid "Edit Notification"
-msgstr ""
+msgstr "Edit notification"
 
 #: functions.php:194
 msgid "New Notification"
-msgstr ""
+msgstr "New notification"
 
 #: functions.php:195
 msgid "All Notifications"
-msgstr ""
+msgstr "All notifications"
 
 #: functions.php:196
 msgid "View Notification"
-msgstr ""
+msgstr "View notification"
 
 #: functions.php:197
 msgid "Search notifications"
@@ -259,18 +261,18 @@ msgstr ""
 
 #: latest-updates.php:87
 msgid "App Requests"
-msgstr ""
+msgstr "Application ideas"
 
 #: latest-updates.php:96
 msgid "No updates found for selected month."
 msgstr ""
 
-#: partials/ajankohtaista-links.php:9 single.php:61 single.php:82
+#: partials/ajankohtaista-links.php:9 single.php:64 single.php:85
 msgid "Categories"
 msgstr ""
 
 #: partials/article-footer.php:12 partials/content.php:18
-#: partials/page-content.php:23 single.php:127
+#: partials/page-content.php:23 single.php:130
 msgid "Author"
 msgstr ""
 
@@ -284,7 +286,7 @@ msgstr "All datasets"
 
 #: partials/featured-apps.php:9
 msgid "Latest applications"
-msgstr ""
+msgstr "Latest showcases"
 
 #: partials/featured-apps.php:76
 msgid "Do you have a dataset or an application to share?"
@@ -365,12 +367,12 @@ msgstr ""
 
 #: partials/search-content-data.php:22 partials/search-content.php:20
 msgid "Results in groups"
-msgstr ""
+msgstr "Search category"
 
 #: partials/search-content-data.php:37 partials/search-content-data.php:39
 #: partials/search-content.php:37
 msgid "Others"
-msgstr ""
+msgstr "Other content"
 
 #: partials/search-content-data.php:50
 msgid "Search results: Applications (%d)"
@@ -387,8 +389,8 @@ msgstr[1] ""
 #: partials/search-content.php:45
 msgid "Search results: Others (%d)"
 msgid_plural "Search results: Others (%d)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Search results: Other content ()"
+msgstr[1] "Search results: Other content (%d)"
 
 #: partials/social_links.php:4
 msgid "Follow us"
@@ -440,13 +442,17 @@ msgstr ""
 
 #: showcase_idea_form.php:66 showcase_idea_form.php:71
 msgid "New Showcase idea"
-msgstr ""
+msgstr "New showcase idea"
 
 #: showcase_idea_form.php:86
 msgid ""
 "Your showcase idea will be moderated, it may be modified or combined with "
 "similar ideas. Moderated ideas will be published on this site."
 msgstr ""
+
+#: showcase_idea_form.php:95
+msgid "eg. A descriptive title"
+msgstr "e.g. name or category of your idea "
 
 #: showcase_idea_form.php:106
 msgid "Your idea"
@@ -460,15 +466,19 @@ msgstr ""
 msgid "Your email will not be published with showcase idea."
 msgstr ""
 
-#: single.php:70
+#: single.php:56
+msgid "Date"
+msgstr ""
+
+#: single.php:73
 msgid "Data Request"
-msgstr ""
+msgstr "Data request"
 
-#: single.php:71
+#: single.php:74
 msgid "Showcase Idea"
-msgstr ""
+msgstr "Showcase idea"
 
-#: single.php:107
+#: single.php:110
 msgid "Tags"
 msgstr "Tags"
 
