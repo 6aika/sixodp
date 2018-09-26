@@ -75,7 +75,7 @@ msgstr "Kuvaus"
 
 #: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:47
 msgid "eg. A detailed description"
-msgstr ""
+msgstr "Kuvaus sovelluksesta ja sen keskeisistä ominaisuuksista"
 
 #: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:59
 msgid "Name or organization of the author"
