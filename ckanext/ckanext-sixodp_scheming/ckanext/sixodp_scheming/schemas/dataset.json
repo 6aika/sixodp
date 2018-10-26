@@ -234,15 +234,11 @@
     {
       "field_name": "time_series_start",
       "label": "Time series start",
-      "preset": "date",
-      "display_snippet": "date.html",
       "description": "A moment in time after which the data is relevant."
     },
     {
       "field_name": "time_series_end",
       "label": "Time series end",
-      "preset": "date",
-      "display_snippet": "date.html",
       "description": "A moment in time after which the data is no longer relevant."
     },
     {
