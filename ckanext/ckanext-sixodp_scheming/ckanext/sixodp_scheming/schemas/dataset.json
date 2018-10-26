@@ -215,6 +215,18 @@
       "rows": 10
     },
     {
+      "field_name": "date_released",
+      "label": "Published",
+      "preset": "date",
+      "description": "The resource publication date."
+    },
+    {
+      "field_name": "date_updated",
+      "label": "Updated",
+      "preset": "date",
+      "description": "The resource update date."
+    },
+    {
       "field_name": "position_info",
       "label": "Position coordinates",
       "description": "Coordinates which describe the area which the added resource is associated with."
