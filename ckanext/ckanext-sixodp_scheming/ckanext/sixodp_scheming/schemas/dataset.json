@@ -152,6 +152,29 @@
       "required": true
     },
     {
+      "field_name": "time_series_start",
+      "label": "Time series start",
+      "description": "A moment in time after which the data is relevant."
+    },
+    {
+      "field_name": "time_series_end",
+      "label": "Time series end",
+      "description": "A moment in time after which the data is no longer relevant."
+    },
+    {
+      "field_name": "time_series_precision",
+      "label": "Time Series Precision",
+      "form_placeholder":"eg. 2 weeks",
+      "preset": "fluent_vocabulary_with_autocomplete",
+      "validators": "fluent_tags create_fluent_tags(time_series_precision)",
+      "form_attrs": {
+        "data-module": "autocomplete",
+        "data-module-tags": "",
+        "data-module-source": "/api/2/util/tag/autocomplete?incomplete=?&vocabulary_id=time_series_precision"
+      },
+      "description": "A string which describes the precision of the entered time series."
+    },
+    {
       "field_name": "reminder",
       "label": "Reminder date",
       "preset": "date",
