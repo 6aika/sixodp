@@ -85,7 +85,8 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin, DefaultTranslation):
     def get_actions(self):
         return {
             'resource_create': action.resource_create,
-            'resource_update': action.resource_update
+            'resource_update': action.resource_update,
+            'resource_delete': action.resource_delete
         }
 
     # IPackageController

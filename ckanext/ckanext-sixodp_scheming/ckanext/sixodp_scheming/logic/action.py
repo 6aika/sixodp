@@ -12,6 +12,11 @@ def resource_update(context, datadict):
 
     return get_original_method('ckan.logic.action.update', 'resource_update')(context, datadict)
 
+def resource_delete(context, datadict):
+    context['keep_deletable_attributes_in_api'] = True
+
+    return get_original_method('ckan.logic.action.delete', 'resource_delete')(context, datadict)
+
 def get_original_method(module_name, method_name):
     """ In CKAN you cannot call original action when you override it.
         This method fixes the problem.
