@@ -19,23 +19,8 @@
       </thead>
       <tbody>
         {%- block resource_last_updated -%}
-          <tr>
-            <th scope="row">{{ _('Last updated') }}</th>
-            <td>
-              {{ h.render_datetime(res.last_modified, date_format='%d.%m.%Y') 
-              or h.render_datetime(res.revision_timestamp, date_format='%d.%m.%Y') 
-              or h.render_datetime(res.created, date_format='%d.%m.%Y') 
-              or _('unknown') }}
-            </td>
-          </tr>
         {%- endblock -%}
         {%- block resource_created -%}
-          <tr>
-            <th scope="row">{{ _('Created') }}</th>
-            <td>{{ h.render_datetime(res.created, date_format='%d.%m.%Y') 
-              or _('unknown') }}
-            </td>
-          </tr>
         {%- endblock -%}
         {%- block resource_format -%}
           <tr>

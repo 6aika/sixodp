@@ -152,6 +152,29 @@
       "required": true
     },
     {
+      "field_name": "time_series_start",
+      "label": "Time series start",
+      "description": "A moment in time after which the data is relevant."
+    },
+    {
+      "field_name": "time_series_end",
+      "label": "Time series end",
+      "description": "A moment in time after which the data is no longer relevant."
+    },
+    {
+      "field_name": "time_series_precision",
+      "label": "Time Series Precision",
+      "form_placeholder":"eg. 2 weeks",
+      "preset": "fluent_vocabulary_with_autocomplete",
+      "validators": "fluent_tags create_fluent_tags(time_series_precision)",
+      "form_attrs": {
+        "data-module": "autocomplete",
+        "data-module-tags": "",
+        "data-module-source": "/api/2/util/tag/autocomplete?incomplete=?&vocabulary_id=time_series_precision"
+      },
+      "description": "A string which describes the precision of the entered time series."
+    },
+    {
       "field_name": "reminder",
       "label": "Reminder date",
       "preset": "date",
@@ -215,6 +238,18 @@
       "rows": 10
     },
     {
+      "field_name": "date_released",
+      "label": "Published",
+      "preset": "date",
+      "description": "The resource publication date."
+    },
+    {
+      "field_name": "date_updated",
+      "label": "Updated",
+      "preset": "date",
+      "description": "The resource update date."
+    },
+    {
       "field_name": "position_info",
       "label": "Position coordinates",
       "description": "Coordinates which describe the area which the added resource is associated with."
@@ -222,15 +257,11 @@
     {
       "field_name": "time_series_start",
       "label": "Time series start",
-      "preset": "date",
-      "display_snippet": "date.html",
       "description": "A moment in time after which the data is relevant."
     },
     {
       "field_name": "time_series_end",
       "label": "Time series end",
-      "preset": "date",
-      "display_snippet": "date.html",
       "description": "A moment in time after which the data is no longer relevant."
     },
     {

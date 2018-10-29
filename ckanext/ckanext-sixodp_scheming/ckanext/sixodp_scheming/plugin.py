@@ -7,6 +7,7 @@ import helpers
 
 from ckan.logic import NotFound
 from ckan.lib.plugins import DefaultTranslation
+from logic import action
 import logging
 
 log = logging.getLogger(__name__ )
@@ -53,6 +54,7 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IValidators)
     plugins.implements(plugins.IPackageController, inherit=True)
     plugins.implements(plugins.ITemplateHelpers)
+    plugins.implements(plugins.IActions)
     if toolkit.check_ckan_version(min_version='2.5.0'):
         plugins.implements(plugins.ITranslation, inherit=True)
 
@@ -78,6 +80,13 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin, DefaultTranslation):
             'repeating_text_output': validators.repeating_text_output,
             'only_default_lang_required': validators.only_default_lang_required
             }
+
+    # IActions
+    def get_actions(self):
+        return {
+            'resource_create': action.resource_create,
+            'resource_update': action.resource_update
+        }
 
     # IPackageController
 
@@ -133,12 +142,14 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin, DefaultTranslation):
         return data_dict
 
 
+    # This function requires overriding resource_create and resource_update by adding keep_deletable_attributes_in_api to context
     def after_show(self, context, data_dict):
-        if context.get('for_edit') is not True:
+
+        keep_deletable_attributes_in_api = context.get('keep_deletable_attributes_in_api', False)
+
+        if keep_deletable_attributes_in_api is False and context.get('for_edit') is not True:
             if data_dict.get('search_synonyms', None) is not None:
                 data_dict.pop('search_synonyms')
-
-
 
         return data_dict
 

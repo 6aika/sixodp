@@ -204,6 +204,11 @@
       "form_snippet": "private.html",
       "display_snippet": null,
       "validators": "boolean_validator set_private_if_not_admin"
+    },
+    {
+      "field_name": "global_id",
+      "label": "Global ID",
+      "description": "A global id can be assigned to identify the showcase in external services."
     }
   ]
 }
