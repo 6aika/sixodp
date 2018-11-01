@@ -23,7 +23,7 @@
             {% block resource_read_title %}{% endblock %}
             {% block page_subheading %}
               <h2 class="page-subheading">
-                <span>{{ h.render_datetime(c.resource.created, '%-d.%-m.%Y') }}</span>
+                <span>{{ h.render_datetime(h.get_created_or_updated(res), '%-d.%-m.%Y') }}</span>
               </h2>
             {% endblock %}
           </div>
