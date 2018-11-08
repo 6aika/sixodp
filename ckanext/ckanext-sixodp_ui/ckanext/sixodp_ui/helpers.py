@@ -322,4 +322,6 @@ def get_created_or_updated(pkg_or_res):
     newer = pkg_or_res.get('date_released', None)
     if newer is not None and 'date_updated' in pkg_or_res and pkg_or_res['date_updated'] > newer:
         return pkg_or_res['date_updated']
+    elif newer is None and 'date_updated' in pkg_or_res:
+        return pkg_or_res['date_updated']
     return newer
