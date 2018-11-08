@@ -14,10 +14,8 @@
 
 if ($_GET['date']) {
   $date = strtotime($_GET['date']);
-
-  $date = $date - 86400 * (date('N', $date) - 1);
 }
-else $date = strtotime("last monday");
+else $date = strtotime("-1 month");
 
 $date = date('Y-m-d', $date);
 
@@ -90,11 +88,13 @@ get_header(); ?>
           <input type="submit" value="Päivitä" class="btn btn-transparent--inverse" />
         </div>
       </form>
+
       <?php
       $updates = get_latest_updates($types, $date, false);
       if (sizeof($updates) == 0) { ?>
-        <h3 class="heading-sidebar text-center"><?php _e('No updates found for selected month.'); ?></h3>
+        <h3 class="heading-sidebar text-center"><?php echo sprintf(__('No updates found between %1$s and %2$s.', 'sixodp'), $date, date('Y-m-d', strtotime($date ."+1 month"))); ?></h3>
       <?php } else { ?>
+          <h3 class="heading-sidebar text-center"><?php echo sprintf(__('Updates between %1$s and %2$s.', 'sixodp'), $date, date('Y-m-d', strtotime($date ."+1 month"))); ?></h3>
       <ul class="items-list">
 
       <?php foreach ( $updates as $index => $item ) :
@@ -140,8 +140,8 @@ get_header(); ?>
 
       <div class="navigation pagination">
         <div class="nav-links">
-          <?php echo '<a href="'. $uri['path'] .'?'. http_build_query(array_merge($args, array('date' => date('Y-m-d', strtotime($date .'- 1 WEEK'))))) .'" class="next page-numbers"><span class="fa fa-chevron-left" title="Edellinen"></span></a>'; ?>
-          <?php if ($date != date('Y-m-d', strtotime('last monday'))) echo '<a href="'. $uri['path'] .'?'. http_build_query(array_merge($args, array('date' => date('Y-m-d', strtotime($date .'+ 1 WEEK'))))) .'" class="prev page-numbers"><span class="fa fa-chevron-right" title="Seuraava"></span></a>'; ?>
+          <?php echo '<a href="'. $uri['path'] .'?'. http_build_query(array_merge($args, array('date' => date('Y-m-d', strtotime($date .'- 1 MONTH'))))) .'" class="next page-numbers"><span class="fa fa-chevron-left" title="Edellinen"></span></a>'; ?>
+          <?php if ($date != date('Y-m-d', strtotime('last monday'))) echo '<a href="'. $uri['path'] .'?'. http_build_query(array_merge($args, array('date' => date('Y-m-d', strtotime($date .'+ 1 MONTH'))))) .'" class="prev page-numbers"><span class="fa fa-chevron-right" title="Seuraava"></span></a>'; ?>
         </div>
       </div>
     </div>
