@@ -6,7 +6,7 @@
 
 <div class="wrapper">
 
-  <div class="article"><?php the_content(); ?></div>
+
 
   <?php
     // Get the board id for retrieving the lists
