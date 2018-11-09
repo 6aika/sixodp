@@ -61,33 +61,31 @@ get_header(); ?>
         <h1><?php the_title(); ?></h1>
       </div>
     </div>
-    <div class="page-content container centered-content">
       <form action="" method="GET" class="form-container text-center">
-        <label>
-          <input type="checkbox" value="datasets" name="types[]" <?php if ($types['datasets']) echo 'checked="checked"' ?> /> <?php _e('Datasets','sixodp') ?>
-        </label>
-        <label>
-          <input type="checkbox" value="showcases" name="types[]" <?php if ($types['showcases']) echo 'checked="checked"' ?> /> <?php _e('Applications','sixodp') ?>
-        </label>
-        <label>
-          <input type="checkbox" value="comments" name="types[]" <?php if ($types['comments']) echo 'checked="checked"' ?> /> <?php _e('Comments', 'sixodp') ?>
-        </label>
-        <label>
-          <input type="checkbox" value="posts" name="types[]" <?php if ($types['posts']) echo 'checked="checked"' ?> /> <?php _e('Posts', 'sixodp') ?>
-        </label>
-        <label>
-          <input type="checkbox" value="pages" name="types[]" <?php if ($types['pages']) echo 'checked="checked"' ?> /> <?php _e('Pages', 'sixodp') ?>
-        </label>
-        <label>
-          <input type="checkbox" value="data_requests" name="types[]" <?php if ($types['data_requests']) echo 'checked="checked"' ?> /> <?php _e('Data Requests', 'sixodp') ?>
-        </label>
-        <label>
-          <input type="checkbox" value="app_requests" name="types[]" <?php if ($types['app_requests']) echo 'checked="checked"' ?> /> <?php _e('App Requests', 'sixodp') ?>
-        </label>
-        <div class="centered-content text-center">
-          <input type="submit" value="Päivitä" class="btn btn-transparent--inverse" />
-        </div>
+          <label>
+              <input type="checkbox" value="datasets" name="types[]" <?php if ($types['datasets']) echo 'checked="checked"' ?> /> <?php _e('Datasets','sixodp') ?>
+          </label>
+          <label>
+              <input type="checkbox" value="showcases" name="types[]" <?php if ($types['showcases']) echo 'checked="checked"' ?> /> <?php _e('Applications','sixodp') ?>
+          </label>
+          <label>
+              <input type="checkbox" value="comments" name="types[]" <?php if ($types['comments']) echo 'checked="checked"' ?> /> <?php _e('Comments', 'sixodp') ?>
+          </label>
+          <label>
+              <input type="checkbox" value="posts" name="types[]" <?php if ($types['posts']) echo 'checked="checked"' ?> /> <?php _e('Posts', 'sixodp') ?>
+          </label>
+          <label>
+              <input type="checkbox" value="pages" name="types[]" <?php if ($types['pages']) echo 'checked="checked"' ?> /> <?php _e('Pages', 'sixodp') ?>
+          </label>
+          <label>
+              <input type="checkbox" value="data_requests" name="types[]" <?php if ($types['data_requests']) echo 'checked="checked"' ?> /> <?php _e('Data Requests', 'sixodp') ?>
+          </label>
+          <label>
+              <input type="checkbox" value="app_requests" name="types[]" <?php if ($types['app_requests']) echo 'checked="checked"' ?> /> <?php _e('App Requests', 'sixodp') ?>
+          </label>
+              <input type="submit" value="Päivitä" class="btn btn-transparent--inverse" />
       </form>
+    <div class="page-content container centered-content">
 
       <?php
       $updates = get_latest_updates($types, $date, false);
