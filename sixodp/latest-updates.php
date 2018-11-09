@@ -104,10 +104,10 @@ get_header(); ?>
             <div class="items-list__type">
               <?php
               if (is_array($item['type'])) {
-                echo '<a href="'. $item['type']['link'] .'">'. $item['type']['label'] .'</a>';
+                echo '<a href="'. $item['type']['link'] .'">'. __($item['type']['label'], 'sixodp') .'</a>';
               }
               else {
-                echo '<span>'. $item['type'] .'</span>';
+                echo '<span>'. __($item['type'], 'sixodp') .'</span>';
               }
               ?>
             </div>
