@@ -56,7 +56,7 @@ get_header(); ?>
                       'notes' => $post->post_content,
                       'url' => get_the_permalink(),
                     );
-                    include(locate_template( 'partials/card-image.php' ));
+                    include(locate_template( 'partials/card.php' ));
                   endwhile;
                 ?>
               </div>
