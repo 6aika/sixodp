@@ -33,7 +33,7 @@ $category = $post;
         </div>
       </div>
       <div class="toolbar--site-subtitle">
-        <h1><?php the_title(); ?></h1>
+        <h1><?php echo get_the_title( $post->post_parent ); ?></h1>
       </div>
     </div>
     <div class="page-content container">
