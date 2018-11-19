@@ -13,7 +13,7 @@
 get_header(); ?>
 
 <div id="primary" class="content-area">
-  <main id="main" class="site-main wrapper" role="main">
+  <main id="main" class="site-main" role="main">
 
     <?php get_template_part('partials/page-hero'); ?>
 
@@ -32,7 +32,7 @@ get_header(); ?>
     </div>
 
     <div class="page-content container">
-      <div class="wrapper">
+      <div class="wrapper--archive">
 
         <div class="row">
           <?php $data_req_url = get_permalink(get_translated_page_by_title('Uusi datatoive')); ?>
@@ -55,6 +55,8 @@ get_header(); ?>
                       'date_updated' => $post->post_date,
                       'notes' => $post->post_content,
                       'url' => get_the_permalink(),
+                      'meta' => __('Data request', 'sixodp'),
+                      'external_card_class' => 'card-danger',
                     );
                     include(locate_template( 'partials/card.php' ));
                   endwhile;

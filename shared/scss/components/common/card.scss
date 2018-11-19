@@ -66,7 +66,7 @@ $card-meta-height: $font-size-small + $card-padding * 3;
 
   &.card-danger {
 
-    .wrapper:nth-child(even) & {
+    .wrapper:nth-child(even) &, .wrapper--archive:nth-child(odd) & {
       background-color: $brand-lightgray;
 
       .card-link-wrapper {
@@ -78,7 +78,7 @@ $card-meta-height: $font-size-small + $card-padding * 3;
       }
     }
 
-    .wrapper:nth-child(odd) & {
+    .wrapper:nth-child(odd) &, .wrapper--archive:nth-child(even) & {
       background-color: #fff;
     }
 
