@@ -34,7 +34,9 @@ get_header(); ?>
             <?php if ($cat_parent != $category && $cat_parent->name != $cat->name) : ?>
               <li><a href="<?php echo get_category_link($cat_parent_id) ?>"><?php echo $cat_parent->name ?></a></li>
             <?php endif;?>
+            <?php if($cat) : ?>
             <li><a href="<?php echo get_category_link($cat) ?>"><?php echo $cat->name ?></a></li>
+            <?php endif; ?>
             <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
           </ol>
         </div>
