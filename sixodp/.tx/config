@@ -6,3 +6,4 @@ file_filter = i18n/<lang>/LC_MESSAGES/sixodp.po
 source_file = i18n/sixodp.pot
 source_lang = en
 type = PO
+

@@ -1,16 +1,17 @@
 # Copyright (C) 2018
 # This file is distributed under the same license as the  package.
 # Translators:
+# Mikko Nieminen <mikko.nieminen@gofore.com>, 2018
 # Joonas Dukpa, 2018
 # Hami Kekkonen <hami.kekkonen@hel.fi>, 2018
-# Mikko Nieminen <mikko.nieminen@gofore.com>, 2018
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sixodp\n"
-"POT-Creation-Date: 2018-09-24 12:25:44+00:00\n"
-"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Mikko Nieminen <mikko.nieminen@gofore.com>, 2018\n"
+"POT-Creation-Date: 2018-11-09 08:13:48+00:00\n"
+"PO-Revision-Date: 2017-05-08 09:08+0000\n"
+"Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2018\n"
 "Language-Team: Swedish (https://www.transifex.com/6aika-dataportal/teams/68018/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +23,7 @@ msgstr ""
 #. Template Name of the plugin/theme
 #: ajankohtaista.php:25 archive-data_request.php:24
 #: archive-showcase_idea.php:24 category-tuki.php:28 category.php:29
-#: data_request_form.php:64 latest-updates.php:57 page_with_menu.php:30
+#: data_request_form.php:64 latest-updates.php:55 page_with_menu.php:30
 #: roadmap.php:26 search.php:24 showcase_idea_form.php:65 single.php:33
 #: tuki.php:26 tukichild.php:30
 msgid "Home"
@@ -42,7 +43,7 @@ msgid "Twitter"
 msgstr "Twitter"
 
 #: archive-data_request.php:25 archive-data_request.php:30
-#: latest-updates.php:84
+#: latest-updates.php:81
 msgid "Data Requests"
 msgstr "Dataförfrågor"
 
@@ -234,38 +235,42 @@ msgstr "sedan"
 msgid "Page"
 msgstr "Sidan"
 
-#: latest-updates.php:69 partials/featured-datasets.php:11
+#: latest-updates.php:66 partials/featured-datasets.php:11
 #: partials/hero.php:18 partials/hero.php:21
 #: partials/search-content-data.php:25 partials/search-content-data.php:27
 #: partials/search-content.php:25
 msgid "Datasets"
 msgstr "Dataset"
 
-#: latest-updates.php:72 partials/hero.php:22
+#: latest-updates.php:69 partials/hero.php:22
 #: partials/search-content-data.php:31 partials/search-content-data.php:33
 #: partials/search-content.php:31
 msgid "Applications"
 msgstr "Applikationer"
 
-#: latest-updates.php:75
+#: latest-updates.php:72
 msgid "Comments"
 msgstr "Kommentar"
 
-#: latest-updates.php:78
+#: latest-updates.php:75
 msgid "Posts"
 msgstr "Artiklar"
 
-#: latest-updates.php:81
+#: latest-updates.php:78
 msgid "Pages"
 msgstr "Sidor"
 
-#: latest-updates.php:87
+#: latest-updates.php:84
 msgid "App Requests"
 msgstr "Applikationsidéer"
 
-#: latest-updates.php:96
-msgid "No updates found for selected month."
-msgstr "Inga uppdateringar hittades för vald månad."
+#: latest-updates.php:93
+msgid "No updates found between %1$s and %2$s."
+msgstr "Inga uppdateringar mellan %1$s-%2$s."
+
+#: latest-updates.php:95
+msgid "Updates between %1$s and %2$s."
+msgstr "Uppdateringar mellan %1$s-%2$s."
 
 #: partials/ajankohtaista-links.php:9 single.php:64 single.php:85
 msgid "Categories"
@@ -492,6 +497,34 @@ msgstr "Innehåll med tagg"
 #: tag.php:39
 msgid "Popular tags"
 msgstr "Populära taggar"
+
+#: translations.php:2
+msgid "dataset"
+msgstr "Data"
+
+#: translations.php:3 translations.php:5
+msgid "showcase"
+msgstr "Applikation"
+
+#: translations.php:4
+msgid "comment"
+msgstr "Kommentar"
+
+#: translations.php:6
+msgid "post"
+msgstr "Artikel"
+
+#: translations.php:7
+msgid "page"
+msgstr "Sida"
+
+#: translations.php:8
+msgid "data_request"
+msgstr "Dataförfråga"
+
+#: translations.php:9
+msgid "app_request"
+msgstr "Applikationsidé"
 
 #: tuki.php:27 tuki.php:32 tukichild.php:31 tukichild.php:37
 msgid "Support"

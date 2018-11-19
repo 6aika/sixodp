@@ -17,7 +17,7 @@ if ($_GET['date']) {
 }
 else $date = strtotime("-1 month");
 
-$date = date('Y-m-d', $date);
+$date = date('d.m.Y', $date);
 
 if ($_GET['types']) {
   $types = array(
@@ -90,9 +90,9 @@ get_header(); ?>
       <?php
       $updates = get_latest_updates($types, $date, false);
       if (sizeof($updates) == 0) { ?>
-        <h3 class="heading-sidebar text-center"><?php echo sprintf(__('No updates found between %1$s and %2$s.', 'sixodp'), $date, date('Y-m-d', strtotime($date ."+1 month"))); ?></h3>
+        <h3 class="heading-sidebar text-center"><?php echo sprintf(__('No updates found between %1$s and %2$s.', 'sixodp'), $date, date('d.m.Y', strtotime($date ."+1 month"))); ?></h3>
       <?php } else { ?>
-          <h3 class="heading-sidebar text-center"><?php echo sprintf(__('Updates between %1$s and %2$s.', 'sixodp'), $date, date('Y-m-d', strtotime($date ."+1 month"))); ?></h3>
+          <h3 class="heading-sidebar text-center"><?php echo sprintf(__('Updates between %1$s and %2$s.', 'sixodp'), $date, date('d.m.Y', strtotime($date ."+1 month"))); ?></h3>
       <ul class="items-list">
 
       <?php foreach ( $updates as $index => $item ) :
