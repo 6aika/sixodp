@@ -9,6 +9,9 @@ $(function ($) {
           $(".fadeout").show();
         }
 
+        // remove previously binded events.
+        $(".show-more").off("click");
+
         $(".show-more").on("click", function () {
           var $this = $(this);
           var $content = $this.prev("div.show-more-content");
