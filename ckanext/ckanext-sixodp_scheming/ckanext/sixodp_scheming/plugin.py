@@ -108,7 +108,7 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin, DefaultTranslation):
             #d = datetime.strptime(date_str,)
 
         if data_dict.get('date_updated', None) is None:
-            data_dict['date_updated'] = data_dict['metadata_modified']
+            data_dict['date_updated'] = data_dict['date_released']
         else:
             date_str = data_dict['date_updated']
             try:
