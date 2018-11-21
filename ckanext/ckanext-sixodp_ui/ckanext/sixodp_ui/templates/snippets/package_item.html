@@ -24,7 +24,8 @@ Example:
       {% block content %}
         <div class="col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0 dataset-content">
           {% block metadata %}
-            <div class="dataset-metadata">
+          {#
+          <div class="dataset-metadata">
               <div class="dataset-meta-left">
                 <span class="dataset-created">{{ h.render_datetime(package.date_released, '%-d.%-m.%Y') }}</span>
                 {% if package.groups %}
@@ -47,6 +48,7 @@ Example:
                 </div>
               {% endif %}
             </div>
+          #}
           {% endblock %}
 
           {% block heading %}

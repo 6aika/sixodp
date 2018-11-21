@@ -46,7 +46,7 @@
       {% endblock %}
 
       {% block package_search_results_list %}
-        {{ h.snippet('snippets/package_list.html', packages=c.page.items, show_rating=h.show_rating_in_type('dataset')) }}
+        {{ h.snippet('snippets/package_list.html', packages=c.page.items, show_rating=false) }}
       {% endblock %}
     </div>
 
