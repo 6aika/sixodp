@@ -1,0 +1,6 @@
+---
+
+- name: Install PhpPgAdmin
+  apt:
+    name: phppgadmin
+    state: present

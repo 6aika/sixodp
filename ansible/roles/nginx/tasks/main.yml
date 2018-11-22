@@ -11,6 +11,14 @@
   with_items:
     - { "template": "nginx_site_config.j2", "destination": "sites-available/primary_site" }
 
+- name: Copy php.conf
+  copy:
+    src: php.conf
+    dest: /etc/nginx/php.conf
+    mode: "0644"
+    owner: root
+    group: root
+
 - name: Ensure static resource directory
   file: path="{{ static_path }}" state=directory mode="0775" owner=root group=root
 

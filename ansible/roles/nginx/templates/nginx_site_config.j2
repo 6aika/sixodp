@@ -41,14 +41,7 @@ server {
     alias /opt/wordpress/;
     try_files $uri $uri/ //index.php?$args; # https://trac.nginx.org/nginx/ticket/97
     index index.php index.html;
-
-    location ~ \.php$ {
-      try_files $uri =404;
-      include fastcgi.conf;
-      fastcgi_index index.php;
-      fastcgi_param SCRIPT_FILENAME $request_filename;
-      fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
-    }
+    include php.conf;
   }
 
   location = / {
@@ -93,4 +86,13 @@ server {
   location /.well-known/acme-challenge/ {
     alias /var/run/acme/acme-challenge/;
   }
+}
+
+# PHPPgAdmin
+server {
+    server_name phppgadmin.{{ public_facing_hostname }};
+    root    /usr/share/phppgadmin;
+    index   index.php;
+    include php.conf;
+    listen 8000 ssl;
 }
