@@ -95,8 +95,4 @@ server {
     index   index.php;
     include php.conf;
     listen 8000 ssl;
-
-    location / {
-        return 302 https://phppgadmin.{{ public_facing_hostname }}:8000$request_uri;
-      }
 }
