@@ -4,3 +4,8 @@
   apt:
     name: phppgadmin
     state: present
+
+- name: Copy PhpPgAdmin configuration
+  template:
+    src: config.inc.php.j2
+    dest: /etc/phppgadmin/config.inc.php
