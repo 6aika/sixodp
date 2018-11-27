@@ -95,6 +95,12 @@
             case 'comment':
               $meta_label = __('Comment', 'sixodp');
               break;
+            case 'showcase_idea':
+              $meta_label = __('Showcase idea', 'sixodp');
+              break;
+            case 'data_request':
+              $meta_label = __('Data request', 'sixodp');
+              break;
             default:
               $meta_label = $label;
               break;
