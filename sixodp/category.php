@@ -64,6 +64,9 @@ get_header();
                 ?>
                 <li class="sidebar-item<?php if ($child_cat->name === $category->name) { echo ' active'; } ?> child">
                   <a href="<?php echo get_category_link($child_cat); ?>">
+                    <span class="sidebar-icon-wrapper">
+                        <span class="fa fa-long-arrow-right"></span>
+                    </span>
                     <?php echo $child_cat->name; ?>
                   </a>
                 </li>
