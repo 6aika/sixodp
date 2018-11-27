@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sixodp\n"
-"POT-Creation-Date: 2018-11-09 08:13:48+00:00\n"
+"POT-Creation-Date: 2018-11-27 13:36:22+00:00\n"
 "PO-Revision-Date: 2017-05-08 09:08+0000\n"
 "Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2018\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
@@ -24,7 +24,7 @@ msgstr ""
 #: ajankohtaista.php:25 archive-data_request.php:24
 #: archive-showcase_idea.php:24 category-tuki.php:28 category.php:29
 #: data_request_form.php:64 latest-updates.php:55 page_with_menu.php:30
-#: roadmap.php:26 search.php:24 showcase_idea_form.php:65 single.php:33
+#: roadmap.php:26 search.php:24 showcase_idea_form.php:65 single.php:35
 #: tuki.php:26 tukichild.php:30
 msgid "Home"
 msgstr "Etusivu"
@@ -43,7 +43,7 @@ msgid "Twitter"
 msgstr "Twitter"
 
 #: archive-data_request.php:25 archive-data_request.php:30
-#: latest-updates.php:81
+#: latest-updates.php:81 single.php:43
 msgid "Data Requests"
 msgstr "Datatoiveet"
 
@@ -51,7 +51,24 @@ msgstr "Datatoiveet"
 msgid "New data request"
 msgstr "Uusi datatoive"
 
-#: archive-showcase_idea.php:25 archive-showcase_idea.php:30
+#: archive-data_request.php:58 partials/latest-updates.php:44
+#: partials/latest-updates.php:108
+msgid "Data request"
+msgstr "Datatoive"
+
+#: archive-data_request.php:73 archive-showcase_idea.php:71 category.php:100
+#: index.php:46 partials/search-content-data.php:91
+#: partials/search-content.php:79
+msgid "Previous page"
+msgstr "Edellinen"
+
+#: archive-data_request.php:74 archive-showcase_idea.php:72 category.php:101
+#: index.php:47 partials/search-content-data.php:94
+#: partials/search-content.php:82
+msgid "Next page"
+msgstr "Seuraava"
+
+#: archive-showcase_idea.php:25 archive-showcase_idea.php:30 single.php:46
 msgid "Showcase ideas"
 msgstr "Sovellusideat"
 
@@ -59,15 +76,10 @@ msgstr "Sovellusideat"
 msgid "New showcase idea"
 msgstr "Uusi sovellusidea"
 
-#: category.php:97 index.php:46 partials/search-content-data.php:91
-#: partials/search-content.php:79
-msgid "Previous page"
-msgstr "Edellinen"
-
-#: category.php:98 index.php:47 partials/search-content-data.php:94
-#: partials/search-content.php:82
-msgid "Next page"
-msgstr "Seuraava"
+#: archive-showcase_idea.php:56 partials/latest-updates.php:41
+#: partials/latest-updates.php:105
+msgid "Showcase idea"
+msgstr "Sovellusidea"
 
 #: data_request_form.php:30 showcase_idea_form.php:30
 msgid "Content is required"
@@ -236,7 +248,7 @@ msgstr "tuntia"
 msgid "ago"
 msgstr "sitten"
 
-#: index.php:48 partials/latest-updates.php:35 partials/latest-updates.php:93
+#: index.php:48 partials/latest-updates.php:35 partials/latest-updates.php:99
 msgid "Page"
 msgstr "Sivu"
 
@@ -277,12 +289,12 @@ msgstr "Ei päivityksiä ajalla %1$s-%2$s."
 msgid "Updates between %1$s and %2$s."
 msgstr "Päivitykset ajalla %1$s-%2$s."
 
-#: partials/ajankohtaista-links.php:9 single.php:64 single.php:85
+#: partials/ajankohtaista-links.php:9 single.php:73 single.php:94
 msgid "Categories"
 msgstr "Kategoriat"
 
 #: partials/article-footer.php:12 partials/content.php:18
-#: partials/page-content.php:23 single.php:130
+#: partials/page-content.php:23 single.php:139
 msgid "Author"
 msgstr "Laatija"
 
@@ -319,7 +331,7 @@ msgid "Latest datasets"
 msgstr "Uusimmat datat"
 
 #: partials/featured-content.php:25 partials/featured-content.php:60
-#: partials/latest-updates.php:26 partials/latest-updates.php:84
+#: partials/latest-updates.php:26 partials/latest-updates.php:90
 msgid "Dataset"
 msgstr "Tietoaineisto"
 
@@ -339,7 +351,7 @@ msgstr "Ilmoita aineisto"
 msgid "Share an open data idea"
 msgstr "Kerro aineistotoive"
 
-#: partials/featured-datasets.php:46 partials/latest-updates.php:120
+#: partials/featured-datasets.php:46 partials/latest-updates.php:132
 msgid "More updates"
 msgstr "Lisää päivityksiä"
 
@@ -359,15 +371,15 @@ msgstr "Hae"
 msgid "Show all"
 msgstr "Näytä kaikki"
 
-#: partials/latest-updates.php:29 partials/latest-updates.php:87
+#: partials/latest-updates.php:29 partials/latest-updates.php:93
 msgid "Showcase"
 msgstr "Sovellus"
 
-#: partials/latest-updates.php:32 partials/latest-updates.php:90
+#: partials/latest-updates.php:32 partials/latest-updates.php:96
 msgid "Article"
 msgstr "Artikkeli"
 
-#: partials/latest-updates.php:38 partials/latest-updates.php:96
+#: partials/latest-updates.php:38 partials/latest-updates.php:102
 msgid "Comment"
 msgstr "Kommentti"
 
@@ -432,7 +444,7 @@ msgstr "Ota yhteyttä"
 msgid "Tuki"
 msgstr "Ohjeet"
 
-#: partials/tuki-sidebar.php:48 tuki.php:44
+#: partials/tuki-sidebar.php:51 tuki.php:44
 msgid "Themes"
 msgstr "Teemat"
 
@@ -484,19 +496,19 @@ msgstr ""
 " tarvittaessa yhteydenottoon esimerkiksi sovellusidean edistämisen tai "
 "tarvittavien lisätietojen osalta."
 
-#: single.php:56
+#: single.php:66
 msgid "Date"
 msgstr "Päivämäärä"
 
-#: single.php:73
+#: single.php:82
 msgid "Data Request"
 msgstr "Datatoive"
 
-#: single.php:74
+#: single.php:83
 msgid "Showcase Idea"
 msgstr "Sovellusidea"
 
-#: single.php:110
+#: single.php:119
 msgid "Tags"
 msgstr "Avainsanat"
 

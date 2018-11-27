@@ -37,6 +37,12 @@
                 case 'comment':
                   $meta_label = __('Comment', 'sixodp');
                   break;
+                case 'showcase_idea':
+                  $meta_label = __('Showcase idea', 'sixodp');
+                  break;
+                case 'data_request':
+                  $meta_label = __('Data request', 'sixodp');
+                  break;
                 default:
                   $meta_label = $label;
                   break;
@@ -46,7 +52,7 @@
                 'external_card_class' => 'card-danger',
                 'title' => get_translated($updated_item, 'title'),
                 'meta' => $meta_label,
-                'timestamp' => $updated_item['date_recent'],
+                'timestamp' => isset($updated_item['date_recent']) ? $updated_item['date_recent'] : $updated_item['date'],
                 'notes' => get_translated($updated_item, 'notes'),
                 'url' => $updated_item['link'],
               );

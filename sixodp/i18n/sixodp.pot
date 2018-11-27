@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sixodp\n"
-"POT-Creation-Date: 2018-11-19 11:43:35+00:00\n"
+"POT-Creation-Date: 2018-11-27 13:36:22+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,7 +17,7 @@ msgstr ""
 #: ajankohtaista.php:25 archive-data_request.php:24
 #: archive-showcase_idea.php:24 category-tuki.php:28 category.php:29
 #: data_request_form.php:64 latest-updates.php:55 page_with_menu.php:30
-#: roadmap.php:26 search.php:24 showcase_idea_form.php:65 single.php:33
+#: roadmap.php:26 search.php:24 showcase_idea_form.php:65 single.php:35
 #: tuki.php:26 tukichild.php:30
 msgid "Home"
 msgstr ""
@@ -36,7 +36,7 @@ msgid "Twitter"
 msgstr ""
 
 #: archive-data_request.php:25 archive-data_request.php:30
-#: latest-updates.php:81
+#: latest-updates.php:81 single.php:43
 msgid "Data Requests"
 msgstr ""
 
@@ -44,11 +44,24 @@ msgstr ""
 msgid "New data request"
 msgstr ""
 
-#: archive-data_request.php:58
+#: archive-data_request.php:58 partials/latest-updates.php:44
+#: partials/latest-updates.php:108
 msgid "Data request"
 msgstr ""
 
-#: archive-showcase_idea.php:25 archive-showcase_idea.php:30
+#: archive-data_request.php:73 archive-showcase_idea.php:71 category.php:100
+#: index.php:46 partials/search-content-data.php:91
+#: partials/search-content.php:79
+msgid "Previous page"
+msgstr ""
+
+#: archive-data_request.php:74 archive-showcase_idea.php:72 category.php:101
+#: index.php:47 partials/search-content-data.php:94
+#: partials/search-content.php:82
+msgid "Next page"
+msgstr ""
+
+#: archive-showcase_idea.php:25 archive-showcase_idea.php:30 single.php:46
 msgid "Showcase ideas"
 msgstr ""
 
@@ -56,18 +69,9 @@ msgstr ""
 msgid "New showcase idea"
 msgstr ""
 
-#: archive-showcase_idea.php:56
+#: archive-showcase_idea.php:56 partials/latest-updates.php:41
+#: partials/latest-updates.php:105
 msgid "Showcase idea"
-msgstr ""
-
-#: category.php:97 index.php:46 partials/search-content-data.php:91
-#: partials/search-content.php:79
-msgid "Previous page"
-msgstr ""
-
-#: category.php:98 index.php:47 partials/search-content-data.php:94
-#: partials/search-content.php:82
-msgid "Next page"
 msgstr ""
 
 #: data_request_form.php:30 showcase_idea_form.php:30
@@ -228,7 +232,7 @@ msgstr ""
 msgid "ago"
 msgstr ""
 
-#: index.php:48 partials/latest-updates.php:35 partials/latest-updates.php:93
+#: index.php:48 partials/latest-updates.php:35 partials/latest-updates.php:99
 msgid "Page"
 msgstr ""
 
@@ -268,12 +272,12 @@ msgstr ""
 msgid "Updates between %1$s and %2$s."
 msgstr ""
 
-#: partials/ajankohtaista-links.php:9 single.php:64 single.php:85
+#: partials/ajankohtaista-links.php:9 single.php:73 single.php:94
 msgid "Categories"
 msgstr ""
 
 #: partials/article-footer.php:12 partials/content.php:18
-#: partials/page-content.php:23 single.php:130
+#: partials/page-content.php:23 single.php:139
 msgid "Author"
 msgstr ""
 
@@ -310,7 +314,7 @@ msgid "Latest datasets"
 msgstr ""
 
 #: partials/featured-content.php:25 partials/featured-content.php:60
-#: partials/latest-updates.php:26 partials/latest-updates.php:84
+#: partials/latest-updates.php:26 partials/latest-updates.php:90
 msgid "Dataset"
 msgstr ""
 
@@ -330,7 +334,7 @@ msgstr ""
 msgid "Share an open data idea"
 msgstr ""
 
-#: partials/featured-datasets.php:46 partials/latest-updates.php:120
+#: partials/featured-datasets.php:46 partials/latest-updates.php:132
 msgid "More updates"
 msgstr ""
 
@@ -350,15 +354,15 @@ msgstr ""
 msgid "Show all"
 msgstr ""
 
-#: partials/latest-updates.php:29 partials/latest-updates.php:87
+#: partials/latest-updates.php:29 partials/latest-updates.php:93
 msgid "Showcase"
 msgstr ""
 
-#: partials/latest-updates.php:32 partials/latest-updates.php:90
+#: partials/latest-updates.php:32 partials/latest-updates.php:96
 msgid "Article"
 msgstr ""
 
-#: partials/latest-updates.php:38 partials/latest-updates.php:96
+#: partials/latest-updates.php:38 partials/latest-updates.php:102
 msgid "Comment"
 msgstr ""
 
@@ -423,7 +427,7 @@ msgstr ""
 msgid "Tuki"
 msgstr ""
 
-#: partials/tuki-sidebar.php:48 tuki.php:44
+#: partials/tuki-sidebar.php:51 tuki.php:44
 msgid "Themes"
 msgstr ""
 
@@ -467,19 +471,19 @@ msgstr ""
 msgid "Your email will not be published with showcase idea."
 msgstr ""
 
-#: single.php:56
+#: single.php:66
 msgid "Date"
 msgstr ""
 
-#: single.php:73
+#: single.php:82
 msgid "Data Request"
 msgstr ""
 
-#: single.php:74
+#: single.php:83
 msgid "Showcase Idea"
 msgstr ""
 
-#: single.php:110
+#: single.php:119
 msgid "Tags"
 msgstr ""
 
