@@ -7,6 +7,7 @@ server_path: /opt/datacatalog
 cache_path: "{{ server_path }}/cache"
 data_path: "{{ server_path }}/data"
 ckan_storage_path: "{{ data_path }}/ckan"
+resource_cache_path: "{{ server_path }}/resource_cache"
 
 ckan_ini: /etc/ckan/default/production.ini
 ckan_test_core_ini: /etc/ckan/default/test-core.ini
