@@ -28,6 +28,12 @@ $category = $post;
         <div class="container">
           <ol class="breadcrumb">
             <li><a href="<?php echo get_home_url() ?>"><?php _e('Home', 'sixodp') ?></a></li>
+              <?php if ($parent_page && $parent_page != $post)  : ?>
+                  <li><a href="<?php echo get_permalink($parent_page); ?>"><?php echo get_the_title( $parent_page); ?></a></li>
+              <?php endif;?>
+              <?php if ($post->post_parent && $post->post_parent != $grandparent_id) : ?>
+              <li><a href="<?php echo get_permalink($post->post_parent); ?>"><?php echo get_the_title( $post->post_parent ); ?></a></li>
+              <?php endif;?>
             <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
           </ol>
         </div>
