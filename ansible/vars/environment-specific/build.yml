@@ -100,8 +100,8 @@ ckan_extensions:
   - ckanext-cloudstorage
   - ckanext-report
   - ckanext-ga-report
-  - ckanext-qa
   - ckanext-archiver
+  - ckanext-qa
   - ckanext-hierarchy
   - ckanext-disqus
   - ckanext-reminder
