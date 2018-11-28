@@ -33,6 +33,7 @@
   with_items:
     - "{{ ckan_storage_path }}"
     - /etc/ckan/default
+    - "{{ resource_cache_path }}"
 
 - name: Ensure path ownerships
   command: chown -R "{{ www_user }}:{{ www_group }}" "{{ ckan_storage_path }}" /etc/ckan/default
