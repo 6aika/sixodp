@@ -14,6 +14,7 @@
     - postgres-install
     - postgres-data
     - solr6
+    - redis
     - apache
     - ckan-install
     - ckan-extensions
