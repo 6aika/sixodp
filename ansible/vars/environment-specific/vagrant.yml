@@ -98,8 +98,8 @@ ckan_extensions:
   - ckanext-cloudstorage
   - ckanext-report
   - ckanext-ga-report
-  - ckanext-qa
   - ckanext-archiver
+  - ckanext-qa
   - ckanext-hierarchy
   - ckanext-disqus
   - ckanext-reminder
@@ -113,6 +113,7 @@ ckan_extensions:
   #- ckanext-sixodp_harvester
   - ckanext-sixodp_showcasesubmit
   #- ckanext-googleanalytics
+  - ckanext-geoview
 
 # List of enabled CKAN extensions in load order. Order matters, when templates call super()
 enabled_ckan_extensions:
@@ -154,6 +155,8 @@ enabled_ckan_extensions:
     #- csw_harvester
     #- sixodp_harvester
     - sixodp_showcasesubmit
+    - resource_proxy
+    - geo_view
 
 
 enabled_ckan_aws_extensions: cloudstorage
