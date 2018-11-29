@@ -26,3 +26,7 @@
 - name: Ensure googleanalytics loadanalytics cronjob
   cron: name="Load Google Analytics" minute="0" hour="1" job="/usr/lib/ckan/default/bin/paster --plugin=ckanext-googleanalytics loadanalytics {{ google_analytics_secrets_file_path }} --config={{ ckan_ini }}"
   when: "'ckanext-googleanalytics' in ckan_extensions"
+
+- name: Ensure archiver update
+  cron: name="Archiver update" minute="0" hour="2" job="/usr/lib/ckan/default/bin/paster --plugin=ckanext-archiver archiver update --config={{ ckan_ini }}"
+  when: "'ckanext-archiver' in ckan_extensions"
