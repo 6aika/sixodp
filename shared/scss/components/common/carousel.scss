@@ -3,6 +3,10 @@
   .card--image {
     max-width: $card-max-width;
     margin: $margin-base-vertical*2 auto;
+
+    @media(max-width: $width-xxs){
+      max-width: $card-max-width * 0.9;
+    }
   }
 
   .carousel-control {
@@ -14,6 +18,10 @@
       top: 50%;
       width: 100%;
       display: block;
+    }
+
+    @media(max-width: $width-xxs){
+      width: 10%;
     }
   }
 

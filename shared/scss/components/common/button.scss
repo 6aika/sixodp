@@ -144,6 +144,12 @@
 .btn-container {
   margin-top: $base*2.5;
   text-align: center;
+
+  a + a {
+    @media(max-width: $width-xxs) {
+      margin-top: 5px;
+    }
+  }
 }
 
 .btn-container-inverse {
