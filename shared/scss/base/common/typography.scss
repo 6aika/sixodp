@@ -55,6 +55,7 @@ a {
 .heading-content {
   @extend .heading-main;
   margin-top: 0;
+  word-break: break-word;
 }
 
 .heading-page {
