@@ -37,13 +37,13 @@ get_header(); ?>
         <div class="row">
           <?php $data_req_url = get_permalink(get_translated_page_by_title('Uusi datatoive')); ?>
           <div class="news-content">
-            <div class="col-md-offset-2 col-sm-offset-2 col-xs-offset-2 col-md-8 col-sm-8 col-xs-8 btn-container-inverse">
+            <div class="col-md-offset-2 col-sm-offset-2 col-md-8 col-sm-8 col-xs-12 btn-container-inverse">
               <a href="<?php echo $data_req_url; ?>" class="btn btn-transparent--inverse">
                 <?php _e('New data request', 'sixodp') ?>
               </a>
             </div>
             
-            <div class="col-md-offset-2 col-sm-offset-2 col-xs-offset-2 col-md-8 col-sm-8 col-xs-8">
+            <div class="col-md-offset-2 col-sm-offset-2 col-md-8 col-sm-8 col-xs-12">
               <div class="cards cards--3">
                 <?php
                   // Start the loop.
