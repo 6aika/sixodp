@@ -23,4 +23,4 @@
   with_items: "{{ ckan_languages }}"
 
 - name: Ensure CKAN JavaScript translation privileges
-  file: path="{{ virtualenv }}/src/ckan/ckan/public/base/i18n" owner={{ www_user }} group={{ www_group }} mode="0755"
+  file: path="{{ virtualenv }}/src/ckan/ckan/public/base/i18n" owner={{ www_user }} group={{ www_group }} mode="0755" recurse=yes
