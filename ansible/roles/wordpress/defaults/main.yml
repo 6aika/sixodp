@@ -9,7 +9,7 @@ wordpress_plugins:
   - addthis
   - polylang
   - google-analytics-dashboard-for-wp
-  - wpcustom-category-image
+  #- wpcustom-category-image
   - disqus-comment-system
   - wp-recaptcha-integration
   - wordpress-importer
