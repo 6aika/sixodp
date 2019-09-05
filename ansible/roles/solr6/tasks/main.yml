@@ -45,5 +45,10 @@
   become: true
   become_user: solr
 
+- name: Update logging properties
+  copy: src=log4j.properties dest=/var/solr/log4j.properties mode="0640" owner=solr group=solr
+  become: true
+  become_user: solr
+
 - name: Restart solr
   service: name=solr state=restarted
