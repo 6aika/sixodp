@@ -124,7 +124,7 @@
 
   - name: Update WordPress plugins
     command:
-      wp plugin update --all --path=/opt/wordpress
+      wp plugin update --all --path=/opt/wordpress  --exclude=contact-widgets,wp-trello
 
   become: yes
   become_user: www-data
