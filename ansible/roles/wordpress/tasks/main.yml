@@ -124,8 +124,8 @@
 
   - name: Update WordPress plugins
     command:
-      wp plugin update --all
-    
+      wp plugin update --all --path=/opt/wordpress
+
   become: yes
   become_user: www-data
 
