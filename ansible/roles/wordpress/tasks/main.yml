@@ -116,7 +116,11 @@
 
   - name: Update WordPress
     command:
-      wp core update --path=/opt/wordpress --minor
+      wp core update --path=/opt/wordpress
+
+  - name: Update WordPress database
+    command:
+      wp core update-db --path=/opt/wordpress
 
   become: yes
   become_user: www-data
@@ -200,11 +204,11 @@
 - include: local_plugin.yml
   with_items: "{{ wordpress_local_plugins }}"
 
-- name: Create symbolic link for wordpress tools includes
-  file:
-    src: /opt/wordpress/
-    dest: /vagrant/src
-    state: link
-    force: yes
-  when: deployment_environment_id == "vagrant"
+#- name: Create symbolic link for wordpress tools includes
+#  file:
+#    src: /opt/wordpress/
+#    dest: /vagrant/src
+#   state: link
+#   force: yes
+# when: deployment_environment_id == "vagrant"
 
