@@ -122,6 +122,10 @@
     command:
       wp core update-db --path=/opt/wordpress
 
+  - name: Update WordPress plugins
+    command:
+      wp plugin update --all
+    
   become: yes
   become_user: www-data
 
