@@ -18,9 +18,12 @@
     dest: "{{ cache_path }}/ckan.git"
     bare: yes
 
+- name: Copy recommended setuptools requirements file
+  copy: src=requirement-setuptools.txt dest="{{ cache_path }}/requirement-setuptools.txt" mode="0644" owner=root group=root
+
 - name: Install ckan required setuptools
   pip:
-    requirements: "{{ virtualenv }}/src/ckan/requirement-setuptools.txt"
+    requirements: "{{ cache_path }}/requirement-setuptools.txt "
     virtualenv: "{{ virtualenv }}"
 
 - name: Install CKAN
