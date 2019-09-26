@@ -18,6 +18,11 @@
     dest: "{{ cache_path }}/ckan.git"
     bare: yes
 
+- name: Install ckan required setuptools
+  pip:
+    requirements: "{{ virtualenv }}/src/ckan/requirement-setuptools.txt"
+    virtualenv: "{{ virtualenv }}"
+
 - name: Install CKAN
   pip: name="git+file://{{ cache_path }}/ckan.git@ckan-{{ ckan_version }}#egg=ckan" virtualenv={{ virtualenv }} extra_args=--exists-action=s
 
