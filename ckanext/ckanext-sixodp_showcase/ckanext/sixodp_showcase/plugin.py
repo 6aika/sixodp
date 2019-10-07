@@ -8,6 +8,7 @@ from ckanext.sixodp_showcase import helpers
 from ckan.common import _
 from ckan.lib import i18n
 import json
+from pylons import config
 
 import ckan.lib.helpers as h
 
@@ -180,7 +181,11 @@ class Sixodp_ShowcasePlugin(ShowcasePlugin):
 
     # IPackageController
     def after_show(self, context, data_dict):
-        if context.get('for_edit') is not True:
+
+        keep_deletable_attributes_in_api = config.get('ckanext.sixodp.keep_deletable_attributes_in_api',
+                                                      context.get('keep_deletable_attributes_in_api', False))
+
+        if keep_deletable_attributes_in_api is False and context.get('for_edit') is not True:
             if data_dict.get('notifier', None) is not None:
                 data_dict.pop('notifier')
             if data_dict.get('notifier_email', None) is not None:

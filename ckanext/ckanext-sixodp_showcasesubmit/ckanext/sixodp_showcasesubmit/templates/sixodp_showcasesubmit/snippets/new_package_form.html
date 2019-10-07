@@ -251,7 +251,7 @@
 
     <div class="col-xs-12">
       <h2 class="h3">{{ _('Related datasets') }}</h2>
-      <div class="control-group control-medium">
+      <div class="form-group control-medium">
         <label class="control-label">{{ _('Select one or multiple datasets') }}</label>
         <input id="dataset"
          type="text"
@@ -263,6 +263,7 @@
          data-module-source="/api/util/dataset/autocomplete?incomplete=?"
          data-module-tags="true"
          data-module-key="name"
+         data-module-createtags="false"
          data-module-label="title">
       </div>
     </div>

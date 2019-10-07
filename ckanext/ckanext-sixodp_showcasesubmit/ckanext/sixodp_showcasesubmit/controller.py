@@ -79,7 +79,8 @@ class Sixodp_ShowcasesubmitController(p.toolkit.BaseController):
 
             context = {'model': model, 'session': model.Session,
                        'user': user.id, 'auth_user_obj': user.id,
-                       'save': 'save' in request.params}
+                       'save': 'save' in request.params,
+                       'keep_deletable_attributes_in_api': True}
 
             data_dict = clean_dict(dict_fns.unflatten(
                 tuplize_dict(parse_params(request.POST))))
@@ -109,7 +110,8 @@ class Sixodp_ShowcasesubmitController(p.toolkit.BaseController):
                         get_action('ckanext_showcase_package_association_create')(
                             context, association_dict)
                     except:
-                        new_showcase['notes_translated-fi'] += '\n\n' + _('N.B. The following dataset could not be automatically linked') + ': ' + package_name
+                        new_showcase['notes_translated']['fi'] = new_showcase.get('notes_translated', {'fi': ''}).get('fi', '') \
+                                                                 + '\n\n' + _('N.B. The following dataset could not be automatically linked') + ': ' + package_name
                         get_action('ckanext_showcase_update')(context, new_showcase)
 
         except NotAuthorized:
