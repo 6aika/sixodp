@@ -61,4 +61,5 @@
 	url = https://github.com/6aika/ckanext-ga-report.git
 [submodule "ckanext/ckanext-geoview"]
 	path = ckanext/ckanext-geoview
-	url = https://github.com/ckan/ckanext-geoview.git
+	url = https://github.com/6aika/ckanext-geoview.git
+	branch = sixodp
