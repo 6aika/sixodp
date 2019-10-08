@@ -18,7 +18,7 @@ function TopHistogram (params) {
   self._schema = params.schema;
 
   // Mutable
-  var barHeight = params.barHeight || 75; // Default height
+  var barHeight = params.barHeight || 50; // Default height
   var barCount = 10;
   var contentHeight = barHeight * barCount + self._props.margin.top + self._props.margin.bottom;
 
