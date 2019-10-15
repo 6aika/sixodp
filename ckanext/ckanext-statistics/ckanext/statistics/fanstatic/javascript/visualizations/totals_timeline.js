@@ -328,6 +328,16 @@ TotalsTimeline.prototype._renderFocusPoint = function (d) {
     }
   }
 
+  var translateX = 0;
+  var translateY = 0;
+  if ( self._helpers.xScale(d.date) < 100 ){
+    translateX = 100;
+  }
+
+  if ( self._helpers.yScale(d.value) < 100 ){
+    translateY = 100;
+  }
+
   // Draw the point
   self._elem.focusPoint.attr('transform', 'translate(' + self._helpers.xScale(d.date) + ', ' +  self._helpers.yScale(d.value) + ')')
   self._elem.focusPoint.select('line')
@@ -335,8 +345,8 @@ TotalsTimeline.prototype._renderFocusPoint = function (d) {
     .attr('x2', 0)
     .attr('y1', -self._helpers.yScale(d.value))
     .attr('y2', -self._helpers.yScale(d.value) + self._state.dataArea.height)
-  self._elem.focusPoint.select('.js-statistics-count').html(d.value)
-  self._elem.focusPoint.select('.js-statistics-date').html(moment.utc(d.date).format('D.M.YYYY'))
+  self._elem.focusPoint.select('.js-statistics-count').html(d.value).attr('transform', 'translate(' + translateX + ', ' + translateY + ')');
+  self._elem.focusPoint.select('.js-statistics-date').html(moment.utc(d.date).format('D.M.YYYY')).attr('transform', 'translate(' + translateX + ', ' + translateY + ')');
 }
 
 
