@@ -49,7 +49,7 @@ TopHistogram.prototype.getUrl = function(category) {
   var categoryMapping = {
     'format': ckan.LOCALE_ROOT + '/dataset?res_format=',
     'dataset': ckan.LOCALE_ROOT + '/dataset/',
-    'category': ckan.LOCALE_ROOT + '/dataset?groups=',
+    'category': ckan.LOCALE_ROOT + '/group/',
     'organization': ckan.LOCALE_ROOT + '/organization/',
     'app_category': ckan.LOCALE_ROOT + '/showcase?vocab_category_fi='
   };
@@ -311,7 +311,7 @@ TopHistogram.prototype._renderHistogram = function (histogramData) {
     .data(histogramData, function(d) { return d ? d.name : this.id })
     .text(function(d, i) { return d[self._schema.labelField] })
     .on('click', function(event) {
-      window.open(self.getUrl(event.category) + event.name)
+      window.open(self.getUrl(event.category) + event.id)
     })
     .call(wrap, self._props.margin.left, self._helpers.yScale.bandwidth() / 2);
 
