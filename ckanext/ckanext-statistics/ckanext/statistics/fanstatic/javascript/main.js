@@ -276,6 +276,7 @@ ckan.module('statistics', function($){
         var resultItem = {
           id: categories[iCategory].id,
           name: categories[iCategory].title_translated[self.options.locale],
+          category: 'category',
           all: 0,
           specific: 0, // Datasets with apps
           // allRight: 0, // User counts
@@ -477,6 +478,7 @@ ckan.module('statistics', function($){
         var resultItem = {
           id: formats[iFormat],
           name: formats[iFormat],
+          category: 'format',
           all: 0,
           specific: 0, // Datasets with apps
           // allRight: 0, // User counts
@@ -570,6 +572,7 @@ ckan.module('statistics', function($){
             var resultItem = {
               id: children[iChild].id,
               name: children[iChild].title,
+              category: 'organization',
               all: 0,
               specific: 0, // Datasets with apps
               // allRight: 0, // User counts
@@ -645,6 +648,7 @@ ckan.module('statistics', function($){
         var resultItem = {
           id: categories[iCategory],
           name: categories[iCategory],
+          category: 'app_category',
           all: 0,
           specific: 0
         };

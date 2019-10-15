@@ -45,6 +45,18 @@ function TopHistogram (params) {
   self.resize(params.width, self._state.barHeight)
 }
 
+TopHistogram.prototype.getUrl = function(category) {
+  var categoryMapping = {
+    'format': ckan.LOCALE_ROOT + '/dataset?res_format=',
+    'dataset': ckan.LOCALE_ROOT + '/dataset/',
+    'category': ckan.LOCALE_ROOT + '/dataset?groups=',
+    'organization': ckan.LOCALE_ROOT + '/organization/',
+    'app_category': ckan.LOCALE_ROOT + '/showcase?vocab_category_fi='
+  };
+
+  return categoryMapping[category];
+};
+
 
 // Whenever new data arrives
 TopHistogram.prototype.setData = function (data) {
@@ -298,6 +310,9 @@ TopHistogram.prototype._renderHistogram = function (histogramData) {
   self._elem.histogramBars.selectAll('text')
     .data(histogramData, function(d) { return d ? d.name : this.id })
     .text(function(d, i) { return d[self._schema.labelField] })
+    .on('click', function(event) {
+      window.open(self.getUrl(event.category) + event.name)
+    })
     .call(wrap, self._props.margin.left, self._helpers.yScale.bandwidth() / 2);
 
   // Bars added to the previous data (added to the end)
