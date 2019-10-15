@@ -126,7 +126,7 @@ DatasetSection.prototype.updateSectionData = function(context, dateRange) {
           id: datasets[index].id,
           category: 'dataset',
           all: datasets[index].visits,
-          specific: 0
+          specific: datasets[index].visits
         };
 
         result.push(resultItem);
