@@ -136,6 +136,8 @@ DatasetSection.prototype.updateSectionData = function(context, dateRange) {
       for (var index in datasets) {
         var resultItem = {
           name: datasets[index].title_translated[context.locale] || datasets[index].title,
+          id: datasets[index].id,
+          category: 'dataset',
           all: datasets[index].visits,
           specific: 0
         };
