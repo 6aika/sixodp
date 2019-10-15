@@ -34,12 +34,14 @@ Api.prototype.getAllData = function (callback, delay) {
     data.apps = apps;
     data.datasets = datasets;
 
+    /*
     return Promise.map(data.apps, function(app, index) {
       return self.get('ckanext_showcase_package_list?showcase_id=' + app.id)
       .then(function(result) {
         data.apps[index].datasets = result || [];
       });
     });
+     */
   })
   .then(function() {
     data = self._preprocess(data);

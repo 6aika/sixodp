@@ -53,14 +53,7 @@ var DatasetSection = function (params) {
       amount: self._texts.amount,
       noDataText: self._texts.noDataText
     },
-    legend: [
-      {
-        title: self._texts.usedInApp,
-      },
-      {
-        title: self._texts.notUsedInApp,
-      },
-    ],
+    legend: [],
     limit: 10, // Before show more button is used
 
     width: params.width,
@@ -80,10 +73,7 @@ var DatasetSection = function (params) {
       amount: self._texts.amount,
       noDataText: self._texts.noDataText
     },
-    legend: [
-      { title: self._texts.usedInApp },
-      { title: self._texts.notUsedInApp }
-    ],
+    legend: [],
     limit: 10, // Before show more button is used
 
     width: params.width,
@@ -103,10 +93,7 @@ var DatasetSection = function (params) {
       amount: self._texts.amount,
       noDataText: self._texts.noDataText
     },
-    legend: [
-      { title: self._texts.usedInApp },
-      { title: self._texts.notUsedInApp }
-    ],
+    legend: [],
     limit: 10, // Before show more button is used
 
     width: params.width,

@@ -298,10 +298,11 @@ ckan.module('statistics', function($){
           for (var iDatasetCategory in datasets[iDataset].groups) {
             if (datasets[iDataset].groups[iDatasetCategory].id === categories[iCategory].id) {
               resultItem.all ++
+              resultItem.specific ++
               // The dataset has one or more apps also?
-              if (datasets[iDataset].apps.length > 0) {
-                resultItem.specific ++
-              }
+              //if (datasets[iDataset].apps.length > 0) {
+              //  resultItem.specific ++
+              //}
               break
             }
           }
@@ -498,10 +499,11 @@ ckan.module('statistics', function($){
           for (var iResource in datasets[iDataset].resources) {
             if (datasets[iDataset].resources[iResource].format === formats[iFormat]) {
               resultItem.all ++
+              resultItem.specific ++
               // The dataset has one or more apps also?
-              if (datasets[iDataset].apps.length > 0) {
-                resultItem.specific ++
-              }
+              //if (datasets[iDataset].apps.length > 0) {
+              //  resultItem.specific ++
+              //}
               break
             }
           }
@@ -596,11 +598,11 @@ ckan.module('statistics', function($){
               // The result org item is the org or parent org of this dataset?
               if (parentChain.indexOf(resultItem.id) !== -1) {
                 resultItem.all ++;
-
+                resultItem.specific ++
                 // The dataset has one or more apps also?
-                if (datasets[iDataset].apps.length > 0) {
-                  resultItem.specific ++
-                }
+                //if (datasets[iDataset].apps.length > 0) {
+                //  resultItem.specific ++
+                //}
               }
             }
 
