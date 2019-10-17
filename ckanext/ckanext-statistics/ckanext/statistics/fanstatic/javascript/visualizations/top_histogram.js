@@ -310,9 +310,6 @@ TopHistogram.prototype._renderHistogram = function (histogramData) {
   self._elem.histogramBars.selectAll('text')
     .data(histogramData, function(d) { return d ? d.name : this.id })
     .text(function(d, i) { return d[self._schema.labelField] })
-    .on('click', function(event) {
-      window.open(self.getUrl(event.category) + event.id)
-    })
     .call(wrap, self._props.margin.left, self._helpers.yScale.bandwidth() / 2);
 
   // Bars added to the previous data (added to the end)
@@ -334,7 +331,8 @@ TopHistogram.prototype._renderHistogram = function (histogramData) {
     .attr('height', self._helpers.yScale.bandwidth());
 
   // Label text
-  barsToAdd.append('text')
+  barsToAdd.append("svg:a").attr("xlink:href", function(d){ return self.getUrl(d.category) + d.id }).attr("target", "_blank")
+  .append('text')
     .attr('x', -6)
     .attr('y', self._helpers.yScale.bandwidth() / 2)
     .attr('text-anchor', 'end')
