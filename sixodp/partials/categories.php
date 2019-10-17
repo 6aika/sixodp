@@ -12,7 +12,8 @@
           foreach(get_ckan_categories() as $category) : 
             $title     = get_translated($category, 'title');
             $name      = $category['name'];
-            $url       = CKAN_BASE_URL.'/groups/'.$name;
+            $lang = get_current_locale_ckan();
+            $url       = CKAN_BASE_URL.'/groups/'.$lang.'/'.$name;
             $image_url = $category['image_display_url'];
             $package_count = $category['package_count']; ?>
             <div class="category__wrapper">

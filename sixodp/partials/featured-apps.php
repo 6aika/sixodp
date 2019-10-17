@@ -19,6 +19,7 @@
 
           <div class="item<?php echo $extra_classes ?>">
             <?php
+            $lang = get_current_locale_ckan();
             $item = array(
               'external_card_class' => 'card-success',
               'image_url' => CKAN_BASE_URL . "/uploads/showcase/".$showcase['featured_image'],
@@ -26,7 +27,7 @@
               'show_rating' => true,
               'date_updated' => $showcase['date_updated'],
               'notes' => get_translated($showcase, 'notes'),
-              'url' => CKAN_BASE_URL . "/showcase/" . $showcase['name'],
+              'url' => CKAN_BASE_URL . "/showcase/" . $lang . '/' . $showcase['name'],
               'package_id' => $showcase['id']
             );
             include(locate_template( 'partials/card-image.php' ));
@@ -62,7 +63,7 @@
             'show_rating' => true,
             'date_updated' => $showcase['date_updated'],
             'notes' => get_translated($showcase, 'notes'),
-            'url' => CKAN_BASE_URL . "/showcase/" . $showcase['name'],
+            'url' => CKAN_BASE_URL . "/showcase/" . $lang . '/' . $showcase['name'],
             'package_id' => $showcase['id']
           );
           include(locate_template( 'partials/card-image.php' ));
