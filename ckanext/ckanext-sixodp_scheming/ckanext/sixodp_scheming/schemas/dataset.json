@@ -62,6 +62,16 @@
 
     },
     {
+      "field_name": "categories",
+      "label": "Categories",
+      "preset": "multiple_checkbox",
+      "form_snippet": "ytp_multiple_checkbox.html",
+      "choices_helper": "scheming_category_list",
+      "description": "Categories to which this dataset belongs to.",
+      "validators": "save_to_groups",
+      "display_snippet": null
+    },
+    {
       "field_name": "external_urls",
       "preset": "repeating_text",
       "label": "Links to additional information concerning the dataset",

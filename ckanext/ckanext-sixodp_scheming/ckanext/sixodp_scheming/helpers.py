@@ -1,15 +1,19 @@
 from ckan.plugins import toolkit
 from ckan.lib.i18n import get_lang
 import ckan.lib.i18n as i18n
-from ckan.common import config
+from ckan.common import config, c
 import ckan.logic as logic
 import ckan.lib.base as base
 import ckan.model as model
 from ckan.model.package import Package
 from ckan.lib.dictization.model_dictize import group_list_dictize
 
+import logging
+get_action = toolkit.get_action
 NotFound = logic.NotFound
 abort = base.abort
+
+log = logging.getLogger(__name__)
 
 def call_toolkit_function(fn, args, kwargs):
     return getattr(toolkit,fn)(*args, **kwargs)
@@ -94,4 +98,47 @@ def show_qa():
     if plugin_loaded('qa'):
         return True
 
+    return False
+
+def scheming_category_list(args):
+    from ckan.logic import NotFound
+    # FIXME: sometimes this might return 0 categories if in development
+
+    try:
+        context = {'model': model, 'session': model.Session, 'ignore_auth': True}
+        group_ids = get_action('group_list')(context, {})
+    except NotFound:
+        return None
+    else:
+        category_list = []
+
+        # filter groups to those user is allowed to edit
+        group_authz = get_action('group_list_authz')({
+            'model': model, 'session': model.Session, 'user': c.user
+        }, {})
+
+        user_group_ids = set(group[u'name'] for group in group_authz)
+        group_ids = [group for group in group_ids if group in user_group_ids]
+
+        for group in group_ids:
+            try:
+                context = {'model': model, 'session': model.Session, 'ignore_auth': True}
+                group_details = get_action('group_show')(context, {'id': group})
+            except Exception as e:
+                log.error(e)
+                return None
+
+            category_list.append({
+                "value": group,
+                "label": group_details.get('title')
+            })
+
+    return category_list
+
+def check_group_selected(val, data):
+    log.info(val)
+    log.info(data)
+
+    if filter(lambda x: x['name'] == val, data):
+        return True
     return False

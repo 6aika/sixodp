@@ -243,3 +243,34 @@ def only_default_lang_required(field, schema):
             errors[key].append(_('Required language "%s" missing') % default_lang)
 
     return  validator
+
+def save_to_groups(key, data, errors, context):
+    value = data[key]
+
+    if value and value is not df.missing:
+
+        if isinstance(value, basestring):
+            group_patch = df.flatten_list([{"name": value}])
+            group_key = ('groups',) + group_patch.keys()[0]
+            group_value = group_patch.values()[0]
+            data[group_key] = group_value
+        else:
+            if isinstance(value, list):
+                data[key] = json.dumps(value)
+                groups_with_details = []
+                for identifier in value:
+                    groups_with_details.append({"name": identifier})
+                group_patch = df.flatten_list(groups_with_details)
+
+                for k, v in group_patch.items():
+                    group_key = ('groups',) + k
+                    data[group_key] = v
+
+    else:
+
+        # Delete categories key if it is missing
+        # TODO: Should delete existing groups from dataset
+        data.pop(key, None)
+        raise df.StopOnError
+
+    return data[key]
