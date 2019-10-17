@@ -146,7 +146,7 @@ DatasetSection.prototype.setData = function (context, datasets, categoryDatasets
   self.organizationDatasets.setData(organizationDatasets);
 
   // Update rest of the data implemented with promises
-  self.updateSectionData(context);
+  //self.updateSectionData(context);
 }
 
 
