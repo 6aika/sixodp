@@ -54,7 +54,7 @@
   {% block search_facets %}
     {% if facets %}
       <p class="filter-list">
-        {% for field in h.get_search_tags(facets, ['vocab_keywords_fi', 'vocab_keywords_en', 'vocab_keywords_sv']) %}
+        {% for field in h.get_search_tags(facets, ['vocab_keywords_fi', 'vocab_keywords_en', 'vocab_keywords_sv', 'author']) %}
           {% set search_facets_items = facets.search.get(field)['items'] %}
           {% for value in facets.fields[field] %}
             <span class="filtered pill">
