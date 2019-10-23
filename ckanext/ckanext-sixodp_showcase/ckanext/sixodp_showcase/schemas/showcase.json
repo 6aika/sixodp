@@ -209,6 +209,19 @@
       "field_name": "global_id",
       "label": "Global ID",
       "description": "A global id can be assigned to identify the showcase in external services."
+    },
+    {
+      "field_name": "harvesting_permission_granted",
+      "label": "Harvesting permission granted",
+      "preset": "select",
+      "choices": [
+        {
+          "value": "true",
+          "label": "Yes"
+        }
+      ],
+      "display_snippet": null,
+      "validators": "scheming_required scheming_choices boolean_validator"
     }
   ]
 }

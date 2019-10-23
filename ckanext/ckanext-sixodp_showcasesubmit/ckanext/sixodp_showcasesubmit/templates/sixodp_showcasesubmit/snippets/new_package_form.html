@@ -310,13 +310,13 @@
   <div class="row row-compensate">
     <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12">
       {% call form.checkbox(
-      'accepted',
-      id='accepted',
+      'harvesting_permission_granted',
+      id='harvesting_permission_granted',
       label=_('I accept that metadata of the application is distributed to other data portals.'),
-      value=data['accepted'],
-      error=errors['accepted'],
+      value='true',
+      error=errors['harvesting_permission_granted'],
       classes=['control-medium'],
-      attrs={'required': 'required'}
+      attrs={'checked': 'checked'}
       )
       %}
       {% endcall %}
