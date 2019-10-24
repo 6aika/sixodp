@@ -9,7 +9,7 @@
   $offset = (int)$page_index * $page_size;
   $searchterm = trim($_GET['s']);
   $baseurl = CKAN_API_URL;
-  $url = $baseurl."/action/package_search?q=".$searchterm;
+  $url = $baseurl."/action/package_search?q=".rawurlencode($searchterm);
   $data_dataset = get_ckan_data($url."&fq=dataset_type:dataset&rows=" . (string)$page_size . '&start=' . $offset);
   $data_dataset = $data_dataset['result'];
   $data_showcase = get_ckan_data($url."&fq=dataset_type:showcase&rows=" . (string)$page_size . '&start=' . $offset);
