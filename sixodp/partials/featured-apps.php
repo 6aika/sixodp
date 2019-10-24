@@ -27,7 +27,7 @@
               'show_rating' => true,
               'date_updated' => $showcase['date_updated'],
               'notes' => get_translated($showcase, 'notes'),
-              'url' => CKAN_BASE_URL . "/showcase/" . $lang . '/' . $showcase['name'],
+              'url' => CKAN_BASE_URL . '/' . $lang . "/showcase/" . $showcase['name'],
               'package_id' => $showcase['id']
             );
             include(locate_template( 'partials/card-image.php' ));
@@ -63,7 +63,7 @@
             'show_rating' => true,
             'date_updated' => $showcase['date_updated'],
             'notes' => get_translated($showcase, 'notes'),
-            'url' => CKAN_BASE_URL . "/showcase/" . $lang . '/' . $showcase['name'],
+            'url' => CKAN_BASE_URL . '/' . $lang . "/showcase/" . $showcase['name'],
             'package_id' => $showcase['id']
           );
           include(locate_template( 'partials/card-image.php' ));

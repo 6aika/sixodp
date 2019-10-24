@@ -13,7 +13,7 @@
             $title     = get_translated($category, 'title');
             $name      = $category['name'];
             $lang = get_current_locale_ckan();
-            $url       = CKAN_BASE_URL.'/groups/'.$lang.'/'.$name;
+            $url       = CKAN_BASE_URL. '/' . $lang . '/groups/'.$name;
             $image_url = $category['image_display_url'];
             $package_count = $category['package_count']; ?>
             <div class="category__wrapper">
