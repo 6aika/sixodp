@@ -9,6 +9,18 @@ body{
 	padding-top: 64px;
 }
 
+body:after{
+	content: '';
+	display: block;
+	position: relative;
+	height: 250px;
+	width: 100%;
+	background: rgba(255, 255, 255, 0.2); /* Old browsers */
+	background: -moz-linear-gradient(rgba(255, 255, 255, 0) 0, #fff 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(rgba(255, 255, 255, 0) 0, #fff 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(rgba(255, 255, 255, 0) 0, #fff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
 #heading{
 	background-color: #333333;
 	position: fixed;
