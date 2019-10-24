@@ -23,9 +23,12 @@
   file: path="{{ static_path }}" state=directory mode="0775" owner=root group=root
 
 - name: Copy static resources
-  copy: src={{ item.src }} dest={{ static_path }}/{{ item.dest }} mode="0644" owner=root group=root
+  template: src={{ item.src }} dest={{ static_path }}/{{ item.dest }} mode="0644" owner=root group=root
   with_items:
-    - { "src": "50x.html", "dest": "50x.html" }
+    - { "src": "404.fi.html.j2", "dest": "404.fi.html" }
+    - { "src": "404.sv.html.j2", "dest": "404.sv.html" }
+    - { "src": "404.en.html.j2", "dest": "404.en_gb.html" }
+    - { "src": "404.en.html.j2", "dest": "404.en_GB.html" }
 
 - name: Ensure static file permissions
   command: chmod -R "0775" "{{ static_path }}"
