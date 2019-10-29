@@ -7,6 +7,7 @@
   - name: Install npm dependencies
     npm:
       path: "{{ playbook_dir }}/.."
+      unsafe_perm: yes
 
   - name: Build CSS
     command: npm run build
