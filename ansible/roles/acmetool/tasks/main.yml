@@ -76,4 +76,5 @@
   command: acmetool want {{ acmetool_hostnames | join(' ') }}
   become: yes
   become_user: acme
+  delegate_to: localhost
   when: acmetool_hostnames is defined
