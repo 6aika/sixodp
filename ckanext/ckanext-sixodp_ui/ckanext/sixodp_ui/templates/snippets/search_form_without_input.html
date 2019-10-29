@@ -57,6 +57,11 @@
         {% for field in h.get_search_tags(facets, ['vocab_keywords_fi', 'vocab_keywords_en', 'vocab_keywords_sv', 'author']) %}
           {% set search_facets_items = facets.search.get(field)['items'] %}
           {% for value in facets.fields[field] %}
+            {% if 'keyword' in field %}
+              {{ _('Tags') }}
+            {% elif 'author' in field %}
+              {{ _('Author') }}
+            {% endif %}
             <span class="filtered pill">
               {%- if facets.translated_fields and facets.translated_fields.has_key((field,value)) -%}
                 {{ facets.translated_fields[(field,value)] }}
