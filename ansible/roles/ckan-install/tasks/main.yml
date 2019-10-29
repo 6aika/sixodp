@@ -23,7 +23,7 @@
 
 - name: Install ckan required setuptools
   pip:
-    requirements: "{{ cache_path }}/requirement-setuptools.txt "
+    requirements: "{{ cache_path }}/requirement-setuptools.txt"
     virtualenv: "{{ virtualenv }}"
 
 - name: Install CKAN
