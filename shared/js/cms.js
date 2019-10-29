@@ -2,6 +2,7 @@
 require('./components/common/navbar');
 require('./components/common/search');
 require('./components/common/popper');
+require('./components/common/polyfills');
 
 var App = {
 
