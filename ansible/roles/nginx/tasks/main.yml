@@ -23,6 +23,11 @@
   file: path="{{ static_path }}" state=directory mode="0775" owner=root group=root
 
 - name: Copy static resources
+  copy: src={{ item.src }} dest={{ static_path }}/{{ item.dest }} mode="0644" owner=root group=root
+  with_items:
+    - { "src": "50x.html", "dest": "50x.html" }
+
+- name: Copy static resource templates
   template: src={{ item.src }} dest={{ static_path }}/{{ item.dest }} mode="0644" owner=root group=root
   with_items:
     - { "src": "404.fi.html.j2", "dest": "404.fi.html" }
