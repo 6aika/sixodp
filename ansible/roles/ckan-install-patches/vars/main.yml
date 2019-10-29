@@ -12,6 +12,7 @@ ckan_patches:
   - { file: "fix-default-search-field" }
   - { file: "fix-group-facets" }
   - { file: "make_creating_tags_optional" }
+  - { file: "fix-popped-wrong-app-context" }
 
 files_created_by_patches:
   - { file: '/usr/lib/ckan/default/src/ckan/ckan/lib/csrf_token.py'}
