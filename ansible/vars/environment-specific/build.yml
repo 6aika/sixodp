@@ -134,7 +134,6 @@ enabled_ckan_extensions:
     - scheming_groups
     - fluent
     - report
-    - ga-report
     - publisher_activity_report
     - rating
     - sixodp_routes
