@@ -1,27 +1,41 @@
 # Translations template for ckanext-statistics.
-# Copyright (C) 2017 ORGANIZATION
+# Copyright (C) 2019 ORGANIZATION
 # This file is distributed under the same license as the ckanext-statistics
 # project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+# 
+# Translators:
+# Mikko Nieminen <mikko.nieminen@gofore.com>, 2017
+# Joonas Dukpa, 2018
+# Hami Kekkonen <hami.kekkonen@hel.fi>, 2018
+# Zharktas <jari-pekka.voutilainen@gofore.com>, 2019
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-statistics 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-11-28 15:09+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Mikko Nieminen <mikko.nieminen@gofore.com>, 2017\n"
+"POT-Creation-Date: 2019-11-04 08:44+0000\n"
+"PO-Revision-Date: 2017-09-08 11:36+0000\n"
+"Last-Translator: Zharktas <jari-pekka.voutilainen@gofore.com>, 2019\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.3.4\n"
 "Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: ckanext/statistics/reports.py:224
+msgid "Publisher activity"
+msgstr "Organisaatioiden aktiviteetti"
+
+#: ckanext/statistics/reports.py:225
+msgid "A quarterly list of datasets created and edited by a publisher."
+msgstr ""
+
 #: ckanext/statistics/fanstatic/javascript/main.js:12
-#: ckanext/statistics/templates/statistics/statistics_read.html:10
+#: ckanext/statistics/templates/statistics/statistics_read.html:11
 msgid "Loading"
 msgstr "Ladataan"
 
@@ -61,29 +75,29 @@ msgstr "Renderöidään"
 msgid "Done"
 msgstr "Valmis"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:87
+#: ckanext/statistics/fanstatic/javascript/main.js:86
 msgid "Summary"
 msgstr "Yhteenveto"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:91
+#: ckanext/statistics/fanstatic/javascript/main.js:90
 #: ckanext/statistics/fanstatic/javascript/main.js:237
 msgid "Datas"
 msgstr "Tietoaineistot"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:95
+#: ckanext/statistics/fanstatic/javascript/main.js:94
 #: ckanext/statistics/fanstatic/javascript/main.js:258
 msgid "Apps"
 msgstr "Sovellukset"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:99
+#: ckanext/statistics/fanstatic/javascript/main.js:98
 msgid "All publishers"
 msgstr "Kaikki organisaatiot"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:100
+#: ckanext/statistics/fanstatic/javascript/main.js:99
 msgid "All categories"
 msgstr "Kaikki kategoriat"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:101
+#: ckanext/statistics/fanstatic/javascript/main.js:100
 msgid "All"
 msgstr "Kaikki"
 
@@ -140,7 +154,7 @@ msgstr "Käytetty sovelluksessa"
 msgid "Not used in any app"
 msgstr "Ei käytetty sovelluksessa"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:684
+#: ckanext/statistics/fanstatic/javascript/main.js:690
 msgid "Site analytics"
 msgstr "Analytiikka"
 
@@ -148,18 +162,18 @@ msgstr "Analytiikka"
 msgid "function"
 msgstr ""
 
-#: ckanext/statistics/templates/statistics/statistics_read.html:40
+#: ckanext/statistics/templates/statistics/statistics_read.html:41
 msgid "Filter"
 msgstr "Suodata"
 
-#: ckanext/statistics/templates/statistics/statistics_read.html:49
+#: ckanext/statistics/templates/statistics/statistics_read.html:50
 msgid "Range"
 msgstr "Aikaväli"
 
-#: ckanext/statistics/templates/statistics/statistics_read.html:67
+#: ckanext/statistics/templates/statistics/statistics_read.html:68
 msgid "Publisher"
 msgstr "Organisaatio"
 
-#: ckanext/statistics/templates/statistics/statistics_read.html:82
+#: ckanext/statistics/templates/statistics/statistics_read.html:83
 msgid "Category"
 msgstr "Kategoria"

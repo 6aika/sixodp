@@ -1,7 +1,7 @@
 import datetime
 import collections
 
-from ckan.common import OrderedDict
+from ckan.common import OrderedDict, _
 from ckanext.report import lib
 import ckan.plugins as p
 
@@ -221,7 +221,8 @@ def publisher_activity_combinations():
 
 publisher_activity_report_info = {
     'name': 'publisher-activity',
-    'description': 'A quarterly list of datasets created and edited by a publisher.',
+    'title': _('Publisher activity'),
+    'description': _('A quarterly list of datasets created and edited by a publisher.'),
     'option_defaults': OrderedDict((('organization', None),
                                     ('include_sub_organizations', False),
                                     )),

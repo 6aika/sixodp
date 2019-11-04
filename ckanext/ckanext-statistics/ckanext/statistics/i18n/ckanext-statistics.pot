@@ -1,15 +1,15 @@
 # Translations template for ckanext-statistics.
-# Copyright (C) 2017 ORGANIZATION
+# Copyright (C) 2019 ORGANIZATION
 # This file is distributed under the same license as the ckanext-statistics
 # project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-statistics 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-11-28 15:09+0000\n"
+"POT-Creation-Date: 2019-11-04 08:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,8 +18,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.3.4\n"
 
+#: ckanext/statistics/reports.py:224
+msgid "Publisher activity"
+msgstr ""
+
+#: ckanext/statistics/reports.py:225
+msgid "A quarterly list of datasets created and edited by a publisher."
+msgstr ""
+
 #: ckanext/statistics/fanstatic/javascript/main.js:12
-#: ckanext/statistics/templates/statistics/statistics_read.html:10
+#: ckanext/statistics/templates/statistics/statistics_read.html:11
 msgid "Loading"
 msgstr ""
 
@@ -59,29 +67,29 @@ msgstr ""
 msgid "Done"
 msgstr ""
 
-#: ckanext/statistics/fanstatic/javascript/main.js:87
+#: ckanext/statistics/fanstatic/javascript/main.js:86
 msgid "Summary"
 msgstr ""
 
-#: ckanext/statistics/fanstatic/javascript/main.js:91
+#: ckanext/statistics/fanstatic/javascript/main.js:90
 #: ckanext/statistics/fanstatic/javascript/main.js:237
 msgid "Datas"
 msgstr ""
 
-#: ckanext/statistics/fanstatic/javascript/main.js:95
+#: ckanext/statistics/fanstatic/javascript/main.js:94
 #: ckanext/statistics/fanstatic/javascript/main.js:258
 msgid "Apps"
 msgstr ""
 
-#: ckanext/statistics/fanstatic/javascript/main.js:99
+#: ckanext/statistics/fanstatic/javascript/main.js:98
 msgid "All publishers"
 msgstr ""
 
-#: ckanext/statistics/fanstatic/javascript/main.js:100
+#: ckanext/statistics/fanstatic/javascript/main.js:99
 msgid "All categories"
 msgstr ""
 
-#: ckanext/statistics/fanstatic/javascript/main.js:101
+#: ckanext/statistics/fanstatic/javascript/main.js:100
 msgid "All"
 msgstr ""
 
@@ -138,7 +146,7 @@ msgstr ""
 msgid "Not used in any app"
 msgstr ""
 
-#: ckanext/statistics/fanstatic/javascript/main.js:684
+#: ckanext/statistics/fanstatic/javascript/main.js:690
 msgid "Site analytics"
 msgstr ""
 
@@ -146,19 +154,74 @@ msgstr ""
 msgid "function"
 msgstr ""
 
-#: ckanext/statistics/templates/statistics/statistics_read.html:40
+#: ckanext/statistics/templates/report/publisher_activity.html:4
+msgid "Period: Current and previous quarter"
+msgstr ""
+
+#: ckanext/statistics/templates/report/publisher_activity.html:9
+msgid "Datasets created:"
+msgstr ""
+
+#: ckanext/statistics/templates/report/publisher_activity.html:10
+msgid "Datasets modified:"
+msgstr ""
+
+#: ckanext/statistics/templates/report/publisher_activity.html:11
+msgid "Datasets created or modified:"
+msgstr ""
+
+#: ckanext/statistics/templates/report/publisher_activity.html:14
+msgid ""
+"Note: some datasets will be created and modified during the period, hence why"
+" 'created or modified' is often less than the sum of the 'created' and "
+"'modified' values."
+msgstr ""
+
+#: ckanext/statistics/templates/report/publisher_activity.html:18
+msgid "Publishe"
+msgstr ""
+
+#: ckanext/statistics/templates/report/publisher_activity.html:19
+msgid "Datasets created"
+msgstr ""
+
+#: ckanext/statistics/templates/report/publisher_activity.html:20
+msgid "Datasets modified"
+msgstr ""
+
+#: ckanext/statistics/templates/report/publisher_activity.html:21
+msgid "Created or modified"
+msgstr ""
+
+#: ckanext/statistics/templates/report/publisher_activity.html:56
+msgid "Dataset"
+msgstr ""
+
+#: ckanext/statistics/templates/report/publisher_activity.html:57
+msgid "Notes"
+msgstr ""
+
+#: ckanext/statistics/templates/report/publisher_activity.html:59
+msgid "By"
+msgstr ""
+
+#: ckanext/statistics/templates/report/publisher_activity.html:60
+msgid "Published data"
+msgstr ""
+
+#: ckanext/statistics/templates/statistics/statistics_read.html:41
 msgid "Filter"
 msgstr ""
 
-#: ckanext/statistics/templates/statistics/statistics_read.html:49
+#: ckanext/statistics/templates/statistics/statistics_read.html:50
 msgid "Range"
 msgstr ""
 
-#: ckanext/statistics/templates/statistics/statistics_read.html:67
+#: ckanext/statistics/templates/statistics/statistics_read.html:68
 msgid "Publisher"
 msgstr ""
 
-#: ckanext/statistics/templates/statistics/statistics_read.html:82
+#: ckanext/statistics/templates/statistics/statistics_read.html:83
 msgid "Category"
 msgstr ""
 
