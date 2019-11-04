@@ -58,9 +58,9 @@
           {% set search_facets_items = facets.search.get(field)['items'] %}
           {% for value in facets.fields[field] %}
             {% if 'keyword' in field %}
-              {{ _('Tags') }}
+              <span class="facet">{{ _('Tags') }}:</span>
             {% elif 'author' in field %}
-              {{ _('Author') }}
+              <span class="facet">{{ _('Author') }}:</span>
             {% endif %}
             <span class="filtered pill">
               {%- if facets.translated_fields and facets.translated_fields.has_key((field,value)) -%}

@@ -25,4 +25,10 @@ $relative-search-form-position: 4/6;
     vertical-align: middle;
     text-transform: uppercase;
   }
+
+  .filter-list {
+    .facet {
+      margin-right: 10px;
+    }
+  }
 }
