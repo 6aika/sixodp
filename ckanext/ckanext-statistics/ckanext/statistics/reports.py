@@ -4,6 +4,7 @@ import collections
 from ckan.common import OrderedDict, _
 from ckanext.report import lib
 import ckan.plugins as p
+from ckan.plugins import toolkit
 
 def publisher_activity(organization, include_sub_organizations=False):
     """
@@ -31,7 +32,14 @@ def publisher_activity(organization, include_sub_organizations=False):
             [(last_or_this, [date_.isoformat() for date_ in q_list])
              for last_or_this, q_list in quarters.iteritems()])
 
-        return {'table': datasets, 'columns': columns,
+        datasets_with_title = []
+        for dataset in datasets:
+            package_dict = toolkit.get_action('package_show')({}, {'id': dataset[0]})
+            dataset = (dataset[0], package_dict.get('title_translated')['fi'], dataset[2], dataset[3], dataset[4],
+                       dataset[5], dataset[6], dataset[7])
+            datasets_with_title.append(dataset)
+
+        return {'table': datasets_with_title, 'columns': columns,
                 'quarters': quarters_iso}
     else:
         # index
