@@ -96,7 +96,7 @@
     </tr>
   {% endif %}
 
-  {% if pkg_dict['external_urls'] %}
+  {% if pkg_dict['external_urls'] | first != "" %}
     {% set field = h.get_field_from_schema(schema, 'external_urls') %}
     <tr>
       <th scope="row" class="dataset-label">{{ h.scheming_language_text(field.label) }}</th>
