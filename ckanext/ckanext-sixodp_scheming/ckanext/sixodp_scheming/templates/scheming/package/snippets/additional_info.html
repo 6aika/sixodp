@@ -17,10 +17,97 @@
     'license_id',
     'owner_org',
     'title_translated',
-    'notes_translated'
+    'notes_translated',
+    'maintainer',
+    'maintainer_website',
+    'url',
+    'date_released',
+    'date_updated',
+    'update_frequency',
+    'external_urls'
     ] -%}
 
 {% block package_additional_info %}
+  {% if pkg_dict['maintainer'] %}
+    {% set field = h.get_field_from_schema(schema, 'maintainer') %}
+    <tr>
+      <th scope="row" class="dataset-label">{{ h.scheming_language_text(field.label) }}</th>
+      <td class="dataset-details" {%- if field.display_property %}property="{{ field.display_property }}"{% endif -%}>
+        {%- snippet 'scheming/snippets/display_field.html',
+        field=field, data=pkg_dict, schema=schema -%}
+      </td>
+    </tr>
+  {% endif %}
+
+  {% if pkg_dict['maintainer_website'] %}
+    {% set field = h.get_field_from_schema(schema, 'maintainer_website') %}
+    <tr>
+      <th scope="row" class="dataset-label">{{ h.scheming_language_text(field.label) }}</th>
+      <td class="dataset-details" {%- if field.display_property %}property="{{ field.display_property }}"{% endif -%}>
+        {%- snippet 'scheming/snippets/display_field.html',
+        field=field, data=pkg_dict, schema=schema -%}
+      </td>
+    </tr>
+  {% endif %}
+
+
+  {% if pkg_dict['url'] %}
+    {% set field = h.get_field_from_schema(schema, 'url') %}
+    <tr>
+      <th scope="row" class="dataset-label">{{ h.scheming_language_text(field.label) }}</th>
+      <td class="dataset-details" {%- if field.display_property %}property="{{ field.display_property }}"{% endif -%}>
+        {%- snippet 'scheming/snippets/display_field.html',
+        field=field, data=pkg_dict, schema=schema -%}
+      </td>
+    </tr>
+  {% endif %}
+
+  {% if pkg_dict['date_released'] %}
+    {% set field = h.get_field_from_schema(schema, 'date_released') %}
+    <tr>
+      <th scope="row" class="dataset-label">{{ h.scheming_language_text(field.label) }}</th>
+      <td class="dataset-details" {%- if field.display_property %}property="{{ field.display_property }}"{% endif -%}>
+        {%- snippet 'scheming/snippets/display_field.html',
+        field=field, data=pkg_dict, schema=schema -%}
+      </td>
+    </tr>
+  {% endif %}
+
+
+  {% if pkg_dict['date_updated'] %}
+    {% set field = h.get_field_from_schema(schema, 'date_updated') %}
+    <tr>
+      <th scope="row" class="dataset-label">{{ h.scheming_language_text(field.label) }}</th>
+      <td class="dataset-details" {%- if field.display_property %}property="{{ field.display_property }}"{% endif -%}>
+        {%- snippet 'scheming/snippets/display_field.html',
+        field=field, data=pkg_dict, schema=schema -%}
+      </td>
+    </tr>
+  {% endif %}
+
+  {% if pkg_dict['update_frequency'] %}
+    {% set field = h.get_field_from_schema(schema, 'update_frequency') %}
+    <tr>
+      <th scope="row" class="dataset-label">{{ h.scheming_language_text(field.label) }}</th>
+      <td class="dataset-details" {%- if field.display_property %}property="{{ field.display_property }}"{% endif -%}>
+        {%- snippet 'scheming/snippets/display_field.html',
+        field=field, data=pkg_dict, schema=schema -%}
+      </td>
+    </tr>
+  {% endif %}
+
+  {% if pkg_dict['external_urls'] %}
+    {% set field = h.get_field_from_schema(schema, 'external_urls') %}
+    <tr>
+      <th scope="row" class="dataset-label">{{ h.scheming_language_text(field.label) }}</th>
+      <td class="dataset-details" {%- if field.display_property %}property="{{ field.display_property }}"{% endif -%}>
+        {%- snippet 'scheming/snippets/display_field.html',
+        field=field, data=pkg_dict, schema=schema -%}
+      </td>
+    </tr>
+  {% endif %}
+
+
   {% set package_groups = h.get_package_groups(pkg_dict.id) %}
   {% if package_groups %}
     <tr>
@@ -79,17 +166,18 @@
     {%- endif -%}
   {%- endfor -%}
 
-  <tr>
-    <th>{{ _('License') }}</th>
-    <td class="dataset-details">{{ license_string(pkg_dict) }}</td>
-  </tr>
-
   {% if h.check_access('package_update',{'id':pkg_dict.id}) %}
     <tr>
       <th scope="row" class="dataset-label">{{ _("State") }}</th>
       <td class="dataset-details">{{ _(pkg_dict.state) }}</td>
     </tr>
   {% endif %}
+
+  <tr>
+    <th>{{ _('License') }}</th>
+    <td class="dataset-details">{{ license_string(pkg_dict) }}</td>
+  </tr>
+
 
   <tr>
     <th scope="row" class="dataset-label">{{ _("How to reference") }}</th>

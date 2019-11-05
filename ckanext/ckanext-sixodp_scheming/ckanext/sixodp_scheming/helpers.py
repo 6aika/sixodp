@@ -100,6 +100,7 @@ def show_qa():
 
     return False
 
+
 def scheming_category_list(args):
     from ckan.logic import NotFound
     # FIXME: sometimes this might return 0 categories if in development
@@ -135,6 +136,7 @@ def scheming_category_list(args):
 
     return category_list
 
+
 def check_group_selected(val, data):
     log.info(val)
     log.info(data)
@@ -142,3 +144,9 @@ def check_group_selected(val, data):
     if filter(lambda x: x['name'] == val, data):
         return True
     return False
+
+
+def get_field_from_schema(schema, field_name):
+
+    field = next(field for field in schema.get('dataset_fields', []) if field.get('field_name') == field_name)
+    return field
