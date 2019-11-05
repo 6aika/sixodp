@@ -21,6 +21,35 @@
       "description": "An URL-address which refers to the dataset. The automatically filled option derived from the title is the best option in most cases."
     },
     {
+      "field_name": "notes_translated",
+      "preset": "fluent_core_markdown_translated",
+      "form_placeholder": "E.g. A diverse and detailed description",
+      "form_languages": ["fi", "en", "sv"],
+      "label": "Description",
+      "display_snippet": null,
+      "only_default_lang_required": true,
+      "description": "An universal and easy to understand, but also diverse description of the added dataset. Describe the dataset creation process, use case and possible limitations and shortcomings as well as possible.",
+      "rows": 10
+
+    },
+    {
+      "field_name": "external_urls",
+      "preset": "repeating_text",
+      "label": "Links to additional information concerning the dataset",
+      "form_blanks": 1,
+      "display_snippet": "repeating_link.html",
+      "form_snippet": "repeating.html",
+      "description": "You may attach external websites or other documentation which could assist in interpreting the dataset."
+    },
+    {
+      "field_name": "license_id",
+      "label": "License",
+      "preset": "sixodp_licence",
+      "form_snippet": "license.html",
+      "display_snippet": "license.html",
+      "required": true
+    },
+    {
       "field_name": "keywords",
       "label": "Tags",
       "form_placeholder":"E.g. transport, housing, buildings",
@@ -50,48 +79,10 @@
       "description": "Select the municipalities from which the dataset contains data."
     },
     {
-      "field_name": "notes_translated",
-      "preset": "fluent_core_markdown_translated",
-      "form_placeholder": "E.g. A diverse and detailed description",
-      "form_languages": ["fi", "en", "sv"],
-      "label": "Description",
-      "display_snippet": null,
-      "only_default_lang_required": true,
-      "description": "An universal and easy to understand, but also diverse description of the added dataset. Describe the dataset creation process, use case and possible limitations and shortcomings as well as possible.",
-      "rows": 10
-
-    },
-    {
-      "field_name": "categories",
-      "label": "Categories",
-      "preset": "multiple_checkbox",
-      "form_snippet": "ytp_multiple_checkbox.html",
-      "choices_helper": "scheming_category_list",
-      "description": "Categories to which this dataset belongs to.",
-      "validators": "save_to_groups",
-      "display_snippet": null
-    },
-    {
-      "field_name": "external_urls",
-      "preset": "repeating_text",
-      "label": "Links to additional information concerning the dataset",
-      "form_blanks": 1,
-      "display_snippet": "repeating_link.html",
-      "form_snippet": "repeating.html",
-      "description": "You may attach external websites or other documentation which could assist in interpreting the dataset."
-    },
-    {
       "field_name": "owner_org",
       "label": "Organization",
       "preset": "dataset_organization_ex",
       "description": "The organization which owns the dataset."
-    },
-    {
-      "field_name": "url",
-      "label": "Source",
-      "form_placeholder": "http://example.com/dataset.json",
-      "display_property": "foaf:homepage",
-      "description": "The original author of the dataset. Can also be an external author such as Statistics Finland. The field can e.g. be used to describe a situation where the dataset is published by a single unit but it has multiple authors."
     },
     {
       "field_name": "maintainer",
@@ -119,12 +110,11 @@
       "display_snippet": "link.html"
     },
     {
-      "field_name": "private",
-      "label": "Visibility",
-      "form_snippet": "private.html",
-      "display_snippet": null,
-      "validators": "boolean_validator",
-      "description": "Private datasets will only be seen by the logged in users of the dataset's organization. The private status is used when preparing a new dataset for publication."
+      "field_name": "url",
+      "label": "Source",
+      "form_placeholder": "http://example.com/dataset.json",
+      "display_property": "foaf:homepage",
+      "description": "The original author of the dataset. Can also be an external author such as Statistics Finland. The field can e.g. be used to describe a situation where the dataset is published by a single unit but it has multiple authors."
     },
     {
       "field_name": "date_released",
@@ -152,14 +142,6 @@
         "data-module-source": "/api/2/util/tag/autocomplete?incomplete=?&vocabulary_id=update_frequency"
       },
       "description": "The supposed update frequency for the dataset. The field will suggest similar values used in other datasets such as yearly, monthly or realtime. A new value can also be created if required."
-    },
-    {
-      "field_name": "license_id",
-      "label": "License",
-      "preset": "sixodp_licence",
-      "form_snippet": "license.html",
-      "display_snippet": "license.html",
-      "required": true
     },
     {
       "field_name": "time_series_start",
@@ -192,17 +174,35 @@
       "description": "A date when a reminder email will be sent to the system administrator reminding to check this dataset e.g. for a yearly update."
     },
     {
-      "field_name": "global_id",
-      "label": "Global ID",
-      "description": "A global id can be assigned to identify the dataset in external services."
-    },
-    {
       "field_name": "search_synonyms",
       "label": "Search Synonyms",
       "display_snippet": null,
       "description": "Keywords can be provided here to improve the findability of the dataset. E.g. words from spoken language can be provided to make the dataset searchable by those words.",
       "form_snippet": "textarea.html",
       "rows": 10
+    },
+    {
+      "field_name": "global_id",
+      "label": "Global ID",
+      "description": "A global id can be assigned to identify the dataset in external services."
+    },
+    {
+      "field_name": "private",
+      "label": "Visibility",
+      "form_snippet": "private.html",
+      "display_snippet": null,
+      "validators": "boolean_validator",
+      "description": "Private datasets will only be seen by the logged in users of the dataset's organization. The private status is used when preparing a new dataset for publication."
+    },
+    {
+      "field_name": "categories",
+      "label": "Categories",
+      "preset": "multiple_checkbox",
+      "form_snippet": "ytp_multiple_checkbox.html",
+      "choices_helper": "scheming_category_list",
+      "description": "Categories to which this dataset belongs to.",
+      "validators": "save_to_groups",
+      "display_snippet": null
     },
     {
       "field_name": "state",
