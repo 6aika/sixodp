@@ -1,9 +1,55 @@
-.pagination {
-  ul {
-    @extend .pagination;
+ul.pagination {
+
+
     margin: 0;
+    width: 100%;
+    text-align: center;
+
+    li,
+    li:active,
+    li:focus,
+    li.disabled{
+      background: $pagination-bg;
+      color: $pagination-color;
+      border: 1px solid $pagination-border;
+      border-radius: 50%;
+      height: 38px;
+      width: 38px;
+      line-height: 38px;
+      text-align: center;
+      display: inline-block;
+      text-decoration: none;
+
+      &:hover {
+        background: $pagination-hover-bg;
+        color: $pagination-hover-color;
+        border-color: $pagination-hover-border;
+      }
+
+      &.current,
+      &.active{
+        background: $pagination-active-bg;
+        color: $pagination-active-color;
+        border-color: $pagination-active-border;
+      }
+
+      a {
+        border: none;
+        float: none;
+        padding: 0;
+        background: none;
+        width: 80%;
+        height: 60%;
+
+        &:hover,
+        &:focus {
+          background: none;
+        }
+      }
+    }
+
   }
-}
+
 
 .pagination-centered{
   text-align: center;
