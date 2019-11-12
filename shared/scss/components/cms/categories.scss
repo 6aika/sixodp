@@ -4,9 +4,9 @@
 
 .categories {
   padding-top: $base*5;
-
+  display: flex;
+  
   @media (min-width: $width-xs) {
-    display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
@@ -19,6 +19,11 @@
 
   @media (min-width: $width-xs) {
     width: $base*18;
+  }
+
+  @media (max-width: $width-xs) {
+    width: 100%;
+    display: inline-block;
   }
 }
 
