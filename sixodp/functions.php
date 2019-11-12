@@ -891,6 +891,11 @@ function get_next_page_link($total_items, $page_size) {
   return (($page - 1) * $page_size) >= (int)$total_items ? false : add_query_arg( 'page', $page, 'https://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
 }
 
+function get_page_link_for_page_number($total_items, $page_size, $page_number) {
+    return (($page_number - 1) * $page_size) >= (int)$total_items ? false : add_query_arg( 'page', $page_number, 'https://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
+}
+
+
 function new_subcategory_hierarchy() { 
     $category = get_queried_object();
 

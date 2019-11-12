@@ -90,9 +90,30 @@
               <?php if (get_previous_page_link()): ?>
               <a href="<?php echo get_previous_page_link(); ?>" class="next page-numbers"><span class="fa fa-chevron-left" title="<?php _e('Previous page', 'sixodp'); ?>"></span></a>
               <?php endif; ?>
+
+              <?php
+                $page_count = $results['count'] / $page_size;
+                if ( $results['count'] % $page_size != 0) {
+                    $page_count++;
+                }
+
+                for ( $index = 1; $index  < $page_count; $index++) { ?>
+                    <?php if ( get_query_var('page', 1) == $index ) { ?>
+                        <span aria-current="page" class="page-numbers current"><?php echo $index; ?></span>
+                    <?php
+                    }
+                    else{ ?>
+                        <a href="<?php echo get_page_link_for_page_number($results['count'], $page_size, $index); ?>" class="next page-numbers"><?php echo $index ?></a>
+
+                    <?php
+                    }
+                }
+              ?>
+
               <?php if (get_next_page_link($results['count'], $page_size)): ?>
               <a href="<?php echo get_next_page_link($results['count'], $page_size); ?>" class="prev page-numbers"><span class="fa fa-chevron-right" title="<?php _e('Next page', 'sixodp'); ?>"></span></a>
               <?php endif; ?>
+
           </div>
       </div>
   </div>
