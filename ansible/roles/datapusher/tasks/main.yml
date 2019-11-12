@@ -6,7 +6,7 @@
 
 - name: Install Datapusher
   pip:
-    name: "git+://{{ cache_path }}/datapusher.git@master#egg=datapusher"
+    name: "git+file://{{ cache_path }}/datapusher.git@master#egg=datapusher"
     virtualenv: "{{ datapusherenv }}"
     extra_args: "--exists-action=s"
     editable: yes
