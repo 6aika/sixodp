@@ -5,7 +5,11 @@
     bare: yes
 
 - name: Install Datapusher
-  pip: name="git+file://{{ cache_path }}/datapusher.git@master#egg=datapusher" virtualenv={{ datapusherenv }} extra_args=--exists-action=s
+  pip:
+    name: "git+://{{ cache_path }}/datapusher.git@master#egg=datapusher"
+    virtualenv: "{{ datapusherenv }}"
+    extra_args: "--exists-action=s"
+    editable: yes
 
 - name: Install Datapusher requirements
   pip: requirements={{ datapusherenv }}/src/datapusher/requirements.txt virtualenv={{ datapusherenv }} state=latest

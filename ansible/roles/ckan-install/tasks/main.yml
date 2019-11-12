@@ -27,7 +27,11 @@
     virtualenv: "{{ virtualenv }}"
 
 - name: Install CKAN
-  pip: name="git+file://{{ cache_path }}/ckan.git@ckan-{{ ckan_version }}#egg=ckan" virtualenv={{ virtualenv }} extra_args=--exists-action=s
+  pip:
+    name: "git+file://{{ cache_path }}/ckan.git@ckan-{{ ckan_version }}#egg=ckan"
+    virtualenv: "{{ virtualenv }}"
+    extra_args: "--exists-action=s"
+    editable: yes
 
 - name: Install CKAN requirements
   pip: requirements={{ virtualenv }}/src/ckan/requirements.txt virtualenv={{ virtualenv }}
