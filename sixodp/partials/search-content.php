@@ -75,12 +75,10 @@
 
     <div class="navigation pagination">
         <div class="nav-links">
-            <?php if (get_previous_posts_link()): ?>
-                <a href="<?php previous_posts(); ?>" class="next page-numbers"><span class="fa fa-chevron-left" title="<?php _e('Previous page', 'sixodp'); ?>"></span></a>
-            <?php endif; ?>
-            <?php if (get_next_posts_link()): ?>
-                <a href="<?php next_posts(); ?>" class="prev page-numbers"><span class="fa fa-chevron-right" title="<?php _e('Next page', 'sixodp'); ?>"></span></a>
-            <?php endif; ?>
+            <?php the_posts_pagination( array(
+                'mid_size' => 1,
+                'prev_text' => '<span class="fa fa-chevron-left" title="' . __( 'Previous page', 'sixodp' ) . '"></span>',
+                'next_text' => '<span class="fa fa-chevron-right" title="' . __( 'Next page', 'sixodp' ) . '"></span>',)) ?>
         </div>
     </div>
     </div>
