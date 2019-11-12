@@ -22,7 +22,7 @@
     - redis
     - nginx
     - role: acmetool
-      when: deployment_environment_id != "vagrant"
+      when: deployment_environment_id != "vagrant" and deployment_environment_id != "build"
     - apache
     - postfix
     - ckan-extensions
