@@ -14,15 +14,7 @@
   padding-left: $base;
   padding-right: $base;
   padding-bottom: $base*1.5;
-
-  @media (min-width: $width-xs) {
-    width: $base*18;
-  }
-
-  @media (max-width: $width-xs) {
-    width: $base * 17;
-    display: inline-block;
-  }
+  width: $base*18;
 }
 
 .category--box {
