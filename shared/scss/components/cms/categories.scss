@@ -20,7 +20,7 @@
   }
 
   @media (max-width: $width-xs) {
-    width: 140px;
+    width: $base * 17;
     display: inline-block;
   }
 }
