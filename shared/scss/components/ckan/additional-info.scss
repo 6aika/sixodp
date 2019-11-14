@@ -12,5 +12,8 @@
 
   .api-link {
     margin-bottom: $margin-large-vertical;
+    a.btn{
+      font-weight: 400;
+    }
   }
 }
