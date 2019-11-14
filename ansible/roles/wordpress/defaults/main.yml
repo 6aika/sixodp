@@ -15,6 +15,7 @@ wordpress_plugins:
   - wordpress-importer
   - wp-user-avatar
   - classic-editor
+  - wordpress-seo
 
 polylang_languages: 
   - { name: 'Suomi', code: 'fi', locale: 'fi', flag: 'fi' }
