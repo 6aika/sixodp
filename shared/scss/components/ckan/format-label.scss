@@ -1,3 +1,16 @@
+@mixin ckan-resource-icon-bg-pos($offset) {
+  $w: 60px;
+  $h: 65px;
+  $x: -20px;
+  $y: -220px;
+  width: $w;
+  height: $h;
+  background-position: ($x + -100*$offset) $y;
+  transform: scale(0.53);
+  margin: -14px 0 0 -14px;
+}
+
+
 .format-label {
   display: inline-block;
   vertical-align: text-bottom;
@@ -14,49 +27,143 @@
 .format-label {
   width: 32px;
   height: 35px;
-  background-position: 0px -62px;
+  @include ckan-resource-icon-bg-pos(17)
 }
 .format-label[data-format=rdf],
 .format-label[data-format*=rdf] {
-  background-position: -32px -62px;
+  @include ckan-resource-icon-bg-pos(12);
 }
 .format-label[data-format=pdf],
 .format-label[data-format*=pdf] {
-  background-position: -64px -62px;
+  @include ckan-resource-icon-bg-pos(11);
 }
 .format-label[data-format=api],
 .format-label[data-format*=api] {
-  background-position: -96px -62px;
+  @include ckan-resource-icon-bg-pos(10);
 }
 .format-label[data-format=zip],
 .format-label[data-format*=zip] {
-  background-position: -128px -62px;
+  @include ckan-resource-icon-bg-pos(9);
 }
 .format-label[data-format=xls],
 .format-label[data-format*=xls] {
-  background-position: -160px -62px;
+  @include ckan-resource-icon-bg-pos(8);
 }
 .format-label[data-format=csv],
 .format-label[data-format*=csv] {
-  background-position: -192px -62px;
+  @include ckan-resource-icon-bg-pos(7);
 }
 .format-label[data-format=txt],
 .format-label[data-format*=txt] {
-  background-position: -224px -62px;
+  @include ckan-resource-icon-bg-pos(4);
 }
 .format-label[data-format=xml],
 .format-label[data-format*=xml] {
-  background-position: -256px -62px;
+  @include ckan-resource-icon-bg-pos(3);
 }
 .format-label[data-format=json],
 .format-label[data-format*=json] {
-  background-position: -288px -62px;
+  @include ckan-resource-icon-bg-pos(2);
 }
 .format-label[data-format=html],
 .format-label[data-format*=html] {
-  background-position: -320px -62px;
+  @include ckan-resource-icon-bg-pos(1);
 }
-.format-label[data-format=wsdl],
-.format-label[data-format*=wsdl] {
-  background-position: -352px -62px;
+.format-label[data-format=doc],
+.format-label[data-format*=doc],
+.format-label[data-format=docx],
+.format-label[data-format*=docx]{
+  @include ckan-resource-icon-bg-pos(5);
+}
+
+.format-label[data-format=odt],
+.format-label[data-format*=odt] {
+  @include ckan-resource-icon-bg-pos(6);
+}
+
+.format-label[data-format=wms],
+.format-label[data-format*=wms] {
+  @include ckan-resource-icon-bg-pos(13);
+}
+
+.format-label[data-format=png],
+.format-label[data-format*=png] {
+  @include ckan-resource-icon-bg-pos(14);
+}
+
+.format-label[data-format=jpg],
+.format-label[data-format*=jpg] {
+  @include ckan-resource-icon-bg-pos(15);
+}
+
+.format-label[data-format=gif],
+.format-label[data-format*=gif] {
+  @include ckan-resource-icon-bg-pos(16);
+}
+
+.format-label[data-format=wfs],
+.format-label[data-format*=wfs] {
+  @include ckan-resource-icon-bg-pos(18);
+}
+
+.format-label[data-format=gml],
+.format-label[data-format*=gml] {
+  @include ckan-resource-icon-bg-pos(19);
+}
+
+.format-label[data-format=wmts],
+.format-label[data-format*=wmts] {
+  @include ckan-resource-icon-bg-pos(20);
+}
+
+.format-label[data-format=kml],
+.format-label[data-format*=kml] {
+  @include ckan-resource-icon-bg-pos(21);
+}
+
+.format-label[data-format=geo],
+.format-label[data-format*=geo] {
+  @include ckan-resource-icon-bg-pos(22);
+}
+
+.format-label[data-format=geojson],
+.format-label[data-format*=geojson] {
+  background-image: url("/assets/images/gis-resources-sprite-icons.png");
+  background-position: -128px -62px;
+  width: 32px;
+  height: 35px;
+  transform: scale(1.0);
+  margin: 0;
+}
+
+.format-label[data-format=shp],
+.format-label[data-format*=shp] {
+  background-image: url("/assets/images/gis-resources-sprite-icons.png");
+  background-position: -194px -62px;
+  width: 32px;
+  height: 35px;
+  transform: scale(1.0);
+  margin: 0;
+}
+
+.format-label[data-format=tif],
+.format-label[data-format*=tif] {
+  width: 30px;
+  height: 32px;
+  background-image: url("/assets/images/tif-icon-small.png");
+  background-position: 0px 0px;
+  background-repeat: no-repeat;
+  transform: scale(1.0);
+  margin: 0;
+}
+
+.format-label[data-format=dwg],
+.format-label[data-format*=dwg] {
+  width: 30px;
+  height: 32px;
+  background-image: url("/assets/images/dwg-icon-small.png");
+  background-position: 0px 0px;
+  background-repeat: no-repeat;
+  transform: scale(1.0);
+  margin: 0;
 }
