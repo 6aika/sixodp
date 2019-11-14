@@ -50,6 +50,16 @@
       "required": true
     },
     {
+      "field_name": "categories",
+      "label": "Categories",
+      "preset": "multiple_checkbox",
+      "form_snippet": "ytp_multiple_checkbox.html",
+      "choices_helper": "scheming_category_list",
+      "description": "Categories to which this dataset belongs to.",
+      "validators": "save_to_groups",
+      "display_snippet": null
+    },
+    {
       "field_name": "keywords",
       "label": "Tags",
       "form_placeholder":"E.g. transport, housing, buildings",
@@ -193,16 +203,6 @@
       "display_snippet": null,
       "validators": "boolean_validator",
       "description": "Private datasets will only be seen by the logged in users of the dataset's organization. The private status is used when preparing a new dataset for publication."
-    },
-    {
-      "field_name": "categories",
-      "label": "Categories",
-      "preset": "multiple_checkbox",
-      "form_snippet": "ytp_multiple_checkbox.html",
-      "choices_helper": "scheming_category_list",
-      "description": "Categories to which this dataset belongs to.",
-      "validators": "save_to_groups",
-      "display_snippet": null
     },
     {
       "field_name": "state",
