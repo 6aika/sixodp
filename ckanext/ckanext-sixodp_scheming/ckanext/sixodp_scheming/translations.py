@@ -2,12 +2,14 @@ def _translations():
     """ Does nothing but hints message extractor to extract missing strings. """
 
     _('Title')
+    _('eg. A descriptive title for the dataset')
     _('A short and descriptive title for the dataset in multiple languages. Try not to use dates when naming a dataset, since data from multiple years will usually be published as multiple resources in one dataset.')
 
     _('URL')
     _('An URL-address which refers to the dataset. The automatically filled option derived from the title is the best option in most cases.')
 
     _('Tags')
+    _('E.g. transport, housing, buildings')
     _('Descriptive keywords or tags through which users are able to find this dataset easily through the search. The input will suggest existing keywords in the portal. New keywords should utilize ontologies such as the generic finnish ontology YSO: finto.fi/yso/fi.')
 
     _('Geographical Coverage')
@@ -33,7 +35,7 @@ def _translations():
     _('The technical maintainer for the dataset. Can in practice be the maintaining unit, bureau or as an exception a single employee.')
 
     _('Maintainer Email')
-    _('joe@example.com')
+    _('eg. joe@example.com')
     _('The email address for the maintaining party for the dataset. Use a mailing list or other similar means to direct the message to multiple recipients.')
 
     _('Maintainer Website')
@@ -43,9 +45,11 @@ def _translations():
     _('Private datasets will only be seen by the logged in users of the dataset\'s organization. The private status is used when preparing a new dataset for publication.')
 
     _('Published')
+    _('The resource publication date.')
     _('The dataset publication date.')
 
     _('Updated')
+    _('The resource update date.')
     _('A manually maintained date which can be used to notify when the dataset has been updated.')
 
     _('Update Frequency')
@@ -105,3 +109,6 @@ def _translations():
     _('https://creativecommons.org/publicdomain/zero/1.0/')
 
     _('Other (Open)')
+
+    _('Parent')
+    _('None - top level')
