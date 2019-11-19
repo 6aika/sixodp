@@ -1,15 +1,15 @@
 # Translations template for ckanext-sixodp_scheming.
-# Copyright (C) 2018 ORGANIZATION
+# Copyright (C) 2019 ORGANIZATION
 # This file is distributed under the same license as the ckanext-sixodp_scheming
 # project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_scheming 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-07-16 09:04+0000\n"
+"POT-Creation-Date: 2019-11-19 11:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.3.4\n"
 
-#: ckanext/sixodp_scheming/helpers.py:62
+#: ckanext/sixodp_scheming/helpers.py:66
 msgid "Dataset not found"
 msgstr ""
 
@@ -102,7 +102,7 @@ msgstr ""
 msgid "The organization which owns the dataset."
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:97
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:185
 #: ckanext/sixodp_scheming/translations.py:27
 msgid "Source"
 msgstr ""
@@ -154,7 +154,7 @@ msgstr ""
 msgid "http://www.example.com"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/form_snippets/private.html:3
+#: ckanext/sixodp_scheming/templates/scheming/form_snippets/private.html:2
 #: ckanext/sixodp_scheming/translations.py:42
 msgid "Visibility"
 msgstr ""
@@ -199,7 +199,7 @@ msgid ""
 "value can also be created if required."
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:83
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:177
 #: ckanext/sixodp_scheming/translations.py:55
 msgid "License"
 msgstr ""
@@ -254,7 +254,7 @@ msgstr ""
 msgid "A file or url which describes the location of the desired resource file."
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:49
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:34
 #: ckanext/sixodp_scheming/translations.py:78
 msgid "Size"
 msgstr ""
@@ -265,7 +265,7 @@ msgid ""
 "the file is uploaded."
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:42
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:27
 #: ckanext/sixodp_scheming/translations.py:81
 msgid "Format"
 msgstr ""
@@ -378,16 +378,16 @@ msgstr ""
 msgid "No organization"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/form_snippets/private.html:6
+#: ckanext/sixodp_scheming/templates/scheming/form_snippets/private.html:5
 msgid "Private"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/form_snippets/private.html:6
+#: ckanext/sixodp_scheming/templates/scheming/form_snippets/private.html:5
 msgid "Public"
 msgstr ""
 
 #: ckanext/sixodp_scheming/templates/scheming/form_snippets/state.html:3
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:89
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:171
 msgid "State"
 msgstr ""
 
@@ -397,6 +397,21 @@ msgstr ""
 
 #: ckanext/sixodp_scheming/templates/scheming/form_snippets/state.html:7
 msgid "Deleted"
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/form_snippets/ytp_multiple_checkbox.html:18
+#, python-format
+msgid ""
+" Categories can be edited from <a target=\"_blank\" "
+"href=\"%(category_url)s\"><strong>here</strong></a>. "
+msgstr ""
+
+#: ckanext/sixodp_scheming/templates/scheming/macros/form.html:35
+#, python-format
+msgid ""
+"You can use <a href=\"#markdown\" title=\"Markdown quick reference\" data-"
+"target=\"popover\" data-content=\"%(markdown_tooltip)s\" data-"
+"html=\"true\">Markdown formatting</a> here"
 msgstr ""
 
 #: ckanext/sixodp_scheming/templates/scheming/package/read.html:18
@@ -423,63 +438,53 @@ msgstr ""
 msgid "Value"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:23
-msgid "Last updated"
-msgstr ""
-
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:28
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:36
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:43
 msgid "unknown"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:34
-msgid "Created"
-msgstr ""
-
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:53
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:38
 msgid "GB"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:55
+#: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:40
 msgid "MB"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:27
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:114
 msgid "Groups"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:42
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:129
 msgid "Collections"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:95
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:183
 msgid "How to reference"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:102
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:190
 msgid ""
 "The maintainer of the dataset is {maintainer} and the original author is "
 "{author}"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:105
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:193
 msgid "The maintainer of the dataset is {maintainer}"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:108
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:196
 msgid "The dataset has been downloaded from"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:108
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:196
 msgid "service on {date}"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:111
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:199
 msgid "using the license"
 msgstr ""
 
-#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:113
+#: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:201
 msgid "The license can be found on the maintainer's service"
 msgstr ""
 
