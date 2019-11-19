@@ -11,11 +11,15 @@
     }
 </style>
 {% if tmpl_context.action == 'edit' %}
-{% set category_url = h.url_for('dataset_groups', id=data['name']) %}
-<label class="control-label" for="field-{{ field.field_name }}">{{ h.scheming_language_text(field.label) }}</label>
-{% trans %}
-Categories can be edited from <a href="{{ category_url }}">here</a>
-{% endtrans %}
+    <div class="form-group control-medium">
+        {% set category_url = h.url_for('dataset_groups', id=data['name']) %}
+        <label class="control-label" for="field-{{ field.field_name }}">{{ h.scheming_language_text(field.label) }}</label>
+        <div class="field-assistive-text">
+            {% trans %}
+                Categories can be edited from <a target="_blank" href="{{ category_url }}"><strong>here</strong></a>.
+            {% endtrans %}
+        </div>
+    </div>
 {% else %}
 {%- call form.input_block(
 label=h.scheming_language_text(field.label),
@@ -27,6 +31,10 @@ is_required=h.scheming_field_required(field)) -%}
 {%- do choices.append(
 (c.value, h.scheming_language_text(c.label))) -%}
 {%- endfor -%}
+{% set categories = data.categories %}
+{% if categories is string %}
+{% set categories = [categories] %}
+{% endif %}
 <fieldset class="checkboxes">
     <div class="row">
     {%- for val, label in choices -%}
@@ -36,7 +44,7 @@ is_required=h.scheming_field_required(field)) -%}
                type="checkbox"
                name="{{ field.field_name }}"
                value="{{ val }}"
-               {% if h.check_group_selected(val, data.groups) %}checked{% endif %} />
+               {% if val in categories%}checked{% endif %} />
         <span class="custom-checkbox"></span>
         {{ label }}
     </label>
