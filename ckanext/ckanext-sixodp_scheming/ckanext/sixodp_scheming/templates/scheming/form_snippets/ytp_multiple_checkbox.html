@@ -31,10 +31,19 @@ is_required=h.scheming_field_required(field)) -%}
 {%- do choices.append(
 (c.value, h.scheming_language_text(c.label))) -%}
 {%- endfor -%}
-{% set categories = data.categories %}
-{% if categories is string %}
-{% set categories = [categories] %}
+
+{% set categories = [] %}
+{% if data.categories is not defined %}
+    {% for group in data.groups %}
+        {{ categories.append(group.name)  or "" }}
+    {% endfor %}
+{% else %}
+    {% set categories = data.categories %}
 {% endif %}
+{% if categories is string %}
+    {% set categories = [categories] %}
+{% endif %}
+
 <fieldset class="checkboxes">
     <div class="row">
     {%- for val, label in choices -%}
