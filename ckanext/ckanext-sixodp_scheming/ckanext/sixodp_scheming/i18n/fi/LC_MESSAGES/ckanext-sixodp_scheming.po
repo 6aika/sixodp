@@ -6,9 +6,9 @@
 # 
 # Translators:
 # Mikko Nieminen <mikko.nieminen@gofore.com>, 2018
-# Hami Kekkonen <hami.kekkonen@hel.fi>, 2018
 # Joonas Dukpa, 2018
 # Zharktas <jari-pekka.voutilainen@gofore.com>, 2019
+# Hami Kekkonen <hami.kekkonen@hel.fi>, 2019
 # 
 #, fuzzy
 msgid ""
@@ -17,7 +17,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2019-11-19 13:16+0000\n"
 "PO-Revision-Date: 2017-02-23 10:24+0000\n"
-"Last-Translator: Zharktas <jari-pekka.voutilainen@gofore.com>, 2019\n"
+"Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2019\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,7 +36,7 @@ msgstr "Nimi"
 
 #: ckanext/sixodp_scheming/translations.py:5
 msgid "eg. A descriptive title for the dataset"
-msgstr ""
+msgstr "Aineistoa mahdollisimman tarkasti kuvaava nimi"
 
 #: ckanext/sixodp_scheming/translations.py:6
 msgid ""
@@ -67,7 +67,7 @@ msgstr "Avainsanat"
 
 #: ckanext/sixodp_scheming/translations.py:12
 msgid "E.g. transport, housing, buildings"
-msgstr ""
+msgstr "Esim. liikenne, asuminen, rakennukset"
 
 #: ckanext/sixodp_scheming/translations.py:13
 msgid ""
@@ -76,7 +76,7 @@ msgid ""
 "in the portal. New keywords should utilize ontologies such as the generic "
 "finnish ontology YSO: finto.fi/yso/fi."
 msgstr ""
-"Aineistoa kuvaavat avainsanat, joiden kautta tiedon hakijat löytävät "
+"Aineistoa kuvaavat avainsanat, joiden avulla datan hakijat löytävät "
 "tietoaineiston helpommin. Syöttökenttä ehdottaa dataportaalissa olemassa "
 "olevia avainsanoja. Uusien avainsanojen olisi hyvä hyödyntää ontologioita, "
 "kuten yleinen suomalainen ontologia YSO: http://finto.fi/yso/fi/"
@@ -87,7 +87,7 @@ msgstr "Alue"
 
 #: ckanext/sixodp_scheming/translations.py:16
 msgid "eg. tampere"
-msgstr "esim. Tampere"
+msgstr "esim. kunnan nimi"
 
 #: ckanext/sixodp_scheming/translations.py:17
 msgid "Select the municipalities from which the dataset contains data."
@@ -139,7 +139,7 @@ msgstr "Lähde"
 
 #: ckanext/sixodp_scheming/translations.py:30
 msgid "http://example.com/dataset.json"
-msgstr "http://example.com/dataset.json"
+msgstr "Aineiston alkuperäisen tuottajan nimi"
 
 #: ckanext/sixodp_scheming/translations.py:31
 msgid ""
@@ -174,7 +174,7 @@ msgstr "Ylläpitäjän sähköposti"
 
 #: ckanext/sixodp_scheming/translations.py:38
 msgid "eg. joe@example.com"
-msgstr ""
+msgstr "esim. joe@example.com"
 
 #: ckanext/sixodp_scheming/translations.py:39
 msgid ""
@@ -182,8 +182,7 @@ msgid ""
 "list or other similar means to direct the message to multiple recipients."
 msgstr ""
 "Aineistoa ylläpitävän tahon sähköpostiosoite. Jos mahdollista, niin "
-"käytetään yksikön jakelulistaa tai muuta useammalle henkilölle kohdistettua "
-"sähköpostia."
+"käytetään yksikön jakelulistaa tai muuta yleistä sähköpostiosoitetta."
 
 #: ckanext/sixodp_scheming/translations.py:41
 msgid "Maintainer Website"
@@ -214,7 +213,7 @@ msgstr "Julkaistu"
 
 #: ckanext/sixodp_scheming/translations.py:48
 msgid "The resource publication date."
-msgstr ""
+msgstr "Resurssin julkaisupäivämäärä."
 
 #: ckanext/sixodp_scheming/translations.py:49
 msgid "The dataset publication date."
@@ -226,7 +225,7 @@ msgstr "Päivitetty"
 
 #: ckanext/sixodp_scheming/translations.py:52
 msgid "The resource update date."
-msgstr ""
+msgstr "Resurssin päivityspäivämäärä."
 
 #: ckanext/sixodp_scheming/translations.py:53
 msgid ""
@@ -249,8 +248,8 @@ msgid ""
 " new value can also be created if required."
 msgstr ""
 "Tietoaineiston oletettu päivitystiheys. Kenttä ehdottaa muissa aineistoissa "
-"käytössä olevia tiheyksiä kuten \"vuosittain\", \"kuukausittain\" tai "
-"\"reaaliaikainen\". Voit kuitenkin tarvittaessa lisätä uuden tekstin."
+"käytössä olevia tiheyksiä kuten \"vuosi\", \"kuukausi\", \"reaaliaikainen\" "
+"tai \"päättynyt\". Voit kuitenkin tarvittaessa lisätä uuden tekstin."
 
 #: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:177
 #: ckanext/sixodp_scheming/translations.py:59
@@ -306,7 +305,7 @@ msgid ""
 "Database License</a>."
 msgstr ""
 "<i>Lisenssi</i>, jonka valitset yllä olevasta valikosta, koskee ainoastaan "
-"tähän tietoaineistoon liittämiäsi tiedostoja. Lähettämällä tämän lomakkeen "
+"tähän tietoaineistoon liittämääsi dataa. Lähettämällä tämän lomakkeen "
 "suostut julkaisemaan täyttämäsi <i>metatiedot</i> <a "
 "href=\"http://opendatacommons.org/licenses/odbl/1-0/\">Creative Commons 0 "
 "-lisenssin</a> mukaisesti."
@@ -333,9 +332,7 @@ msgstr "Tiedoston koko"
 msgid ""
 "Size of the added resouce file in bytes. Will be automatically filled when "
 "the file is uploaded."
-msgstr ""
-"Lisätyn resurssitiedoston koko tavuina. Täytetään automaattisesti, kun "
-"tiedosto ladataan."
+msgstr "Tiedoston koko tavuina."
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:27
 #: ckanext/sixodp_scheming/translations.py:85
@@ -344,7 +341,7 @@ msgstr "Formaatti"
 
 #: ckanext/sixodp_scheming/translations.py:86
 msgid "File format of the selected resource."
-msgstr "Valitun resurssitiedoston formaatti."
+msgstr "Tiedostoformaatti"
 
 #: ckanext/sixodp_scheming/translations.py:89
 msgid ""
@@ -354,7 +351,7 @@ msgstr "Yleiskielinen, tiivis ja helposti ymmärrettävä kuvaus resurssista."
 
 #: ckanext/sixodp_scheming/translations.py:91
 msgid "Position coordinates"
-msgstr "Paikkakoordinaatit"
+msgstr "Koordinaatisto"
 
 #: ckanext/sixodp_scheming/translations.py:92
 msgid ""
@@ -368,7 +365,7 @@ msgstr "Aikasarja alkaa"
 
 #: ckanext/sixodp_scheming/translations.py:95
 msgid "A moment in time after which the data is relevant."
-msgstr "Aineiston aikasarjan alkamisajankohta."
+msgstr "Resurssin aikasarjan alkamisajankohta."
 
 #: ckanext/sixodp_scheming/translations.py:97
 msgid "Time series end"
@@ -376,7 +373,7 @@ msgstr "Aikasarja päättyy"
 
 #: ckanext/sixodp_scheming/translations.py:98
 msgid "A moment in time after which the data is no longer relevant."
-msgstr "Aineiston aikasarjan päättymisajankohta."
+msgstr "Resurssin aikasarjan päättymisajankohta."
 
 #: ckanext/sixodp_scheming/translations.py:100
 msgid "Time Series Precision"
@@ -485,6 +482,8 @@ msgid ""
 " Categories can be edited from <a target=\"_blank\" "
 "href=\"%(category_url)s\"><strong>here</strong></a>. "
 msgstr ""
+"Kategorioita voi muokata <a target=\"_blank\" "
+"href=\"%(category_url)s\"><strong>täällä</strong></a>."
 
 #: ckanext/sixodp_scheming/templates/scheming/macros/form.html:35
 #, python-format
@@ -493,6 +492,9 @@ msgid ""
 "target=\"popover\" data-content=\"%(markdown_tooltip)s\" data-"
 "html=\"true\">Markdown formatting</a> here"
 msgstr ""
+"Voit käyttää <a href=\"#markdown\" title=\"Markdown quick reference\" data-"
+"target=\"popover\" data-content=\"%(markdown_tooltip)s\" data-html=\"true"
+"\">Markdown-muotoiluja</a>."
 
 #: ckanext/sixodp_scheming/templates/scheming/package/read.html:18
 msgid "Show more"
@@ -504,7 +506,7 @@ msgstr "Näytä vähemmän"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:5
 msgid "Additional Information"
-msgstr "Lisätiedot"
+msgstr "Lisätietoja"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/resource_read.html:9
 msgid "Metadata API"
@@ -536,7 +538,7 @@ msgstr "Kategoriat"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:129
 msgid "Collections"
-msgstr "Aineistokokonaisuudet"
+msgstr "Datakokoelmat"
 
 #: ckanext/sixodp_scheming/templates/scheming/package/snippets/additional_info.html:183
 msgid "How to reference"

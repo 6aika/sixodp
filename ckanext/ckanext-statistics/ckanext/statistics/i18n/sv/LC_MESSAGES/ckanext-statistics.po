@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-statistics 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-04 08:44+0000\n"
+"POT-Creation-Date: 2019-11-04 08:52+0000\n"
 "PO-Revision-Date: 2017-09-08 11:36+0000\n"
 "Last-Translator: Joonas Dukpa, 2018\n"
 "Language-Team: Swedish (https://www.transifex.com/6aika-dataportal/teams/68018/sv/)\n"
@@ -157,6 +157,61 @@ msgstr "Webbplatsanalys"
 
 #: ckanext/statistics/fanstatic/javascript/vendor/d3.js:15895
 msgid "function"
+msgstr ""
+
+#: ckanext/statistics/templates/report/publisher_activity.html:4
+msgid "Period: Current and previous quarter"
+msgstr ""
+
+#: ckanext/statistics/templates/report/publisher_activity.html:9
+msgid "Datasets created:"
+msgstr ""
+
+#: ckanext/statistics/templates/report/publisher_activity.html:10
+msgid "Datasets modified:"
+msgstr ""
+
+#: ckanext/statistics/templates/report/publisher_activity.html:11
+msgid "Datasets created or modified:"
+msgstr ""
+
+#: ckanext/statistics/templates/report/publisher_activity.html:14
+msgid ""
+"Note: some datasets will be created and modified during the period, hence "
+"why 'created or modified' is often less than the sum of the 'created' and "
+"'modified' values."
+msgstr ""
+
+#: ckanext/statistics/templates/report/publisher_activity.html:18
+msgid "Publishe"
+msgstr ""
+
+#: ckanext/statistics/templates/report/publisher_activity.html:19
+msgid "Datasets created"
+msgstr ""
+
+#: ckanext/statistics/templates/report/publisher_activity.html:20
+msgid "Datasets modified"
+msgstr ""
+
+#: ckanext/statistics/templates/report/publisher_activity.html:21
+msgid "Created or modified"
+msgstr ""
+
+#: ckanext/statistics/templates/report/publisher_activity.html:56
+msgid "Dataset"
+msgstr ""
+
+#: ckanext/statistics/templates/report/publisher_activity.html:57
+msgid "Notes"
+msgstr ""
+
+#: ckanext/statistics/templates/report/publisher_activity.html:59
+msgid "By"
+msgstr ""
+
+#: ckanext/statistics/templates/report/publisher_activity.html:60
+msgid "Published data"
 msgstr ""
 
 #: ckanext/statistics/templates/statistics/statistics_read.html:41

@@ -4,17 +4,21 @@
 # project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
 # 
+# Translators:
+# Juha Härkönen <juha.harkonen@ouka.fi>, 2017
+# Hami Kekkonen <hami.kekkonen@hel.fi>, 2019
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_showcase 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-13 12:50+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2017\n"
+"PO-Revision-Date: 2017-03-17 06:42+0000\n"
+"Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2019\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/6aika-dataportal/teams/68018/en_GB/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.3.4\n"
 "Language: en_GB\n"
@@ -27,15 +31,15 @@ msgstr ""
 
 #: ckanext/sixodp_showcase/controller.py:105
 msgid "Not authorized to see this page"
-msgstr ""
+msgstr "Not authorised to see this page"
 
 #: ckanext/sixodp_showcase/controller.py:199
 msgid "Organizations"
-msgstr "Organizations"
+msgstr "Organisations"
 
 #: ckanext/sixodp_showcase/controller.py:200
 msgid "Groups"
-msgstr ""
+msgstr "Categories"
 
 #: ckanext/sixodp_showcase/controller.py:201
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:33
@@ -97,6 +101,7 @@ msgstr "Add an existing user"
 msgid ""
 "To make an existing user a Showcase Admin, search for their username below."
 msgstr ""
+"To make an existing user a showcase admin, search for their username below."
 
 #: ckanext/sixodp_showcase/templates/admin/manage_showcase_admins.html:23
 msgid "Username"
@@ -114,6 +119,7 @@ msgstr ""
 msgid ""
 "Are you sure you want to remove this user from the Showcase Admin list?"
 msgstr ""
+"Are you sure you want to remove this user from the showcase admin list?"
 
 #: ckanext/sixodp_showcase/templates/admin/manage_showcase_admins.html:53
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/snippets/showcase_item.html:54
@@ -122,7 +128,7 @@ msgstr "Remove"
 
 #: ckanext/sixodp_showcase/templates/admin/manage_showcase_admins.html:61
 msgid "There are currently no Showcase Admins."
-msgstr ""
+msgstr "There are currently no showcase admins."
 
 #: ckanext/sixodp_showcase/templates/admin/manage_showcase_admins.html:69
 msgid ""
@@ -162,7 +168,7 @@ msgstr ""
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:63
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/package_form.html:6
 msgid "Create Showcase"
-msgstr "Create showcase"
+msgstr "Publish showcase"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/edit_base.html:34
 msgid "View showcase"
@@ -178,7 +184,7 @@ msgstr ""
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/new.html:8
 msgid "Create a Showcase"
-msgstr "Create a showcase"
+msgstr "Publish a showcase"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:15
 msgid "Title"
@@ -186,7 +192,7 @@ msgstr "Title"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:15
 msgid "eg. A descriptive title"
-msgstr "Application name, title of the article etc."
+msgstr "Showcase name, title of the article etc."
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:24
 msgid "URL"
@@ -194,7 +200,7 @@ msgstr ""
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:24
 msgid "eg. my-showcase"
-msgstr ""
+msgstr "e.g. showcase-name"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:28
 msgid "Description"
@@ -202,7 +208,7 @@ msgstr "Description"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:28
 msgid "eg. Some useful notes about the data"
-msgstr "Short description of the application and its most important features."
+msgstr "Short description of the showcase and its most important features."
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:33
 msgid "eg. economy, mental health, government"
@@ -285,7 +291,7 @@ msgstr "There are no datasets in this showcase"
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:171
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:218
 msgid "More from the author"
-msgstr "Other applications by the same author"
+msgstr "Other showcases by the same author"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:175
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:222
@@ -294,7 +300,7 @@ msgstr "Show all"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:201
 msgid "Application website"
-msgstr "Application website"
+msgstr "Showcase website"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:207
 msgid "Author website"

@@ -4,17 +4,21 @@
 # project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
 # 
+# Translators:
+# Juha Härkönen <juha.harkonen@ouka.fi>, 2017
+# Hami Kekkonen <hami.kekkonen@hel.fi>, 2019
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-datasubmitter 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-26 12:13+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Juha Härkönen <juha.harkonen@ouka.fi>, 2017\n"
+"PO-Revision-Date: 2017-02-02 08:13+0000\n"
+"Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2019\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/6aika-dataportal/teams/68018/en_GB/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.3.4\n"
 "Language: en_GB\n"
@@ -30,11 +34,11 @@ msgstr ""
 
 #: ckanext/datasubmitter/controller.py:85
 msgid "Dataset submit user or organization not set."
-msgstr ""
+msgstr "Dataset submit user or organisation not set."
 
 #: ckanext/datasubmitter/controller.py:111
 msgid "Organization"
-msgstr ""
+msgstr "Organisation"
 
 #: ckanext/datasubmitter/controller.py:114
 #: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:81
@@ -43,7 +47,7 @@ msgstr ""
 
 #: ckanext/datasubmitter/controller.py:120
 msgid "Unauthorized to create a package"
-msgstr ""
+msgstr "Unauthorised to create a package"
 
 #: ckanext/datasubmitter/controller.py:132
 msgid "Dataset submitted successfully"
@@ -59,6 +63,8 @@ msgid ""
 "The organization name (ending in organization's url) into which submitted "
 "datasets will be added"
 msgstr ""
+"The organisation name (ending in organisation's url) into which submitted "
+"datasets will be added"
 
 #: ckanext/datasubmitter/templates/datasubmitter/base.html:11
 #: ckanext/datasubmitter/templates/datasubmitter/base_form_page.html:14
@@ -90,11 +96,11 @@ msgstr ""
 msgid ""
 "Example: The dataset includes financial information for Acme corporation "
 "starting from the year 2012"
-msgstr ""
+msgstr "Describtion of the dataset."
 
 #: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:63
 msgid "Owner organization"
-msgstr ""
+msgstr "Owner organisation"
 
 #: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:94
 msgid "Submitter info"
