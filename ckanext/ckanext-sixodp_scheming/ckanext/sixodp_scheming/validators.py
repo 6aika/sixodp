@@ -10,6 +10,8 @@ import re
 import json
 from ckan.logic import get_action
 
+import logging
+log = logging.getLogger(__name__)
 
 try:
     from ckanext.scheming.validation import (
@@ -213,6 +215,7 @@ def only_default_lang_required(field, schema):
         default_lang =  config.get('ckan.locale_default', 'en')
 
     def validator(key, data, errors, context):
+        log.info("in validator")
         if errors[key]:
             return
 
@@ -232,7 +235,9 @@ def only_default_lang_required(field, schema):
                 errors[key].append(_('expecting JSON object'))
                 return
 
-            if field.get('only_default_lang_required') is not None and value.get(default_lang) is None:
+            log.info("value is: %s", value.get(default_lang))
+            if field.get('only_default_lang_required') is not None and (value.get(default_lang) is None
+                                                                        or value.get(default_lang) == ""):
                 errors[key].append(_('Required language "%s" missing') % default_lang)
             return
 
