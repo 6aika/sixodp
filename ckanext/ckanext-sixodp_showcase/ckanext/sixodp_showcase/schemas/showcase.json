@@ -49,7 +49,6 @@
     {
       "field_name": "keywords",
       "label": "Tags",
-      "form_placeholder":"eg. every second week",
       "form_languages": ["fi", "en", "sv"],
       "preset": "fluent_vocabulary_with_autocomplete",
       "validators": "fluent_tags create_fluent_tags(keywords)",
@@ -91,16 +90,16 @@
       "form_blanks": 1,
       "display_snippet": "repeating_link.html",
       "form_snippet": "repeating.html",
-      "description": "Links to stores",
+      "description": "Links to stores. For mobile applications, link to application store. For other applications, link to web page.",
       "validators": "repeating_text"
     },
     {
       "field_name": "notes_translated",
       "label": "Description",
       "preset": "fluent_core_markdown_translated",
-      "form_placeholder": "eg. A detailed description",
+      "form_placeholder": "eg. A detailed description about showcase",
       "form_languages": ["fi", "en", "sv"],
-      "description": "An universal, compact and easy to understand description of the added resource.",
+      "description": "An universal, compact and easy to understand description of the added showcase.",
       "only_default_lang_required": true,
       "rows": 10
     },
@@ -187,14 +186,14 @@
     {
       "field_name": "notifier",
       "label": "Notifier",
-      "form_placeholder": "Joe Bloggs",
+      "form_placeholder": "Name of the notifier",
       "display_snippet": null,
       "required": true
     },
     {
       "field_name": "notifier_email",
       "label": "Notifier Email",
-      "form_placeholder": "joe@example.com",
+      "form_placeholder": "Email of the notifier",
       "display_snippet": null,
       "required": true
     },

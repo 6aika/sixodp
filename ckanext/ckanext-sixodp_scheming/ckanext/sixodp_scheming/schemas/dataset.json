@@ -106,7 +106,7 @@
     {
       "field_name": "maintainer_email",
       "label": "Maintainer Email",
-      "form_placeholder": "joe@example.com",
+      "form_placeholder": "Maintainer email address",
       "display_property": "dc:contributor",
       "display_snippet": null,
       "required": true,

@@ -5,19 +5,19 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 # 
 # Translators:
+# Joonas Dukpa, 2017
 # Mikko Nieminen <mikko.nieminen@gofore.com>, 2018
-# Joonas Dukpa, 2018
-# Zharktas <jari-pekka.voutilainen@gofore.com>, 2019
 # Hami Kekkonen <hami.kekkonen@hel.fi>, 2019
+# Zharktas <jari-pekka.voutilainen@gofore.com>, 2019
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_scheming 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-19 13:16+0000\n"
+"POT-Creation-Date: 2019-11-26 07:09+0000\n"
 "PO-Revision-Date: 2017-02-23 10:24+0000\n"
-"Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2019\n"
+"Last-Translator: Zharktas <jari-pekka.voutilainen@gofore.com>, 2019\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,8 +58,8 @@ msgid ""
 "An URL-address which refers to the dataset. The automatically filled option "
 "derived from the title is the best option in most cases."
 msgstr ""
-"URL-osoite, joka viittaa tietoaineistoon. Otsikosta johdettu oletusasetus on"
-" yleensä paras vaihtoehto."
+"Datan uniikki nimi, joka tulee ko. datasivun URL-osoitteen loppuun. "
+"Otsikosta johdettu oletusnimi on yleensä paras vaihtoehto."
 
 #: ckanext/sixodp_scheming/translations.py:11
 msgid "Tags"
@@ -83,7 +83,7 @@ msgstr ""
 
 #: ckanext/sixodp_scheming/translations.py:15
 msgid "Geographical Coverage"
-msgstr "Alue"
+msgstr "Alueet"
 
 #: ckanext/sixodp_scheming/translations.py:16
 msgid "eg. tampere"
@@ -114,7 +114,7 @@ msgstr ""
 
 #: ckanext/sixodp_scheming/translations.py:23
 msgid "Links to additional information concerning the dataset"
-msgstr "Lisätietolinkit"
+msgstr "Lisätietoja"
 
 #: ckanext/sixodp_scheming/translations.py:24
 msgid ""
@@ -148,9 +148,9 @@ msgid ""
 " the dataset is published by a single unit but it has multiple authors."
 msgstr ""
 "Aineiston tietosisällön alkuperäinen tuottaja. Voi olla myös ulkoinen lähde "
-"kuten esim. Tilastokeskus. Käytetään kuvaamaan esimerkiksi tilannetta, jossa"
-" aineiston julkaisee omistava yksikkö, mutta aineisto sisältää myös muiden "
-"tahojen tuottamia tietoja."
+"kuten esim. Tilastokeskus. Käytetään esimerkiksi tilanteessa, jossa "
+"aineiston julkaisee sen omistava yksikkö, mutta aineisto sisältää myös "
+"muiden tahojen tuottamia tietoja."
 
 #: ckanext/sixodp_scheming/translations.py:33
 msgid "Maintainer"
@@ -173,8 +173,8 @@ msgid "Maintainer Email"
 msgstr "Ylläpitäjän sähköposti"
 
 #: ckanext/sixodp_scheming/translations.py:38
-msgid "eg. joe@example.com"
-msgstr "esim. joe@example.com"
+msgid "Maintainer email address"
+msgstr "Ylläpitäjän sähköpostiosoite"
 
 #: ckanext/sixodp_scheming/translations.py:39
 msgid ""
@@ -239,7 +239,7 @@ msgstr "Päivitystiheys"
 
 #: ckanext/sixodp_scheming/translations.py:56
 msgid "eg. every second week"
-msgstr "esim. joka toinen viikko"
+msgstr "esim. viikko, kuukausi, vuosi"
 
 #: ckanext/sixodp_scheming/translations.py:57
 msgid ""
@@ -365,7 +365,7 @@ msgstr "Aikasarja alkaa"
 
 #: ckanext/sixodp_scheming/translations.py:95
 msgid "A moment in time after which the data is relevant."
-msgstr "Resurssin aikasarjan alkamisajankohta."
+msgstr "Aikasarjan alkamisajankohta."
 
 #: ckanext/sixodp_scheming/translations.py:97
 msgid "Time series end"
@@ -373,7 +373,7 @@ msgstr "Aikasarja päättyy"
 
 #: ckanext/sixodp_scheming/translations.py:98
 msgid "A moment in time after which the data is no longer relevant."
-msgstr "Resurssin aikasarjan päättymisajankohta."
+msgstr "Aikasarjan päättymisajankohta."
 
 #: ckanext/sixodp_scheming/translations.py:100
 msgid "Time Series Precision"
@@ -381,7 +381,7 @@ msgstr "Aikasarjan tarkkuus"
 
 #: ckanext/sixodp_scheming/translations.py:101
 msgid "eg. 2 weeks"
-msgstr "esim. 2 viikkoa"
+msgstr "esim. vuorokausi, viikko tai vuosi"
 
 #: ckanext/sixodp_scheming/translations.py:102
 msgid "A string which describes the precision of the entered time series."
@@ -415,38 +415,38 @@ msgstr "Yläorganisaatio"
 msgid "None - top level"
 msgstr "Ei mitään (ylin taso)"
 
-#: ckanext/sixodp_scheming/validators.py:57
+#: ckanext/sixodp_scheming/validators.py:59
 msgid "Missing value"
 msgstr "Puuttuva arvo"
 
-#: ckanext/sixodp_scheming/validators.py:152
+#: ckanext/sixodp_scheming/validators.py:154
 msgid "expecting list of strings"
 msgstr "odotetaan listaa merkkijonoja"
 
-#: ckanext/sixodp_scheming/validators.py:158
+#: ckanext/sixodp_scheming/validators.py:160
 #, python-format
 msgid "invalid type for repeating text: %r"
 msgstr "virheellinen toistuvan merkkijonon tyyppi: %r"
 
-#: ckanext/sixodp_scheming/validators.py:165
+#: ckanext/sixodp_scheming/validators.py:167
 #, python-format
 msgid "invalid encoding for \"%s\" value"
 msgstr "virheellinen koodaus arvolle \"%s\""
 
-#: ckanext/sixodp_scheming/validators.py:226
+#: ckanext/sixodp_scheming/validators.py:229
 msgid "Failed to decode JSON string"
 msgstr "JSON-merkkijonon purku epäonnistui"
 
-#: ckanext/sixodp_scheming/validators.py:229
+#: ckanext/sixodp_scheming/validators.py:232
 msgid "Invalid encoding for JSON string"
 msgstr "Virheellinen JSON-merkkijonon koodaus"
 
-#: ckanext/sixodp_scheming/validators.py:232
+#: ckanext/sixodp_scheming/validators.py:235
 msgid "expecting JSON object"
 msgstr "odotetaan JSON-objektia"
 
-#: ckanext/sixodp_scheming/validators.py:236
-#: ckanext/sixodp_scheming/validators.py:243
+#: ckanext/sixodp_scheming/validators.py:241
+#: ckanext/sixodp_scheming/validators.py:248
 #, python-format
 msgid "Required language \"%s\" missing"
 msgstr "Vaadittu kieli \"%s\" puuttuu"

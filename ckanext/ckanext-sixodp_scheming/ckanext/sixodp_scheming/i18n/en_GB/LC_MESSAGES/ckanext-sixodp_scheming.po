@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_scheming 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-19 13:16+0000\n"
+"POT-Creation-Date: 2019-11-26 07:09+0000\n"
 "PO-Revision-Date: 2017-02-23 10:24+0000\n"
 "Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2019\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/6aika-dataportal/teams/68018/en_GB/)\n"
@@ -115,7 +115,7 @@ msgstr ""
 
 #: ckanext/sixodp_scheming/translations.py:23
 msgid "Links to additional information concerning the dataset"
-msgstr "Links to additional information "
+msgstr "More information"
 
 #: ckanext/sixodp_scheming/translations.py:24
 msgid ""
@@ -170,8 +170,8 @@ msgid "Maintainer Email"
 msgstr "Administrator's email"
 
 #: ckanext/sixodp_scheming/translations.py:38
-msgid "eg. joe@example.com"
-msgstr "e.g. joe@example.com"
+msgid "Maintainer email address"
+msgstr ""
 
 #: ckanext/sixodp_scheming/translations.py:39
 msgid ""
@@ -408,38 +408,38 @@ msgstr ""
 msgid "None - top level"
 msgstr ""
 
-#: ckanext/sixodp_scheming/validators.py:57
+#: ckanext/sixodp_scheming/validators.py:59
 msgid "Missing value"
 msgstr ""
 
-#: ckanext/sixodp_scheming/validators.py:152
+#: ckanext/sixodp_scheming/validators.py:154
 msgid "expecting list of strings"
 msgstr ""
 
-#: ckanext/sixodp_scheming/validators.py:158
+#: ckanext/sixodp_scheming/validators.py:160
 #, python-format
 msgid "invalid type for repeating text: %r"
 msgstr ""
 
-#: ckanext/sixodp_scheming/validators.py:165
+#: ckanext/sixodp_scheming/validators.py:167
 #, python-format
 msgid "invalid encoding for \"%s\" value"
 msgstr ""
 
-#: ckanext/sixodp_scheming/validators.py:226
+#: ckanext/sixodp_scheming/validators.py:229
 msgid "Failed to decode JSON string"
 msgstr ""
 
-#: ckanext/sixodp_scheming/validators.py:229
+#: ckanext/sixodp_scheming/validators.py:232
 msgid "Invalid encoding for JSON string"
 msgstr ""
 
-#: ckanext/sixodp_scheming/validators.py:232
+#: ckanext/sixodp_scheming/validators.py:235
 msgid "expecting JSON object"
 msgstr ""
 
-#: ckanext/sixodp_scheming/validators.py:236
-#: ckanext/sixodp_scheming/validators.py:243
+#: ckanext/sixodp_scheming/validators.py:241
+#: ckanext/sixodp_scheming/validators.py:248
 #, python-format
 msgid "Required language \"%s\" missing"
 msgstr ""

@@ -18,6 +18,7 @@ def _translations():
 
     _('Description')
     _('E.g. A diverse and detailed description')
+    _('eg. A detailed description')
     _('An universal and easy to understand, but also diverse description of the added dataset. Describe the dataset creation process, use case and possible limitations and shortcomings as well as possible.')
 
     _('Links to additional information concerning the dataset')
@@ -35,7 +36,7 @@ def _translations():
     _('The technical maintainer for the dataset. Can in practice be the maintaining unit, bureau or as an exception a single employee.')
 
     _('Maintainer Email')
-    _('eg. joe@example.com')
+    _('Maintainer email address')
     _('The email address for the maintaining party for the dataset. Use a mailing list or other similar means to direct the message to multiple recipients.')
 
     _('Maintainer Website')
@@ -112,3 +113,5 @@ def _translations():
 
     _('Parent')
     _('None - top level')
+    _('Icon URL')
+    _('My Group')
