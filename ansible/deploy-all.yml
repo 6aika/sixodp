@@ -33,6 +33,7 @@
     - ckan-cron
     - datapusher
     - transifex-install
+    - ckan-translations
     - ckan-restart
     - supervisor
     - solr-reindex
