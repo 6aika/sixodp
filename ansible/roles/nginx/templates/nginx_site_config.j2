@@ -6,12 +6,16 @@ server {
   listen 443 ssl;
   server_name {{ public_facing_hostname }};
 
-  error_page 500 502 503 504 /50x.html;
+  error_page 405 500 502 503 504 @internal_error;
 
-  location = /50x.html {
-    root {{ static_path }};
-    internal;
-  }
+   location @internal_error {
+      root {{ static_path }};
+      set $not_found /500.fi.html;
+      if ( $request_uri ~* "/(fi|en_gb|en_GB|sv)/" ){
+          set $not_found /500.$1.html;
+      }
+      rewrite ^(.*)$ $not_found break;
+    }
 
   error_page 404 @not_found;
 
@@ -23,6 +27,30 @@ server {
     }
     rewrite ^(.*)$ $not_found break;
   }
+
+  error_page 401 @unauthorized;
+
+  location @unauthorized {
+    root {{ static_path }};
+    set $not_found /401.fi.html;
+    if ( $request_uri ~* "/(fi|en_gb|en_GB|sv)/" ){
+        set $not_found /401.$1.html;
+    }
+    rewrite ^(.*)$ $not_found break;
+  }
+
+  error_page 403 @forbidden;
+
+  location @forbidden {
+    root {{ static_path }};
+    set $not_found /403.fi.html;
+    if ( $request_uri ~* "/(fi|en_gb|en_GB|sv)/" ){
+        set $not_found /403.$1.html;
+    }
+    rewrite ^(.*)$ $not_found break;
+  }
+
+
 
   location = /robots.txt {
     root {{ static_path }};

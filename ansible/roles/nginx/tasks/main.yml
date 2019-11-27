@@ -22,11 +22,6 @@
 - name: Ensure static resource directory
   file: path="{{ static_path }}" state=directory mode="0775" owner=root group=root
 
-- name: Copy static resources
-  copy: src={{ item.src }} dest={{ static_path }}/{{ item.dest }} mode="0644" owner=root group=root
-  with_items:
-    - { "src": "50x.html", "dest": "50x.html" }
-
 - name: Copy static resource templates
   template: src={{ item.src }} dest={{ static_path }}/{{ item.dest }} mode="0644" owner=root group=root
   with_items:
@@ -34,6 +29,18 @@
     - { "src": "404.sv.html.j2", "dest": "404.sv.html" }
     - { "src": "404.en.html.j2", "dest": "404.en_gb.html" }
     - { "src": "404.en.html.j2", "dest": "404.en_GB.html" }
+    - { "src": "401.fi.html.j2", "dest": "401.fi.html" }
+    - { "src": "401.sv.html.j2", "dest": "401.sv.html" }
+    - { "src": "401.en.html.j2", "dest": "401.en_GB.html" }
+    - { "src": "401.en.html.j2", "dest": "404.en_gb.html" }
+    - { "src": "403.fi.html.j2", "dest": "403.fi.html" }
+    - { "src": "403.sv.html.j2", "dest": "403.sv.html" }
+    - { "src": "403.en.html.j2", "dest": "404.en_GB.html" }
+    - { "src": "403.en.html.j2", "dest": "404.en_gb.html" }
+    - { "src": "500.fi.html.j2", "dest": "500.fi.html" }
+    - { "src": "500.sv.html.j2", "dest": "500.sv.html" }
+    - { "src": "500.en.html.j2", "dest": "500.en_GB.html" }
+    - { "src": "500.en.html.j2", "dest": "500.en_gb.html" }
 
 - name: Ensure static file permissions
   command: chmod -R "0775" "{{ static_path }}"
