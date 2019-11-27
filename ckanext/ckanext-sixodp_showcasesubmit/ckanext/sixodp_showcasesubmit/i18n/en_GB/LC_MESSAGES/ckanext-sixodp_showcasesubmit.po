@@ -1,8 +1,8 @@
 # Translations template for ckanext-sixodp_showcasesubmit.
-# Copyright (C) 2018 ORGANIZATION
+# Copyright (C) 2019 ORGANIZATION
 # This file is distributed under the same license as the
 # ckanext-sixodp_showcasesubmit project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 # 
 # Translators:
 # Juha Härkönen <juha.harkonen@ouka.fi>, 2017
@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_showcasesubmit 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-09-26 12:09+0000\n"
+"POT-Creation-Date: 2019-11-26 07:17+0000\n"
 "PO-Revision-Date: 2017-05-02 10:33+0000\n"
 "Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2019\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/6aika-dataportal/teams/68018/en_GB/)\n"
@@ -33,15 +33,15 @@ msgstr ""
 msgid "New showcase notification"
 msgstr ""
 
-#: ckanext/sixodp_showcasesubmit/controller.py:112
+#: ckanext/sixodp_showcasesubmit/controller.py:114
 msgid "N.B. The following dataset could not be automatically linked"
 msgstr ""
 
-#: ckanext/sixodp_showcasesubmit/controller.py:116
+#: ckanext/sixodp_showcasesubmit/controller.py:118
 msgid "Unauthorized to create a package"
 msgstr "Unauthorised to create a package"
 
-#: ckanext/sixodp_showcasesubmit/controller.py:125
+#: ckanext/sixodp_showcasesubmit/controller.py:127
 msgid "Showcase submitted successfully"
 msgstr ""
 
@@ -76,8 +76,8 @@ msgid "Description"
 msgstr "Description"
 
 #: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:47
-msgid "eg. A detailed description"
-msgstr "Description of the showcase and its best features."
+msgid "eg. A detailed description about showcase"
+msgstr "A detailed description of showcase"
 
 #: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:59
 msgid "Name or organization of the author"
@@ -196,19 +196,19 @@ msgstr ""
 msgid "Search for a dataset"
 msgstr ""
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:271
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:272
 msgid "Submitter info"
 msgstr ""
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:278
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:279
 msgid "Name of the submitter"
 msgstr ""
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:296
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:297
 msgid "Submitter email"
 msgstr ""
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:314
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:315
 msgid ""
 "I accept that metadata of the application is distributed to other data "
 "portals."
@@ -216,6 +216,6 @@ msgstr ""
 "I accept that metadata and pictures of the showcase are distributed to other"
 " data portals (e.g. avoindata.fi)."
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:336
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:337
 msgid "Submit"
 msgstr "Submit"

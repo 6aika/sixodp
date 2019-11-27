@@ -1,12 +1,13 @@
 # Translations template for ckanext-sixodp_showcasesubmit.
-# Copyright (C) 2018 ORGANIZATION
+# Copyright (C) 2019 ORGANIZATION
 # This file is distributed under the same license as the
 # ckanext-sixodp_showcasesubmit project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 # 
 # Translators:
 # Mikko Nieminen <mikko.nieminen@gofore.com>, 2017
 # Joonas Dukpa, 2018
+# Zharktas <jari-pekka.voutilainen@gofore.com>, 2019
 # Hami Kekkonen <hami.kekkonen@hel.fi>, 2019
 # 
 #, fuzzy
@@ -14,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_showcasesubmit 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-09-26 12:09+0000\n"
+"POT-Creation-Date: 2019-11-26 07:17+0000\n"
 "PO-Revision-Date: 2017-05-02 10:33+0000\n"
 "Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2019\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
@@ -33,16 +34,16 @@ msgstr "Käyttäjä on ilmoittanut uuden sovelluksen"
 msgid "New showcase notification"
 msgstr "Ilmoitus uudesta sovelluksesta"
 
-#: ckanext/sixodp_showcasesubmit/controller.py:112
+#: ckanext/sixodp_showcasesubmit/controller.py:114
 msgid "N.B. The following dataset could not be automatically linked"
 msgstr ""
 "Huom: Seuraavaa aineistoa ei voitu automaattisesti liittää sovellukseen"
 
-#: ckanext/sixodp_showcasesubmit/controller.py:116
+#: ckanext/sixodp_showcasesubmit/controller.py:118
 msgid "Unauthorized to create a package"
 msgstr "Ei oikeuksia luoda tietoaineistoa"
 
-#: ckanext/sixodp_showcasesubmit/controller.py:125
+#: ckanext/sixodp_showcasesubmit/controller.py:127
 msgid "Showcase submitted successfully"
 msgstr "Sovelluksen lähetys onnistui"
 
@@ -79,7 +80,7 @@ msgid "Description"
 msgstr "Kuvaus"
 
 #: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:47
-msgid "eg. A detailed description"
+msgid "eg. A detailed description about showcase"
 msgstr "Kuvaus sovelluksesta ja sen keskeisistä ominaisuuksista"
 
 #: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:59
@@ -96,7 +97,7 @@ msgstr ""
 
 #: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:80
 msgid "Application website"
-msgstr "Sovelluksen tekijän verkkosivusto"
+msgstr "Tekijän verkkosivusto"
 
 #: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:91
 msgid " The original source url or a website dedicated for the showcase "
@@ -202,19 +203,19 @@ msgstr "Valitse yksi tai useampi data"
 msgid "Search for a dataset"
 msgstr "Etsi dataa"
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:271
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:272
 msgid "Submitter info"
 msgstr "Ilmoittajan tiedot"
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:278
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:279
 msgid "Name of the submitter"
 msgstr "Ilmoittajan nimi"
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:296
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:297
 msgid "Submitter email"
 msgstr "Ilmoittajan sähköpostiosoite"
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:314
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:315
 msgid ""
 "I accept that metadata of the application is distributed to other data "
 "portals."
@@ -222,6 +223,6 @@ msgstr ""
 "Hyväksyn, että lähettämäni metatiedot ja kuvat sovelluksesta välitetään "
 "muihin dataportaaleihin, kuten avoindata.fi:hin."
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:336
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:337
 msgid "Submit"
 msgstr "Lähetä"

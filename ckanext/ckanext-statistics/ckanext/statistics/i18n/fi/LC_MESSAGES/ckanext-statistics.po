@@ -32,7 +32,7 @@ msgstr "Organisaatioiden aktiviteetti"
 
 #: ckanext/statistics/reports.py:225
 msgid "A quarterly list of datasets created and edited by a publisher."
-msgstr ""
+msgstr "Organisaation luomat ja muokkaamat datat neljännesvuosittain"
 
 #: ckanext/statistics/fanstatic/javascript/main.js:12
 #: ckanext/statistics/templates/statistics/statistics_read.html:11
@@ -164,7 +164,7 @@ msgstr ""
 
 #: ckanext/statistics/templates/report/publisher_activity.html:4
 msgid "Period: Current and previous quarter"
-msgstr ""
+msgstr "Ajanjakso: tämänhetkinen ja edellinen vuosineljännes"
 
 #: ckanext/statistics/templates/report/publisher_activity.html:9
 msgid "Datasets created:"
@@ -184,30 +184,33 @@ msgid ""
 "why 'created or modified' is often less than the sum of the 'created' and "
 "'modified' values."
 msgstr ""
+"Huom: Joitain ajanjakson aikana avattuja datoja on voitu myös muokata, joten"
+" \"avattu tai muokattu\" -kohta on usein pienempi kuin \"avattu-\" ja "
+"\"muokattu\"-kohtien summa."
 
 #: ckanext/statistics/templates/report/publisher_activity.html:18
 msgid "Publishe"
-msgstr ""
+msgstr "Julkaistu"
 
 #: ckanext/statistics/templates/report/publisher_activity.html:19
 msgid "Datasets created"
-msgstr ""
+msgstr "Datoja avattu"
 
 #: ckanext/statistics/templates/report/publisher_activity.html:20
 msgid "Datasets modified"
-msgstr ""
+msgstr "Datoja muokattu"
 
 #: ckanext/statistics/templates/report/publisher_activity.html:21
 msgid "Created or modified"
-msgstr ""
+msgstr "Avattu tai muokattu"
 
 #: ckanext/statistics/templates/report/publisher_activity.html:56
 msgid "Dataset"
-msgstr ""
+msgstr "Data"
 
 #: ckanext/statistics/templates/report/publisher_activity.html:57
 msgid "Notes"
-msgstr ""
+msgstr "Huomiot"
 
 #: ckanext/statistics/templates/report/publisher_activity.html:59
 msgid "By"
@@ -215,7 +218,7 @@ msgstr ""
 
 #: ckanext/statistics/templates/report/publisher_activity.html:60
 msgid "Published data"
-msgstr ""
+msgstr "Julkaistu data"
 
 #: ckanext/statistics/templates/statistics/statistics_read.html:41
 msgid "Filter"

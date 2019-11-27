@@ -6,16 +6,16 @@
 # 
 # Translators:
 # Juha Härkönen <juha.harkonen@ouka.fi>, 2017
-# Hami Kekkonen <hami.kekkonen@hel.fi>, 2018
+# Hami Kekkonen <hami.kekkonen@hel.fi>, 2019
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_ui 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-13 07:19+0000\n"
+"POT-Creation-Date: 2019-11-26 11:40+0000\n"
 "PO-Revision-Date: 2017-01-23 14:12+0000\n"
-"Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2018\n"
+"Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2019\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/6aika-dataportal/teams/68018/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,14 +43,14 @@ msgstr "Area"
 #: ckanext/sixodp_ui/templates/package/group_list.html:5
 #: ckanext/sixodp_ui/templates/package/read_base.html:37
 msgid "Groups"
-msgstr ""
+msgstr "Categories"
 
 #: ckanext/sixodp_ui/plugin.py:221 ckanext/sixodp_ui/plugin.py:232
 #: ckanext/sixodp_ui/plugin.py:242
 #: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:44
 #: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:46
 msgid "Organizations"
-msgstr "Organizations"
+msgstr "Organisations"
 
 #: ckanext/sixodp_ui/plugin.py:222 ckanext/sixodp_ui/plugin.py:233
 #: ckanext/sixodp_ui/plugin.py:243
@@ -248,7 +248,7 @@ msgstr ""
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/slug-preview.js:36
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/slug-preview.min.js:1
 #: ckanext/sixodp_ui/templates/ckanext_pages/blog.html:12
-#: ckanext/sixodp_ui/templates/organization/bulk_process.html:44
+#: ckanext/sixodp_ui/templates/organization/bulk_process.html:69
 #: ckanext/sixodp_ui/templates/showcase/edit_base.html:14
 msgid "Edit"
 msgstr "Edit"
@@ -383,9 +383,10 @@ msgstr ""
 #: ckanext/sixodp_ui/templates/group/index.html:7
 #: ckanext/sixodp_ui/templates/group/index.html:15
 msgid "Search groups..."
-msgstr ""
+msgstr "Search categories..."
 
 #: ckanext/sixodp_ui/templates/group/index.html:15
+#: ckanext/sixodp_ui/templates/organization/bulk_process.html:21
 #: ckanext/sixodp_ui/templates/organization/read.html:15
 #: ckanext/sixodp_ui/templates/package/search.html:38
 #: ckanext/sixodp_ui/templates/showcase/manage_datasets.html:25
@@ -395,6 +396,7 @@ msgid "Name Ascending"
 msgstr "Names in ascending order"
 
 #: ckanext/sixodp_ui/templates/group/index.html:15
+#: ckanext/sixodp_ui/templates/organization/bulk_process.html:22
 #: ckanext/sixodp_ui/templates/organization/read.html:16
 #: ckanext/sixodp_ui/templates/package/search.html:39
 #: ckanext/sixodp_ui/templates/showcase/manage_datasets.html:26
@@ -405,6 +407,7 @@ msgstr "Names in descending order"
 
 #: ckanext/sixodp_ui/templates/group/read_base.html:4
 #: ckanext/sixodp_ui/templates/group/snippets/info.html:12
+#: ckanext/sixodp_ui/templates/organization/bulk_process.html:14
 msgid "Datasets"
 msgstr "Datasets"
 
@@ -417,12 +420,12 @@ msgstr "Change history"
 #: ckanext/sixodp_ui/templates/group/snippets/group_item.html:29
 msgid "{num} Dataset"
 msgid_plural "{num} Datasets"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{num} dataset"
+msgstr[1] "{num} datasets"
 
 #: ckanext/sixodp_ui/templates/group/snippets/group_item.html:31
 msgid "0 Datasets"
-msgstr ""
+msgstr "0 datasets"
 
 #: ckanext/sixodp_ui/templates/group/snippets/group_item.html:36
 #: ckanext/sixodp_ui/templates/group/snippets/group_item.html:37
@@ -431,6 +434,18 @@ msgstr ""
 
 #: ckanext/sixodp_ui/templates/group/snippets/group_item.html:41
 msgid "Remove dataset from this group"
+msgstr "Remove dataset from this category"
+
+#: ckanext/sixodp_ui/templates/group/snippets/helper.html:4
+msgid "What are Groups?"
+msgstr "What are categories?"
+
+#: ckanext/sixodp_ui/templates/group/snippets/helper.html:8
+msgid ""
+" You can use CKAN Groups to create and manage collections of datasets. This "
+"could be to catalogue datasets for a particular project or team, or on a "
+"particular theme, or as a very simple way to help people find and search "
+"your own published datasets. "
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:12
@@ -444,7 +459,7 @@ msgstr "Administrator"
 #: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:18
 #: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:20
 msgid "Dataset Editor"
-msgstr ""
+msgstr "Multiedit"
 
 #: ckanext/sixodp_ui/templates/home/snippets/sixodp_profile.html:26
 msgid "View profile"
@@ -483,42 +498,63 @@ msgstr ""
 msgid "Register"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/organization/bulk_process.html:16
+#: ckanext/sixodp_ui/templates/organization/bulk_process.html:5
+msgid "Edit datasets"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/organization/bulk_process.html:10
+msgid " found for \"{query}\""
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/organization/bulk_process.html:12
+msgid "Sorry no datasets found for \"{query}\""
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/organization/bulk_process.html:23
+#: ckanext/sixodp_ui/templates/organization/read.html:17
+#: ckanext/sixodp_ui/templates/package/search.html:40
+#: ckanext/sixodp_ui/templates/package/snippets/resource_form.html:51
+#: ckanext/sixodp_ui/templates/showcase/manage_datasets.html:27
+#: ckanext/sixodp_ui/templates/showcase/search.html:15
+msgid "Last Modified"
+msgstr "Last modified"
+
+#: ckanext/sixodp_ui/templates/organization/bulk_process.html:41
 msgid "Make public"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/organization/bulk_process.html:20
+#: ckanext/sixodp_ui/templates/organization/bulk_process.html:45
 msgid "Make private"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/organization/bulk_process.html:26
+#: ckanext/sixodp_ui/templates/organization/bulk_process.html:51
 #: ckanext/sixodp_ui/templates/package/snippets/resource_form.html:65
 msgid "Delete"
 msgstr "Delete"
 
-#: ckanext/sixodp_ui/templates/organization/bulk_process.html:49
+#: ckanext/sixodp_ui/templates/organization/bulk_process.html:74
 #: ckanext/sixodp_ui/templates/package/read_base.html:15
 #: ckanext/sixodp_ui/templates/showcase/read.html:20
 #: ckanext/sixodp_ui/templates/snippets/package_item.html:68
 msgid "Draft"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/organization/bulk_process.html:51
+#: ckanext/sixodp_ui/templates/organization/bulk_process.html:76
 #: ckanext/sixodp_ui/templates/package/read_base.html:18
 #: ckanext/sixodp_ui/templates/snippets/package_item.html:70
 msgid "Deleted"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/organization/bulk_process.html:54
+#: ckanext/sixodp_ui/templates/organization/bulk_process.html:79
 #: ckanext/sixodp_ui/templates/package/read.html:11
 #: ckanext/sixodp_ui/templates/showcase/read.html:13
 #: ckanext/sixodp_ui/templates/snippets/package_item.html:61
 msgid "Private"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/organization/bulk_process.html:67
+#: ckanext/sixodp_ui/templates/organization/bulk_process.html:92
 msgid "This organization has no datasets associated to it"
-msgstr ""
+msgstr "This organisation has no datasets associated to it"
 
 #: ckanext/sixodp_ui/templates/organization/index.html:7
 #: ckanext/sixodp_ui/templates/organization/index.html:15
@@ -544,43 +580,48 @@ msgstr "Popular"
 msgid "Relevance"
 msgstr "Relevance"
 
-#: ckanext/sixodp_ui/templates/organization/read.html:17
-#: ckanext/sixodp_ui/templates/package/search.html:40
-#: ckanext/sixodp_ui/templates/package/snippets/resource_form.html:51
-#: ckanext/sixodp_ui/templates/showcase/manage_datasets.html:27
-#: ckanext/sixodp_ui/templates/showcase/search.html:15
-msgid "Last Modified"
-msgstr "Last modified"
-
 #: ckanext/sixodp_ui/templates/organization/read.html:19
 #: ckanext/sixodp_ui/templates/package/search.html:7
 #: ckanext/sixodp_ui/templates/snippets/search_form_without_input.html:3
 msgid "Search datasets..."
 msgstr "Search data..."
 
-#: ckanext/sixodp_ui/templates/package/edit.html:9
-#: ckanext/sixodp_ui/templates/package/resource_edit.html:9
-msgid "Locked fields"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/package/edit.html:10
-#: ckanext/sixodp_ui/templates/package/resource_edit.html:10
-msgid ""
-"Fields marked with a thick gray border are used in automatic processing and "
-"cannot be modified."
-msgstr ""
-
 #: ckanext/sixodp_ui/templates/package/group_list.html:14
 msgid "Associate this group with this dataset"
-msgstr ""
+msgstr "Associate this category with this dataset"
 
 #: ckanext/sixodp_ui/templates/package/group_list.html:14
 msgid "Add to group"
-msgstr ""
+msgstr "Add to category"
 
 #: ckanext/sixodp_ui/templates/package/group_list.html:24
 msgid "There are no groups associated with this dataset"
 msgstr "No categories are associated with this dataset."
+
+#: ckanext/sixodp_ui/templates/package/new_view.html:3
+#: ckanext/sixodp_ui/templates/package/new_view.html:4
+#: ckanext/sixodp_ui/templates/package/new_view.html:8
+#: ckanext/sixodp_ui/templates/package/new_view.html:12
+msgid "Add view"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/package/new_view.html:19
+msgid ""
+" Data Explorer views may be slow and unreliable unless the DataStore "
+"extension is enabled. For more information, please see the <a "
+"href='http://docs.ckan.org/en/latest/maintaining/data-viewer.html#viewing-"
+"structured-data-the-data-explorer' target='_blank'>Data Explorer "
+"documentation</a>. "
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/package/new_view.html:28
+msgid "Preview"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/package/new_view.html:29
+#: ckanext/sixodp_ui/templates/package/snippets/resource_form.html:81
+msgid "Add"
+msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/read.html:43
 #: ckanext/sixodp_ui/templates/package/read_base.html:71
@@ -677,7 +718,7 @@ msgstr "Newest first"
 
 #: ckanext/sixodp_ui/templates/package/search.html:35
 msgid "Oldest first"
-msgstr "Olders first"
+msgstr "Oldest first"
 
 #: ckanext/sixodp_ui/templates/package/search.html:63
 msgid "API"
@@ -767,9 +808,10 @@ msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/snippets/resource_form.html:28
 msgid "eg. January 2011 Gold Prices"
-msgstr "e.g. Budget 2018"
+msgstr "e.g. Budget 2020"
 
 #: ckanext/sixodp_ui/templates/package/snippets/resource_form.html:32
+#: ckanext/sixodp_ui/templates/package/snippets/view_form.html:9
 msgid "Description"
 msgstr "Description"
 
@@ -783,7 +825,7 @@ msgstr "Format"
 
 #: ckanext/sixodp_ui/templates/package/snippets/resource_form.html:37
 msgid "eg. CSV, XML or JSON"
-msgstr "e.g. CSV"
+msgstr "e.g. CSV, XML or JSON"
 
 #: ckanext/sixodp_ui/templates/package/snippets/resource_form.html:40
 msgid "This will be guessed automatically. Leave blank if you wish"
@@ -795,7 +837,7 @@ msgstr "e.g. 2018-06-05"
 
 #: ckanext/sixodp_ui/templates/package/snippets/resource_form.html:53
 msgid "File Size"
-msgstr "Size"
+msgstr "File size"
 
 #: ckanext/sixodp_ui/templates/package/snippets/resource_form.html:53
 msgid "eg. 1024"
@@ -825,10 +867,6 @@ msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/snippets/resource_form.html:77
 msgid "Finish"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/package/snippets/resource_form.html:81
-msgid "Add"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/snippets/resource_form.html:88
@@ -864,6 +902,8 @@ msgid ""
 "You can copy and paste the embed code into a CMS or blog software that "
 "supports raw HTML"
 msgstr ""
+"You can copy and paste the embed code into a CMS or blog software that "
+"supports raw HTML."
 
 #: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:86
 msgid "Width"
@@ -879,6 +919,26 @@ msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/snippets/resources.html:4
 msgid "Resources"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/package/snippets/view_form.html:8
+msgid "Title"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/package/snippets/view_form.html:8
+msgid "eg. My View"
+msgstr "Name of the view"
+
+#: ckanext/sixodp_ui/templates/package/snippets/view_form.html:9
+msgid "eg. Information about my view"
+msgstr "A brief description of the view"
+
+#: ckanext/sixodp_ui/templates/package/snippets/view_help.html:2
+msgid "What's a view?"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/package/snippets/view_help.html:4
+msgid "A view is a representation of the data held against a resource"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/report/index.html:5
@@ -898,6 +958,7 @@ msgid ""
 "As a system administrator you are able to refresh this report on demand by "
 "clicking the 'Refresh' button."
 msgstr ""
+"You can refresh this report on demand by clicking the 'Refresh' button."
 
 #: ckanext/sixodp_ui/templates/report/view.html:24
 msgid "Options"
@@ -965,7 +1026,7 @@ msgstr ""
 
 #: ckanext/sixodp_ui/templates/snippets/facet_list.html:27
 msgid "Show More {facet_type}"
-msgstr "Show more"
+msgstr "Show more {facet_type}"
 
 #: ckanext/sixodp_ui/templates/snippets/facet_list.html:30
 msgid "Show Only Popular {facet_type}"
@@ -1063,7 +1124,7 @@ msgstr "My datasets"
 
 #: ckanext/sixodp_ui/templates/user/dashboard.html:13
 msgid "My Organizations"
-msgstr "My organizations"
+msgstr "My organisations"
 
 #: ckanext/sixodp_ui/templates/user/dashboard.html:14
 msgid "My Groups"

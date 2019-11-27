@@ -1,8 +1,8 @@
 # Translations template for ckanext-sixodp_showcase.
-# Copyright (C) 2018 ORGANIZATION
+# Copyright (C) 2019 ORGANIZATION
 # This file is distributed under the same license as the ckanext-sixodp_showcase
 # project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 # 
 # Translators:
 # Mikko Nieminen <mikko.nieminen@gofore.com>, 2017
@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_showcase 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-09-13 12:50+0000\n"
+"POT-Creation-Date: 2019-11-26 12:02+0000\n"
 "PO-Revision-Date: 2017-03-17 06:42+0000\n"
 "Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2019\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
@@ -64,13 +64,105 @@ msgstr "Virheellinen haku: {error_message}"
 msgid "Parameter \"{parameter_name}\" is not an integer"
 msgstr "Parametri \"{parameter_name}\" ei ole kokonaisluku"
 
-#: ckanext/sixodp_showcase/plugin.py:101
+#: ckanext/sixodp_showcase/plugin.py:102
 msgid "Category"
 msgstr "Kategoria"
 
-#: ckanext/sixodp_showcase/plugin.py:103
+#: ckanext/sixodp_showcase/plugin.py:104
 msgid "Platform"
 msgstr "Alusta"
+
+#: ckanext/sixodp_showcase/translations.py:4
+msgid "eg. visualization"
+msgstr "esim. Sovellukset / Visualisoinnit"
+
+#: ckanext/sixodp_showcase/translations.py:5
+msgid "Category which represents showcase."
+msgstr "Kategoriat, joihin sovellus kuuluu"
+
+#: ckanext/sixodp_showcase/translations.py:6
+msgid "eg. android"
+msgstr "Esim. Android / iPhone"
+
+#: ckanext/sixodp_showcase/translations.py:7
+msgid "Platforms of the showcase."
+msgstr "Mobiilisovelluksen alusta(t)"
+
+#: ckanext/sixodp_showcase/translations.py:8
+msgid ""
+"Keywords or tags through which users are able to find this dataset easily "
+"through the search page or other datasets which have the same tag."
+msgstr "Sovellusta kuvaavat avainsanat."
+
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:209
+#: ckanext/sixodp_showcase/translations.py:9
+msgid "Author website"
+msgstr "Tekijän verkkosivusto"
+
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:202
+#: ckanext/sixodp_showcase/translations.py:10
+msgid "Application website"
+msgstr "Sovelluksen verkkosivusto"
+
+#: ckanext/sixodp_showcase/translations.py:11
+msgid "Links to stores"
+msgstr "Linkit sovelluskauppoihin"
+
+#: ckanext/sixodp_showcase/translations.py:12
+msgid ""
+"Links to stores. For mobile applications, link to application store. For "
+"other applications, link to web page."
+msgstr ""
+"Sovelluksen www-osoite. Mobiilisovelluksilla linkki sovelluskauppaan (esim. "
+"Google Play, Apple App Store). Muun tyyppisillä sovelluksilla linkki "
+"sivulle, jossa sovellusta voi käyttää tai jonka kautta sen voi ladata. "
+"Linkeistä luodaan automaattisesti jakelualustan tunnistava latauspainike "
+"sovelluksen esittelysivulle."
+
+#: ckanext/sixodp_showcase/translations.py:13
+msgid ""
+"An universal, compact and easy to understand description of the added "
+"showcase."
+msgstr "Yleiskielinen, tiivis ja helposti ymmärrettävä kuvaus sovelluksesta."
+
+#: ckanext/sixodp_showcase/translations.py:14
+msgid "Featured"
+msgstr "Nosto esittelyyn"
+
+#: ckanext/sixodp_showcase/translations.py:15
+msgid "Featured image"
+msgstr "Esittelykuva"
+
+#: ckanext/sixodp_showcase/translations.py:16
+msgid "No"
+msgstr "Ei"
+
+#: ckanext/sixodp_showcase/translations.py:17
+msgid "Yes"
+msgstr "Kyllä"
+
+#: ckanext/sixodp_showcase/translations.py:18
+msgid "Notifier"
+msgstr "Sovelluksen ilmoittaja"
+
+#: ckanext/sixodp_showcase/translations.py:19
+msgid "Name of the notifier"
+msgstr "Sovelluksen ilmoittajan nimi"
+
+#: ckanext/sixodp_showcase/translations.py:20
+msgid "Notifier Email"
+msgstr "Sovelluksen ilmoittajan sähköpostiosoite"
+
+#: ckanext/sixodp_showcase/translations.py:21
+msgid "Email of the notifier"
+msgstr "Sovelluksen ilmoittajan sähköpostiosoite"
+
+#: ckanext/sixodp_showcase/translations.py:22
+msgid ""
+"A global id can be assigned to identify the showcase in external services."
+msgstr ""
+"Sovellukselle voidaan antaa globaali id, jolla se voidaan yksilöidä muissa "
+"palveluissa, kuten avoindata.fi:ssä."
 
 #: ckanext/sixodp_showcase/templates/admin/base.html:6
 #: ckanext/sixodp_showcase/templates/admin/manage_showcase_admins.html:38
@@ -139,8 +231,8 @@ msgid ""
 " <p><strong>Showcase Admin:</strong> Can create and remove showcases. Can "
 "add and remove datasets from showcases.</p> "
 msgstr ""
-"<p><strong>Sovellusten ylläpitäjä:</strong> Voi luoda ja poistaa "
-"sovelluksia. Voi lisätä ja poistaa tietoaineistoja sovelluksesta</p>"
+"<p><strong>Sovellusten ylläpitäjä</strong> voi luoda ja poistaa sovelluksia."
+" Voi lisätä ja poistaa tietoaineistoja sovelluksesta</p>"
 
 #: ckanext/sixodp_showcase/templates/package/dataset_showcase_list.html:3
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/edit_base.html:5
@@ -271,7 +363,7 @@ msgstr "Julkaistu"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:93
 msgid "updated"
-msgstr "päivitetty"
+msgstr "Päivitetty"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:124
 msgid "Manage"
@@ -295,61 +387,53 @@ msgid "There are no Datasets in this Showcase"
 msgstr "Sovellukseen ei liity dataa"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:171
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:218
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:220
 msgid "More from the author"
 msgstr "Lisää tekijältä"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:175
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:222
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:224
 msgid "Show all from this author"
 msgstr "Näytä kaikki"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:201
-msgid "Application website"
-msgstr "Sovelluksen verkkosivusto"
-
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:207
-msgid "Author website"
-msgstr "Tekijän verkkosivusto"
-
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:10
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:66
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:69
 msgid "Search showcases..."
 msgstr "Etsi sovelluksia..."
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:42
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:45
 msgid "Add Showcase"
 msgstr "Lisää sovellus"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:56
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:59
 msgid "Newest first"
 msgstr "Uusin ensin"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:57
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:60
 msgid "Oldest first"
 msgstr "Vanhin ensin"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:58
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:61
 msgid "Popular"
 msgstr "Suositut"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:59
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:62
 msgid "Relevance"
 msgstr "Relevanssi"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:60
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:63
 msgid "Name Ascending"
 msgstr "Nimen mukaan nousevasti"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:61
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:64
 msgid "Name Descending"
 msgstr "Nimen mukaan laskevasti"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:62
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:65
 msgid "Last Modified"
 msgstr "Viimeksi muokattu"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:63
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:66
 msgid "Top rating"
 msgstr "Paras arvosana"
 
