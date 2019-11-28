@@ -1,3 +1,19 @@
 .nav-tabs {
   border: none;
 }
+
+.main-content{
+  .nav {
+    li {
+      display: inline-block;
+
+      &.active{
+        background-color: $brand-primary;
+        color: #ffffff;
+        a {
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}
