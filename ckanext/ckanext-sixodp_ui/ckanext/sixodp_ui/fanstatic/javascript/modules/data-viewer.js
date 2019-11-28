@@ -3,7 +3,7 @@
 this.ckan.module('data-viewer', function (jQuery) {
   return {
     options: {
-      timeout: 200,
+      timeout: 1000,
       minHeight: 400,
       padding: 30
     },
