@@ -6,7 +6,8 @@
   .nav {
     li {
       display: inline-block;
-
+      border-radius: 3px 3px 0 0;
+      
       &.active{
         background-color: $brand-primary;
         color: #ffffff;
