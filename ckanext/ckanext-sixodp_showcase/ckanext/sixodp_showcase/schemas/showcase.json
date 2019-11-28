@@ -69,7 +69,7 @@
     {
       "field_name": "author",
       "label": "Author",
-      "form_placeholder": "Joe Bloggs",
+      "form_placeholder": "Name of the showcase author.",
       "required": true
     },
     {
@@ -194,7 +194,6 @@
     {
       "field_name": "notifier_email",
       "label": "Notifier Email",
-      "form_placeholder": "Email of the notifier",
       "display_snippet": null,
       "required": true
     },

@@ -1,17 +1,18 @@
-# Copyright (C) 2018
+# Copyright (C) 2019
 # This file is distributed under the same license as the  package.
 # Translators:
 # Mikko Nieminen <mikko.nieminen@gofore.com>, 2018
 # Joonas Dukpa, 2018
 # Hami Kekkonen <hami.kekkonen@hel.fi>, 2019
+# Zharktas <jari-pekka.voutilainen@gofore.com>, 2019
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sixodp\n"
-"POT-Creation-Date: 2018-11-27 13:36:22+00:00\n"
+"POT-Creation-Date: 2019-11-28 08:16:27+00:00\n"
 "PO-Revision-Date: 2017-05-08 09:08+0000\n"
-"Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2019\n"
+"Last-Translator: Zharktas <jari-pekka.voutilainen@gofore.com>, 2019\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,13 +59,13 @@ msgstr "Datatoive"
 
 #: archive-data_request.php:73 archive-showcase_idea.php:71 category.php:100
 #: index.php:46 partials/search-content-data.php:91
-#: partials/search-content.php:79
+#: partials/search-content.php:80
 msgid "Previous page"
 msgstr "Edellinen"
 
 #: archive-data_request.php:74 archive-showcase_idea.php:72 category.php:101
-#: index.php:47 partials/search-content-data.php:94
-#: partials/search-content.php:82
+#: index.php:47 partials/search-content-data.php:114
+#: partials/search-content.php:81
 msgid "Next page"
 msgstr "Seuraava"
 
@@ -281,6 +282,10 @@ msgstr "Sivut"
 msgid "App Requests"
 msgstr "Sovellusideat"
 
+#: latest-updates.php:86
+msgid "Update"
+msgstr "Päivitä"
+
 #: latest-updates.php:93
 msgid "No updates found between %1$s and %2$s."
 msgstr "Ei päivityksiä ajalla %1$s-%2$s."
@@ -302,7 +307,7 @@ msgstr "Tekijä"
 msgid "Read more"
 msgstr "Lue lisää"
 
-#: partials/categories.php:34
+#: partials/categories.php:35
 msgid "All datasets"
 msgstr "Kaikki datat"
 
@@ -310,19 +315,19 @@ msgstr "Kaikki datat"
 msgid "Latest applications"
 msgstr "Uusimmat sovellukset"
 
-#: partials/featured-apps.php:76
+#: partials/featured-apps.php:77
 msgid "Do you have a dataset or an application to share?"
 msgstr "Onko sinulla valmis sovellus tai idea sovelluksesta?"
 
-#: partials/featured-apps.php:76
+#: partials/featured-apps.php:77
 msgid "Share it!"
 msgstr "Julkaise se palvelussamme!"
 
-#: partials/featured-apps.php:79
+#: partials/featured-apps.php:80
 msgid "Submit an application"
 msgstr "Ilmoita sovellus"
 
-#: partials/featured-apps.php:80
+#: partials/featured-apps.php:81
 msgid "Share an application"
 msgstr "Kerro sovellusidea"
 

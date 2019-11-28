@@ -1,4 +1,4 @@
-# Copyright (C) 2018
+# Copyright (C) 2019
 # This file is distributed under the same license as the  package.
 # Translators:
 # Juha Härkönen <juha.harkonen@ouka.fi>, 2017
@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sixodp\n"
-"POT-Creation-Date: 2018-11-27 13:36:22+00:00\n"
+"POT-Creation-Date: 2019-11-28 08:16:27+00:00\n"
 "PO-Revision-Date: 2017-05-08 09:08+0000\n"
 "Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2019\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/6aika-dataportal/teams/68018/en_GB/)\n"
@@ -58,13 +58,13 @@ msgstr ""
 
 #: archive-data_request.php:73 archive-showcase_idea.php:71 category.php:100
 #: index.php:46 partials/search-content-data.php:91
-#: partials/search-content.php:79
+#: partials/search-content.php:80
 msgid "Previous page"
 msgstr ""
 
 #: archive-data_request.php:74 archive-showcase_idea.php:72 category.php:101
-#: index.php:47 partials/search-content-data.php:94
-#: partials/search-content.php:82
+#: index.php:47 partials/search-content-data.php:114
+#: partials/search-content.php:81
 msgid "Next page"
 msgstr ""
 
@@ -275,6 +275,10 @@ msgstr ""
 msgid "App Requests"
 msgstr "Showcase ideas"
 
+#: latest-updates.php:86
+msgid "Update"
+msgstr ""
+
 #: latest-updates.php:93
 msgid "No updates found between %1$s and %2$s."
 msgstr ""
@@ -296,7 +300,7 @@ msgstr ""
 msgid "Read more"
 msgstr ""
 
-#: partials/categories.php:34
+#: partials/categories.php:35
 msgid "All datasets"
 msgstr "All datasets"
 
@@ -304,19 +308,19 @@ msgstr "All datasets"
 msgid "Latest applications"
 msgstr "Latest showcases"
 
-#: partials/featured-apps.php:76
+#: partials/featured-apps.php:77
 msgid "Do you have a dataset or an application to share?"
 msgstr "Do you have a showcase or a showcase idea?"
 
-#: partials/featured-apps.php:76
+#: partials/featured-apps.php:77
 msgid "Share it!"
 msgstr "Why not publish it in our service?"
 
-#: partials/featured-apps.php:79
+#: partials/featured-apps.php:80
 msgid "Submit an application"
 msgstr "Submit a showcase"
 
-#: partials/featured-apps.php:80
+#: partials/featured-apps.php:81
 msgid "Share an application"
 msgstr "Share a showcase idea"
 

@@ -83,7 +83,7 @@ get_header(); ?>
           <label>
               <input type="checkbox" value="app_requests" name="types[]" <?php if ($types['app_requests']) echo 'checked="checked"' ?> /> <?php _e('App Requests', 'sixodp') ?>
           </label>
-              <input type="submit" value="Päivitä" class="btn btn-transparent--inverse" />
+              <input type="submit" value="<?php _e('Update', 'sixopd') ?>" class="btn btn-transparent--inverse" />
       </form>
     <div class="page-content container centered-content">
 

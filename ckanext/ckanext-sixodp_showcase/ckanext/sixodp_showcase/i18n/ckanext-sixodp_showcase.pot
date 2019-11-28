@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_showcase 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-28 07:27+0000\n"
+"POT-Creation-Date: 2019-11-28 08:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -156,6 +156,22 @@ msgstr ""
 
 #: ckanext/sixodp_showcase/translations.py:22
 msgid "A global id can be assigned to identify the showcase in external services."
+msgstr ""
+
+#: ckanext/sixodp_showcase/translations.py:23
+msgid "Name of the showcase author."
+msgstr ""
+
+#: ckanext/sixodp_showcase/translations.py:24
+msgid "Author Website"
+msgstr ""
+
+#: ckanext/sixodp_showcase/translations.py:25
+msgid "Application Website"
+msgstr ""
+
+#: ckanext/sixodp_showcase/translations.py:26
+msgid "Harvesting permission granted"
 msgstr ""
 
 #: ckanext/sixodp_showcase/templates/admin/base.html:6

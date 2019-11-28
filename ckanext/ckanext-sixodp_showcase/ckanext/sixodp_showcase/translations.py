@@ -20,3 +20,7 @@ def _translations():
     _('Notifier Email')
     _('Email of the notifier')
     _('A global id can be assigned to identify the showcase in external services.')
+    _('Name of the showcase author.')
+    _('Author Website')
+    _('Application Website')
+    _('Harvesting permission granted')

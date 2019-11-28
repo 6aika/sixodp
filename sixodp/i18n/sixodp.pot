@@ -1,14 +1,14 @@
-# Copyright (C) 2018 
+# Copyright (C) 2019 
 # This file is distributed under the same license as the  package.
 msgid ""
 msgstr ""
 "Project-Id-Version:  \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sixodp\n"
-"POT-Creation-Date: 2018-11-27 13:36:22+00:00\n"
+"POT-Creation-Date: 2019-11-28 08:16:27+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
@@ -51,13 +51,13 @@ msgstr ""
 
 #: archive-data_request.php:73 archive-showcase_idea.php:71 category.php:100
 #: index.php:46 partials/search-content-data.php:91
-#: partials/search-content.php:79
+#: partials/search-content.php:80
 msgid "Previous page"
 msgstr ""
 
 #: archive-data_request.php:74 archive-showcase_idea.php:72 category.php:101
-#: index.php:47 partials/search-content-data.php:94
-#: partials/search-content.php:82
+#: index.php:47 partials/search-content-data.php:114
+#: partials/search-content.php:81
 msgid "Next page"
 msgstr ""
 
@@ -264,6 +264,10 @@ msgstr ""
 msgid "App Requests"
 msgstr ""
 
+#: latest-updates.php:86
+msgid "Update"
+msgstr ""
+
 #: latest-updates.php:93
 msgid "No updates found between %1$s and %2$s."
 msgstr ""
@@ -285,7 +289,7 @@ msgstr ""
 msgid "Read more"
 msgstr ""
 
-#: partials/categories.php:34
+#: partials/categories.php:35
 msgid "All datasets"
 msgstr ""
 
@@ -293,19 +297,19 @@ msgstr ""
 msgid "Latest applications"
 msgstr ""
 
-#: partials/featured-apps.php:76
+#: partials/featured-apps.php:77
 msgid "Do you have a dataset or an application to share?"
 msgstr ""
 
-#: partials/featured-apps.php:76
+#: partials/featured-apps.php:77
 msgid "Share it!"
 msgstr ""
 
-#: partials/featured-apps.php:79
+#: partials/featured-apps.php:80
 msgid "Submit an application"
 msgstr ""
 
-#: partials/featured-apps.php:80
+#: partials/featured-apps.php:81
 msgid "Share an application"
 msgstr ""
 
