@@ -18,7 +18,8 @@
       "preset": "dataset_slug_ex",
       "form_placeholder": "eg. my-dataset",
       "description": "An URL-address which refers to the dataset. The automatically filled option derived from the title is the best option in most cases.",
-      "required": true
+      "required": true,
+      "entity_type": "showcase"
     },
     {
       "field_name": "category",

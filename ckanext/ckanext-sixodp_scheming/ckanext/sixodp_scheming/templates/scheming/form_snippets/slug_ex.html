@@ -23,6 +23,9 @@
   {% endcall %}
 {% endmacro %}
 
+{% if field.entity_type is defined %}
+    {% set entity_type = field.entity_type %}
+{% endif %}
 
 {%- if entity_type == 'dataset' %}
     {%- set controller = 'package' -%}
@@ -33,9 +36,12 @@
 {%- elif entity_type == 'group' -%}
     {%- set controller = 'group' -%}
     {%- set module_placeholder = '<group>' -%}
-{%- elif entity_type == 'collection' -%}
+{%- elif field.entity_type == 'collection' -%}
     {%- set controller = 'ckanext.collection.controller:CollectionController' -%}
     {%- set module_placeholder = '<collection>' -%}
+{%- elif entity_type == 'showcase' -%}
+    {%- set controller = 'ckanext.sixodp_showcase.controller:Sixodp_ShowcaseController' -%}
+    {%- set module_placeholder = '<showcase>' -%}
 {%- endif -%}
 
 {%- set prefix = h.url_for(controller=controller, action='read', id='') -%}
