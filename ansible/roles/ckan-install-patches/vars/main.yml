@@ -14,6 +14,7 @@ ckan_patches:
   - { file: "make_creating_tags_optional" }
   - { file: "fix-popped-wrong-app-context" }
   - { file: "fix_unicode_decode_error_in_error_page" }
+  - { file: "fix-data-viewer-race-condition"}
 
 files_created_by_patches:
   - { file: '/usr/lib/ckan/default/src/ckan/ckan/lib/csrf_token.py'}

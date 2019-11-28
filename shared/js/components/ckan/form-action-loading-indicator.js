@@ -22,7 +22,3 @@ $(function() {
     });
   });
 });
-
-$(function(){
-  console.log("ckan ready")
-});
