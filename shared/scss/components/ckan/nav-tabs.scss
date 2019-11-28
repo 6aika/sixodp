@@ -7,7 +7,12 @@
     li {
       display: inline-block;
       border-radius: 3px 3px 0 0;
-      
+      width: 100%;
+
+      @media (min-width: $width-sm){
+        width: auto;
+      }
+
       &.active{
         background-color: $brand-primary;
         color: #ffffff;
