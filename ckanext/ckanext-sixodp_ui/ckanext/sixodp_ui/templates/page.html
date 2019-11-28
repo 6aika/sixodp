@@ -53,9 +53,11 @@
                       {% endblock %}
                     </div>
                   </div>
+                  {% if self.subtitle() %}
                   <div class="toolbar--site-subtitle">
                     <h1>{% block subtitle %}{% endblock %}</h1>
                   </div>
+                  {% endif %}
                 {% endblock %}
               {% endblock %}
             </div>

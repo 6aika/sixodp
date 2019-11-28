@@ -16,6 +16,9 @@
         <input id="{{ id or name }}" type="{{ type }}" name="{{ name }}" value="{{ value | empty_and_escape }}" placeholder="{{ placeholder }}" {{ form.attributes(attrs) }} />
       {% endif %}
       {% if error and error is iterable %}<span class="error-block">{{ error|join(', ') }}</span>{% endif %}
+        <div class="field-assistive-text">
+            {{ _(field.description) }}
+        </div>
     </div>
   {% endcall %}
 {% endmacro %}
@@ -58,6 +61,3 @@
     is_required=h.scheming_field_required(field)
     ) }}
 
-<div class="field-assistive-text">
-  {{ _(field.description) }}
-</div>

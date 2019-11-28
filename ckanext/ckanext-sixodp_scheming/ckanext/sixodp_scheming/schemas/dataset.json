@@ -23,7 +23,6 @@
     {
       "field_name": "notes_translated",
       "preset": "fluent_core_markdown_translated",
-      "form_placeholder": "E.g. A diverse and detailed description",
       "form_languages": ["fi", "en", "sv"],
       "label": "Description",
       "display_snippet": null,
@@ -234,8 +233,7 @@
     {
       "field_name": "format",
       "label": "Format",
-      "preset": "sixodp_resource_format_autocomplete",
-      "description": "File format of the selected resource."
+      "preset": "sixodp_resource_format_autocomplete"
     },
     {
       "field_name": "description_translated",

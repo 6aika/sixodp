@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_ui 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-26 11:40+0000\n"
+"POT-Creation-Date: 2019-11-28 06:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -784,6 +784,15 @@ msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/snippets/info.html:20
 msgid "Rating"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/package/snippets/package_form.html:5
+msgid ""
+"The <i>data license</i> you select above only applies to the contents of any "
+"resource files that you add to this dataset. By submitting this form, you "
+"agree to release the <i>metadata</i> values that you enter into the form "
+"under the <a href=\"http://opendatacommons.org/licenses/odbl/1-0/\">Open "
+"Database License</a>."
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/snippets/resource_form.html:24
