@@ -15,7 +15,7 @@
 <table class="table table-bordered table-condensed tablesorter" id="report-table" style="width: 100%; margin-top: 8px;">
     <thead>
     <tr>
-        <th style="width: 500px">{% trans %}Publishe{% endtrans %}r</th>
+        <th style="width: 500px">{% trans %}Publishe{% endtrans %}</th>
         <th style="width: 100px">{% trans %}Datasets created{% endtrans %}</th>
         <th style="width: 100px">{% trans %}Datasets modified{% endtrans %}</th>
         <th style="width: 100px">{% trans %}Created or modified{% endtrans %}</th>
@@ -40,7 +40,7 @@
 {% for quarter in data['quarters'] %}
 <div style="margin-top: 10px; margin-bottom:10px;">
     <h3>
-        {{quarter.capitalize()}} Quarter
+        {{_(quarter.capitalize())}} _('Quarter')
         ({{h.render_datetime(data['quarters'][quarter][0])}} -
         {{h.render_datetime(data['quarters'][quarter][1])}})
     </h3>
@@ -48,14 +48,14 @@
     <div style="margin-top: 10px; margin-bottom:10px;">
         {% with %}
         {% set rows = h.report_match_rows(table, type_, quarter) %}
-        <p>{{type_.capitalize()}} ({{rows|length}}):</p>
+        <p>{{_(type_.capitalize())}} ({{rows|length}}):</p>
 
         {% if rows %}
         <table class="table table-bordered table-condensed tablesorter" id="report-table" style="width: 100%; margin-top: 8px;">
             <tr>
                 <th style="width: 500px">{% trans %}Dataset{% endtrans %}</th>
                 <th style="width: 100px">{% trans %}Notes{% endtrans %}</th>
-                <th style="width: 100px">{{type_.capitalize()}}</th>
+                <th style="width: 100px">{{_(type_.capitalize()_)}}</th>
                 <th style="width: 150px">{% trans %}By{% endtrans %}</th>
                 <th style="width: 100px">{% trans %}Published data{% endtrans %}</th>
             </tr>
