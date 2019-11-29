@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_showcase 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-26 12:02+0000\n"
+"POT-Creation-Date: 2019-11-28 08:00+0000\n"
 "PO-Revision-Date: 2017-03-17 06:42+0000\n"
 "Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2019\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/6aika-dataportal/teams/68018/en_GB/)\n"
@@ -26,6 +26,7 @@ msgstr ""
 
 #: ckanext/sixodp_showcase/controller.py:64
 #: ckanext/sixodp_showcase/controller.py:66
+#: ckanext/sixodp_showcase/controller.py:312
 msgid "Showcase not found"
 msgstr ""
 
@@ -60,6 +61,15 @@ msgstr ""
 
 #: ckanext/sixodp_showcase/controller.py:270
 msgid "Parameter \"{parameter_name}\" is not an integer"
+msgstr ""
+
+#: ckanext/sixodp_showcase/controller.py:299
+#: ckanext/sixodp_showcase/controller.py:310
+msgid "Unauthorized to delete showcase"
+msgstr ""
+
+#: ckanext/sixodp_showcase/controller.py:304
+msgid "Showcase has been deleted."
 msgstr ""
 
 #: ckanext/sixodp_showcase/plugin.py:102
@@ -157,6 +167,22 @@ msgid ""
 "A global id can be assigned to identify the showcase in external services."
 msgstr ""
 
+#: ckanext/sixodp_showcase/translations.py:23
+msgid "Name of the showcase author."
+msgstr ""
+
+#: ckanext/sixodp_showcase/translations.py:24
+msgid "Author Website"
+msgstr "Author's website"
+
+#: ckanext/sixodp_showcase/translations.py:25
+msgid "Application Website"
+msgstr "Application website"
+
+#: ckanext/sixodp_showcase/translations.py:26
+msgid "Harvesting permission granted"
+msgstr ""
+
 #: ckanext/sixodp_showcase/templates/admin/base.html:6
 #: ckanext/sixodp_showcase/templates/admin/manage_showcase_admins.html:38
 msgid "Showcase Admins"
@@ -174,6 +200,7 @@ msgstr ""
 "Are you sure you want to remove this user as a showcase admin - {name}?"
 
 #: ckanext/sixodp_showcase/templates/admin/confirm_remove_showcase_admin.html:15
+#: ckanext/sixodp_showcase/templates/showcase/confirm_delete.html:10
 msgid "Cancel"
 msgstr "Cancel"
 
@@ -246,6 +273,14 @@ msgstr ""
 #: ckanext/sixodp_showcase/templates/package/dataset_showcase_list.html:21
 msgid "There are no showcases that feature this dataset"
 msgstr ""
+
+#: ckanext/sixodp_showcase/templates/showcase/confirm_delete.html:7
+msgid "Are you sure you want to delete showcase - {showcase_name}?"
+msgstr ""
+
+#: ckanext/sixodp_showcase/templates/showcase/confirm_delete.html:11
+msgid "Confirm Delete"
+msgstr "Confirm delete"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/edit_base.html:18
 msgid "Edit"
@@ -327,10 +362,12 @@ msgid "joe@example.com"
 msgstr ""
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:58
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/package_form.html:11
 msgid "Are you sure you want to delete this showcase?"
 msgstr ""
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/new_package_form.html:59
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/package_form.html:11
 msgid "Delete"
 msgstr "Delete"
 

@@ -6,18 +6,18 @@
 # 
 # Translators:
 # Mikko Nieminen <mikko.nieminen@gofore.com>, 2017
-# Joonas Dukpa, 2018
 # Zharktas <jari-pekka.voutilainen@gofore.com>, 2019
 # Hami Kekkonen <hami.kekkonen@hel.fi>, 2019
+# Joonas Dukpa, 2019
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_ui 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-26 11:40+0000\n"
+"POT-Creation-Date: 2019-11-28 06:50+0000\n"
 "PO-Revision-Date: 2017-01-23 14:12+0000\n"
-"Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2019\n"
+"Last-Translator: Joonas Dukpa, 2019\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -511,15 +511,15 @@ msgstr "Rekisteröidy"
 
 #: ckanext/sixodp_ui/templates/organization/bulk_process.html:5
 msgid "Edit datasets"
-msgstr ""
+msgstr "Muokkaa tietoaineistoja"
 
 #: ckanext/sixodp_ui/templates/organization/bulk_process.html:10
 msgid " found for \"{query}\""
-msgstr ""
+msgstr "löytyi haulla \"{query}\""
 
 #: ckanext/sixodp_ui/templates/organization/bulk_process.html:12
 msgid "Sorry no datasets found for \"{query}\""
-msgstr ""
+msgstr "Haulla \"{query}\" ei löytynyt dataa"
 
 #: ckanext/sixodp_ui/templates/organization/bulk_process.html:23
 #: ckanext/sixodp_ui/templates/organization/read.html:17
@@ -624,10 +624,15 @@ msgid ""
 "structured-data-the-data-explorer' target='_blank'>Data Explorer "
 "documentation</a>. "
 msgstr ""
+"Data Explorer -näkymät voivat olla hitaita ja epäluotettavia, jos DataStore-"
+"laajennus ei ole käytössä. Lisätietojen saamiseksi katso <a "
+"href='http://docs.ckan.org/en/latest/maintaining/data-viewer.html#viewing-"
+"structured-data-the-data-explorer' target='_blank'>Data Explorer "
+"-dokumentaatio</a>. "
 
 #: ckanext/sixodp_ui/templates/package/new_view.html:28
 msgid "Preview"
-msgstr ""
+msgstr "Esikatselu"
 
 #: ckanext/sixodp_ui/templates/package/new_view.html:29
 #: ckanext/sixodp_ui/templates/package/snippets/resource_form.html:81
@@ -813,6 +818,20 @@ msgstr "Data API"
 msgid "Rating"
 msgstr "Arvosana"
 
+#: ckanext/sixodp_ui/templates/package/snippets/package_form.html:5
+msgid ""
+"The <i>data license</i> you select above only applies to the contents of any"
+" resource files that you add to this dataset. By submitting this form, you "
+"agree to release the <i>metadata</i> values that you enter into the form "
+"under the <a href=\"http://opendatacommons.org/licenses/odbl/1-0/\">Open "
+"Database License</a>."
+msgstr ""
+"Lomakkeella valittu<i>lisenssi</i> koskee ainoastaan tähän tietoaineistoon "
+"liittämääsi dataa. Lähettämällä tämän lomakkeen suostut julkaisemaan "
+"täyttämäsi <i>metatiedot</i> <a "
+"href=\"http://opendatacommons.org/licenses/odbl/1-0/\">Creative Commons 0 "
+"-lisenssin</a> mukaisesti."
+
 #: ckanext/sixodp_ui/templates/package/snippets/resource_form.html:24
 msgid "Data"
 msgstr "Data"
@@ -942,7 +961,7 @@ msgstr "Data ja resurssit"
 
 #: ckanext/sixodp_ui/templates/package/snippets/view_form.html:8
 msgid "Title"
-msgstr ""
+msgstr "Nimi"
 
 #: ckanext/sixodp_ui/templates/package/snippets/view_form.html:8
 msgid "eg. My View"

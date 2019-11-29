@@ -6,18 +6,18 @@
 # 
 # Translators:
 # Mikko Nieminen <mikko.nieminen@gofore.com>, 2017
-# Joonas Dukpa, 2018
-# Zharktas <jari-pekka.voutilainen@gofore.com>, 2018
 # Hami Kekkonen <hami.kekkonen@hel.fi>, 2019
+# Zharktas <jari-pekka.voutilainen@gofore.com>, 2019
+# Joonas Dukpa, 2019
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_ui 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-26 11:40+0000\n"
+"POT-Creation-Date: 2019-11-28 06:50+0000\n"
 "PO-Revision-Date: 2017-01-23 14:12+0000\n"
-"Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2019\n"
+"Last-Translator: Joonas Dukpa, 2019\n"
 "Language-Team: Swedish (https://www.transifex.com/6aika-dataportal/teams/68018/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -512,11 +512,11 @@ msgstr ""
 
 #: ckanext/sixodp_ui/templates/organization/bulk_process.html:10
 msgid " found for \"{query}\""
-msgstr ""
+msgstr "resultat för \"{query}\""
 
 #: ckanext/sixodp_ui/templates/organization/bulk_process.html:12
 msgid "Sorry no datasets found for \"{query}\""
-msgstr ""
+msgstr "Tyvärr hittades inga dataset som matchar \"{query}\""
 
 #: ckanext/sixodp_ui/templates/organization/bulk_process.html:23
 #: ckanext/sixodp_ui/templates/organization/read.html:17
@@ -611,7 +611,7 @@ msgstr "Det finns inga grupper kopplade till detta dataset"
 #: ckanext/sixodp_ui/templates/package/new_view.html:8
 #: ckanext/sixodp_ui/templates/package/new_view.html:12
 msgid "Add view"
-msgstr ""
+msgstr "Lägg till vy"
 
 #: ckanext/sixodp_ui/templates/package/new_view.html:19
 msgid ""
@@ -624,7 +624,7 @@ msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/new_view.html:28
 msgid "Preview"
-msgstr ""
+msgstr "Förhandsvisa"
 
 #: ckanext/sixodp_ui/templates/package/new_view.html:29
 #: ckanext/sixodp_ui/templates/package/snippets/resource_form.html:81
@@ -725,11 +725,11 @@ msgstr "Lägg till dataset"
 
 #: ckanext/sixodp_ui/templates/package/search.html:34
 msgid "Newest first"
-msgstr ""
+msgstr "Nyaste först"
 
 #: ckanext/sixodp_ui/templates/package/search.html:35
 msgid "Oldest first"
-msgstr ""
+msgstr "Äldsta först"
 
 #: ckanext/sixodp_ui/templates/package/search.html:63
 msgid "API"
@@ -806,7 +806,21 @@ msgstr "Data API"
 
 #: ckanext/sixodp_ui/templates/package/snippets/info.html:20
 msgid "Rating"
+msgstr "Betyg"
+
+#: ckanext/sixodp_ui/templates/package/snippets/package_form.html:5
+msgid ""
+"The <i>data license</i> you select above only applies to the contents of any"
+" resource files that you add to this dataset. By submitting this form, you "
+"agree to release the <i>metadata</i> values that you enter into the form "
+"under the <a href=\"http://opendatacommons.org/licenses/odbl/1-0/\">Open "
+"Database License</a>."
 msgstr ""
+"Den <i>datalicens</i> du valt ovan gäller bara innehållet i resursfiler som "
+"du lägger till i detta dataset. Genom att bekräfta detta formulär godkänner "
+"du att de <i>metadata</i> du registrerar i formuläret släpps under licensen "
+"<a href=\"http://opendatacommons.org/licenses/odbl/1-0/\">Open Database "
+"License</a>."
 
 #: ckanext/sixodp_ui/templates/package/snippets/resource_form.html:24
 msgid "Data"
@@ -894,7 +908,7 @@ msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:19
 msgid "Embed"
-msgstr ""
+msgstr "Bädda in"
 
 #: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:33
 msgid "This resource view is not available at the moment."
@@ -910,25 +924,27 @@ msgstr "Din webbläsare stödjer inte iframes."
 
 #: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:80
 msgid "Embed resource view"
-msgstr ""
+msgstr "Infoga resursvy"
 
 #: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:83
 msgid ""
 "You can copy and paste the embed code into a CMS or blog software that "
 "supports raw HTML"
 msgstr ""
+"Du kan kopiera och klistra in koden i ett CMS eller en blogg som stödjer rå "
+"HTML"
 
 #: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:86
 msgid "Width"
-msgstr ""
+msgstr "Bredd"
 
 #: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:89
 msgid "Height"
-msgstr ""
+msgstr "Höjd"
 
 #: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:92
 msgid "Code"
-msgstr ""
+msgstr "Kod"
 
 #: ckanext/sixodp_ui/templates/package/snippets/resources.html:4
 msgid "Resources"
@@ -936,11 +952,11 @@ msgstr "Data och resurser"
 
 #: ckanext/sixodp_ui/templates/package/snippets/view_form.html:8
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 #: ckanext/sixodp_ui/templates/package/snippets/view_form.html:8
 msgid "eg. My View"
-msgstr ""
+msgstr "t.ex. Min vy"
 
 #: ckanext/sixodp_ui/templates/package/snippets/view_form.html:9
 msgid "eg. Information about my view"
@@ -948,11 +964,11 @@ msgstr "Lite information om visan"
 
 #: ckanext/sixodp_ui/templates/package/snippets/view_help.html:2
 msgid "What's a view?"
-msgstr ""
+msgstr "Vad är en vy?"
 
 #: ckanext/sixodp_ui/templates/package/snippets/view_help.html:4
 msgid "A view is a representation of the data held against a resource"
-msgstr ""
+msgstr "En vy är en representation av de data som är kopplade till en resurs"
 
 #: ckanext/sixodp_ui/templates/report/index.html:5
 msgid "Reports"
@@ -1050,7 +1066,7 @@ msgstr "Det finns ingen {facet_type} som matchar sökningen"
 
 #: ckanext/sixodp_ui/templates/snippets/home_breadcrumb_item.html:2
 msgid "Home"
-msgstr ""
+msgstr "Framsida"
 
 #: ckanext/sixodp_ui/templates/snippets/horizontal_accordion.html:30
 msgid "Close preview"

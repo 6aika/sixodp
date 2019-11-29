@@ -105,7 +105,7 @@ msgstr "A diverse and detailed description"
 
 #: ckanext/sixodp_scheming/translations.py:21
 msgid "eg. A detailed description"
-msgstr ""
+msgstr "A detailed description of the resource"
 
 #: ckanext/sixodp_scheming/translations.py:22
 msgid ""
@@ -414,7 +414,7 @@ msgstr ""
 
 #: ckanext/sixodp_scheming/translations.py:116
 msgid "Icon URL"
-msgstr ""
+msgstr "Icon"
 
 #: ckanext/sixodp_scheming/translations.py:117
 msgid "My Group"
