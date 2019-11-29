@@ -32,11 +32,11 @@
     - { "src": "401.fi.html.j2", "dest": "401.fi.html" }
     - { "src": "401.sv.html.j2", "dest": "401.sv.html" }
     - { "src": "401.en.html.j2", "dest": "401.en_GB.html" }
-    - { "src": "401.en.html.j2", "dest": "404.en_gb.html" }
+    - { "src": "401.en.html.j2", "dest": "401.en_gb.html" }
     - { "src": "403.fi.html.j2", "dest": "403.fi.html" }
     - { "src": "403.sv.html.j2", "dest": "403.sv.html" }
-    - { "src": "403.en.html.j2", "dest": "404.en_GB.html" }
-    - { "src": "403.en.html.j2", "dest": "404.en_gb.html" }
+    - { "src": "403.en.html.j2", "dest": "403.en_GB.html" }
+    - { "src": "403.en.html.j2", "dest": "403_en_gb.html" }
     - { "src": "500.fi.html.j2", "dest": "500.fi.html" }
     - { "src": "500.sv.html.j2", "dest": "500.sv.html" }
     - { "src": "500.en.html.j2", "dest": "500.en_GB.html" }
