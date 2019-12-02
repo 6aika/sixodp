@@ -164,7 +164,7 @@ msgstr ""
 
 #: ckanext/statistics/templates/report/publisher_activity.html:4
 msgid "Period: Current and previous quarter"
-msgstr "Ajanjakso: tämänhetkinen ja edellinen vuosineljännes"
+msgstr "Ajanjakso: tämä ja edellinen vuosineljännes"
 
 #: ckanext/statistics/templates/report/publisher_activity.html:9
 msgid "Datasets created:"
@@ -184,9 +184,9 @@ msgid ""
 "why 'created or modified' is often less than the sum of the 'created' and "
 "'modified' values."
 msgstr ""
-"Huom: Joitain ajanjakson aikana avattuja datoja on voitu myös muokata, joten"
-" \"avattu tai muokattu\" -kohta on usein pienempi kuin \"avattu-\" ja "
-"\"muokattu\"-kohtien summa."
+"Huom. Ajanjakson aikana avattuja datoja on voitu myös muokata, joten "
+"\"avattu tai muokattu\" -kohta on usein pienempi kuin \"avattu-\" ja "
+"\"muokattu\"-kohtien yhteissumma."
 
 #: ckanext/statistics/templates/report/publisher_activity.html:18
 msgid "Publishe"
