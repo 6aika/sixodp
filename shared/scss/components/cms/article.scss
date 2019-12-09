@@ -1,6 +1,10 @@
 .wp-caption {
   max-width: 100%;
   font-size: $font-size-small;
+
+  a {
+    width: 100%;
+  }
 }
 
 .article {
@@ -20,6 +24,10 @@
     width: 100%;
     max-width: 100%;
     height: auto;
+
+    @media(min-width: $width-sm) {
+      width: auto;
+    }
   }
 }
 
