@@ -15,7 +15,7 @@
 <table class="table table-bordered table-condensed tablesorter" id="report-table" style="width: 100%; margin-top: 8px;">
     <thead>
     <tr>
-        <th style="width: 500px">{% trans %}Publishe{% endtrans %}</th>
+        <th style="width: 500px">{% trans %}Published{% endtrans %}</th>
         <th style="width: 100px">{% trans %}Datasets created{% endtrans %}</th>
         <th style="width: 100px">{% trans %}Datasets modified{% endtrans %}</th>
         <th style="width: 100px">{% trans %}Created or modified{% endtrans %}</th>
@@ -25,7 +25,7 @@
     {% for row in table %}
     <tr>
         <td>{{ h.link_to(row['organization title'], h.report__relative_url_for(organization=row['organization name'])) }}
-            {{ h.link_to('(publisher)', h.url_for(controller='organization',action='read',id=row['organization name'])) }}
+            {{ h.link_to('(' + _('publisher') + ')', h.url_for(controller='organization',action='read',id=row['organization name'])) }}
         </td>
         <td>{{ row['num created'] }}</td>
         <td>{{ row['num modified'] }}</td>

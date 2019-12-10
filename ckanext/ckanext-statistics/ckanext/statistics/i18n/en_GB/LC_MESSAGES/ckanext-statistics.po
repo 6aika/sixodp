@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-statistics 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-12-10 07:00+0000\n"
+"POT-Creation-Date: 2019-12-10 07:19+0000\n"
 "PO-Revision-Date: 2017-09-08 11:36+0000\n"
 "Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2019\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/6aika-dataportal/teams/68018/en_GB/)\n"
@@ -196,8 +196,8 @@ msgid ""
 msgstr ""
 
 #: ckanext/statistics/templates/report/publisher_activity.html:18
-msgid "Publishe"
-msgstr "Published"
+msgid "Published"
+msgstr ""
 
 #: ckanext/statistics/templates/report/publisher_activity.html:19
 msgid "Datasets created"
@@ -209,6 +209,10 @@ msgstr ""
 
 #: ckanext/statistics/templates/report/publisher_activity.html:21
 msgid "Created or modified"
+msgstr ""
+
+#: ckanext/statistics/templates/report/publisher_activity.html:28
+msgid "publisher"
 msgstr ""
 
 #: ckanext/statistics/templates/report/publisher_activity.html:43

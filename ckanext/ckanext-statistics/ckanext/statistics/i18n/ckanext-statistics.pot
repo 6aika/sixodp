@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-statistics 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-12-10 07:00+0000\n"
+"POT-Creation-Date: 2019-12-10 07:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -190,7 +190,7 @@ msgid ""
 msgstr ""
 
 #: ckanext/statistics/templates/report/publisher_activity.html:18
-msgid "Publishe"
+msgid "Published"
 msgstr ""
 
 #: ckanext/statistics/templates/report/publisher_activity.html:19
@@ -203,6 +203,10 @@ msgstr ""
 
 #: ckanext/statistics/templates/report/publisher_activity.html:21
 msgid "Created or modified"
+msgstr ""
+
+#: ckanext/statistics/templates/report/publisher_activity.html:28
+msgid "publisher"
 msgstr ""
 
 #: ckanext/statistics/templates/report/publisher_activity.html:43
