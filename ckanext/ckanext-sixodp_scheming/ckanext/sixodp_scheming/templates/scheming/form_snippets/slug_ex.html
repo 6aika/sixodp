@@ -36,7 +36,7 @@
 {%- elif entity_type == 'group' -%}
     {%- set controller = 'group' -%}
     {%- set module_placeholder = '<group>' -%}
-{%- elif field.entity_type == 'collection' -%}
+{%- elif entity_type == 'collection' -%}
     {%- set controller = 'ckanext.collection.controller:CollectionController' -%}
     {%- set module_placeholder = '<collection>' -%}
 {%- elif entity_type == 'showcase' -%}
