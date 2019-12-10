@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_ui 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-28 06:50+0000\n"
+"POT-Creation-Date: 2019-12-10 06:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -112,6 +112,7 @@ msgstr ""
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/resource-reorder.min.js:1
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/resource-view-reorder.js:11
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/resource-view-reorder.min.js:1
+#: ckanext/sixodp_ui/templates/package/confirm_delete.html:15
 msgid "Cancel"
 msgstr ""
 
@@ -578,6 +579,14 @@ msgstr ""
 msgid "Search datasets..."
 msgstr ""
 
+#: ckanext/sixodp_ui/templates/package/confirm_delete.html:12
+msgid "Are you sure you want to delete dataset - {name}?"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/package/confirm_delete.html:16
+msgid "Confirm Delete"
+msgstr ""
+
 #: ckanext/sixodp_ui/templates/package/group_list.html:14
 msgid "Associate this group with this dataset"
 msgstr ""
@@ -660,7 +669,7 @@ msgid "Not seeing the views you were expecting?"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/resource_read.html:93
-#: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:35
+#: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:18
 msgid "Click here for more information."
 msgstr ""
 
@@ -874,24 +883,24 @@ msgstr ""
 msgid "Estimated upload times with the selected resource file"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:11
-msgid "Fullscreen"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:19
-msgid "Embed"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:33
+#: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:16
 msgid "This resource view is not available at the moment."
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:42
+#: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:25
 msgid "Download resource"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:66
+#: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:49
 msgid "Your browser does not support iframes."
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:60
+msgid "Fullscreen"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:68
+msgid "Embed"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:80
@@ -950,6 +959,14 @@ msgstr ""
 
 #: ckanext/sixodp_ui/templates/report/view.html:9
 msgid "Generated"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/report/view.html:13
+msgid "Refresh report"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/report/view.html:16
+msgid "Refresh"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/report/view.html:18

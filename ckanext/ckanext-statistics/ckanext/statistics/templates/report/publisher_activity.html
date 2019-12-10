@@ -40,7 +40,7 @@
 {% for quarter in data['quarters'] %}
 <div style="margin-top: 10px; margin-bottom:10px;">
     <h3>
-        {{_(quarter.capitalize())}} _('Quarter')
+        {{_(quarter.capitalize())}} {{ _('Quarter') }}
         ({{h.render_datetime(data['quarters'][quarter][0])}} -
         {{h.render_datetime(data['quarters'][quarter][1])}})
     </h3>

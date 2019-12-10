@@ -7,17 +7,17 @@
 # Translators:
 # Mikko Nieminen <mikko.nieminen@gofore.com>, 2017
 # Hami Kekkonen <hami.kekkonen@hel.fi>, 2019
-# Zharktas <jari-pekka.voutilainen@gofore.com>, 2019
 # Joonas Dukpa, 2019
+# Zharktas <jari-pekka.voutilainen@gofore.com>, 2019
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_ui 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-28 06:50+0000\n"
+"POT-Creation-Date: 2019-12-10 06:48+0000\n"
 "PO-Revision-Date: 2017-01-23 14:12+0000\n"
-"Last-Translator: Joonas Dukpa, 2019\n"
+"Last-Translator: Zharktas <jari-pekka.voutilainen@gofore.com>, 2019\n"
 "Language-Team: Swedish (https://www.transifex.com/6aika-dataportal/teams/68018/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,14 +38,14 @@ msgstr "Format"
 #: ckanext/sixodp_ui/plugin.py:219 ckanext/sixodp_ui/plugin.py:230
 #: ckanext/sixodp_ui/plugin.py:240
 msgid "Geographical Coverage"
-msgstr ""
+msgstr "Områden"
 
 #: ckanext/sixodp_ui/plugin.py:220 ckanext/sixodp_ui/plugin.py:231
 #: ckanext/sixodp_ui/plugin.py:241
 #: ckanext/sixodp_ui/templates/package/group_list.html:5
 #: ckanext/sixodp_ui/templates/package/read_base.html:37
 msgid "Groups"
-msgstr ""
+msgstr "Grupper"
 
 #: ckanext/sixodp_ui/plugin.py:221 ckanext/sixodp_ui/plugin.py:232
 #: ckanext/sixodp_ui/plugin.py:242
@@ -120,6 +120,7 @@ msgstr "Bekräfta"
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/resource-reorder.min.js:1
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/resource-view-reorder.js:11
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/resource-view-reorder.min.js:1
+#: ckanext/sixodp_ui/templates/package/confirm_delete.html:15
 msgid "Cancel"
 msgstr "Avbryt"
 
@@ -594,6 +595,14 @@ msgstr "Relevans"
 msgid "Search datasets..."
 msgstr "Sök dataset..."
 
+#: ckanext/sixodp_ui/templates/package/confirm_delete.html:12
+msgid "Are you sure you want to delete dataset - {name}?"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/package/confirm_delete.html:16
+msgid "Confirm Delete"
+msgstr ""
+
 #: ckanext/sixodp_ui/templates/package/group_list.html:14
 msgid "Associate this group with this dataset"
 msgstr "Koppla denna grupp till detta dataset"
@@ -676,7 +685,7 @@ msgid "Not seeing the views you were expecting?"
 msgstr "Hittar du inte vyerna du förväntade dig?"
 
 #: ckanext/sixodp_ui/templates/package/resource_read.html:93
-#: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:35
+#: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:18
 msgid "Click here for more information."
 msgstr "Klicka här för att läsa mer..."
 
@@ -902,25 +911,25 @@ msgstr "Slutför"
 msgid "Estimated upload times with the selected resource file"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:11
-msgid "Fullscreen"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:19
-msgid "Embed"
-msgstr "Bädda in"
-
-#: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:33
+#: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:16
 msgid "This resource view is not available at the moment."
 msgstr "Resursvyn är inte tillgänglig just nu."
 
-#: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:42
+#: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:25
 msgid "Download resource"
 msgstr "Ladda ner resurs"
 
-#: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:66
+#: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:49
 msgid "Your browser does not support iframes."
 msgstr "Din webbläsare stödjer inte iframes."
+
+#: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:60
+msgid "Fullscreen"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:68
+msgid "Embed"
+msgstr "Bädda in"
 
 #: ckanext/sixodp_ui/templates/package/snippets/resource_view.html:80
 msgid "Embed resource view"
@@ -980,6 +989,14 @@ msgstr "Visa resurser"
 
 #: ckanext/sixodp_ui/templates/report/view.html:9
 msgid "Generated"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/report/view.html:13
+msgid "Refresh report"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/report/view.html:16
+msgid "Refresh"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/report/view.html:18
