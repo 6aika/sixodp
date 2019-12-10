@@ -35,8 +35,8 @@ def publisher_activity(organization, include_sub_organizations=False):
         datasets_with_title = []
         for dataset in datasets:
             package_dict = toolkit.get_action('package_show')({}, {'id': dataset[0]})
-            dataset = (dataset[0], package_dict.get('title_translated')['fi'], dataset[2], dataset[3], dataset[4],
-                       dataset[5], dataset[6], dataset[7])
+            dataset = (dataset[1], package_dict.get('title_translated')['fi'], dataset[3], dataset[4], dataset[5],
+                       dataset[6], dataset[7], dataset[8])
             datasets_with_title.append(dataset)
 
         return {'table': datasets_with_title, 'columns': columns,
@@ -55,8 +55,8 @@ def publisher_activity(organization, include_sub_organizations=False):
         for organization in add_progress_bar(all_orgs):
             created, modified = _get_activity(
                 organization.name, include_sub_organizations, periods)
-            created_names = [dataset[0] for dataset in created.values()[0]]
-            modified_names = [dataset[0] for dataset in modified.values()[0]]
+            created_names = [dataset[1] for dataset in created.values()[0]]
+            modified_names = [dataset[1] for dataset in modified.values()[0]]
             num_created = len(created_names)
             num_modified = len(modified_names)
             num_total = len(set(created_names) | set(modified_names))
@@ -179,7 +179,7 @@ def _get_activity(organization_name, include_sub_organizations, periods):
             if period[0] < created_.revision_timestamp < period[1]:
                 published = not asbool(pkg.extras.get('unpublished'))
                 created[period_name].append(
-                    (created_.name, created_.title, lib.dataset_notes(pkg),
+                    (created_.id, created_.name, created_.title, lib.dataset_notes(pkg),
                      'created', period_name,
                      created_.revision_timestamp.isoformat(),
                      created_.revision.author, published))
@@ -204,7 +204,7 @@ def _get_activity(organization_name, include_sub_organizations, periods):
             if authors:
                 published = not asbool(pkg.extras.get('unpublished'))
                 modified[period_name].append(
-                    (pkg.name, pkg.title, lib.dataset_notes(pkg),
+                    (pkg.id, pkg.name, pkg.title, lib.dataset_notes(pkg),
                      'modified', period_name,
                      dates_formatted, authors, published))
     return created, modified
