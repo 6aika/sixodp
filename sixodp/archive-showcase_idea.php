@@ -50,7 +50,7 @@ get_header(); ?>
                       'image_url' => get_post_thumbnail_url($post),
                       'title' => $post->post_title,
                       'show_rating' => false,
-                      'date_updated' => $post->post_date,
+                      'timestamp' => $post->post_date,
                       'notes' => $post->post_content,
                       'url' => get_the_permalink(),
                       'meta' => __('Showcase idea', 'sixodp'),
