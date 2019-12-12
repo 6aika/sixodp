@@ -1,10 +1,17 @@
 {% ckan_extends %}
 
+{% block title %}{{ _(report.title) }} - {{ _('Reports') }} - {{ super() }}{% endblock %}
+
+{% block breadcrumb_content %}
+    {{ h.build_nav('reports', _('Reports')) }}
+    {{ h.build_nav('report-org' if '/organization' in request.environ.get('PATH_INFO', '') else 'report', _(report.title), report_name=report_name) }}
+{% endblock %}
+
 {% block offcanvas_button %}{% endblock %}
 
 {% block primary %}
-      <h1>{{ report.title }}</h1>
-      <p>{{ report.description }}</p>
+      <h1>{{ _(report.title) }}</h1>
+      <p>{{ _(report.description) }}</p>
       <p>
           {{ _('Generated') }}: {{ h.report__render_datetime(report_date, '%d/%m/%Y %H:%M') }}
       </p>

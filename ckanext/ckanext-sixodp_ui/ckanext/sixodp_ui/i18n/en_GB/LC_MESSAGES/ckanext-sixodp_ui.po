@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_ui 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-12-10 06:48+0000\n"
+"POT-Creation-Date: 2019-12-12 10:17+0000\n"
 "PO-Revision-Date: 2017-01-23 14:12+0000\n"
 "Last-Translator: Joonas Dukpa, 2019\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/6aika-dataportal/teams/68018/en_GB/)\n"
@@ -59,6 +59,50 @@ msgstr "Organisations"
 #: ckanext/sixodp_ui/templates/package/read_base.html:38
 msgid "Collections"
 msgstr "Data collections"
+
+#: ckanext/sixodp_ui/translations.py:8
+msgid "Broken links"
+msgstr ""
+
+#: ckanext/sixodp_ui/translations.py:9
+msgid ""
+"Dataset resource URLs that are found to result in errors when resolved."
+msgstr ""
+
+#: ckanext/sixodp_ui/translations.py:10
+msgid "Openness (Five Stars)"
+msgstr ""
+
+#: ckanext/sixodp_ui/translations.py:11
+msgid ""
+"Datasets graded on Tim Berners Lees' Five Stars of Openness - openly "
+"licensed, openly accessible, structured, open format, URIs for entities, "
+"linked."
+msgstr ""
+
+#: ckanext/sixodp_ui/translations.py:13
+msgid "Most popular datasets"
+msgstr ""
+
+#: ckanext/sixodp_ui/translations.py:14
+msgid "Google analytics showing top datasets with most views"
+msgstr ""
+
+#: ckanext/sixodp_ui/translations.py:15
+msgid "Most popular resources"
+msgstr ""
+
+#: ckanext/sixodp_ui/translations.py:16
+msgid "Google analytics showing most downloaded resources"
+msgstr ""
+
+#: ckanext/sixodp_ui/translations.py:17
+msgid "Publisher activity"
+msgstr ""
+
+#: ckanext/sixodp_ui/translations.py:18
+msgid "A quarterly list of datasets created and edited by a publisher."
+msgstr ""
 
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/activity-stream.js:20
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/activity-stream.min.js:1

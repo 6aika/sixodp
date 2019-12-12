@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-statistics 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-12-10 07:19+0000\n"
+"POT-Creation-Date: 2019-12-12 10:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,14 +17,6 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.3.4\n"
-
-#: ckanext/statistics/reports.py:232
-msgid "Publisher activity"
-msgstr ""
-
-#: ckanext/statistics/reports.py:233
-msgid "A quarterly list of datasets created and edited by a publisher."
-msgstr ""
 
 #: ckanext/statistics/translations.py:4
 msgid "This"

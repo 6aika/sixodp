@@ -229,8 +229,8 @@ def publisher_activity_combinations():
 
 publisher_activity_report_info = {
     'name': 'publisher-activity',
-    'title': _('Publisher activity'),
-    'description': _('A quarterly list of datasets created and edited by a publisher.'),
+    'title': 'Publisher activity',
+    'description': 'A quarterly list of datasets created and edited by a publisher.',
     'option_defaults': OrderedDict((('organization', None),
                                     ('include_sub_organizations', False),
                                     )),
