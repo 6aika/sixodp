@@ -25,7 +25,7 @@
               'image_url' => CKAN_BASE_URL . "/uploads/showcase/".$showcase['featured_image'],
               'title' => get_translated($showcase, 'title'),
               'show_rating' => false,
-              'date_updated' => $showcase['date_updated'],
+              'date_updated' => $showcase['metadata_created'],
               'notes' => get_translated($showcase, 'notes'),
               'url' => CKAN_BASE_URL . '/' . $lang . "/showcase/" . $showcase['name'],
               'package_id' => $showcase['id']
@@ -61,7 +61,7 @@
             'image_url' => CKAN_BASE_URL . "/uploads/showcase/".$showcase['featured_image'],
             'title' => get_translated($showcase, 'title'),
             'show_rating' => false,
-            'date_updated' => $showcase['date_updated'],
+            'date_updated' => $showcase['metadata_created'],
             'notes' => get_translated($showcase, 'notes'),
             'url' => CKAN_BASE_URL . '/' . $lang . "/showcase/" . $showcase['name'],
             'package_id' => $showcase['id']
