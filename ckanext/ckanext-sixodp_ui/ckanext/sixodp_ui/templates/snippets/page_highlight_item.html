@@ -9,7 +9,9 @@
     <h4 class="card-title">{{ h.get_translated(item, 'title') }}</h4>
     <div class="card-title-secondary">
       {% block rating %}
+      {# Ratings are disbaled for now
         {% snippet "rating/snippets/stars_inactive.html", package=item %}
+      #}
       {% endblock %}
     </div>
     {% block notes %}
