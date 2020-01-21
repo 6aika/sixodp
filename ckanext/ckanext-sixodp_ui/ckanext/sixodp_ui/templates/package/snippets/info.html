@@ -9,6 +9,7 @@ Example:
 
 #}
 {% block package_info %}
+{# Ratings are disabled for now
 {% if pkg %}
   {% if h.show_rating_in_type(pkg.type) %}
   <section class="module module-narrow">
@@ -27,4 +28,5 @@ Example:
   {% endif %}
 
 {% endif %}
+#}
 {% endblock %}

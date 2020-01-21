@@ -28,7 +28,9 @@ show_remove    - If True, show the remove button to remove showcase/dataset asso
         </h3>
       {% endblock %}
       {% block rating %}
+        {# Ratings are disabled for now
         {% snippet "rating/snippets/stars_inactive.html", package=package %}
+        #}
       {% endblock %}
       {% block notes %}
         {% if notes %}
