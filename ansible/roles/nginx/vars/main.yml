@@ -15,3 +15,4 @@ nginx_max_resource_size: 50000
 blocked_bots:
   - MJ12bot
   - AhrefsBot
+  - Yandex
