@@ -15,6 +15,12 @@ ckan_patches:
   - { file: "fix-popped-wrong-app-context" }
   - { file: "fix_unicode_decode_error_in_error_page" }
   - { file: "fix-data-viewer-race-condition"}
+  - { file: "remove_members_from_group_read"}
+  - { file: "remove_user_activity_from_group_activity_list"}
+  - { file: "optimize_group_show" }
+  - { file: "optimize_template_loading" }
+  - { file: "group_include_extras" }
+  - { file: "add_group_extra_resource_db_indices" }
 
 files_created_by_patches:
   - { file: '/usr/lib/ckan/default/src/ckan/ckan/lib/csrf_token.py'}
