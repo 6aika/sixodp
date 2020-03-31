@@ -16,7 +16,7 @@
   "author": "Mikko Nieminen",
   "license": "ISC",
   "devDependencies": {
-    "browserify": "^14.1.0",
+    "browserify": "^16.5.1",
     "node-sass": "^4.9.0",
     "npm-run-all": "^3.1.2",
     "watch": "^0.19.2"
