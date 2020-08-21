@@ -3,6 +3,6 @@
 - name: Upgrade pip packages
   pip: name={{ item }} virtualenv={{ virtualenv }} state=latest
   with_items:
-    - pip==19.3.1
-    - setuptools==27.3.1 # Workaround for pypa/setuptools#523
+    - pip
+    - setuptools==44.1.0
     - boto
