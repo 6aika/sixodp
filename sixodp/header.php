@@ -30,7 +30,7 @@
 </head>
 
 <body <?php body_class(); ?> id="wordpress-indicator">
-<a class="sr-only sr-only-focusable" href="#main">
+<a class="sr-only sr-only-focusable" href="#maincontent">
     <?php _e( 'Skip to content', 'sixodp' ); ?></a>
   <div id="mobile-indicator"></div>
   <?php $notifications = get_posts(array('post_type' => 'notification')); ?>
