@@ -62,7 +62,7 @@ acmetool_hostnames:
 certbot_admin_email: dataportaali-dev@gofore.com
 certbot_create_if_missing: true
 certbot_certs:
-  domains:
+  - domains:
     - "{{ public_facing_hostname }}"
     - demo.dataportaali.com
     - "phppgadmin.{{ public_facing_hostname }}"
