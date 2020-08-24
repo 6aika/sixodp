@@ -13,7 +13,7 @@ get_header(); ?>
 
     <?php get_template_part('partials/page-hero'); ?>
 
-    <div class="page-content container">
+    <div id="maincontent" class="page-content container">
 
       <div class="headingbar">
         <h1 class="heading-main">

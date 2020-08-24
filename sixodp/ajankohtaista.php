@@ -28,6 +28,7 @@ get_header(); ?>
         </div>
       </div>
     </div>
+    <div id="maincontent">
     <?php
       $horizontal_accordion_heading = __('Latest updates', 'sixodp');
       include(locate_template( 'partials/horizontal-accordion.php' ));
@@ -48,7 +49,7 @@ get_header(); ?>
         </div>
       </div>
     </div>
-
+    </div>
   </main><!-- .site-main -->
 
 </div><!-- .content-area -->

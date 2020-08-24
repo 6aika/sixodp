@@ -34,7 +34,7 @@ get_header();
         </ol>
       </div>
     </div>
-    <div class="page-content container">
+    <div id="maincontent" class="page-content container">
       <div class="wrapper">
         <div class="row">
           <div class="sidebar col-md-3 col-sm-12 col-xs-12">

@@ -31,7 +31,7 @@ get_header(); ?>
       </div>
     </div>
 
-    <div class="page-content container">
+    <div id="maincontent" class="page-content container">
       <div class="wrapper--archive">
         <div class="row">
           <div class="news-content">

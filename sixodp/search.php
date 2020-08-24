@@ -31,7 +31,7 @@
       </div>
     </div>
 
-    <div class="page-content container">
+    <div id="maincontent" class="page-content container">
       <?php if(isset($_GET['datasearch'])) {
           get_template_part( 'partials/search-content-data' );
       } else {

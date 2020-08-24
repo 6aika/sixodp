@@ -37,7 +37,7 @@ $category = get_queried_object();
         <h1><?php _e('Support', 'sixodp') ?></h1>
       </div>
     </div>
-    <div class="page-content container">
+    <div id="maincontent" class="page-content container">
       <div class="wrapper">
         <?php while ( have_posts() ) : the_post(); ?>
           <div class="row">

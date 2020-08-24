@@ -85,7 +85,7 @@ get_header(); ?>
           </label>
               <input type="submit" value="<?php _e('Update', 'sixodp') ?>" class="btn btn-transparent--inverse" />
       </form>
-    <div class="page-content container centered-content">
+    <div id="maincontent" class="page-content container centered-content">
 
       <?php
       $updates = get_latest_updates($types, $date, false);

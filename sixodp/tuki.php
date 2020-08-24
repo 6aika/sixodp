@@ -33,6 +33,7 @@ get_header(); ?>
       </div>
     </div>
 
+        <div id="maincontent">
     <?php
       get_template_part( 'partials/tuki-contentbox' );
       $teema_category = get_translated_category_by_slug('teemat');
@@ -61,7 +62,7 @@ get_header(); ?>
       </div>
     </div>
     <?php get_template_part( 'partials/tuki-contactbanner' ); ?>
-
+        </div>
 	</main><!-- .site-main -->
 
 </div><!-- .content-area -->

@@ -42,7 +42,7 @@ $category = $post;
         <h1><?php echo get_the_title( $post->post_parent ); ?></h1>
       </div>
     </div>
-    <div class="page-content container">
+    <div id="maincontent" class="page-content container">
       <?php
 
         while ( have_posts() ) : ?>

@@ -40,7 +40,7 @@ get_header(); ?>
           ?>
       </div>
     </div>
-    <div class="page-content container">
+    <div id="maincontent" class="page-content container">
       <!--
       <div class="row">
         <div class="sidebar col-md-3 col-sm-5 col-xs-12">

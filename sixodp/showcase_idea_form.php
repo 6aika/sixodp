@@ -71,7 +71,7 @@ get_header(); ?>
         <h1><?php _e('New Showcase idea', 'sixodp') ?></h1>
       </div>
     </div>
-    <div class="page-content container">
+    <div id="maincontent" class="page-content container">
       <div class="wrapper">
         <div class="row">
           <div class="centered-content">

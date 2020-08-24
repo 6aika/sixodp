@@ -53,7 +53,7 @@ get_header(); ?>
         <h1><?php echo $cat->name; ?></h1>
       </div>
     </div>
-    <div class="page-content container">
+    <div id="maincontent" class="page-content container">
       <?php
       // Start the loop.
       while ( have_posts() ) : the_post();

@@ -37,7 +37,7 @@ $category = get_queried_object();
         <h1><?php echo $category->name ?></h1>
       </div>
     </div>
-    <div class="page-content container">
+    <div id="maincontent" class="page-content container">
 
       <div class="wrapper">
 
