@@ -21,7 +21,9 @@
     - solr6
     - redis
     - nginx
-    - role: acmetool
+    #- role: acmetool
+    #  when: deployment_environment_id != "vagrant" and deployment_environment_id != "build"
+    - role: geerlingguy.certbot
       when: deployment_environment_id != "vagrant" and deployment_environment_id != "build"
     - apache
     - postfix

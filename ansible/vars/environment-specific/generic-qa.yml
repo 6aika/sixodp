@@ -59,6 +59,14 @@ acmetool_hostnames:
   - demo.dataportaali.com
   - "phppgadmin.{{ public_facing_hostname }}"
 
+certbot_admin_email: dataportaali-dev@gofore.com
+certbot_create_if_missing: true
+certbot_certs:
+  domains:
+    - "{{ public_facing_hostname }}"
+    - demo.dataportaali.com
+    - "phppgadmin.{{ public_facing_hostname }}"
+
 solr:
   host: 127.0.0.1
   port: 8983
