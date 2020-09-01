@@ -33,7 +33,7 @@
   {% block search_sortby %}
     {% if disableable_sorting %}
     <div class="form-select control-group control-order-by">
-      <select id="field-order-by" name="sort" class="form-control">
+      <select id="field-order-by" name="sort" class="form-control" aria-label="{{ _('Sort results') }}">
         {% for label, value in disableable_sorting %}
           {% if label and value %}
             <option value="{{ value }}"{% if sorting_selected == value %} selected="selected"{% endif %}>{{ label }}</option>
@@ -47,7 +47,7 @@
 
   {% block search_title %}
     {% if not no_title %}
-      <h4>{% snippet 'snippets/search_result_text.html', query=query, count=count, type=type, from='dataset' %}</h4>
+      <h2>{% snippet 'snippets/search_result_text.html', query=query, count=count, type=type, from='dataset' %}</h2>
     {% endif %}
   {% endblock %}
 

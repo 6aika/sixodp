@@ -94,4 +94,8 @@
     display: inline-block;
     padding: $padding-small-vertical $padding-small-horizontal;
   }
+
+  a {
+    color: $label-text-color;
+  }
 }

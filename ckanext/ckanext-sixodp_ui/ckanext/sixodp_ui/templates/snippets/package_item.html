@@ -94,11 +94,11 @@ Example:
               <ul class="dataset-resources unstyled">
                 {% block resources_inner %}
                 {% for resource in h.dict_list_reduce(package.resources, 'format') %}
-                <a href="{{ h.url_for(controller='package', action='read', id=package.name) }}">
-                  <li class="label" data-format="{{ resource.lower() }}">
-                      {{ resource }}
-                  </li>
-                </a>
+                <li class="label" data-format="{{ resource.lower() }}">
+                  <a href="{{ h.url_for(controller='package', action='read', id=package.name) }}">
+                    {{ resource }}
+                  </a>
+                </li>
                 {% endfor %}
                 {% endblock %}
               </ul>
