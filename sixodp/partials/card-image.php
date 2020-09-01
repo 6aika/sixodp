@@ -1,7 +1,7 @@
 <div class="card--image<?php if (isset($item['external_card_class'])) echo ' ' . $item['external_card_class'] ?>">
-  <img src="<?php echo $item['image_url']; ?>">
+  <img src="<?php echo $item['image_url']; ?>" alt="">
   <div class="card-content card-content-slide-up">
-    <h4 class="card-title"><?php echo $item['title']; ?></h4>
+    <h3 class="card-title"><?php echo $item['title']; ?></h4>
     <div class="card-title-secondary">
       <?php
         if ($item['show_rating']) {
