@@ -9,16 +9,18 @@
 {% endblock -%}
 
 {% block content_primary_nav %}
-  <h1 class="page-heading">
-    {% block page_heading %}
-      {% if pkg.state.startswith('draft') %}
+  {% block page_heading %}
+    {% if pkg.state.startswith('draft') %}
+      <h1 class="page-heading">
         [{{ _('Draft') }}]
-      {% endif %}
-      {% if pkg.state == 'deleted' %}
+      </h1>
+    {% endif %}
+    {% if pkg.state == 'deleted' %}
+      <h1 class="page-heading">
         [{{ _('Deleted') }}]
-      {% endif %}
-    {% endblock %}
-  </h1>
+      </h1>
+    {% endif %}
+  {% endblock %}
 
   {% block page_subheading %}
     <h2 class="page-subheading">
