@@ -62,8 +62,8 @@
   </div>
 
   <div class="logos" role="banner">
-    <a href="<?php echo site_url(); ?>" class="logo--brand">
-      <img src="<?php echo assets_url(); ?>/images/hero_logo.png" />
+    <a href="<?php echo site_url(); ?>" class="logo--brand" aria-label="<?php _e('Home', 'sixodp') ?>">
+      <img src="<?php echo assets_url(); ?>/images/hero_logo.png" alt="" />
     </a>
     <div class="logos--eu">
       <div class="logo--erdf">

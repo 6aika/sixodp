@@ -70,7 +70,7 @@
 
   <div class="container">
     <div class="btn-container">
-      <h4 class="heading--small"><?php _e('Do you have a request for a dataset or an idea for application?', 'sixodp');?> <?php _e('Tell us!', 'sixodp');?></h4>
+      <h3 class="heading--small"><?php _e('Do you have a request for a dataset or an idea for application?', 'sixodp');?> <?php _e('Tell us!', 'sixodp');?></h3>
     </div>
     <div class="row btn-container">
       <a href="<?php echo CKAN_BASE_URL.'/'.get_current_locale_ckan() ?>/submit-data" class="btn btn-dataset btn--banner-jaa"><?php _e('Submit a dataset', 'sixodp');?></a>
