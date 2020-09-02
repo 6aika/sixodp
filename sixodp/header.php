@@ -61,9 +61,9 @@
     <?php require_once('partials/nav.php'); ?>
   </div>
 
-  <div class="logos">
+  <div class="logos" role="banner">
     <a href="<?php echo site_url(); ?>" class="logo--brand">
-      <img src="<?php echo assets_url(); ?>/images/hero_logo.png" />
+      <img src="<?php echo assets_url(); ?>/images/hero_logo.png" alt="<?php _e('Home', 'sixodp') ?>" />
     </a>
     <div class="logos--eu">
       <div class="logo--erdf">

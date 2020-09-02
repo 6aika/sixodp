@@ -53,7 +53,7 @@
             </span>
             <input type="text" class="form-control navbar-search-input" id="navbar-search-q" aria-label="...">
           </div>
-          <button class="btn btn-secondary navbar-search-btn" type="button"><span class="fa fa-search" aria-hidden="true"></span></button>
+          <button class="btn btn-secondary navbar-search-btn" type="button" aria-label="<?php _e('Search', 'sixodp');?>"><span class="fa fa-search" aria-hidden="true"></span></button>
         </li>
         <?php
           foreach ( get_nav_menu_items("secondary") as $navItem ) {
@@ -66,7 +66,8 @@
                 class="navbar-toggle-footer collapsed"
                 data-toggle="collapse"
                 data-target="#top-nav-collapse"
-                aria-expanded="false">
+                aria-expanded="false"
+                aria-label="<?php _e('Search', 'sixodp');?>">
           <span class="fa fa-chevron-up"></span>
         </button>
       </div>

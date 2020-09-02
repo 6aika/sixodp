@@ -11,7 +11,7 @@
   <input type="hidden" name="sort" value="{{ sorting }}">
 
   <div class="input-group {{ search_class }}">
-    <input type="text" class="form-control input-lg search" name="q" value="{{ query }}" autocomplete="off" placeholder="{{ placeholder }}">
+    <input type="text" class="form-control input-lg search" name="q" value="{{ query }}" autocomplete="off" placeholder="{{ placeholder }}" aria-label="{{ placeholder }}">
     <span class="input-group-btn">
       {% block search_input_button %}
         <button class="btn btn-primary btn-lg" type="submit" value="search">

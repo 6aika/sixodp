@@ -9,7 +9,7 @@
     <div class="container">
       <div class="row">
         <h1 class="heading-main text-center"><?php echo bloginfo('title') ?></h1>
-        <h3 class="subheading text-center"><?php  echo bloginfo('description') ?></h3>
+        <h2 class="subheading text-center"><?php  echo bloginfo('description') ?></h2>
 
         <div class="search-container">
           <div class="input-group">
