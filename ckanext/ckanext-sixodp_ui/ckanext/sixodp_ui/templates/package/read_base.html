@@ -8,17 +8,19 @@
   <meta property="og:description" content="{{ description|forceescape|trim }}">
 {% endblock -%}
 
-{% block content_primary_nav %}
-  <h1 class="page-heading">
-    {% block page_heading %}
-      {% if pkg.state.startswith('draft') %}
+{% block content_primary_nav_headings %}
+  {% block page_heading %}
+    {% if pkg.state.startswith('draft') %}
+      <h1 class="page-heading">
         [{{ _('Draft') }}]
-      {% endif %}
-      {% if pkg.state == 'deleted' %}
+      </h1>
+    {% endif %}
+    {% if pkg.state == 'deleted' %}
+      <h1 class="page-heading">
         [{{ _('Deleted') }}]
-      {% endif %}
-    {% endblock %}
-  </h1>
+      </h1>
+    {% endif %}
+  {% endblock %}
 
   {% block page_subheading %}
     <h2 class="page-subheading">
@@ -29,7 +31,9 @@
       </a>
     </h2>
   {% endblock %}
+{% endblock %}
 
+{% block content_primary_nav %}
   {{ h.build_nav_icon('dataset_read', _('Dataset'), id=pkg.name) }}
   {{ h.build_nav_icon('dataset_showcase_list', _('Showcases'), id=pkg.name) }}
   {{ h.build_nav_icon('dataset_activity', _('Activity Stream'), id=pkg.name) }}
