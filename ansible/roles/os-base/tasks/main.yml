@@ -70,3 +70,9 @@
     state: "{{ 'present' if automatic_updates else 'absent' }}"
 
 - include: pip.yml
+
+- name: Install guest additions in vagrant
+  apt:
+    name: virtualbox-guest-utils
+    state: present
+  when: deployment_environment_id == "vagrant"
