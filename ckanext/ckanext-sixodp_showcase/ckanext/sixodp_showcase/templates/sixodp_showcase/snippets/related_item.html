@@ -29,7 +29,7 @@ Example:
             {% set pkg_icon = h.url_for_static('uploads/showcase/' + package.get('icon')) %}
             {% if pkg_icon %}
               <div class="heading-icon">
-                <img src="{{ pkg_icon }}">
+                <img src="{{ pkg_icon }}" alt="">
               </div>
             {% endif %}
 
