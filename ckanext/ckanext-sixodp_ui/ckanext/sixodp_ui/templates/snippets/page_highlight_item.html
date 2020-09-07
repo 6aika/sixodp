@@ -4,7 +4,7 @@
 {% set notes = h.markdown_extract(h.get_translated(item, 'notes'), extract_length=truncate) %}
 
 <div class="card--image">
-  <img src="{{ image_url }}">
+  <img src="{{ image_url }}" alt="">
   <div class="card-content card-content-slide-up">
     <h4 class="card-title">{{ h.get_translated(item, 'title') }}</h4>
     <div class="card-title-secondary">
