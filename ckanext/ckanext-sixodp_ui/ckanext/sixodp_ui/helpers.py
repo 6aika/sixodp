@@ -324,4 +324,15 @@ def get_created_or_updated(pkg_or_res):
         return pkg_or_res['date_updated']
     elif newer is None and 'date_updated' in pkg_or_res:
         return pkg_or_res['date_updated']
+
+    context = {
+        'model': model, 'session': model.Session
+    }
+
+    if c.user:
+        context['user'] = c.user
+
+    if newer is None and pkg_or_res.get('package_id'):
+        pkg = get_action('package_show')(context, {'id': pkg_or_res.get('package_id')})
+        return pkg.get('date_released')
     return newer
