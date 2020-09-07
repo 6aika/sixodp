@@ -53,7 +53,7 @@ Example:
 
           {% block heading %}
           <a class="dataset-heading" href="{{ h.url_for(controller='package', action='read', id=package.name) }}">
-            <h3>
+            <h2>
               {% block heading_private %}
                 {% if package.private %}
                   <span class="dataset-private label label-inverse">
@@ -71,7 +71,7 @@ Example:
                 {% endif %}
                 {{ h.popular('recent views', package.tracking_summary.recent, min=10) if package.tracking_summary }}
               {% endblock %}
-            </h3>
+            </h2>
           </a>
           {% endblock %}
 
