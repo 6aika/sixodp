@@ -26,7 +26,7 @@
                 $class = ' active';
               }
               echo '<li class="has-subnav' . $class.'"><a href="'.$navItem["url"].'" title="'.$navItem["title"].'">'.$navItem["title"].'</a>
-              <span class="subnav-toggle"><i class="fa fa-chevron-down"></i></span><ul class="nav navbar-nav subnav">';
+              <button class="subnav-toggle"><i class="fa fa-chevron-down"></i></button><ul class="nav navbar-nav subnav">';
               foreach ($navItem["children"] as $sub_nav_item) {
                 $class = '';
                 if ( isset($sub_nav_item["isActive"]) and $sub_nav_item["isActive"] ) {
