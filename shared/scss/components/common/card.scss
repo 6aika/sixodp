@@ -267,25 +267,13 @@ $card-meta-height: $font-size-small + $card-padding * 3;
   .card-link,
   .card-link:active,
   .card-link:focus {
+    width: 100%;
     border-color: $card-text-color;
     color: $card-text-color;
 
     &:hover {
       border-color: $card-text-color-active;
       color: $card-text-color-active;
-    }
-  }
-
-  &:hover {
-    .card-content{
-      top: -$card-img-height;
-      background: $card--image-bg-active;
-
-      .card-title {
-        height: auto;
-        max-height: $card-line-height * $card-heading-rows;
-        overflow: hidden;
-      }
     }
   }
 }
