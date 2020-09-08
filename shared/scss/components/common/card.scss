@@ -356,7 +356,7 @@ $card-meta-height: $font-size-small + $card-padding * 3;
 .card-link:active,
 .card-link:focus {
   position: relative;
-  top: 60px;
+  top: 0;
   border-color: $card-text-color;
   color: $card-text-color;
 
