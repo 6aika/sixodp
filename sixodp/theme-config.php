@@ -22,6 +22,7 @@
         'showcase_idea_form' => array( 'post_title' => 'Uusi sovellusidea', 'post_content' => "", 'page_template' => 'showcase_idea_form.php' ),
         'latest-updates-search' => array( 'post_title' => 'Viimeisimmät päivitykset', 'post_content' => "", 'page_template' => 'latest-updates.php' ),
         'service' => array( 'post_title' => 'Palvelu', 'post_content' => "", 'page_template' => 'page_with_menu.php' ),
+        'thank_you' => array('post_title' => 'Kiitos', 'post_content' => "", 'page_template' => 'thank_you.php'),
     ) ),
     array(
       'locale' => 'en_GB',
@@ -35,6 +36,7 @@
         'showcase_idea_form' => array( 'post_title' => 'New showcase idea', 'post_content' => "", 'page_template' => 'showcase_idea_form.php' ),
         'latest-updates-search' => array( 'post_title' => 'Latest updates', 'post_content' => "", 'page_template' => 'latest-updates.php' ),
         'service' => array( 'post_title' => 'Service', 'post_content' => "", 'page_template' => 'page_with_menu.php' ),
+        'thank_you' => array('post_title' => 'Thank you', 'post_content' => "", 'page_template' => 'thank_you.php')
     ) ),
     array(
       'locale' => 'sv',
@@ -48,6 +50,7 @@
         'showcase_idea_form' => array( 'post_title' => 'Ny app begäran', 'post_content' => "", 'page_template' => 'showcase_idea_form.php' ),
         'latest-updates-search' => array( 'post_title' => 'Senaste uppdateringarna', 'post_content' => "", 'page_template' => 'latest-updates.php' ),
         'service' => array( 'post_title' => 'Tjänst', 'post_content' => "", 'page_template' => 'page_with_menu.php' ),
+        'thank_you' => array('post_title' => 'Tack', 'post_content' => "", 'page_template' => 'thank_you.php')
     ) )
   ) );
 

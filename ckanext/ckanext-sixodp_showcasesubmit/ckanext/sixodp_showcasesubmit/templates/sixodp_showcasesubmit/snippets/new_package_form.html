@@ -8,7 +8,9 @@
 </script>
 
 <form id="submit-showcase-form" enctype="multipart/form-data" class="dataset-form form-horizontal" method="post" action="submit-showcase" data-module="basic-form" >
-  {% block errors %}{% endblock %}
+  {% block errors %}
+  {{ form.errors(error_summary) }}
+  {% endblock %}
 
   {% if message %}
   <div class="row row-compensate">

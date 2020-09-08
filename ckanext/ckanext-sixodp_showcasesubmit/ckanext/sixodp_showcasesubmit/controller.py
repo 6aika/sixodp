@@ -12,6 +12,7 @@ import ckan.lib.navl.dictization_functions as dict_fns
 from ckan.common import _, c, request, response
 from ckan.common import config
 from ckan.lib.mailer import mail_recipient
+from ckanext.sixodp_ui.helpers import get_current_lang
 
 log = logging.getLogger(__name__)
 
@@ -19,6 +20,7 @@ check_access = logic.check_access
 get_action = logic.get_action
 render = base.render
 abort = base.abort
+redirect_to = p.toolkit.redirect_to
 flatten_to_string_key = logic.flatten_to_string_key
 NotFound = logic.NotFound
 NotAuthorized = logic.NotAuthorized
@@ -66,6 +68,8 @@ def sendNewShowcaseNotifications(showcase_name):
 class Sixodp_ShowcasesubmitController(p.toolkit.BaseController):
 
     def index(self):
+
+        lang = get_current_lang()
         vars = {'data': {}, 'errors': {},
                 'error_summary': {}, 'message': None}
         return render(index_template(), extra_vars=vars)
@@ -136,5 +140,13 @@ class Sixodp_ShowcasesubmitController(p.toolkit.BaseController):
         data, errors, error_summary, message = self._submit()
         vars = {'data': data, 'errors': errors,
                 'error_summary': error_summary, 'message': message}
-        return render(index_template(), extra_vars=vars)
+        if errors:
+            return render(index_template(), extra_vars=vars)
 
+        lang = get_current_lang()
+        if lang == 'sv':
+            redirect_to('/sv/tack')
+        elif lang == 'en_GB':
+            redirect_to('/en_gb/thank-you')
+        else:
+            redirect_to('/kiitos')
