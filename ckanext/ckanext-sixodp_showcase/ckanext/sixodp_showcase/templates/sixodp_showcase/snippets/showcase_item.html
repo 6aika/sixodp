@@ -16,15 +16,18 @@ show_remove    - If True, show the remove button to remove showcase/dataset asso
 {% block package_item %}
 
 <li class="media-item media-item-success">
+  <a href="{{ h.url_for(controller='ckanext.sixodp_showcase.controller:Sixodp_ShowcaseController', action='read', id=package.name) }}"
+     title="{{ _('View {showcase_title}').format(showcase_title=package.title) }}"
+     class="media-link">
   {% block item_inner %}
     {% block image %}
       <img src="{{ package.image_1_display_url or h.url_for_static('/base/images/placeholder-group.png') }}" alt="{{ package.name }}" class="media-image">
     {% endblock %}
 
-    <div class="item-content item-content-slide-up">
+    <div class="item-content">
       {% block title %}
         <h2 class="media-heading">
-          {{ h.link_to(h.truncate(title, truncate_title), h.url_for(controller='ckanext.sixodp_showcase.controller:Sixodp_ShowcaseController', action='read', id=package.name)) }}
+          {{ h.truncate(title, truncate_title) }}
         </h2>
       {% endblock %}
 
@@ -46,19 +49,13 @@ show_remove    - If True, show the remove button to remove showcase/dataset asso
       {% endblock %}
       {% block datasets %}{% endblock %}
       {% block link %}
-        <div class="media-link-wrapper">
-          <a href="{{ h.url_for(controller='ckanext.sixodp_showcase.controller:Sixodp_ShowcaseController', action='read', id=package.name) }}"
-             title="{{ _('View {showcase_title}').format(showcase_title=package.title) }}"
-             class="btn btn-transparent media-link">
-            {{ _('Read more') }}
-          </a>
-        </div>
       {% endblock %}
       {% if show_remove %}
         <form method="post"><input type="hidden" value="{{ package.id }}" name="remove_showcase_id" /><input value="{{ _('Remove') }}" type="submit" class="btn btn-danger btn-small media-edit" title="{{ _('Remove dataset from this showcase') }}"/></form>
       {% endif %}
     </div>
   {% endblock %}
+  </a>
 </li>
 {% endblock %}
 {# {% if position is divisibleby 3 %}

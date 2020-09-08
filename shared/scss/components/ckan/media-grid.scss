@@ -183,7 +183,8 @@ $media-grid-item-line-height: ($card-content-height - $media-grid-item-padding *
     .media-link:active,
     .media-link:focus {
       position: relative;
-      top: 60px;
+      top: 0;
+      width: 100%;
       border-color: $card-text-color;
       color: $card-text-color;
 
