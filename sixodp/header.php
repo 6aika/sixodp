@@ -60,9 +60,7 @@
     <?php require_once('partials/nav.php'); ?>
   </div>
   <div class="logos" role="banner">
-    <a href="<?php echo site_url(); ?>" class="logo--brand">
       <img src="<?php echo assets_url(); ?>/images/hero_logo.png" alt="<?php _e('Home', 'sixodp') ?>" />
-    </a>
     <div class="logos--eu">
       <div class="logo--erdf">
         <img src="<?php echo assets_url(); ?>/images/EU_ERDF_FI.png" alt="European Regional Development Fund logo">
