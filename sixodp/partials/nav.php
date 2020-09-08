@@ -5,7 +5,8 @@
 **/
 ?>
 <nav class="navbar navbar-default" id="main-navbar" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'sixodp' ); ?>">
-  <div class="container">
+
+    <div class="container">
 
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-nav-collapse" aria-expanded="false">
@@ -17,7 +18,10 @@
     </div>
 
     <div class="collapse navbar-collapse" id="top-nav-collapse">
-      <ul class="nav navbar-nav">
+        <a class="sr-only sr-only-focusable" href="#maincontent">
+            <?php _e( 'Skip to content', 'sixodp' ); ?></a>
+
+        <ul class="nav navbar-nav">
         <?php
           foreach ( get_nav_menu_items("primary") as $navItem ) {
             if ( count($navItem["children"]) > 0 ) {
@@ -26,7 +30,8 @@
                 $class = ' active';
               }
               echo '<li class="has-subnav' . $class.'"><a href="'.$navItem["url"].'" title="'.$navItem["title"].'">'.$navItem["title"].'</a>
-              <button class="subnav-toggle"><i class="fa fa-chevron-down"></i></button><ul class="nav navbar-nav subnav">';
+              <button class="subnav-toggle"><span class="sr-only">' . __('Show submenu for ', 'sixodp') .  $navItem['title'] . '</span><i class="fa fa-chevron-down"></i></button>
+              <ul class="nav navbar-nav subnav">';
               foreach ($navItem["children"] as $sub_nav_item) {
                 $class = '';
                 if ( isset($sub_nav_item["isActive"]) and $sub_nav_item["isActive"] ) {
