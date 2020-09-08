@@ -60,11 +60,9 @@
           </div>
           <button class="btn btn-secondary navbar-search-btn" type="button" aria-label="<?php _e('Search', 'sixodp');?>"><span class="fa fa-search" aria-hidden="true"></span></button>
         </li>
-        <?php
-          foreach ( get_nav_menu_items("secondary") as $navItem ) {
-            echo '<li class="language-changer nav-inline"><a href="'.$navItem["url"].'" title="'.$navItem["title"].'" class="nav-link">'.$navItem["title"].'</a></li>';
-          }
-        ?>
+          <li class="language-changer nav-inline"><a href="/fi" title=FI'" class="nav-link" aria-label="<?php _e('In Finnish', 'Sixodp') ?>">FI</a></li>
+          <li class="language-changer nav-inline"><a href="/en_gb" title=EN'" class="nav-link" aria-label="<?php _e('In English', 'Sixodp') ?>">EN</a></li>
+          <li class="language-changer nav-inline"><a href="/sv" title=SV'" class="nav-link" aria-label="<?php _e('In Swedish', 'Sixodp') ?>">SV</a></li>
       </ul>
       <div class="navbar-footer">
         <button type="button"
