@@ -3,22 +3,19 @@
 
 <li class="language-changer nav-inline">
   <a href="{% url_for h.unquote_url(current_url), locale='fi' %}"
-      class="nav-link{% if current_lang == 'fi' %} active{% endif %}">
-    <span class="hidden-xs">FI</span>
-    <span class="visible-xs">FI</span>
+      class="nav-link{% if current_lang == 'fi' %} active{% endif %}" aria-label="{{ _('In Finnish')}}">
+    FI
   </a>
 </li>
 <li class="language-changer nav-inline">
   <a href="{% url_for h.unquote_url(current_url), locale='en_GB' %}"
-     class="nav-link{% if current_lang == 'en_GB' %} active{% endif %}">
-    <span class="hidden-xs">EN</span>
-    <span class="visible-xs">EN</span>
+     class="nav-link{% if current_lang == 'en_GB' %} active{% endif %}" aria-label="={{ _('In English') }}">
+    EN
   </a>
 </li>
 <li class="language-changer nav-inline">
   <a href="{% url_for h.unquote_url(current_url), locale='sv' %}"
-      class="nav-link{% if current_lang == 'sv' %} active{% endif %}">
-    <span class="hidden-xs">SV</span>
-    <span class="visible-xs">SV</span>
+      class="nav-link{% if current_lang == 'sv' %} active{% endif %}" aria-label="{{ _('In Swedish') }}">
+    SV
   </a>
 </li>
