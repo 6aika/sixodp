@@ -27,5 +27,5 @@
       <?php echo wp_html_excerpt( strip_shortcodes(render_markdown(get_translated($item, 'notes'))), 300, '...'); ?>
     </div>
   </div>
+  </a>
 </div>
-</a>
