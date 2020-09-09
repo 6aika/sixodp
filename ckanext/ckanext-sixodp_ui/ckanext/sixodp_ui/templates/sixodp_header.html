@@ -23,7 +23,7 @@
 
           <div class="collapse navbar-collapse" id="top-nav-collapse">
             {% block skip %}
-            <div class="sr-only sr-only-focusable"><a href="#content">{{ _('Skip to content') }}</a></div>
+            <a href="#content" class="sr-only sr-only-focusable">{{ _('Skip to content') }}</a>
             {% endblock %}
             {% snippet 'snippets/navigation_tabs.html' %}
           </div>
