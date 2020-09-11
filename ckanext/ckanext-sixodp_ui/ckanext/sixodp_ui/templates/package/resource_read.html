@@ -22,9 +22,10 @@
           <div class="heading-container">
             {% block resource_read_title %}{% endblock %}
             {% block page_subheading %}
-              <h2 class="page-subheading">
-                <span>{{ h.render_datetime(h.get_created_or_updated(res), '%-d.%-m.%Y') }}</span>
-              </h2>
+              {% set resource_date = h.get_created_or_updated(res) %}
+              {% if resource_date %}
+                <div class="page-subheading">{{ h.render_datetime(resource_date, '%-d.%-m.%Y') }}</div>
+              {% endif %}
             {% endblock %}
           </div>
 
@@ -118,8 +119,8 @@
                 {% if res.description %}
                   {{ h.render_markdown(h.get_translated(res, 'description')) }}
                 {% endif %}
-                  {% if not res.description and c.package.notes %}
-                  <h3>{{ _('From the dataset abstract') }}</h3>
+                {% if not res.description and c.package.notes %}
+                  <h2 class="resource-data-description">{{ _('From the dataset abstract') }}</h2>
                   <p>{{ h.markdown_extract(h.get_translated(c.package, 'notes')) }}</p>
                   <p>{% trans dataset=c.package.title, url=h.url_for(controller='package', action='read', id=c.package['name']) %}Source: <a href="{{ url }}">{{ dataset }}</a>{% endtrans %}
                 {% endif %}
