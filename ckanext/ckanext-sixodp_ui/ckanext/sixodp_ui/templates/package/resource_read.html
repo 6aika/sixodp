@@ -24,9 +24,7 @@
             {% block page_subheading %}
               {% set resource_date = h.get_created_or_updated(res) %}
               {% if resource_date %}
-                <h2 class="page-subheading">
-                  <span>{{ h.render_datetime(resource_date, '%-d.%-m.%Y') }}</span>
-                </h2>
+                <div class="page-subheading">{{ h.render_datetime(resource_date, '%-d.%-m.%Y') }}</div>
               {% endif %}
             {% endblock %}
           </div>
