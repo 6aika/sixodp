@@ -1,5 +1,14 @@
 {% ckan_extends %}
 
+{% block facet_list_heading %}
+<h3 class="module-heading">
+  <i class="fa fa-filter"></i>
+  {% set title = title or h.get_facet_title(name) %}
+  {{ title }}
+</h3>
+{% endblock %}
+
+
 {% block facet_list_items %}
   {% with items = items or h.get_facet_items_dict(name) %}
   {% if items %}
