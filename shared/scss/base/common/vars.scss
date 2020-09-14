@@ -64,7 +64,7 @@ $brand-danger-extradark: darken($brand-danger, 15%);
 $brand-black: #000000;
 $brand-white: #ffffff;
 $brand-gray: #57575b;
-$brand-lightgray: #f4f4f5;
+$brand-lightgray: #F5F6F7;
 
 $gray-base: $brand-gray;
 $gray-darker:            darken($gray-base, $darken-intensity*2);
@@ -164,7 +164,7 @@ $card-star-filled: $text-color;
 $card-star-empty: $brand-success-light;
 
 // Navigation
-$navbar-default-bg: #f8f8f8;
+$navbar-default-bg: $brand-white;
 $notificationbar-bg: $brand-info;
 $notificationbar-text-color: $brand-white;
 $notificationbar-height: $base + 24px;
@@ -183,8 +183,8 @@ $navbar-toggle-color-active: lighten($navbar-toggle-color, 30%);
 $navbar-default-link-color: $gray;
 $navbar-default-link-active-color: $navbar-default-link-color;
 $navbar-default-link-active-border-color: $brand-primary;
-$navbar-default-link-hover-bg: $gray-light;
-$navbar-default-link-active-bg: $navbar-default-bg;
+$navbar-default-link-hover-bg: $brand-lightgray;
+$navbar-default-link-active-bg: $brand-lightgray;
 
 $navbar-default-link-color-desktop: $gray-base;
 $navbar-default-link-active-color-desktop: $navbar-default-link-color-desktop;
@@ -197,8 +197,8 @@ $navbar-secondary-bg: $brand-lightgray;
 $navbar-secondary-link-color: $text-color;
 $navbar-secondary-link-active-color: $navbar-secondary-link-color;
 $navbar-secondary-link-active-border-color: transparent;
-$navbar-secondary-link-hover-bg: $navbar-default-link-hover-bg;
-$navbar-secondary-link-active-bg: $brand-lightgray;
+$navbar-secondary-link-hover-bg: $brand-white;
+$navbar-secondary-link-active-bg: $brand-white;
 $navbar-secondary-toggle-color: $navbar-secondary-link-color;
 $navbar-secondary-active-toggle-color: $navbar-secondary-link-color;
 
