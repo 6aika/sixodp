@@ -28,7 +28,7 @@ $darken-intensity: 20%;
 $brand-primary: #534f97;
 $brand-primary-light: lighten($brand-primary, 10%);
 $brand-primary-dark: darken($brand-primary, 10%);
-$brand-primary-extralight: lighten($brand-primary, 15%);
+$brand-primary-extralight: lighten($brand-primary, 35%);
 $brand-primary-extradark: darken($brand-primary, 15%);
 
 $brand-secondary: #a55efa;
@@ -85,10 +85,10 @@ $headings-small-color: $brand-primary;
 $headings-secondary-color: $brand-primary;
 $headings-extra-color: $brand-gray;
 
-$brand-app: #62AF5D;
+$brand-app: $brand-gray;
 $brand-app-dark: darken($brand-app, 15%);
 
-$brand-dataset: #E12854;
+$brand-dataset: $brand-gray;
 $brand-dataset-dark: darken($brand-dataset, 15%);
 
 // Frontpage elements
@@ -150,7 +150,7 @@ $card-heading-rows: 3;
 
 $card-bg: $brand-lightgray;
 $card-bg-active: $brand-white;
-$card--image-bg: $brand-success-extralight;
+$card--image-bg: $brand-primary-extralight;
 $card--image-bg-active: $brand-white;
 
 $card-text-color: $text-color;
