@@ -6,18 +6,18 @@
 # 
 # Translators:
 # Juha Härkönen <juha.harkonen@ouka.fi>, 2017
-# Hami Kekkonen <hami.kekkonen@hel.fi>, 2019
 # Zharktas <jari-pekka.voutilainen@gofore.com>, 2019
 # Joonas Dukpa, 2019
+# Hami Kekkonen <hami.kekkonen@hel.fi>, 2020
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_ui 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-09-07 10:15+0000\n"
+"POT-Creation-Date: 2020-09-11 11:35+0000\n"
 "PO-Revision-Date: 2017-01-23 14:12+0000\n"
-"Last-Translator: Joonas Dukpa, 2019\n"
+"Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2020\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/6aika-dataportal/teams/68018/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,6 +28,10 @@ msgstr ""
 
 #: ckanext/sixodp_ui/helpers.py:176
 msgid "Dataset not found"
+msgstr ""
+
+#: ckanext/sixodp_ui/helpers.py:287
+msgid "Show submenu for "
 msgstr ""
 
 #: ckanext/sixodp_ui/plugin.py:218 ckanext/sixodp_ui/plugin.py:229
@@ -303,6 +307,7 @@ msgstr "Edit"
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/table-toggle-more.js:9
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/table-toggle-more.min.js:1
 #: ckanext/sixodp_ui/templates/package/resource_read.html:130
+#: ckanext/sixodp_ui/templates/snippets/facet_list.html:36
 msgid "Show more"
 msgstr ""
 
@@ -327,9 +332,9 @@ msgstr ""
 msgid "Follow us"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/page.html:6
+#: ckanext/sixodp_ui/templates/sixodp_header.html:26
 msgid "Skip to content"
-msgstr ""
+msgstr "Direct link to content"
 
 #: ckanext/sixodp_ui/templates/admin/config.html:7
 msgid "Service message"
@@ -456,6 +461,12 @@ msgstr "Names in ascending order"
 msgid "Name Descending"
 msgstr "Names in descending order"
 
+#: ckanext/sixodp_ui/templates/group/read.html:6
+#: ckanext/sixodp_ui/templates/organization/read.html:30
+#: ckanext/sixodp_ui/templates/package/search.html:84
+msgid "Filter results"
+msgstr ""
+
 #: ckanext/sixodp_ui/templates/group/read_base.html:4
 #: ckanext/sixodp_ui/templates/group/snippets/info.html:12
 #: ckanext/sixodp_ui/templates/organization/bulk_process.html:14
@@ -500,6 +511,18 @@ msgid ""
 msgstr ""
 "Categories are used to group datasets into different themes. One dataset can"
 " be a part of multiple categories."
+
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_language-changer.html:6
+msgid "In Finnish"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_language-changer.html:12
+msgid "In English"
+msgstr ""
+
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_language-changer.html:18
+msgid "In Swedish"
+msgstr ""
 
 #: ckanext/sixodp_ui/templates/home/snippets/sixodp_navbar_search.html:4
 #: ckanext/sixodp_ui/templates/home/snippets/sixodp_navbar_search.html:11
@@ -770,6 +793,7 @@ msgid "Source: <a href=\"%(url)s\">%(dataset)s</a>"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/package/resource_read.html:131
+#: ckanext/sixodp_ui/templates/snippets/facet_list.html:39
 msgid "Show less"
 msgstr ""
 
@@ -1108,15 +1132,7 @@ msgstr ""
 msgid "Search showcases..."
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/snippets/facet_list.html:27
-msgid "Show More {facet_type}"
-msgstr "Show more {facet_type}"
-
-#: ckanext/sixodp_ui/templates/snippets/facet_list.html:30
-msgid "Show Only Popular {facet_type}"
-msgstr "Show only popular {facet_type}"
-
-#: ckanext/sixodp_ui/templates/snippets/facet_list.html:34
+#: ckanext/sixodp_ui/templates/snippets/facet_list.html:43
 msgid "There are no {facet_type} that match this search"
 msgstr ""
 
@@ -1148,16 +1164,12 @@ msgstr ""
 msgid "This dataset has no description"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/snippets/page_highlight_item.html:23
-msgid "This showcase has no description"
-msgstr ""
-
-#: ckanext/sixodp_ui/templates/snippets/page_highlight_item.html:29
+#: ckanext/sixodp_ui/templates/snippets/page_highlight_item.html:8
 msgid "View {showcase_title}"
 msgstr ""
 
-#: ckanext/sixodp_ui/templates/snippets/page_highlight_item.html:31
-msgid "Read more"
+#: ckanext/sixodp_ui/templates/snippets/page_highlight_item.html:25
+msgid "This showcase has no description"
 msgstr ""
 
 #: ckanext/sixodp_ui/templates/snippets/search_form.html:9
