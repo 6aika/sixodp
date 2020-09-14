@@ -95,9 +95,7 @@ Example:
                 {% block resources_inner %}
                 {% for resource in h.dict_list_reduce(package.resources, 'format') %}
                 <li class="label" data-format="{{ resource.lower() }}">
-                  <a href="{{ h.url_for(controller='package', action='read', id=package.name) }}">
                     {{ resource }}
-                  </a>
                 </li>
                 {% endfor %}
                 {% endblock %}
