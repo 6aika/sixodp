@@ -6,19 +6,19 @@
 # 
 # Translators:
 # Mikko Nieminen <mikko.nieminen@gofore.com>, 2017
-# Hami Kekkonen <hami.kekkonen@hel.fi>, 2019
 # Joonas Dukpa, 2019
 # Zharktas <jari-pekka.voutilainen@gofore.com>, 2019
 # Heidi Lammi-Mihaljov <heidi.lammi-mihaljov@gofore.com>, 2020
+# Hami Kekkonen <hami.kekkonen@hel.fi>, 2020
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_ui 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-09-07 10:15+0000\n"
+"POT-Creation-Date: 2020-09-11 11:35+0000\n"
 "PO-Revision-Date: 2017-01-23 14:12+0000\n"
-"Last-Translator: Heidi Lammi-Mihaljov <heidi.lammi-mihaljov@gofore.com>, 2020\n"
+"Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2020\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,6 +30,10 @@ msgstr ""
 #: ckanext/sixodp_ui/helpers.py:176
 msgid "Dataset not found"
 msgstr "Tietoaineistoa ei löytynyt"
+
+#: ckanext/sixodp_ui/helpers.py:287
+msgid "Show submenu for "
+msgstr "Näytä alavalikko"
 
 #: ckanext/sixodp_ui/plugin.py:218 ckanext/sixodp_ui/plugin.py:229
 #: ckanext/sixodp_ui/plugin.py:239
@@ -314,6 +318,7 @@ msgstr "Muokkaa"
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/table-toggle-more.js:9
 #: ckanext/sixodp_ui/fanstatic/javascript/modules/table-toggle-more.min.js:1
 #: ckanext/sixodp_ui/templates/package/resource_read.html:130
+#: ckanext/sixodp_ui/templates/snippets/facet_list.html:36
 msgid "Show more"
 msgstr "Näytä lisää"
 
@@ -338,9 +343,9 @@ msgstr "Ylläpito"
 msgid "Follow us"
 msgstr "Seuraa meitä"
 
-#: ckanext/sixodp_ui/templates/page.html:6
+#: ckanext/sixodp_ui/templates/sixodp_header.html:26
 msgid "Skip to content"
-msgstr ""
+msgstr "Siirry sisältöön"
 
 #: ckanext/sixodp_ui/templates/admin/config.html:7
 msgid "Service message"
@@ -472,6 +477,12 @@ msgstr "Nimen mukaan nousevasti"
 msgid "Name Descending"
 msgstr "Nimen mukaan laskevasti"
 
+#: ckanext/sixodp_ui/templates/group/read.html:6
+#: ckanext/sixodp_ui/templates/organization/read.html:30
+#: ckanext/sixodp_ui/templates/package/search.html:84
+msgid "Filter results"
+msgstr "Suodata tuloksia"
+
 #: ckanext/sixodp_ui/templates/group/read_base.html:4
 #: ckanext/sixodp_ui/templates/group/snippets/info.html:12
 #: ckanext/sixodp_ui/templates/organization/bulk_process.html:14
@@ -516,6 +527,18 @@ msgid ""
 msgstr ""
 "Kategorioiden avulla datoja ryhmitellään eri teemojen mukaan. Yksi aineisto "
 "voi kuulua useampaan kategoriaan."
+
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_language-changer.html:6
+msgid "In Finnish"
+msgstr "Suomeksi"
+
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_language-changer.html:12
+msgid "In English"
+msgstr "Englanniksi"
+
+#: ckanext/sixodp_ui/templates/home/snippets/sixodp_language-changer.html:18
+msgid "In Swedish"
+msgstr "Ruotsiksi"
 
 #: ckanext/sixodp_ui/templates/home/snippets/sixodp_navbar_search.html:4
 #: ckanext/sixodp_ui/templates/home/snippets/sixodp_navbar_search.html:11
@@ -795,6 +818,7 @@ msgid "Source: <a href=\"%(url)s\">%(dataset)s</a>"
 msgstr "Lähde: <a href=\"%(url)s\">%(dataset)s</a>"
 
 #: ckanext/sixodp_ui/templates/package/resource_read.html:131
+#: ckanext/sixodp_ui/templates/snippets/facet_list.html:39
 msgid "Show less"
 msgstr "Näytä vähemmän"
 
@@ -1141,15 +1165,7 @@ msgstr "Avaa sivu"
 msgid "Search showcases..."
 msgstr "Hae sovelluksia..."
 
-#: ckanext/sixodp_ui/templates/snippets/facet_list.html:27
-msgid "Show More {facet_type}"
-msgstr "Näytä lisää {facet_type}"
-
-#: ckanext/sixodp_ui/templates/snippets/facet_list.html:30
-msgid "Show Only Popular {facet_type}"
-msgstr "Näytä vain yleisimmät {facet_type}"
-
-#: ckanext/sixodp_ui/templates/snippets/facet_list.html:34
+#: ckanext/sixodp_ui/templates/snippets/facet_list.html:43
 msgid "There are no {facet_type} that match this search"
 msgstr "Hakuun ei liity {facet_type} -tyyppistä sisältöä"
 
@@ -1181,17 +1197,13 @@ msgstr "Tämä tietoaineisto täyttää avoimen datan määritelmän."
 msgid "This dataset has no description"
 msgstr "Tietoaineistolla ei ole kuvausta"
 
-#: ckanext/sixodp_ui/templates/snippets/page_highlight_item.html:23
-msgid "This showcase has no description"
-msgstr "Sovelluksella ei ole kuvausta"
-
-#: ckanext/sixodp_ui/templates/snippets/page_highlight_item.html:29
+#: ckanext/sixodp_ui/templates/snippets/page_highlight_item.html:8
 msgid "View {showcase_title}"
 msgstr "Näytä {showcase_title}"
 
-#: ckanext/sixodp_ui/templates/snippets/page_highlight_item.html:31
-msgid "Read more"
-msgstr "Lue lisää"
+#: ckanext/sixodp_ui/templates/snippets/page_highlight_item.html:25
+msgid "This showcase has no description"
+msgstr "Sovelluksella ei ole kuvausta"
 
 #: ckanext/sixodp_ui/templates/snippets/search_form.html:9
 msgid "Submit"
@@ -1199,7 +1211,7 @@ msgstr "Lähetä"
 
 #: ckanext/sixodp_ui/templates/snippets/search_form.html:19
 msgid "Sort"
-msgstr ""
+msgstr "Lajittele"
 
 #: ckanext/sixodp_ui/templates/snippets/search_form.html:27
 #: ckanext/sixodp_ui/templates/snippets/search_form_without_input.html:43
