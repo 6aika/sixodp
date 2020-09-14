@@ -5,7 +5,8 @@
 **/
 ?>
 <nav class="navbar navbar-default" id="main-navbar" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'sixodp' ); ?>">
-  <div class="container">
+
+    <div class="container">
 
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-nav-collapse" aria-expanded="false">
@@ -17,7 +18,10 @@
     </div>
 
     <div class="collapse navbar-collapse" id="top-nav-collapse">
-      <ul class="nav navbar-nav">
+        <a class="sr-only sr-only-focusable" href="#maincontent">
+            <?php _e( 'Skip to content', 'sixodp' ); ?></a>
+
+        <ul class="nav navbar-nav">
         <?php
           foreach ( get_nav_menu_items("primary") as $navItem ) {
             if ( count($navItem["children"]) > 0 ) {
@@ -26,7 +30,8 @@
                 $class = ' active';
               }
               echo '<li class="has-subnav' . $class.'"><a href="'.$navItem["url"].'" title="'.$navItem["title"].'">'.$navItem["title"].'</a>
-              <span class="subnav-toggle"><i class="fa fa-chevron-down"></i></span><ul class="nav navbar-nav subnav">';
+              <button class="subnav-toggle"><span class="sr-only">' . __('Show submenu for ', 'sixodp') .  $navItem['title'] . '</span><i class="fa fa-chevron-down"></i></button>
+              <ul class="nav navbar-nav subnav">';
               foreach ($navItem["children"] as $sub_nav_item) {
                 $class = '';
                 if ( isset($sub_nav_item["isActive"]) and $sub_nav_item["isActive"] ) {
@@ -53,20 +58,19 @@
             </span>
             <input type="text" class="form-control navbar-search-input" id="navbar-search-q" aria-label="...">
           </div>
-          <button class="btn btn-secondary navbar-search-btn" type="button"><span class="fa fa-search" aria-hidden="true"></span></button>
+          <button class="btn btn-secondary navbar-search-btn" type="button" aria-label="<?php _e('Search', 'sixodp');?>"><span class="fa fa-search" aria-hidden="true"></span></button>
         </li>
-        <?php
-          foreach ( get_nav_menu_items("secondary") as $navItem ) {
-            echo '<li class="language-changer nav-inline"><a href="'.$navItem["url"].'" title="'.$navItem["title"].'" class="nav-link">'.$navItem["title"].'</a></li>';
-          }
-        ?>
+          <li class="language-changer nav-inline"><a href="/fi" title=FI'" class="nav-link" aria-label="<?php _e('In Finnish', 'Sixodp') ?>">FI</a></li>
+          <li class="language-changer nav-inline"><a href="/en_gb" title=EN'" class="nav-link" aria-label="<?php _e('In English', 'Sixodp') ?>">EN</a></li>
+          <li class="language-changer nav-inline"><a href="/sv" title=SV'" class="nav-link" aria-label="<?php _e('In Swedish', 'Sixodp') ?>">SV</a></li>
       </ul>
       <div class="navbar-footer">
         <button type="button"
                 class="navbar-toggle-footer collapsed"
                 data-toggle="collapse"
                 data-target="#top-nav-collapse"
-                aria-expanded="false">
+                aria-expanded="false"
+                aria-label="<?php _e('Search', 'sixodp');?>">
           <span class="fa fa-chevron-up"></span>
         </button>
       </div>

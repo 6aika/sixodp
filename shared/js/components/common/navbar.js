@@ -7,11 +7,13 @@ jQuery(document).ready(function($) {
 
     if(parent.hasClass('active-hover')) {
       parent.removeClass('active-hover');
-      $(this).removeClass('rotate');
+      //$(this).removeClass('rotate');
+      $(this).attr('aria-expanded', false)
     }
     else {
       parent.addClass('active-hover');
-      $(this).addClass('rotate');
+      //$(this).addClass('rotate');
+      $(this).attr('aria-expanded', true)
     }
   });
 

@@ -26,9 +26,23 @@ $relative-search-form-position: 4/6;
     text-transform: uppercase;
   }
 
+  h2 {
+    font-size: $font-size-large;
+    margin-top: $base;
+    margin-bottom: $base;
+  }
+
   .filter-list {
     .facet {
       margin-right: 10px;
+    }
+  }
+}
+
+.main-content{
+  .search-form{
+    h1{
+      font-size:$font-size-large;
     }
   }
 }

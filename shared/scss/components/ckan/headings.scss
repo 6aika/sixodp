@@ -14,7 +14,7 @@
   }
 }
 
-h3, h4, h5, h6, .module-heading {
+h2, h3, h4, h5, h6, .module-heading {
   @include heading;
   font-size: $font-size-large;
 

@@ -44,23 +44,23 @@ $card-meta-height: $font-size-small + $card-padding * 3;
   }
 
   &.card-success {
-    background: $brand-success-extralight;
+    background: $brand-primary-extralight;
 
     .card-link,
     .card-link:active,
     .card-link:focus {
-      border-color: $brand-success;
-      color: $brand-success;
+      border-color: $brand-primary;
+      color: $brand-primary;
 
       &:hover {
-        border-color: $brand-success-light;
-        color: $brand-success-light;
+        border-color: $brand-primary-light;
+        color: $brand-primary-light;
       }
     }
 
     .card-meta {
-      color: $brand-success;
-      border-color: $brand-success;
+      color: $brand-primary;
+      border-color: $brand-primary;
     }
   }
 
@@ -275,19 +275,6 @@ $card-meta-height: $font-size-small + $card-padding * 3;
       color: $card-text-color-active;
     }
   }
-
-  &:hover {
-    .card-content{
-      top: -$card-img-height;
-      background: $card--image-bg-active;
-
-      .card-title {
-        height: auto;
-        max-height: $card-line-height * $card-heading-rows;
-        overflow: hidden;
-      }
-    }
-  }
 }
 
 .card-title {
@@ -334,6 +321,7 @@ $card-meta-height: $font-size-small + $card-padding * 3;
   overflow: hidden;
   word-break: break-word;
   word-wrap: break-word;
+  color: $card-text-color;
 }
 
 .card-meta {
@@ -368,7 +356,8 @@ $card-meta-height: $font-size-small + $card-padding * 3;
 .card-link:active,
 .card-link:focus {
   position: relative;
-  top: 60px;
+  top: 0;
+  width: 100%;
   border-color: $card-text-color;
   color: $card-text-color;
 

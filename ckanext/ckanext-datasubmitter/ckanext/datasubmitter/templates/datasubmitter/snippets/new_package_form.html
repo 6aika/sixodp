@@ -7,6 +7,9 @@
 </script>
 
 <form id="submit-dataset-form" class="dataset-form form-horizontal" method="post" action="submit-data" data-module="basic-form">
+  {% block errors %}
+  {{ form.errors(error_summary) }}
+  {% endblock %}
 
   {% if message %}
   <div class="row row-compensate">

@@ -4,8 +4,10 @@
 {% set notes = h.markdown_extract(h.get_translated(item, 'notes'), extract_length=truncate) %}
 
 <div class="card--image">
-  <img src="{{ image_url }}">
-  <div class="card-content card-content-slide-up">
+  <a href="{{ h.url_for(controller='ckanext.sixodp_showcase.controller:Sixodp_ShowcaseController', action='read', id=item.name) }}"
+     title="{{ _('View {showcase_title}').format(showcase_title=title) }}" class="card-link">
+  <img src="{{ image_url }}" alt="">
+  <div class="card-content">
     <h4 class="card-title">{{ h.get_translated(item, 'title') }}</h4>
     <div class="card-title-secondary">
       {% block rating %}
@@ -24,13 +26,7 @@
       {% endif %}
     {% endblock %}
     {% block link %}
-      <div class="card-link-wrapper">
-        <a href="{{ h.url_for(controller='ckanext.sixodp_showcase.controller:Sixodp_ShowcaseController', action='read', id=item.name) }}"
-           title="{{ _('View {showcase_title}').format(showcase_title=title) }}"
-           class="btn btn-transparent card-link">
-          {{ _('Read more') }}
-        </a>
-      </div>
     {% endblock %}
   </div>
+</a>
 </div>

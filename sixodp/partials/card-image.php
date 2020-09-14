@@ -1,7 +1,9 @@
+
 <div class="card--image<?php if (isset($item['external_card_class'])) echo ' ' . $item['external_card_class'] ?>">
-  <img src="<?php echo $item['image_url']; ?>">
+  <a href="<?php echo $item['url']; ?>" class="card-link" aria-label="<?php echo $item['title'] ?>">
+  <img src="<?php echo $item['image_url']; ?>" alt="">
   <div class="card-content card-content-slide-up">
-    <h4 class="card-title"><?php echo $item['title']; ?></h4>
+    <h3 class="card-title"><?php echo $item['title']; ?></h3>
     <div class="card-title-secondary">
       <?php
         if ($item['show_rating']) {
@@ -24,11 +26,6 @@
     <div class="card-description">
       <?php echo wp_html_excerpt( strip_shortcodes(render_markdown(get_translated($item, 'notes'))), 300, '...'); ?>
     </div>
-    <div class="card-link-wrapper">
-      <a href="<?php echo $item['url']; ?>"
-         class="btn btn-transparent card-link">
-        <?php _e('Read more', 'sixodp') ?>
-      </a>
-    </div>
   </div>
+  </a>
 </div>
