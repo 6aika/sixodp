@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "bootstrap-sass": "^3.4.1",
+    "eyeglass": "^3.0.2",
     "object-fit-images": "^3.2.4"
   }
 }
