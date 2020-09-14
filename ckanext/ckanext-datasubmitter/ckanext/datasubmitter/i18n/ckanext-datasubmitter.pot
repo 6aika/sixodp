@@ -1,15 +1,15 @@
 # Translations template for ckanext-datasubmitter.
-# Copyright (C) 2018 ORGANIZATION
+# Copyright (C) 2020 ORGANIZATION
 # This file is distributed under the same license as the ckanext-datasubmitter
 # project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-datasubmitter 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-09-26 12:13+0000\n"
+"POT-Creation-Date: 2020-09-11 11:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,32 +18,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.3.4\n"
 
-#: ckanext/datasubmitter/controller.py:61
+#: ckanext/datasubmitter/controller.py:63
 msgid "A user has submitted a new dataset"
 msgstr ""
 
-#: ckanext/datasubmitter/controller.py:64
+#: ckanext/datasubmitter/controller.py:66
 msgid "New dataset notification"
 msgstr ""
 
-#: ckanext/datasubmitter/controller.py:85
+#: ckanext/datasubmitter/controller.py:87
 msgid "Dataset submit user or organization not set."
 msgstr ""
 
-#: ckanext/datasubmitter/controller.py:111
+#: ckanext/datasubmitter/controller.py:113
 msgid "Organization"
 msgstr ""
 
-#: ckanext/datasubmitter/controller.py:114
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:81
+#: ckanext/datasubmitter/controller.py:116
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:84
 msgid "Dataset url"
 msgstr ""
 
-#: ckanext/datasubmitter/controller.py:120
+#: ckanext/datasubmitter/controller.py:122
 msgid "Unauthorized to create a package"
 msgstr ""
 
-#: ckanext/datasubmitter/controller.py:132
+#: ckanext/datasubmitter/controller.py:134
 msgid "Dataset submitted successfully"
 msgstr ""
 
@@ -71,41 +71,41 @@ msgid ""
 "information after a few days. "
 msgstr ""
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:23
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:26
 msgid "Dataset info"
 msgstr ""
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:30
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:33
 msgid "Title"
 msgstr ""
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:31
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:34
 msgid "A descriptive title for the dataset"
 msgstr ""
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:49
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:52
 msgid ""
 "Example: The dataset includes financial information for Acme corporation "
 "starting from the year 2012"
 msgstr ""
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:63
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:66
 msgid "Owner organization"
 msgstr ""
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:94
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:97
 msgid "Submitter info"
 msgstr ""
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:101
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:104
 msgid "Name of the submitter"
 msgstr ""
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:119
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:122
 msgid "Submitter email"
 msgstr ""
 
-#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:143
+#: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:146
 msgid "Submit"
 msgstr ""
 
