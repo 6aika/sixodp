@@ -24,6 +24,7 @@
   "dependencies": {
     "bootstrap-sass": "^3.4.1",
     "eyeglass": "^3.0.2",
+    "nodemon": "^2.0.4",
     "object-fit-images": "^3.2.4"
   }
 }
