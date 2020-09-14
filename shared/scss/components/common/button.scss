@@ -83,11 +83,11 @@
 }
 
 .btn-latest {
-  @include btn-colors($gray-light, $brand-white, $gray-light);
+  @include btn-colors($brand-latest, $brand-white, $brand-latest);
 }
 
 .btn-latest--inverse {
-  @include btn-colors(transparent, $gray, $gray);
+  @include btn-colors(transparent, $brand-latest, $brand-latest);
 }
 
 .btn-secondary--search {

@@ -55,7 +55,7 @@ $brand-warning-dark: darken($brand-warning, 10%);
 $brand-warning-extralight: lighten($brand-warning, 35%);
 $brand-warning-extradark: darken($brand-warning, 15%);
 
-$brand-danger: #d9534f;
+$brand-danger: #DC134D;
 $brand-danger-light: lighten($brand-danger, 10%);
 $brand-danger-dark: darken($brand-danger, 10%);
 $brand-danger-extralight: lighten($brand-danger, 35%);
@@ -63,7 +63,7 @@ $brand-danger-extradark: darken($brand-danger, 15%);
 
 $brand-black: #000000;
 $brand-white: #ffffff;
-$brand-gray: #57575b;
+$brand-gray: #656d74;
 $brand-lightgray: #F5F6F7;
 
 $gray-base: $brand-gray;
@@ -92,6 +92,10 @@ $brand-app-dark: darken($brand-app, 15%);
 $brand-dataset: $brand-gray;
 $brand-dataset-dark: darken($brand-dataset, 15%);
 
+$brand-latest: $brand-gray;
+$brand-latest-dark: darken($brand-latest, 15%);
+
+
 // Frontpage elements
 $main-logo-width: 200px;
 $hero-main-heading-color: $brand-white;
@@ -108,7 +112,7 @@ $btn-main-active-color: $brand-white;
 
 $category-box-bg: $brand-primary;
 $category-box-icon-color: $brand-white;
-$category-box-text-color: $brand-success-light;
+$category-box-text-color: $brand-white;
 $category-box-count-color: $brand-primary-extralight;
 $stats-text-color: $brand-white;
 
@@ -154,12 +158,12 @@ $card-bg-active: $brand-white;
 $card--image-bg: $brand-primary-extralight;
 $card--image-bg-active: $brand-white;
 
-$card-text-color: $text-color;
+$card-text-color: $gray-dark;
 $card-text-color--highlight: $brand-danger;
-$card-text-color-active: $text-color;
+$card-text-color-active: $gray-dark;
 $card-text-color--highlight-active: $brand-danger-light;
 
-$card-title-secondary-color: $text-muted;
+$card-title-secondary-color: $gray-darker;
 $card-border-radius: $border-radius-medium;
 $card-star-filled: $text-color;
 $card-star-empty: $brand-success-light;
@@ -181,7 +185,7 @@ $navbar-logos-background-color: $brand-white;
 $navbar-toggle-color: $brand-primary;
 $navbar-toggle-color-active: lighten($navbar-toggle-color, 30%);
 
-$navbar-default-link-color: $gray;
+$navbar-default-link-color: $brand-gray;
 $navbar-default-link-active-color: $navbar-default-link-color;
 $navbar-default-link-active-border-color: $brand-primary;
 $navbar-default-link-hover-bg: $brand-lightgray;
