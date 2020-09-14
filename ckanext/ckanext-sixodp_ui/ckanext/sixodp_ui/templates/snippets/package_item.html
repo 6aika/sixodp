@@ -23,6 +23,7 @@ Example:
     <div class="row">
       {% block content %}
         <div class="col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0 dataset-content">
+          <a class="dataset-item-link" href="{{ h.url_for(controller='package', action='read', id=package.name) }}">
           {% block metadata %}
           {#
           <div class="dataset-metadata">
@@ -52,7 +53,7 @@ Example:
           {% endblock %}
 
           {% block heading %}
-          <a class="dataset-heading" href="{{ h.url_for(controller='package', action='read', id=package.name) }}">
+          <div class="dataset-heading">
             <h3>
               {% block heading_private %}
                 {% if package.private %}
@@ -72,7 +73,7 @@ Example:
                 {{ h.popular('recent views', package.tracking_summary.recent, min=10) if package.tracking_summary }}
               {% endblock %}
             </h3>
-          </a>
+          </div>
           {% endblock %}
 
           {% block banner %}
@@ -103,6 +104,7 @@ Example:
               {% endblock %}
             {% endif %}
           {% endblock %}
+          </a>
         </div>
       {% endblock %}
     </div>
