@@ -81,6 +81,7 @@
 
 {% block secondary_content %}
 <div class="filters">
+  <h2 class="filter-list-heading">{{_('Filter results')}}</h2>
   <div>
     {% for facet in c.facet_titles %}
       {{ h.snippet('snippets/facet_list.html', title=c.facet_titles[facet], name=facet) }}

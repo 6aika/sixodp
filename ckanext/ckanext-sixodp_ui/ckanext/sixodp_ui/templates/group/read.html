@@ -1,5 +1,19 @@
 {% ckan_extends %}
 
+{% block secondary_content %}
+{% snippet "group/snippets/info.html", group=c.group_dict, show_nums=true %}
+<div class="filters">
+  <h2 class="filter-list-heading">{{_('Filter results')}}</h2>
+  <div>
+    {% for facet in c.facet_titles %}
+    {{ h.snippet('snippets/facet_list.html', title=c.facet_titles[facet], name=facet, extras={'id':c.group_dict.id}) }}
+    {% endfor %}
+  </div>
+  <a class="close no-text hide-filters"><i class="fa fa-times-circle"></i><span class="text">close</span></a>
+</div>
+{% endblock %}
+
+
 {% block packages_list %}
   {% if c.page.items %}
     {{ h.snippet('snippets/package_list.html', packages=c.page.items, list_class='dataset-list') }}
