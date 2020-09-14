@@ -23,6 +23,7 @@ Example:
     <div class="row">
       {% block content %}
         <div class="col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0 dataset-content">
+          <a class="dataset-item-link" href="{{ h.url_for(controller='package', action='read', id=package.name) }}">
           {% block metadata %}
           {#
           <div class="dataset-metadata">
@@ -52,8 +53,8 @@ Example:
           {% endblock %}
 
           {% block heading %}
-          <a class="dataset-heading" href="{{ h.url_for(controller='package', action='read', id=package.name) }}">
-            <h2>
+          <div class="dataset-heading">
+            <h3>
               {% block heading_private %}
                 {% if package.private %}
                   <span class="dataset-private label label-inverse">
@@ -71,8 +72,8 @@ Example:
                 {% endif %}
                 {{ h.popular('recent views', package.tracking_summary.recent, min=10) if package.tracking_summary }}
               {% endblock %}
-            </h2>
-          </a>
+            </h3>
+          </div>
           {% endblock %}
 
           {% block banner %}
@@ -95,9 +96,7 @@ Example:
                 {% block resources_inner %}
                 {% for resource in h.dict_list_reduce(package.resources, 'format') %}
                 <li class="label" data-format="{{ resource.lower() }}">
-                  <a href="{{ h.url_for(controller='package', action='read', id=package.name) }}">
                     {{ resource }}
-                  </a>
                 </li>
                 {% endfor %}
                 {% endblock %}
@@ -105,6 +104,7 @@ Example:
               {% endblock %}
             {% endif %}
           {% endblock %}
+          </a>
         </div>
       {% endblock %}
     </div>
