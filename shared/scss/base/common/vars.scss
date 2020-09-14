@@ -76,6 +76,7 @@ $gray-lighter:           lighten($gray-base, $lighten-intensity*6);
 $brand-background: #ffffff;
 $brand-secondary-background: $brand-background;
 $brand-bg-alt: $brand-lightgray;
+$brand-input-color: #656D74;
 
 $text-color: $gray-base;
 $text-muted: $gray;
@@ -348,6 +349,8 @@ $input-height-base: ($line-height-computed + ($padding-base-vertical * 2) - 1);
 $input-height-large: (ceil($font-size-large * $line-height-large) + ($padding-large-vertical * 2) - 4);
 $input-height-small: (floor($font-size-small * $line-height-small) + ($padding-small-vertical * 2) - 1);
 $input-border-focus: $brand-secondary-light;
+$input-color: $brand-input-color;
+$input-color-placeholder: $brand-input-color;
 
 // Animations
 $transition-speed-base: .2s;
