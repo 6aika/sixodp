@@ -33,6 +33,10 @@ $card-meta-height: $font-size-small + $card-padding * 3;
   overflow: hidden;
   box-shadow: none;
 
+  a {
+    word-break: break-word;
+  }
+
   &:hover {
     @include box-shadow();
     background: $card-bg-active;

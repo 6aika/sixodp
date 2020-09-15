@@ -9,8 +9,9 @@
       border: none;
     }
 
-    > a {
+    a {
       color: $text-color;
+      word-break: break-word;
     }
   }
 

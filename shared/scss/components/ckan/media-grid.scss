@@ -27,6 +27,10 @@ $media-grid-item-line-height: ($card-content-height - $media-grid-item-padding *
             background-color $transition-speed-base $transition-curve-base,
             box-shadow $transition-speed-base $transition-curve-base;
 
+    a {
+      word-break: break-word;
+    }
+
     &.media-item-success {
       background: $brand-primary-extralight;
 
