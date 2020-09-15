@@ -38,14 +38,6 @@ show_remove    - If True, show the remove button to remove showcase/dataset asso
         #}
       {% endblock %}
       {% block notes %}
-        {% if notes %}
-          <div class="item-description">
-            {{ notes|urlize }}
-          </div>
-
-        {% else %}
-          <div class="item-description empty">{{ _("This showcase has no description") }}</div>
-        {% endif %}
       {% endblock %}
       {% block datasets %}{% endblock %}
       {% block link %}
