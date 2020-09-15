@@ -97,6 +97,7 @@
   .label {
     display: inline-block;
     padding: $padding-small-vertical $padding-small-horizontal;
+    background-color: $badge-background-color;
   }
 
   a {

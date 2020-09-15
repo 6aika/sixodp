@@ -28,17 +28,17 @@ $media-grid-item-line-height: ($card-content-height - $media-grid-item-padding *
             box-shadow $transition-speed-base $transition-curve-base;
 
     &.media-item-success {
-      background: $brand-success-extralight;
+      background: $brand-primary-extralight;
 
       .media-link,
       .media-link:active,
       .media-link:focus {
-        border-color: $brand-success;
-        color: $brand-success;
+        border-color: $brand-primary;
+        color: $card-text-color;
 
         &:hover {
-          border-color: $brand-success-light;
-          color: $brand-success-light;
+          border-color: $brand-primary-light;
+          color: $card-text-color;
         }
       }
     }
