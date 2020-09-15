@@ -79,9 +79,9 @@ $brand-bg-alt: $brand-lightgray;
 $brand-input-color: #656D74;
 
 $text-color: $gray-base;
-$text-muted: $gray;
+$text-muted: $brand-gray;
 $headings-color: $brand-primary;
-$headings-muted-color: $gray;
+$headings-muted-color: $brand-gray;
 $headings-small-color: $brand-primary;
 $headings-secondary-color: $brand-primary;
 $headings-extra-color: $brand-gray;
@@ -234,7 +234,7 @@ $navbar-offcanvas-heading-color: $brand-primary;
 // Filters
 $filter-bg: transparent;
 $filter-bg-active: $brand-secondary;
-$filter-color: $gray;
+$filter-color: $brand-gray;
 $filter-color-active: $brand-white;
 $filter-bg-hover: $gray-lighter;
 $filter-hover: $text-color;
