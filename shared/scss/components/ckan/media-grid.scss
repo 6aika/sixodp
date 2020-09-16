@@ -27,6 +27,12 @@ $media-grid-item-line-height: ($card-content-height - $media-grid-item-padding *
             background-color $transition-speed-base $transition-curve-base,
             box-shadow $transition-speed-base $transition-curve-base;
 
+    &:hover {
+      @include box-shadow();
+      background: $card-bg-active;
+      cursor: pointer;
+    }
+
     a {
       word-break: break-word;
     }

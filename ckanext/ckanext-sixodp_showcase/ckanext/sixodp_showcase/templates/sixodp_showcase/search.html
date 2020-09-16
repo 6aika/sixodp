@@ -1,8 +1,6 @@
 {% extends "package/search.html" %}
 {% import 'macros/form.html' as form %}
 
-{% block subtitle %}{{ _("Showcases") }}{% endblock %}
-
 {% block pre_primary %}
   <div class="page-hero"></div>
   <div class="search-form-container search-form-container-borderless row">
@@ -25,6 +23,9 @@
           {% endif %}
         {% endblock %}
       </div>
+    </div>
+    <div class="toolbar--site-subtitle">
+      <h1>{% block subtitle %}{{ _("Showcases") }}{% endblock %}</h1>
     </div>
   {% endblock %}
 
