@@ -10,7 +10,7 @@
     <div class="card-meta"><?php echo $item['meta'] ?></div>
   <?php endif ?>
   <div class="card-content">
-    <div class="card-title"><?php echo get_translated($item, 'title'); ?></div>
+    <h3 class="card-title"><?php echo get_translated($item, 'title'); ?></h3>
     <div class="card-title-secondary"><?php echo parse_date($item['timestamp']); ?></div>
     <div class="card-description">
       <?php echo wp_html_excerpt( strip_shortcodes(render_markdown(get_translated($item, 'notes'))), 300, '...'); ?>
