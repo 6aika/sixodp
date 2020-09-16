@@ -75,6 +75,7 @@
 .contentbox__link:active {
   color: $brand-white;
   text-decoration: none;
+  word-break: break-word;
 
   &:hover {
     color: $brand-lightgray;
