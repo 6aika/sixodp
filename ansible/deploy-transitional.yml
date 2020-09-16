@@ -20,11 +20,11 @@
     - postgres-data
     - solr6
     - redis
+    - role: geerlingguy.certbot
+      when: deployment_environment_id != "vagrant" and deployment_environment_id != "build"
     - nginx
     #- role: acmetool
     #  when: deployment_environment_id != "vagrant" and deployment_environment_id != "build"
-    - role: geerlingguy.certbot
-      when: deployment_environment_id != "vagrant" and deployment_environment_id != "build"
     - apache
     - postfix
     - ckan-extensions
