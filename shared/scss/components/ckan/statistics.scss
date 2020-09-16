@@ -114,14 +114,14 @@
   }
 
   &.statistics-nav-fixed {
-    background: $navbar-default-bg;
+    background: $toolbar-default-bg;
   }
 }
 
 .nav-wrapper {
   .statistics-nav-content {
     padding: $padding-small-vertical 0;
-    background: $navbar-default-bg;
+    background: $toolbar-default-bg;
     margin: 0;
     width: 100%;
 
@@ -420,7 +420,7 @@
 }
 
 .statistics-tooltip {
-  background: $navbar-default-bg;
+  background: $toolbar-default-bg;
   color: $text-color;
   padding: $padding-xs-vertical $padding-small-horizontal;
   position: absolute;

@@ -1,7 +1,7 @@
 .toolbar {
   display: none;
   border-bottom: 1px solid $border-color;
-  background: $navbar-default-bg;
+  background: $toolbar-default-bg;
   margin: 0;
 
   @media(min-width: $width-md) {
@@ -10,7 +10,7 @@
 }
 
 .toolbar--site-subtitle {
-  background: $navbar-default-bg;
+  background: $toolbar-default-bg;
   border-bottom: 1px solid $border-color;
   padding: $padding-large-vertical*3 0;
   text-align: center;
