@@ -9,13 +9,13 @@
 - block:
   - name: Symlink chain certificate
     file:
-      src: "/etc/letsencrypt/live/{{ public_facing_hostname }}/fullchain"
+      src: "/etc/letsencrypt/live/{{ public_facing_hostname }}/fullchain.pem"
       dest: "{{ ssl_certificate_path }}/{{ ssl_cert_filename }}"
       state: link
 
   - name: Symlink certificate key
     file:
-      src: "/etc/letsencrypt/live/{{ public_facing_hostname }}/privkey"
+      src: "/etc/letsencrypt/live/{{ public_facing_hostname }}/privkey.pem"
       dest: "{{ ssl_certificate_path }}/{{ ssl_key_filename }}"
       state: link
   when: not nginx.use_selfsigned_certificate|bool
