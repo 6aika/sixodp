@@ -18,7 +18,7 @@
       src: "/etc/letsencrypt/live/{{ public_facing_hostname }}/privkey"
       dest: "{{ ssl_certificate_path }}/{{ ssl_key_filename }}"
       state: link
-  when: nginx.use_selfsigned_certificate is false
+  when: nginx.use_selfsigned_certificate is false|bool
 
 - name: Copy strong Diffie-Hellman key exchange parameters
   copy: src=dhparams.pem dest="{{ ssl_dh_parameters_path }}"
