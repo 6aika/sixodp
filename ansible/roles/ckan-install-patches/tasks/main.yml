@@ -19,3 +19,8 @@
   shell: ./bin/paster --plugin=ckan minify {{ ckan_source_path }}/ckan/public/base/javascript "--config={{ ckan_ini }}" chdir="{{ virtualenv }}"
   tags:
   - patch_ckan
+
+- name: Re-minify CKAN vendor javascript files after patches
+  shell: ./bin/paster --plugin=ckan minify {{ ckan_source_path }}/ckan/public/base/vendor "--config={{ ckan_ini }}" chdir="{{ virtualenv }}"
+  tags:
+    - patch_ckan
