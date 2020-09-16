@@ -67,7 +67,7 @@
         </h1>
         {% block page_subheading %}
           {% set lang = h.get_lang_prefix() %}
-          <h2 class="page-subheading">
+          <div class="page-subheading">
 
             {% set showcase_categories = pkg.category.get(lang) %}
             {% if showcase_categories %}
@@ -76,14 +76,14 @@
                  {{ category }}{% if not loop.last %}, {% endif %}
                 {% endfor %}
               </span>
-            {% endif %}
 
             <span class="subheading-section">
               {% snippet 'sixodp_showcase/snippets/tags.html', tags=pkg.keywords %}
             </span>
-          </h2>
+          </div>
+        {% endif %}
 
-          <h2 class="page-subheading">
+        <div class="page-subheading">
             {% if pkg.author %}
               <span class="subheading-section">{{ pkg.author }}</span>
               <span> - </span>
@@ -91,7 +91,7 @@
             <span class="subheading-section">{{ _('Published') }} {{ h.render_datetime(pkg.metadata_created, '%-d.%-m.%Y') }}</span>
             <span> - </span>
             <span class="subheading-section">{{ _('updated') }} {{ h.render_datetime(pkg.metadata_modified, '%-d.%-m.%Y') }}</span>
-          </h2>
+          </div>
         {% endblock %}
       </div>
       {# Ratings are disabled for now
