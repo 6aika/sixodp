@@ -12,7 +12,8 @@
     @include heading;
     font-size: $font-size-large;
 
-    &.page-subheading {
+  }
+    div.page-subheading {
       font-size: $font-size;
       margin-top: 0;
       margin-bottom: $margin-large-vertical*2;
@@ -21,7 +22,7 @@
         color: $link-secondary-color;
       }
     }
-  }
+
 
   .content_action {
     margin-bottom: $margin-small-vertical;

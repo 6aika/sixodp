@@ -23,13 +23,13 @@
   {% endblock %}
 
   {% block page_subheading %}
-    <h2 class="page-subheading">
+    <div class="page-subheading">
       <span class="dataset-created">{{ h.render_datetime(h.get_created_or_updated(pkg), '%-d.%-m.%Y') }}</span>
       <span> - </span>
       <a class="dataset-organization" href="{{h.url_for(controller='organization', action='read', id=pkg.organization.name)}}">
         {{pkg.organization.title}}
       </a>
-    </h2>
+    </div>
   {% endblock %}
 {% endblock %}
 
