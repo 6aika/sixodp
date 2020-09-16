@@ -6,6 +6,20 @@
 - include: ssl_self-signed.yml
   when: nginx.use_selfsigned_certificate
 
+- block:
+  - name: Symlink chain certificate
+    file:
+      src: "/etc/letsencrypt/live/{{ public_facing_hostname }}/fullchain"
+      dest: "{{ ssl_certificate_path }}/{{ ssl_cert_filename }}"
+      state: link
+
+  - name: Symlink certificate key
+    file:
+      src: "/etc/letsencrypt/live/{{ public_facing_hostname }}/privkey"
+      dest: "{{ ssl_certificate_path }}/{{ ssl_key_filename }}"
+      state: link
+  when: nginx.use_selfsigned_certificate is false
+
 - name: Copy strong Diffie-Hellman key exchange parameters
   copy: src=dhparams.pem dest="{{ ssl_dh_parameters_path }}"
 

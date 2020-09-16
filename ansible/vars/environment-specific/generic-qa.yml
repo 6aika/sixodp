@@ -51,7 +51,7 @@ mysql:
 
 nginx:
   use_ssl_certificate: true
-  use_selfsigned_certificate: true
+  use_selfsigned_certificate: false
   fqdn_common_part: dataportaali.com
 
 acmetool_hostnames:
