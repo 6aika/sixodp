@@ -94,8 +94,7 @@
   @extend .btn-secondary;
   color: $btn-main-bg;
   background-color: $btn-main-color;
-  border-radius-top-left: none;
-  border-radius-bottom-left: none;
+  border: none;
   padding: $padding-base-horizontal $padding-base-vertical;
 
   &:hover, &:focus, &:active {
