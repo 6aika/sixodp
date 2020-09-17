@@ -38,12 +38,15 @@
   display: inline-block;
   text-align: center;
 
+  background: rgba(0,0,0,0.3);
+  border-radius: 3px;
+  padding: $base/5 $base*2;
+
   & > div {
     display: block;
 
     &.stat__value {
       display: inline-block;
-      padding: $base/5 $base*2;
     }
   }
 }
@@ -51,8 +54,6 @@
 .stat__value {
   font-family: $font-heading;
   font-size: $font-size-xlarge;
-  background: rgba(0,0,0,0.3);
-  border-radius: 3px;
 }
 
 .stat__description {
