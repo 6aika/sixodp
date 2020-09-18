@@ -34,11 +34,14 @@ get_header();
         </ol>
       </div>
     </div>
+    <div class="toolbar--site-subtitle">
+          <h1><?php echo $category->name ?></h1>
+    </div>
     <div id="maincontent" class="page-content container">
       <div class="wrapper">
         <div class="row">
           <div class="sidebar col-md-3 col-sm-12 col-xs-12">
-            <h3 class="heading-sidebar"><?php _e('Current', 'sixodp') ?></h3>
+            <h2 class="heading-sidebar"><?php _e('Current', 'sixodp') ?></h2>
             <?php
               $categories=get_categories(array(
                 'parent' => $grandparent_id,
