@@ -1,6 +1,6 @@
 .nav-wrapper {
   @include box-shadow();
-  position: fixed;
+  position: relative;
   top: 0;
   right: 0;
   left: 0;
@@ -203,9 +203,6 @@
   }
 }
 
-.navbar-collapse{
-  max-height: 550px;
-}
 
 .navbar-default .navbar-nav.subnav {
   margin: 0;

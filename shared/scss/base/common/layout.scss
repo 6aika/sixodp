@@ -27,10 +27,6 @@ body {
   }
 }
 
-.content-area {
-  margin-top: $navbar-height;
-}
-
 .has-notification {
   ~ .content-area {
     margin-top: $navbar-height + $notificationbar-height;
