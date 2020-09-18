@@ -12,6 +12,7 @@
     a {
       color: $text-color;
       word-break: break-word;
+      padding: 20px 15px;
     }
   }
 
@@ -25,8 +26,7 @@
 
 .dataset-content {
   $dataset-metadata-row-height: 22px;
-  padding-top: $padding-large-vertical*2;
-  padding-bottom: $padding-large-vertical*2;
+  padding: 0;
 
   &:hover {
     @include box-shadow();
