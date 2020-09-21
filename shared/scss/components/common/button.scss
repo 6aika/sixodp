@@ -66,6 +66,10 @@
   @include btn-colors(transparent, $brand-warning, $brand-warning);
 }
 
+.btn-categories {
+  @include btn-colors($brand-categories, $brand-white, $brand-categories);
+}
+
 .btn-app {
   @include btn-colors($brand-app, $brand-white, $brand-app);
 }
