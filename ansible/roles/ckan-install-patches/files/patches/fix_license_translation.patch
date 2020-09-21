@@ -1,0 +1,39 @@
+From 2189aaec51630201eea25cd6efe0ec286d5ae4de Mon Sep 17 00:00:00 2001
+From: Eric Soroos <eric@derilinx.com>
+Date: Mon, 7 Sep 2020 15:54:44 +0100
+Subject: [PATCH] [I18N] [FIX #5586] Don't cache license translations across
+ requests
+
+* Licenses are read and cached in the package model
+* Translate the license in the helper for each request.
+---
+ ckan/lib/helpers.py   | 2 +-
+ ckan/model/license.py | 2 --
+ 2 files changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/ckan/lib/helpers.py b/ckan/lib/helpers.py
+index 69d8b591a3..a853060e9d 100644
+--- a/ckan/lib/helpers.py
++++ b/ckan/lib/helpers.py
+@@ -2840,7 +2840,7 @@ def license_options(existing_license_id=None):
+         license_ids.insert(0, existing_license_id)
+     return [
+         (license_id,
+-         register[license_id].title if license_id in register else license_id)
++         _(register[license_id].title) if license_id in register else license_id)
+         for license_id in license_ids]
+
+
+diff --git a/ckan/model/license.py b/ckan/model/license.py
+index 7bfaf2d1b8..8a0f0a68bf 100644
+--- a/ckan/model/license.py
++++ b/ckan/model/license.py
+@@ -141,8 +141,6 @@ def load_licenses(self, license_url):
+         for license in license_data:
+             if isinstance(license, string_types):
+                 license = license_data[license]
+-            if license.get('title'):
+-                license['title'] = _(license['title'])
+         self._create_license_list(license_data, license_url)
+
+     def _create_license_list(self, license_data, license_url=''):
