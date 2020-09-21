@@ -332,6 +332,7 @@ $card-meta-height: $font-size-small + $card-padding * 3;
   border-left: 4px solid $card-text-color;
   color: $card-text-color;
   font-size: $font-size-small;
+  font-weight: bold;
   height: $font-size-small;
   line-height: $font-size-small;
   width: 100%;
