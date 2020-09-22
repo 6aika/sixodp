@@ -1,6 +1,6 @@
 .navbar-offcanvas {
   z-index: $zindex-navbar-fixed;
-  padding: $navbar-height 0 0 0;
+  padding: 0 0 0 0;
   border-width: 0;
   
   @media screen and (max-width: $width-md - 1) {
