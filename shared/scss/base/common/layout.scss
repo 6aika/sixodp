@@ -27,11 +27,6 @@ body {
   }
 }
 
-.has-notification {
-  ~ .content-area {
-    margin-top: $navbar-height + $notificationbar-height;
-  }
-}
 
 .centered-content {
   max-width: $base*96;
