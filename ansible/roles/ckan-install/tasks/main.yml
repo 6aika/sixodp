@@ -30,14 +30,14 @@
   pip:
     name: "git+file://{{ cache_path }}/ckan.git@ckan-{{ ckan_version }}#egg=ckan"
     virtualenv: "{{ virtualenv }}"
-    extra_args: "--exists-action=s"
+    extra_args: "--exists-action=s --no-use-pep517"
     editable: yes
 
 - name: Install CKAN requirements
-  pip: requirements={{ virtualenv }}/src/ckan/requirements.txt virtualenv={{ virtualenv }}
+  pip: requirements={{ virtualenv }}/src/ckan/requirements-py2.txt virtualenv={{ virtualenv }}
 
 - name: Install CKAN development/testing requirements
-  pip: requirements={{ virtualenv }}/src/ckan/dev-requirements.txt virtualenv={{ virtualenv }}
+  pip: requirements={{ virtualenv }}/src/ckan/dev-requirements-py2.txt virtualenv={{ virtualenv }}
   when: deployment_environment_id == "build"
 
 - name: Create CKAN paths

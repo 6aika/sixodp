@@ -23,7 +23,7 @@
 
 [program:ckan-worker-bulk]
 
-command={{ virtualenv}}/bin/paster --plugin=ckan jobs worker bulk --config=/etc/ckan/default/production.ini
+command={{ virtualenv}}/bin/ckan --config=/etc/ckan/default/production.ini jobs worker bulk
 user={{ www_user }}
 numprocs=1
 stdout_logfile=/var/log/ckan/ckan-worker-bulk.log
@@ -35,7 +35,7 @@ stopwaitsecs = 600
 
 [program:ckan-worker-priority]
 
-command={{ virtualenv }}/bin/paster --plugin=ckan jobs worker priority --config=/etc/ckan/default/production.ini
+command={{ virtualenv }}/bin/ckan --config=/etc/ckan/default/production.ini jobs worker priority
 user={{ www_user }}
 numprocs=1
 stdout_logfile=/var/log/ckan/ckan-worker-priority.log

@@ -124,7 +124,7 @@ enabled_ckan_extensions:
     - recline_graph_view
     - recline_grid_view
     - recline_map_view
-    - sixodp_showcase
+    #- sixodp_showcase
     #- googleanalytics
     - qa
     - archiver
@@ -136,7 +136,7 @@ enabled_ckan_extensions:
     - scheming_datasets
     - scheming_groups
     - fluent
-    - report
+    #- report
     - publisher_activity_report
     #- rating
     - sixodp_routes
@@ -145,7 +145,7 @@ enabled_ckan_extensions:
     - hierarchy_form
     - reminder
     - editor
-    - collection
+    #- collection
     #- spatial_metadata
     #- spatial_query
     - datasubmitter

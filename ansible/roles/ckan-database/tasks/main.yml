@@ -1,58 +1,58 @@
 ---
 
 - name: Initialize CKAN database
-  command: ckan db init
+  command: ./bin/ckan "--config={{ ckan_ini }}" db init chdir={{ virtualenv }}
   ignore_errors: True
 
 - name: Upgrade CKAN database
-  command: ckan db upgrade
+  command: ./bin/ckan "--config={{ ckan_ini }}" db upgrade chdir={{ virtualenv }}
   ignore_errors: True
 
 - name: Upgrade CKAN filestore
-  command: ./bin/paster --plugin=ckan db migrate-filestore "--config={{ ckan_ini }}" chdir={{ virtualenv }}
+  command: ./bin/ckan "--config={{ ckan_ini }}" ckan db migrate-filestore chdir={{ virtualenv }}
   ignore_errors: True
 
 - name: Create initial CKAN users
-  command: ./bin/paster --plugin=ckan user add "{{ item.value.username }}" "password={{ item.value.password }}" "email={{ item.value.email }}" "--config={{ ckan_ini }}" chdir={{ virtualenv }}
+  command: ./bin/ckan  "--config={{ ckan_ini }}" user add "{{ item.value.username }}" "password={{ item.value.password }}" "email={{ item.value.email }}" chdir={{ virtualenv }}
   ignore_errors: True
   with_dict: "{{ ckan_users }}"
 
 - name: Set CKAN sysadmins
-  command: ./bin/paster --plugin=ckan sysadmin add {{ item }} --config={{ ckan_ini }} chdir={{ virtualenv }}
+  command: ./bin/ckan "--config={{ ckan_ini }}" sysadmin add {{ item }} chdir={{ virtualenv }}
   ignore_errors: True
   with_items: "{{ ckan_admins }}"
 
-- name: Initialize Harvest database
-  command: ./bin/paster --plugin=ckanext-harvest harvester initdb "--config={{ ckan_ini }}" chdir={{ virtualenv }}
-  when: "'ckanext-harvest' in ckan_extensions"
+#- name: Initialize Harvest database
+#  command: ./bin/paster --plugin=ckanext-harvest harvester initdb "--config={{ ckan_ini }}" chdir={{ virtualenv }}
+#  when: "'ckanext-harvest' in ckan_extensions"
   
-- name: Initialize archiver database
-  command: ./bin/paster --plugin=ckanext-archiver archiver init "--config={{ ckan_ini }}" chdir={{ virtualenv }}
+#- name: Initialize archiver database
+#  command: ./bin/paster --plugin=ckanext-archiver archiver init "--config={{ ckan_ini }}" chdir={{ virtualenv }}
 
 # This can be removed after run in all environments
-- name: Migrate archiver database
-  command: ./bin/paster --plugin=ckanext-archiver archiver migrate "--config={{ ckan_ini }}" chdir={{ virtualenv }}
+#- name: Migrate archiver database
+#  command: ./bin/paster --plugin=ckanext-archiver archiver migrate "--config={{ ckan_ini }}" chdir={{ virtualenv }}
 
-- name: Initialize report database
-  command: ./bin/paster --plugin=ckanext-report report initdb "--config={{ ckan_ini }}" chdir={{ virtualenv }}
+#- name: Initialize report database
+#  command: ./bin/paster --plugin=ckanext-report report initdb "--config={{ ckan_ini }}" chdir={{ virtualenv }}
 
-- name: Initialize QA database
-  command: ./bin/paster --plugin=ckanext-qa qa init "--config={{ ckan_ini }}" chdir={{ virtualenv }}
+#- name: Initialize QA database
+#  command: ./bin/paster --plugin=ckanext-qa qa init "--config={{ ckan_ini }}" chdir={{ virtualenv }}
 
-- name: Initialize Rating database
-  command: ./bin/paster --plugin=ckanext-rating rating init "--config={{ ckan_ini }}" chdir={{ virtualenv }}
+#- name: Initialize Rating database
+#  command: ./bin/paster --plugin=ckanext-rating rating init "--config={{ ckan_ini }}" chdir={{ virtualenv }}
 
-- name: Initialize Reminder database
-  command: ./bin/paster --plugin=ckanext-reminder reminder init "--config={{ ckan_ini }}" chdir={{ virtualenv }}
+#- name: Initialize Reminder database
+#  command: ./bin/paster --plugin=ckanext-reminder reminder init "--config={{ ckan_ini }}" chdir={{ virtualenv }}
 
-- name: Initialize ckanext-googleanalytics database
-  command: ./bin/paster --plugin=ckanext-googleanalytics initdb "--config={{ ckan_ini }}" chdir={{ virtualenv }}
-  when: "'ckanext-googleanalytics' in ckan_extensions"
+#- name: Initialize ckanext-googleanalytics database
+#  command: ./bin/paster --plugin=ckanext-googleanalytics initdb "--config={{ ckan_ini }}" chdir={{ virtualenv }}
+#  when: "'ckanext-googleanalytics' in ckan_extensions"
 
-- name: Initialize ckanext-ga-report database
-  command: ./bin/paster --plugin=ckanext-ga-report initdb "--config={{ ckan_ini }}" chdir={{ virtualenv }}
-  when: "'ckanext-ga-report' in ckan_extensions"
+#- name: Initialize ckanext-ga-report database
+#  command: ./bin/paster --plugin=ckanext-ga-report initdb "--config={{ ckan_ini }}" chdir={{ virtualenv }}
+#  when: "'ckanext-ga-report' in ckan_extensions"
 
-- name: Initialize ckanext-cloudstorage database
-  command: ./bin/paster --plugin=ckanext-cloudstorage cloudstorage initdb "--config={{ ckan_ini }}" chdir={{ virtualenv }}
-  when: AWS.enabled
+#- name: Initialize ckanext-cloudstorage database
+#  command: ./bin/paster --plugin=ckanext-cloudstorage cloudstorage initdb "--config={{ ckan_ini }}" chdir={{ virtualenv }}
+#  when: AWS.enabled

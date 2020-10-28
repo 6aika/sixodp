@@ -1,10 +1,11 @@
+from collections import OrderedDict
 from pylons import config
 import ckan
 from ckan.controllers.revision import RevisionController
 from ckan.controllers.organization import OrganizationController
 from ckan.controllers.user import UserController
 from ckan.controllers.package import PackageController, search_url, _encode_params
-from ckan.common import c, _, request, OrderedDict, g
+from ckan.common import c, _, request, g
 import ckan.model as model
 import ckan.lib.navl.dictization_functions as dictization_functions
 import ckan.authz as authz
