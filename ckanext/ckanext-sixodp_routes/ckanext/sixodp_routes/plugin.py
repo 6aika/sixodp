@@ -1,7 +1,7 @@
 from collections import OrderedDict
 from pylons import config
 import ckan
-from ckan.controllers.revision import RevisionController
+#from ckan.controllers.revision import RevisionController
 from ckan.controllers.organization import OrganizationController
 from ckan.controllers.user import UserController
 from ckan.controllers.package import PackageController, search_url, _encode_params
@@ -56,9 +56,9 @@ class Sixodp_RoutesPlugin(ckan.plugins.SingletonPlugin):
     # IRoutes
 
     def before_map(self, m):
-        controller = 'ckanext.sixodp_routes.plugin:Sixodp_RevisionController'
-        m.connect('/revision/list', action='list', controller=controller)
-        m.connect('/revision/diff/{id}', action='diff', controller=controller)
+        #controller = 'ckanext.sixodp_routes.plugin:Sixodp_RevisionController'
+        #m.connect('/revision/list', action='list', controller=controller)
+        #m.connect('/revision/diff/{id}', action='diff', controller=controller)
 
 
         # remap new for it to work after remapping read
@@ -456,18 +456,18 @@ class Sixodp_PackageController(PackageController):
                       extra_vars={'dataset_type': package_type})
 
 
-class Sixodp_RevisionController(RevisionController):
+#class Sixodp_RevisionController(RevisionController):
 
-    def list(self):
-        try:
-            ckan.logic.check_access('revision_list', auth_context())
-            return super(Sixodp_RevisionController, self).list()
-        except ckan.logic.NotAuthorized:
-            ckan.lib.base.abort(403, _('Not authorized to see this page'))
+#    def list(self):
+#        try:
+#            ckan.logic.check_access('revision_list', auth_context())
+#            return super(Sixodp_RevisionController, self).list()
+#        except ckan.logic.NotAuthorized:
+#            ckan.lib.base.abort(403, _('Not authorized to see this page'))
 
-    def diff(self, id=None):
-        try:
-            ckan.logic.check_access('revision_diff', auth_context())
-            return super(Sixodp_RevisionController, self).diff(id=id)
-        except ckan.logic.NotAuthorized:
-            ckan.lib.base.abort(403, _('Not authorized to see this page'))
+#    def diff(self, id=None):
+#        try:
+#            ckan.logic.check_access('revision_diff', auth_context())
+#            return super(Sixodp_RevisionController, self).diff(id=id)
+#        except ckan.logic.NotAuthorized:
+#            ckan.lib.base.abort(403, _('Not authorized to see this page'))
