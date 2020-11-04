@@ -32,10 +32,10 @@
     - ckan-database
     - ckan-cron
     - datapusher
+    - supervisor
     - transifex-install
     - ckan-translations
     - ckan-restart
-    - supervisor
     - solr-reindex
     - php-fpm
     - mysql

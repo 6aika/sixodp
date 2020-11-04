@@ -3,6 +3,11 @@
 - name: Ensure Nginx is installed
   apt: pkg=nginx state=latest
 
+- name: Install required pip package
+  pip:
+    name: uwsgi
+    virtualenv: "{{ virtualenv }}"
+
 - name: Copy base Nginx configuration
   template: src=nginx.conf.j2 dest=/etc/nginx/nginx.conf mode="0644" owner=root group=root
 
@@ -10,6 +15,14 @@
   template: src={{ item.template }} dest=/etc/nginx/{{ item.destination }} mode="0644" owner=root group=root
   with_items:
     - { "template": "nginx_site_config.j2", "destination": "sites-available/primary_site" }
+
+- name: Copy ckan-uwsgi.ini
+  copy:
+    src: ckan-uwsgi.ini
+    dest: /etc/ckan/default/ckan-uwsgi.ini
+    owner: root
+    group: root
+    mode: "0644"
 
 - name: Copy php.conf
   copy:
