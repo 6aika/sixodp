@@ -47,6 +47,20 @@
     - /etc/ckan/default
     - "{{ resource_cache_path }}"
 
+
+- name: Install required pip package
+  pip:
+    name: uwsgi
+    virtualenv: "{{ virtualenv }}"
+
+- name: Copy ckan-uwsgi.ini
+  copy:
+    src: ckan-uwsgi.ini
+    dest: /etc/ckan/default/ckan-uwsgi.ini
+    owner: root
+    group: root
+    mode: "0644"
+
 - name: Ensure path ownerships
   command: chown -R "{{ www_user }}:{{ www_group }}" "{{ ckan_storage_path }}" /etc/ckan/default
 
@@ -55,3 +69,4 @@
 
 - name: Install CKAN core unit test requirements
   pip: requirements={{ virtualenv }}/src/ckan/dev-requirements.txt virtualenv={{ virtualenv }}
+
