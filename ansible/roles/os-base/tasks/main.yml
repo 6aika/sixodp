@@ -16,6 +16,7 @@
 
 - name: Upgrade packages
   apt: upgrade=dist update_cache=yes
+  when: deployment_environment_id != "build"
 
 - name: Ensure common packages
   apt:
