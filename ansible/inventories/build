@@ -1,7 +1,7 @@
 [mainserver]
 localhost ansible_connection=local
-ansible_python_interpreter=/usr/bin/python2
 
 [mainserver:vars]
 deployment_environment_id=build
 secrets_file_path="vars/secrets-defaults.yml"
+ansible_python_interpreter=/usr/bin/python2
