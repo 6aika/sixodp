@@ -69,3 +69,37 @@ CREATE OR REPLACE VIEW "_table_metadata" AS
     ORDER BY dependee.oid DESC;
 ALTER VIEW "_table_metadata" OWNER TO "{{ postgres.users.ckan.username }}";
 GRANT SELECT ON "_table_metadata" TO "{{ postgres.users.ckan_datastore.username }}";
+
+-- _full_text fields are now updated by a trigger when set to NULL
+CREATE OR REPLACE FUNCTION populate_full_text_trigger() RETURNS trigger
+AS $body$
+    BEGIN
+        IF NEW._full_text IS NOT NULL THEN
+            RETURN NEW;
+        END IF;
+        NEW._full_text := (
+            SELECT to_tsvector(string_agg(value, ' '))
+            FROM json_each_text(row_to_json(NEW.*))
+            WHERE key NOT LIKE '\_%');
+        RETURN NEW;
+    END;
+$body$ LANGUAGE plpgsql;
+ALTER FUNCTION populate_full_text_trigger() OWNER TO "{{ postgres.users.ckan.username }}";
+
+-- migrate existing tables that don't have full text trigger applied
+DO $body$
+    BEGIN
+        EXECUTE coalesce(
+            (SELECT string_agg(
+                'CREATE TRIGGER zfulltext BEFORE INSERT OR UPDATE ON ' ||
+                quote_ident(relname) || ' FOR EACH ROW EXECUTE PROCEDURE ' ||
+                'populate_full_text_trigger();', ' ')
+            FROM pg_class
+            LEFT OUTER JOIN pg_trigger AS t
+                ON t.tgrelid = relname::regclass AND t.tgname = 'zfulltext'
+            WHERE relkind = 'r'::"char" AND t.tgname IS NULL
+                AND relnamespace = (
+                    SELECT oid FROM pg_namespace WHERE nspname='public')),
+            'SELECT 1;');
+    END;
+$body$;

@@ -31,8 +31,8 @@
 - name: Initialize Spatial database
   command: "{{item}}"
   with_items:
-    - "sudo -u postgres psql -d ckan_default -f /usr/share/postgresql/9.5/contrib/postgis-2.2/postgis.sql"
-    - "sudo -u postgres psql -d ckan_default -f /usr/share/postgresql/9.5/contrib/postgis-2.2/spatial_ref_sys.sql"
+    - "sudo -u postgres psql -d ckan_default -f /usr/share/postgresql/12/contrib/postgis-3.0/postgis.sql"
+    - "sudo -u postgres psql -d ckan_default -f /usr/share/postgresql/12/contrib/postgis-3.0/spatial_ref_sys.sql"
 
 - name: Update owner of Spatial tables
   command: "{{item}}"

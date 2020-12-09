@@ -1,7 +1,7 @@
 ---
-- name: Install python-mysqldb
-  apt:
-    name: python-mysqldb
+- name: Install PyMySQL
+  pip:
+    name: PyMySQL
 
 - name: Download WP-CLI
   get_url:
@@ -28,23 +28,49 @@
 
   become: yes
 
-- name: Create database
-  mysql_db:
-    name: "{{ mysql.databases.wordpress.name }}"
-    encoding: utf8
-    login_host: "{{ mysql.server.host }}"
-    login_user: "{{ mysql.server.admin_user }}"
-    login_password: "{{ mysql.server.admin_password }}"
+- block:
+  - name: Create database
+    mysql_db:
+      name: "{{ mysql.databases.wordpress.name }}"
+      encoding: utf8
+      login_host: "{{ mysql.server.host }}"
+      login_user: "{{ mysql.server.admin_user }}"
+      login_password: "{{ mysql.server.admin_password }}"
+      login_unix_socket: /var/run/mysqld/mysqld.sock
 
-- name: Create database user
-  mysql_user:
-    name: "{{ mysql.users.wordpress.username }}"
-    host: "%"
-    password: "{{ mysql.users.wordpress.password  }}"
-    priv: "wordpress.*:ALL"
-    login_host: "{{ mysql.server.host }}"
-    login_user: "{{ mysql.server.admin_user }}"
-    login_password: "{{ mysql.server.admin_password }}"
+  - name: Create database user
+    mysql_user:
+      name: "{{ mysql.users.wordpress.username }}"
+      host: "%"
+      password: "{{ mysql.users.wordpress.password  }}"
+      priv: "wordpress.*:ALL"
+      login_host: "{{ mysql.server.host }}"
+      login_user: "{{ mysql.server.admin_user }}"
+      login_password: "{{ mysql.server.admin_password }}"
+      login_unix_socket: /var/run/mysqld/mysqld.sock
+  when: mysql.server.installed_locally
+
+- block:
+  - name: Create database
+    mysql_db:
+      name: "{{ mysql.databases.wordpress.name }}"
+      encoding: utf8
+      login_host: "{{ mysql.server.host }}"
+      login_user: "{{ mysql.server.admin_user }}"
+      login_password: "{{ mysql.server.admin_password }}"
+
+  - name: Create database user
+    mysql_user:
+      name: "{{ mysql.users.wordpress.username }}"
+      host: "%"
+      password: "{{ mysql.users.wordpress.password  }}"
+      priv: "wordpress.*:ALL"
+      login_host: "{{ mysql.server.host }}"
+      login_user: "{{ mysql.server.admin_user }}"
+      login_password: "{{ mysql.server.admin_password }}"
+  when: not mysql.server.installed_locally
+
+
 
 - name: Create WordPress directory
   file:
