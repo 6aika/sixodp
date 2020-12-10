@@ -1,8 +1,10 @@
 ---
 
 - name: Upgrade pip packages
-  pip: name={{ item }} virtualenv={{ virtualenv }} state=latest
-  with_items:
-    - pip
-    - setuptools==44.1.0
-    - boto
+  pip:
+    name:
+      - pip
+      - setuptools==44.1.0
+      - boto
+    virtualenv: "{{ virtualenv }}"
+    state: latest

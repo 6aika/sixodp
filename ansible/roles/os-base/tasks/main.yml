@@ -14,34 +14,40 @@
   template: src=sources.list.j2 dest=/etc/apt/sources.list mode="0644" owner=root group=root
   when: deployment_environment_id == "vagrant"
 
+- name: Remove ansible apt repository in build environment
+  apt_repository:
+    repo: ppa:ansible/ansible
+    state: absent
+  when: deployment_environment_id == "build"
+
 - name: Upgrade packages
   apt: upgrade=dist update_cache=yes
 
 - name: Ensure common packages
-  apt: pkg={{ item }} state=latest
-  with_items:
-    - htop
-    - unattended-upgrades
-    - python-pip
-    - python-dev
-    - python-virtualenv
-    - python-psycopg2
-    - postgresql-server-dev-9.5
-    - libpq5
-    - git-core
-    - zip
-    - unzip
-    - gettext
-    - build-essential
-    - libz-dev
-    - libssl-dev
-    - supervisor
-    - libxml2-dev
-    - libxslt1-dev
-    - curl
-    - acl
-    - libgeos-c1v5
-    - s-nail
+  apt:
+    pkg:
+      - htop
+      - unattended-upgrades
+      - python-dev
+      #- python-psycopg2
+      - postgresql-server-dev-12
+      - libpq5
+      - git-core
+      - zip
+      - unzip
+      - gettext
+      - build-essential
+      - libz-dev
+      - libssl-dev
+      - supervisor
+      - libxml2-dev
+      - libxslt1-dev
+      - curl
+      - acl
+      - libgeos-c1v5
+      - s-nail
+    state: latest
+
 
 # Note: psycopg2 requires postgresql-server-dev
 
@@ -54,6 +60,19 @@
   with_items:
     - "{{ server_path }}"
     - "{{ cache_path }}"
+
+- name: Copy get-pip.py script
+  copy:
+    src: get-pip.py
+    dest: "{{ cache_path }}/get-pip.py"
+
+- name: Install pip
+  command: python2 "{{ cache_path }}"/get-pip.py
+  become: yes
+
+- name: Install virtualenv
+  pip:
+    name: virtualenv
 
 - name: Copy environment update script
   template:

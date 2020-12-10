@@ -7,20 +7,20 @@
 
 - name: Install PostGIS
   apt:
-    name: postgresql-9.5-postgis-2.2
+    name: postgresql-12-postgis-3
     state: latest
 
 - name: Copy postgres configurations
   template: src={{ item.file }} dest={{ item.dest }} owner=postgres group=postgres mode="0640"
   with_items:
-    - { file: pg_hba.conf.j2, dest: /etc/postgresql/9.5/main/pg_hba.conf }
-    - { file: postgresql.conf.j2, dest: /etc/postgresql/9.5/main/postgresql.conf }
+    - { file: pg_hba.conf.j2, dest: /etc/postgresql/12/main/pg_hba.conf }
+    - { file: postgresql.conf.j2, dest: /etc/postgresql/12/main/postgresql.conf }
 
 - name: Generate self-signed SSL certificate
-  command: openssl req -new -nodes -x509 -subj "/C=FI/ST=Helsinki/L=Helsinki/O=IT/CN={{ public_facing_hostname }}" -days 3650 -keyout "/var/lib/postgresql/9.5/main/server.key" -out "/var/lib/postgresql/9.5/main/server.crt" -extensions v3_ca creates="/var/lib/postgresql/9.5/main/server.crt"
+  command: openssl req -new -nodes -x509 -subj "/C=FI/ST=Helsinki/L=Helsinki/O=IT/CN={{ public_facing_hostname }}" -days 3650 -keyout "/var/lib/postgresql/12/main/server.key" -out "/var/lib/postgresql/12/main/server.crt" -extensions v3_ca creates="/var/lib/postgresql/12/main/server.crt"
 
 - name: Set certificate file ownership and mode
-  shell: chmod 600 /var/lib/postgresql/9.5/main/server.* && chown "postgres:postgres" /var/lib/postgresql/9.5/main/server.*
+  shell: chmod 600 /var/lib/postgresql/12/main/server.* && chown "postgres:postgres" /var/lib/postgresql/12/main/server.*
 
 - name: Restart postgres
   service: name=postgresql state=restarted
