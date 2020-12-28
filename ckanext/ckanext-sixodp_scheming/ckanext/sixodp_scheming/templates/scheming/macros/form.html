@@ -6,18 +6,20 @@
     {%- set extra_html = caller() if caller -%}
     {% call form.input_block(id or name, label or name, error, classes, control_classes=["editor"], extra_html=extra_html, is_required=is_required) %}
     <div class="multiple-values">
+        <span style="display: none;" id="add-label">{{ _('Add') }}</span>
+        <span style="display: none;" id="remove-label">{{ _('Remove') }}</span>
         {% if value %}
         {% set values = value if value.append else [value] %}
         {% for value_item in values %}
         {% if value_item %}
         <div class="multiple-value-group">
-            <input id="{{ id or name }}-{{ loop.index }}" type="{{ type }}" name="{{ name }}" value="{{ value_item | empty_and_escape }}" placeholder="{{ placeholder }}" class="multiple-value form-control" {{ form.attributes(attrs) }} />
+            <input id="{{ id or name }}-{{ loop.index }}" type="{{ type }}" name="{{ name }}" value="{{ value_item | empty_and_escape }}" placeholder="{{ placeholder }}" aria-label="{{ label }}" class="multiple-value form-control" {{ form.attributes(attrs) }} />
         </div>
         {% endif %}
         {% endfor %}
         {% endif %}
         <div class="multiple-value-group">
-            <input id="{{ id or name }}" type="{{ type }}" name="{{ name }}" value="" placeholder="{{ placeholder }}" class="multiple-value form-control" {{ form.attributes(attrs) }} />
+            <input id="{{ id or name }}" type="{{ type }}" name="{{ name }}" value="" placeholder="{{ placeholder }}" aria-label="{{ label }}" class="multiple-value form-control" {{ form.attributes(attrs) }} />
         </div>
     </div>
     {% endcall %}
