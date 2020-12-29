@@ -1,11 +1,10 @@
 # Translations template for ckanext-sixodp_showcase.
-# Copyright (C) 2019 ORGANIZATION
+# Copyright (C) 2020 ORGANIZATION
 # This file is distributed under the same license as the ckanext-sixodp_showcase
 # project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
 # 
 # Translators:
-# Zharktas <jari-pekka.voutilainen@gofore.com>, 2018
 # Joonas Dukpa, 2018
 # 
 #, fuzzy
@@ -13,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_showcase 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-28 08:00+0000\n"
+"POT-Creation-Date: 2020-09-11 11:35+0000\n"
 "PO-Revision-Date: 2017-03-17 06:42+0000\n"
 "Last-Translator: Joonas Dukpa, 2018\n"
 "Language-Team: Swedish (https://www.transifex.com/6aika-dataportal/teams/68018/sv/)\n"
@@ -102,12 +101,12 @@ msgid ""
 "through the search page or other datasets which have the same tag."
 msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:209
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:211
 #: ckanext/sixodp_showcase/translations.py:9
 msgid "Author website"
 msgstr "Applikationens webbplats"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:202
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:204
 #: ckanext/sixodp_showcase/translations.py:10
 msgid "Application website"
 msgstr "Applikationswebbplats"
@@ -389,34 +388,34 @@ msgstr "Publicerad"
 msgid "updated"
 msgstr "Uppdaterad"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:124
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:126
 msgid "Manage"
 msgstr "Hantera"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:136
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:138
 msgid "Private"
 msgstr "Privat"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:153
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:155
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/snippets/showcase_info.html:22
 msgid "Launch website"
 msgstr "Öppnä webbsidan"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:159
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:161
 msgid "Used datasets"
 msgstr "Öppen data som använts i applikationen"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:163
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:165
 msgid "There are no Datasets in this Showcase"
 msgstr "Det finns inga datasets kopplade till detta applikationen"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:171
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:220
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:173
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:222
 msgid "More from the author"
 msgstr "Mer från författaren"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:175
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:224
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:177
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:226
 msgid "Show all from this author"
 msgstr "Visa allt från denna författare"
 
@@ -461,17 +460,17 @@ msgstr "Senast ändrad"
 msgid "Top rating"
 msgstr "Toppbetyg"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/snippets/showcase_item.html:40
-msgid "This showcase has no description"
-msgstr "Detta applikation saknar beskrivning"
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/search.html:83
+msgid "Filter results"
+msgstr ""
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/snippets/showcase_item.html:47
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/snippets/showcase_item.html:20
 msgid "View {showcase_title}"
 msgstr "Visa {showcase_title}"
 
-#: ckanext/sixodp_showcase/templates/sixodp_showcase/snippets/showcase_item.html:49
-msgid "Read more"
-msgstr "Läs mer"
+#: ckanext/sixodp_showcase/templates/sixodp_showcase/snippets/showcase_item.html:47
+msgid "This showcase has no description"
+msgstr "Detta applikation saknar beskrivning"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/snippets/showcase_item.html:54
 msgid "Remove dataset from this showcase"
