@@ -5,4 +5,5 @@
 ## Arkkitehtuuri
 
 * [Yleistä](arkkitehtuuri/yleistae.md)
+* [WordPress](arkkitehtuuri/wordpress.md)
 
