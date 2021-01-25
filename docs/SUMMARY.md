@@ -7,7 +7,7 @@
 * [General](architecture/yleistae.md)
 * [WordPress](architecture/wordpress.md)
 
-## Sisällöntuotanto
+## Content management
 
-* [Untitled](sisaelloentuotanto/untitled.md)
+* [Untitled](content-management/untitled.md)
 
