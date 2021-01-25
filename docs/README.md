@@ -1,17 +1,17 @@
-# Dataportaalin tekninen dokumentaatio
+# Technical documentation for data portal
 
-## Dataportaali
+## The Data portal
 
-Dataportaali koostuu kahdesta palvelusta: [WordPress](https://wordpress.org/) sisällöntuotantoon ja [CKAN](https://ckan.org/) datan julkaisuun. Palvelut on rakennettu siten, että portaalin etusivu on tehty WordPressillä ja osoitteissa /data/ alkuiset CKAN:lla. Projektin demoympäristö löytyy osoitteesta [https://generic-qa.dataportaali.com/fi/](https://generic-qa.dataportaali.com/fi/) ja kumpaiseenkin palveluun kirjaudutaan omilla tunnuksilla. WordPressin sisäänkirjautuminen löytyy osoitteesta [https://generic-qa.dataportaali.com/wp-login.php](https://generic-qa.dataportaali.com/wp-login.php) ja CKAN:in osoitteesta [https://generic-qa.dataportaali.com/data/user/login](https://generic-qa.dataportaali.com/data/user/login). Pääsyjä voi tarvittaessa kysyä kehitystiimiltä.
+The data portal consists of two services: [WordPress](https://wordpress.org/) for content management and [CKAN](https://ckan.org/) publishing data. Services are built in such way that the front page is made with WordPress and URLs starting with /data/ are made with CKAN. The demo environment is available at [https://generic-qa.dataportaali.com/fi/](https://generic-qa.dataportaali.com/fi/) with login to each service with its own account. WordPress login is available at [https://generic-qa.dataportaali.com/wp-login.php](https://generic-qa.dataportaali.com/wp-login.php) and CKAN is at [https://generic-qa.dataportaali.com/data/user/login](https://generic-qa.dataportaali.com/data/user/login). Access to services can be asked from the developer team.
 
-## Kehitysympäristön pystytys
+## Setting up development environment
 
-### Vaatimukset:
+### Requirements:
 
-* Virtualbox \(testattu versiolla 6.1.12\)
-* Vagrant \(testattu versiolla 2.2.9\)
+* Virtualbox \(tested with 6.1.12\)
+* Vagrant \(tested with 2.2.9\)
 
-Kehitysympäristö voidaan pystyttää mille tahansa koneelle, johon on asennettu vaadittavat ohjelmistot. Kehitysympäristön pystytys tapahtuu automaattisesti ajamalla seuraavat komennot:
+The development environment can be built on any machine that has required applications installed. Setting up development environment is done automatically when following commands are executed:
 
 ```bash
 git clone https://github.com/6aika/sixodp.git
@@ -23,10 +23,10 @@ vagrant up
 ```
 
 {% hint style="info" %}
- Pystytykseen voi mennä puolen tuntia.
+Setting up the environment can take half an hour.
 {% endhint %}
 
-Kun ansible on asentanut kaiken virtuaalikoneen sisälle, kehitysympäristö on saatavilla osoitteessa [https://10.106.10.10/](https://10.106.10.10/). Oletus salasanat kehitysympäristössä ovat WordPressiin admin / admin ja CKAN:iin admin / adminadmin.
+Once ansible has installed everything inside the virtual machine, the environment is available at [https://10.106.10.10/](https://10.106.10.10/). The default password in development environment are admin / admin in WordPress and admin / adminadmin in CKAN.
 
 
 
