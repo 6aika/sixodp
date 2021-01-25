@@ -6,6 +6,8 @@
 
 * [General](architecture/yleistae.md)
 * [WordPress](architecture/wordpress.md)
+* [CKAN](architecture/ckan.md)
+* [AWS](architecture/aws.md)
 
 ## Content management
 
