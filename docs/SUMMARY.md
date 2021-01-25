@@ -2,10 +2,10 @@
 
 * [Technical documentation for data portal](README.md)
 
-## Arkkitehtuuri
+## Architecture
 
-* [Yleistä](arkkitehtuuri/yleistae.md)
-* [WordPress](arkkitehtuuri/wordpress.md)
+* [General](architecture/yleistae.md)
+* [WordPress](architecture/wordpress.md)
 
 ## Sisällöntuotanto
 
