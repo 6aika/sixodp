@@ -8,4 +8,4 @@
 
 - name: Update hostname
   command: hostname {{ internal_hostname }}
-  when: hostname_update|changed
+  when: hostname_update is changed

@@ -9,4 +9,4 @@
 
 - name: Update tzdata
   command: /usr/sbin/dpkg-reconfigure --frontend noninteractive tzdata
-  when: set_timezone|changed
+  when: set_timezone is changed

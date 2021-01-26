@@ -15,10 +15,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       server.vm.synced_folder ".", "/vagrant", type:"virtualbox", :mount_options => ["dmode=755","fmode=644"]
     end
 
+
+    server.vm.provision "shell", inline: "sudo apt-get -y install python2 && sudo apt-get -y install ansible"
+
     server.vm.provision "ansible_local" do |ansible|
-      # Ansible is locked to version 2.3.2 as 2.4 is broken, once removed remember to remove lock from jenkins and cloudformation
-      ansible.version = "2.8.6"
-      ansible.install_mode = "pip"
       ansible.inventory_path = "inventories/vagrant"
       ansible.limit = "all"
       ansible.playbook = "deploy-all.yml"
