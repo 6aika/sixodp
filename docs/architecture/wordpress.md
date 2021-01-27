@@ -20,3 +20,7 @@ Following plugins are modified in some way and as such not installed through Wor
 * Contact Widgets \([https://github.com/6aika/sixodp/tree/master/wordpress/contact-widgets](https://github.com/6aika/sixodp/tree/master/wordpress/contact-widgets)\)
 * Menu routes for WordPress \([https://github.com/6aika/wp-api-menus](https://github.com/6aika/wp-api-menus)\)
 
+### Installation
+
+WordPress is installed by running ansible \([https://github.com/6aika/sixodp/tree/master/ansible/roles/wordpress](https://github.com/6aika/sixodp/tree/master/ansible/roles/wordpress)\). Installation is done with the help of WP CLI. Currently using old 1.5.1 cli version as Polylang CLI development was abandoned \([https://github.com/diggy/polylang-cli/issues/118](https://github.com/diggy/polylang-cli/issues/118)\) 
+
