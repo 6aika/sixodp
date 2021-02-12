@@ -19,9 +19,14 @@
                 <?php echo $category->name; ?>
               </a>
             </h1>
-            <?php $thumb = category_image_src(array(
-              'term_id' => $category->term_id
-            )); ?>
+            <?php
+            $thumb = '';
+            if (function_exists('category_image_src')){
+                $thumb = category_image_src(array(
+                    'term_id' => $category->term_id
+                ));
+            }
+             ?>
             <div class="contentbox__img-wrapper">
               <img src="<?php echo $thumb; ?>" alt="thumb">
             </div>
