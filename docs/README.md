@@ -2,7 +2,7 @@
 
 ## The Data portal
 
-The data portal consists of two services: [WordPress](https://wordpress.org/) for content management and [CKAN](https://ckan.org/) publishing data. Services are built in such way that the front page is made with WordPress and URLs starting with /data/ are made with CKAN. The demo environment is available at [https://generic-qa.dataportaali.com/fi/](https://generic-qa.dataportaali.com/fi/) with login to each service with its own account. WordPress login is available at [https://generic-qa.dataportaali.com/wp-login.php](https://generic-qa.dataportaali.com/wp-login.php) and CKAN is at [https://generic-qa.dataportaali.com/data/user/login](https://generic-qa.dataportaali.com/data/user/login). Access to services can be asked from the developer team.
+The data portal consists of two services: [WordPress](https://wordpress.org/) for content management and [CKAN](https://ckan.org/) publishing data. Services are built in such way that the front page, news, blogs and articles are made with WordPress and URLs starting with /data/ are made with CKAN. The demo environment is available at [https://generic-qa.dataportaali.com/fi/](https://generic-qa.dataportaali.com/fi/) with login to each service with its own account. WordPress login is available at [https://generic-qa.dataportaali.com/wp-login.php](https://generic-qa.dataportaali.com/wp-login.php) and CKAN is at [https://generic-qa.dataportaali.com/data/user/login](https://generic-qa.dataportaali.com/data/user/login). Access to services can be asked from the developer team.
 
 ## Setting up development environment
 
