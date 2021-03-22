@@ -4,3 +4,11 @@ WordPress and its plugins should be upgraded automatically to latest version eve
 
 If the upgrade fails for any reason, usually it is a permission issue on the server.
 
+After the upgrade, the following list of features should be checked. There are no automated tests.
+
+* Creating, editing and deleting page.
+* Creating, editing and deleting post.
+* Localization.
+* Submitting showcase idea.
+* Submitting dataset request.
+
