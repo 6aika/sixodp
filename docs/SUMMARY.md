@@ -13,3 +13,12 @@
 
 * [Untitled](content-management/untitled.md)
 
+## Translations
+
+* [Transifex](translations/transifex.md)
+
+## Version Upgrades
+
+* [CKAN](version-upgrades/ckan.md)
+* [WordPress](version-upgrades/wordpress.md)
+
