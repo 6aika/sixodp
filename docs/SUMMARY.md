@@ -9,10 +9,6 @@
 * [WordPress](architecture/wordpress.md)
 * [CKAN](architecture/ckan.md)
 
-## Content management
-
-* [Untitled](content-management/untitled.md)
-
 ## Translations
 
 * [Transifex](translations/transifex.md)
