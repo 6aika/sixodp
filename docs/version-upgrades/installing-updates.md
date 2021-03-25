@@ -1,6 +1,6 @@
 # Installing updates
 
-Code and other updates can installed to instance via running following command:
+Code and other updates can installed to instance via running following command on shell prompt on the instance itself:
 
 ```text
 sixodp-update
