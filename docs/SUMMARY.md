@@ -17,5 +17,6 @@
 
 * [CKAN](version-upgrades/ckan.md)
 * [WordPress](version-upgrades/wordpress.md)
+* [Continuous integration](version-upgrades/continuous-integration.md)
 * [Installing updates](version-upgrades/installing-updates.md)
 
