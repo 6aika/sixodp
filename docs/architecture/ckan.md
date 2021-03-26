@@ -17,7 +17,7 @@ Most of the actual customization is done via ckan extensions.  Some of them are 
 * [Reminder](https://github.com/6aika/ckanext-reminder), enables sending notifications from dataset updates to anonymous subscribers and reminders to dataset maintainers when they have to update their datasets.
 * [Googleanalytics](https://github.com/6aika/ckanext-googleanalytics), heavily modified from original google analytics extension.
 * [Datasetcopy](https://github.com/6aika/ckanext-datasetcopy), enables creating new datasets from existing ones by filling the form with existing values.
-* [Statistics](https://github.com/6aika/sixodp/tree/master/ckanext/ckanext-statistics), creates visualization on the browser from the ckan api.
+* [Statistics](https://github.com/6aika/sixodp/tree/master/ckanext/ckanext-statistics), creates visualization on the browser from the ckan api. The visualizations are implemented with d3.js and probably has scaling issues when amount of datasets or organizations grow.
 * [Rating](https://github.com/6aika/ckanext-rating), enables anonymous ratings of datasets and showcases. Currently not in use as it has issues with bot crawlers.
 * [Editor](https://github.com/6aika/ckanext-editor), provides user interface to modify multiple datasets at the same time with the same values.
 * [Datasubmitter](https://github.com/6aika/sixodp/tree/master/ckanext/ckanext-datasubmitter), similar to showcase submit, enables submitting datasets anonymously.
