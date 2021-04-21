@@ -16,4 +16,5 @@ If the playbook succeeds, the following list of features should be checked that 
 * Submitting dataset anonymously
 * Submitting showcase anonymously
 * Modifying different fields in dataset via mass editor
+* Fetching google analytics data via paster cli command
 
