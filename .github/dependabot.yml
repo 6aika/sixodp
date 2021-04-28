@@ -1,0 +1,19 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "03:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: y18n
+    versions:
+    - 4.0.1
+    - 4.0.2
+- package-ecosystem: npm
+  directory: "/sixodp"
+  schedule:
+    interval: daily
+    time: "03:00"
+  open-pull-requests-limit: 10
