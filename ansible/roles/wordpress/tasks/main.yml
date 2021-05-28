@@ -139,7 +139,16 @@
         --path=/opt/wordpress
         --activate
         {{ wordpress_plugins|join(' ') }}
-    when: wordpress_plugins
+    when: wordpress_plugins is defined
+
+  - name: Remove deleted plugins
+    command: >
+      wp plugin uninstall
+        --path=/opt/wordpress
+        --deactivate
+        {{ removed_wordpress_plugins|join(' ') }}
+    ignore_errors: true
+    when: removed_wordpress_plugins is defined
 
   - name: Change permalink structure
     command: >
