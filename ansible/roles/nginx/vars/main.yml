@@ -17,3 +17,5 @@ blocked_bots:
   - AhrefsBot
   - Yandex
   - DataForSeoBot
+  - SemrushBot
+  - PetalBot
