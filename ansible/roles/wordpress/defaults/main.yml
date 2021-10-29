@@ -16,6 +16,7 @@ wordpress_plugins:
   - classic-editor
   - wordpress-seo
   - wordfence
+  - cookiehub
 
 removed_wordpress_plugins:
   - addthis
