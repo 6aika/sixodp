@@ -14,10 +14,6 @@
 
 {% block scripts -%}
   {{ super() }}
-{% endblock -%}
-
-{% block head_extras %}
-  {{ super() }}
   <script type="text/javascript">
     var cpm = {};
     (function(h,u,b){
@@ -27,7 +23,10 @@
       d.parentNode.insertBefore(e,d);
     })(document,window,cpm);
   </script>
+{% endblock -%}
 
+{% block head_extras %}
+  {{ super() }}
 {% endblock %}
 
 {% block styles %}{% endblock %}
