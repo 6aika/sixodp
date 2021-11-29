@@ -80,7 +80,7 @@ ckan_users:
   admin:
     username: admin
     password: "{{ secret.ckan_admin_password }}"
-    email: admin@localhost
+    email: dataportaali-dev@gofore.com
   harvest:
     username: harvest
     password: "{{ secret.ckan_harvest_password }}"
@@ -94,7 +94,7 @@ wordpress_users:
   admin:
     username: admin
     password: "{{ secret.wordpress_admin_password }}"
-    email: admin@localhost.localdomain
+    email: dataportaali-dev@gofore.com
 
 ckan_admins:
   - "{{ ckan_users.admin.username }}"
