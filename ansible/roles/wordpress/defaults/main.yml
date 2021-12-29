@@ -12,7 +12,7 @@ wordpress_plugins:
   - disqus-comment-system
   - wp-recaptcha-integration
   - wordpress-importer
-  - wp-user-avatar
+  - wp-user-avatars
   - classic-editor
   - wordpress-seo
   - wordfence
@@ -20,6 +20,7 @@ wordpress_plugins:
 
 removed_wordpress_plugins:
   - addthis
+  - wp-user-avatar
 
 polylang_languages: 
   - { name: 'Suomi', code: 'fi', locale: 'fi', flag: 'fi' }
