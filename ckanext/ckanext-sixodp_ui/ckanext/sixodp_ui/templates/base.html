@@ -14,7 +14,7 @@
 
 {% block scripts -%}
   {{ super() }}
-  {% if cookiehub_domain_code %}
+  {% if h.get_cookiehub_domain_code() %}
   <script type="text/javascript">
     var cpm = {};
     (function(h,u,b){
