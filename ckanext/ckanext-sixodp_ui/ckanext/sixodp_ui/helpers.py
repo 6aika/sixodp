@@ -325,3 +325,6 @@ def get_created_or_updated(pkg_or_res):
     elif newer is None and 'date_updated' in pkg_or_res:
         return pkg_or_res['date_updated']
     return newer
+
+def get_cookiehub_domain_code():
+    return config.get('ckanext.sixodp_ui.cookiehub_domain_code')
