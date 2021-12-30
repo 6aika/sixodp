@@ -203,3 +203,5 @@ google_analytics:
 disqus_public_key: "{{ secret.disqus_public_key }}"
 disqus_secret_key: "{{ secret.disqus_secret_key }}"
 disqus_short_name: "{{ secret.disqus_short_name }}"
+
+cookiehub_domain_code: "8f1ccda0"
