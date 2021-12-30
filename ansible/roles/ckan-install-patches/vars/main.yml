@@ -21,7 +21,6 @@ ckan_patches:
   - { file: "group_include_extras" }
   - { file: "add_group_extra_resource_db_indices" }
   - { file: "correctly_flatten_extras" }
-  - { file: "fix_license_translation"}
   - { file: "change_meta_strings_to_booleans" }
 
 files_created_by_patches:
