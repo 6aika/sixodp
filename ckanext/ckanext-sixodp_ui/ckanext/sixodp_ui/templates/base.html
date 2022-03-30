@@ -16,7 +16,9 @@
   {{ super() }}
   {% if h.get_cookiehub_domain_code() %}
   <script type="text/javascript">
-    var cpm = {};
+    var cpm = {
+      language: (document.documentElement.lang != null ? document.documentElement.lang.substr(0,2) : 'en')
+    };
     (function(h,u,b){
       var d=h.getElementsByTagName("script")[0],e=h.createElement("script");
       e.async=true;e.src='https://cookiehub.net/c2/{{ h.get_cookiehub_domain_code() }}.js';
