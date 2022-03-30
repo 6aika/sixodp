@@ -15,17 +15,19 @@
 {% block scripts -%}
   {{ super() }}
   {% if h.get_cookiehub_domain_code() %}
+  <script src="https://cookiehub.net/c2/{{ h.get_cookiehub_domain_code() }}.js"></script>
   <script type="text/javascript">
-    var cpm = {
-      language: (document.documentElement.lang != null ? document.documentElement.lang.substr(0,2) : 'en')
-    };
-    (function(h,u,b){
-      var d=h.getElementsByTagName("script")[0],e=h.createElement("script");
-      e.async=true;e.src='https://cookiehub.net/c2/{{ h.get_cookiehub_domain_code() }}.js';
-      e.onload=function(){u.cookiehub.load(b);}
-      d.parentNode.insertBefore(e,d);
-    })(document,window,cpm);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {'ad_storage': 'denied', 'analytics_storage': 'denied', 'wait_for_update': 500});
+      document.addEventListener("DOMContentLoaded", function(event) {
+        var cpm = {
+          language: (document.documentElement.lang != null ? document.documentElement.lang.substr(0,2) : 'en')
+        };
+        window.cookiehub.load(cpm);
+      });
   </script>
+
   {% endif %}
 {% endblock -%}
 
