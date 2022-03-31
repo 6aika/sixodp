@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 {% endblock -%}
 
-{% block scripts -%}
+{% block links -%}
   {{ super() }}
   {% if h.get_cookiehub_domain_code() %}
   <script src="https://cookiehub.net/c2/{{ h.get_cookiehub_domain_code() }}.js"></script>
