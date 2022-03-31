@@ -6,19 +6,12 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://use.fontawesome.com/4f2a9d3d3d.js"></script>
   <link rel="shortcut icon" href="/assets/images/favicon.ico" />
-{% endblock -%}
 
-{% block meta -%}
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-{% endblock -%}
-
-{% block links -%}
-  {{ super() }}
   {% if h.get_cookiehub_domain_code() %}
-  <script src="https://cookiehub.net/c2/{{ h.get_cookiehub_domain_code() }}.js"></script>
-  <script type="text/javascript">
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    <script src="https://cookiehub.net/c2/{{ h.get_cookiehub_domain_code() }}.js"></script>
+    <script type="text/javascript">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
       gtag('consent', 'default', {'ad_storage': 'denied', 'analytics_storage': 'denied', 'wait_for_update': 500});
       document.addEventListener("DOMContentLoaded", function(event) {
         var cpm = {
@@ -26,9 +19,13 @@
         };
         window.cookiehub.load(cpm);
       });
-  </script>
+    </script>
 
   {% endif %}
+{% endblock -%}
+
+{% block meta -%}
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 {% endblock -%}
 
 {% block head_extras %}
