@@ -8,8 +8,8 @@
     "browserify": "browserify shared/js/ckan.js -o ckanext/ckanext-sixodp_ui/ckanext/sixodp_ui/fanstatic/javascript/app.js && browserify shared/js/cms.js -o sixodp/app.js",
     "watch-sass": "watch 'npm run build' ./shared/scss",
     "build": "run-p build:* browserify",
-    "build:ckan": "node-sass ./shared/scss/main.scss ckanext/ckanext-sixodp_ui/ckanext/sixodp_ui/fanstatic/css/sixodp_theme.css",
-    "build:cms": "node-sass ./shared/scss/cms.scss sixodp/app.css",
+    "build:ckan": "sass ./shared/scss/main.scss ckanext/ckanext-sixodp_ui/ckanext/sixodp_ui/fanstatic/css/sixodp_theme.css",
+    "build:cms": "sass ./shared/scss/cms.scss sixodp/app.css",
     "dev": "run-p watch-sass watch-js",
     "postinstall": "run-p build browserify"
   },
@@ -18,10 +18,10 @@
   "devDependencies": {
     "browserify": "^16.5.2",
     "eyeglass": "^3.0.2",
-    "node-sass": "^4.14.1",
     "nodemon": "^2.0.4",
     "npm-run-all": "^4.1.5",
-    "watch": "^1.0.2"
+    "watch": "^1.0.2",
+    "sass": "^1.55.0"
   },
   "dependencies": {
     "bootstrap-sass": "^3.4.1",
