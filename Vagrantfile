@@ -16,7 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
 
 
-    server.vm.provision "shell", inline: "sudo apt-get -y install python2"
+    server.vm.provision "shell", inline: "sudo apt-get update && sudo apt-get -y install python2"
 
     server.vm.provision "ansible_local" do |ansible|
       ansible.install_mode = "pip"
