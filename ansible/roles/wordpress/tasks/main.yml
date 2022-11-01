@@ -241,6 +241,15 @@
   copy: src=../sixodp/i18n/{{ item.locale }}/LC_MESSAGES/sixodp-{{ item.locale }}.mo dest=/opt/wordpress/wp-content/languages/themes/
   with_items: "{{ polylang_languages }}"
 
+- name: Ensure theme language permissions
+  file:
+    state: directory
+    path:  /opt/wordpress/wp-content/languages/themes/
+    owner: www-data
+    group: www-data
+    recurse: yes
+
+
 - name: Copy ckan-config to theme
   template: src="ckan-config.php.j2" dest="/opt/wordpress/wp-content/themes/sixodp/ckan-config.php" mode=0644 owner=www-data group=www-data
 
