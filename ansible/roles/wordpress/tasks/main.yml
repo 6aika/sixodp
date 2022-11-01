@@ -158,7 +158,7 @@
 
   - name: Update WordPress
     command:
-      wp core update --minor --path=/opt/wordpress
+      wp core update --path=/opt/wordpress
 
   - name: Update WordPress database
     command:
@@ -166,7 +166,7 @@
 
   - name: Update WordPress plugins
     command:
-      wp plugin update --all --path=/opt/wordpress  --exclude=contact-widgets,wp-trello
+      wp plugin update --all --path=/opt/wordpress  --exclude=contact-widgets,wp-trello,wp-api-menus
 
   - name: Update WordPress themes
     command:
@@ -184,8 +184,14 @@
     group: www-data
 
 - block:
+
+  - name: Check if polylang-cli is installed
+    command: wp package list
+    register: wp_installed_packages
+
   - name: Install polylang-cli
     command: wp package install git@github.com:diggy/polylang-cli.git
+    when: "'diggy/polylang-cli' not in wp_installed_packages.stdout"
 
   - name: Add languages to polylang-cli
     command: wp pll lang create "{{ item.name }}" "{{ item.code }}" "{{ item.locale }}" --flag="{{ item.flag }}" --path=/opt/wordpress
