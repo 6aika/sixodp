@@ -50,5 +50,13 @@
   become: true
   become_user: solr
 
+# Can be removed once solr is updated to 8.11.1
+- name: Configure solr opts
+  lineinfile:
+    path: /etc/default/solr.in.sh
+    state: present
+    line: 'SOLR_OPTS="$SOLR_OPTS -Dlog4j2.formatMsgNoLookups=true"'
+    search_string: 'log4j2.formatMsgNoLookups=true'
+
 - name: Restart solr
   service: name=solr state=restarted

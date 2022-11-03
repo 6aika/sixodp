@@ -23,6 +23,7 @@ ckan_patches:
   - { file: "correctly_flatten_extras" }
   #- { file: "upgrade_jquery" }
   - { file: "fix_license_translation"}
+  - { file: "change_meta_strings_to_booleans" }
 
 files_created_by_patches:
   - { file: '/usr/lib/ckan/default/src/ckan/ckan/lib/csrf_token.py'}

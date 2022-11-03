@@ -268,7 +268,8 @@ class Sixodp_UiPlugin(plugins.SingletonPlugin, DefaultTranslation):
             'get_search_tags': helpers.get_search_tags,
             'get_all_groups': helpers.get_all_groups,
             'get_single_group': helpers.get_single_group,
-            'get_created_or_updated': helpers.get_created_or_updated
+            'get_created_or_updated': helpers.get_created_or_updated,
+            'get_cookiehub_domain_code': helpers.get_cookiehub_domain_code
         }
 
     def before_search(self, search_params):

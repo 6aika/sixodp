@@ -30,9 +30,9 @@
     - ckan-cron
     - datapusher
     - supervisor
+    - nginx
     - role: geerlingguy.certbot
       when: deployment_environment_id != "vagrant" and deployment_environment_id != "build"
-    - nginx
     #- transifex-install Only used on Vagrant
     - ckan-translations
     - ckan-restart

@@ -18,12 +18,13 @@
             $boxlink_url      = get_category_link($category->term_id);
             $boxlink_heading  = $category->name;
 
+            $bg = '';
             if (function_exists('category_image_src')){
                 $bg = category_image_src(array(
                 'term_id' => $category->term_id
                 ));
             }
-            if ( $bg && $count < 3 ) {
+            if ( $count < 3 ) {
               echo '<div class="boxlink" style="background-image: url('.$bg.');"><div class="boxlink__footer"><h2 class="heading">';
               echo '<a href="'.$boxlink_url.'">'.$boxlink_heading.'</a></h2>';
               echo '<a href="'.$boxlink_url.'" class="round"><i class="material-icons">arrow_forward</i></a>';

@@ -9,7 +9,7 @@ jQuery(document).ready(function($) {
         window.location.href= '/' + locale + '/?s=' + encodeURI(q);
       }
       else {
-        window.location.href= '/data/' + locale_ckan+domain + '?q=' + encodeURI(q) + '&sort=title+asc';
+        window.location.href= '/data/' + locale_ckan+domain + '?q=' + encodeURI(q) + '&sort=score desc, metadata_modified desc';
       }
     }
     else {

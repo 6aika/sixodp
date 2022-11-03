@@ -1,7 +1,7 @@
 ---
-- name: Install python-mysqldb
-  apt:
-    name: python-mysqldb
+- name: Install PyMySQL
+  pip:
+    name: PyMySQL
 
 - name: Download WP-CLI
   get_url:
@@ -28,23 +28,49 @@
 
   become: yes
 
-- name: Create database
-  mysql_db:
-    name: "{{ mysql.databases.wordpress.name }}"
-    encoding: utf8
-    login_host: "{{ mysql.server.host }}"
-    login_user: "{{ mysql.server.admin_user }}"
-    login_password: "{{ mysql.server.admin_password }}"
+- block:
+  - name: Create database
+    mysql_db:
+      name: "{{ mysql.databases.wordpress.name }}"
+      encoding: utf8
+      login_host: "{{ mysql.server.host }}"
+      login_user: "{{ mysql.server.admin_user }}"
+      login_password: "{{ mysql.server.admin_password }}"
+      login_unix_socket: /var/run/mysqld/mysqld.sock
 
-- name: Create database user
-  mysql_user:
-    name: "{{ mysql.users.wordpress.username }}"
-    host: "%"
-    password: "{{ mysql.users.wordpress.password  }}"
-    priv: "wordpress.*:ALL"
-    login_host: "{{ mysql.server.host }}"
-    login_user: "{{ mysql.server.admin_user }}"
-    login_password: "{{ mysql.server.admin_password }}"
+  - name: Create database user
+    mysql_user:
+      name: "{{ mysql.users.wordpress.username }}"
+      host: "%"
+      password: "{{ mysql.users.wordpress.password  }}"
+      priv: "wordpress.*:ALL"
+      login_host: "{{ mysql.server.host }}"
+      login_user: "{{ mysql.server.admin_user }}"
+      login_password: "{{ mysql.server.admin_password }}"
+      login_unix_socket: /var/run/mysqld/mysqld.sock
+  when: mysql.server.installed_locally
+
+- block:
+  - name: Create database
+    mysql_db:
+      name: "{{ mysql.databases.wordpress.name }}"
+      encoding: utf8
+      login_host: "{{ mysql.server.host }}"
+      login_user: "{{ mysql.server.admin_user }}"
+      login_password: "{{ mysql.server.admin_password }}"
+
+  - name: Create database user
+    mysql_user:
+      name: "{{ mysql.users.wordpress.username }}"
+      host: "%"
+      password: "{{ mysql.users.wordpress.password  }}"
+      priv: "wordpress.*:ALL"
+      login_host: "{{ mysql.server.host }}"
+      login_user: "{{ mysql.server.admin_user }}"
+      login_password: "{{ mysql.server.admin_password }}"
+  when: not mysql.server.installed_locally
+
+
 
 - name: Create WordPress directory
   file:
@@ -113,7 +139,16 @@
         --path=/opt/wordpress
         --activate
         {{ wordpress_plugins|join(' ') }}
-    when: wordpress_plugins
+    when: wordpress_plugins is defined
+
+  - name: Remove deleted plugins
+    command: >
+      wp plugin uninstall
+        --path=/opt/wordpress
+        --deactivate
+        {{ removed_wordpress_plugins|join(' ') }}
+    ignore_errors: true
+    when: removed_wordpress_plugins is defined
 
   - name: Change permalink structure
     command: >
@@ -131,7 +166,7 @@
 
   - name: Update WordPress plugins
     command:
-      wp plugin update --all --path=/opt/wordpress  --exclude=contact-widgets,wp-trello
+      wp plugin update --all --path=/opt/wordpress  --exclude=contact-widgets,wp-trello,wp-api-menus
 
   - name: Update WordPress themes
     command:
@@ -149,8 +184,14 @@
     group: www-data
 
 - block:
+
+  - name: Check if polylang-cli is installed
+    command: wp package list
+    register: wp_installed_packages
+
   - name: Install polylang-cli
     command: wp package install git@github.com:diggy/polylang-cli.git
+    when: "'diggy/polylang-cli' not in wp_installed_packages.stdout"
 
   - name: Add languages to polylang-cli
     command: wp pll lang create "{{ item.name }}" "{{ item.code }}" "{{ item.locale }}" --flag="{{ item.flag }}" --path=/opt/wordpress
@@ -199,6 +240,15 @@
 - name: Copy translations
   copy: src=../sixodp/i18n/{{ item.locale }}/LC_MESSAGES/sixodp-{{ item.locale }}.mo dest=/opt/wordpress/wp-content/languages/themes/
   with_items: "{{ polylang_languages }}"
+
+- name: Ensure theme language permissions
+  file:
+    state: directory
+    path:  /opt/wordpress/wp-content/languages/themes/
+    owner: www-data
+    group: www-data
+    recurse: yes
+
 
 - name: Copy ckan-config to theme
   template: src="ckan-config.php.j2" dest="/opt/wordpress/wp-content/themes/sixodp/ckan-config.php" mode=0644 owner=www-data group=www-data

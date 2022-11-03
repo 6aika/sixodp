@@ -6,16 +6,21 @@ wordpress_local_plugins:
 wordpress_plugins:
   - advanced-custom-fields
   - custom-twitter-feeds
-  - addthis
   - polylang
   - google-analytics-dashboard-for-wp
   #- wpcustom-category-image
   - disqus-comment-system
   - wp-recaptcha-integration
   - wordpress-importer
-  - wp-user-avatar
+  - wp-user-avatars
   - classic-editor
   - wordpress-seo
+  - wordfence
+  - cookiehub
+
+removed_wordpress_plugins:
+  - addthis
+  - wp-user-avatar
 
 polylang_languages: 
   - { name: 'Suomi', code: 'fi', locale: 'fi', flag: 'fi' }

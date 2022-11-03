@@ -80,7 +80,7 @@ ckan_users:
   admin:
     username: admin
     password: "{{ secret.ckan_admin_password }}"
-    email: admin@localhost
+    email: dataportaali-dev@gofore.com
   harvest:
     username: harvest
     password: "{{ secret.ckan_harvest_password }}"
@@ -94,7 +94,7 @@ wordpress_users:
   admin:
     username: admin
     password: "{{ secret.wordpress_admin_password }}"
-    email: admin@localhost.localdomain
+    email: dataportaali-dev@gofore.com
 
 ckan_admins:
   - "{{ ckan_users.admin.username }}"
@@ -203,3 +203,5 @@ google_analytics:
 disqus_public_key: "{{ secret.disqus_public_key }}"
 disqus_secret_key: "{{ secret.disqus_secret_key }}"
 disqus_short_name: "{{ secret.disqus_short_name }}"
+
+cookiehub_domain_code: "8f1ccda0"

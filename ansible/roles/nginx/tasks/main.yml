@@ -63,9 +63,9 @@
   file: src="/etc/nginx/sites-available/{{ item }}" dest="/etc/nginx/sites-enabled/{{ item }}" state=link
   with_items:
     - primary_site
+  notify: Restart nginx
 
 - include: ssl.yml
   when: nginx.use_ssl_certificate
 
-- name: Ensure Nginx is restarted
-  service: name=nginx state=restarted
+

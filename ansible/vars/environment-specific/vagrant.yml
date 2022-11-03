@@ -187,3 +187,5 @@ recaptcha_sitekey: 6LcOXyAUAAAAALCDCcqzCrqRM4fllGmL0KHopKLY
 disqus_public_key: "{{ secret.disqus_public_key }}"
 disqus_secret_key: "{{ secret.disqus_secret_key }}"
 disqus_short_name: "{{ secret.disqus_short_name }}"
+
+cookiehub_domain_code: ""

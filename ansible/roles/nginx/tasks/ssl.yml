@@ -12,12 +12,15 @@
       src: "/etc/letsencrypt/live/{{ public_facing_hostname }}/fullchain.pem"
       dest: "{{ ssl_certificate_path }}/{{ ssl_cert_filename }}"
       state: link
+      force: yes
 
   - name: Symlink certificate key
     file:
       src: "/etc/letsencrypt/live/{{ public_facing_hostname }}/privkey.pem"
       dest: "{{ ssl_certificate_path }}/{{ ssl_key_filename }}"
       state: link
+      force: yes
+
   when: not nginx.use_selfsigned_certificate|bool
 
 - name: Copy strong Diffie-Hellman key exchange parameters

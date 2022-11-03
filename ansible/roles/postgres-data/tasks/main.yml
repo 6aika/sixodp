@@ -1,7 +1,8 @@
 ---
 
-- name: Install python-psycopg2
-  apt: name=python-psycopg2
+- name: Install psycopg2
+  pip:
+    name: psycopg2
 
 - include: local_database.yml
   when: postgres.server.installed_locally

@@ -55,3 +55,7 @@
     border-color: $input-border-focus;
   }
 }
+
+.select2-default{
+  color: $input-color-placeholder !important;
+}
