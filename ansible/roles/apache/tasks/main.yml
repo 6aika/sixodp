@@ -3,4 +3,4 @@
 - name: Ensure apache in removed
   apt:
     pkg: apache2
-    state: removed
+    state: absent

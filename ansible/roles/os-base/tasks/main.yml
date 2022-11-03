@@ -28,7 +28,7 @@
     pkg:
       - htop
       - unattended-upgrades
-      - python-dev
+
       #- python-psycopg2
       - postgresql-server-dev-12
       - libpq5
@@ -48,6 +48,26 @@
       - s-nail
     state: latest
 
+- name: Ensure python3 packages
+  apt:
+    pkg:
+      - python3
+      - python3-pip
+      - python3-dev
+      - python3-virtualenv
+      - python3-psycopg2
+      - virtualenv
+    state: latest
+
+- name: Ensure python2 packages are removed
+  apt:
+    pkg:
+      - python-pip
+      - python-dev
+      - python-virtualenv
+      - python-psycopg2
+    state: absent
+
 
 # Note: psycopg2 requires postgresql-server-dev
 
@@ -60,15 +80,6 @@
   with_items:
     - "{{ server_path }}"
     - "{{ cache_path }}"
-
-- name: Copy get-pip.py script
-  copy:
-    src: get-pip.py
-    dest: "{{ cache_path }}/get-pip.py"
-
-- name: Install pip
-  command: python2 "{{ cache_path }}"/get-pip.py
-  become: yes
 
 - name: Install virtualenv
   pip:

@@ -16,11 +16,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
 
 
-    server.vm.provision "shell", inline: "sudo apt-get update && sudo apt-get -y install python2"
+    server.vm.provision "shell", inline: "sudo apt-get update"
 
     server.vm.provision "ansible_local" do |ansible|
-      ansible.install_mode = "pip"
-      ansible.pip_install_cmd = "sudo apt-get install -y python3-distutils && curl -s https://bootstrap.pypa.io/get-pip.py | sudo python3"
+      ansible.install_mode = "pip3"
+      #ansible.pip_install_cmd = "sudo apt-get install -y python3-distutils && curl -s https://bootstrap.pypa.io/get-pip.py | sudo python3"
       ansible.inventory_path = "inventories/vagrant"
       ansible.limit = "all"
       ansible.playbook = "deploy-all.yml"
