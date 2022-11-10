@@ -1,53 +1,17 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
-import validators
+from .validators import *
 from datetime import datetime
 import json
-import helpers
+from .helpers import *
 
-from ckan.logic import NotFound
 from ckan.lib.plugins import DefaultTranslation
 from logic import action
 import logging
-from pylons import config
+
+config = toolkit.config
 
 log = logging.getLogger(__name__ )
-
-
-def create_vocabulary(name):
-    user = toolkit.get_action('get_site_user')({'ignore_auth': True}, {})
-    context = {'user': user['name']}
-
-    try:
-        data = {'id': name}
-        v = toolkit.get_action('vocabulary_show')(context, data)
-        log.info( name + " vocabulary already exists, skipping.")
-    except NotFound:
-        log.info("Creating vocab '" + name + "'")
-        data = {'name': name}
-        v = toolkit.get_action('vocabulary_create')(context, data)
-
-    return v
-
-def create_tag_to_vocabulary(tag, vocab):
-    user = toolkit.get_action('get_site_user')({'ignore_auth': True}, {})
-    context = {'user': user['name']}
-
-    try:
-        data = {'id': vocab}
-        v = toolkit.get_action('vocabulary_show')(context, data)
-
-    except NotFound:
-        log.info("Creating vocab '" + vocab + "'")
-        data = {'name': vocab}
-        v = toolkit.get_action('vocabulary_create')(context, data)
-
-    data = {
-        "name": tag,
-        "vocabulary_id": v['id']}
-
-    context['defer_commit'] = True
-    toolkit.get_action('tag_create')(context, data)
 
 
 class Sixodp_SchemingPlugin(plugins.SingletonPlugin, DefaultTranslation):

@@ -1,6 +1,6 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
-import pylons.config as config
+
 
 import ckan.logic as logic
 import random
@@ -14,6 +14,7 @@ from ckanext.sixodp_ui.logic import action
 from ckan.lib.plugins import DefaultTranslation
 
 get_action = logic.get_action
+config= toolkit.config
 
 try:
     from collections import OrderedDict  # 2.7

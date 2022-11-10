@@ -13,6 +13,8 @@ from ckan.logic import get_action
 import logging
 log = logging.getLogger(__name__)
 
+NotFound = toolkit.ObjectNotFound
+
 try:
     from ckanext.scheming.validation import (
         scheming_validator, validators_from_string)
@@ -28,13 +30,47 @@ except ImportError:
 from ckan.common import config
 Invalid = df.Invalid
 
-import plugin
-
 ObjectNotFound = toolkit.ObjectNotFound
 c = toolkit.c
 
 missing = toolkit.missing
 ISO_639_LANGUAGE = u'^[a-z][a-z][a-z]?[a-z]?$'
+
+def create_vocabulary(name):
+    user = toolkit.get_action('get_site_user')({'ignore_auth': True}, {})
+    context = {'user': user['name']}
+
+    try:
+        data = {'id': name}
+        v = toolkit.get_action('vocabulary_show')(context, data)
+        log.info( name + " vocabulary already exists, skipping.")
+    except NotFound:
+        log.info("Creating vocab '" + name + "'")
+        data = {'name': name}
+        v = toolkit.get_action('vocabulary_create')(context, data)
+
+    return v
+
+
+def create_tag_to_vocabulary(tag, vocab):
+    user = toolkit.get_action('get_site_user')({'ignore_auth': True}, {})
+    context = {'user': user['name']}
+
+    try:
+        data = {'id': vocab}
+        v = toolkit.get_action('vocabulary_show')(context, data)
+
+    except NotFound:
+        log.info("Creating vocab '" + vocab + "'")
+        data = {'name': vocab}
+        v = toolkit.get_action('vocabulary_create')(context, data)
+
+    data = {
+        "name": tag,
+        "vocabulary_id": v['id']}
+
+    context['defer_commit'] = True
+    toolkit.get_action('tag_create')(context, data)
 
 def lower_if_exists(s):
     return s.lower() if s else s
@@ -102,7 +138,7 @@ def add_to_vocab(context, tags, vocab):
     try:
         v = get_action('vocabulary_show')(context, {'id': vocab})
     except ObjectNotFound:
-        v = plugin.create_vocabulary(vocab)
+        v = create_vocabulary(vocab)
 
     context['vocabulary'] = model.Vocabulary.get(v.get('id'))
 
@@ -113,7 +149,7 @@ def add_to_vocab(context, tags, vocab):
         try:
             validators.tag_in_vocabulary_validator(tag, context)
         except Invalid:
-            plugin.create_tag_to_vocabulary(tag, vocab)
+            create_tag_to_vocabulary(tag, vocab)
 
 
 def tag_list_output(value):

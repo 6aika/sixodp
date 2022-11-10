@@ -1,5 +1,4 @@
 from collections import OrderedDict
-from pylons import config
 import ckan
 #from ckan.controllers.revision import RevisionController
 from ckan.controllers.organization import OrganizationController
@@ -31,6 +30,7 @@ check_access = ckan.logic.check_access
 NotAuthorized = ckan.logic.NotAuthorized
 NotFound = ckan.logic.NotFound
 get_action = ckan.logic.get_action
+config = toolkit.config
 
 unflatten = dictization_functions.unflatten
 DataError = dictization_functions.DataError
@@ -265,7 +265,7 @@ class Sixodp_OrganizationController(OrganizationController):
 
             c.sort_by_selected = sort_by
 
-        except search.SearchError, se:
+        except search.SearchError as se:
             log.error('Group search error: %r', se.args)
             c.query_error = True
             c.facets = {}
@@ -435,14 +435,14 @@ class Sixodp_PackageController(PackageController):
             c.facets = query['facets']
             c.search_facets = query['search_facets']
             c.page.items = query['results']
-        except SearchQueryError, se:
+        except SearchQueryError as se:
             # User's search parameters are invalid, in such a way that is not
             # achievable with the web interface, so return a proper error to
             # discourage spiders which are the main cause of this.
             log.info('Dataset search query rejected: %r', se.args)
             abort(400, _('Invalid search query: {error_message}')
                   .format(error_message=str(se)))
-        except SearchError, se:
+        except SearchError as se:
             # May be bad input from the user, but may also be more serious like
             # bad code causing a SOLR syntax error, or a problem connecting to
             # SOLR

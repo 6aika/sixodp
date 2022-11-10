@@ -1,7 +1,7 @@
 import logging
-import httplib
+import http.client as httplib
 import ckan.lib.base as base
-from pylons import config
+
 import json
 import ckan.lib.i18n as i18n
 import ckan.logic as logic
@@ -10,10 +10,8 @@ import ckan.plugins.toolkit as tk
 from ckan.model.package import Package
 from ckan.lib.dictization.model_dictize import group_list_dictize
 
-from pylons.i18n import gettext
 from ckanext.scheming.helpers import lang
 from ckan.common import _, c
-from webhelpers.html import literal
 from ckan.logic import get_action
 import ckan.lib.helpers as helpers
 
@@ -21,6 +19,8 @@ import ckan.lib.helpers as helpers
 NotFound = logic.NotFound
 abort = base.abort
 request = tk.request
+config = tk.config
+literal = tk.literal
 
 log = logging.getLogger(__name__)
 
@@ -235,7 +235,7 @@ def scheming_language_text_or_empty(text, prefer_lang=None):
             except KeyError:
                 return ''
 
-    t = gettext(text)
+    t = _(text)
     if isinstance(t, str):
         return t.decode('utf-8')
     return t
