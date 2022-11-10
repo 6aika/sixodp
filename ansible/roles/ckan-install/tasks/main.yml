@@ -31,7 +31,7 @@
     editable: yes
 
 - name: Install CKAN requirements
-  pip: requirements={{ virtualenv }}/src/ckan/requirements-py2.txt virtualenv={{ virtualenv }}
+  pip: requirements={{ virtualenv }}/src/ckan/requirements.txt virtualenv={{ virtualenv }}
 
 - name: Install CKAN development/testing requirements
   pip: requirements={{ virtualenv }}/src/ckan/dev-requirements.txt virtualenv={{ virtualenv }}
