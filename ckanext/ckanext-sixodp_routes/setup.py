@@ -79,6 +79,5 @@ setup(
     entry_points='''
         [ckan.plugins]
         sixodp_routes=ckanext.sixodp_routes.plugin:Sixodp_RoutesPlugin
-        sixodp_feed=ckanext.sixodp_routes.feed:Sixodp_FeedPlugin
     ''',
 )
