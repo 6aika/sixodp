@@ -6,7 +6,7 @@ import json
 from .helpers import *
 
 from ckan.lib.plugins import DefaultTranslation
-from logic import action
+from .logic import action
 import logging
 
 config = toolkit.config
@@ -32,19 +32,19 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin, DefaultTranslation):
 
     def get_validators(self):
         return {
-            'lower_if_exists': validators.lower_if_exists,
-            'upper_if_exists': validators.upper_if_exists,
-            'tag_string_or_tags_required': validators.tag_string_or_tags_required,
-            'create_tags': validators.create_tags,
-            'create_fluent_tags': validators.create_fluent_tags,
-            'set_private_if_not_admin': validators.set_private_if_not_admin,
-            'list_to_string': validators.list_to_string,
-            'convert_to_list': validators.convert_to_list,
-            'tag_list_output': validators.tag_list_output,
-            'repeating_text': validators.repeating_text,
-            'repeating_text_output': validators.repeating_text_output,
-            'only_default_lang_required': validators.only_default_lang_required,
-            'save_to_groups': validators.save_to_groups
+            'lower_if_exists': lower_if_exists,
+            'upper_if_exists': upper_if_exists,
+            'tag_string_or_tags_required': tag_string_or_tags_required,
+            'create_tags': create_tags,
+            'create_fluent_tags': create_fluent_tags,
+            'set_private_if_not_admin': set_private_if_not_admin,
+            'list_to_string': list_to_string,
+            'convert_to_list': convert_to_list,
+            'tag_list_output': tag_list_output,
+            'repeating_text': repeating_text,
+            'repeating_text_output': repeating_text_output,
+            'only_default_lang_required': only_default_lang_required,
+            'save_to_groups': save_to_groups
         }
 
     # IActions
@@ -124,16 +124,16 @@ class Sixodp_SchemingPlugin(plugins.SingletonPlugin, DefaultTranslation):
         return data_dict
 
     def get_helpers(self):
-        return {'call_toolkit_function': helpers.call_toolkit_function,
-                'add_locale_to_source': helpers.add_locale_to_source,
-                'get_lang': helpers.get_current_lang,
-                'get_lang_prefix': helpers.get_lang_prefix,
-                'scheming_field_only_default_required': helpers.scheming_field_only_default_required,
-                'get_current_date': helpers.get_current_date,
-                'get_package_groups_by_type': helpers.get_package_groups_by_type,
-                'get_translated_or_default_locale': helpers.get_translated_or_default_locale,
-                'show_qa': helpers.show_qa,
-                'scheming_category_list': helpers.scheming_category_list,
-                'check_group_selected': helpers.check_group_selected,
-                'get_field_from_schema': helpers.get_field_from_schema
+        return {'call_toolkit_function': call_toolkit_function,
+                'add_locale_to_source': add_locale_to_source,
+                'get_lang': get_current_lang,
+                'get_lang_prefix': get_lang_prefix,
+                'scheming_field_only_default_required': scheming_field_only_default_required,
+                'get_current_date': get_current_date,
+                'get_package_groups_by_type': get_package_groups_by_type,
+                'get_translated_or_default_locale': get_translated_or_default_locale,
+                'show_qa': show_qa,
+                'scheming_category_list': scheming_category_list,
+                'check_group_selected': check_group_selected,
+                'get_field_from_schema': get_field_from_schema
                 }

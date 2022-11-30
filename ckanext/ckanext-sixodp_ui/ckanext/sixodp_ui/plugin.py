@@ -16,6 +16,8 @@ from ckan.lib.plugins import DefaultTranslation
 get_action = logic.get_action
 config= toolkit.config
 
+unicode_safe = toolkit.get_validator('unicode_safe')
+
 try:
     from collections import OrderedDict  # 2.7
 except ImportError:
@@ -187,7 +189,7 @@ class Sixodp_UiPlugin(plugins.SingletonPlugin, DefaultTranslation):
         ignore_missing = toolkit.get_validator('ignore_missing')
 
         schema.update({
-            'ckanext.sixodp_ui.service_alert.message': [ignore_missing, unicode],
+            'ckanext.sixodp_ui.service_alert.message': [ignore_missing, unicode_safe],
         })
 
         return schema
