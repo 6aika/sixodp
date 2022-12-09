@@ -2,19 +2,19 @@
 {% set current_lang = request.environ.CKAN_LANG %}
 
 <li class="language-changer nav-inline">
-  <a href="{% url_for h.unquote_url(current_url), locale='fi' %}"
+  <a href="{% url_for current_url, locale='fi' %}"
       class="nav-link{% if current_lang == 'fi' %} active{% endif %}" aria-label="{{ _('In Finnish')}}">
     FI
   </a>
 </li>
 <li class="language-changer nav-inline">
-  <a href="{% url_for h.unquote_url(current_url), locale='en_GB' %}"
+  <a href="{% url_for current_url, locale='en_GB' %}"
      class="nav-link{% if current_lang == 'en_GB' %} active{% endif %}" aria-label="={{ _('In English') }}">
     EN
   </a>
 </li>
 <li class="language-changer nav-inline">
-  <a href="{% url_for h.unquote_url(current_url), locale='sv' %}"
+  <a href="{% url_for current_url, locale='sv' %}"
       class="nav-link{% if current_lang == 'sv' %} active{% endif %}" aria-label="{{ _('In Swedish') }}">
     SV
   </a>
