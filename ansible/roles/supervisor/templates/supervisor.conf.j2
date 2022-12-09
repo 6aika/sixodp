@@ -1,29 +1,6 @@
-;[program:ckan_gather_consumer]
-
-;command=nice -n 20 {{ virtualenv }}/bin/paster --plugin=ckanext-harvest harvester gather_consumer --config={{ ckan_ini }}
-;user={{ www_user }}
-;numprocs=1
-;stdout_logfile={{ supervisor_log_path }}/gather_consumer.log
-;stderr_logfile={{ supervisor_log_path }}/gather_consumer.log
-;autostart=true
-;autorestart=true
-;startsecs=10
-
-;[program:ckan_fetch_consumer]
-
-;command=nice -n 20 {{ virtualenv }}/bin/paster --plugin=ckanext-harvest harvester fetch_consumer --config={{ ckan_ini }}
-;user={{ www_user }}
-;numprocs=1
-;stdout_logfile={{ supervisor_log_path }}/fetch_consumer.log
-;stderr_logfile={{ supervisor_log_path }}/fetch_consumer.log
-;autostart=true
-;autorestart=true
-;startsecs=10
-
-
 [program:ckan-worker-bulk]
 
-command={{ virtualenv}}/bin/ckan --config=/etc/ckan/default/ckan.ini jobs worker bulk
+command={{ virtualenv }}/bin/ckan --config=/etc/ckan/default/ckan.ini jobs worker bulk
 user={{ www_user }}
 numprocs=1
 stdout_logfile=/var/log/ckan/ckan-worker-bulk.log
