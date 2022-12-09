@@ -32,4 +32,6 @@
   {{ super() }}
 {% endblock %}
 
-{% block styles %}{% endblock %}
+{% block styles %}
+  {% asset 'sixodp_ui/sixodp_css' %}
+{% endblock %}

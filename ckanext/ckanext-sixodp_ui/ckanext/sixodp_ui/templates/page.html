@@ -135,11 +135,11 @@
 {%- endblock -%}
 
 {%- block scripts %}
-    {% resource 'base/ckan' %}
-    {% resource 'sixodp_ui/sixodp' %}
+    {% asset 'base/ckan' %}
+    {% asset 'sixodp_ui/sixodp_js' %}
 
     {% if g.tracking_enabled %}
-      {% resource 'base/tracking.js' %}
+      {% asset 'base/tracking' %}
     {% endif %}
   {{ super() }}
 
