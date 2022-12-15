@@ -1,2 +1,0 @@
-include README.rst
-recursive-include ckanext/sixodp_routes *.html *.json *.js *.less *.css

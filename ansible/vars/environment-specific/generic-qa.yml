@@ -101,7 +101,6 @@ ckan_admins:
   - "{{ ckan_users.harvest.username }}"
 
 ckan_extensions:
-  - ckanext-sixodp_routes
   - ckanext-sixodp_scheming
   - ckanext-sixodp
   - ckanext-sixodp_showcase
@@ -153,7 +152,6 @@ enabled_ckan_extensions:
     - report
     - publisher_activity_report
     #- rating
-    - sixodp_routes
     - hierarchy_display
     - hierarchy_form
     - reminder

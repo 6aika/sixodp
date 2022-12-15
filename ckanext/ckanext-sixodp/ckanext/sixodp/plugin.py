@@ -13,8 +13,10 @@ from ckanext.sixodp import helpers
 from ckanext.sixodp.logic import action
 from ckan.lib.plugins import DefaultTranslation
 
+from .views import sixodp
+
 get_action = logic.get_action
-config= toolkit.config
+config = toolkit.config
 
 unicode_safe = toolkit.get_validator('unicode_safe')
 
@@ -168,6 +170,9 @@ def get_qa_openness(dataset):
                   extra_vars=extra_vars))
 
 
+def admin_only(context, data_dict=None):
+    return {'success': False, 'msg': 'Access restricted to system administrators'}
+
 class SixodpPlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IConfigurable)
@@ -177,6 +182,8 @@ class SixodpPlugin(plugins.SingletonPlugin, DefaultTranslation):
         plugins.implements(plugins.ITranslation, inherit=True)
     plugins.implements(plugins.IPackageController, inherit=True)
     plugins.implements(plugins.IActions, inherit=True)
+    plugins.implements(plugins.IAuthFunctions)
+    plugins.implements(plugins.IBlueprint)
 
     # IConfigurer
 
@@ -309,3 +316,26 @@ class SixodpPlugin(plugins.SingletonPlugin, DefaultTranslation):
         return {
             'package_autocomplete': action.package_autocomplete,
         }
+
+    # IAuthFunctions
+
+    def get_auth_functions(self):
+        return {'user_list': admin_only,
+                'revision_list': admin_only,
+                'revision_diff': admin_only,
+                'package_revision_list': admin_only
+                }
+
+    # IBlueprint
+    def get_blueprints(self):
+        return [sixodp]
+
+
+#TODO: add sorting
+# if q and not sort_by:
+#                 sort_by = 'score desc, metadata_modified desc'
+#             elif not sort_by:
+#                 sort_by = 'metadata_created desc'
+@toolkit.chained_action
+def package_search(original_action, context, data_dict):
+    return original_action(context, data_dict)
