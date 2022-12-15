@@ -5,10 +5,10 @@
   "scripts": {
     "test": "sudo nosetests --ckan --with-pylons=/etc/ckan/default/test-core.ini ckan ckanext",
     "watch-js": "watch 'npm run browserify' shared/js",
-    "browserify": "browserify shared/js/ckan.js -o ckanext/ckanext-sixodp_ui/ckanext/sixodp_ui/fanstatic/javascript/app.js && browserify shared/js/cms.js -o sixodp/app.js",
+    "browserify": "browserify shared/js/ckan.js -o ckanext/ckanext-sixodp/ckanext/sixodp/fanstatic/javascript/app.js && browserify shared/js/cms.js -o sixodp/app.js",
     "watch-sass": "watch 'npm run build' ./shared/scss",
     "build": "run-p build:* browserify",
-    "build:ckan": "sass ./shared/scss/main.scss ckanext/ckanext-sixodp_ui/ckanext/sixodp_ui/fanstatic/css/sixodp_theme.css",
+    "build:ckan": "sass ./shared/scss/main.scss ckanext/ckanext-sixodp/ckanext/sixodp/fanstatic/css/sixodp_theme.css",
     "build:cms": "sass ./shared/scss/cms.scss sixodp/app.css",
     "dev": "run-p watch-sass watch-js",
     "postinstall": "run-p build browserify"

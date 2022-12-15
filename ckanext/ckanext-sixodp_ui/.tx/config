@@ -1,8 +1,0 @@
-[main]
-host = https://www.transifex.com
-
-[sixodp.ckanext-sixodp_ui]
-file_filter = ckanext/sixodp_ui/i18n/<lang>/LC_MESSAGES/ckanext-sixodp_ui.po
-source_file = ckanext/sixodp_ui/i18n/ckanext-sixodp_ui.pot
-source_lang = en
-type = PO

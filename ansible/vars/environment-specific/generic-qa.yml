@@ -103,7 +103,7 @@ ckan_admins:
 ckan_extensions:
   - ckanext-sixodp_routes
   - ckanext-sixodp_scheming
-  - ckanext-sixodp_ui
+  - ckanext-sixodp
   - ckanext-sixodp_showcase
   - ckanext-scheming
   - ckanext-showcase
@@ -142,7 +142,7 @@ enabled_ckan_extensions:
     - googleanalytics
     - qa
     - archiver
-    - sixodp_ui
+    - sixodp
     - disqus
     - datastore
     - datasetcopy

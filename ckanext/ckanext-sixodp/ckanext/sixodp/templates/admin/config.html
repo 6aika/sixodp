@@ -1,0 +1,8 @@
+{% ckan_extends %}
+
+{% import 'macros/form.html' as form %}
+
+{% block admin_form %}
+  {{ super() }}
+  {{ form.input('ckanext.sixodp.service_alert.message', id='field-ckanext.sixodp.service_alert.message', label=_('Service message'), value=data['ckanext.sixodp.service_alert.message'], error=errors['ckanext.sixodp.service_alert.message']) }}
+{% endblock %}

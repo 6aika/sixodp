@@ -1,5 +1,5 @@
 sixodp_js:
-  output: sixodp_ui/sixodp.js
+  output: sixodp/sixodp.js
   contents:
     - javascript/bootstrap.offcanvas.js
     - javascript/util.js
@@ -9,7 +9,7 @@ sixodp_js:
     - javascript/app.js
 
 sixodp_css:
-  output: sixodp_ui/sixodp.css
+  output: sixodp/sixodp.css
   contents:
     - font-awesome/css/font-awesome.css
     - css/bootstrap-datetimepicker.css

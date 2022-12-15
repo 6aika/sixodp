@@ -17,7 +17,7 @@ Translations in CKAN extensions mostly follow the [official documentation](https
 . /usr/lib/ckan/default/bin/activate
 
 // Run rest of commands for single extension 
-cd /vagrant/ckanext/ckanext-sixodp_ui/
+cd /vagrant/ckanext/ckanext-sixodp/
 
 // Extract messages for extension
 python setup.py extract_messages
@@ -44,7 +44,7 @@ Translation files can be compiled by running following commands:
 . /usr/lib/ckan/default/bin/activate
 
 // Run rest of commands for single extension 
-cd /vagrant/ckanext/ckanext-sixodp_ui/
+cd /vagrant/ckanext/ckanext-sixodp/
 
 // Compile translation files
 python setup.py compile_catalog -f

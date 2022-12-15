@@ -9,8 +9,8 @@ import ckan.lib.i18n as i18n
 import logging
 import copy
 from ckan.common import _
-from ckanext.sixodp_ui import helpers
-from ckanext.sixodp_ui.logic import action
+from ckanext.sixodp import helpers
+from ckanext.sixodp.logic import action
 from ckan.lib.plugins import DefaultTranslation
 
 get_action = logic.get_action
@@ -27,7 +27,7 @@ log = logging.getLogger(__name__)
 
 
 def service_alerts():
-    message = config.get('ckanext.sixodp_ui.service_alert.message')
+    message = config.get('ckanext.sixodp.service_alert.message')
     category = "info"
     if message:
         return [{"message": message, "category": category}]
@@ -168,7 +168,7 @@ def get_qa_openness(dataset):
                   extra_vars=extra_vars))
 
 
-class Sixodp_UiPlugin(plugins.SingletonPlugin, DefaultTranslation):
+class SixodpPlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IConfigurable)
     plugins.implements(plugins.interfaces.IFacets, inherit=True)
@@ -183,13 +183,13 @@ class Sixodp_UiPlugin(plugins.SingletonPlugin, DefaultTranslation):
     def update_config(self, config_):
         toolkit.add_template_directory(config_, 'templates')
         toolkit.add_public_directory(config_, 'public')
-        toolkit.add_resource('fanstatic', 'sixodp_ui')
+        toolkit.add_resource('fanstatic', 'sixodp')
 
     def update_config_schema(self, schema):
         ignore_missing = toolkit.get_validator('ignore_missing')
 
         schema.update({
-            'ckanext.sixodp_ui.service_alert.message': [ignore_missing, unicode_safe],
+            'ckanext.sixodp.service_alert.message': [ignore_missing, unicode_safe],
         })
 
         return schema
@@ -199,10 +199,10 @@ class Sixodp_UiPlugin(plugins.SingletonPlugin, DefaultTranslation):
     def configure(self, config):
         # Raise an exception if required configs are missing
         required_keys = [
-            'ckanext.sixodp_ui.cms_site_url',
-            'ckanext.sixodp_ui.wp_main_menu_location',
-            'ckanext.sixodp_ui.wp_footer_menu_location',
-            'ckanext.sixodp_ui.wp_social_menu_location',
+            'ckanext.sixodp.cms_site_url',
+            'ckanext.sixodp.wp_main_menu_location',
+            'ckanext.sixodp.wp_footer_menu_location',
+            'ckanext.sixodp.wp_social_menu_location',
         ]
 
         for key in required_keys:

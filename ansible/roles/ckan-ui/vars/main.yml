@@ -1,4 +1,4 @@
 ---
 
-sixodp_ui_path: "/vagrant/ckanext/ckanext-sixodp_ui"
-sixodp_ui_ckanext_path: "{{ sixodp_ui_path }}/ckanext/sixodp_ui"
+sixodp_path: "/vagrant/ckanext/ckanext-sixodp"
+sixodp_ckanext_path: "{{ sixodp_path }}/ckanext/sixodp"

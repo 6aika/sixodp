@@ -28,7 +28,7 @@ log = logging.getLogger(__name__)
 def get_wp_api_content(endpoint, action):
     response_data_dict = {}
     try:
-        connection = httplib.HTTPConnection(config.get('ckanext.sixodp_ui.cms_site_url'))
+        connection = httplib.HTTPConnection(config.get('ckanext.sixodp.cms_site_url'))
         url = endpoint + "/" + action
         connection.request("GET", url)
         response_data_dict = json.loads(connection.getresponse().read())
@@ -40,7 +40,7 @@ def get_wp_api_content(endpoint, action):
 
 
 def get_notifications():
-    notifications_endpoint = config.get('ckanext.sixodp_ui.wp_api_base_url')
+    notifications_endpoint = config.get('ckanext.sixodp.wp_api_base_url')
     response_data = get_wp_api_content(notifications_endpoint, 'notification')
     notifications = []
 
@@ -54,7 +54,7 @@ def get_notifications():
 
 
 def get_navigation_items_by_menu_location(wp_menu_location, localized):
-    menu_endpoint = config.get('ckanext.sixodp_ui.wp_api_menus_base_url')
+    menu_endpoint = config.get('ckanext.sixodp.wp_api_menus_base_url')
 
     if (localized == True):
         response_data = get_wp_api_content(menu_endpoint, 'menus/' + wp_menu_location + '_' + i18n.get_lang())
@@ -74,11 +74,11 @@ def get_navigation_items_by_menu_location(wp_menu_location, localized):
 
 
 def get_footer_navigation_items():
-    return get_navigation_items_by_menu_location(config.get('ckanext.sixodp_ui.wp_footer_menu_location'), True)
+    return get_navigation_items_by_menu_location(config.get('ckanext.sixodp.wp_footer_menu_location'), True)
 
 
 def get_social_links():
-    return get_navigation_items_by_menu_location(config.get('ckanext.sixodp_ui.wp_social_menu_location'), False)
+    return get_navigation_items_by_menu_location(config.get('ckanext.sixodp.wp_social_menu_location'), False)
 
 
 def get_social_link_icon_class(item):
@@ -266,7 +266,7 @@ def check_if_active(parent_menu, menu):
 
 
 def build_nav_main():
-    navigation_tree = get_navigation_items_by_menu_location(config.get('ckanext.sixodp_ui.wp_main_menu_location'), True)
+    navigation_tree = get_navigation_items_by_menu_location(config.get('ckanext.sixodp.wp_main_menu_location'), True)
 
     def construct_menu_tree(menu, is_submenu = False):
         active = check_if_active(None, menu)
@@ -327,4 +327,4 @@ def get_created_or_updated(pkg_or_res):
     return newer
 
 def get_cookiehub_domain_code():
-    return config.get('ckanext.sixodp_ui.cookiehub_domain_code')
+    return config.get('ckanext.sixodp.cookiehub_domain_code')

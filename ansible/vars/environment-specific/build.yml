@@ -91,7 +91,7 @@ wordpress_users:
 ckan_extensions:
   - ckanext-sixodp_routes
   - ckanext-sixodp_scheming
-  - ckanext-sixodp_ui
+  - ckanext-sixodp
   - ckanext-sixodp_showcase
   - ckanext-scheming
   - ckanext-showcase
@@ -125,7 +125,7 @@ enabled_ckan_extensions:
     - recline_grid_view
     - recline_map_view
     #- sixodp_showcase
-    - sixodp_ui
+    - sixodp
     - disqus
     - datastore
     - datasetcopy
