@@ -1,0 +1,37 @@
+{% ckan_extends %}
+
+{% block links -%}
+  {{ super() }}
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://use.fontawesome.com/4f2a9d3d3d.js"></script>
+  <link rel="shortcut icon" href="/assets/images/favicon.ico" />
+
+  {% if h.get_cookiehub_domain_code() %}
+    <script src="https://cookiehub.net/c2/{{ h.get_cookiehub_domain_code() }}.js"></script>
+    <script type="text/javascript">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {'ad_storage': 'denied', 'analytics_storage': 'denied', 'wait_for_update': 500});
+      document.addEventListener("DOMContentLoaded", function(event) {
+        var cpm = {
+          language: (document.documentElement.lang != null ? document.documentElement.lang.substr(0,2) : 'en')
+        };
+        window.cookiehub.load(cpm);
+      });
+    </script>
+
+  {% endif %}
+{% endblock -%}
+
+{% block meta -%}
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+{% endblock -%}
+
+{% block head_extras %}
+  {{ super() }}
+{% endblock %}
+
+{% block styles %}
+  {% asset 'sixodp/sixodp_css' %}
+{% endblock %}

@@ -13,7 +13,7 @@ import re
 from ckan.common import _, request, c, response
 from ckan.common import config
 from ckan.lib.mailer import mail_recipient
-from ckanext.sixodp_ui.helpers import get_current_lang
+from ckanext.sixodp.helpers import get_current_lang
 
 log = logging.getLogger(__name__)
 

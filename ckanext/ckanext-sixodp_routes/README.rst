@@ -1,3 +1,0 @@
-=============
-ckanext-sixodp_routes
-=============

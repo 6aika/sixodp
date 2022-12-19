@@ -1,0 +1,1739 @@
+# Translations template for ckanext-sixodp.
+# Copyright (C) 2022 ORGANIZATION
+# This file is distributed under the same license as the ckanext-sixodp project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+# 
+# Translators:
+# Zharktas <jari-pekka.voutilainen@gofore.com>, 2022
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ckanext-sixodp 0.0.1\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2022-12-19 08:02+0000\n"
+"PO-Revision-Date: 2022-12-19 08:10+0000\n"
+"Last-Translator: Zharktas <jari-pekka.voutilainen@gofore.com>, 2022\n"
+"Language-Team: English (United Kingdom) (https://www.transifex.com/6aika-dataportal/teams/68018/en_GB/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+"Language: en_GB\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ckanext/sixodp/helpers.py:177 ckanext/sixodp/helpers.py:383
+msgid "Dataset not found"
+msgstr ""
+
+#: ckanext/sixodp/helpers.py:288
+msgid "Show submenu for "
+msgstr ""
+
+#: ckanext/sixodp/plugin.py:236 ckanext/sixodp/plugin.py:247
+#: ckanext/sixodp/plugin.py:257
+msgid "Formats"
+msgstr "Formats"
+
+#: ckanext/sixodp/plugin.py:237 ckanext/sixodp/plugin.py:248
+#: ckanext/sixodp/plugin.py:258 ckanext/sixodp/translations.py:31
+msgid "Geographical Coverage"
+msgstr "Area"
+
+#: ckanext/sixodp/plugin.py:238 ckanext/sixodp/plugin.py:249
+#: ckanext/sixodp/plugin.py:259
+#: ckanext/sixodp/templates/package/group_list.html:5
+#: ckanext/sixodp/templates/package/read_base.html:41
+#: ckanext/sixodp/templates/scheming/package/snippets/additional_info.html:114
+msgid "Groups"
+msgstr "Categories"
+
+#: ckanext/sixodp/plugin.py:239 ckanext/sixodp/plugin.py:250
+#: ckanext/sixodp/plugin.py:260
+#: ckanext/sixodp/templates/home/snippets/sixodp_profile.html:44
+#: ckanext/sixodp/templates/home/snippets/sixodp_profile.html:46
+msgid "Organizations"
+msgstr "Organisations"
+
+#: ckanext/sixodp/plugin.py:240 ckanext/sixodp/plugin.py:251
+#: ckanext/sixodp/plugin.py:261
+#: ckanext/sixodp/templates/package/read_base.html:42
+#: ckanext/sixodp/templates/scheming/package/snippets/additional_info.html:129
+msgid "Collections"
+msgstr "Data collections"
+
+#: ckanext/sixodp/translations.py:8
+msgid "Broken links"
+msgstr ""
+
+#: ckanext/sixodp/translations.py:9
+msgid ""
+"Dataset resource URLs that are found to result in errors when resolved."
+msgstr ""
+
+#: ckanext/sixodp/translations.py:10
+msgid "Openness (Five Stars)"
+msgstr ""
+
+#: ckanext/sixodp/translations.py:11
+msgid ""
+"Datasets graded on Tim Berners Lees' Five Stars of Openness - openly "
+"licensed, openly accessible, structured, open format, URIs for entities, "
+"linked."
+msgstr ""
+
+#: ckanext/sixodp/translations.py:13
+msgid "Most popular datasets"
+msgstr ""
+
+#: ckanext/sixodp/translations.py:14
+msgid "Google analytics showing top datasets with most views"
+msgstr ""
+
+#: ckanext/sixodp/translations.py:15
+msgid "Most popular resources"
+msgstr ""
+
+#: ckanext/sixodp/translations.py:16
+msgid "Google analytics showing most downloaded resources"
+msgstr ""
+
+#: ckanext/sixodp/translations.py:17
+msgid "Publisher activity"
+msgstr ""
+
+#: ckanext/sixodp/translations.py:18
+msgid "A quarterly list of datasets created and edited by a publisher."
+msgstr ""
+
+#: ckanext/sixodp/templates/package/snippets/view_form.html:8
+#: ckanext/sixodp/translations.py:20
+msgid "Title"
+msgstr ""
+
+#: ckanext/sixodp/translations.py:21
+msgid "eg. A descriptive title for the dataset"
+msgstr "A descriptive title for the dataset"
+
+#: ckanext/sixodp/translations.py:22
+msgid ""
+"A short and descriptive title for the dataset in multiple languages. Try not"
+" to use dates when naming a dataset, since data from multiple years will "
+"usually be published as multiple resources in one dataset."
+msgstr ""
+"A short and concise name for the data. Do not use years, but publish the "
+"data of different years in the same dataset as separate resources. Also "
+"mention the city / region that the material refers to in the name as the "
+"information is transferred e.g. in the national data portal."
+
+#: ckanext/sixodp/fanstatic/javascript/modules/image-upload.js:20
+#: ckanext/sixodp/fanstatic/javascript/modules/slug-preview.js:35
+#: ckanext/sixodp/fanstatic/javascript/modules/slug-preview.min.js:1
+#: ckanext/sixodp/templates/package/snippets/resource_form.html:24
+#: ckanext/sixodp/translations.py:24 ckanext/sixodp/translations.py:96
+msgid "URL"
+msgstr ""
+
+#: ckanext/sixodp/translations.py:25
+msgid ""
+"An URL-address which refers to the dataset. The automatically filled option "
+"derived from the title is the best option in most cases."
+msgstr ""
+"An URL address which refers to the dataset. The automatically filled option "
+"derived from the title is the best option in most cases."
+
+#: ckanext/sixodp/templates/snippets/search_form_without_input.html:61
+#: ckanext/sixodp/templates/snippets/tag_list.html:4
+#: ckanext/sixodp/translations.py:27
+msgid "Tags"
+msgstr "Tags"
+
+#: ckanext/sixodp/translations.py:28
+msgid "E.g. transport, housing, buildings"
+msgstr ""
+
+#: ckanext/sixodp/translations.py:29
+msgid ""
+"Descriptive keywords or tags through which users are able to find this "
+"dataset easily through the search. The input will suggest existing keywords "
+"in the portal. New keywords should utilize ontologies such as the generic "
+"finnish ontology YSO: finto.fi/yso/fi."
+msgstr ""
+"Keywords or tags that help users find data from the search page and through "
+"material with the same keywords. In the keywords, you might want to use the "
+"Finto YSO vocabulary <https://finto.fi/yso/fi/>. The computable words are in"
+" plural (e.g. schools); others in singular (e.g. training)."
+
+#: ckanext/sixodp/translations.py:32
+msgid "eg. tampere"
+msgstr "e.g. a city's name"
+
+#: ckanext/sixodp/translations.py:33
+msgid "Select the municipalities from which the dataset contains data."
+msgstr ""
+"Select the municipalities or other areas from which the dataset contains "
+"data."
+
+#: ckanext/sixodp/templates/package/snippets/resource_form.html:32
+#: ckanext/sixodp/templates/package/snippets/view_form.html:9
+#: ckanext/sixodp/translations.py:35 ckanext/sixodp/translations.py:105
+msgid "Description"
+msgstr "Description"
+
+#: ckanext/sixodp/translations.py:36
+msgid "E.g. A diverse and detailed description"
+msgstr "A diverse and detailed description"
+
+#: ckanext/sixodp/translations.py:37
+msgid "eg. A detailed description"
+msgstr "A detailed description of the resource"
+
+#: ckanext/sixodp/translations.py:38
+msgid ""
+"An universal and easy to understand, but also diverse description of the "
+"added dataset. Describe the dataset creation process, use case and possible "
+"limitations and shortcomings as well as possible."
+msgstr ""
+"An universal and easy to understand, but also diverse description of the "
+"dataset. Describe the dataset creation process, use case and possible "
+"limitations and shortcomings as well as possible."
+
+#: ckanext/sixodp/translations.py:40
+msgid "Links to additional information concerning the dataset"
+msgstr "More information"
+
+#: ckanext/sixodp/translations.py:41
+msgid ""
+"You may attach external websites or other documentation which could assist "
+"in interpreting the dataset."
+msgstr ""
+
+#: ckanext/sixodp/translations.py:43
+msgid "Organization"
+msgstr "Organisation"
+
+#: ckanext/sixodp/translations.py:44
+msgid "The organization which owns the dataset."
+msgstr "The organisation which owns the dataset."
+
+#: ckanext/sixodp/templates/package/snippets/additional_info.html:18
+#: ckanext/sixodp/templates/scheming/package/snippets/additional_info.html:185
+#: ckanext/sixodp/translations.py:46
+msgid "Source"
+msgstr ""
+
+#: ckanext/sixodp/translations.py:47
+msgid "http://example.com/dataset.json"
+msgstr ""
+
+#: ckanext/sixodp/translations.py:48
+msgid ""
+"The original author of the dataset. Can also be an external author such as "
+"Statistics Finland. The field can e.g. be used to describe a situation where"
+" the dataset is published by a single unit but it has multiple authors."
+msgstr ""
+"The original producer of the material forming the data basis or material "
+"used in the dataset. It can also be an external source to a city "
+"organisation, such as Statistics Finland."
+
+#: ckanext/sixodp/templates/package/snippets/additional_info.html:41
+#: ckanext/sixodp/templates/package/snippets/additional_info.html:46
+#: ckanext/sixodp/translations.py:50
+msgid "Maintainer"
+msgstr ""
+
+#: ckanext/sixodp/translations.py:51
+msgid "Joe Bloggs"
+msgstr "Administrator's name"
+
+#: ckanext/sixodp/translations.py:52
+msgid ""
+"The technical maintainer for the dataset. Can in practice be the maintaining"
+" unit, bureau or as an exception a single employee."
+msgstr ""
+"Technical data administrator. Most often the same as the organisation. "
+
+#: ckanext/sixodp/translations.py:54
+msgid "Maintainer Email"
+msgstr "Administrator's email"
+
+#: ckanext/sixodp/translations.py:55
+msgid "Maintainer email address"
+msgstr "Administrator's email address"
+
+#: ckanext/sixodp/translations.py:56
+msgid ""
+"The email address for the maintaining party for the dataset. Use a mailing "
+"list or other similar means to direct the message to multiple recipients."
+msgstr ""
+"The administrator's email. Please use the organisation's general email "
+"address, if it is available."
+
+#: ckanext/sixodp/translations.py:58
+msgid "Maintainer Website"
+msgstr "Administrator's webpage"
+
+#: ckanext/sixodp/translations.py:59
+msgid "http://www.example.com"
+msgstr ""
+
+#: ckanext/sixodp/templates/scheming/form_snippets/private.html:2
+#: ckanext/sixodp/translations.py:61
+msgid "Visibility"
+msgstr "Visibility"
+
+#: ckanext/sixodp/translations.py:62
+msgid ""
+"Private datasets will only be seen by the logged in users of the dataset's "
+"organization. The private status is used when preparing a new dataset for "
+"publication."
+msgstr ""
+"Private datasets will only be available to logged in users of the dataset "
+"organisation. Public datasets will be available to all users."
+
+#: ckanext/sixodp/translations.py:64
+msgid "Published"
+msgstr "Published"
+
+#: ckanext/sixodp/translations.py:65
+msgid "The resource publication date."
+msgstr ""
+
+#: ckanext/sixodp/translations.py:66
+msgid "The dataset publication date."
+msgstr "The dataset publication date."
+
+#: ckanext/sixodp/translations.py:68
+msgid "Updated"
+msgstr "Updated"
+
+#: ckanext/sixodp/translations.py:69
+msgid "The resource update date."
+msgstr ""
+
+#: ckanext/sixodp/translations.py:70
+msgid ""
+"A manually maintained date which can be used to notify when the dataset has "
+"been updated."
+msgstr "The dataset update date"
+
+#: ckanext/sixodp/translations.py:72
+msgid "Update Frequency"
+msgstr "Update frequency"
+
+#: ckanext/sixodp/translations.py:73
+msgid "eg. every second week"
+msgstr "e.g. month"
+
+#: ckanext/sixodp/translations.py:74
+msgid ""
+"The supposed update frequency for the dataset. The field will suggest "
+"similar values used in other datasets such as yearly, monthly or realtime. A"
+" new value can also be created if required."
+msgstr ""
+"A brief description of the data update interval. E.g. day / week / month / "
+"year. "
+
+#: ckanext/sixodp/templates/scheming/package/snippets/additional_info.html:177
+#: ckanext/sixodp/templates/snippets/license.html:21
+#: ckanext/sixodp/translations.py:76
+msgid "License"
+msgstr ""
+
+#: ckanext/sixodp/translations.py:78
+msgid "Reminder date"
+msgstr "Update reminder date"
+
+#: ckanext/sixodp/translations.py:79
+msgid ""
+"A date when a reminder email will be sent to the system administrator "
+"reminding to check this dataset e.g. for a yearly update."
+msgstr ""
+"The date when a reminder message is sent to the dataportal admin. It is "
+"possible to change the administrator's e-mail address from the CKAN "
+"administrator's settings."
+
+#: ckanext/sixodp/translations.py:81
+msgid "Global ID"
+msgstr "Global ID"
+
+#: ckanext/sixodp/translations.py:82
+msgid ""
+"A global id can be assigned to identify the dataset in external services."
+msgstr ""
+"An unique identifyier of dataset. It is especially needed when the data is "
+"copied to other data portals (e.g. avoindata.fi)."
+
+#: ckanext/sixodp/translations.py:84
+msgid "Search Synonyms"
+msgstr ""
+"Synonyms to make the search more effective (e.g. preschool -> day care, "
+"kindergarten)."
+
+#: ckanext/sixodp/translations.py:85
+msgid ""
+"Keywords can be provided here to improve the findability of the dataset. "
+"E.g. words from spoken language can be provided to make the dataset "
+"searchable by those words."
+msgstr ""
+"Search synonyms can be provided here to improve the findability of the "
+"dataset. E.g. words from spoken language can be provided to make the dataset"
+" searchable by those words."
+
+#: ckanext/sixodp/templates/package/snippets/package_form.html:5
+#: ckanext/sixodp/translations.py:87
+msgid ""
+"The <i>data license</i> you select above only applies to the contents of any"
+" resource files that you add to this dataset. By submitting this form, you "
+"agree to release the <i>metadata</i> values that you enter into the form "
+"under the <a href=\"http://opendatacommons.org/licenses/odbl/1-0/\">Open "
+"Database License</a>."
+msgstr ""
+
+#: ckanext/sixodp/templates/package/snippets/resource_form.html:28
+#: ckanext/sixodp/translations.py:93
+msgid "Name"
+msgstr ""
+
+#: ckanext/sixodp/translations.py:94
+msgid "A short and descriptive name for the resource."
+msgstr "Short and descriptive name for a resource"
+
+#: ckanext/sixodp/translations.py:97
+msgid ""
+"A file or url which describes the location of the desired resource file."
+msgstr "A file or url to resource file."
+
+#: ckanext/sixodp/templates/scheming/package/resource_read.html:34
+#: ckanext/sixodp/translations.py:99
+msgid "Size"
+msgstr "Size"
+
+#: ckanext/sixodp/translations.py:100
+msgid ""
+"Size of the added resouce file in bytes. Will be automatically filled when "
+"the file is uploaded."
+msgstr "File size in bytes."
+
+#: ckanext/sixodp/templates/package/snippets/resource_form.html:37
+#: ckanext/sixodp/templates/scheming/package/resource_read.html:27
+#: ckanext/sixodp/translations.py:102
+msgid "Format"
+msgstr "Format"
+
+#: ckanext/sixodp/translations.py:103
+msgid "File format of the selected resource."
+msgstr "Resource file format"
+
+#: ckanext/sixodp/translations.py:106
+msgid ""
+"An universal, compact and easy to understand description of the added "
+"resource."
+msgstr "A generic, concise and easy-to-understand description of a resource."
+
+#: ckanext/sixodp/translations.py:108
+msgid "Position coordinates"
+msgstr "Coordinate system"
+
+#: ckanext/sixodp/translations.py:109
+msgid ""
+"Coordinates which describe the area which the added resource is associated "
+"with."
+msgstr ""
+"Coordinate system used in dataset. Only for GIS datasets. E.g. ETRS-GK25."
+
+#: ckanext/sixodp/translations.py:111
+msgid "Time series start"
+msgstr "Time series starts"
+
+#: ckanext/sixodp/translations.py:112
+msgid "A moment in time after which the data is relevant."
+msgstr "Starting date for a time series "
+
+#: ckanext/sixodp/translations.py:114
+msgid "Time series end"
+msgstr "Time series ends"
+
+#: ckanext/sixodp/translations.py:115
+msgid "A moment in time after which the data is no longer relevant."
+msgstr "Ending date for a time series"
+
+#: ckanext/sixodp/translations.py:117
+msgid "Time Series Precision"
+msgstr "Time series accuracy "
+
+#: ckanext/sixodp/translations.py:118
+msgid "eg. 2 weeks"
+msgstr "e.g. month / year"
+
+#: ckanext/sixodp/translations.py:119
+msgid "A string which describes the precision of the entered time series."
+msgstr "Update interval for a time series"
+
+#: ckanext/sixodp/translations.py:122
+msgid "Creative Commons Attribution 4.0"
+msgstr ""
+
+#: ckanext/sixodp/translations.py:123
+msgid "https://creativecommons.org/licenses/by/4.0/"
+msgstr ""
+
+#: ckanext/sixodp/translations.py:125
+msgid "CC0 1.0"
+msgstr ""
+
+#: ckanext/sixodp/translations.py:126
+msgid "https://creativecommons.org/publicdomain/zero/1.0/"
+msgstr ""
+
+#: ckanext/sixodp/translations.py:128
+msgid "Other (Open)"
+msgstr ""
+
+#: ckanext/sixodp/translations.py:130
+msgid "Parent"
+msgstr ""
+
+#: ckanext/sixodp/translations.py:131
+msgid "None - top level"
+msgstr ""
+
+#: ckanext/sixodp/translations.py:132
+msgid "Icon URL"
+msgstr "Icon"
+
+#: ckanext/sixodp/translations.py:133
+msgid "My Group"
+msgstr "Name of category"
+
+#: ckanext/sixodp/validators.py:95
+msgid "Missing value"
+msgstr ""
+
+#: ckanext/sixodp/validators.py:190
+msgid "expecting list of strings"
+msgstr ""
+
+#: ckanext/sixodp/validators.py:196
+#, python-format
+msgid "invalid type for repeating text: %r"
+msgstr ""
+
+#: ckanext/sixodp/validators.py:203
+#, python-format
+msgid "invalid encoding for \"%s\" value"
+msgstr ""
+
+#: ckanext/sixodp/validators.py:265
+msgid "Failed to decode JSON string"
+msgstr ""
+
+#: ckanext/sixodp/validators.py:268
+msgid "Invalid encoding for JSON string"
+msgstr ""
+
+#: ckanext/sixodp/validators.py:271
+msgid "expecting JSON object"
+msgstr ""
+
+#: ckanext/sixodp/validators.py:277 ckanext/sixodp/validators.py:284
+#, python-format
+msgid "Required language \"%s\" missing"
+msgstr ""
+
+#: ckanext/sixodp/fanstatic/javascript/modules/activity-stream.js:20
+#: ckanext/sixodp/fanstatic/javascript/modules/activity-stream.min.js:1
+#: ckanext/sixodp/fanstatic/javascript/modules/popover-context.js:45
+#: ckanext/sixodp/fanstatic/javascript/modules/popover-context.min.js:1
+#: ckanext/sixodp/templates/package/snippets/data_api_button.html:8
+#: ckanext/sixodp/templates/package/snippets/resource_item.html:26
+msgid "Loading..."
+msgstr ""
+
+#: ckanext/sixodp/fanstatic/javascript/modules/api-info.js:20
+#: ckanext/sixodp/fanstatic/javascript/modules/api-info.min.js:1
+msgid "There is no API data to load for this resource"
+msgstr ""
+
+#: ckanext/sixodp/fanstatic/javascript/modules/api-info.js:21
+#: ckanext/sixodp/fanstatic/javascript/modules/api-info.min.js:1
+msgid "Failed to load data API information"
+msgstr ""
+
+#: ckanext/sixodp/fanstatic/javascript/modules/autocomplete.js:31
+#: ckanext/sixodp/fanstatic/javascript/modules/autocomplete.min.js:1
+msgid "No matches found"
+msgstr ""
+
+#: ckanext/sixodp/fanstatic/javascript/modules/autocomplete.js:32
+#: ckanext/sixodp/fanstatic/javascript/modules/autocomplete.min.js:1
+msgid "Start typing…"
+msgstr "Start typing…"
+
+#: ckanext/sixodp/fanstatic/javascript/modules/autocomplete.js:34
+#: ckanext/sixodp/fanstatic/javascript/modules/autocomplete.min.js:1
+msgid "Input is too short, must be at least one character"
+msgstr ""
+
+#: ckanext/sixodp/fanstatic/javascript/modules/basic-form.js:4
+#: ckanext/sixodp/fanstatic/javascript/modules/basic-form.min.js:1
+msgid "There are unsaved modifications to this form"
+msgstr ""
+
+#: ckanext/sixodp/fanstatic/javascript/modules/confirm-action.js:7
+#: ckanext/sixodp/fanstatic/javascript/modules/confirm-action.min.js:1
+msgid "Please Confirm Action"
+msgstr "Please confirm action"
+
+#: ckanext/sixodp/fanstatic/javascript/modules/confirm-action.js:8
+#: ckanext/sixodp/fanstatic/javascript/modules/confirm-action.min.js:1
+msgid "Are you sure you want to perform this action?"
+msgstr ""
+
+#: ckanext/sixodp/fanstatic/javascript/modules/confirm-action.js:9
+#: ckanext/sixodp/fanstatic/javascript/modules/confirm-action.min.js:1
+msgid "Confirm"
+msgstr ""
+
+#: ckanext/sixodp/fanstatic/javascript/modules/confirm-action.js:10
+#: ckanext/sixodp/fanstatic/javascript/modules/confirm-action.min.js:1
+#: ckanext/sixodp/fanstatic/javascript/modules/resource-reorder.js:11
+#: ckanext/sixodp/fanstatic/javascript/modules/resource-reorder.min.js:1
+#: ckanext/sixodp/fanstatic/javascript/modules/resource-view-reorder.js:11
+#: ckanext/sixodp/fanstatic/javascript/modules/resource-view-reorder.min.js:1
+#: ckanext/sixodp/templates/package/confirm_delete.html:15
+msgid "Cancel"
+msgstr "Cancel"
+
+#: ckanext/sixodp/fanstatic/javascript/modules/follow.js:23
+#: ckanext/sixodp/fanstatic/javascript/modules/follow.min.js:1
+msgid "Follow"
+msgstr ""
+
+#: ckanext/sixodp/fanstatic/javascript/modules/follow.js:24
+#: ckanext/sixodp/fanstatic/javascript/modules/follow.min.js:1
+msgid "Unfollow"
+msgstr ""
+
+#: ckanext/sixodp/fanstatic/javascript/modules/image-upload.js:16
+#: ckanext/sixodp/fanstatic/javascript/modules/image-upload.min.js:1
+msgid "Upload"
+msgstr ""
+
+#: ckanext/sixodp/fanstatic/javascript/modules/image-upload.js:17
+#: ckanext/sixodp/fanstatic/javascript/modules/image-upload.min.js:1
+msgid "Link"
+msgstr ""
+
+#: ckanext/sixodp/fanstatic/javascript/modules/image-upload.js:18
+#: ckanext/sixodp/fanstatic/javascript/modules/image-upload.min.js:1
+#: ckanext/sixodp/templates/group/snippets/group_item.html:41
+#: ckanext/sixodp/templates/scheming/macros/form.html:10
+#: ckanext/sixodp/templates/snippets/search_form_without_input.html:71
+msgid "Remove"
+msgstr "Remove"
+
+#: ckanext/sixodp/fanstatic/javascript/modules/image-upload.js:19
+#: ckanext/sixodp/fanstatic/javascript/modules/image-upload.min.js:1
+msgid "Image"
+msgstr ""
+
+#: ckanext/sixodp/fanstatic/javascript/modules/image-upload.js:21
+msgid "File"
+msgstr ""
+
+#: ckanext/sixodp/fanstatic/javascript/modules/image-upload.js:22
+#: ckanext/sixodp/fanstatic/javascript/modules/image-upload.min.js:1
+msgid "Upload a file on your computer"
+msgstr ""
+
+#: ckanext/sixodp/fanstatic/javascript/modules/image-upload.js:23
+#: ckanext/sixodp/fanstatic/javascript/modules/image-upload.min.js:1
+msgid "Link to a URL on the internet (you can also link to an API)"
+msgstr ""
+
+#: ckanext/sixodp/fanstatic/javascript/modules/related-item.js:25
+#: ckanext/sixodp/fanstatic/javascript/modules/related-item.min.js:1
+msgid "show more"
+msgstr ""
+
+#: ckanext/sixodp/fanstatic/javascript/modules/related-item.js:26
+#: ckanext/sixodp/fanstatic/javascript/modules/related-item.min.js:1
+msgid "show less"
+msgstr ""
+
+#: ckanext/sixodp/fanstatic/javascript/modules/resource-reorder.js:8
+#: ckanext/sixodp/fanstatic/javascript/modules/resource-reorder.min.js:1
+msgid "Reorder resources"
+msgstr ""
+
+#: ckanext/sixodp/fanstatic/javascript/modules/resource-reorder.js:9
+#: ckanext/sixodp/fanstatic/javascript/modules/resource-reorder.min.js:1
+#: ckanext/sixodp/fanstatic/javascript/modules/resource-view-reorder.js:9
+#: ckanext/sixodp/fanstatic/javascript/modules/resource-view-reorder.min.js:1
+msgid "Save order"
+msgstr ""
+
+#: ckanext/sixodp/fanstatic/javascript/modules/resource-reorder.js:10
+#: ckanext/sixodp/fanstatic/javascript/modules/resource-reorder.min.js:1
+#: ckanext/sixodp/fanstatic/javascript/modules/resource-view-reorder.js:10
+#: ckanext/sixodp/fanstatic/javascript/modules/resource-view-reorder.min.js:1
+msgid "Saving..."
+msgstr ""
+
+#: ckanext/sixodp/fanstatic/javascript/modules/resource-upload-field.js:25
+#: ckanext/sixodp/fanstatic/javascript/modules/resource-upload-field.min.js:1
+msgid "Upload a file"
+msgstr ""
+
+#: ckanext/sixodp/fanstatic/javascript/modules/resource-upload-field.js:26
+#: ckanext/sixodp/fanstatic/javascript/modules/resource-upload-field.min.js:1
+msgid "An Error Occurred"
+msgstr "An error occurred"
+
+#: ckanext/sixodp/fanstatic/javascript/modules/resource-upload-field.js:27
+#: ckanext/sixodp/fanstatic/javascript/modules/resource-upload-field.min.js:1
+msgid "Resource uploaded"
+msgstr ""
+
+#: ckanext/sixodp/fanstatic/javascript/modules/resource-upload-field.js:28
+#: ckanext/sixodp/fanstatic/javascript/modules/resource-upload-field.min.js:1
+msgid "Unable to upload file"
+msgstr ""
+
+#: ckanext/sixodp/fanstatic/javascript/modules/resource-upload-field.js:29
+#: ckanext/sixodp/fanstatic/javascript/modules/resource-upload-field.min.js:1
+msgid "Unable to authenticate upload"
+msgstr ""
+
+#: ckanext/sixodp/fanstatic/javascript/modules/resource-upload-field.js:30
+#: ckanext/sixodp/fanstatic/javascript/modules/resource-upload-field.min.js:1
+msgid "Unable to get data for uploaded file"
+msgstr ""
+
+#: ckanext/sixodp/fanstatic/javascript/modules/resource-upload-field.js:31
+#: ckanext/sixodp/fanstatic/javascript/modules/resource-upload-field.min.js:1
+msgid ""
+"You are uploading a file. Are you sure you want to navigate away and stop "
+"this upload?"
+msgstr ""
+
+#: ckanext/sixodp/fanstatic/javascript/modules/resource-view-reorder.js:8
+#: ckanext/sixodp/fanstatic/javascript/modules/resource-view-reorder.min.js:1
+msgid "Reorder resource view"
+msgstr ""
+
+#: ckanext/sixodp/fanstatic/javascript/modules/slug-preview.js:36
+#: ckanext/sixodp/fanstatic/javascript/modules/slug-preview.min.js:1
+#: ckanext/sixodp/templates/ckanext_pages/blog.html:12
+#: ckanext/sixodp/templates/organization/bulk_process.html:69
+#: ckanext/sixodp/templates/showcase/edit_base.html:14
+msgid "Edit"
+msgstr "Edit"
+
+#: ckanext/sixodp/fanstatic/javascript/modules/table-toggle-more.js:9
+#: ckanext/sixodp/fanstatic/javascript/modules/table-toggle-more.min.js:1
+#: ckanext/sixodp/templates/package/resource_read.html:131
+#: ckanext/sixodp/templates/scheming/package/read.html:18
+#: ckanext/sixodp/templates/snippets/facet_list.html:36
+msgid "Show more"
+msgstr ""
+
+#: ckanext/sixodp/fanstatic/javascript/modules/table-toggle-more.js:10
+#: ckanext/sixodp/fanstatic/javascript/modules/table-toggle-more.min.js:1
+msgid "Hide"
+msgstr "Hide"
+
+#: ckanext/sixodp/templates/footer.html:9
+msgid "Data portal"
+msgstr ""
+
+#: ckanext/sixodp/templates/footer.html:12
+msgid "Content management"
+msgstr ""
+
+#: ckanext/sixodp/templates/footer.html:16
+msgid "Management"
+msgstr ""
+
+#: ckanext/sixodp/templates/footer.html:33
+msgid "Follow us"
+msgstr ""
+
+#: ckanext/sixodp/templates/sixodp_header.html:26
+msgid "Skip to content"
+msgstr "Direct link to content"
+
+#: ckanext/sixodp/templates/admin/config.html:7
+msgid "Service message"
+msgstr ""
+
+#: ckanext/sixodp/templates/ajax_snippets/api_info.html:21
+msgid "CKAN Data API"
+msgstr ""
+
+#: ckanext/sixodp/templates/ajax_snippets/api_info.html:25
+msgid "Access resource data via a web API with powerful query support"
+msgstr ""
+
+#: ckanext/sixodp/templates/ajax_snippets/api_info.html:26
+msgid ""
+"Further information in the <a "
+"href=\"http://docs.ckan.org/en/latest/maintaining/datastore.html\" "
+"target=\"_blank\">main CKAN Data API and DataStore documentation</a>.</p>"
+msgstr ""
+
+#: ckanext/sixodp/templates/ajax_snippets/api_info.html:36
+msgid "Endpoints"
+msgstr ""
+
+#: ckanext/sixodp/templates/ajax_snippets/api_info.html:41
+msgid ""
+"The Data API can be accessed via the following actions of the CKAN action "
+"API."
+msgstr ""
+
+#: ckanext/sixodp/templates/ajax_snippets/api_info.html:46
+msgid "Query"
+msgstr ""
+
+#: ckanext/sixodp/templates/ajax_snippets/api_info.html:50
+msgid "Query (via SQL)"
+msgstr ""
+
+#: ckanext/sixodp/templates/ajax_snippets/api_info.html:62
+msgid "Querying"
+msgstr ""
+
+#: ckanext/sixodp/templates/ajax_snippets/api_info.html:67
+msgid "Query example (first 5 results)"
+msgstr ""
+
+#: ckanext/sixodp/templates/ajax_snippets/api_info.html:72
+msgid "Query example (results containing 'my_resource_query')"
+msgstr ""
+
+#: ckanext/sixodp/templates/ajax_snippets/api_info.html:77
+msgid "Query example (via SQL statement)"
+msgstr ""
+
+#: ckanext/sixodp/templates/ajax_snippets/api_info.html:89
+msgid "Example: Javascript"
+msgstr ""
+
+#: ckanext/sixodp/templates/ajax_snippets/api_info.html:94
+msgid "A simple ajax (JSONP) request to the data API using jQuery."
+msgstr ""
+
+#: ckanext/sixodp/templates/ajax_snippets/api_info.html:116
+msgid "Example: Python"
+msgstr ""
+
+#: ckanext/sixodp/templates/ckanext_pages/blog.html:4
+#: ckanext/sixodp/templates/ckanext_pages/blog_list.html:11
+msgid "Articles"
+msgstr "Articles"
+
+#: ckanext/sixodp/templates/ckanext_pages/blog.html:28
+#: ckanext/sixodp/templates/ckanext_pages/snippets/pages_list.html:51
+#: ckanext/sixodp/templates/ckanext_pages/snippets/pages_list.html:71
+msgid "This page currently has no content"
+msgstr ""
+
+#: ckanext/sixodp/templates/ckanext_pages/blog_list.html:5
+msgid "Add Article"
+msgstr "Add article"
+
+#: ckanext/sixodp/templates/ckanext_pages/blog_list.html:15
+msgid "Blog"
+msgstr ""
+
+#: ckanext/sixodp/templates/ckanext_pages/pages_edit.html:5
+msgid "Add page"
+msgstr ""
+
+#: ckanext/sixodp/templates/ckanext_pages/snippets/pages_list.html:80
+msgid "There are currently no blog articles here"
+msgstr "There are currently no articles here"
+
+#: ckanext/sixodp/templates/ckanext_pages/snippets/pages_list.html:82
+msgid "There are currently no pages here"
+msgstr ""
+
+#: ckanext/sixodp/templates/collection/index.html:7
+msgid "Search collections..."
+msgstr ""
+
+#: ckanext/sixodp/templates/group/index.html:7
+#: ckanext/sixodp/templates/group/index.html:15
+msgid "Search groups..."
+msgstr "Search categories..."
+
+#: ckanext/sixodp/templates/group/index.html:15
+#: ckanext/sixodp/templates/group/read.html:15
+#: ckanext/sixodp/templates/organization/bulk_process.html:21
+#: ckanext/sixodp/templates/organization/read.html:15
+#: ckanext/sixodp/templates/package/search.html:42
+#: ckanext/sixodp/templates/showcase/manage_datasets.html:25
+#: ckanext/sixodp/templates/showcase/search.html:13
+#: ckanext/sixodp/templates/snippets/search_form_without_input.html:30
+msgid "Name Ascending"
+msgstr "Names in ascending order"
+
+#: ckanext/sixodp/templates/group/index.html:15
+#: ckanext/sixodp/templates/group/read.html:16
+#: ckanext/sixodp/templates/organization/bulk_process.html:22
+#: ckanext/sixodp/templates/organization/read.html:16
+#: ckanext/sixodp/templates/package/search.html:43
+#: ckanext/sixodp/templates/showcase/manage_datasets.html:26
+#: ckanext/sixodp/templates/showcase/search.html:14
+#: ckanext/sixodp/templates/snippets/search_form_without_input.html:30
+msgid "Name Descending"
+msgstr "Names in descending order"
+
+#: ckanext/sixodp/templates/group/read.html:12
+#: ckanext/sixodp/templates/organization/read.html:12
+msgid "Last Created"
+msgstr "Last created"
+
+#: ckanext/sixodp/templates/group/read.html:13
+#: ckanext/sixodp/templates/organization/read.html:13
+#: ckanext/sixodp/templates/package/search.html:40
+#: ckanext/sixodp/templates/showcase/manage_datasets.html:28
+#: ckanext/sixodp/templates/showcase/search.html:16
+#: ckanext/sixodp/templates/snippets/package_item.html:81
+msgid "Popular"
+msgstr "Popular"
+
+#: ckanext/sixodp/templates/group/read.html:14
+#: ckanext/sixodp/templates/organization/read.html:14
+#: ckanext/sixodp/templates/package/search.html:41
+#: ckanext/sixodp/templates/showcase/manage_datasets.html:24
+#: ckanext/sixodp/templates/showcase/search.html:12
+msgid "Relevance"
+msgstr "Relevance"
+
+#: ckanext/sixodp/templates/group/read.html:17
+#: ckanext/sixodp/templates/organization/bulk_process.html:23
+#: ckanext/sixodp/templates/organization/read.html:17
+#: ckanext/sixodp/templates/package/search.html:44
+#: ckanext/sixodp/templates/package/snippets/resource_form.html:51
+#: ckanext/sixodp/templates/showcase/manage_datasets.html:27
+#: ckanext/sixodp/templates/showcase/search.html:15
+msgid "Last Modified"
+msgstr "Last modified"
+
+#: ckanext/sixodp/templates/group/read.html:19
+#: ckanext/sixodp/templates/organization/read.html:19
+#: ckanext/sixodp/templates/package/search.html:11
+#: ckanext/sixodp/templates/snippets/search_form_without_input.html:3
+msgid "Search datasets..."
+msgstr "Search data..."
+
+#: ckanext/sixodp/templates/group/read.html:25
+#: ckanext/sixodp/templates/organization/read.html:30
+#: ckanext/sixodp/templates/package/search.html:88
+msgid "Filter results"
+msgstr ""
+
+#: ckanext/sixodp/templates/group/read_base.html:4
+#: ckanext/sixodp/templates/group/snippets/info.html:12
+#: ckanext/sixodp/templates/organization/bulk_process.html:14
+msgid "Datasets"
+msgstr "Datasets"
+
+#: ckanext/sixodp/templates/group/read_base.html:5
+#: ckanext/sixodp/templates/package/activity.html:3
+#: ckanext/sixodp/templates/package/read_base.html:39
+msgid "Activity Stream"
+msgstr "Change history"
+
+#: ckanext/sixodp/templates/group/snippets/group_item.html:29
+msgid "{num} Dataset"
+msgid_plural "{num} Datasets"
+msgstr[0] "{num} dataset"
+msgstr[1] "{num} datasets"
+
+#: ckanext/sixodp/templates/group/snippets/group_item.html:31
+msgid "0 Datasets"
+msgstr "0 datasets"
+
+#: ckanext/sixodp/templates/group/snippets/group_item.html:36
+#: ckanext/sixodp/templates/group/snippets/group_item.html:37
+msgid "View {name}"
+msgstr ""
+
+#: ckanext/sixodp/templates/group/snippets/group_item.html:41
+msgid "Remove dataset from this group"
+msgstr "Remove dataset from this category"
+
+#: ckanext/sixodp/templates/group/snippets/helper.html:4
+msgid "What are Groups?"
+msgstr "What are categories?"
+
+#: ckanext/sixodp/templates/group/snippets/helper.html:8
+msgid ""
+"You can use CKAN Groups to create and manage collections of datasets. This "
+"could be to catalogue datasets for a particular project or team, or on a "
+"particular theme, or as a very simple way to help people find and search "
+"your own published datasets."
+msgstr ""
+
+#: ckanext/sixodp/templates/home/snippets/sixodp_language-changer.html:6
+msgid "In Finnish"
+msgstr ""
+
+#: ckanext/sixodp/templates/home/snippets/sixodp_language-changer.html:12
+msgid "In English"
+msgstr ""
+
+#: ckanext/sixodp/templates/home/snippets/sixodp_language-changer.html:18
+msgid "In Swedish"
+msgstr ""
+
+#: ckanext/sixodp/templates/home/snippets/sixodp_navbar_search.html:4
+#: ckanext/sixodp/templates/home/snippets/sixodp_navbar_search.html:11
+#: ckanext/sixodp/templates/snippets/search_form.html:5
+#: ckanext/sixodp/templates/snippets/search_input.html:18
+msgid "Search"
+msgstr ""
+
+#: ckanext/sixodp/templates/home/snippets/sixodp_profile.html:12
+msgid "Sysadmin settings"
+msgstr ""
+
+#: ckanext/sixodp/templates/home/snippets/sixodp_profile.html:14
+msgid "Admin"
+msgstr "Administrator"
+
+#: ckanext/sixodp/templates/home/snippets/sixodp_profile.html:18
+#: ckanext/sixodp/templates/home/snippets/sixodp_profile.html:20
+msgid "Dataset Editor"
+msgstr "Multiedit"
+
+#: ckanext/sixodp/templates/home/snippets/sixodp_profile.html:26
+msgid "View profile"
+msgstr ""
+
+#: ckanext/sixodp/templates/home/snippets/sixodp_profile.html:35
+#, python-format
+msgid "Dashboard (%(num)d new item)"
+msgid_plural "Dashboard (%(num)d new items)"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ckanext/sixodp/templates/home/snippets/sixodp_profile.html:38
+msgid "Dashboard"
+msgstr ""
+
+#: ckanext/sixodp/templates/home/snippets/sixodp_profile.html:56
+#: ckanext/sixodp/templates/user/dashboard.html:8
+msgid "Edit settings"
+msgstr ""
+
+#: ckanext/sixodp/templates/home/snippets/sixodp_profile.html:58
+msgid "Settings"
+msgstr ""
+
+#: ckanext/sixodp/templates/home/snippets/sixodp_profile.html:65
+#: ckanext/sixodp/templates/home/snippets/sixodp_profile.html:67
+msgid "Log out"
+msgstr ""
+
+#: ckanext/sixodp/templates/home/snippets/sixodp_profile.html:76
+msgid "Log in"
+msgstr ""
+
+#: ckanext/sixodp/templates/home/snippets/sixodp_profile.html:78
+msgid "Register"
+msgstr ""
+
+#: ckanext/sixodp/templates/organization/bulk_process.html:5
+msgid "Edit datasets"
+msgstr ""
+
+#: ckanext/sixodp/templates/organization/bulk_process.html:10
+msgid " found for \"{query}\""
+msgstr ""
+
+#: ckanext/sixodp/templates/organization/bulk_process.html:12
+msgid "Sorry no datasets found for \"{query}\""
+msgstr ""
+
+#: ckanext/sixodp/templates/organization/bulk_process.html:41
+msgid "Make public"
+msgstr ""
+
+#: ckanext/sixodp/templates/organization/bulk_process.html:45
+msgid "Make private"
+msgstr ""
+
+#: ckanext/sixodp/templates/organization/bulk_process.html:51
+#: ckanext/sixodp/templates/package/snippets/resource_form.html:65
+msgid "Delete"
+msgstr "Delete"
+
+#: ckanext/sixodp/templates/organization/bulk_process.html:74
+#: ckanext/sixodp/templates/package/read_base.html:15
+#: ckanext/sixodp/templates/showcase/read.html:20
+#: ckanext/sixodp/templates/snippets/package_item.html:69
+msgid "Draft"
+msgstr ""
+
+#: ckanext/sixodp/templates/organization/bulk_process.html:76
+#: ckanext/sixodp/templates/package/read_base.html:20
+#: ckanext/sixodp/templates/scheming/form_snippets/state.html:7
+#: ckanext/sixodp/templates/snippets/package_item.html:71
+msgid "Deleted"
+msgstr ""
+
+#: ckanext/sixodp/templates/organization/bulk_process.html:79
+#: ckanext/sixodp/templates/package/read.html:11
+#: ckanext/sixodp/templates/scheming/form_snippets/private.html:5
+#: ckanext/sixodp/templates/showcase/read.html:13
+#: ckanext/sixodp/templates/snippets/package_item.html:62
+msgid "Private"
+msgstr ""
+
+#: ckanext/sixodp/templates/organization/bulk_process.html:92
+msgid "This organization has no datasets associated to it"
+msgstr "This organisation has no datasets associated to it"
+
+#: ckanext/sixodp/templates/organization/index.html:7
+#: ckanext/sixodp/templates/organization/index.html:15
+msgid "Search organizations..."
+msgstr "Search for organisations..."
+
+#: ckanext/sixodp/templates/package/confirm_delete.html:12
+msgid "Are you sure you want to delete dataset - {name}?"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/confirm_delete.html:16
+msgid "Confirm Delete"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/group_list.html:14
+msgid "Associate this group with this dataset"
+msgstr "Associate this category with this dataset"
+
+#: ckanext/sixodp/templates/package/group_list.html:14
+msgid "Add to group"
+msgstr "Add to category"
+
+#: ckanext/sixodp/templates/package/group_list.html:24
+msgid "There are no groups associated with this dataset"
+msgstr "No categories are associated with this dataset."
+
+#: ckanext/sixodp/templates/package/new_view.html:3
+#: ckanext/sixodp/templates/package/new_view.html:4
+#: ckanext/sixodp/templates/package/new_view.html:8
+#: ckanext/sixodp/templates/package/new_view.html:12
+msgid "Add view"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/new_view.html:19
+msgid ""
+"Data Explorer views may be slow and unreliable unless the DataStore "
+"extension is enabled. For more information, please see the <a "
+"href='http://docs.ckan.org/en/latest/maintaining/data-viewer.html#viewing-"
+"structured-data-the-data-explorer' target='_blank'>Data Explorer "
+"documentation</a>."
+msgstr ""
+
+#: ckanext/sixodp/templates/package/new_view.html:28
+#: ckanext/sixodp/templates/package/snippets/resource_view.html:48
+msgid "Preview"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/new_view.html:29
+#: ckanext/sixodp/templates/package/snippets/resource_form.html:81
+#: ckanext/sixodp/templates/scheming/macros/form.html:9
+msgid "Add"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/read.html:43
+#: ckanext/sixodp/templates/package/read_base.html:75
+#: ckanext/sixodp/templates/package/resource_read.html:186
+msgid "Subscribe for dataset updates"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/read_base.html:37
+msgid "Dataset"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/read_base.html:38
+#: ckanext/sixodp/templates/showcase/edit_base.html:5
+#: ckanext/sixodp/templates/showcase/edit_base.html:12
+#: ckanext/sixodp/templates/showcase/edit_base.html:16
+msgid "Showcases"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/resource_read.html:18
+#: ckanext/sixodp/templates/showcase/read.html:6
+msgid "Manage"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/resource_read.html:41
+msgid "View"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/resource_read.html:43
+msgid "API Endpoint"
+msgstr "API endpoint"
+
+#: ckanext/sixodp/templates/package/resource_read.html:45
+#: ckanext/sixodp/templates/package/snippets/resource_item.html:36
+#: ckanext/sixodp/templates/report/view.html:47
+msgid "Download"
+msgstr "Download"
+
+#: ckanext/sixodp/templates/package/resource_read.html:89
+msgid "There are no views created for this resource yet."
+msgstr ""
+
+#: ckanext/sixodp/templates/package/resource_read.html:92
+msgid "Not seeing the views you were expecting?"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/resource_read.html:94
+#: ckanext/sixodp/templates/package/snippets/resource_view.html:18
+msgid "Click here for more information."
+msgstr ""
+
+#: ckanext/sixodp/templates/package/resource_read.html:98
+msgid "Here are some reasons you may not be seeing expected views:"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/resource_read.html:100
+msgid "No view has been created that is suitable for this resource"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/resource_read.html:101
+msgid "The site administrators may not have enabled the relevant view plugins"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/resource_read.html:102
+msgid ""
+"If a view requires the DataStore, the DataStore plugin may not be enabled, "
+"or the data may not have been pushed to the DataStore, or the DataStore "
+"hasn't finished processing the data yet"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/resource_read.html:123
+msgid "From the dataset abstract"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/resource_read.html:125
+#, python-format
+msgid "Source: <a href=\"%(url)s\">%(dataset)s</a>"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/resource_read.html:132
+#: ckanext/sixodp/templates/scheming/package/read.html:19
+#: ckanext/sixodp/templates/snippets/facet_list.html:39
+msgid "Show less"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/resource_read.html:155
+msgid "Back to dataset"
+msgstr "Back "
+
+#: ckanext/sixodp/templates/package/search.html:25
+msgid "Add Dataset"
+msgstr "Add dataset"
+
+#: ckanext/sixodp/templates/package/search.html:38
+msgid "Newest first"
+msgstr "Newest first"
+
+#: ckanext/sixodp/templates/package/search.html:39
+msgid "Oldest first"
+msgstr "Oldest first"
+
+#: ckanext/sixodp/templates/package/search.html:67
+msgid "API"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/search.html:68
+msgid "API Docs"
+msgstr "API docs"
+
+#: ckanext/sixodp/templates/package/search.html:70
+msgid "full {format} dump"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/search.html:71
+#, python-format
+msgid ""
+"You can also access this registry using the %(api_link)s (see "
+"%(api_doc_link)s) or download a %(dump_link)s."
+msgstr ""
+
+#: ckanext/sixodp/templates/package/search.html:75
+#, python-format
+msgid ""
+"You can also access this registry using the %(api_link)s (see "
+"%(api_doc_link)s)."
+msgstr ""
+
+#: ckanext/sixodp/templates/package/snippets/additional_info.html:2
+msgid "Additional Info"
+msgstr "Additional information"
+
+#: ckanext/sixodp/templates/package/snippets/additional_info.html:7
+#: ckanext/sixodp/templates/scheming/package/resource_read.html:9
+msgid "Metadata API"
+msgstr "Metadata API"
+
+#: ckanext/sixodp/templates/package/snippets/additional_info.html:29
+#: ckanext/sixodp/templates/package/snippets/additional_info.html:34
+#: ckanext/sixodp/templates/snippets/search_form_without_input.html:63
+msgid "Author"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/snippets/additional_info.html:53
+msgid "Version"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/snippets/additional_info.html:60
+#: ckanext/sixodp/templates/scheming/form_snippets/state.html:3
+#: ckanext/sixodp/templates/scheming/package/snippets/additional_info.html:171
+msgid "State"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/snippets/additional_info.html:66
+msgid "Last Updated"
+msgstr "Last updated"
+
+#: ckanext/sixodp/templates/package/snippets/additional_info.html:72
+msgid "Created"
+msgstr "Created"
+
+#: ckanext/sixodp/templates/package/snippets/data_api_button.html:10
+#: ckanext/sixodp/templates/package/snippets/resource_item.html:28
+msgid "Data API"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/snippets/resource_form.html:24
+msgid "Data"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/snippets/resource_form.html:24
+msgid "http://example.com/external-data.csv"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/snippets/resource_form.html:28
+msgid "eg. January 2011 Gold Prices"
+msgstr "e.g. Budget 2020"
+
+#: ckanext/sixodp/templates/package/snippets/resource_form.html:32
+msgid "Some useful notes about the data"
+msgstr "Short and concise description of a resource"
+
+#: ckanext/sixodp/templates/package/snippets/resource_form.html:37
+msgid "eg. CSV, XML or JSON"
+msgstr "e.g. CSV, XML or JSON"
+
+#: ckanext/sixodp/templates/package/snippets/resource_form.html:40
+msgid "This will be guessed automatically. Leave blank if you wish"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/snippets/resource_form.html:51
+msgid "eg. 2012-06-05"
+msgstr "e.g. 2018-06-05"
+
+#: ckanext/sixodp/templates/package/snippets/resource_form.html:53
+msgid "File Size"
+msgstr "File size"
+
+#: ckanext/sixodp/templates/package/snippets/resource_form.html:53
+msgid "eg. 1024"
+msgstr "e.g. 1024"
+
+#: ckanext/sixodp/templates/package/snippets/resource_form.html:55
+#: ckanext/sixodp/templates/package/snippets/resource_form.html:57
+msgid "MIME Type"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/snippets/resource_form.html:55
+#: ckanext/sixodp/templates/package/snippets/resource_form.html:57
+msgid "eg. application/json"
+msgstr "e.g. application/json"
+
+#: ckanext/sixodp/templates/package/snippets/resource_form.html:65
+msgid "Are you sure you want to delete this resource?"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/snippets/resource_form.html:71
+msgid "Previous"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/snippets/resource_form.html:74
+msgid "Save & add another"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/snippets/resource_form.html:77
+msgid "Finish"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/snippets/resource_form.html:88
+msgid "Estimated upload times with the selected resource file"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/snippets/resource_view.html:16
+msgid "This resource view is not available at the moment."
+msgstr ""
+
+#: ckanext/sixodp/templates/package/snippets/resource_view.html:25
+msgid "Download resource"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/snippets/resource_view.html:49
+msgid "Your browser does not support iframes."
+msgstr ""
+
+#: ckanext/sixodp/templates/package/snippets/resource_view.html:60
+msgid "Fullscreen"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/snippets/resource_view.html:68
+msgid "Embed"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/snippets/resource_view.html:80
+msgid "Embed resource view"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/snippets/resource_view.html:83
+msgid ""
+"You can copy and paste the embed code into a CMS or blog software that "
+"supports raw HTML"
+msgstr ""
+"You can copy and paste the embed code into a CMS or blog software that "
+"supports raw HTML."
+
+#: ckanext/sixodp/templates/package/snippets/resource_view.html:86
+msgid "Width"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/snippets/resource_view.html:89
+msgid "Height"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/snippets/resource_view.html:92
+msgid "Code"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/snippets/resources.html:4
+msgid "Resources"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/snippets/resources_list.html:13
+msgid "Data and Resources"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/snippets/resources_list.html:26
+#, python-format
+msgid ""
+"<p class=\"empty\">This dataset has no data, <a href=\"%(url)s\">why not add"
+" some?</a></p>"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/snippets/resources_list.html:30
+msgid "This dataset has no data"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/snippets/view_form.html:8
+msgid "eg. My View"
+msgstr "Name of the view"
+
+#: ckanext/sixodp/templates/package/snippets/view_form.html:9
+msgid "eg. Information about my view"
+msgstr "A brief description of the view"
+
+#: ckanext/sixodp/templates/package/snippets/view_help.html:2
+msgid "What's a view?"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/snippets/view_help.html:4
+msgid "A view is a representation of the data held against a resource"
+msgstr ""
+
+#: ckanext/sixodp/templates/report/index.html:5
+#: ckanext/sixodp/templates/report/view.html:3
+#: ckanext/sixodp/templates/report/view.html:6
+msgid "Reports"
+msgstr ""
+
+#: ckanext/sixodp/templates/report/index.html:24
+msgid "View Report"
+msgstr "View report"
+
+#: ckanext/sixodp/templates/report/view.html:16
+msgid "Generated"
+msgstr ""
+
+#: ckanext/sixodp/templates/report/view.html:20
+msgid "Refresh report"
+msgstr ""
+
+#: ckanext/sixodp/templates/report/view.html:23
+msgid "Refresh"
+msgstr ""
+
+#: ckanext/sixodp/templates/report/view.html:25
+msgid ""
+"As a system administrator you are able to refresh this report on demand by "
+"clicking the 'Refresh' button."
+msgstr ""
+"You can refresh this report on demand by clicking the 'Refresh' button."
+
+#: ckanext/sixodp/templates/report/view.html:31
+msgid "Options"
+msgstr ""
+
+#: ckanext/sixodp/templates/report/view.html:52
+msgid "Results"
+msgstr "Results"
+
+#: ckanext/sixodp/templates/report/view.html:54
+msgid "No results found."
+msgstr ""
+
+#: ckanext/sixodp/templates/scheming/form_snippets/organization_ex.html:26
+msgid "No organization"
+msgstr "No organisation"
+
+#: ckanext/sixodp/templates/scheming/form_snippets/private.html:5
+msgid "Public"
+msgstr ""
+
+#: ckanext/sixodp/templates/scheming/form_snippets/state.html:6
+msgid "Active"
+msgstr ""
+
+#: ckanext/sixodp/templates/scheming/form_snippets/ytp_multiple_checkbox.html:18
+#, python-format
+msgid ""
+"Categories can be edited from <a target=\"_blank\" "
+"href=\"%(category_url)s\"><strong>here</strong></a>."
+msgstr ""
+
+#: ckanext/sixodp/templates/scheming/macros/form.html:37
+#, python-format
+msgid ""
+"You can use <a href=\"#markdown\" title=\"Markdown quick reference\" data-"
+"target=\"popover\" data-content=\"%(markdown_tooltip)s\" data-"
+"html=\"true\">Markdown formatting</a> here"
+msgstr ""
+
+#: ckanext/sixodp/templates/scheming/package/resource_read.html:5
+msgid "Additional Information"
+msgstr "Additional information"
+
+#: ckanext/sixodp/templates/scheming/package/resource_read.html:16
+msgid "Field"
+msgstr ""
+
+#: ckanext/sixodp/templates/scheming/package/resource_read.html:17
+msgid "Value"
+msgstr ""
+
+#: ckanext/sixodp/templates/scheming/package/resource_read.html:28
+msgid "unknown"
+msgstr ""
+
+#: ckanext/sixodp/templates/scheming/package/resource_read.html:38
+msgid "GB"
+msgstr ""
+
+#: ckanext/sixodp/templates/scheming/package/resource_read.html:40
+msgid "MB"
+msgstr ""
+
+#: ckanext/sixodp/templates/scheming/package/snippets/additional_info.html:183
+msgid "How to reference"
+msgstr ""
+
+#: ckanext/sixodp/templates/scheming/package/snippets/additional_info.html:190
+msgid ""
+"The maintainer of the dataset is {maintainer} and the original author is "
+"{author}"
+msgstr ""
+
+#: ckanext/sixodp/templates/scheming/package/snippets/additional_info.html:193
+msgid "The maintainer of the dataset is {maintainer}"
+msgstr ""
+
+#: ckanext/sixodp/templates/scheming/package/snippets/additional_info.html:196
+msgid "The dataset has been downloaded from"
+msgstr ""
+
+#: ckanext/sixodp/templates/scheming/package/snippets/additional_info.html:196
+msgid "service on {date}"
+msgstr ""
+
+#: ckanext/sixodp/templates/scheming/package/snippets/additional_info.html:199
+msgid "using the license"
+msgstr "under the license"
+
+#: ckanext/sixodp/templates/scheming/package/snippets/additional_info.html:201
+msgid "The license can be found on the maintainer's service"
+msgstr ""
+
+#: ckanext/sixodp/templates/showcase/edit_base.html:17
+msgid "Create Showcase"
+msgstr "Create showcase"
+
+#: ckanext/sixodp/templates/showcase/edit_base.html:30
+msgid "View showcase"
+msgstr ""
+
+#: ckanext/sixodp/templates/showcase/edit_base.html:36
+msgid "Edit showcase"
+msgstr ""
+
+#: ckanext/sixodp/templates/showcase/edit_base.html:37
+msgid "Manage datasets"
+msgstr ""
+
+#: ckanext/sixodp/templates/showcase/manage_datasets.html:3
+msgid "Showcases - Manage datasets"
+msgstr ""
+
+#: ckanext/sixodp/templates/showcase/manage_datasets.html:36
+msgid "Datasets available to add to this showcase"
+msgstr ""
+
+#: ckanext/sixodp/templates/showcase/manage_datasets.html:51
+msgid "Add to Showcase"
+msgstr "Add to showcase"
+
+#: ckanext/sixodp/templates/showcase/manage_datasets.html:88
+msgid "No datasets could be found"
+msgstr ""
+
+#: ckanext/sixodp/templates/showcase/manage_datasets.html:96
+msgid "Datasets in this showcase"
+msgstr ""
+
+#: ckanext/sixodp/templates/showcase/manage_datasets.html:109
+msgid "Remove from Showcase"
+msgstr "Remove from showcase"
+
+#: ckanext/sixodp/templates/showcase/manage_datasets.html:140
+msgid "This showcase has no datasets associated to it"
+msgstr ""
+
+#: ckanext/sixodp/templates/showcase/read.html:38
+msgid "Launch website"
+msgstr ""
+
+#: ckanext/sixodp/templates/showcase/search.html:19
+msgid "Search showcases..."
+msgstr ""
+
+#: ckanext/sixodp/templates/snippets/facet_list.html:43
+msgid "There are no {facet_type} that match this search"
+msgstr ""
+
+#: ckanext/sixodp/templates/snippets/home_breadcrumb_item.html:2
+msgid "Home"
+msgstr "Frontpage"
+
+#: ckanext/sixodp/templates/snippets/horizontal_accordion.html:30
+msgid "Close preview"
+msgstr "Hide"
+
+#: ckanext/sixodp/templates/snippets/horizontal_accordion.html:31
+msgid "Show preview"
+msgstr "Show preview"
+
+#: ckanext/sixodp/templates/snippets/license.html:14
+msgid "No License Provided"
+msgstr "No license provided"
+
+#: ckanext/sixodp/templates/snippets/license.html:33
+msgid "This dataset satisfies the Open Definition."
+msgstr ""
+
+#: ckanext/sixodp/templates/snippets/package_item.html:88
+msgid "This dataset has no description"
+msgstr ""
+
+#: ckanext/sixodp/templates/snippets/page_highlight_item.html:8
+msgid "View {showcase_title}"
+msgstr ""
+
+#: ckanext/sixodp/templates/snippets/search_form.html:9
+msgid "Submit"
+msgstr ""
+
+#: ckanext/sixodp/templates/snippets/search_form.html:19
+msgid "Sort"
+msgstr ""
+
+#: ckanext/sixodp/templates/snippets/search_form.html:30
+#: ckanext/sixodp/templates/snippets/search_form_without_input.html:43
+msgid "Go"
+msgstr ""
+
+#: ckanext/sixodp/templates/snippets/search_form_without_input.html:36
+msgid "Sort results"
+msgstr ""
+
+#: ckanext/sixodp/templates/snippets/search_form_without_input.html:82
+msgid "<p class=\"extra\">Please try another search or change search facets.</p>"
+msgstr ""
+
+#: ckanext/sixodp/templates/snippets/search_form_without_input.html:88
+msgid ""
+"<p><strong>There was an error while searching.</strong> Please try "
+"again.</p>"
+msgstr ""
+
+#: ckanext/sixodp/templates/snippets/sixodp_offcanvas-filter-button.html:2
+msgid "Filters"
+msgstr "Filters"
+
+#: ckanext/sixodp/templates/snippets/sixodp_offcanvas-info-button.html:2
+msgid "About"
+msgstr ""
+
+#: ckanext/sixodp/templates/user/dashboard.html:11
+#: ckanext/sixodp/templates/user/dashboard.html:29
+msgid "News feed"
+msgstr ""
+
+#: ckanext/sixodp/templates/user/dashboard.html:12
+msgid "My Datasets"
+msgstr "My datasets"
+
+#: ckanext/sixodp/templates/user/dashboard.html:13
+msgid "My Organizations"
+msgstr "My organisations"
+
+#: ckanext/sixodp/templates/user/dashboard.html:14
+msgid "My Groups"
+msgstr "My groups"
+
+#: ckanext/sixodp/templates/user/dashboard.html:31
+msgid "Activity from items that I'm following"
+msgstr ""
+
+#: ckanext/sixodp/templates/user/login.html:6
+msgid "Login"
+msgstr ""
+
+#: ckanext/sixodp/templates/user/snippets/followee_dropdown.html:14
+#: ckanext/sixodp/templates/user/snippets/followee_dropdown.html:15
+msgid "Activity from:"
+msgstr ""
+
+#: ckanext/sixodp/templates/user/snippets/followee_dropdown.html:23
+msgid "Search list..."
+msgstr ""
+
+#: ckanext/sixodp/templates/user/snippets/followee_dropdown.html:44
+msgid "You are not following anything"
+msgstr ""

@@ -63,3 +63,26 @@ form {
     }
   }
 }
+
+.multiple-values > div {
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.multiple-values > div input{
+  float: left;
+}
+.multiple-values > div a{
+  margin-top: 3px;
+  margin-left: 3px;
+  float: left;
+}
+
+.multiple-values > diva:hover, .multiple-values > div a:focus {
+  text-decoration: none;
+}
+
+
+.ytp-multiple-values > div:last-child {
+  margin-bottom: 0;
+}

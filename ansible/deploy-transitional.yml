@@ -20,9 +20,6 @@
     - postgres-data
     - solr6
     - redis
-    - nginx
-    - role: geerlingguy.certbot
-      when: deployment_environment_id != "vagrant" and deployment_environment_id != "build"
     - apache
     - postfix
     - ckan-extensions
@@ -32,10 +29,13 @@
     - ckan-database
     - ckan-cron
     - datapusher
+    - supervisor
+    - nginx
+    - role: geerlingguy.certbot
+      when: deployment_environment_id != "vagrant" and deployment_environment_id != "build"
     #- transifex-install Only used on Vagrant
     - ckan-translations
     - ckan-restart
-    - supervisor
     - solr-reindex
     - php-fpm
     - mysql

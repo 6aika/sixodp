@@ -7,7 +7,7 @@ ckan_patches:
   - { file: "alert_fix" }
   - { file: "allow_org_admins_create_users" }
   - { file: "set_attachment_content_disposition" }
-  - { file: "package_group_list_fix" }
+  #- { file: "package_group_list_fix" }
   - { file: "enable_multiple_image_uploads" }
   - { file: "fix-default-search-field" }
   - { file: "make_creating_tags_optional" }
@@ -15,13 +15,13 @@ ckan_patches:
   - { file: "fix_unicode_decode_error_in_error_page" }
   - { file: "fix-data-viewer-race-condition"}
   - { file: "remove_members_from_group_read"}
-  - { file: "remove_user_activity_from_group_activity_list"}
-  - { file: "optimize_group_show" }
+  #- { file: "remove_user_activity_from_group_activity_list"}
+  #- { file: "optimize_group_show" }
   - { file: "optimize_template_loading" }
   - { file: "group_include_extras" }
-  - { file: "add_group_extra_resource_db_indices" }
+  #- { file: "add_group_extra_resource_db_indices" }
   - { file: "correctly_flatten_extras" }
-  - { file: "change_meta_strings_to_booleans" }
+  #- { file: "upgrade_jquery" }
 
 files_created_by_patches:
   - { file: '/usr/lib/ckan/default/src/ckan/ckan/lib/csrf_token.py'}

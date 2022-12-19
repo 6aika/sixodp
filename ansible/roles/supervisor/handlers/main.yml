@@ -17,3 +17,11 @@
 
 - name: Start Fetch
   supervisorctl: name=ckan_fetch_consumer state=started
+
+- name: Restart ckan
+  supervisorctl: name="{{ item }}" state=restarted
+  with_items: "{{ supervisor_ckan_process_names }}"
+
+- name: Restart datapusher
+  supervisorctl: name="{{ item }}" state=restarted
+  with_items: "{{ supervisor_datapusher_process_names }}"

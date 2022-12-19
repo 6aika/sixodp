@@ -2,6 +2,13 @@
 
 supervisor_log_path: /var/log/ckan
 
+supervisor_ckan_process_count: 1
+supervisor_ckan_process_name: ckan-uwsgi:ckan-uwsgi-
+
+supervisor_datapusher_process_count: 1
+supervisor_datapusher_process_name: datapusher-uwsgi:datapusher-uwsgi-
+
+
 supervisor_services:
   # - ckan_gather_consumer
   # - ckan_fetch_consumer

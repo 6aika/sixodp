@@ -19,7 +19,7 @@ EXTENSIONS_TO_UPDATE=(
   sixodp_scheming
   sixodp_showcase
   sixodp_showcasesubmit
-  sixodp_ui
+  sixodp
   statistics
 )
 

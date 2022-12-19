@@ -12,7 +12,7 @@
     - "{{ secrets_file_path }}"
   roles:
     #- ckan-ui
-    - { role: ckan-extensions, ckan_extensions: ckanext-sixodp_ui }
+    - { role: ckan-extensions, ckan_extensions: ckanext-sixodp }
     - ckan
     - ckan-translations
     - ckan-restart

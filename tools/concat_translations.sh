@@ -25,7 +25,7 @@ EXTENSIONS_TO_CONCAT=(
   sixodp_scheming
   sixodp_showcase
   sixodp_showcasesubmit
-  sixodp_ui
+  sixodp
 )
 
 function concat_translations {

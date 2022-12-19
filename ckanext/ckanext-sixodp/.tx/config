@@ -1,0 +1,9 @@
+[main]
+host = https://www.transifex.com
+
+[o:6aika-dataportal:p:sixodp:r:ckanext-sixodp]
+file_filter = ckanext/sixodp/i18n/<lang>/LC_MESSAGES/ckanext-sixodp.po
+source_file = ckanext/sixodp/i18n/ckanext-sixodp.pot
+source_lang = en
+type        = PO
+

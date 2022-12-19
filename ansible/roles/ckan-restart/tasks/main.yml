@@ -1,7 +1,11 @@
 ---
 
-- name: Restart Apache
-  service: name=apache2 state=restarted
+- name: Restart ckan
+  command: echo "Restarting ckan"
+  notify: Restart ckan
+
+- name: Flush handlers
+  meta: flush_handlers
 
 # Fixes permissions of generated files
 - name: Start CKAN

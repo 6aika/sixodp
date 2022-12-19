@@ -20,9 +20,6 @@
     - postgres-data
     - solr6
     - redis
-    - nginx
-    - role: acmetool
-      when: deployment_environment_id != "vagrant" and deployment_environment_id != "build"
     - apache
     - postfix
     - ckan-extensions
@@ -32,10 +29,11 @@
     - ckan-database
     - ckan-cron
     - datapusher
+    - supervisor
+    - nginx
     - transifex-install
     - ckan-translations
     - ckan-restart
-    - supervisor
     - solr-reindex
     - php-fpm
     - mysql

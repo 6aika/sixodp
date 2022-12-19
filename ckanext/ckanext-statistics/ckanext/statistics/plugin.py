@@ -2,7 +2,7 @@ import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 from ckanext.report.interfaces import IReport
 from ckan.lib.plugins import DefaultTranslation
-from logic.get import get_all_public_datasets
+from .logic.get import get_all_public_datasets
 
 class StatisticsPlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IConfigurer)

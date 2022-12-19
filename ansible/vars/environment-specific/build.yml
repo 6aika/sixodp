@@ -89,9 +89,7 @@ wordpress_users:
     email: admin@localhost.localdomain
 
 ckan_extensions:
-  - ckanext-sixodp_routes
-  - ckanext-sixodp_scheming
-  - ckanext-sixodp_ui
+  - ckanext-sixodp
   - ckanext-sixodp_showcase
   - ckanext-scheming
   - ckanext-showcase
@@ -124,27 +122,24 @@ enabled_ckan_extensions:
     - recline_graph_view
     - recline_grid_view
     - recline_map_view
-    - sixodp_showcase
-    - sixodp_ui
+    #- sixodp_showcase
+    - sixodp
     - disqus
     - datastore
     - datasetcopy
-    - sixodp_scheming
     - scheming_datasets
     - scheming_groups
     - fluent
-    - report
+    #- report
     - publisher_activity_report
-    - rating
-    - sixodp_routes
-    - sixodp_feed
+    #- rating
     - qa
     - archiver
     - hierarchy_display
     - hierarchy_form
     - reminder
     - editor
-    - collection
+    #- collection
     #- spatial_metadata
     #- spatial_query
     - datasubmitter

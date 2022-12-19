@@ -3,6 +3,8 @@ import ckan.plugins.toolkit as toolkit
 from ckan.lib.plugins import DefaultTranslation
 from ckanext.sixodp_showcasesubmit import helpers
 
+unicode_safe = toolkit.get_validator('unicode_safe')
+
 class Sixodp_ShowcasesubmitPlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IConfigurable)
@@ -22,7 +24,7 @@ class Sixodp_ShowcasesubmitPlugin(plugins.SingletonPlugin, DefaultTranslation):
         ignore_missing = toolkit.get_validator('ignore_missing')
 
         schema.update({
-            'ckanext.sixodp_showcasesubmit.recipient_emails': [ignore_missing, unicode],
+            'ckanext.sixodp_showcasesubmit.recipient_emails': [ignore_missing, unicode_safe],
         })
 
         return schema

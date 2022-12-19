@@ -3,6 +3,7 @@ import ckan.plugins.toolkit as toolkit
 from ckan.lib.plugins import DefaultTranslation
 from ckanext.datasubmitter import helpers
 
+unicode_safe = toolkit.get_validator('unicode_safe')
 
 class DatasubmitterPlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IConfigurer)
@@ -23,8 +24,8 @@ class DatasubmitterPlugin(plugins.SingletonPlugin, DefaultTranslation):
         ignore_missing = toolkit.get_validator('ignore_missing')
 
         schema.update({
-            'ckanext.datasubmitter.recipient_emails': [ignore_missing, unicode],
-            'ckanext.datasubmitter.organization_name_or_id': [ignore_missing, unicode]
+            'ckanext.datasubmitter.recipient_emails': [ignore_missing, unicode_safe],
+            'ckanext.datasubmitter.organization_name_or_id': [ignore_missing, unicode_safe]
         })
 
         return schema
