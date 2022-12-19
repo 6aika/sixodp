@@ -8,10 +8,6 @@
   command: ./bin/ckan "--config={{ ckan_ini }}" db upgrade chdir={{ virtualenv }}
   ignore_errors: True
 
-- name: Upgrade CKAN filestore
-  command: ./bin/ckan "--config={{ ckan_ini }}" db migrate-filestore chdir={{ virtualenv }}
-  ignore_errors: True
-
 - name: Create initial CKAN users
   command: ./bin/ckan  "--config={{ ckan_ini }}" user add "{{ item.value.username }}" "password={{ item.value.password }}" "email={{ item.value.email }}" chdir={{ virtualenv }}
   ignore_errors: True
