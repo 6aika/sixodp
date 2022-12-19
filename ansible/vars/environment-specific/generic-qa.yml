@@ -200,3 +200,6 @@ disqus_secret_key: "{{ secret.disqus_secret_key }}"
 disqus_short_name: "{{ secret.disqus_short_name }}"
 
 cookiehub_domain_code: "8f1ccda0"
+
+sentry:
+  dsn: "https://b4577d4a1a6f452dbb60df5b74f0db3e@o4504133597855744.ingest.sentry.io/4504133599756288"

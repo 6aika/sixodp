@@ -63,3 +63,6 @@
 	path = ckanext/ckanext-geoview
 	url = https://github.com/6aika/ckanext-geoview.git
 	branch = sixodp
+[submodule "ckanext/ckanext-sentry"]
+	path = ckanext/ckanext-sentry
+	url = https://github.com/vrk-kpa/ckanext-sentry.git

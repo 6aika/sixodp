@@ -16,3 +16,6 @@ virtualenv: /usr/lib/ckan/default
 datapusherenv: /usr/lib/ckan/datapusher
 
 rds_domain_common_part: cxzvfvoncnm2.eu-west-1.rds.amazonaws.com
+
+sentry:
+  dsn: ""
