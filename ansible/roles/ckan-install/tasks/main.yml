@@ -68,4 +68,5 @@
 
 - name: Install CKAN core unit test requirements
   pip: requirements={{ virtualenv }}/src/ckan/dev-requirements.txt virtualenv={{ virtualenv }}
+  when: deployment_environment_id == "vagrant"
 
