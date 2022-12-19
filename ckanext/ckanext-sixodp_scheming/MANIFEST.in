@@ -1,4 +1,0 @@
-include README.rst
-include ckanext/sixodp_scheming/presets.json
-recursive-include ckanext/sixodp_scheming/schemas *.json
-recursive-include ckanext/sixodp_scheming/licenses *.json

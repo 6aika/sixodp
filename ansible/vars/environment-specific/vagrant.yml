@@ -87,7 +87,6 @@ ckan_admins:
   - "{{ ckan_users.harvest.username }}"
 
 ckan_extensions:
-  - ckanext-sixodp_scheming
   - ckanext-sixodp
   - ckanext-sixodp_showcase
   - ckanext-scheming
@@ -131,7 +130,6 @@ enabled_ckan_extensions:
     - disqus
     - datastore
     - datasetcopy
-    - sixodp_scheming
     - scheming_datasets
     - scheming_groups
     - fluent

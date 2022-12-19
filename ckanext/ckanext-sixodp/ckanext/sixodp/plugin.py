@@ -1,3 +1,6 @@
+import json
+from datetime import datetime
+
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 
@@ -14,6 +17,10 @@ from ckanext.sixodp.logic import action
 from ckan.lib.plugins import DefaultTranslation
 
 from .views import sixodp
+from .validators import convert_to_list, tag_string_or_tags_required, set_private_if_not_admin, \
+    create_fluent_tags, create_tags, lower_if_exists, upper_if_exists, save_to_groups, \
+    list_to_string, tag_list_output, repeating_text, repeating_text_output, only_default_lang_required
+
 
 get_action = logic.get_action
 config = toolkit.config
@@ -184,6 +191,7 @@ class SixodpPlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IActions, inherit=True)
     plugins.implements(plugins.IAuthFunctions)
     plugins.implements(plugins.IBlueprint)
+    plugins.implements(plugins.IValidators)
 
     # IConfigurer
 
@@ -279,7 +287,19 @@ class SixodpPlugin(plugins.SingletonPlugin, DefaultTranslation):
             'get_all_groups': helpers.get_all_groups,
             'get_single_group': helpers.get_single_group,
             'get_created_or_updated': helpers.get_created_or_updated,
-            'get_cookiehub_domain_code': helpers.get_cookiehub_domain_code
+            'get_cookiehub_domain_code': helpers.get_cookiehub_domain_code,
+            'call_toolkit_function': helpers.call_toolkit_function,
+            'add_locale_to_source': helpers.add_locale_to_source,
+            'get_lang': helpers.get_current_lang,
+            'get_lang_prefix': helpers.get_lang_prefix,
+            'scheming_field_only_default_required': helpers.scheming_field_only_default_required,
+            'get_current_date': helpers.get_current_date,
+            'get_package_groups_by_type': helpers.get_package_groups_by_type,
+            'get_translated_or_default_locale': helpers.get_translated_or_default_locale,
+            'show_qa': helpers.show_qa,
+            'scheming_category_list': helpers.scheming_category_list,
+            'check_group_selected': helpers.check_group_selected,
+            'get_field_from_schema': helpers.get_field_from_schema
         }
 
     def before_search(self, search_params):
@@ -310,11 +330,78 @@ class SixodpPlugin(plugins.SingletonPlugin, DefaultTranslation):
                         search_results['search_facets']['groups']['items'][i]['title_translated'] = group.get('title_translated')
         return search_results
 
+    def before_index(self, data_dict):
+
+        if data_dict.get('date_released', None) is None:
+            data_dict['date_released'] = data_dict['metadata_created']
+        else:
+            date_str = data_dict['date_released']
+            try:
+                datetime.strptime(date_str, "%Y-%m-%dT%H:%M:%SZ")
+            except ValueError:
+                d = datetime.strptime(date_str, "%Y-%m-%d")
+                d = datetime.combine(d, datetime.min.time()).replace(tzinfo=None).isoformat() + 'Z'
+                data_dict['date_released'] = d
+            #d = datetime.strptime(date_str,)
+
+        if data_dict.get('date_updated', None) is None:
+            data_dict['date_updated'] = data_dict['date_released']
+        else:
+            date_str = data_dict['date_updated']
+            try:
+                datetime.strptime(date_str, "%Y-%m-%dT%H:%M:%SZ")
+            except ValueError:
+                d = datetime.strptime(date_str, "%Y-%m-%d")
+                d = datetime.combine(d, datetime.min.time()).replace(tzinfo=None).isoformat() + 'Z'
+                data_dict['date_updated'] = d
+
+
+        if data_dict.get('geographical_coverage'):
+            data_dict['vocab_geographical_coverage'] = [tag for tag in json.loads(data_dict['geographical_coverage'])]
+
+        keywords = data_dict.get('keywords')
+        if keywords:
+            keywords_json = json.loads(keywords)
+            if keywords_json.get('fi'):
+                data_dict['vocab_keywords_fi'] = [tag for tag in keywords_json['fi']]
+            if keywords_json.get('sv'):
+                data_dict['vocab_keywords_sv'] = [tag for tag in keywords_json['sv']]
+            if keywords_json.get('en'):
+                data_dict['vocab_keywords_en'] = [tag for tag in keywords_json['en']]
+
+        update_frequency = data_dict.get('update_frequency')
+        if update_frequency:
+            update_frequency_json = json.loads(update_frequency)
+            if update_frequency_json.get('fi'):
+                data_dict['vocab_update_frequency_fi'] = [tag for tag in update_frequency_json['fi']]
+            if update_frequency_json.get('sv'):
+                data_dict['vocab_update_frequency_sv'] = [tag for tag in update_frequency_json['sv']]
+            if update_frequency_json.get('en'):
+                data_dict['vocab_update_frequency_en'] = [tag for tag in update_frequency_json['en']]
+
+        return data_dict
+
+    # This function requires overriding resource_create and resource_update by adding keep_deletable_attributes_in_api to context
+    def after_show(self, context, data_dict):
+
+        keep_deletable_attributes_in_api = config.get('ckanext.sixodp.keep_deletable_attributes_in_api',
+                                                      context.get('keep_deletable_attributes_in_api', False))
+
+        if keep_deletable_attributes_in_api is False and context.get('for_edit') is not True:
+            if data_dict.get('search_synonyms', None) is not None:
+                data_dict.pop('search_synonyms')
+
+        return data_dict
     # IActions
 
     def get_actions(self):
         return {
             'package_autocomplete': action.package_autocomplete,
+            'resource_create': action.resource_create,
+            'resource_update': action.resource_update,
+            'resource_delete': action.resource_delete,
+            'package_resource_reorder': action.package_resource_reorder,
+            'package_patch': action.package_patch
         }
 
     # IAuthFunctions
@@ -329,6 +416,24 @@ class SixodpPlugin(plugins.SingletonPlugin, DefaultTranslation):
     # IBlueprint
     def get_blueprints(self):
         return [sixodp]
+
+    # IValidators
+    def get_validators(self):
+        return {
+            'lower_if_exists': lower_if_exists,
+            'upper_if_exists': upper_if_exists,
+            'tag_string_or_tags_required': tag_string_or_tags_required,
+            'create_tags': create_tags,
+            'create_fluent_tags': create_fluent_tags,
+            'set_private_if_not_admin': set_private_if_not_admin,
+            'list_to_string': list_to_string,
+            'convert_to_list': convert_to_list,
+            'tag_list_output': tag_list_output,
+            'repeating_text': repeating_text,
+            'repeating_text_output': repeating_text_output,
+            'only_default_lang_required': only_default_lang_required,
+            'save_to_groups': save_to_groups
+        }
 
 
 #TODO: add sorting

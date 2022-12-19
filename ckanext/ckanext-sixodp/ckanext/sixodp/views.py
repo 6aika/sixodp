@@ -3,7 +3,7 @@ from flask import Blueprint
 import ckan.model as model
 from ckan.plugins.toolkit import g, request, get_action
 from ckan.views.api import _finish_ok
-from ckanext.sixodp_scheming.plugin import create_vocabulary
+from .validators import create_vocabulary
 
 
 def tag_autocomplete():

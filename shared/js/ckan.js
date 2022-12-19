@@ -10,3 +10,4 @@ require('./components/ckan/datepicker');
 require('./components/ckan/form-action-loading-indicator');
 require('./components/ckan/horizontal-accordion');
 require('./components/ckan/show-more');
+require('./components/ckan/form')
