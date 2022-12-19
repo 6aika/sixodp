@@ -5,4 +5,3 @@ localhost ansible_ssh_user=ubuntu
 deployment_environment_id=generic-qa
 secrets_file_path="../../sixodp-secrets/generic-qa/secrets.yml"
 google_analytics_secrets_file_path="/root/sixodp-secrets/{{ deployment_environment_id }}/google_analytics_credentials.json"
-ansible_python_interpreter=/usr/bin/python2
