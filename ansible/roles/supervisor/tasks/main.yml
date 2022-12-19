@@ -18,6 +18,10 @@
   command: supervisorctl reread
   when: supervisor_configuration is changed
 
+- name: update supervisor
+  command: supervisorctl update
+  when: supervisor_configuration is changed
+
 - name: Generate ckan process names
   set_fact:
     supervisor_ckan_process_names: "{{ supervisor_ckan_process_names | default([]) + [item] }}"
