@@ -38,21 +38,7 @@ And you can also run Ansible manually inside the virtual machine:
     vagrant ssh
     cd /vagrant/ansible
     ansible-playbook -v -i inventories/vagrant deploy-all.yml
-    
-Multimachine vagrant environment can be build with:
-    
-    vagrant up multimain
-    vagrant up multickan
-    
-Individual machines are in located in:
-   
-* Wordpress: 10.106.10.20
-* CKAN: 10.106.10.30
-
-You can SSH into them with:
-    
-    vagrant ssh multimain
-    vagrant ssh multickan  
+     
 
 ### Development
 
