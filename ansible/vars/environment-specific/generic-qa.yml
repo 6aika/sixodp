@@ -126,6 +126,7 @@ ckan_extensions:
   - ckanext-sixodp_showcasesubmit
   - ckanext-googleanalytics
   - ckanext-geoview
+  - ckanext-sentry
 
 # List of enabled CKAN extensions in load order. Order matters, when templates call super()
 enabled_ckan_extensions:
@@ -165,6 +166,7 @@ enabled_ckan_extensions:
     - sixodp_showcasesubmit
     - resource_proxy
     - geo_view
+    - sentry
 
 
 enabled_ckan_aws_extensions: cloudstorage
