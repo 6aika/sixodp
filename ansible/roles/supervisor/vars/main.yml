@@ -10,8 +10,11 @@ supervisor_datapusher_process_name: datapusher-uwsgi:datapusher-uwsgi-
 
 
 supervisor_services:
-  # - ckan_gather_consumer
-  # - ckan_fetch_consumer
-  # - celery
   - ckan-worker-bulk
   - ckan-worker-priority
+
+supervisor_groups:
+  - ckan-worker-bulk
+  - ckan-worker-priority
+  - ckan-uwsgi
+  - datapusher-uwsgi

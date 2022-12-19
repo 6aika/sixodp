@@ -31,7 +31,7 @@
 - name: Ensure supervisor services
   command: supervisorctl add {{ item }}
   when: supervisor_configuration is changed
-  with_items: "{{ supervisor_services + [supervisor_ckan_process_names] + [supervisor_datapusher_process_names] }}"
+  with_items: "{{ supervisor_groups }}"
 
 - name: Ensure supervisor services are restarted
   supervisorctl: name={{ item }} state=restarted
