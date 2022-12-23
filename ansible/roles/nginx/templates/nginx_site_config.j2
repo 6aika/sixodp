@@ -6,17 +6,18 @@ server {
   listen 443 ssl;
   server_name {{ public_facing_hostname }};
 
-  error_page 405 500 502 503 504 @internal_error;
+  {% if deployment_environment_id != 'vagrant' %}
+      error_page 405 500 502 503 504 @internal_error;
 
-   location @internal_error {
-      root {{ static_path }};
-      set $not_found /500.fi.html;
-      if ( $request_uri ~* "/(fi|en_gb|en_GB|sv)/" ){
-          set $not_found /500.$1.html;
-      }
-      rewrite ^(.*)$ $not_found break;
-    }
-
+       location @internal_error {
+          root {{ static_path }};
+          set $not_found /500.fi.html;
+          if ( $request_uri ~* "/(fi|en_gb|en_GB|sv)/" ){
+              set $not_found /500.$1.html;
+          }
+          rewrite ^(.*)$ $not_found break;
+        }
+  {% endif %}
   error_page 404 @not_found;
 
   location @not_found {
