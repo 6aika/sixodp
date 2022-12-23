@@ -37,8 +37,6 @@
   pip: requirements={{ virtualenv }}/src/ckan/dev-requirements.txt virtualenv={{ virtualenv }}
   when: deployment_environment_id == "build"
 
-- include: custom_requirements.yml
-
 - name: Create CKAN paths
   file: path={{ item }} state=directory mode="0770" owner={{ www_user }} group={{ www_group }}
   with_items:
