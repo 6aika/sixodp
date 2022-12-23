@@ -9,13 +9,13 @@
       <ul id="profile" class="dropdown-menu">
         {% if c.userobj.sysadmin %}
         <li>
-          <a href="{{ h.url_for(controller='admin', action='index') }}" class="nav-link" title="{{ _('Sysadmin settings') }}">
+          <a href="{{ h.url_for('admin.index') }}" class="nav-link" title="{{ _('Sysadmin settings') }}">
             <i class="icon-legal" aria-hidden="true"></i>
             <span class="text">{{ _('Admin') }}</span>
           </a>
         </li>
         <li>
-          <a href="{{ h.url_for(controller='ckanext.editor.controller:EditorController', action='package_search') }}" class="nav-link" title="{{ _('Dataset Editor') }}">
+          <a href="{{ h.url_for('editor.package_search') }}" class="nav-link" title="{{ _('Dataset Editor') }}">
             <i class="icon-edit" aria-hidden="true"></i>
             <span class="text">{{ _('Dataset Editor') }}</span>
           </a>
@@ -23,7 +23,7 @@
         {% endif %}
 
         <li>
-          <a href="{{ h.url_for(controller='user', action='read', id=c.userobj.name) }}" class="nav-link" title="{{ _('View profile') }}">
+          <a href="{{ h.url_for('user.read', id=c.userobj.name) }}" class="nav-link" title="{{ _('View profile') }}">
             <i class="icon-user" aria-hidden="true"></i>
             <span class="text">{{ c.userobj.display_name }}</span>
           </a>
@@ -41,7 +41,7 @@
         </li>
 
         <li>
-          <a href="{{ h.url_for(controller='organization', action='index') }}" class="nav-link" title="{{ _('Organizations') }}">
+          <a href="{{ h.url_for('organization.index') }}" class="nav-link" title="{{ _('Organizations') }}">
             <i class="icon-building"></i>
             <span class="text">{{ _('Organizations') }}</span>
           </a>
@@ -53,7 +53,7 @@
 
         {% block header_account_settings_link %}
           <li>
-            <a href="{{ h.url_for(controller='user', action='edit', id=c.userobj.name) }}" class="nav-link" title="{{ _('Edit settings') }}">
+            <a href="{{ h.url_for('user.edit', id=c.userobj.name) }}" class="nav-link" title="{{ _('Edit settings') }}">
               <i class="icon-cog" aria-hidden="true"></i>
               <span class="text">{{ _('Settings') }}</span>
             </a>
@@ -62,7 +62,7 @@
 
         {% block header_account_log_out_link %}
           <li>
-            <a href="{{ h.url_for('/user/_logout') }}" class="nav-link" title="{{ _('Log out') }}">
+            <a href="{{ h.url_for('user.logout') }}" class="nav-link" title="{{ _('Log out') }}">
               <i class="icon-signout" aria-hidden="true"></i>
               <span class="text">{{ _('Log out') }}</span>
             </a>
@@ -73,9 +73,9 @@
   {% else %}
 
     {% block header_account_notlogged %}
-      <li>{% link_for _('Log in'), controller='user', action='login', icon='signin', class_='nav-link' %}</li>
+      <li>{% link_for _('Log in'), 'user.login', icon='signin', class_='nav-link' %}</li>
       {% if h.check_access('user_create') %}
-        <li>{% link_for _('Register'), controller='user', action='register', class_='nav-link sub' %}</li>
+        <li>{% link_for _('Register'), 'user.register', class_='nav-link sub' %}</li>
       {% endif %}
     {% endblock %} {# header_account_notlogged #}
 
