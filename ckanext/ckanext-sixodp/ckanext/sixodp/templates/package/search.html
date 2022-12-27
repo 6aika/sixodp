@@ -28,11 +28,11 @@
       {% endblock %}
       {% block form %}
         {% set facets = {
-        'fields': c.fields_grouped,
-        'search': c.search_facets,
-        'titles': c.facet_titles,
-        'translated_fields': c.translated_fields,
-        'remove_field': c.remove_field }
+        'fields': fields_grouped,
+        'search': search_facets,
+        'titles': facet_titles,
+        'translated_fields': translated_fields,
+        'remove_field': remove_field }
         %}
         {% set sorting = [
         (_('Newest first'), 'date_released desc'),
@@ -45,17 +45,17 @@
         %}
 
         <div class="search-options">
-          {% snippet 'snippets/search_form_without_input.html', type='dataset', query=c.q, sorting=sorting, sorting_selected=c.sort_by_selected, count=c.page.item_count, facets=facets, show_empty=request.params, error=c.query_error, query_params=c.fields_grouped %}
+          {% snippet 'snippets/search_form_without_input.html', type='dataset', query=q, sorting=sorting, sorting_selected=sort_by_selected, count=c.page.item_count, facets=facets, show_empty=request.params, error=c.query_error, query_params=c.fields_grouped %}
         </div>
       {% endblock %}
 
       {% block package_search_results_list %}
-        {{ h.snippet('snippets/package_list.html', packages=c.page.items, show_rating=false) }}
+        {{ h.snippet('snippets/package_list.html', packages=page.items, show_rating=false) }}
       {% endblock %}
     </div>
 
     {% block page_pagination %}
-      {{ c.page.pager(q=c.q) }}
+      {{ page.pager(q=q) }}
     {% endblock %}
   </section>
 
@@ -87,8 +87,8 @@
 <div class="filters">
   <h2 class="filter-list-heading">{{_('Filter results')}}</h2>
   <div>
-    {% for facet in c.facet_titles %}
-      {{ h.snippet('snippets/facet_list.html', title=c.facet_titles[facet], name=facet) }}
+    {% for facet in facet_titles %}
+      {{ h.snippet('snippets/facet_list.html', title=facet_titles[facet], name=facet, search_facets=search_facets) }}
     {% endfor %}
   </div>
 </div>
