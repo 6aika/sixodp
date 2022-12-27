@@ -222,5 +222,6 @@
       "display_snippet": null,
       "validators": "scheming_required scheming_choices boolean_validator"
     }
-  ]
+  ],
+  "resource_fields": []
 }
