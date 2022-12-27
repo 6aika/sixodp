@@ -12,13 +12,13 @@
     - "{{ secrets_file_path }}"
   roles:
     - os-base
-    - java8
+    - java
     - nodejs
     - ssh
     - postgres-install
     - postgres-backup
     - postgres-data
-    - solr6
+    - solr
     - redis
     - apache
     - postfix

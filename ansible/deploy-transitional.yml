@@ -12,13 +12,13 @@
     - "{{ secrets_file_path }}"
   roles:
     - os-base
-    - java8
+    - java
     - nodejs
     #- ssh # Done in cloudformation bootstrapping
     - postgres-install
     #- postgres-backup # Replaced by RDS
     - postgres-data
-    - solr6
+    - solr
     - redis
     - apache
     - postfix

@@ -1,0 +1,27 @@
+---
+
+- name: Install openjdk 17 jre
+  apt:
+    name: openjdk-17-jre
+    update_cache: yes
+    state: latest
+
+#- name: Select Java 11 as default
+#  alternatives:
+#    name: java
+#    path: /usr/lib/jvm/java-11-openfe-amd64/bin/java
+
+
+- name: Remove openjdk PPA
+  apt_repository:
+    repo: "ppa:openjdk-r/ppa"
+    state: absent
+
+- name: Ensure Java 7 and 8 is absent
+  apt:
+    name: "{{ item }}"
+    state: absent
+  with_items:
+    - openjdk-7-jdk
+    - openjdk-7-jre
+    - openjdk-8-jdk

@@ -1,0 +1,8 @@
+---
+
+solr_version: 9.1.0
+solr_checksum: sha1:4ff63542a48d0d2ec8e043a427cc2546e42060f8
+solr_download_url: http://archive.apache.org/dist/solr/solr/{{solr_version }}/solr-{{ solr_version }}.tgz
+
+solr_user: solr
+solr_group: solr

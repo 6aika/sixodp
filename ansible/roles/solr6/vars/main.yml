@@ -1,8 +1,0 @@
----
-
-solr_version: 6.2.0
-solr_checksum: sha1:3cacfbf90db6b851eebc7d24803bdabb744f4e04
-solr_download_url: http://archive.apache.org/dist/lucene/solr/{{solr_version }}/solr-{{ solr_version }}.zip
-
-solr_user: solr
-solr_group: solr

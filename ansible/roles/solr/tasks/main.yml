@@ -7,20 +7,24 @@
       - "/opt/solr/"
 
 - name: Download Solr package
-  get_url: url={{ solr_download_url }} dest={{ cache_path }}/solr/solr-{{ solr_version }}.zip checksum={{ solr_checksum }} mode="0644" owner=root group=root
+  get_url: url={{ solr_download_url }} dest={{ cache_path }}/solr/solr-{{ solr_version }}.tgz checksum={{ solr_checksum }} mode="0644" owner=root group=root
 
 - name: Extract Solr installer from the archive
-  unarchive: src={{ cache_path }}/solr/solr-{{ solr_version }}.zip dest={{ cache_path }}/solr copy=no creates={{ cache_path }}/solr/solr-{{ solr_version }}
+  unarchive: src={{ cache_path }}/solr/solr-{{ solr_version }}.tgz dest={{ cache_path }}/solr copy=no creates={{ cache_path }}/solr/solr-{{ solr_version }}
 
 - name: Install Solr
   command:
-    "{{ cache_path }}/solr/solr-{{ solr_version }}/bin/install_solr_service.sh {{ cache_path }}/solr/solr-{{ solr_version }}.zip -d /var/solr -u {{ solr_user }} -s solr -p 8983 -i /opt/solr -f"
+    "{{ cache_path }}/solr/solr-{{ solr_version }}/bin/install_solr_service.sh {{ cache_path }}/solr/solr-{{ solr_version }}.tgz -d /var/solr -u {{ solr_user }} -s solr -p 8983 -i /opt/solr -f"
   args:
     creates: /opt/solr/solr-{{ solr_version }}
   become: true
 
 - name: Start solr
   service: name=solr state=started
+
+- name: Check Solr is running
+  uri:
+    url: http://localhost:8983
 
 - name: Create Solr core
   command:
