@@ -183,7 +183,7 @@
     <th scope="row" class="dataset-label">{{ _("How to reference") }}</th>
     <td class="dataset-details">
       {{- _('Source') -}}:
-      <a href="{{ h.url_for('dataset'read', id=pkg_dict.name) -}}">
+      <a href="{{ h.url_for('dataset.read', id=pkg_dict.name) -}}">
         {{- h.get_translated(pkg_dict, 'title') -}}.
       </a>
       {% if pkg_dict.maintainer and pkg_dict.url %}
