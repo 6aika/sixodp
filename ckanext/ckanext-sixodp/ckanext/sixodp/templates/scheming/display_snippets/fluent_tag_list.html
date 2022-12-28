@@ -7,8 +7,7 @@
       <ul class="tag-list">
         {% for tag in value %}
           {% set tag_dict = dict({
-              'controller': 'package',
-              'action': 'search',
+              'named_route': 'dataset.search',
               'vocab_' + field.field_name + '_' + lang: tag }) %}
           <li>
             <a class="{% block tag_list_item_class %}tag{% endblock %}" href="{{ h.call_toolkit_function('url_for',[], tag_dict) }}">
