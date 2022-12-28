@@ -331,9 +331,8 @@ def get_cookiehub_domain_code():
     return config.get('ckanext.sixodp.cookiehub_domain_code')
 
 
-
 def call_toolkit_function(fn, args, kwargs):
-    return getattr(toolkit,fn)(*args, **kwargs)
+    return getattr(toolkit, fn)(*args, **kwargs)
 
 
 def add_locale_to_source(kwargs, locale):
