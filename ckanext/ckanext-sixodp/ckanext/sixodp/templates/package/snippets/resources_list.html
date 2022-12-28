@@ -15,7 +15,7 @@ Example:
     {% if resources %}
     <ul class="{% block resource_list_class %}resource-list{% endblock %}">
         {% block resource_list_inner %}
-        {% set can_edit = h.check_access('package_update', {'id':pkg.id }) %}
+        {% set can_edit = h.check_access('package_update', {'id':pkg.id }) and not is_activity_archive %}
         {% for resource in resources %}
         {% snippet 'package/snippets/resource_item.html', pkg=pkg, res=resource, can_edit=can_edit %}
         {% endfor %}
@@ -23,7 +23,7 @@ Example:
     </ul>
     {% else %}
     {% if h.check_access('resource_create', {'package_id': pkg['id']}) %}
-    {% trans url=h.url_for(controller='package', action='new_resource', id=pkg.name) %}
+    {% trans url=h.url_for('dataset.new_resource', id=pkg.name) %}
     <p class="empty">This dataset has no data, <a href="{{ url }}">why not add some?</a></p>
     {% endtrans %}
     {% else %}
