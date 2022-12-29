@@ -22,8 +22,8 @@
 #  command: ./bin/paster --plugin=ckanext-harvest harvester initdb "--config={{ ckan_ini }}" chdir={{ virtualenv }}
 #  when: "'ckanext-harvest' in ckan_extensions"
   
-#- name: Initialize archiver database
-#  command: ./bin/paster --plugin=ckanext-archiver archiver init "--config={{ ckan_ini }}" chdir={{ virtualenv }}
+- name: Initialize archiver database
+  command: ./bin/ckan "--config={{ ckan_ini }}" archiver init  chdir={{ virtualenv }}
 
 # This can be removed after run in all environments
 #- name: Migrate archiver database
@@ -32,8 +32,8 @@
 #- name: Initialize report database
 #  command: ./bin/paster --plugin=ckanext-report report initdb "--config={{ ckan_ini }}" chdir={{ virtualenv }}
 
-#- name: Initialize QA database
-#  command: ./bin/paster --plugin=ckanext-qa qa init "--config={{ ckan_ini }}" chdir={{ virtualenv }}
+- name: Initialize QA database
+  command: ./bin/ckan "--config={{ ckan_ini }}" qa init  chdir={{ virtualenv }}
 
 #- name: Initialize Rating database
 #  command: ./bin/paster --plugin=ckanext-rating rating init "--config={{ ckan_ini }}" chdir={{ virtualenv }}
