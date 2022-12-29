@@ -10,7 +10,7 @@
         top: 0;
     }
 </style>
-{% if tmpl_context.action == 'edit' %}
+{% if c.action == 'edit' %}
     <div class="form-group control-medium">
         {% set category_url = h.url_for('dataset_groups', id=data['name']) %}
         <label class="control-label" for="field-{{ field.field_name }}">{{ h.scheming_language_text(field.label) }}</label>
