@@ -22,7 +22,7 @@
       {% block page_primary_action %}
         {% if h.check_access('package_create') %}
           <div class="page_primary_action">
-            {% link_for _('Add Dataset'), 'dataset.read', class_='btn btn-primary', icon='plus-square' %}
+            {% link_for _('Add Dataset'), named_route='dataset.new', class_='btn btn-primary', icon='plus-square' %}
           </div>
         {% endif %}
       {% endblock %}
