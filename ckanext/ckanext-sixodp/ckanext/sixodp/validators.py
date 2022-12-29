@@ -36,6 +36,7 @@ c = toolkit.c
 missing = toolkit.missing
 ISO_639_LANGUAGE = u'^[a-z][a-z][a-z]?[a-z]?$'
 
+
 def create_vocabulary(name):
     user = toolkit.get_action('get_site_user')({'ignore_auth': True}, {})
     context = {'user': user['name']}
@@ -72,6 +73,7 @@ def create_tag_to_vocabulary(tag, vocab):
     context['defer_commit'] = True
     toolkit.get_action('tag_create')(context, data)
 
+
 def lower_if_exists(s):
     return s.lower() if s else s
 
@@ -79,10 +81,12 @@ def lower_if_exists(s):
 def upper_if_exists(s):
     return s.upper() if s else s
 
+
 def list_to_string(list):
-    if isinstance(list, collections.Sequence) and not isinstance(list, basestring):
+    if isinstance(list, collections.Sequence) and not isinstance(list, str):
         return ','.join(list)
     return list
+
 
 def tag_string_or_tags_required(key, data, errors, context):
     value = data.get(key)
@@ -90,7 +94,7 @@ def tag_string_or_tags_required(key, data, errors, context):
         data.pop(key, None)
         # Check existence of tags
         if any(k[0] == 'tags' for k in data):
-                raise df.StopOnError
+            raise df.StopOnError
         else:
             errors[key].append((_('Missing value')))
             raise df.StopOnError
@@ -99,8 +103,9 @@ def tag_string_or_tags_required(key, data, errors, context):
 def set_private_if_not_admin(private):
     return True if not authz.is_sysadmin(c.user) else private
 
+
 def convert_to_list(value):
-    if isinstance(value, basestring):
+    if isinstance(value, str):
         tags = [tag.strip() \
                 for tag in value.split(',') \
                 if tag.strip()]
@@ -108,7 +113,6 @@ def convert_to_list(value):
         tags = value
 
     return tags
-
 
 
 def create_tags(vocab):
@@ -122,6 +126,7 @@ def create_tags(vocab):
 
     return callable
 
+
 def create_fluent_tags(vocab):
     def callable(key, data, errors, context):
         value = data[key]
@@ -133,6 +138,7 @@ def create_fluent_tags(vocab):
             data[key] = json.dumps(value)
 
     return callable
+
 
 def add_to_vocab(context, tags, vocab):
     try:
@@ -157,12 +163,13 @@ def tag_list_output(value):
         return value
     return json.loads(value)
 
+
 def repeating_text(key, data, errors, context):
     """
     Accept repeating text input in the following forms
     and convert to a json list for storage:
 
-    1. a list of strings, eg.
+    1. a list of strings, e.g.
 
        ["Person One", "Person Two"]
 
@@ -184,7 +191,7 @@ def repeating_text(key, data, errors, context):
     value = data[key]
     # 1. list of strings or 2. single string
     if value is not toolkit.missing:
-        if isinstance(value, basestring):
+        if isinstance(value, str):
             value = [value]
         if not isinstance(value, list):
             errors[key].append(_('expecting list of strings'))
@@ -192,11 +199,11 @@ def repeating_text(key, data, errors, context):
 
         out = []
         for element in value:
-            if not isinstance(element, basestring):
+            if not isinstance(element, str):
                 errors[key].append(_('invalid type for repeating text: %r')
                                    % element)
                 continue
-            if isinstance(element, str):
+            if isinstance(element, bytes):
                 try:
                     element = element.decode('utf-8')
                 except UnicodeDecodeError:
@@ -214,7 +221,7 @@ def repeating_text(key, data, errors, context):
     prefix = key[-1] + '-'
     extras = data.get(key[:-1] + ('__extras',), {})
 
-    for name, text in extras.iteritems():
+    for name, text in extras.items():
         if not name.startswith(prefix):
             continue
         if not text:
@@ -228,6 +235,7 @@ def repeating_text(key, data, errors, context):
 
     out = [found[i] for i in sorted(found)]
     data[key] = json.dumps(out)
+
 
 def repeating_text_output(value):
     """
@@ -248,7 +256,7 @@ def repeating_text_output(value):
 def only_default_lang_required(field, schema):
     default_lang = ''
     if field and field.get('only_default_lang_required'):
-        default_lang =  config.get('ckan.locale_default', 'en')
+        default_lang = config.get('ckan.locale_default', 'en')
 
     def validator(key, data, errors, context):
         log.info("in validator")
@@ -258,7 +266,7 @@ def only_default_lang_required(field, schema):
         value = data[key]
 
         if value is not missing:
-            if isinstance(value, basestring):
+            if isinstance(value, str):
                 try:
                     value = json.loads(value)
                 except ValueError:
@@ -283,14 +291,15 @@ def only_default_lang_required(field, schema):
         if extras.get(prefix + default_lang) == '' or extras.get(prefix + default_lang) is None:
             errors[key].append(_('Required language "%s" missing') % default_lang)
 
-    return  validator
+    return validator
+
 
 def save_to_groups(key, data, errors, context):
     value = data[key]
 
     if value and value is not df.missing:
 
-        if isinstance(value, basestring):
+        if isinstance(value, str):
             group_patch = df.flatten_list([{"name": value}])
             group_key = ('groups',) + group_patch.keys()[0]
             group_value = group_patch.values()[0]
