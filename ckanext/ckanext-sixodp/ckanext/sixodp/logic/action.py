@@ -4,6 +4,8 @@ import ckan.logic as logic
 
 _check_access = logic.check_access
 get_action = logic.get_action
+chained_action = logic.chained_action
+
 
 @logic.validate(logic.schema.default_autocomplete_schema)
 def package_autocomplete(context, data_dict):
@@ -50,40 +52,36 @@ def package_autocomplete(context, data_dict):
     return pkg_list
 
 
-# Can be replaced with @chained_action once ckan supports chaining core actions https://github.com/ckan/ckan/pull/4509
-def resource_create(context, datadict):
+@chained_action
+def resource_create(next_func, context, datadict):
     context['keep_deletable_attributes_in_api'] = True
 
-    return get_original_method('ckan.logic.action.create', 'resource_create')(context, datadict)
+    return next_func(context, datadict)
 
-def resource_update(context, datadict):
+
+@chained_action
+def resource_update(next_func, context, datadict):
     context['keep_deletable_attributes_in_api'] = True
 
-    return get_original_method('ckan.logic.action.update', 'resource_update')(context, datadict)
+    return next_func('ckan.logic.action.update', 'resource_update')(context, datadict)
 
-def resource_delete(context, datadict):
+
+@chained_action
+def resource_delete(next_func, context, datadict):
     context['keep_deletable_attributes_in_api'] = True
 
-    return get_original_method('ckan.logic.action.delete', 'resource_delete')(context, datadict)
+    return next_func(context, datadict)
 
 
-def package_resource_reorder(context, datadict):
+@chained_action
+def package_resource_reorder(next_func, context, datadict):
     context['keep_deletable_attributes_in_api'] = True
 
-    return get_original_method('ckan.logic.action.update', 'package_resource_reorder')(context, datadict)
+    return next_func(context, datadict)
 
-def package_patch(context, datadict):
+
+@chained_action
+def package_patch(next_func, context, datadict):
     context['keep_deletable_attributes_in_api'] = True
 
-    return get_original_method('ckan.logic.action.patch', 'package_patch')(context, datadict)
-
-def get_original_method(module_name, method_name):
-    """ In CKAN you cannot call original action when you override it.
-        This method fixes the problem.
-        Example get_original_method('ckan.logic.action.create', 'user_create')
-    """
-    __import__(module_name)
-    imported_module = sys.modules[module_name]
-    reimport_module = imp.load_compiled('%s.reimport' % module_name, imported_module.__file__)
-
-    return getattr(reimport_module, method_name)
+    return next_func(context, datadict)
