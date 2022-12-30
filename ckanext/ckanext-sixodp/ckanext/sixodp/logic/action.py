@@ -63,7 +63,7 @@ def resource_create(next_func, context, datadict):
 def resource_update(next_func, context, datadict):
     context['keep_deletable_attributes_in_api'] = True
 
-    return next_func('ckan.logic.action.update', 'resource_update')(context, datadict)
+    return next_func(context, datadict)
 
 
 @chained_action
