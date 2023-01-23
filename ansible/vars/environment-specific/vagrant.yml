@@ -127,6 +127,7 @@ enabled_ckan_extensions:
     #- googleanalytics
     - qa
     - archiver
+    - collection
     - sixodp
     - disqus
     - datastore
@@ -141,7 +142,6 @@ enabled_ckan_extensions:
     - hierarchy_form
     #- reminder
     - editor
-    #- collection
     #- spatial_metadata
     #- spatial_query
     - datasubmitter

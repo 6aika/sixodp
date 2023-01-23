@@ -1,0 +1,13 @@
+diff --git a/ckan/views/group.py b/ckan/views/group.py
+index 79f36de8d..6014c5139 100644
+--- a/ckan/views/group.py
++++ b/ckan/views/group.py
+@@ -234,7 +234,7 @@ def _read(id: Optional[str], limit: int, group_type: str) -> dict[str, Any]:
+     if g.group_dict.get(u'is_organization'):
+         fq = u' owner_org:"%s"' % g.group_dict.get(u'id')
+     else:
+-        fq = u' groups:"%s"' % g.group_dict.get(u'name')
++        fq = u' %ss:"%s"' % (group_type, g.group_dict.get(u'name'))
+ 
+     extra_vars["q"] = q
+ 
