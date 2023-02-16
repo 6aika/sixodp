@@ -2,14 +2,16 @@ import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 from ckanext.report.interfaces import IReport
 from ckan.lib.plugins import DefaultTranslation
+from flask import Blueprint
+
 from .logic.get import get_all_public_datasets
 
 class StatisticsPlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IConfigurer)
-    plugins.implements(plugins.IRoutes, inherit=True)
     if toolkit.check_ckan_version(min_version='2.5.0'):
         plugins.implements(plugins.ITranslation, inherit=True)
     plugins.implements(plugins.IActions)
+    plugins.implements(plugins.IBlueprint)
 
     # IConfigurer
 
@@ -17,22 +19,25 @@ class StatisticsPlugin(plugins.SingletonPlugin, DefaultTranslation):
         toolkit.add_template_directory(config_, 'templates')
         toolkit.add_resource('fanstatic', 'statistics')
 
-    # IRoutes
+    # IBlueprint
+    def get_blueprint(self):
+        blueprint = Blueprint(self.name, self.__module__)
+        blueprint.template_folder = 'templates'
+        blueprint.add_url_rule('/statistics', 'statistics', statistics_read)
+        blueprint.add_url_rule('/statistics/internal', 'statistics_internal', reports_read)
 
-    def before_map(self, map):
-        map.connect('/statistics',
-                    controller='ckanext.statistics.controller:StatisticsController',
-                    action='statistics_read')
-
-        map.connect('/statistics/internal',
-                    controller='ckanext.statistics.controller:StatisticsController',
-                    action='reports_read')
-
-        return map
-
+        return [blueprint]
     # IActions
     def get_actions(self):
         return {'get_all_public_datasets': get_all_public_datasets}
+
+def statistics_read():
+    return toolkit.render('statistics/statistics_read.html')
+
+def reports_read():
+    return toolkit.render('statistics/reports_read.html')
+
+
 
 class PublisherActivityReportPlugin(plugins.SingletonPlugin):
     plugins.implements(IReport)
@@ -40,7 +45,7 @@ class PublisherActivityReportPlugin(plugins.SingletonPlugin):
 
     # IReport
     def register_reports(self):
-        import reports
+        from . import reports
         return [reports.publisher_activity_report_info]
 
     # ITemplateHelpers

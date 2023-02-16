@@ -1,7 +1,7 @@
 import datetime
 import collections
 
-from ckan.common import OrderedDict, _
+from ckan.common import _
 from ckanext.report import lib
 import ckan.plugins as p
 from ckan.plugins import toolkit
@@ -60,7 +60,7 @@ def publisher_activity(organization, include_sub_organizations=False):
             num_created = len(created_names)
             num_modified = len(modified_names)
             num_total = len(set(created_names) | set(modified_names))
-            stats_by_org.append(OrderedDict((
+            stats_by_org.append(collections.OrderedDict((
                 ('organization name', organization.name),
                 ('organization title', organization.title),
                 ('num created', num_created),
@@ -231,7 +231,7 @@ publisher_activity_report_info = {
     'name': 'publisher-activity',
     'title': 'Publisher activity',
     'description': 'A quarterly list of datasets created and edited by a publisher.',
-    'option_defaults': OrderedDict((('organization', None),
+    'option_defaults': collections.OrderedDict((('organization', None),
                                     ('include_sub_organizations', False),
                                     )),
     'option_combinations': publisher_activity_combinations,

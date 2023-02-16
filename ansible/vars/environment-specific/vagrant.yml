@@ -135,7 +135,7 @@ enabled_ckan_extensions:
     - scheming_datasets
     - scheming_groups
     - fluent
-    #- report
+    - report
     - publisher_activity_report
     #- rating
     - hierarchy_display
