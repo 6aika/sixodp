@@ -123,7 +123,7 @@ enabled_ckan_extensions:
     - recline_graph_view
     - recline_grid_view
     - recline_map_view
-    #- sixodp_showcase
+    - sixodp_showcase
     #- googleanalytics
     - qa
     - archiver

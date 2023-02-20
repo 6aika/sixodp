@@ -5,7 +5,7 @@
   <div class="page-hero"></div>
   <div class="search-form-container search-form-container-borderless row">
     <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12">
-      {{ h.snippet('snippets/search_input.html', query=c.q, placeholder=_('Search showcases...'), query_params=c.fields_grouped, sorting=c.sort_by_selected) }}
+      {{ h.snippet('snippets/search_input.html', query=g.q, placeholder=_('Search showcases...'), query_params=fields_grouped, sorting=g.sort_by_selected) }}
     </div>
   </div>
 
@@ -17,7 +17,7 @@
             <ol class="breadcrumb">
               {% snippet 'snippets/home_breadcrumb_item.html' %}
               {% block breadcrumb_content %}
-                <li class="active">{{ h.nav_link(_('Showcases'), controller='ckanext.showcase.controller:ShowcaseController', action='search', highlight_actions = 'new index') }}</li>
+                <li class="active">{{ h.nav_link(_('Showcases'), 'sixodp_showcase.search', highlight_actions = 'new index') }}</li>
               {% endblock %}
             </ol>
           {% endif %}
@@ -30,7 +30,7 @@
   {% endblock %}
 
 {# Are there some filtering selected #}
-{% if not c.fields_grouped and not c.q %}
+{% if not fields_grouped and not g.q %}
   {% set featured_showcases = h.get_featured_showcases() %}
   {% if featured_showcases %}
     <div class="page-highlight">
@@ -43,17 +43,17 @@
 {% block page_primary_action %}
   {% if h.check_access('ckanext_showcase_create') %}
     <div class="page_primary_action">
-      {% link_for _('Add Showcase'), controller='ckanext.sixodp_showcase.controller:Sixodp_ShowcaseController', action='new', class_='btn btn-primary', icon='plus-sign-alt' %}
+      {% link_for _('Add Showcase'), 'sixodp_showcase.new', class_='btn btn-primary', icon='plus-sign-alt' %}
     </div>
   {% endif %}
 {% endblock %}
 
 {% block form %}
   {% set facets = {
-    'fields': c.fields_grouped,
-    'search': c.search_facets,
-    'titles': c.facet_titles,
-    'translated_fields': c.translated_fields,
+    'fields': fields_grouped,
+    'search': g.search_facets,
+    'titles': g.facet_titles,
+    'translated_fields': g.translated_fields,
     'remove_field': h.facet_remove_field }
   %}
   {% set sorting = [
@@ -67,12 +67,12 @@
     (_('Top rating'), 'rating desc') ]
   %}
   <div class="search-options">
-    {% snippet 'sixodp_showcase/snippets/showcase_search_form.html', type='showcase', placeholder=_('Search showcases...'), query=c.q, sorting=sorting, sorting_selected=c.sort_by_selected, count=c.page.item_count, facets=facets, show_empty=request.params, error=c.query_error, fields=c.fields, no_bottom_border=true %}
+    {% snippet 'sixodp_showcase/snippets/showcase_search_form.html', type='showcase', placeholder=_('Search showcases...'), query=g.q, sorting=sorting, sorting_selected=g.sort_by_selected, count=page.item_count, facets=facets, show_empty=request.params, error=g.query_error, fields=c.fields, no_bottom_border=true %}
   </div>
 {% endblock %}
 
 {% block package_search_results_list %}
-  {{ h.snippet('sixodp_showcase/snippets/showcase_list.html', packages=c.page.items) }}
+  {{ h.snippet('sixodp_showcase/snippets/showcase_list.html', packages=page.items) }}
 {% endblock %}
 
 {% block package_search_results_api %}
@@ -83,8 +83,8 @@
 <div class="filters">
   <h2 class="filter-list-heading">{{_('Filter results')}}</h2>
   <div>
-    {% for facet in c.facet_titles %}
-      {{ h.snippet('snippets/facet_list.html', title=c.facet_titles[facet], name=facet) }}
+    {% for facet in g.facet_titles %}
+      {{ h.snippet('snippets/facet_list.html', title=g.facet_titles[facet], name=facet) }}
     {% endfor %}
   </div>
   <a class="close no-text hide-filters"><i class="icon-remove-sign"></i><span class="text">close</span></a>
