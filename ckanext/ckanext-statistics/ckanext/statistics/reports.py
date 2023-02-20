@@ -1,6 +1,7 @@
 import datetime
 import collections
 
+from dateutil.relativedelta import relativedelta
 from ckan.common import _
 from ckanext.report import lib
 import ckan.plugins as p
@@ -30,7 +31,7 @@ def publisher_activity(organization, include_sub_organizations=False):
 
         quarters_iso = dict(
             [(last_or_this, [date_.isoformat() for date_ in q_list])
-             for last_or_this, q_list in quarters.iteritems()])
+             for last_or_this, q_list in quarters.items()])
 
         datasets_with_title = []
         for dataset in datasets:
@@ -55,8 +56,8 @@ def publisher_activity(organization, include_sub_organizations=False):
         for organization in add_progress_bar(all_orgs):
             created, modified = _get_activity(
                 organization.name, include_sub_organizations, periods)
-            created_names = [dataset[1] for dataset in created.values()[0]]
-            modified_names = [dataset[1] for dataset in modified.values()[0]]
+            created_names = [dataset[1] for dataset in list(created.values())[0]]
+            modified_names = [dataset[1] for dataset in list(modified.values())[0]]
             num_created = len(created_names)
             num_modified = len(modified_names)
             num_total = len(set(created_names) | set(modified_names))
@@ -73,7 +74,7 @@ def publisher_activity(organization, include_sub_organizations=False):
                 totals['total'] += num_total
 
         period_iso = [date_.isoformat()
-                      for date_ in periods.values()[0]]
+                      for date_ in list(periods.values())[0]]
 
         stats_by_org.sort(key=lambda x: -x['total'])
 
@@ -88,10 +89,11 @@ def get_quarter_dates(datetime_now):
     month_this_q_started = (now.month - 1) // 3 * 3 + 1
     this_q_started = datetime.datetime(now.year, month_this_q_started, 1)
     this_q_ended = datetime.datetime(now.year, now.month, now.day)
-    last_q_started = datetime.datetime(
-        this_q_started.year + (this_q_started.month-3)/12,
-        (this_q_started.month-4) % 12 + 1,
-        1)
+    #last_q_started = datetime.datetime(
+    #    this_q_started.year + (this_q_started.month-3)/12,
+    #    (this_q_started.month-4) % 12 + 1,
+    #    1)
+    last_q_started = this_q_started - relativedelta(months=3)
     last_q_ended = this_q_started - datetime.timedelta(days=1)
     return {'this': (this_q_started, this_q_ended),
             'last': (last_q_started, last_q_ended)}
@@ -104,16 +106,17 @@ def get_quarter_dates_merged(datetime_now):
     month_this_q_started = (now.month - 1) // 3 * 3 + 1
     this_q_started = datetime.datetime(now.year, month_this_q_started, 1)
     this_q_ended = datetime.datetime(now.year, now.month, now.day)
-    last_q_started = datetime.datetime(
-        this_q_started.year + (this_q_started.month-3)/12,
-        (this_q_started.month-4) % 12 + 1,
-        1)
+    #last_q_started = datetime.datetime(
+    #    this_q_started.year + (this_q_started.month-3)/12,
+    #    (this_q_started.month-4) % 12 + 1,
+    #    1)
+    last_q_started = this_q_started - relativedelta(months=3)
+
     last_q_ended = this_q_started - datetime.timedelta(days=1)
     return {'this_and_last': (last_q_started, this_q_ended)}
 
 def _get_activity(organization_name, include_sub_organizations, periods):
     import ckan.model as model
-    from paste.deploy.converters import asbool
 
     created = dict((period_name, []) for period_name in periods)
     modified = dict((period_name, []) for period_name in periods)
@@ -146,67 +149,67 @@ def _get_activity(organization_name, include_sub_organizations, periods):
                                            include_sub_organizations).all()
 
     for pkg in pkgs:
-        created_ = model.Session.query(model.PackageRevision) \
-            .filter(model.PackageRevision.id == pkg.id) \
-            .order_by("revision_timestamp asc").first()
+        #created_ = model.Session.query(model.PackageRevision) \
+        #    .filter(model.PackageRevision.id == pkg.id) \
+        #    .order_by("revision_timestamp asc").first()
 
-        pr_q = model.Session.query(model.PackageRevision, model.Revision) \
-            .filter(model.PackageRevision.id == pkg.id) \
-            .filter_by(state='active') \
-            .join(model.Revision) \
-            .filter(~model.Revision.author.in_(system_authors)) \
-            .filter(~model.Revision.author.like(system_author_template))
-        rr_q = model.Session.query(model.Package, model.ResourceRevision, model.Revision) \
-            .filter(model.Package.id == pkg.id) \
-            .filter_by(state='active') \
-            .join(model.ResourceRevision,
-                  model.Package.id == model.ResourceRevision.package_id) \
-            .join(model.Revision) \
-            .filter(~model.Revision.author.in_(system_authors)) \
-            .filter(~model.Revision.author.like(system_author_template))
-        pe_q = model.Session.query(model.Package, model.PackageExtraRevision, model.Revision) \
-            .filter(model.Package.id == pkg.id) \
-            .filter_by(state='active') \
-            .join(model.PackageExtraRevision,
-                  model.Package.id == model.PackageExtraRevision.package_id) \
-            .join(model.Revision) \
-            .filter(~model.Revision.author.in_(system_authors)) \
-            .filter(~model.Revision.author.like(system_author_template))
+        #pr_q = model.Session.query(model.PackageRevision, model.Revision) \
+        #    .filter(model.PackageRevision.id == pkg.id) \
+        #    .filter_by(state='active') \
+        #    .join(model.Revision) \
+        #    .filter(~model.Revision.author.in_(system_authors)) \
+        #    .filter(~model.Revision.author.like(system_author_template))
+        #rr_q = model.Session.query(model.Package, model.ResourceRevision, model.Revision) \
+        #    .filter(model.Package.id == pkg.id) \
+        #    .filter_by(state='active') \
+        #    .join(model.ResourceRevision,
+        #          model.Package.id == model.ResourceRevision.package_id) \
+        #    .join(model.Revision) \
+        #    .filter(~model.Revision.author.in_(system_authors)) \
+        #    .filter(~model.Revision.author.like(system_author_template))
+        #pe_q = model.Session.query(model.Package, model.PackageExtraRevision, model.Revision) \
+        #    .filter(model.Package.id == pkg.id) \
+        #    .filter_by(state='active') \
+        #    .join(model.PackageExtraRevision,
+        #          model.Package.id == model.PackageExtraRevision.package_id) \
+        #    .join(model.Revision) \
+        #    .filter(~model.Revision.author.in_(system_authors)) \
+        #    .filter(~model.Revision.author.like(system_author_template))
 
         for period_name in periods:
             period = periods[period_name]
             # created
-            if period[0] < created_.revision_timestamp < period[1]:
-                published = not asbool(pkg.extras.get('unpublished'))
-                created[period_name].append(
-                    (created_.id, created_.name, created_.title, lib.dataset_notes(pkg),
-                     'created', period_name,
-                     created_.revision_timestamp.isoformat(),
-                     created_.revision.author, published))
+            #if period[0] < created_.revision_timestamp < period[1]:
+            #    published = not toolkit.asbool(pkg.extras.get('unpublished'))
+            #    created[period_name].append(
+            #        (created_.id, created_.name, created_.title, lib.dataset_notes(pkg),
+            #         'created', period_name,
+            #         created_.revision_timestamp.isoformat(),
+            #         created_.revision.author, published))
 
             # modified
             # exclude the creation revision
-            period_start = max(period[0], created_.revision_timestamp)
-            prs = pr_q.filter(model.PackageRevision.revision_timestamp > period_start) \
-                .filter(model.PackageRevision.revision_timestamp < period[1])
-            rrs = rr_q.filter(model.ResourceRevision.revision_timestamp > period_start) \
-                .filter(model.ResourceRevision.revision_timestamp < period[1])
-            pes = pe_q.filter(model.PackageExtraRevision.revision_timestamp > period_start) \
-                .filter(model.PackageExtraRevision.revision_timestamp < period[1])
-            authors = ' '.join(set([r[1].author for r in prs] +
-                                   [r[2].author for r in rrs] +
-                                   [r[2].author for r in pes]))
-            dates = set([r[1].timestamp.date() for r in prs] +
-                        [r[2].timestamp.date() for r in rrs] +
-                        [r[2].timestamp.date() for r in pes])
-            dates_formatted = ' '.join([date.isoformat()
-                                        for date in sorted(dates)])
-            if authors:
-                published = not asbool(pkg.extras.get('unpublished'))
-                modified[period_name].append(
-                    (pkg.id, pkg.name, pkg.title, lib.dataset_notes(pkg),
-                     'modified', period_name,
-                     dates_formatted, authors, published))
+            #period_start = max(period[0], created_.revision_timestamp)
+            #prs = pr_q.filter(model.PackageRevision.revision_timestamp > period_start) \
+            #    .filter(model.PackageRevision.revision_timestamp < period[1])
+            #rrs = rr_q.filter(model.ResourceRevision.revision_timestamp > period_start) \
+            #    .filter(model.ResourceRevision.revision_timestamp < period[1])
+            #pes = pe_q.filter(model.PackageExtraRevision.revision_timestamp > period_start) \
+            #    .filter(model.PackageExtraRevision.revision_timestamp < period[1])
+            #authors = ' '.join(set([r[1].author for r in prs] +
+            #                       [r[2].author for r in rrs] +
+            #                       [r[2].author for r in pes]))
+            #dates = set([r[1].timestamp.date() for r in prs] +
+            #            [r[2].timestamp.date() for r in rrs] +
+            #            [r[2].timestamp.date() for r in pes])
+            #dates_formatted = ' '.join([date.isoformat()
+            #                            for date in sorted(dates)])
+            #if authors:
+            #    published = not toolkit.asbool(pkg.extras.get('unpublished'))
+            #    modified[period_name].append(
+            #        (pkg.id, pkg.name, pkg.title, lib.dataset_notes(pkg),
+            #         'modified', period_name,
+            #         dates_formatted, authors, published))
     return created, modified
 
 def add_progress_bar(iterable, caption=None):
