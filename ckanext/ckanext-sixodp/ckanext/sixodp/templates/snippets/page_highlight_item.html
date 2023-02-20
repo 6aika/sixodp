@@ -4,7 +4,7 @@
 {% set notes = h.markdown_extract(h.get_translated(item, 'notes'), extract_length=truncate) %}
 
 <div class="card--image">
-  <a href="{{ h.url_for(controller='ckanext.sixodp_showcase.controller:Sixodp_ShowcaseController', action='read', id=item.name) }}"
+  <a href="{{ h.url_for('sixopd_showcase.read', id=item.name) }}"
      title="{{ _('View {showcase_title}').format(showcase_title=title) }}" class="card-link">
   <img src="{{ image_url }}" alt="">
   <div class="card-content">
