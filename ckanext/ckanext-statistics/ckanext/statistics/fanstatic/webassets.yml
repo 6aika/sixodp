@@ -1,0 +1,22 @@
+main:
+  filters: rjsmin
+  output: ckanext-statistics/%(version)s_statistics.js
+  extra:
+    preload:
+      - base/main
+  contents:
+    - javascript/vendor/bluebird.js
+    - javascript/vendor/moment.js
+    - javascript/vendor/d3.js
+    - javascript/vendor/jquery_throttle.js
+    - javascript/lib/config.js
+    - javascript/lib/locales.js
+    - javascript/data/api.js
+    - javascript/visualizations/attention_numbers.js
+    - javascript/visualizations/totals_timeline.js
+    - javascript/visualizations/top_histogram.js
+    - javascript/nav/nav.js
+    - javascript/sections/summary_section.js
+    - javascript/sections/dataset_section.js
+    - javascript/sections/app_section.js
+    - javascript/statistics.js
