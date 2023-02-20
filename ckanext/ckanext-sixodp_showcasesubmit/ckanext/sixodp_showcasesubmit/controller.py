@@ -55,9 +55,7 @@ def validateReCaptcha(recaptcha_response):
 
 def sendNewShowcaseNotifications(showcase_name):
     recipient_emails = config.get('ckanext.sixodp_showcasesubmit.recipient_emails').split(' ')
-    showcase_url = config.get('ckan.site_url') + h.url_for(
-        controller='ckanext.showcase.controller:ShowcaseController',
-        action='read', id=showcase_name)
+    showcase_url = config.get('ckan.site_url') + h.url_for('showcase.read', id=showcase_name)
 
     message_body = _('A user has submitted a new showcase') + ': ' + showcase_url
 
