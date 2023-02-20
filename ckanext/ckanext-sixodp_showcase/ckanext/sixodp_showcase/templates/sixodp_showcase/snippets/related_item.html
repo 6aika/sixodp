@@ -24,7 +24,7 @@ Example:
     <div class="{% if show_rating %}col-md-8 {% endif %} col-sm-12 dataset-col-left">
       <div class="secondary-heading-container">
         {% block heading %}
-          <a href="{{ h.url_for(controller='ckanext.sixodp_showcase.controller:Sixodp_ShowcaseController', action='read', id=package.name) }}">
+          <a href="{{ h.url_for('sixodp_showcase.read', id=package.name) }}">
 
             {% set pkg_icon = h.url_for_static('uploads/showcase/' + package.get('icon')) %}
             {% if pkg_icon %}

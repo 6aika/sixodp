@@ -16,7 +16,7 @@ show_remove    - If True, show the remove button to remove showcase/dataset asso
 {% block package_item %}
 
 <li class="media-item media-item-success">
-  <a href="{{ h.url_for(controller='ckanext.sixodp_showcase.controller:Sixodp_ShowcaseController', action='read', id=package.name) }}"
+  <a href="{{ h.url_for('sixodp_showcase.read', id=package.name) }}"
      title="{{ _('View {showcase_title}').format(showcase_title=package.title) }}"
      class="media-link">
   {% block item_inner %}
