@@ -9,11 +9,11 @@
 {% block breadcrumb_content %}
   {% if pkg %}
     {% set showcase = pkg.title or pkg.name %}
-    <li>{% link_for _('Showcases'), 'showcase.search' %}</li>
+    <li>{% link_for _('Showcases'), 'sixodp_showcase.search' %}</li>
     <li{{ self.breadcrumb_content_selected() }}>{% link_for showcase|truncate(30), 'showcase.read', id=pkg.name %}</li>
     <li class="active">{% link_for _('Edit'), 'showcase.edit', id=pkg.name %}</li>
   {% else %}
-    <li>{% link_for _('Showcases'), 'showcase.search' %}</li>
+    <li>{% link_for _('Showcases'), 'sixodp_showcase.search' %}</li>
     <li class="active"><a href="">{{ _('Create Showcase') }}</a></li>
   {% endif %}
 {% endblock %}
