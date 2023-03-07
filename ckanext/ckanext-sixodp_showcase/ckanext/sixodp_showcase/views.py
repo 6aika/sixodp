@@ -155,7 +155,6 @@ class EditView(views.EditView):
             g.form_style = u'new'
 
             return CreateView().get(
-                package_type,
                 data=data,
                 errors=errors,
                 error_summary=error_summary
@@ -269,7 +268,7 @@ def upload():
 
 showcase = Blueprint(u'sixodp_showcase', __name__)
 showcase.add_url_rule('/showcase', view_func=search, strict_slashes=False)
-showcase.add_url_rule('/showcase/new', view_func=CreateView.as_view('new'))
+showcase.add_url_rule('/showcase/new', view_func=CreateView.as_view('new'), endpoint="new")
 showcase.add_url_rule('/showcase/edit/<id>',
                       view_func=EditView.as_view('edit'),
                       methods=[u'GET', u'POST'])

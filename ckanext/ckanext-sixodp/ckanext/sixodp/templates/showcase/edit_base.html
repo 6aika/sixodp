@@ -9,8 +9,8 @@
 {% block breadcrumb_content %}
   {% if pkg %}
     {% set showcase = pkg.title or pkg.name %}
-    <li>{% link_for _('Showcases'), 'sixodp_showcase.search' %}</li>
-    <li{{ self.breadcrumb_content_selected() }}>{% link_for showcase|truncate(30), 'showcase.read', id=pkg.name %}</li>
+    <li>{% link_for _('Showcases'), named_route='sixodp_showcase.search' %}</li>
+    <li>{{ self.breadcrumb_content_selected() }}>{% link_for showcase|truncate(30), 'showcase.read', id=pkg.name %}</li>
     <li class="active">{% link_for _('Edit'), 'showcase.edit', id=pkg.name %}</li>
   {% else %}
     <li>{% link_for _('Showcases'), 'sixodp_showcase.search' %}</li>
@@ -33,8 +33,8 @@
             {% endif %}
             <ul class="nav nav-tabs">
               {% block content_primary_nav %}
-                {{ h.build_nav_icon('ckanext_showcase_edit', _('Edit showcase'), id=pkg.name) }}
-                {{ h.build_nav_icon('ckanext_showcase_manage_datasets', _('Manage datasets'), id=pkg.name) }}
+                {{ h.build_nav_icon('sixodp_showcase.edit', _('Edit showcase'), id=pkg.name) }}
+                {{ h.build_nav_icon('sixodp_showcase.showcase_manage_datasets', _('Manage datasets'), id=pkg.name) }}
               {% endblock %}
             </ul>
           </header>
