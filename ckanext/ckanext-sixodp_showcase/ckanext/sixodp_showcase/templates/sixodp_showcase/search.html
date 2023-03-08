@@ -51,9 +51,9 @@
 {% block form %}
   {% set facets = {
     'fields': fields_grouped,
-    'search': g.search_facets,
-    'titles': g.facet_titles,
-    'translated_fields': g.translated_fields,
+    'search': search_facets,
+    'titles': facet_titles,
+    'translated_fields': translated_fields,
     'remove_field': h.facet_remove_field }
   %}
   {% set sorting = [
@@ -83,8 +83,8 @@
 <div class="filters">
   <h2 class="filter-list-heading">{{_('Filter results')}}</h2>
   <div>
-    {% for facet in g.facet_titles %}
-      {{ h.snippet('snippets/facet_list.html', title=g.facet_titles[facet], name=facet) }}
+    {% for facet in facet_titles %}
+      {{ h.snippet('snippets/facet_list.html', title=facet_titles[facet], name=facet) }}
     {% endfor %}
   </div>
   <a class="close no-text hide-filters"><i class="icon-remove-sign"></i><span class="text">close</span></a>
