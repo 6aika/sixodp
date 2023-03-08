@@ -10,10 +10,10 @@
   {% if pkg %}
     {% set showcase = pkg.title or pkg.name %}
     <li>{% link_for _('Showcases'), named_route='sixodp_showcase.search' %}</li>
-    <li>{{ self.breadcrumb_content_selected() }}>{% link_for showcase|truncate(30), 'showcase.read', id=pkg.name %}</li>
-    <li class="active">{% link_for _('Edit'), 'showcase.edit', id=pkg.name %}</li>
+    <li {{ self.breadcrumb_content_selected() }}>{% link_for showcase|truncate(30), named_route='showcase.read', id=pkg.name %}</li>
+    <li class="active">{% link_for _('Edit'), named_route='showcase.edit', id=pkg.name %}</li>
   {% else %}
-    <li>{% link_for _('Showcases'), 'sixodp_showcase.search' %}</li>
+    <li>{% link_for _('Showcases'), named_route='sixodp_showcase.search' %}</li>
     <li class="active"><a href="">{{ _('Create Showcase') }}</a></li>
   {% endif %}
 {% endblock %}
@@ -27,7 +27,7 @@
             {% if self.content_action() | trim %}
               <div class="content_action">
                 {% block content_action %}
-                  {% link_for _('View showcase'), 'showcase.read', id=pkg.name, class_='btn', icon='eye-open' %}
+                  {% link_for _('View showcase'), named_route='showcase.read', id=pkg.name, class_='btn', icon='eye-open' %}
                 {% endblock %}
               </div>
             {% endif %}

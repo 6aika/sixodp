@@ -1,6 +1,6 @@
 {% extends 'page.html' %}
 
-{% set pkg = c.pkg_dict %}
+{% set pkg = pkg_dict %}
 
 {% block subtitle %}{{ _('Showcases') }}{% endblock %}
 
@@ -13,11 +13,11 @@
 {% block breadcrumb_content %}
   {% if pkg %}
     {% set showcase = pkg.title or pkg.name %}
-    <li>{% link_for _('Showcases'), 'sixodp_showcase.search' %}</li>
-    <li>{{ self.breadcrumb_content_selected() }}{% link_for showcase|truncate(30), 'sixodp_showcase.read', id=pkg.name %}</li>
+    <li>{% link_for _('Showcases'), named_route='sixodp_showcase.search' %}</li>
+    <li>{{ self.breadcrumb_content_selected() }}{% link_for showcase|truncate(30), named_route='sixodp_showcase.read', id=pkg.name %}</li>
     <li class="active">{% link_for _('Edit'), 'sixodp_showcase.edit', id=pkg.name %}</li>
   {% else %}
-    <li>{% link_for _('Showcases'), 'sixodp_showcase.search' %}</li>
+    <li>{% link_for _('Showcases'), named_route='sixodp_showcase.search' %}</li>
     <li class="active"><a href="">{{ _('Create Showcase') }}</a></li>
   {% endif %}
 {% endblock %}
@@ -31,14 +31,14 @@
             {% if self.content_action() | trim %}
               <div class="content_action">
                 {% block content_action %}
-                  {% link_for _('View showcase'), 'sixodp_showcase.read', id=pkg.name, class_='btn', icon='eye-open' %}
+                  {% link_for _('View showcase'), named_route='sixodp_showcase.read', id=pkg.name, class_='btn', icon='eye-open' %}
                 {% endblock %}
               </div>
             {% endif %}
             <ul class="nav nav-tabs">
               {% block content_primary_nav %}
-                {{ h.build_nav_icon('ckanext_showcase_edit', _('Edit showcase'), id=pkg.name) }}
-                {{ h.build_nav_icon('ckanext_showcase_manage_datasets', _('Manage datasets'), id=pkg.name) }}
+                {{ h.build_nav_icon('sixodp_showcase.edit', _('Edit showcase'), id=pkg.name) }}
+                {{ h.build_nav_icon('sixodp_showcase.showcase_manage_datasets', _('Manage datasets'), id=pkg.name) }}
               {% endblock %}
             </ul>
           </header>
