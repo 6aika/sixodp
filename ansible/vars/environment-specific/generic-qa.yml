@@ -142,6 +142,7 @@ enabled_ckan_extensions:
     - qa
     - archiver
     - collection
+    - reminder
     - sixodp
     - disqus
     - datastore
@@ -154,7 +155,6 @@ enabled_ckan_extensions:
     #- rating
     - hierarchy_display
     - hierarchy_form
-    #- reminder
     - editor
     #- spatial_metadata
     #- spatial_query

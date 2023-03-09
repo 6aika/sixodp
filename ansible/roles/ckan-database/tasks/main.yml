@@ -38,8 +38,8 @@
 #- name: Initialize Rating database
 #  command: ./bin/paster --plugin=ckanext-rating rating init "--config={{ ckan_ini }}" chdir={{ virtualenv }}
 
-#- name: Initialize Reminder database
-#  command: ./bin/paster --plugin=ckanext-reminder reminder init "--config={{ ckan_ini }}" chdir={{ virtualenv }}
+- name: Initialize Reminder database
+  command: ./bin/ckan "--config={{ ckan_ini }}" reminder init-db chdir={{ virtualenv }}
 
 #- name: Initialize ckanext-googleanalytics database
 #  command: ./bin/paster --plugin=ckanext-googleanalytics initdb "--config={{ ckan_ini }}" chdir={{ virtualenv }}
