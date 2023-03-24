@@ -3,7 +3,5 @@
 {% block subtitle %}{{ _('Activity Stream') }} - {{ super() }}{% endblock %}
 
 {% block primary_content_inner %}
-  {% block activity_stream %}
-    {{ c.package_activity_stream | safe }}
-  {% endblock %}
+  {% snippet 'snippets/activity_stream.html', activity_stream=activity_stream, id=id, object_type='package' %}
 {% endblock %}
