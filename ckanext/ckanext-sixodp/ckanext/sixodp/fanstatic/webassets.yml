@@ -11,6 +11,5 @@ sixodp_js:
 sixodp_css:
   output: sixodp/sixodp.css
   contents:
-    - font-awesome/css/font-awesome.css
     - css/bootstrap-datetimepicker.css
     - css/sixodp_theme.css
