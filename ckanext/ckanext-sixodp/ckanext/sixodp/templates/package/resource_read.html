@@ -15,7 +15,7 @@
         <div class="module-content main-content">
           {% if h.check_access('package_update', {'id':pkg.id }) %}
           <div class="actions">
-            {% link_for _('Manage'), 'dataset.resource_edit', id=pkg.name, resource_id=res.id, class_='btn', icon='wrench' %}
+            {% link_for _('Manage'), named_route='dataset_resource.edit', id=pkg.name, resource_id=res.id, class_='btn', icon='wrench' %}
           </div>
           {% endif %}
 
