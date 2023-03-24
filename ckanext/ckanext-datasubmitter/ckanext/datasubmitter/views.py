@@ -1,64 +1,50 @@
-import logging
-import ckan.plugins as p
-import ckan.logic as logic
-import ckan.lib.base as base
-import ckan.lib.helpers as h
-import ckan.model as model
 import datetime
-import ckan.lib.navl.dictization_functions as dict_fns
-import httplib
-import json
-import urllib
 import re
-from ckan.common import _, request, c, response
-from ckan.common import config
+
+import requests
+from flask import Blueprint
+from flask.views import MethodView
+
+from ckan import model, logic
+import ckan.lib.navl.dictization_functions as dict_fns
 from ckan.lib.mailer import mail_recipient
+import ckan.lib.helpers as h
+
+from ckan.plugins.toolkit import render, redirect_to, config, abort, request, _, ValidationError, get_action, NotAuthorized
 from ckanext.sixodp.helpers import get_current_lang
 
+import logging
 log = logging.getLogger(__name__)
 
-check_access = logic.check_access
-get_action = logic.get_action
-render = base.render
-abort = base.abort
-redirect_to = p.toolkit.redirect_to
-flatten_to_string_key = logic.flatten_to_string_key
-NotFound = logic.NotFound
-NotAuthorized = logic.NotAuthorized
-ValidationError = logic.ValidationError
 clean_dict = logic.clean_dict
 tuplize_dict = logic.tuplize_dict
 parse_params = logic.parse_params
 
-def index_template():
-    return 'datasubmitter/base_form_page.html'
+datasubmitter = Blueprint('datasubmitter', __name__)
+
 
 def validateReCaptcha(recaptcha_response):
-    response_data_dict = {}
     try:
-        connection = httplib.HTTPSConnection('google.com')
-        params = urllib.urlencode({
+        recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify'
+        payload = {
             'secret': config.get('ckanext.datasubmitter.recaptcha_secret'),
             'response': recaptcha_response,
-            'remoteip': p.toolkit.request.environ.get('REMOTE_ADDR')
-        })
-        headers = {'Content-type': 'application/x-www-form-urlencoded', 'Accept': 'text/plain'}
-        connection.request('POST', '/recaptcha/api/siteverify', params, headers)
-        response_data_dict = json.loads(connection.getresponse().read())
-        connection.close()
+            'remoteip': request.remote_addr
+        }
 
-        if(response_data_dict.get('success') != True):
+
+        response = requests.post(recaptcha_url, data = payload)
+        result = response.json()
+
+        if not result.get('success'):
             raise ValidationError('Google reCaptcha validation failed')
-    except Exception, e:
+    except Exception as e:
         log.error('Connection to Google reCaptcha API failed')
         raise ValidationError('Connection to Google reCaptcha API failed, unable to validate captcha')
 
-
 def sendNewDatasetNotifications(package_name):
     recipient_emails = config.get('ckanext.datasubmitter.recipient_emails').split(' ')
-    dataset_url = config.get('ckan.site_url') + h.url_for(
-        controller='package',
-        action='read', id=package_name)
+    dataset_url = config.get('ckan.site_url') + h.url_for('dataset.read', id=package_name)
 
     message_body = _('A user has submitted a new dataset') + ': ' + dataset_url
 
@@ -66,15 +52,31 @@ def sendNewDatasetNotifications(package_name):
         mail_recipient("", email, _('New dataset notification'), message_body)
 
 
-class DatasubmitterController(p.toolkit.BaseController):
-
-    def index(self):
-        vars = {'data': {}, 'errors': [],
+class DatasubmitterView(MethodView):
+    def get(self):
+        extra_vars = {'data': {}, 'errors': [],
                 'error_summary': {}, 'message': None}
-        return render(index_template(), extra_vars=vars)
+        return render('datasubmitter/base_form_page.html', extra_vars=extra_vars)
 
-    @staticmethod
-    def _submit():
+    def post(self):
+        log.info("FOOOOOO")
+        data, errors, error_summary, message = self._submit()
+        extra_vars = {'data': data, 'errors': errors,
+                'error_summary': error_summary, 'message': message}
+
+
+        if errors:
+            return render('datasubmitter/base_form_page.html', extra_vars=extra_vars)
+
+        lang = get_current_lang()
+        if lang == 'sv':
+            return redirect_to('/sv/tack')
+        elif lang == 'en_GB':
+            return redirect_to('/en_gb/thank-you')
+        else:
+            return redirect_to('/kiitos')
+
+    def _submit(self):
         user_entered_notes = ''
 
         try:
@@ -84,14 +86,15 @@ class DatasubmitterController(p.toolkit.BaseController):
             organization_reference = config.get('ckanext.datasubmitter.organization_name_or_id')
             organization = model.Group.get(organization_reference)
             if user is None or organization is None:
-                abort(403,_('Dataset submit user or organization not set.'))
+                log.info('Dataset submit user or organization not set.')
+                return {}, [], {}, None
 
             context = {'model': model, 'session': model.Session,
                        'user': user.id, 'auth_user_obj': user.id,
-                       'save': 'save' in request.params}
+                       'save': 'save' in request.args}
 
             data_dict = clean_dict(dict_fns.unflatten(
-                tuplize_dict(parse_params(request.POST))))
+                tuplize_dict(parse_params(request.form))))
 
             user_entered_notes = data_dict.get('notes_translated-fi')
 
@@ -115,43 +118,30 @@ class DatasubmitterController(p.toolkit.BaseController):
             if data_dict.get('url'):
                 data_dict['notes_translated-fi'] += '\n\n' + _('Dataset url') + ': ' + data_dict.get('url')
 
+            log.info("VALIDATE")
             validateReCaptcha(data_dict.get('g-recaptcha-response'))
 
+            log.info("CREATE")
             get_action('package_create')(context, data_dict)
         except NotAuthorized:
-            abort(403, _('Unauthorized to create a package'))
-        except ValidationError, e:
+            log.info('Unauthorized to create a package')
+            return {}, [], {}, None
+        except ValidationError as e:
             # Restore original user entered notes to prevent user from seeing the appended info
             data_dict['notes_translated-fi'] = user_entered_notes
 
             errors = e.error_dict
             error_summary = e.error_summary
             data_dict['state'] = 'none'
+            log.info("FOOOOOO")
             return data_dict, errors, error_summary, None
 
         sendNewDatasetNotifications(data_dict['name'])
 
         return {}, [], {}, {'class': 'success', 'text': _('Dataset submitted successfully')}
 
-    def ajax_submit(self):
-        data, errors, error_summary, message = self._submit()
-        data = flatten_to_string_key({ 'data': data, 'errors': errors, 'error_summary': error_summary, 'message': message })
-        response.headers['Content-Type'] = 'application/json;charset=utf-8'
-        return h.json.dumps(data)
 
-    def submit(self):
-        data, errors, error_summary, message = self._submit()
-        vars = {'data': data, 'errors': errors,
-                'error_summary': error_summary, 'message': message}
+datasubmitter.add_url_rule('/submit-data', view_func=DatasubmitterView.as_view('index'))
 
-        if errors:
-            return render(index_template(), extra_vars=vars)
 
-        lang = get_current_lang()
-        if lang == 'sv':
-            redirect_to('/sv/tack')
-        elif lang == 'en_GB':
-            redirect_to('/en_gb/thank-you')
-        else:
-            redirect_to('/kiitos')
 

@@ -2,16 +2,17 @@ import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 from ckan.lib.plugins import DefaultTranslation
 from ckanext.datasubmitter import helpers
+from ckanext.datasubmitter.views import datasubmitter
 
 unicode_safe = toolkit.get_validator('unicode_safe')
 
 class DatasubmitterPlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IConfigurable)
-    plugins.implements(plugins.IRoutes, inherit=True)
     if toolkit.check_ckan_version(min_version='2.5.0'):
         plugins.implements(plugins.ITranslation, inherit=True)
     plugins.implements(plugins.ITemplateHelpers)
+    plugins.implements(plugins.IBlueprint)
 
     # IConfigurer
 
@@ -50,24 +51,10 @@ class DatasubmitterPlugin(plugins.SingletonPlugin, DefaultTranslation):
                     )
                 )
 
-    # IRoutes
 
-    def before_map(self, map):
-        map.connect('/submit-data',
-                    controller='ckanext.datasubmitter.controller:DatasubmitterController',
-                    action='index',
-                    conditions=dict(method=['GET']))
-
-        map.connect('/submit-data',
-                    controller='ckanext.datasubmitter.controller:DatasubmitterController',
-                    action='submit',
-                    conditions=dict(method=['POST']))
-
-        map.connect('/submit-data/ajax-submit',
-                    controller='ckanext.datasubmitter.controller:DatasubmitterController',
-                    action='ajax_submit')
-
-        return map
+    # IBlueprint
+    def get_blueprint(self):
+        return [datasubmitter]
 
     # ITemplateHelpers
 
