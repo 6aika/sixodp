@@ -68,7 +68,6 @@
         {% block page_subheading %}
           {% set lang = h.get_lang_prefix() %}
           <div class="page-subheading">
-
             {% set showcase_categories = pkg.category.get(lang) %}
             {% if showcase_categories %}
               <span class="subheading-section">
@@ -76,12 +75,14 @@
                  {{ category }}{% if not loop.last %}, {% endif %}
                 {% endfor %}
               </span>
+            {% endif %}
 
+            {% if pkg.keywords %}
             <span class="subheading-section">
               {% snippet 'sixodp_showcase/snippets/tags.html', tags=pkg.keywords %}
             </span>
+            {% endif %}
           </div>
-        {% endif %}
 
         <div class="page-subheading">
             {% if pkg.author %}

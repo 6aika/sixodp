@@ -5,10 +5,9 @@
       <ul class="tag-list">
         {% for tag in tags.get(lang) %}
           {% set tag_dict = dict({
-              'named_route': 'sixodp_showcase.search',
               'vocab_keywords_' + lang: tag }) %}
           <li>
-            <a class="{% block tag_list_item_class %}tag{% endblock %}" href="{{ h.call_toolkit_function('url_for',[], tag_dict) }}">
+            <a class="{% block tag_list_item_class %}tag{% endblock %}" href="{{ h.call_toolkit_function('url_for',['sixodp_showcase.search'], tag_dict) }}">
               {{ h.truncate(tag, 22) }}
             </a>
           </li>
