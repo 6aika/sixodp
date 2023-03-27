@@ -31,10 +31,12 @@ def showcase_create(context, data_dict):
     except AttributeError:
         upload = uploader.Upload('showcase')
 
+    log.info(data_dict)
     # schema images
     imgs = ['icon', 'featured_image', 'image_1', 'image_2', 'image_3']
     for image in imgs:
         if data_dict[image]:
+            log.info("image found %s", image)
             upload.update_data_dict(data_dict, image,
                                 image+'_upload', 'clear_'+ image + '_upload')
 

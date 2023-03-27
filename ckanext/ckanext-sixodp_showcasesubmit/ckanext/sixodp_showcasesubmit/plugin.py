@@ -2,16 +2,17 @@ import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 from ckan.lib.plugins import DefaultTranslation
 from ckanext.sixodp_showcasesubmit import helpers
+from ckanext.sixodp_showcasesubmit.views import showcasesubmitter
 
 unicode_safe = toolkit.get_validator('unicode_safe')
 
 class Sixodp_ShowcasesubmitPlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IConfigurable)
-    plugins.implements(plugins.IRoutes, inherit=True)
     plugins.implements(plugins.ITemplateHelpers)
     if toolkit.check_ckan_version(min_version='2.5.0'):
         plugins.implements(plugins.ITranslation, inherit=True)
+    plugins.implements(plugins.IBlueprint)
 
     # IConfigurer
 
@@ -48,20 +49,10 @@ class Sixodp_ShowcasesubmitPlugin(plugins.SingletonPlugin, DefaultTranslation):
                     )
                 )
 
-    # IRoutes
+    # IBlueprint
 
-    def before_map(self, map):
-        map.connect('/submit-showcase',
-                    controller='ckanext.sixodp_showcasesubmit.controller:Sixodp_ShowcasesubmitController',
-                    action='index',
-                    conditions=dict(method=['GET']))
-
-        map.connect('/submit-showcase',
-                    controller='ckanext.sixodp_showcasesubmit.controller:Sixodp_ShowcasesubmitController',
-                    action='submit',
-                    conditions=dict(method=['POST']))
-
-        return map
+    def get_blueprint(self):
+        return [showcasesubmitter]
 
     # ITemplateHelpers
 

@@ -59,7 +59,6 @@ class DatasubmitterView(MethodView):
         return render('datasubmitter/base_form_page.html', extra_vars=extra_vars)
 
     def post(self):
-        log.info("FOOOOOO")
         data, errors, error_summary, message = self._submit()
         extra_vars = {'data': data, 'errors': errors,
                 'error_summary': error_summary, 'message': message}
@@ -118,10 +117,8 @@ class DatasubmitterView(MethodView):
             if data_dict.get('url'):
                 data_dict['notes_translated-fi'] += '\n\n' + _('Dataset url') + ': ' + data_dict.get('url')
 
-            log.info("VALIDATE")
             validateReCaptcha(data_dict.get('g-recaptcha-response'))
 
-            log.info("CREATE")
             get_action('package_create')(context, data_dict)
         except NotAuthorized:
             log.info('Unauthorized to create a package')
@@ -133,7 +130,6 @@ class DatasubmitterView(MethodView):
             errors = e.error_dict
             error_summary = e.error_summary
             data_dict['state'] = 'none'
-            log.info("FOOOOOO")
             return data_dict, errors, error_summary, None
 
         sendNewDatasetNotifications(data_dict['name'])

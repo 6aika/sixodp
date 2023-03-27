@@ -1,57 +1,55 @@
-import logging
-import ckan.plugins as p
-import ckan.logic as logic
-import ckan.lib.base as base
-import ckan.lib.helpers as h
-import ckan.model as model
-import httplib
-import json
-import urllib
 import re
+
+import requests
+from flask import Blueprint
+from flask.views import MethodView
+from ckan.plugins import toolkit
+from ckan import model
+from ckan import logic
 import ckan.lib.navl.dictization_functions as dict_fns
-from ckan.common import _, c, request, response
-from ckan.common import config
 from ckan.lib.mailer import mail_recipient
-from ckanext.sixodp_ui.helpers import get_current_lang
+import ckan.lib.helpers as h
+import logging
+from ckanext.sixodp.helpers import get_current_lang
 
-log = logging.getLogger(__name__)
-
-check_access = logic.check_access
-get_action = logic.get_action
-render = base.render
-abort = base.abort
-redirect_to = p.toolkit.redirect_to
-flatten_to_string_key = logic.flatten_to_string_key
-NotFound = logic.NotFound
-NotAuthorized = logic.NotAuthorized
-ValidationError = logic.ValidationError
+render = toolkit.render
+abort = toolkit.abort
+config = toolkit.config
+request = toolkit.request
+ValidationError = toolkit.ValidationError
+NotAuthorized = toolkit.NotAuthorized
+_ = toolkit._
+redirect_to = toolkit.redirect_to
+get_action = toolkit.get_action
 clean_dict = logic.clean_dict
 tuplize_dict = logic.tuplize_dict
 parse_params = logic.parse_params
 
-def index_template():
-    return 'sixodp_showcasesubmit/base_form_page.html'
+
+log = logging.getLogger(__name__)
+
+showcasesubmitter = Blueprint('showcasesubmitter', __name__)
+
+
 
 def validateReCaptcha(recaptcha_response):
-    response_data_dict = {}
     try:
-        connection = httplib.HTTPSConnection('google.com')
-        params = urllib.urlencode({
-            'secret': config.get('ckanext.sixodp_showcasesubmit.recaptcha_secret'),
+        recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify'
+        payload = {
+            'secret': config.get('ckanext.datasubmitter.recaptcha_secret'),
             'response': recaptcha_response,
-            'remoteip': p.toolkit.request.environ.get('REMOTE_ADDR')
-        })
-        headers = {'Content-type': 'application/x-www-form-urlencoded', 'Accept': 'text/plain'}
-        connection.request('POST', '/recaptcha/api/siteverify', params, headers)
-        response_data_dict = json.loads(connection.getresponse().read())
-        connection.close()
+            'remoteip': request.remote_addr
+        }
 
-        if(response_data_dict.get('success') != True):
+
+        response = requests.post(recaptcha_url, data = payload)
+        result = response.json()
+
+        if not result.get('success'):
             raise ValidationError('Google reCaptcha validation failed')
-    except Exception, e:
+    except Exception as e:
         log.error('Connection to Google reCaptcha API failed')
         raise ValidationError('Connection to Google reCaptcha API failed, unable to validate captcha')
-
 
 def sendNewShowcaseNotifications(showcase_name):
     recipient_emails = config.get('ckanext.sixodp_showcasesubmit.recipient_emails').split(' ')
@@ -63,29 +61,29 @@ def sendNewShowcaseNotifications(showcase_name):
         mail_recipient("", email, _('New showcase notification'), message_body)
 
 
-class Sixodp_ShowcasesubmitController(p.toolkit.BaseController):
+class ShowcaseSubmitterView(MethodView):
+    def get(self):
+        extra_vars = {'data': {}, 'errors': {}, 'error_summary': {}, 'message': None}
+        return render('sixodp_showcasesubmit/base_form_page.html', extra_vars=extra_vars)
 
-    def index(self):
+    def post(self):
+        data_dict = {}
+        errors = {}
+        error_summary = {}
+        message = { 'class': 'success', 'text':  _('Showcase submitted successfully')}
 
-        lang = get_current_lang()
-        vars = {'data': {}, 'errors': {},
-                'error_summary': {}, 'message': None}
-        return render(index_template(), extra_vars=vars)
-
-
-    @staticmethod
-    def _submit():
         try:
+
             username = config.get('ckanext.sixodp_showcasesubmit.creating_user_username')
             user = model.User.get(username)
 
             context = {'model': model, 'session': model.Session,
                        'user': user.id, 'auth_user_obj': user.id,
-                       'save': 'save' in request.params,
+                       'save': 'save' in request.args,
                        'keep_deletable_attributes_in_api': True}
 
             data_dict = clean_dict(dict_fns.unflatten(
-                tuplize_dict(parse_params(request.POST))))
+                tuplize_dict(parse_params(request.form))))
 
             data_dict['type'] = 'showcase'
             data_dict['name'] = re.sub('[^a-z0-9]+', '', data_dict.get('title'))
@@ -107,7 +105,7 @@ class Sixodp_ShowcasesubmitController(p.toolkit.BaseController):
 
                 for package_name in datasets_to_link:
                     association_dict = {"showcase_id": new_showcase.get('id'),
-                                 "package_id": package_name}
+                                        "package_id": package_name}
                     try:
                         get_action('ckanext_showcase_package_association_create')(
                             context, association_dict)
@@ -118,33 +116,31 @@ class Sixodp_ShowcasesubmitController(p.toolkit.BaseController):
 
         except NotAuthorized:
             abort(403, _('Unauthorized to create a package'))
-        except ValidationError, e:
+        except ValidationError as e:
             errors = e.error_dict
             error_summary = e.error_summary
             data_dict['state'] = 'none'
-            return data_dict, errors, error_summary, None
+            message = None
 
         sendNewShowcaseNotifications(data_dict.get('name'))
 
-        return {}, {}, {}, { 'class': 'success', 'text':  _('Showcase submitted successfully')}
-
-    def ajax_submit(self):
-        data, errors, error_summary, message = self._submit()
-        data = flatten_to_string_key({ 'data': data, 'errors': errors, 'error_summary': error_summary, 'message': message })
-        response.headers['Content-Type'] = 'application/json;charset=utf-8'
-        return h.json.dumps(data)
-
-    def submit(self):
-        data, errors, error_summary, message = self._submit()
-        vars = {'data': data, 'errors': errors,
+        extra_vars = {'data': data_dict, 'errors': errors,
                 'error_summary': error_summary, 'message': message}
         if errors:
-            return render(index_template(), extra_vars=vars)
+            return render('sixodp_showcasesubmit/base_form_page.html', extra_vars=extra_vars)
 
         lang = get_current_lang()
         if lang == 'sv':
-            redirect_to('/sv/tack')
+            return redirect_to('/sv/tack')
         elif lang == 'en_GB':
-            redirect_to('/en_gb/thank-you')
+            return redirect_to('/en_gb/thank-you')
         else:
-            redirect_to('/kiitos')
+            return redirect_to('/kiitos')
+
+
+
+showcasesubmitter.add_url_rule('/submit-showcase', view_func=ShowcaseSubmitterView.as_view('showcasesubmitter'))
+
+
+
+
