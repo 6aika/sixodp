@@ -5,7 +5,7 @@
 
 # Check new harvester jobs every hour, does not execute harvesting if there are no new jobs
 - name: Ensure harvester cronjob
-  cron: name="Harvester run" minute="0" job="/usr/lib/ckan/default/bin/paster --plugin=ckanext-harvest harvester run --config={{ ckan_ini }}"
+  cron: name="Harvester run" minute="0" job="/usr/lib/ckan/default/bin/ckan -c {{ ckan_ini }} harvester  run"
   when: "'ckanext-harvest' in ckan_extensions"
 
 - name: Disable qa update
@@ -15,18 +15,18 @@
   cron: name="Qa run" state=absent
 
 - name: Ensure reminder cronjob
-  cron: name="Reminder send" minute="0" hour="7" job="/usr/lib/ckan/default/bin/paster --plugin=ckanext-reminder reminder send --config={{ckan_ini}}"
+  cron: name="Reminder send" minute="0" hour="7" job="/usr/lib/ckan/default/bin/ckan --config={{ckan_ini}} reminder send"
 
 - name: Ensure reminder notify subscribers cronjob
-  cron: name="Reminder run" minute="0" hour="8" job="/usr/lib/ckan/default/bin/paster --plugin=ckanext-reminder reminder notify --config={{ckan_ini}}"
+  cron: name="Reminder run" minute="0" hour="8" job="/usr/lib/ckan/default/bin/ckan --config={{ckan_ini}} reminder notify"
 
 - name: Ensure CKAN tracking
-  cron: name="CKAN tracking" minute="0" hour="0" job="/usr/lib/ckan/default/bin/paster --plugin=ckan tracking update --config={{ckan_ini}} && /usr/lib/ckan/default/bin/paster --plugin=ckan search-index rebuild -r --config={{ckan_ini}}"
+  cron: name="CKAN tracking" minute="0" hour="0" job="/usr/lib/ckan/default/bin/ckan --config={{ckan_ini}} tracking update && /usr/lib/ckan/default/bin/ckan --config={{ckan_ini}} search-index rebuild -r"
 
 - name: Ensure googleanalytics loadanalytics cronjob
-  cron: name="Load Google Analytics" minute="0" hour="1" job="/usr/lib/ckan/default/bin/paster --plugin=ckanext-googleanalytics loadanalytics {{ google_analytics_secrets_file_path }} --config={{ ckan_ini }}"
+  cron: name="Load Google Analytics" minute="0" hour="1" job="/usr/lib/ckan/default/bin/ckan --config={{ckan_ini}} loadanalytics {{ google_analytics_secrets_file_path }}"
   when: "'ckanext-googleanalytics' in ckan_extensions"
 
 - name: Ensure archiver update
-  cron: name="Archiver update" minute="0" hour="2" job="/usr/lib/ckan/default/bin/paster --plugin=ckanext-archiver archiver update --config={{ ckan_ini }}"
+  cron: name="Archiver update" minute="0" hour="2" job="/usr/lib/ckan/default/bin/ckan --config={{ckan_ini}} archiver update"
   when: "'ckanext-archiver' in ckan_extensions"
