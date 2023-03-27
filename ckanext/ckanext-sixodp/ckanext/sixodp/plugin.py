@@ -436,11 +436,12 @@ class SixodpPlugin(plugins.SingletonPlugin, DefaultTranslation):
         }
 
 
-#TODO: add sorting
-# if q and not sort_by:
-#                 sort_by = 'score desc, metadata_modified desc'
-#             elif not sort_by:
-#                 sort_by = 'metadata_created desc'
 @toolkit.chained_action
 def package_search(original_action, context, data_dict):
+
+    if data_dict.get('q') and not data_dict.get('sort'):
+        data_dict['sort'] = 'score desc, metadata_modified desc'
+    elif not data_dict.get('sort'):
+        data_dict['sort'] = 'metadata_created desc'
+
     return original_action(context, data_dict)
