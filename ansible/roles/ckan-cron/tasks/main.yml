@@ -24,7 +24,7 @@
   cron: name="CKAN tracking" minute="0" hour="0" job="/usr/lib/ckan/default/bin/ckan --config={{ckan_ini}} tracking update && /usr/lib/ckan/default/bin/ckan --config={{ckan_ini}} search-index rebuild -r"
 
 - name: Ensure googleanalytics loadanalytics cronjob
-  cron: name="Load Google Analytics" minute="0" hour="1" job="/usr/lib/ckan/default/bin/ckan --config={{ckan_ini}} loadanalytics {{ google_analytics_secrets_file_path }}"
+  cron: name="Load Google Analytics" minute="0" hour="1" job="/usr/lib/ckan/default/bin/ckan --config={{ckan_ini}} googleanalytics loadanalytics {{ google_analytics_secrets_file_path }}"
   when: "'ckanext-googleanalytics' in ckan_extensions"
 
 - name: Ensure archiver update
