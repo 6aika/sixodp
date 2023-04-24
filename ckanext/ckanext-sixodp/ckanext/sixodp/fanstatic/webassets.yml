@@ -7,6 +7,9 @@ sixodp_js:
     - javascript/modules/moment-with-locales.js
     - javascript/modules/bootstrap-datetimepicker.js
     - javascript/app.js
+  extra:
+    preload:
+      - base/main
 
 sixodp_css:
   output: sixodp/sixodp.css
