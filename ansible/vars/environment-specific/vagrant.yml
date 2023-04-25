@@ -129,10 +129,10 @@ enabled_ckan_extensions:
     - archiver
     - collection
     - reminder
+    - datasetcopy
     - sixodp
     - disqus
     - datastore
-    - datasetcopy
     - scheming_datasets
     - scheming_groups
     - fluent
