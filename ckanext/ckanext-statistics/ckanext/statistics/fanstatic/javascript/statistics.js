@@ -1,5 +1,3 @@
-"use strict";
-
 ckan.module('statistics', function($){
   return {
     initialize: function () {
