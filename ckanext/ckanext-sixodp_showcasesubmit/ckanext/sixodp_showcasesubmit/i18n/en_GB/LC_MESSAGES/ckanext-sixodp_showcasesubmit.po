@@ -1,49 +1,49 @@
 # Translations template for ckanext-sixodp_showcasesubmit.
-# Copyright (C) 2019 ORGANIZATION
+# Copyright (C) 2023 ORGANIZATION
 # This file is distributed under the same license as the
 # ckanext-sixodp_showcasesubmit project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
 # 
 # Translators:
 # Juha Härkönen <juha.harkonen@ouka.fi>, 2017
+# Joonas Dukpa, 2018
 # Hami Kekkonen <hami.kekkonen@hel.fi>, 2019
-# Joonas Dukpa, 2019
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_showcasesubmit 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-26 07:17+0000\n"
+"POT-Creation-Date: 2023-05-17 07:47+0000\n"
 "PO-Revision-Date: 2017-05-02 10:33+0000\n"
-"Last-Translator: Joonas Dukpa, 2019\n"
-"Language-Team: English (United Kingdom) (https://www.transifex.com/6aika-dataportal/teams/68018/en_GB/)\n"
+"Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2019\n"
+"Language-Team: English (United Kingdom) (https://app.transifex.com/6aika-dataportal/teams/68018/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Generated-By: Babel 2.7.0\n"
 "Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ckanext/sixodp_showcasesubmit/controller.py:60
+#: ckanext/sixodp_showcasesubmit/views.py:58
 msgid "A user has submitted a new showcase"
 msgstr ""
 
-#: ckanext/sixodp_showcasesubmit/controller.py:63
+#: ckanext/sixodp_showcasesubmit/views.py:61
 msgid "New showcase notification"
 msgstr ""
 
-#: ckanext/sixodp_showcasesubmit/controller.py:114
+#: ckanext/sixodp_showcasesubmit/views.py:73
+msgid "Showcase submitted successfully"
+msgstr ""
+
+#: ckanext/sixodp_showcasesubmit/views.py:114
 msgid "N.B. The following dataset could not be automatically linked"
 msgstr ""
 
-#: ckanext/sixodp_showcasesubmit/controller.py:118
+#: ckanext/sixodp_showcasesubmit/views.py:118
 msgid "Unauthorized to create a package"
 msgstr "Unauthorised to create a package"
-
-#: ckanext/sixodp_showcasesubmit/controller.py:127
-msgid "Showcase submitted successfully"
-msgstr ""
 
 #: ckanext/sixodp_showcasesubmit/templates/admin/config.html:7
 msgid ""
@@ -57,155 +57,156 @@ msgstr "Submit new showcase"
 
 #: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/base_form_page.html:26
 msgid ""
-" By filling this form you can submit your open-data showcase to be published"
-" on this website. Fill in at least the desired title of your showcase and "
+"By filling this form you can submit your open-data showcase to be published "
+"on this website. Fill in at least the desired title of your showcase and "
 "leave your contact information. The site adminstrator will contact you for "
-"further information after a few days. "
+"further information after a few days."
 msgstr ""
-"By filling in this form, you can submit the application or other showcase "
-"you have developed to be published on this site. Please fill in at least the"
-" mandatory fields marked with an asterisk. The site administrator will "
-"contact you in a few days for a release and possible further information."
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:30
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:7
+msgid "http://example.com/my-image.jpg"
+msgstr ""
+
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:8
+msgid "Image URL"
+msgstr ""
+
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:9
+msgid "Image"
+msgstr ""
+
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:34
+msgid "Clear Upload"
+msgstr ""
+
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:72
 msgid "Showcase name"
 msgstr "Showcase name"
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:45
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:87
 msgid "Description"
 msgstr "Description"
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:47
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:89
 msgid "eg. A detailed description about showcase"
 msgstr "A detailed description of showcase"
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:59
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:101
 msgid "Name or organization of the author"
 msgstr "Name or organisation of the author"
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:70
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:112
 msgid ""
-" Can be a person's name or the name of the organization which has developed "
-"the showcase. "
+"Can be a person's name or the name of the organization which has developed "
+"the showcase."
 msgstr ""
-"Can be the name of a person/persons or the name of the applications "
-"developer's organisation."
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:80
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:122
 msgid "Application website"
 msgstr "Showcase website"
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:91
-msgid " The original source url or a website dedicated for the showcase "
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:133
+msgid "The original source url or a website dedicated for the showcase"
 msgstr ""
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:101
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:143
 msgid "Platform"
 msgstr ""
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:102
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:144
 msgid "e.g. android"
 msgstr "e.g. Android, iOS"
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:116
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:158
 msgid ""
-" Type in separately every platform that the showcase supports. First type "
-"the name of the platform and press enter to select it. You can remove "
-"platforms by clicking the remove icon before the platform name or remove the"
-" last one with backspace. "
+"Type in separately every platform that the showcase supports. First type the"
+" name of the platform and press enter to select it. You can remove platforms"
+" by clicking the remove icon before the platform name or remove the last one"
+" with backspace."
 msgstr ""
-"Add the platforms supported by the showcase here. First, type the name of "
-"the platform and press enter to select it. You can remove platforms by "
-"clicking the remove icon before the platform name or removing the last "
-"platform with backspace."
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:128
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:170
 msgid "Store urls"
 msgstr "Showcase website"
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:136
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:178
 msgid ""
-" Enter at least one url to the showcase in platform specific application "
-"stores (e.g. Apple App Store, Google Play or Windows App Store) "
+"Enter at least one url to the showcase in platform specific application "
+"stores (e.g. Apple App Store, Google Play or Windows App Store)"
 msgstr ""
-"Showcase website. Mobile applications have a link to the app store (e.g. "
-"Google Play)."
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:144
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:186
 msgid "Showcase images"
 msgstr "Showcase images"
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:146
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:188
 msgid ""
-" Upload or provide a link for up to three images which will be presented in "
-"the showcase info page. "
+"Upload or provide a link for up to three images which will be presented in "
+"the showcase info page."
 msgstr ""
-"Upload or provide a link for up to three images which will be on the "
-"showcase presentation page."
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:163
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:164
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:205
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:206
 msgid "Image 1"
 msgstr "Image 1"
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:181
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:182
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:223
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:224
 msgid "Image 2"
 msgstr "Image 2"
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:199
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:200
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:241
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:242
 msgid "Image 3"
 msgstr "Image 3"
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:217
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:218
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:259
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:260
 msgid "Icon"
 msgstr "Showcase icon"
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:223
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:265
 msgid ""
-" Upload or provide a link to an icon image file. This image will be shown as"
-" the icon for the showcase. "
-msgstr "The icon is used on the upper corner of the detailed showcase page."
+"Upload or provide a link to an icon image file. This image will be shown as "
+"the icon for the showcase."
+msgstr ""
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:240
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:241
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:282
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:283
 msgid "Featured image"
 msgstr "Featured image"
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:246
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:288
 msgid ""
-" Upload or provide a link to an image file which will be shown elsewhere in "
-"the site as an advert for the showcase. "
+"Upload or provide a link to an image file which will be shown elsewhere in "
+"the site as an advert for the showcase."
 msgstr ""
-"The featured image will be used as a showcase card picture on the site."
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:253
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:295
 msgid "Related datasets"
 msgstr ""
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:255
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:297
 msgid "Select one or multiple datasets"
 msgstr ""
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:259
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:301
 msgid "Search for a dataset"
 msgstr ""
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:272
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:314
 msgid "Submitter info"
 msgstr ""
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:279
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:321
 msgid "Name of the submitter"
 msgstr ""
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:297
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:339
 msgid "Submitter email"
 msgstr ""
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:315
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:357
 msgid ""
 "I accept that metadata of the application is distributed to other data "
 "portals."
@@ -213,6 +214,6 @@ msgstr ""
 "I accept that metadata and pictures of the showcase are distributed to other"
 " data portals (e.g. avoindata.fi)."
 
-#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:337
+#: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:379
 msgid "Submit"
 msgstr "Submit"
