@@ -1,7 +1,7 @@
 # Translations template for ckanext-sixodp.
-# Copyright (C) 2022 ORGANIZATION
+# Copyright (C) 2023 ORGANIZATION
 # This file is distributed under the same license as the ckanext-sixodp project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
 # 
 # Translators:
 # Zharktas <jari-pekka.voutilainen@gofore.com>, 2023
@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-12-19 08:02+0000\n"
+"POT-Creation-Date: 2023-05-17 09:48+0000\n"
 "PO-Revision-Date: 2022-12-19 08:10+0000\n"
 "Last-Translator: Zharktas <jari-pekka.voutilainen@gofore.com>, 2023\n"
 "Language-Team: Finnish (https://app.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ckanext/sixodp/helpers.py:177 ckanext/sixodp/helpers.py:383
+#: ckanext/sixodp/helpers.py:177 ckanext/sixodp/helpers.py:382
 msgid "Dataset not found"
 msgstr "Tietoaineistoa ei löytynyt"
 
@@ -57,7 +57,6 @@ msgstr "Organisaatiot"
 
 #: ckanext/sixodp/plugin.py:240 ckanext/sixodp/plugin.py:251
 #: ckanext/sixodp/plugin.py:261
-#: ckanext/sixodp/templates/package/read_base.html:42
 #: ckanext/sixodp/templates/scheming/package/snippets/additional_info.html:129
 msgid "Collections"
 msgstr "Aineistokokonaisuudet"
@@ -540,37 +539,37 @@ msgstr "Kuvake"
 msgid "My Group"
 msgstr "Kategorian nimi"
 
-#: ckanext/sixodp/validators.py:95
+#: ckanext/sixodp/validators.py:99
 msgid "Missing value"
 msgstr "Puuttuva arvo"
 
-#: ckanext/sixodp/validators.py:190
+#: ckanext/sixodp/validators.py:197
 msgid "expecting list of strings"
 msgstr "odotetaan listaa merkkijonoja"
 
-#: ckanext/sixodp/validators.py:196
+#: ckanext/sixodp/validators.py:203
 #, python-format
 msgid "invalid type for repeating text: %r"
 msgstr "virheellinen toistuvan merkkijonon tyyppi: %r"
 
-#: ckanext/sixodp/validators.py:203
+#: ckanext/sixodp/validators.py:210
 #, python-format
 msgid "invalid encoding for \"%s\" value"
 msgstr "virheellinen koodaus arvolle \"%s\""
 
-#: ckanext/sixodp/validators.py:265
+#: ckanext/sixodp/validators.py:273
 msgid "Failed to decode JSON string"
 msgstr "JSON-merkkijonon purku epäonnistui"
 
-#: ckanext/sixodp/validators.py:268
+#: ckanext/sixodp/validators.py:276
 msgid "Invalid encoding for JSON string"
 msgstr "Virheellinen JSON-merkkijonon koodaus"
 
-#: ckanext/sixodp/validators.py:271
+#: ckanext/sixodp/validators.py:279
 msgid "expecting JSON object"
 msgstr "odotetaan JSON-objektia"
 
-#: ckanext/sixodp/validators.py:277 ckanext/sixodp/validators.py:284
+#: ckanext/sixodp/validators.py:285 ckanext/sixodp/validators.py:292
 #, python-format
 msgid "Required language \"%s\" missing"
 msgstr "Vaadittu kieli \"%s\" puuttuu"
@@ -580,7 +579,7 @@ msgstr "Vaadittu kieli \"%s\" puuttuu"
 #: ckanext/sixodp/fanstatic/javascript/modules/popover-context.js:45
 #: ckanext/sixodp/fanstatic/javascript/modules/popover-context.min.js:1
 #: ckanext/sixodp/templates/package/snippets/data_api_button.html:8
-#: ckanext/sixodp/templates/package/snippets/resource_item.html:26
+#: ckanext/sixodp/templates/package/snippets/resource_item.html:24
 msgid "Loading..."
 msgstr "Ladataan..."
 
@@ -1070,7 +1069,6 @@ msgid "Dashboard"
 msgstr "Dashboard"
 
 #: ckanext/sixodp/templates/home/snippets/sixodp_profile.html:56
-#: ckanext/sixodp/templates/user/dashboard.html:8
 msgid "Edit settings"
 msgstr "Muokkaa asetuksia"
 
@@ -1147,6 +1145,21 @@ msgstr "Tähän organisaatioon ei liity tietoaineistoja"
 msgid "Search organizations..."
 msgstr "Hae organisaatioita..."
 
+#: ckanext/sixodp/templates/organization/snippets/helper.html:4
+msgid "What are Organizations?"
+msgstr "Mitä organisaatiot ovat?"
+
+#: ckanext/sixodp/templates/organization/snippets/helper.html:8
+msgid ""
+"CKAN Organizations are used to create, manage and publish collections of "
+"datasets. Users can have different roles within an Organization, depending "
+"on their level of authorisation to create, edit and publish."
+msgstr ""
+"CKAN:in organisaatioita käytetään tietoaineistojen ja "
+"aineistokokonaisuuksien luomiseen, hallinnointiin ja julkaisemiseen. "
+"Käyttäjillä voi olla organisaatioissa eri rooleja ja eri tasoisia "
+"käyttöoikeuksia tietoaineistojen luomiseen, muokkaamiseen ja julkaisemiseen."
+
 #: ckanext/sixodp/templates/package/confirm_delete.html:12
 msgid "Are you sure you want to delete dataset - {name}?"
 msgstr "Haluatko varmasti poistaa tietoaineiston - {name}?"
@@ -1189,7 +1202,7 @@ msgstr ""
 "-dokumentaatio</a>. "
 
 #: ckanext/sixodp/templates/package/new_view.html:28
-#: ckanext/sixodp/templates/package/snippets/resource_view.html:48
+#: ckanext/sixodp/templates/package/snippets/resource_view.html:46
 msgid "Preview"
 msgstr "Esikatselu"
 
@@ -1198,12 +1211,6 @@ msgstr "Esikatselu"
 #: ckanext/sixodp/templates/scheming/macros/form.html:9
 msgid "Add"
 msgstr "Lisää"
-
-#: ckanext/sixodp/templates/package/read.html:43
-#: ckanext/sixodp/templates/package/read_base.html:75
-#: ckanext/sixodp/templates/package/resource_read.html:186
-msgid "Subscribe for dataset updates"
-msgstr "Tilaa ilmoitukset muutoksista"
 
 #: ckanext/sixodp/templates/package/read_base.html:37
 msgid "Dataset"
@@ -1230,8 +1237,8 @@ msgid "API Endpoint"
 msgstr "API-osoite"
 
 #: ckanext/sixodp/templates/package/resource_read.html:45
-#: ckanext/sixodp/templates/package/snippets/resource_item.html:36
-#: ckanext/sixodp/templates/report/view.html:47
+#: ckanext/sixodp/templates/package/snippets/resource_item.html:34
+#: ckanext/sixodp/templates/report/view.html:43
 msgid "Download"
 msgstr "Lataa"
 
@@ -1289,6 +1296,10 @@ msgstr "Näytä vähemmän"
 #: ckanext/sixodp/templates/package/resource_read.html:155
 msgid "Back to dataset"
 msgstr "Takaisin tietoaineistoon"
+
+#: ckanext/sixodp/templates/package/resource_read.html:186
+msgid "Subscribe for dataset updates"
+msgstr "Tilaa ilmoitukset muutoksista"
 
 #: ckanext/sixodp/templates/package/search.html:25
 msgid "Add Dataset"
@@ -1366,7 +1377,7 @@ msgid "Created"
 msgstr "Luotu"
 
 #: ckanext/sixodp/templates/package/snippets/data_api_button.html:10
-#: ckanext/sixodp/templates/package/snippets/resource_item.html:28
+#: ckanext/sixodp/templates/package/snippets/resource_item.html:26
 msgid "Data API"
 msgstr "Data API"
 
@@ -1444,23 +1455,23 @@ msgstr "Resurssille ei ole esikatselua tällä hetkellä."
 msgid "Download resource"
 msgstr "Lataa resurssi"
 
-#: ckanext/sixodp/templates/package/snippets/resource_view.html:49
+#: ckanext/sixodp/templates/package/snippets/resource_view.html:47
 msgid "Your browser does not support iframes."
 msgstr "Selaimesi ei tue iframe-elementtejä."
 
-#: ckanext/sixodp/templates/package/snippets/resource_view.html:60
+#: ckanext/sixodp/templates/package/snippets/resource_view.html:58
 msgid "Fullscreen"
 msgstr "Koko näyttö"
 
-#: ckanext/sixodp/templates/package/snippets/resource_view.html:68
+#: ckanext/sixodp/templates/package/snippets/resource_view.html:66
 msgid "Embed"
 msgstr "Upota"
 
-#: ckanext/sixodp/templates/package/snippets/resource_view.html:80
+#: ckanext/sixodp/templates/package/snippets/resource_view.html:78
 msgid "Embed resource view"
 msgstr "Upota resurssinäkymä"
 
-#: ckanext/sixodp/templates/package/snippets/resource_view.html:83
+#: ckanext/sixodp/templates/package/snippets/resource_view.html:81
 msgid ""
 "You can copy and paste the embed code into a CMS or blog software that "
 "supports raw HTML"
@@ -1468,15 +1479,15 @@ msgstr ""
 "Voit kopioida ja liittää upotuskoodin CMS:ään tai blogiin, joka tukee HTML-"
 "koodia."
 
-#: ckanext/sixodp/templates/package/snippets/resource_view.html:86
+#: ckanext/sixodp/templates/package/snippets/resource_view.html:84
 msgid "Width"
 msgstr "Leveys"
 
-#: ckanext/sixodp/templates/package/snippets/resource_view.html:89
+#: ckanext/sixodp/templates/package/snippets/resource_view.html:87
 msgid "Height"
 msgstr "Korkeus"
 
-#: ckanext/sixodp/templates/package/snippets/resource_view.html:92
+#: ckanext/sixodp/templates/package/snippets/resource_view.html:90
 msgid "Code"
 msgstr "Koodi"
 
@@ -1519,7 +1530,6 @@ msgstr " Näkymässä voi mm. esikatsella resurssin sisältämää dataa."
 
 #: ckanext/sixodp/templates/report/index.html:5
 #: ckanext/sixodp/templates/report/view.html:3
-#: ckanext/sixodp/templates/report/view.html:6
 msgid "Reports"
 msgstr "Raportit"
 
@@ -1527,33 +1537,33 @@ msgstr "Raportit"
 msgid "View Report"
 msgstr "Avaa raportti"
 
-#: ckanext/sixodp/templates/report/view.html:16
+#: ckanext/sixodp/templates/report/view.html:12
 msgid "Generated"
 msgstr "Generoitu"
 
-#: ckanext/sixodp/templates/report/view.html:20
+#: ckanext/sixodp/templates/report/view.html:16
 msgid "Refresh report"
 msgstr "Päivitä raportti"
 
-#: ckanext/sixodp/templates/report/view.html:23
+#: ckanext/sixodp/templates/report/view.html:19
 msgid "Refresh"
 msgstr "Päivitä"
 
-#: ckanext/sixodp/templates/report/view.html:25
+#: ckanext/sixodp/templates/report/view.html:21
 msgid ""
 "As a system administrator you are able to refresh this report on demand by "
 "clicking the 'Refresh' button."
 msgstr "Voit päivittää tämän raportin nyt painamalla 'Päivitä'."
 
-#: ckanext/sixodp/templates/report/view.html:31
+#: ckanext/sixodp/templates/report/view.html:27
 msgid "Options"
 msgstr "Valinnat"
 
-#: ckanext/sixodp/templates/report/view.html:52
+#: ckanext/sixodp/templates/report/view.html:48
 msgid "Results"
 msgstr "Tulokset"
 
-#: ckanext/sixodp/templates/report/view.html:54
+#: ckanext/sixodp/templates/report/view.html:50
 msgid "No results found."
 msgstr "Tuloksia ei löytynyt"
 
@@ -1762,6 +1772,10 @@ msgstr "Suodattimet"
 #: ckanext/sixodp/templates/snippets/sixodp_offcanvas-info-button.html:2
 msgid "About"
 msgstr "Tiedot"
+
+#: ckanext/sixodp/templates/user/dashboard.html:8
+msgid "Profile settings"
+msgstr ""
 
 #: ckanext/sixodp/templates/user/dashboard.html:11
 #: ckanext/sixodp/templates/user/dashboard.html:29

@@ -1,14 +1,14 @@
 # Translations template for ckanext-sixodp.
-# Copyright (C) 2022 ORGANIZATION
+# Copyright (C) 2023 ORGANIZATION
 # This file is distributed under the same license as the ckanext-sixodp project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-12-19 08:02+0000\n"
+"POT-Creation-Date: 2023-05-17 09:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.7.0\n"
 
-#: ckanext/sixodp/helpers.py:177 ckanext/sixodp/helpers.py:383
+#: ckanext/sixodp/helpers.py:177 ckanext/sixodp/helpers.py:382
 msgid "Dataset not found"
 msgstr ""
 
@@ -50,7 +50,7 @@ msgid "Organizations"
 msgstr ""
 
 #: ckanext/sixodp/plugin.py:240 ckanext/sixodp/plugin.py:251
-#: ckanext/sixodp/plugin.py:261 ckanext/sixodp/templates/package/read_base.html:42
+#: ckanext/sixodp/plugin.py:261
 #: ckanext/sixodp/templates/scheming/package/snippets/additional_info.html:129
 msgid "Collections"
 msgstr ""
@@ -460,37 +460,37 @@ msgstr ""
 msgid "My Group"
 msgstr ""
 
-#: ckanext/sixodp/validators.py:95
+#: ckanext/sixodp/validators.py:99
 msgid "Missing value"
 msgstr ""
 
-#: ckanext/sixodp/validators.py:190
+#: ckanext/sixodp/validators.py:197
 msgid "expecting list of strings"
-msgstr ""
-
-#: ckanext/sixodp/validators.py:196
-#, python-format
-msgid "invalid type for repeating text: %r"
 msgstr ""
 
 #: ckanext/sixodp/validators.py:203
 #, python-format
+msgid "invalid type for repeating text: %r"
+msgstr ""
+
+#: ckanext/sixodp/validators.py:210
+#, python-format
 msgid "invalid encoding for \"%s\" value"
 msgstr ""
 
-#: ckanext/sixodp/validators.py:265
+#: ckanext/sixodp/validators.py:273
 msgid "Failed to decode JSON string"
 msgstr ""
 
-#: ckanext/sixodp/validators.py:268
+#: ckanext/sixodp/validators.py:276
 msgid "Invalid encoding for JSON string"
 msgstr ""
 
-#: ckanext/sixodp/validators.py:271
+#: ckanext/sixodp/validators.py:279
 msgid "expecting JSON object"
 msgstr ""
 
-#: ckanext/sixodp/validators.py:277 ckanext/sixodp/validators.py:284
+#: ckanext/sixodp/validators.py:285 ckanext/sixodp/validators.py:292
 #, python-format
 msgid "Required language \"%s\" missing"
 msgstr ""
@@ -500,7 +500,7 @@ msgstr ""
 #: ckanext/sixodp/fanstatic/javascript/modules/popover-context.js:45
 #: ckanext/sixodp/fanstatic/javascript/modules/popover-context.min.js:1
 #: ckanext/sixodp/templates/package/snippets/data_api_button.html:8
-#: ckanext/sixodp/templates/package/snippets/resource_item.html:26
+#: ckanext/sixodp/templates/package/snippets/resource_item.html:24
 msgid "Loading..."
 msgstr ""
 
@@ -979,7 +979,6 @@ msgid "Dashboard"
 msgstr ""
 
 #: ckanext/sixodp/templates/home/snippets/sixodp_profile.html:56
-#: ckanext/sixodp/templates/user/dashboard.html:8
 msgid "Edit settings"
 msgstr ""
 
@@ -1056,6 +1055,17 @@ msgstr ""
 msgid "Search organizations..."
 msgstr ""
 
+#: ckanext/sixodp/templates/organization/snippets/helper.html:4
+msgid "What are Organizations?"
+msgstr ""
+
+#: ckanext/sixodp/templates/organization/snippets/helper.html:8
+msgid ""
+"CKAN Organizations are used to create, manage and publish collections of "
+"datasets. Users can have different roles within an Organization, depending on"
+" their level of authorisation to create, edit and publish."
+msgstr ""
+
 #: ckanext/sixodp/templates/package/confirm_delete.html:12
 msgid "Are you sure you want to delete dataset - {name}?"
 msgstr ""
@@ -1093,7 +1103,7 @@ msgid ""
 msgstr ""
 
 #: ckanext/sixodp/templates/package/new_view.html:28
-#: ckanext/sixodp/templates/package/snippets/resource_view.html:48
+#: ckanext/sixodp/templates/package/snippets/resource_view.html:46
 msgid "Preview"
 msgstr ""
 
@@ -1101,12 +1111,6 @@ msgstr ""
 #: ckanext/sixodp/templates/package/snippets/resource_form.html:81
 #: ckanext/sixodp/templates/scheming/macros/form.html:9
 msgid "Add"
-msgstr ""
-
-#: ckanext/sixodp/templates/package/read.html:43
-#: ckanext/sixodp/templates/package/read_base.html:75
-#: ckanext/sixodp/templates/package/resource_read.html:186
-msgid "Subscribe for dataset updates"
 msgstr ""
 
 #: ckanext/sixodp/templates/package/read_base.html:37
@@ -1134,8 +1138,8 @@ msgid "API Endpoint"
 msgstr ""
 
 #: ckanext/sixodp/templates/package/resource_read.html:45
-#: ckanext/sixodp/templates/package/snippets/resource_item.html:36
-#: ckanext/sixodp/templates/report/view.html:47
+#: ckanext/sixodp/templates/package/snippets/resource_item.html:34
+#: ckanext/sixodp/templates/report/view.html:43
 msgid "Download"
 msgstr ""
 
@@ -1188,6 +1192,10 @@ msgstr ""
 
 #: ckanext/sixodp/templates/package/resource_read.html:155
 msgid "Back to dataset"
+msgstr ""
+
+#: ckanext/sixodp/templates/package/resource_read.html:186
+msgid "Subscribe for dataset updates"
 msgstr ""
 
 #: ckanext/sixodp/templates/package/search.html:25
@@ -1262,7 +1270,7 @@ msgid "Created"
 msgstr ""
 
 #: ckanext/sixodp/templates/package/snippets/data_api_button.html:10
-#: ckanext/sixodp/templates/package/snippets/resource_item.html:28
+#: ckanext/sixodp/templates/package/snippets/resource_item.html:26
 msgid "Data API"
 msgstr ""
 
@@ -1340,37 +1348,37 @@ msgstr ""
 msgid "Download resource"
 msgstr ""
 
-#: ckanext/sixodp/templates/package/snippets/resource_view.html:49
+#: ckanext/sixodp/templates/package/snippets/resource_view.html:47
 msgid "Your browser does not support iframes."
 msgstr ""
 
-#: ckanext/sixodp/templates/package/snippets/resource_view.html:60
+#: ckanext/sixodp/templates/package/snippets/resource_view.html:58
 msgid "Fullscreen"
 msgstr ""
 
-#: ckanext/sixodp/templates/package/snippets/resource_view.html:68
+#: ckanext/sixodp/templates/package/snippets/resource_view.html:66
 msgid "Embed"
 msgstr ""
 
-#: ckanext/sixodp/templates/package/snippets/resource_view.html:80
+#: ckanext/sixodp/templates/package/snippets/resource_view.html:78
 msgid "Embed resource view"
 msgstr ""
 
-#: ckanext/sixodp/templates/package/snippets/resource_view.html:83
+#: ckanext/sixodp/templates/package/snippets/resource_view.html:81
 msgid ""
 "You can copy and paste the embed code into a CMS or blog software that "
 "supports raw HTML"
 msgstr ""
 
-#: ckanext/sixodp/templates/package/snippets/resource_view.html:86
+#: ckanext/sixodp/templates/package/snippets/resource_view.html:84
 msgid "Width"
 msgstr ""
 
-#: ckanext/sixodp/templates/package/snippets/resource_view.html:89
+#: ckanext/sixodp/templates/package/snippets/resource_view.html:87
 msgid "Height"
 msgstr ""
 
-#: ckanext/sixodp/templates/package/snippets/resource_view.html:92
+#: ckanext/sixodp/templates/package/snippets/resource_view.html:90
 msgid "Code"
 msgstr ""
 
@@ -1411,7 +1419,6 @@ msgstr ""
 
 #: ckanext/sixodp/templates/report/index.html:5
 #: ckanext/sixodp/templates/report/view.html:3
-#: ckanext/sixodp/templates/report/view.html:6
 msgid "Reports"
 msgstr ""
 
@@ -1419,33 +1426,33 @@ msgstr ""
 msgid "View Report"
 msgstr ""
 
-#: ckanext/sixodp/templates/report/view.html:16
+#: ckanext/sixodp/templates/report/view.html:12
 msgid "Generated"
 msgstr ""
 
-#: ckanext/sixodp/templates/report/view.html:20
+#: ckanext/sixodp/templates/report/view.html:16
 msgid "Refresh report"
 msgstr ""
 
-#: ckanext/sixodp/templates/report/view.html:23
+#: ckanext/sixodp/templates/report/view.html:19
 msgid "Refresh"
 msgstr ""
 
-#: ckanext/sixodp/templates/report/view.html:25
+#: ckanext/sixodp/templates/report/view.html:21
 msgid ""
 "As a system administrator you are able to refresh this report on demand by "
 "clicking the 'Refresh' button."
 msgstr ""
 
-#: ckanext/sixodp/templates/report/view.html:31
+#: ckanext/sixodp/templates/report/view.html:27
 msgid "Options"
 msgstr ""
 
-#: ckanext/sixodp/templates/report/view.html:52
+#: ckanext/sixodp/templates/report/view.html:48
 msgid "Results"
 msgstr ""
 
-#: ckanext/sixodp/templates/report/view.html:54
+#: ckanext/sixodp/templates/report/view.html:50
 msgid "No results found."
 msgstr ""
 
@@ -1645,6 +1652,10 @@ msgstr ""
 
 #: ckanext/sixodp/templates/snippets/sixodp_offcanvas-info-button.html:2
 msgid "About"
+msgstr ""
+
+#: ckanext/sixodp/templates/user/dashboard.html:8
+msgid "Profile settings"
 msgstr ""
 
 #: ckanext/sixodp/templates/user/dashboard.html:11
