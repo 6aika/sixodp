@@ -1,8 +1,9 @@
 [main]
 host = https://www.transifex.com
 
-[sixodp.ckanext-sixodp_showcasesubmit]
+[o:6aika-dataportal:p:sixodp:r:ckanext-sixodp_showcasesubmit]
 file_filter = ckanext/sixodp_showcasesubmit/i18n/<lang>/LC_MESSAGES/ckanext-sixodp_showcasesubmit.po
 source_file = ckanext/sixodp_showcasesubmit/i18n/ckanext-sixodp_showcasesubmit.pot
 source_lang = en
-type = PO
+type        = PO
+
