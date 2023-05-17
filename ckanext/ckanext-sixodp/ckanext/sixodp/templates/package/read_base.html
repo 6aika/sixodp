@@ -35,7 +35,7 @@
 
 {% block content_primary_nav %}
   {{ h.build_nav_icon('dataset_read', _('Dataset'), id=pkg.name) }}
-  {# {{ h.build_nav_icon('dataset_showcase_list', _('Showcases'), id=pkg.name) }} #}
+  {{ h.build_nav_icon('sixodp_showcase.dataset_showcase_list', _('Showcases'), id=pkg.name) }}
   {{ h.build_nav_icon('dataset_activity', _('Activity Stream'), id=pkg.name) }}
   {% if h.check_access('package_update', {'id':pkg.id }) %}
     {{ h.build_nav_icon('dataset.groups', _('Groups'), id=pkg.name) }}
