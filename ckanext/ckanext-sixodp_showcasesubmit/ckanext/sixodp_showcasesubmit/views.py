@@ -85,6 +85,13 @@ class ShowcaseSubmitterView(MethodView):
             data_dict = clean_dict(dict_fns.unflatten(
                 tuplize_dict(parse_params(request.form))))
 
+            data_dict.update(
+                clean_dict(
+                    dict_fns.unflatten(
+                        tuplize_dict(parse_params(
+                            toolkit.request.files)))))
+
+
             data_dict['type'] = 'showcase'
             data_dict['name'] = re.sub('[^a-z0-9]+', '', data_dict.get('title'))
             data_dict['featured'] = False
