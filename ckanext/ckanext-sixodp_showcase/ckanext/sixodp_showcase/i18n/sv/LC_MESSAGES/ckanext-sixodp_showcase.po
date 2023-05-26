@@ -6,15 +6,16 @@
 # 
 # Translators:
 # Joonas Dukpa, 2018
+# Zharktas <jari-pekka.voutilainen@gofore.com>, 2023
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp_showcase 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-04-24 10:24+0000\n"
+"POT-Creation-Date: 2023-05-08 11:56+0000\n"
 "PO-Revision-Date: 2017-03-17 06:42+0000\n"
-"Last-Translator: Joonas Dukpa, 2018\n"
+"Last-Translator: Zharktas <jari-pekka.voutilainen@gofore.com>, 2023\n"
 "Language-Team: Swedish (https://app.transifex.com/6aika-dataportal/teams/68018/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,7 +44,7 @@ msgstr "Organisationer"
 #: ckanext/sixodp_showcase/controller.py:200
 #: ckanext/sixodp_showcase/utils.py:133
 msgid "Groups"
-msgstr "Grupper"
+msgstr "Kategorier"
 
 #: ckanext/sixodp_showcase/controller.py:201
 #: ckanext/sixodp_showcase/utils.py:134
