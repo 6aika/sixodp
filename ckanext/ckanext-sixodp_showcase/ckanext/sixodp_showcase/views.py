@@ -258,7 +258,7 @@ def admins():
     return showcase_utils.manage_showcase_admins()
 
 
-def admin_remove():
+def remove_showcase_admin():
     return showcase_utils.remove_showcase_admin()
 
 
@@ -287,7 +287,7 @@ showcase.add_url_rule('/ckan-admin/showcase_admins',
                       view_func=admins,
                       methods=[u'GET', u'POST'])
 showcase.add_url_rule('/ckan-admin/showcase_admin_remove',
-                      view_func=admin_remove,
+                      view_func=remove_showcase_admin,
                       methods=[u'GET', u'POST'])
 showcase.add_url_rule('/showcase_upload',
                       view_func=upload,
