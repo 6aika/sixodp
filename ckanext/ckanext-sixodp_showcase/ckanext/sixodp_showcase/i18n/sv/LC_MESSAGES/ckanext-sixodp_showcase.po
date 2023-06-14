@@ -359,7 +359,7 @@ msgstr "Uppdaterad"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:127
 msgid "Manage"
-msgstr "Hantera"
+msgstr "Redigera"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:139
 msgid "Private"

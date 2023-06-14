@@ -370,7 +370,7 @@ msgstr "Päivitetty"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:127
 msgid "Manage"
-msgstr "Hallinnoi"
+msgstr "Muokkaa"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:139
 msgid "Private"
