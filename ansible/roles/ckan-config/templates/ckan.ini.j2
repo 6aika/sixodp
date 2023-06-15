@@ -131,7 +131,7 @@ ckanext.cloudstorage.container_name = {{ AWS.ckan_s3_bucket }}
 ckanext.cloudstorage.use_secure_urls = 1
 ckanext.cloudstorage.datapusher.formats = csv application/csv tsv ods application/vnd.oasis.opendocument.spreadsheet
 ckan.datapusher.formats = nonexistingformat
-ckanext.googleanalytics.download_handler = ckanext.cloudstorage.views:download
+googleanalytics.download_handler = ckanext.cloudstorage.views:download
 {% if AWS.use_iam_role -%}
 ckanext.cloudstorage.driver_options = {}
 {%- endif %}
