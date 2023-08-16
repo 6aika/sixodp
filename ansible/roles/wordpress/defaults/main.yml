@@ -7,7 +7,6 @@ wordpress_plugins:
   - advanced-custom-fields
   - custom-twitter-feeds
   - polylang
-  - google-analytics-dashboard-for-wp
   #- wpcustom-category-image
   - disqus-comment-system
   - wp-recaptcha-integration
@@ -17,10 +16,12 @@ wordpress_plugins:
   - wordpress-seo
   - wordfence
   - cookiehub
+  - wp-piwik
 
 removed_wordpress_plugins:
   - addthis
   - wp-user-avatar
+  - google-analytics-dashboard-for-wp
 
 polylang_languages: 
   - { name: 'Suomi', code: 'fi', locale: 'fi', flag: 'fi' }
