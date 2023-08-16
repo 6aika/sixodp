@@ -110,7 +110,7 @@ ckan_extensions:
   - ckanext-statistics
   #- ckanext-sixodp_harvester
   - ckanext-sixodp_showcasesubmit
-  #- ckanext-googleanalytics
+  #- ckanext-matomo
   - ckanext-geoview
   - ckanext-sentry
 
@@ -124,7 +124,7 @@ enabled_ckan_extensions:
     - recline_grid_view
     - recline_map_view
     - sixodp_showcase
-    #- googleanalytics
+    #- matomo
     - qa
     - archiver
     - collection
