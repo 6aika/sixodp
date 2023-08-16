@@ -199,6 +199,7 @@ google_analytics:
 
 matomo:
   domain: '//webanalytics.digiaiiris.com/js/'
+  script_domain: '//webanalytics.digiaiiris.com/js/'
   site_id: 1189
   tracker_filename: "tracker.php"
   script_filename: "piwik.min.js"
