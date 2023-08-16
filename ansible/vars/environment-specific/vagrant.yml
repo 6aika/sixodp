@@ -186,3 +186,10 @@ disqus_secret_key: "{{ secret.disqus_secret_key }}"
 disqus_short_name: "{{ secret.disqus_short_name }}"
 
 cookiehub_domain_code: ""
+
+matomo:
+  domain: ''
+  script_domain: ''
+  site_id: ''
+  tracker_filename: ""
+  script_filename: ""

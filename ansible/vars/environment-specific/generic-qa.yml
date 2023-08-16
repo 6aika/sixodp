@@ -201,7 +201,7 @@ matomo:
   domain: '//webanalytics.digiaiiris.com/js/'
   site_id: 1189
   tracker_filename: "tracker.php"
-  script_filename: "piwik.js"
+  script_filename: "piwik.min.js"
 
 disqus_public_key: "{{ secret.disqus_public_key }}"
 disqus_secret_key: "{{ secret.disqus_secret_key }}"

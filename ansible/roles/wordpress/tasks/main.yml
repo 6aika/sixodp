@@ -256,6 +256,9 @@
 - name: Copy disqus-config to theme
   template: src="disqus-config.php.j2" dest="/opt/wordpress/wp-content/themes/sixodp/disqus-config.php" mode=0644 owner=www-data group=www-data
 
+- name: Copy matomo-config to theme
+  template: src="matomo-config.php.j2" dest="/opt/wordpress/wp-content/themes/sixodp/matomo-config.php" mode=0644 owner=www-data group=www-data
+
 - name: Activate sixodp theme
   command: wp theme activate sixodp --path=/opt/wordpress
   become: yes
