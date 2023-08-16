@@ -189,6 +189,13 @@ ga-report.period = monthly
 ga-report.bounce_url = /
 {% endif %}
 
+{% if matomo is defined %}
+ckanext.matomo.site_id = {{ matomo.site_id }}
+ckanext.matomo.domain = {{ matomo.domain }}
+ckanext.matomo.filename = {{ matomo.filename }}
+{% endif %}
+
+
 # ckanext-collection
 ckanext.collection.api_collection_name_or_id: rajapinnat
 
