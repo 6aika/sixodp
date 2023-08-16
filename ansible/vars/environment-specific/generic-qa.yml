@@ -200,7 +200,8 @@ google_analytics:
 matomo:
   domain: '//webanalytics.digiaiiris.com/js/'
   site_id: 1189
-  filename: "piwik"
+  tracker_filename: "tracker.php"
+  script_filename: "piwik.js"
 
 disqus_public_key: "{{ secret.disqus_public_key }}"
 disqus_secret_key: "{{ secret.disqus_secret_key }}"
