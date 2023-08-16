@@ -198,7 +198,7 @@ google_analytics:
   account: Sixodp
 
 matomo:
-  domain: '//webanalytics.digiaiirs.com/js/'
+  domain: '//webanalytics.digiaiiris.com/js/'
   site_id: 1189
   filename: "piwik"
 
