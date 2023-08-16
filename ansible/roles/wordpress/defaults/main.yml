@@ -16,12 +16,12 @@ wordpress_plugins:
   - wordpress-seo
   - wordfence
   - cookiehub
-  - wp-piwik
 
 removed_wordpress_plugins:
   - addthis
   - wp-user-avatar
   - google-analytics-dashboard-for-wp
+  - wp-piwik
 
 polylang_languages: 
   - { name: 'Suomi', code: 'fi', locale: 'fi', flag: 'fi' }
