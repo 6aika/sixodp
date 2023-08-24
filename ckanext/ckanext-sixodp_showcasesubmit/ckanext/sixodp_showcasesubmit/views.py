@@ -146,7 +146,8 @@ class ShowcaseSubmitterView(MethodView):
 
 
 
-showcasesubmitter.add_url_rule('/submit-showcase', view_func=ShowcaseSubmitterView.as_view('showcasesubmitter'))
+showcasesubmitter.add_url_rule('/submit-showcase', view_func=ShowcaseSubmitterView.as_view('showcasesubmitter'),
+                               strict_slashes=False)
 
 
 

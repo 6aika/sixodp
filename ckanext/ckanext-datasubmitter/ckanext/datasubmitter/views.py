@@ -137,7 +137,7 @@ class DatasubmitterView(MethodView):
         return {}, [], {}, {'class': 'success', 'text': _('Dataset submitted successfully')}
 
 
-datasubmitter.add_url_rule('/submit-data', view_func=DatasubmitterView.as_view('index'))
+datasubmitter.add_url_rule('/submit-data', view_func=DatasubmitterView.as_view('index'), strict_slashes=False)
 
 
 
