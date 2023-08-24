@@ -203,6 +203,7 @@ matomo:
   site_id: 1189
   tracker_filename: "tracker.php"
   script_filename: "piwik.min.js"
+  token_auth: "{{ secret.matomo_token_auth }}"
 
 disqus_public_key: "{{ secret.disqus_public_key }}"
 disqus_secret_key: "{{ secret.disqus_secret_key }}"
