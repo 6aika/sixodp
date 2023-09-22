@@ -171,6 +171,9 @@ enabled_ckan_extensions:
 
 enabled_ckan_aws_extensions: cloudstorage
 
+translation_projects:
+  - ckanext-matomo
+
 ckan_site_id: "default"
 
 email_domain: "{{ public_facing_hostname }}"

@@ -188,8 +188,10 @@ disqus_short_name: "{{ secret.disqus_short_name }}"
 cookiehub_domain_code: ""
 
 matomo:
-  domain: ''
-  script_domain: ''
-  site_id: ''
+  domain: ""
+  script_domain: ""
+  api_domain: ""
+  site_id: ""
   tracker_filename: ""
   script_filename: ""
+  token_auth: ""
