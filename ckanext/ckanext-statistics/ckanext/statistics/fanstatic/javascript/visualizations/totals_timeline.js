@@ -137,6 +137,7 @@ TotalsTimeline.prototype._transformLineData = function (data) {
 
   // First, create an empty data table with the correct datespan
   var dateToAdd = moment.utc(self._state.maxDateRange[0])
+  var oneDay = moment.duration(1, 'days');
   while (dateToAdd.isSameOrBefore(self._state.maxDateRange[1])) {
     var dateString = moment.utc(dateToAdd).format(self._props.dateFormat)
     result[dateString] = {
@@ -145,7 +146,7 @@ TotalsTimeline.prototype._transformLineData = function (data) {
       removed: [],
       value: undefined,
     }
-    dateToAdd.add(1, 'days')
+    dateToAdd.add(oneDay)
   }
 
   // Add each item to its creation date
@@ -170,7 +171,7 @@ TotalsTimeline.prototype._transformLineData = function (data) {
     dateString = dateToCumulate.format(self._props.dateFormat)
     cumulativeValue = cumulativeValue + result[dateString].added.length - result[dateString].removed.length
     result[dateString].value = cumulativeValue
-    dateToCumulate.add(1, 'days')
+    dateToCumulate.add(oneDay)
   }
 
   // Turn into array
@@ -444,6 +445,7 @@ TotalsTimeline.prototype._updateXAxisGenerator = function () {
   var self = this
   var xDomain = self._helpers.xScale.domain()
   var daysBetween = moment.utc(xDomain[1]).diff(moment.utc(xDomain[0]), 'days')
+  var oneDay = moment.duration(1, 'days')
 
   // Show months or dates depending on the date range
   var format
@@ -462,7 +464,7 @@ TotalsTimeline.prototype._updateXAxisGenerator = function () {
       tickValues = tickValues.concat(xDomain[0])
     }
     // Show tick at the end if it is the end of a month
-    if (moment.utc(xDomain[1]).add(1, 'days').date() === 1) {
+    if (moment.utc(xDomain[1]).add(oneDay).date() === 1) {
       tickValues = tickValues.concat(xDomain[1])
     }
 
@@ -474,7 +476,7 @@ TotalsTimeline.prototype._updateXAxisGenerator = function () {
         // Show year if this is the first tick of the year
         .tickFormat(function (d) {
           // Show last tick's year/date from the following year/date
-          var nextDay = moment.utc(d).add(1, 'days')
+          var nextDay = moment.utc(d).add(oneDay)
           if (d === xDomain[1] && nextDay.date() === 1) {
             d = nextDay.toDate()
           }
@@ -487,7 +489,7 @@ TotalsTimeline.prototype._updateXAxisGenerator = function () {
     )
     g.selectAll('.tick')
       .filter(function(d) {
-        var nextDay = moment.utc(d).add(1, 'days')
+        var nextDay = moment.utc(d).add(oneDay)
         if (d === xDomain[1] && nextDay.date() === 1) {
           d = nextDay.toDate()
         }
