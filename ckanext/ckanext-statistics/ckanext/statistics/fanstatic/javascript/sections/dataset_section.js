@@ -113,7 +113,7 @@ DatasetSection.prototype.updateSectionData = function(context, dateRange) {
     dateRange = [new Date(new Date().getFullYear(), 0, 1), new Date()];
   }
 
-  var dateQuery = '?start_date=' + moment(dateRange[0]).format('DD-MM-YYYY') + '&end_date=' + moment(dateRange[1]).format('DD-MM-YYYY');
+  var dateQuery = '?start_date=' + moment(dateRange[0]).format('YYYY-MM-DD') + '&end_date=' + moment(dateRange[1]).format('YYYY-MM-DD');
 
   return Promise.all([
     context.api.get('most_visited_packages' + dateQuery + '&type=dataset&limit=15')
