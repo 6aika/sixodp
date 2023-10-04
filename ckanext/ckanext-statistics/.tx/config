@@ -1,8 +1,9 @@
 [main]
 host = https://www.transifex.com
 
-[sixodp.ckanext-statistics]
+[o:6aika-dataportal:p:sixodp:r:ckanext-statistics]
 file_filter = ckanext/statistics/i18n/<lang>/LC_MESSAGES/ckanext-statistics.po
 source_file = ckanext/statistics/i18n/ckanext-statistics.pot
 source_lang = en
-type = PO
+type        = PO
+
