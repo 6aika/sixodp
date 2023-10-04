@@ -1,8 +1,8 @@
 # Translations template for ckanext-statistics.
-# Copyright (C) 2019 ORGANIZATION
+# Copyright (C) 2023 ORGANIZATION
 # This file is distributed under the same license as the ckanext-statistics
 # project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
 # 
 # Translators:
 # Juha Härkönen <juha.harkonen@ouka.fi>, 2017
@@ -13,14 +13,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-statistics 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-12-12 10:16+0000\n"
+"POT-Creation-Date: 2023-10-04 09:40+0000\n"
 "PO-Revision-Date: 2017-09-08 11:36+0000\n"
 "Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2019\n"
-"Language-Team: English (United Kingdom) (https://www.transifex.com/6aika-dataportal/teams/68018/en_GB/)\n"
+"Language-Team: English (United Kingdom) (https://app.transifex.com/6aika-dataportal/teams/68018/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Generated-By: Babel 2.7.0\n"
 "Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
@@ -36,127 +36,128 @@ msgstr ""
 msgid "Modified"
 msgstr ""
 
-#: ckanext/statistics/fanstatic/javascript/main.js:12
-#: ckanext/statistics/templates/statistics/statistics_read.html:11
+#: ckanext/statistics/fanstatic/javascript/statistics.js:10
+#: ckanext/statistics/templates/statistics/statistics_read.html:12
 msgid "Loading"
 msgstr ""
 
-#: ckanext/statistics/fanstatic/javascript/main.js:13
+#: ckanext/statistics/fanstatic/javascript/statistics.js:11
 msgid "Loading web page"
 msgstr ""
 
-#: ckanext/statistics/fanstatic/javascript/main.js:14
+#: ckanext/statistics/fanstatic/javascript/statistics.js:12
 msgid "Loading organizations"
 msgstr "Loading organisations"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:15
+#: ckanext/statistics/fanstatic/javascript/statistics.js:13
 msgid "Loading categories"
 msgstr ""
 
-#: ckanext/statistics/fanstatic/javascript/main.js:16
+#: ckanext/statistics/fanstatic/javascript/statistics.js:14
 msgid "Loading data"
 msgstr ""
 
-#: ckanext/statistics/fanstatic/javascript/main.js:17
+#: ckanext/statistics/fanstatic/javascript/statistics.js:15
 msgid "Loading apps"
 msgstr "Loading showcases"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:18
+#: ckanext/statistics/fanstatic/javascript/statistics.js:16
 msgid "Loading relations"
 msgstr "Loading statistics"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:19
+#: ckanext/statistics/fanstatic/javascript/statistics.js:17
 msgid "Preprocessing"
 msgstr "Pre-processing"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:20
+#: ckanext/statistics/fanstatic/javascript/statistics.js:18
 msgid "Rendering"
 msgstr "Rendering"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:21
+#: ckanext/statistics/fanstatic/javascript/statistics.js:19
 msgid "Done"
 msgstr ""
 
-#: ckanext/statistics/fanstatic/javascript/main.js:86
+#: ckanext/statistics/fanstatic/javascript/statistics.js:85
 msgid "Summary"
 msgstr "Summary"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:90
-#: ckanext/statistics/fanstatic/javascript/main.js:237
+#: ckanext/statistics/fanstatic/javascript/statistics.js:89
+#: ckanext/statistics/fanstatic/javascript/statistics.js:236
 msgid "Datas"
 msgstr "Data"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:94
-#: ckanext/statistics/fanstatic/javascript/main.js:258
+#: ckanext/statistics/fanstatic/javascript/statistics.js:93
+#: ckanext/statistics/fanstatic/javascript/statistics.js:257
 msgid "Apps"
 msgstr "Showcases"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:98
+#: ckanext/statistics/fanstatic/javascript/statistics.js:97
 msgid "All publishers"
 msgstr ""
 
-#: ckanext/statistics/fanstatic/javascript/main.js:99
+#: ckanext/statistics/fanstatic/javascript/statistics.js:98
 msgid "All categories"
 msgstr "All categories"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:100
+#: ckanext/statistics/fanstatic/javascript/statistics.js:99
 msgid "All"
 msgstr "All"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:225
+#: ckanext/statistics/fanstatic/javascript/statistics.js:224
 msgid "Data opened"
 msgstr "Datasets"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:226
+#: ckanext/statistics/fanstatic/javascript/statistics.js:225
 msgid "Apps created"
 msgstr "Showcases"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:227
+#: ckanext/statistics/fanstatic/javascript/statistics.js:226
 msgid "Last three months"
 msgstr "Last three months"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:228
-#: ckanext/statistics/fanstatic/javascript/main.js:241
-#: ckanext/statistics/fanstatic/javascript/main.js:262
+#: ckanext/statistics/fanstatic/javascript/statistics.js:227
+#: ckanext/statistics/fanstatic/javascript/statistics.js:240
+#: ckanext/statistics/fanstatic/javascript/statistics.js:261
 msgid "pcs"
 msgstr "pcs"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:238
-#: ckanext/statistics/fanstatic/javascript/main.js:259
+#: ckanext/statistics/fanstatic/javascript/statistics.js:237
+#: ckanext/statistics/fanstatic/javascript/statistics.js:258
 msgid "No data available"
 msgstr ""
 
-#: ckanext/statistics/fanstatic/javascript/main.js:239
-msgid "Most visited"
+#: ckanext/statistics/fanstatic/javascript/statistics.js:238
+#, python-format
+msgid "Most visited since %(date)s"
 msgstr ""
 
-#: ckanext/statistics/fanstatic/javascript/main.js:240
-#: ckanext/statistics/fanstatic/javascript/main.js:260
+#: ckanext/statistics/fanstatic/javascript/statistics.js:239
+#: ckanext/statistics/fanstatic/javascript/statistics.js:259
 msgid "Timeline"
 msgstr "Timeline"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:242
+#: ckanext/statistics/fanstatic/javascript/statistics.js:241
 msgid "Publishers"
 msgstr ""
 
-#: ckanext/statistics/fanstatic/javascript/main.js:243
-#: ckanext/statistics/fanstatic/javascript/main.js:261
+#: ckanext/statistics/fanstatic/javascript/statistics.js:242
+#: ckanext/statistics/fanstatic/javascript/statistics.js:260
 msgid "Categories"
 msgstr "Categories"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:244
+#: ckanext/statistics/fanstatic/javascript/statistics.js:243
 msgid "File formats"
 msgstr "File formats"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:245
+#: ckanext/statistics/fanstatic/javascript/statistics.js:244
 msgid "Used in an app"
 msgstr "Used in a showcase"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:246
+#: ckanext/statistics/fanstatic/javascript/statistics.js:245
 msgid "Not used in any app"
 msgstr "Not used in showcases"
 
-#: ckanext/statistics/fanstatic/javascript/main.js:690
+#: ckanext/statistics/fanstatic/javascript/statistics.js:680
 msgid "Site analytics"
 msgstr "Site analytics"
 
@@ -227,18 +228,18 @@ msgstr ""
 msgid "Published data"
 msgstr ""
 
-#: ckanext/statistics/templates/statistics/statistics_read.html:41
+#: ckanext/statistics/templates/statistics/statistics_read.html:42
 msgid "Filter"
 msgstr ""
 
-#: ckanext/statistics/templates/statistics/statistics_read.html:50
+#: ckanext/statistics/templates/statistics/statistics_read.html:51
 msgid "Range"
 msgstr ""
 
-#: ckanext/statistics/templates/statistics/statistics_read.html:68
+#: ckanext/statistics/templates/statistics/statistics_read.html:69
 msgid "Publisher"
 msgstr ""
 
-#: ckanext/statistics/templates/statistics/statistics_read.html:83
+#: ckanext/statistics/templates/statistics/statistics_read.html:84
 msgid "Category"
 msgstr ""
