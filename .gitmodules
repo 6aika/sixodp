@@ -68,4 +68,4 @@
 	url = https://github.com/vrk-kpa/ckanext-sentry.git
 [submodule "ckanext/ckanext-matomo"]
 	path = ckanext/ckanext-matomo
-	url = https://github.com/vrk-kpa/ckanext-matomo
+	url = https://github.com/6aika/ckanext-matomo
