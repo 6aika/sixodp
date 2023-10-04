@@ -2,7 +2,8 @@
 
 {% block pre_primary %}
   <div class="page-hero"></div>
- <div data-module="statistics" class="statistics-page">
+{% set matomo_start_date = h.get_matomo_start_date() %}
+ <div data-module="statistics" data-module-matomo_start_date="{{ matomo_start_date }}" class="statistics-page">
     <div class="js-statistics-loading statistics-loading">
       <div class="js-statistics-loading-steps statistics-loading-steps">
         <div class="js-statistics-loading-loaded statistics-loading-loaded">

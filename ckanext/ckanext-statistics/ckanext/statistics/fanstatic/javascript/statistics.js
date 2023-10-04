@@ -48,7 +48,8 @@ ckan.module('statistics', function($){
         }
       },
       locale: jQuery('html').attr('lang').split('_')[0],
-      onScroll: null
+      onScroll: null,
+      matomo_start_date: null
     },
     state: {
       dateRange: [new Date(new Date().getFullYear(), 0, 1), new Date()],
@@ -234,7 +235,7 @@ ckan.module('statistics', function($){
         texts: {
           sectionTitle: this._('Datas'),
           noDataText: this._('No data available'),
-          mostVisitedDatasetsTitle: this._('Most visited'),
+          mostVisitedDatasetsTitle: this._('Most visited since %(date)s',  {date: this.options.matomo_start_date}),
           timelineTitle: this._('Timeline'),
           amount: this._('pcs'),
           topPublishersTitle: this._('Publishers'),
