@@ -208,6 +208,7 @@ matomo:
   tracker_filename: "tracker.php"
   script_filename: "piwik.min.js"
   token_auth: "{{ secret.matomo_token_auth }}"
+  start_date: 10/2023
 
 disqus_public_key: "{{ secret.disqus_public_key }}"
 disqus_secret_key: "{{ secret.disqus_secret_key }}"
