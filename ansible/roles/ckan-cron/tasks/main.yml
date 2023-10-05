@@ -24,8 +24,7 @@
   cron: name="CKAN tracking" minute="0" hour="0" job="/usr/lib/ckan/default/bin/ckan --config={{ckan_ini}} tracking update && /usr/lib/ckan/default/bin/ckan --config={{ckan_ini}} search-index rebuild -r"
 
 - name: disable googleanalytics loadanalytics cronjob
-  cron: name="Load Google Analytics"
-  state: absent
+  cron: name="Load Google Analytics" state=absent
 
 - name: Ensure matomo analytics cronjob
   cron: name="Load matomo" minute="0" hour="1" job="/usr/lib/ckan/default/bin/ckan --config={{ckan_ini}} matomo fetch"
