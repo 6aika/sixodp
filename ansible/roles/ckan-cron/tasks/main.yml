@@ -23,9 +23,13 @@
 - name: Ensure CKAN tracking
   cron: name="CKAN tracking" minute="0" hour="0" job="/usr/lib/ckan/default/bin/ckan --config={{ckan_ini}} tracking update && /usr/lib/ckan/default/bin/ckan --config={{ckan_ini}} search-index rebuild -r"
 
-- name: Ensure googleanalytics loadanalytics cronjob
-  cron: name="Load Google Analytics" minute="0" hour="1" job="/usr/lib/ckan/default/bin/ckan --config={{ckan_ini}} googleanalytics loadanalytics {{ google_analytics_secrets_file_path }}"
-  when: "'ckanext-googleanalytics' in ckan_extensions"
+- name: disable googleanalytics loadanalytics cronjob
+  cron: name="Load Google Analytics"
+  state: absent
+
+- name: Ensure matomo analytics cronjob
+  cron: name="Load matomo" minute="0" hour="1" job="/usr/lib/ckan/default/bin/ckan --config={{ckan_ini}} matomo fetch"
+  when: "'ckanext-matomo' in ckan_extensions"
 
 - name: Ensure archiver update
   cron: name="Archiver update" minute="0" hour="2" job="/usr/lib/ckan/default/bin/ckan --config={{ckan_ini}} archiver update"
