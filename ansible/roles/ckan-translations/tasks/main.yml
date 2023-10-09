@@ -11,13 +11,6 @@
   copy: src="{{ item }}.po" dest="{{ virtualenv }}/src/ckan/ckan/i18n/{{ item }}/LC_MESSAGES/ckan.po"
   with_items: "{{ ckan_languages }}"
 
-- name: Join translation source files
-  command: msgcat "{{ ckanext_sync_path }}/{{ item[0] }}/i18n/{{ item[1] }}/LC_MESSAGES/{{ item[0] }}.po" "{{ virtualenv }}/src/ckan/ckan/i18n/{{ item[1] }}/LC_MESSAGES/ckan.po" --use-first -o "{{ virtualenv }}/src/ckan/ckan/i18n/{{ item[1] }}/LC_MESSAGES/ckan.po"
-  with_nested:
-    - "{{ translation_projects }}"
-    - "{{ ckan_languages }}"
-  ignore_errors: true
-
 - name: Compile translation files
   command: msgfmt "{{ virtualenv }}/src/ckan/ckan/i18n/{{ item }}/LC_MESSAGES/ckan.po" -o "{{ virtualenv }}/src/ckan/ckan/i18n/{{ item }}/LC_MESSAGES/ckan.mo"
   with_items: "{{ ckan_languages }}"
