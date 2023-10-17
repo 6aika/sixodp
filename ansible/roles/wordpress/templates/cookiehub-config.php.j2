@@ -5,6 +5,7 @@
         onInitialise: function(status) {
             if (this.hasConsented('analytics')) {
                 console.log('The analytics category is allowed');
+                _paq.push(['setCookieConsentGiven']);
             }
         },
         onStatusChange: function(status, previousStatus)
@@ -12,16 +13,19 @@
             if (this.hasConsented("analytics"))
             {
                 console.log('The analytics category is allowed');
+                _paq.push(['setCookieConsentGiven']);
             }
         },
         onAllow: function(category) {
             if (category == 'analytics') {
                 console.log('The analytics category was just allowed');
+                _paq.push(['setCookieConsentGiven']);
             }
         },
         onRevoke: function(category) {
             if (category == 'analytics') {
                 console.log('The analytics category was just revoked');
+                _paq.push(['forgetCookieConsentGiven']);
             }
         },
      language: <?php echo get_lang(); ?>
