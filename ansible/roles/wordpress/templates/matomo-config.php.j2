@@ -1,4 +1,16 @@
 <!-- Matomo -->
+{% if matomo.tracker_filename is defined %}
+    {%  set tracker_filename = matomo.tracker_filename %}
+{% else %}
+    {% set tracker_filename = "matomo.php" %}
+{% endif %}
+
+{% if matomo.script_filename is defined %}
+    {%  set script_filename = matomo.script_filename %}
+{% else %}
+    {% set script_filename = "matomo.js" %}
+{% endif %}
+
 <script>
     var _paq = window._paq = window._paq || [];
     /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
@@ -7,10 +19,10 @@
     _paq.push(['enableLinkTracking']);
     (function() {
         var u="{{ matomo.domain }}";
-        _paq.push(['setTrackerUrl', u+'{{matomo.tracker_filename}}']);
+        _paq.push(['setTrackerUrl', u+'{{tracker_filename}}']);
         _paq.push(['setSiteId', '{{ matomo.site_id }}']);
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-        g.async=true; g.src='{{ matomo.script_domain }}' + '{{matomo.script_filename}}'; s.parentNode.insertBefore(g,s);
+        g.async=true; g.src='{{ matomo.script_domain }}' + '{{script_filename}}'; s.parentNode.insertBefore(g,s);
     })();
 </script>
 <!-- End Matomo Code -->
