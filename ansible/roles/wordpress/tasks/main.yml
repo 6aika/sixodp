@@ -260,7 +260,7 @@
   template: src="matomo-config.php.j2" dest="/opt/wordpress/wp-content/themes/sixodp/matomo-config.php" mode=0644 owner=www-data group=www-data
 
 - name: Copy cookiehub-config to theme
-  template: src="cooiehub-config.php.j2" dest="/opt/wordpress/wp-content/themes/sixodp/cookiehub-config.php" mode=0644 owner=www-data group=www-data
+  template: src="cookiehub-config.php.j2" dest="/opt/wordpress/wp-content/themes/sixodp/cookiehub-config.php" mode=0644 owner=www-data group=www-data
 
 
 - name: Activate sixodp theme
