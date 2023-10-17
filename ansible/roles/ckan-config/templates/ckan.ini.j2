@@ -192,6 +192,9 @@ ga-report.bounce_url = /
 {% if matomo is defined %}
 ckanext.matomo.site_id = {{ matomo.site_id }}
 ckanext.matomo.domain = {{ matomo.domain }}
+{% if matomo.script_domain is defined %}
+ckanext.matomo.script_domain = {{ matomo.script_domain }}
+{% endif %}
 ckanext.matomo.api_domain = {{ matomo.api_domain }}
 ckanext.matomo.tracker_filename = {{ matomo.tracker_filename }}
 ckanext.matomo.script_filename = {{ matomo.script_filename }}
