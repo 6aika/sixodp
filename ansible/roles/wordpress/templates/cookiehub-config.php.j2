@@ -1,0 +1,35 @@
+<!-- Cookiehub -->
+
+<script type="text/javascript">
+    var cpm = {
+        onInitialise: function(status) {
+            if (this.hasConsented('analytics')) {
+                console.log('The analytics category is allowed');
+            }
+        },
+        onStatusChange: function(status, previousStatus)
+        {
+            if (this.hasConsented("analytics"))
+            {
+                console.log('The analytics category is allowed');
+            }
+        },
+        onAllow: function(category) {
+            if (category == 'analytics') {
+                console.log('The analytics category was just allowed');
+            }
+        },
+        onRevoke: function(category) {
+            if (category == 'analytics') {
+                console.log('The analytics category was just revoked');
+            }
+        },
+    };
+
+    (function(h,u,b){
+        var d=h.getElementsByTagName("script")[0],e=h.createElement("script");
+        e.async=true;e.src='https://cookiehub.net/c2/{{cookiehub_domain_code}}.js';
+        e.onload=function(){u.cookiehub.load(b);}
+        d.parentNode.insertBefore(e,d);
+    })(document,window,cpm);
+</script>

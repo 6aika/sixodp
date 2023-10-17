@@ -15,13 +15,13 @@ wordpress_plugins:
   - classic-editor
   - wordpress-seo
   - wordfence
-  - cookiehub
 
 removed_wordpress_plugins:
   - addthis
   - wp-user-avatar
   - google-analytics-dashboard-for-wp
   - wp-piwik
+  - cookiehub
 
 polylang_languages: 
   - { name: 'Suomi', code: 'fi', locale: 'fi', flag: 'fi' }

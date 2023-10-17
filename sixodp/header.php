@@ -29,6 +29,7 @@
 	</script>
 
     <?php include('matomo-config.php'); ?>
+    <?php include('cookiehub-config.php'); ?>
 </head>
 
 <body <?php body_class(); ?> id="wordpress-indicator">
