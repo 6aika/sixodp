@@ -196,8 +196,12 @@ ckanext.matomo.domain = {{ matomo.domain }}
 ckanext.matomo.script_domain = {{ matomo.script_domain }}
 {% endif %}
 ckanext.matomo.api_domain = {{ matomo.api_domain }}
+{% if matomo.tracker_filename is defined %}
 ckanext.matomo.tracker_filename = {{ matomo.tracker_filename }}
+{% endif %}
+{% if matomo.script_filename is defined %}
 ckanext.matomo.script_filename = {{ matomo.script_filename }}
+{% endif %}
 ckanext.matomo.token_auth = {{ matomo.token_auth }}
 ckanext-matomo.start_date = {{ matomo.start_date }}
 ckanext-matomo.show_download_graph = {{ matomo.show_download_graph }}
