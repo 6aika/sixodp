@@ -8,17 +8,43 @@
   <link rel="shortcut icon" href="/assets/images/favicon.ico" />
 
   {% if h.get_cookiehub_domain_code() %}
-    <script src="https://cookiehub.net/c2/{{ h.get_cookiehub_domain_code() }}.js"></script>
     <script type="text/javascript">
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('consent', 'default', {'ad_storage': 'denied', 'analytics_storage': 'denied', 'wait_for_update': 500});
-      document.addEventListener("DOMContentLoaded", function(event) {
-        var cpm = {
-          language: (document.documentElement.lang != null ? document.documentElement.lang.substr(0,2) : 'en')
-        };
-        window.cookiehub.load(cpm);
-      });
+      var cpm = {
+        onInitialise: function(status) {
+          if (this.hasConsented('analytics')) {
+            console.log('The analytics category is allowed');
+            _paq.push(['setCookieConsentGiven']);
+          }
+        },
+        onStatusChange: function(status, previousStatus)
+        {
+          if (this.hasConsented("analytics"))
+          {
+            console.log('The analytics category is allowed');
+            _paq.push(['setCookieConsentGiven']);
+          }
+        },
+        onAllow: function(category) {
+          if (category == 'analytics') {
+            console.log('The analytics category was just allowed');
+            _paq.push(['setCookieConsentGiven']);
+          }
+        },
+        onRevoke: function(category) {
+          if (category == 'analytics') {
+            console.log('The analytics category was just revoked');
+            _paq.push(['forgetCookieConsentGiven']);
+          }
+        },
+        language: "{{ h.get_lang_prefix() }}>"
+      };
+
+      (function(h,u,b){
+        var d=h.getElementsByTagName("script")[0],e=h.createElement("script");
+        e.async=true;e.src='https://cookiehub.net/c2/{{ h.get_cookiehub_domain_code() }}.js';
+        e.onload=function(){u.cookiehub.load(b);}
+        d.parentNode.insertBefore(e,d);
+      })(document,window,cpm);
     </script>
 
   {% endif %}
