@@ -125,7 +125,7 @@ ckan_extensions:
   #- ckanext-sixodp_harvester
   - ckanext-sixodp_showcasesubmit
   - ckanext-matomo
-  - ckanext-geoview
+  #- ckanext-geoview
   - ckanext-sentry
 
 # List of enabled CKAN extensions in load order. Order matters, when templates call super()
@@ -165,7 +165,7 @@ enabled_ckan_extensions:
     #- sixodp_harvester
     - sixodp_showcasesubmit
     - resource_proxy
-    - geo_view
+    #- geo_view
     - sentry
 
 
