@@ -301,8 +301,8 @@ def save_to_groups(key, data, errors, context):
 
         if isinstance(value, str):
             group_patch = df.flatten_list([{"name": value}])
-            group_key = ('groups',) + group_patch.keys()[0]
-            group_value = group_patch.values()[0]
+            group_key = ('groups',) + list(group_patch.keys())[0]
+            group_value = list(group_patch.values())[0]
             data[group_key] = group_value
         else:
             if isinstance(value, list):
