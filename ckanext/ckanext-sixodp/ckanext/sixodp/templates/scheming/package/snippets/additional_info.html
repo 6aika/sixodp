@@ -194,7 +194,7 @@
         .format(maintainer=pkg_dict.maintainer) -}}.
       {% endif %}
       {{- ' ' + _('The dataset has been downloaded from') + ' ' -}}<a href="{{g.site_url}}">{{g.site_title}}</a>{{- ' ' + _('service on {date}')
-        .format(date=h.get_current_date()) -}}
+        .format(date=h.get_current_date_formatted()) -}}
       {% if pkg_dict.license_title and pkg_dict.license_title != 'Other (Open)' %}
         {{- ' ' + _('using the license') + ' ' -}}<a href="{{pkg_dict.license_url}}">{{pkg_dict.license_title}}</a>.
       {% else %}

@@ -354,7 +354,7 @@ def scheming_field_only_default_required(field, lang):
 
     return False
 
-def get_current_date():
+def get_current_date_formatted():
     import datetime
     return datetime.date.today().strftime("%d.%m.%Y")
 
