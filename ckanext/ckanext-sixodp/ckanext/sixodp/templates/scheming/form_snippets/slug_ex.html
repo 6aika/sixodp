@@ -42,10 +42,13 @@
 {%- elif entity_type == 'showcase' -%}
     {%- set controller = 'sixodp_showcase' -%}
     {%- set module_placeholder = '<showcase>' -%}
+{% else %}
+    {%- set controller = 'dataset' -%}
+    {%- set module_placeholder = '<dataset>' -%}
 {%- endif -%}
 
-{%- set prefix = h.url_for(controller=controller, action='read', id='') -%}
-{%- set domain = h.url_for(controller=controller, action='read', id='',
+{%- set prefix = h.url_for(controller + '.read', id='') -%}
+{%- set domain = h.url_for(controller + '.read', id='',
     qualified=true) -%}
 {%- set domain = domain|replace("http://", "")|replace("https://", "") -%}
 {%- set attrs = {
