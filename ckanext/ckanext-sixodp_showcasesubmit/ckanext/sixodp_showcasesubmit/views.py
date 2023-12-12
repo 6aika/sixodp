@@ -129,12 +129,12 @@ class ShowcaseSubmitterView(MethodView):
             data_dict['state'] = 'none'
             message = None
 
-        sendNewShowcaseNotifications(data_dict.get('name'))
-
         extra_vars = {'data': data_dict, 'errors': errors,
                 'error_summary': error_summary, 'message': message}
         if errors:
             return render('sixodp_showcasesubmit/base_form_page.html', extra_vars=extra_vars)
+
+        sendNewShowcaseNotifications(data_dict.get('name'))
 
         lang = get_current_lang()
         if lang == 'sv':
