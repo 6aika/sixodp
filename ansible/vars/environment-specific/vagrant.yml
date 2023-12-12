@@ -110,7 +110,7 @@ ckan_extensions:
   - ckanext-statistics
   #- ckanext-sixodp_harvester
   - ckanext-sixodp_showcasesubmit
-  - ckanext-matomo
+  #- ckanext-matomo
   #- ckanext-geoview
   - ckanext-sentry
 
@@ -124,7 +124,7 @@ enabled_ckan_extensions:
     - recline_grid_view
     - recline_map_view
     - sixodp_showcase
-    - matomo
+    #- matomo
     - qa
     - archiver
     - collection
@@ -195,3 +195,5 @@ matomo:
   tracker_filename: ""
   script_filename: ""
   token_auth: ""
+  start_date: ""
+  show_download_graph: true
