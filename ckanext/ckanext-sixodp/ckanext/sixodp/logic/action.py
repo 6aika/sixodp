@@ -1,6 +1,8 @@
 import sys
 
 import ckan.logic as logic
+from ckan import model
+from ckan.plugins import toolkit
 
 _check_access = logic.check_access
 get_action = logic.get_action
@@ -85,3 +87,24 @@ def package_patch(next_func, context, datadict):
     context['keep_deletable_attributes_in_api'] = True
 
     return next_func(context, datadict)
+
+
+# Adds new users to every group and collection
+@chained_action
+def user_create(original_action, context, data_dict):
+    result = original_action(context, data_dict)
+
+
+    if result:
+        context = {'model': model, 'session': model.Session, 'ignore_auth': True}
+        admin_user = toolkit.get_action('get_site_user')(context, None)
+        context['user'] = admin_user['name']
+
+        groups = toolkit.get_action('group_list')(context, {})
+        collections = toolkit.get_action('group_list')(context,  {'type': "collection"})
+
+        for group in groups + collections:
+            member_data = {'id': group, 'username': result['name'], 'role': 'admin'}
+            toolkit.get_action('group_member_create')(context, member_data)
+
+    return result

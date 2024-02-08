@@ -401,7 +401,8 @@ class SixodpPlugin(plugins.SingletonPlugin, DefaultTranslation):
             'resource_update': action.resource_update,
             'resource_delete': action.resource_delete,
             'package_resource_reorder': action.package_resource_reorder,
-            'package_patch': action.package_patch
+            'package_patch': action.package_patch,
+            'user_create': action.user_create
         }
 
     # IAuthFunctions
