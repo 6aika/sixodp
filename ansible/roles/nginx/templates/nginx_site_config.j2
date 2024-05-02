@@ -51,7 +51,9 @@ server {
     rewrite ^(.*)$ $not_found break;
   }
 
-
+  if ( $http_user_agent = "facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)" ) {
+    return 403;
+  }
 
   location = /robots.txt {
     root {{ static_path }};
