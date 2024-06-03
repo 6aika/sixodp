@@ -50,6 +50,10 @@
     name: uwsgi
     virtualenv: "{{ virtualenv }}"
 
+- name: Install uwsgitop
+  pip:
+    name: uwsgitop
+
 - name: Copy ckan-uwsgi.ini
   copy:
     src: ckan-uwsgi.ini
