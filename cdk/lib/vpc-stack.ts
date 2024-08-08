@@ -15,8 +15,9 @@ export class VpcStack extends Stack {
         })
 
         this.vpc = new Vpc(this, 'Vpc', {
-            maxAzs: 1,
+            maxAzs: 2,
             natGatewayProvider: natProvider,
+            natGateways: 1,
             ipAddresses: aws_ec2.IpAddresses.cidr('10.0.0.0/16')
         })
 
