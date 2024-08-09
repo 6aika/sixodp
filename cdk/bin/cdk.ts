@@ -5,12 +5,18 @@ import {VpcStack} from "../lib/vpc-stack";
 import {ParameterStack} from "../lib/parameter-stack";
 import {DatabaseStack} from "../lib/database-stack";
 import {KmsKeyStack} from "../lib/kms-key-stack";
+import {LoadBalancerStack} from "../lib/load-balancer-stack";
 
 const app = new cdk.App();
 
 const stackProps = {
     account: '290365872283',
     region: 'eu-west-1',
+}
+
+const env = {
+    environment: 'generic-qa',
+    fqdn: 'dataportaali.com'
 }
 
 const vpcStack = new VpcStack(app, 'vpcStack', {
@@ -41,6 +47,18 @@ const databaseStack = new DatabaseStack(app, 'databaseStack', {
     },
     ckanDatabaseSnapshotParameterName: parameterStack.ckanDatabaseSnapshotParameterName,
     wpDatabaseSnapshotParameterName: parameterStack.wpDatabaseSnapshotParameterName,
-    environment: "generic-qa",
-    vpc: vpcStack.vpc
+    environment: env.environment,
+    fqdn: env.fqdn,
+    vpc: vpcStack.vpc,
+})
+
+
+const loadBalancerStack = new LoadBalancerStack(app, 'loadBalancerStack', {
+    env: {
+        account: stackProps.account,
+        region: stackProps.region
+    },
+    environment: env.environment,
+    fqdn: env.fqdn,
+    vpc: vpcStack.vpc,
 })
