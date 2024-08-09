@@ -4,6 +4,7 @@ import * as cdk from 'aws-cdk-lib';
 import {VpcStack} from "../lib/vpc-stack";
 import {ParameterStack} from "../lib/parameter-stack";
 import {DatabaseStack} from "../lib/database-stack";
+import {KmsKeyStack} from "../lib/kms-key-stack";
 
 const app = new cdk.App();
 
@@ -20,6 +21,13 @@ const vpcStack = new VpcStack(app, 'vpcStack', {
 })
 
 const parameterStack = new ParameterStack(app, 'parameterStack', {
+    env: {
+        account: stackProps.account,
+        region: stackProps.region
+    }
+})
+
+const kmsKeyStack = new KmsKeyStack(app, 'kmsKeyStack', {
     env: {
         account: stackProps.account,
         region: stackProps.region

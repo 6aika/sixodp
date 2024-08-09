@@ -16,8 +16,6 @@ export class ParameterStack extends Stack {
             parameterName: '/rds/ckan_database_snapshot_identifier',
         })
 
-        this.ckanDatabaseMasterCredentials = new aws_rds.DatabaseSecret(this, 'ckanMasterCredentials', {
-            username: 'ckan_admin'
-        })
+
     }
 }

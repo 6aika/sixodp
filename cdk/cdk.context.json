@@ -3,5 +3,8 @@
     "eu-west-1a",
     "eu-west-1b",
     "eu-west-1c"
-  ]
+  ],
+  "key-provider:account=290365872283:aliasName=alias/secret-encryption-key:region=eu-west-1": {
+    "keyId": "25be648f-cf2d-414e-8e87-26711c491b8a"
+  }
 }
