@@ -1,0 +1,21 @@
+- hosts: backgroundserver
+  become: true
+  vars_files:
+    - "vars/common.yml"
+    - "vars/environment-specific/{{ deployment_environment_id }}.yml"
+    - "{{ secrets_file_path }}"
+  roles:
+    - os-base
+    - java
+    - postgres-install
+    - postgres-data
+    - solr
+    - redis
+    - ckan-extensions
+    - ckan-install
+    - ckan-config
+    - ckan-install-patches
+    - ckan-database
+    - ckan-cron
+    - datapusher
+    - mysql
