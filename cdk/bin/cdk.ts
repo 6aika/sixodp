@@ -39,7 +39,8 @@ const databaseStack = new DatabaseStack(app, 'databaseStack', {
         account: stackProps.account,
         region: stackProps.region
     },
-    ckanDatabaseSnapshot: parameterStack.ckanDatabaseSnapshot,
+    ckanDatabaseSnapshotParameterName: parameterStack.ckanDatabaseSnapshotParameterName,
+    wpDatabaseSnapshotParameterName: parameterStack.wpDatabaseSnapshotParameterName,
     environment: "generic-qa",
     vpc: vpcStack.vpc
 })
