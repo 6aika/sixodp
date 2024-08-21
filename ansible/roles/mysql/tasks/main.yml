@@ -1,10 +1,47 @@
 ---
-- name: Install MySQL Server
-  apt:
-    name: mysql-server
-  when: mysql.server.installed_locally
+- block:
+  - name: Install MySQL Server
+    apt:
+      name: mysql-server
+
+  - name: Allow connecting from web server
+    lineinfile:
+      dest: /etc/mysql/mysql.conf.d/mysqld.cnf
+      regexp: "^bind-address"
+      line: "bind-address = 0.0.0.0"
+
+  - name: Restart mysql server
+    service:
+      name: mysql
+      state: restarted
+
+  - name: Install PyMySQL
+    pip:
+      name: PyMySQL
+
+  - name: Create database
+    mysql_db:
+      name: "{{ mysql.databases.wordpress.name }}"
+      encoding: utf8
+      login_host: "{{ mysql.server.host }}"
+      login_user: "{{ mysql.server.admin_user }}"
+      login_password: "{{ mysql.server.admin_password }}"
+      login_unix_socket: /var/run/mysqld/mysqld.sock
+
+  - name: Create database user
+    mysql_user:
+      name: "{{ mysql.users.wordpress.username }}"
+      host: "%"
+      password: "{{ mysql.users.wordpress.password  }}"
+      priv: "wordpress.*:ALL"
+      login_host: "{{ mysql.server.host }}"
+      login_user: "{{ mysql.server.admin_user }}"
+      login_password: "{{ mysql.server.admin_password }}"
+      login_unix_socket: /var/run/mysqld/mysqld.sock
+
+  when: mysql_server_install | default(false)
 
 - name: install MySQL Client
   apt:
     name: mysql-client
-  when: not mysql.server.installed_locally
+  when: not mysql_server_install | default(false)

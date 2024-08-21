@@ -4,7 +4,7 @@
   pip:
     name:
       - pip
-      - setuptools==44.1.0
+      - setuptools==66.1.1
       - boto
     virtualenv: "{{ virtualenv }}"
     state: latest

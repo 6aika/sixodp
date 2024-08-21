@@ -7,9 +7,13 @@
   lineinfile: dest=/etc/redis/redis.conf regexp="^bind " state=absent
   register: configure_redis
 
+- name: Allow connections to redis
+  lineinfile: dest=/etc/redis/redis.conf regexp="^protected-mode yes" line="protected-mode no"
+  register: allow_redis_connections
+
 - name: Restart redis
   service: name=redis-server state=restarted
-  when: configure_redis is changed
+  when: configure_redis is changed or allow_redis_connections is changed
 
 - name: Ensure redis is started
   service: name=redis-server state=started

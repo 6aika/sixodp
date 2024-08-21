@@ -43,11 +43,11 @@
 
 - name: Initialize ckanext-matomo database
   command: ./bin/ckan "--config={{ ckan_ini }}" matomo init_db  chdir={{ virtualenv }}
-  when: "'ckanext-matomo' in ckan_extensions"
+  when: "'matomo' in enabled_ckan_extensions"
 
 - name: Upgrade ckanext-matomo database
   command: ./bin/ckan "--config={{ ckan_ini }}" db upgrade -p matomo  chdir={{ virtualenv }}
-  when: "'ckanext-matomo' in ckan_extensions"
+  when: "'matomo' in enabled_ckan_extensions"
 
 
 #- name: Initialize ckanext-ga-report database

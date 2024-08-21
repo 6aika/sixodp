@@ -1,7 +1,15 @@
-[mainserver]
-127.0.0.1 ansible_connection=local ansible_ssh_user=vagrant
+[webserver]
+sixodp-web ansible_connection=local ansible_ssh_user=vagrant
 
-[mainserver:vars]
+[webserver:vars]
 deployment_environment_id=vagrant
 secrets_file_path="vars/secrets-defaults.yml"
 google_analytics_secrets_file_path="{{ cache_path}}/google_analytics_credentials.json"
+
+[backgroundserver]
+sixodp-background ansible_connection=local ansible_ssh_user=vagrant
+
+[backgroundserver:vars]
+deployment_environment_id=vagrant
+secrets_file_path="vars/secrets-defaults.yml"
+mysql_server_install = true
