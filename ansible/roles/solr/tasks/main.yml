@@ -19,6 +19,12 @@
     creates: /opt/solr/solr-{{ solr_version }}
   become: true
 
+- name: Allow connections to solr from elsewhere
+  lineinfile:
+    path: /etc/default/solr.in.sh
+    regexp: '^#SOLR_JETTY_HOST="127.0.0.1"'
+    line: 'SOLR_JETTY_HOST="0.0.0.0"'
+
 - name: Start solr
   service: name=solr state=started
 

@@ -2,4 +2,4 @@
 
 - name: Restart datapusher
   supervisorctl: name="{{ item }}" state=restarted
-  with_items: "{{ supervisor_datapusher_process_names }}"
+  with_items: "datapusher-uwsgi:"

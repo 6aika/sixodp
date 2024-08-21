@@ -113,6 +113,8 @@ ckan.harvest.mq.hostname = {{ redis.host }}
 ckan.harvest.mq.port = {{ redis.port }}
 ckan.harvest.mq.redis_db = {{ redis_harvest_database }}
 
+ckan.redis.url = redis://{{ redis.host }}:{{ redis.port }}/{{ redis_celery_database }}
+
 ckanext-archiver.archive_dir = {{ resource_cache_path }}
 ckanext-archiver.max_content_length = 50000000
 ckanext-archiver.cache_url_root = https://{{ public_facing_hostname }}/resource_cache/
@@ -261,14 +263,3 @@ formatter = generic
 [formatter_generic]
 
 format = %(asctime)s %(levelname)-5.5s [%(name)s] %(message)s
-
-[app:celery]
-
-BROKER_URL = redis://{{ redis.host }}:{{ redis.port }}/{{ redis_celery_database }}
-CELERY_RESULT_BACKEND = redis://{{ redis.host }}:{{ redis.port }}/{{ redis_celery_database }}
-CELERY_RESULT_SERIALIZER = json
-CELERY_TASK_SERIALIZER = json
-BROKER_BACKEND =
-BROKER_HOST =
-CELERY_RESULT_DBURI =
-CELERYD_CONCURRENCY = 4

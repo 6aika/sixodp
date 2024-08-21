@@ -1,6 +1,6 @@
 ---
 
-public_facing_hostname: 10.106.10.10
+public_facing_hostname: 10.106.10.21
 internal_hostname: sixodp-vagrant
 cms_site_url: localhost
 ckan_internal_host: 127.0.0.1:8080
@@ -13,7 +13,7 @@ automatic_updates_recipient: root@localhost
 postgres:
   server:
     installed_locally: true
-    host: 127.0.0.1
+    host: 10.106.10.20
     admin_user: postgres
     admin_password:
     trusted_ip_range: 10.0.0.0/8
@@ -35,10 +35,10 @@ postgres:
 
 mysql:
   server:
-    installed_locally: true
-    host: localhost
+    host: 10.106.10.20
+    remote_addr: 10.106.10.21
     admin_user: root
-    admin_password:
+    admin_password: password
   users:
     wordpress:
           username: wordpress
@@ -54,12 +54,12 @@ nginx:
   fqdn_common_part: goforecrew.com
 
 solr:
-  host: 127.0.0.1
+  host: 10.106.10.20
   port: 8983
   listen_address: 0.0.0.0
 
 redis:
-  host: 127.0.0.1
+  host: 10.106.10.20
   port: 6379
 
 ckan_users:
@@ -110,7 +110,7 @@ ckan_extensions:
   - ckanext-statistics
   #- ckanext-sixodp_harvester
   - ckanext-sixodp_showcasesubmit
-  #- ckanext-matomo
+  - ckanext-matomo
   #- ckanext-geoview
   - ckanext-sentry
 

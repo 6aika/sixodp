@@ -15,13 +15,17 @@
     dest: "{{ cache_path }}/ckan.git"
     bare: yes
 
-#- name: Copy recommended setuptools requirements file
-#  copy: src=requirement-setuptools.txt dest="{{ cache_path }}/requirement-setuptools.txt" mode="0644" owner=root group=root
+- name: Copy recommended setuptools requirements file
+  copy: src=requirement-setuptools.txt dest="{{ cache_path }}/requirement-setuptools.txt" mode="0644" owner=root group=root
 
-#- name: Install ckan required setuptools
-#  pip:
-#    requirements: "{{ cache_path }}/requirement-setuptools.txt"
-#    virtualenv: "{{ virtualenv }}"
+- name: Install ckan required setuptools
+  pip:
+    requirements: "{{ cache_path }}/requirement-setuptools.txt"
+    virtualenv: "{{ virtualenv }}"
+
+- name: Copy requirements file
+  copy: src=requirements.txt dest="{{ cache_path }}/requirements.txt" mode="0644" owner=root group=root
+
 
 - name: Install CKAN
   pip:
@@ -30,8 +34,13 @@
     extra_args: "--exists-action=s --no-use-pep517"
     editable: yes
 
-- name: Install CKAN requirements
-  pip: requirements={{ virtualenv }}/src/ckan/requirements.txt virtualenv={{ virtualenv }}
+#- name: Install CKAN requirements
+#  pip: requirements={{ virtualenv }}/src/ckan/requirements.txt virtualenv={{ virtualenv }}
+
+- name: Install ckan requirements
+  pip:
+    requirements: "{{ cache_path }}/requirements.txt"
+    virtualenv: "{{ virtualenv }}"
 
 - name: Install CKAN development/testing requirements
   pip: requirements={{ virtualenv }}/src/ckan/dev-requirements.txt virtualenv={{ virtualenv }}
