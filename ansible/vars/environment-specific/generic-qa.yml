@@ -15,7 +15,7 @@ postgres:
     installed_locally: false
     host: sixodp-{{ deployment_environment_id }}-ckan.{{ rds_domain_common_part }}
     admin_user: ckan_admin
-    admin_password: "{{ secret.database_ckan_root_password }}"
+    admin_password: "{{ lookup('amazon.aws.aws_secret',  'ckan-database-master-secret-' + deployment_environment_id) }}"
     trusted_ip_range: 127.0.0.1/32
   users:
     ckan:
@@ -37,7 +37,7 @@ mysql:
     installed_locally: false
     host: sixodp-{{ deployment_environment_id }}-wordpress.{{ rds_domain_common_part }}
     admin_user: ckan_admin
-    admin_password: "{{ secret.database_wordpress_root_password }}"
+    admin_password: "{{ lookup('amazon.aws.aws_secret',  'wp-database-master-secret-' + deployment_environment_id) }}"
     trusted_ip_range: 127.0.0.1/32
   users:
     wordpress:
