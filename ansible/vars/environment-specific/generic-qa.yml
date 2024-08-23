@@ -13,7 +13,7 @@ automatic_updates_recipient: dataportaali-dev@gofore.com joonas.dukpa@tampere.fi
 postgres:
   server:
     installed_locally: false
-    host: sixodp-{{ deployment_environment_id }}-ckan.{{ rds_domain_common_part }}
+    host: "{{ lookup('amazon.aws.aws_ssm', 'postgres_host' ) }}"
     admin_user: ckan_admin
     admin_password: "{{ lookup('amazon.aws.aws_secret',  'ckan-database-master-secret-' + deployment_environment_id) }}"
     trusted_ip_range: 127.0.0.1/32
