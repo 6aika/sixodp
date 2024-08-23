@@ -14,7 +14,7 @@ postgres:
   server:
     installed_locally: false
     host: "{{ lookup('amazon.aws.aws_ssm', 'postgres_host', region='eu-west-1' ) }}"
-    admin_user: " {{ (lookup('amazon.aws.aws_secret',  'ckan-database-master-secret-' + deployment_environment_id, region='eu-west-1') | from_json).get('username') }}"
+    admin_user: "{{ (lookup('amazon.aws.aws_secret',  'ckan-database-master-secret-' + deployment_environment_id, region='eu-west-1') | from_json).get('username') }}"
     admin_password: "{{ (lookup('amazon.aws.aws_secret',  'ckan-database-master-secret-' + deployment_environment_id, region='eu-west-1') | from_json).get('password') }}"
     trusted_ip_range: 127.0.0.1/32
   users:
