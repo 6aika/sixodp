@@ -1,4 +1,4 @@
-import {aws_ec2, aws_rds, aws_ssm, Duration, Stack} from "aws-cdk-lib";
+import {aws_ec2, aws_rds, aws_secretsmanager, aws_ssm, Duration, Stack} from "aws-cdk-lib";
 import {Construct} from "constructs";
 
 import {DatabaseStackProps} from "./database-stack-props";
@@ -12,8 +12,10 @@ export class DatabaseStack extends Stack {
 
     readonly ckanDatabase: aws_rds.IDatabaseInstance
     readonly ckanDatabaseSecurityGroup: ISecurityGroup
+    readonly ckanDatabaseCredentials: aws_secretsmanager.ISecret
     readonly wpDatabase: aws_rds.IDatabaseInstance
     readonly wpDatabaseSecurityGroup: ISecurityGroup
+    readonly wpDatabaseCredentials: aws_secretsmanager.ISecret
 
 
     constructor(scope: Construct, id: string, props: DatabaseStackProps) {
@@ -23,9 +25,10 @@ export class DatabaseStack extends Stack {
             aliasName: 'alias/secret-encryption-key'
         })
 
-        const ckanDatabaseMasterSecret = new aws_rds.DatabaseSecret(this, 'ckanMasterCredentials', {
+        this.ckanDatabaseCredentials = new aws_rds.DatabaseSecret(this, 'ckanMasterCredentials', {
             username: 'ckan_admin',
-            encryptionKey: secretEncryptionKey
+            encryptionKey: secretEncryptionKey,
+            secretName: `ckan-database-master-secret-${props.environment}`
         })
 
 
@@ -48,17 +51,23 @@ export class DatabaseStack extends Stack {
             maxAllocatedStorage: 100,
             backupRetention: Duration.days(7),
             vpcSubnets: {
-                subnets: props.vpc.privateSubnets
+                subnets: props.vpc.isolatedSubnets
             },
-            credentials: SnapshotCredentials.fromSecret(ckanDatabaseMasterSecret),
+            credentials: SnapshotCredentials.fromSecret(this.ckanDatabaseCredentials),
             securityGroups: [
                 this.ckanDatabaseSecurityGroup
             ]
         })
 
-        const wpDatabaseMasterSecret = new aws_rds.DatabaseSecret(this, 'wpMasterCredentials', {
+        const postgresHostParameter = new aws_ssm.StringParameter(this, 'postgrestHostParameter', {
+            parameterName: 'postgres_host',
+            stringValue: this.ckanDatabase.instanceEndpoint.hostname
+        })
+
+        this.wpDatabaseCredentials = new aws_rds.DatabaseSecret(this, 'wpMasterCredentials', {
             username: 'wordpress_admin',
-            encryptionKey: secretEncryptionKey
+            encryptionKey: secretEncryptionKey,
+            secretName: `wp-database-master-secret-${props.environment}`
         })
 
 
@@ -81,14 +90,18 @@ export class DatabaseStack extends Stack {
             maxAllocatedStorage: 100,
             backupRetention: Duration.days(7),
             vpcSubnets: {
-                subnets: props.vpc.privateSubnets
+                subnets: props.vpc.isolatedSubnets
             },
-            credentials: SnapshotCredentials.fromSecret(wpDatabaseMasterSecret),
+            credentials: SnapshotCredentials.fromSecret(this.wpDatabaseCredentials),
             securityGroups: [
                 this.wpDatabaseSecurityGroup
             ]
         })
 
+        const mysqlHostParameter = new aws_ssm.StringParameter(this, 'mysqlHostParameter', {
+            parameterName: 'mysql_host',
+            stringValue: this.wpDatabase.instanceEndpoint.hostname
+        })
 
     }
 }

@@ -6,6 +6,7 @@ import {ParameterStack} from "../lib/parameter-stack";
 import {DatabaseStack} from "../lib/database-stack";
 import {KmsKeyStack} from "../lib/kms-key-stack";
 import {LoadBalancerStack} from "../lib/load-balancer-stack";
+import {VmStack} from "../lib/vm-stack";
 
 const app = new cdk.App();
 
@@ -61,4 +62,20 @@ const loadBalancerStack = new LoadBalancerStack(app, 'loadBalancerStack', {
     environment: env.environment,
     fqdn: env.fqdn,
     vpc: vpcStack.vpc,
+})
+
+
+const vmStack = new VmStack(app, 'vmStack', {
+    env: {
+        account: stackProps.account,
+        region: stackProps.region
+    },
+    vpc: vpcStack.vpc,
+    environment: env.environment,
+    fqdn: env.fqdn,
+    secretBucketName: 'sixodp-secrets',
+    ckanDatabase: databaseStack.ckanDatabase,
+    wpDatabase: databaseStack.wpDatabase,
+    ckanDatabaseCredentials: databaseStack.ckanDatabaseCredentials,
+    wpDatabaseCredentials: databaseStack.wpDatabaseCredentials
 })
