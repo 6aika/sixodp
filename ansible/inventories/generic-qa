@@ -1,12 +1,12 @@
 [webserver]
-sixodp-web ansible_ssh_user=ubuntu
+sixodp-web ansible_connection=local ansible_ssh_user=ubuntu
 
 [webserver:vars]
 deployment_environment_id=generic-qa
 secrets_file_path="../../sixodp-secrets/generic-qa/secrets.yml"
 
 [backgroundserver]
-sixodp-background ansible_ssh_user=ubuntu
+sixodp-background ansible_connection=local ansible_ssh_user=ubuntu
 
 [backgroundserver:vars]
 deployment_environment_id=generic-qa
