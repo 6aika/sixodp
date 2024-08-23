@@ -11,6 +11,7 @@
     - postgres-data
     - solr
     - redis
+    - nodejs
     - ckan-extensions
     - ckan-install
     - ckan-config
@@ -29,6 +30,7 @@
     - "{{ secrets_file_path }}"
   roles:
     - os-base
+    - nodejs
     - ckan-extensions
     - ckan-install
     - ckan-config
