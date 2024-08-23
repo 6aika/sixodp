@@ -1,4 +1,4 @@
-import {aws_ec2, aws_iam, aws_rds, aws_s3, Stack, StackProps} from "aws-cdk-lib";
+import {aws_ec2, aws_elasticloadbalancingv2, aws_iam, aws_rds, aws_s3, aws_ssm, Stack, StackProps} from "aws-cdk-lib";
 import {Construct} from "constructs";
 import {AutoScalingGroup} from "aws-cdk-lib/aws-autoscaling";
 import {VmStackProps} from "./vm-stack-props";
@@ -93,6 +93,41 @@ export class VmStack extends Stack {
         })
 
 
+        const privateAlb = new aws_elasticloadbalancingv2.ApplicationLoadBalancer(this, 'privateALb', {
+            vpc: props.vpc,
+            internetFacing: false,
+            vpcSubnets: {
+                subnets: props.vpc.privateSubnets
+            }
+        })
+
+        const solrListener = privateAlb.addListener('solrListener', {
+            port: 8983,
+            protocol: aws_elasticloadbalancingv2.ApplicationProtocol.HTTP,
+        })
+
+        solrListener.addTargets('bgSolr', {
+            port: 8983,
+            protocol: aws_elasticloadbalancingv2.ApplicationProtocol.HTTP,
+            targets: [backgroundServerAsg]
+        })
+
+        const redisListener = privateAlb.addListener('redisListener', {
+            port: 6379,
+            protocol: aws_elasticloadbalancingv2.ApplicationProtocol.HTTP,
+        })
+
+        redisListener.addTargets('bgRedis', {
+            port: 6379,
+            protocol: aws_elasticloadbalancingv2.ApplicationProtocol.HTTP,
+            targets: [backgroundServerAsg]
+        })
+
+
+        const bgServerHostParameter = new aws_ssm.StringParameter(this, 'bgServerHostParameter', {
+            parameterName: 'bg_server_host',
+            stringValue: privateAlb.loadBalancerDnsName
+        })
 
     }
 }
