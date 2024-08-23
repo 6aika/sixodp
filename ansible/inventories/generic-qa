@@ -10,4 +10,4 @@ sixodp-background ansible_connection=local ansible_ssh_user=ubuntu
 
 [backgroundserver:vars]
 deployment_environment_id=generic-qa
-secrets_file_path="vars/secrets-defaults.yml"
+secrets_file_path="../../sixodp-secrets/generic-qa/secrets.yml"
