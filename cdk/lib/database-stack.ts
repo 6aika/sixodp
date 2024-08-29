@@ -65,7 +65,7 @@ export class DatabaseStack extends Stack {
         })
 
         this.wpDatabaseCredentials = new aws_rds.DatabaseSecret(this, 'wpMasterCredentials', {
-            username: 'wordpress_admin',
+            username: 'ckan_admin',
             encryptionKey: secretEncryptionKey,
             secretName: `wp-database-master-secret-${props.environment}`
         })
