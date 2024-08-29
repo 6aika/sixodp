@@ -3,7 +3,7 @@ server {
 
   listen [::1]:80;
   listen 127.0.0.1:80;
-  listen 443 ssl;
+  #listen 443 ssl;
   server_name {{ public_facing_hostname }};
 
   {% if deployment_environment_id != 'vagrant' %}
@@ -119,19 +119,6 @@ server {
 
 # Redirect unknown hostnames to primary hostname
 server {
-  listen 443 ssl default_server;
-
-  location / {
-    return 302 https://{{ public_facing_hostname }}$request_uri;
-  }
-
-  location /.well-known/acme-challenge/ {
-    alias /var/run/acme/acme-challenge/;
-  }
-}
-
-# Redirect HTTP to HTTPS
-server {
   listen 80 default_server;
 
   location / {
@@ -143,12 +130,25 @@ server {
   }
 }
 
+# Redirect HTTP to HTTPS
+#server {
+#  listen 80 default_server;
+
+#  location / {
+#    return 302 https://{{ public_facing_hostname }}$request_uri;
+#  }
+
+#  location /.well-known/acme-challenge/ {
+#    alias /var/run/acme/acme-challenge/;
+#  }
+#}
+
 # PHPPgAdmin
 server {
     server_name phppgadmin.{{ public_facing_hostname }};
     root    /usr/share/phppgadmin;
     index   index.php;
     include php.conf;
-    listen 8000 ssl;
+    listen 8000;
     error_page 497 https://phppgadmin.{{ public_facing_hostname }}:8000$request_uri;
 }
