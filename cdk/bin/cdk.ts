@@ -6,7 +6,8 @@ import {ParameterStack} from "../lib/parameter-stack";
 import {DatabaseStack} from "../lib/database-stack";
 import {KmsKeyStack} from "../lib/kms-key-stack";
 import {LoadBalancerStack} from "../lib/load-balancer-stack";
-import {VmStack} from "../lib/vm-stack";
+import {WebServerStack} from "../lib/web-server-stack";
+import {BackgroundServerStack} from "../lib/background-server-stack";
 
 const app = new cdk.App();
 
@@ -64,8 +65,7 @@ const loadBalancerStack = new LoadBalancerStack(app, 'loadBalancerStack', {
     vpc: vpcStack.vpc,
 })
 
-
-const vmStack = new VmStack(app, 'vmStack', {
+const backgroundServerStack = new BackgroundServerStack(app, 'backgroundServerStack', {
     env: {
         account: stackProps.account,
         region: stackProps.region
@@ -77,5 +77,24 @@ const vmStack = new VmStack(app, 'vmStack', {
     ckanDatabase: databaseStack.ckanDatabase,
     wpDatabase: databaseStack.wpDatabase,
     ckanDatabaseCredentials: databaseStack.ckanDatabaseCredentials,
-    wpDatabaseCredentials: databaseStack.wpDatabaseCredentials
+    wpDatabaseCredentials: databaseStack.wpDatabaseCredentials,
+})
+
+
+const webServerStack = new WebServerStack(app, 'webServerStack', {
+    env: {
+        account: stackProps.account,
+        region: stackProps.region
+    },
+    vpc: vpcStack.vpc,
+    environment: env.environment,
+    fqdn: env.fqdn,
+    secretBucketName: 'sixodp-secrets',
+    ckanDatabase: databaseStack.ckanDatabase,
+    wpDatabase: databaseStack.wpDatabase,
+    ckanDatabaseCredentials: databaseStack.ckanDatabaseCredentials,
+    wpDatabaseCredentials: databaseStack.wpDatabaseCredentials,
+    minWebServerCapacity: 1,
+    maxWebServerCapacity: 1,
+    backgroundServer: backgroundServerStack.backgroundServer
 })
