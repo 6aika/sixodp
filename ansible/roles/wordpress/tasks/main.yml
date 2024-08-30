@@ -151,6 +151,15 @@
     command:
       wp theme update --all --path=/opt/wordpress
 
+  - name: set reverse proxy configuration
+    blockinfile:
+      path: /opt/wordpress/wp-config.php
+      insertbefore: "/** Sets up WordPress vars and included files. */"
+      block: |
+        if (strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false) {
+          $_SERVER['HTTPS'] = 'on';
+        }
+
   become: yes
   become_user: www-data
 
