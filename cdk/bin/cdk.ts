@@ -55,15 +55,6 @@ const databaseStack = new DatabaseStack(app, 'databaseStack', {
 })
 
 
-const loadBalancerStack = new LoadBalancerStack(app, 'loadBalancerStack', {
-    env: {
-        account: stackProps.account,
-        region: stackProps.region
-    },
-    environment: env.environment,
-    fqdn: env.fqdn,
-    vpc: vpcStack.vpc,
-})
 
 const backgroundServerStack = new BackgroundServerStack(app, 'backgroundServerStack', {
     env: {
@@ -79,6 +70,8 @@ const backgroundServerStack = new BackgroundServerStack(app, 'backgroundServerSt
     ckanDatabaseCredentials: databaseStack.ckanDatabaseCredentials,
     wpDatabaseCredentials: databaseStack.wpDatabaseCredentials,
 })
+
+
 
 
 const webServerStack = new WebServerStack(app, 'webServerStack', {
@@ -97,4 +90,16 @@ const webServerStack = new WebServerStack(app, 'webServerStack', {
     minWebServerCapacity: 1,
     maxWebServerCapacity: 1,
     backgroundServer: backgroundServerStack.backgroundServer
+
+})
+
+const loadBalancerStack = new LoadBalancerStack(app, 'loadBalancerStack', {
+    env: {
+        account: stackProps.account,
+        region: stackProps.region
+    },
+    environment: env.environment,
+    fqdn: env.fqdn,
+    vpc: vpcStack.vpc,
+    webServerAsg: webServerStack.webServerAsg
 })

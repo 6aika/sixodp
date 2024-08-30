@@ -1,52 +1,60 @@
-import {aws_elasticloadbalancingv2, aws_route53, Stack} from "aws-cdk-lib";
+import {aws_certificatemanager, aws_elasticloadbalancingv2, aws_route53, Stack} from "aws-cdk-lib";
 import {Construct} from "constructs";
-import {NetworkStackProps} from "./network-stack-props";
 import {ApplicationProtocol} from "aws-cdk-lib/aws-elasticloadbalancingv2";
 import {LoadBalancerTarget} from "aws-cdk-lib/aws-route53-targets";
-import {AutoScalingGroup} from "aws-cdk-lib/aws-autoscaling";
+import {CertificateValidation} from "aws-cdk-lib/aws-certificatemanager";
+import {LoadBalancerStackProps} from "./load-balancer-stack-props";
+
 
 export class LoadBalancerStack extends Stack {
-    constructor(scope: Construct, id: string, props: NetworkStackProps) {
+
+    constructor(scope: Construct, id: string, props: LoadBalancerStackProps) {
         super(scope, id, props);
 
         const zone = aws_route53.HostedZone.fromLookup(this, 'HostedZone', {
             domainName: props.fqdn
         })
 
-        const loadbalancer = new aws_elasticloadbalancingv2.ApplicationLoadBalancer(this, 'loadBalancer', {
+
+        const certificate = new aws_certificatemanager.Certificate(this, 'certificate', {
+            domainName: `${props.environment}.${props.fqdn}`,
+            validation: CertificateValidation.fromDns(zone)
+        })
+
+
+        const loadBalancer = new aws_elasticloadbalancingv2.ApplicationLoadBalancer(this, 'loadBalancer', {
             vpc: props.vpc,
             internetFacing: true
         })
-        /*
-        const listener = loadbalancer.addListener('sslListerner', {
-            port: 443,
-            open: true
-        })
 
-        loadbalancer.addRedirect({
+
+        loadBalancer.addRedirect({
             sourceProtocol: ApplicationProtocol.HTTP,
             targetProtocol: ApplicationProtocol.HTTPS
         })
 
-        
-        const asg = new AutoScalingGroup(this, 'ScalingGroup', {
-            vpc: props.vpc,
-            vpcSubnets: {
-                subnets: props.vpc.privateSubnets
-            }
+        const listener = loadBalancer.addListener('sslListener', {
+            port: 443,
+            open: true,
+            certificates: [
+                certificate
+            ]
         })
 
 
         listener.addTargets('NginxMachines', {
             port: 80,
-            targets: [asg]
+            targets: [props.webServerAsg],
+            healthCheck: {
+                path: '/health'
+            }
         })
-*/
+
 
         new aws_route53.ARecord(this, 'ARecord', {
             zone: zone,
-            target: aws_route53.RecordTarget.fromAlias(new LoadBalancerTarget(loadbalancer)),
-            recordName: 'dev'
+            target: aws_route53.RecordTarget.fromAlias(new LoadBalancerTarget(loadBalancer)),
+            recordName: props.environment
         })
 
     }

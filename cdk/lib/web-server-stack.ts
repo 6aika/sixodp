@@ -15,6 +15,8 @@ import {WebServerStackProps} from "./web-server-stack-props";
 import {Key} from "aws-cdk-lib/aws-kms";
 
 export class WebServerStack extends Stack {
+    readonly webServerAsg: aws_autoscaling.AutoScalingGroup;
+
     constructor(scope: Construct, id: string, props: WebServerStackProps) {
         super(scope, id, props);
 
@@ -80,7 +82,7 @@ export class WebServerStack extends Stack {
         })
 
 
-        const webServerAsg = new AutoScalingGroup(this, 'webAsg', {
+        this.webServerAsg = new AutoScalingGroup(this, 'webAsg', {
             vpc: props.vpc,
             vpcSubnets:{
                 subnets: props.vpc.privateSubnets
@@ -96,11 +98,16 @@ export class WebServerStack extends Stack {
         })
 
 
-        webServerAsg.connections.allowTo(props.backgroundServer, aws_ec2.Port.tcp(8983), 'Solr connection from web server')
-        webServerAsg.connections.allowTo(props.backgroundServer, aws_ec2.Port.tcp(6379), 'Redis connection from web server')
+        this.webServerAsg.connections.allowTo(props.backgroundServer, aws_ec2.Port.tcp(8983), 'Solr connection from web server')
+        this.webServerAsg.connections.allowTo(props.backgroundServer, aws_ec2.Port.tcp(6379), 'Redis connection from web server')
 
-        webServerAsg.connections.allowTo(props.ckanDatabase, aws_ec2.Port.tcp(5432), 'web server to ckan postgres')
-        webServerAsg.connections.allowTo(props.wpDatabase, aws_ec2.Port.tcp(3306), 'web server to wp mysql')
+        this.webServerAsg.connections.allowTo(props.ckanDatabase, aws_ec2.Port.tcp(5432), 'web server to ckan postgres')
+        this.webServerAsg.connections.allowTo(props.wpDatabase, aws_ec2.Port.tcp(3306), 'web server to wp mysql')
+
+
+
+
+
 
     }
 }
