@@ -6,6 +6,12 @@ server {
   #listen 443 ssl;
   server_name {{ public_facing_hostname }};
 
+  location = /health {
+    access_log off;
+    return 200 'healthy\n';
+  }
+
+
   {% if deployment_environment_id != 'vagrant' %}
       error_page 405 500 502 503 504 @internal_error;
 
