@@ -19,9 +19,18 @@
     name: "{{ item }}"
     state: present
   with_items:
+    - "ckan-uwsgi:"
+  when: background_server is false
+
+- name: Ensure ckan background services in supervisor
+  supervisorctl:
+    name: "{{ item }}"
+    state: present
+  with_items:
     - "ckan-worker-bulk"
     - "ckan-worker-priority"
-    - "ckan-uwsgi:"
+  when: background_server is true
+
 
 - name: Ensure ckan services are started
   supervisorctl:

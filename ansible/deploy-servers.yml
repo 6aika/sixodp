@@ -18,6 +18,7 @@
     - ckan-install-patches
     - ckan-database
     - ckan-cron
+    - supervisor
     - datapusher
     - mysql
     - solr-reindex

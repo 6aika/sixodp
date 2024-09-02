@@ -4,6 +4,7 @@ sixodp-web ansible_connection=local ansible_ssh_user=ubuntu
 [webserver:vars]
 deployment_environment_id=generic-qa
 secrets_file_path="../../sixodp-secrets/generic-qa/secrets.yml"
+background_server=false
 
 [backgroundserver]
 sixodp-background ansible_connection=local ansible_ssh_user=ubuntu
@@ -11,3 +12,4 @@ sixodp-background ansible_connection=local ansible_ssh_user=ubuntu
 [backgroundserver:vars]
 deployment_environment_id=generic-qa
 secrets_file_path="../../sixodp-secrets/generic-qa/secrets.yml"
+background_server=true
