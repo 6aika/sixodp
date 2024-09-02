@@ -10,6 +10,5 @@ export interface WebServerStackProps extends NetworkStackProps {
     minWebServerCapacity: number,
     maxWebServerCapacity: number,
     backgroundServer: aws_ec2.IInstance,
-    fileSystem: aws_efs.FileSystem,
-    migrationFs: aws_efs.IFileSystem
+    fileSystem: aws_efs.FileSystem
 }

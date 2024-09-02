@@ -79,9 +79,7 @@ const fileSystemStack = new FileSystemStack(app, 'fileSystemStack', {
     },
     vpc: vpcStack.vpc,
     environment: env.environment,
-    fqdn: env.fqdn,
-    migrationFileSystemId: 'fs-7a2de6b3',
-    migrationFileSystemSecurityGroupId: 'sg-483dd430'
+    fqdn: env.fqdn
 })
 
 
@@ -101,9 +99,7 @@ const webServerStack = new WebServerStack(app, 'webServerStack', {
     minWebServerCapacity: 1,
     maxWebServerCapacity: 1,
     backgroundServer: backgroundServerStack.backgroundServer,
-    fileSystem: fileSystemStack.fileSystem,
-    migrationFs: fileSystemStack.migrationFileSystem
-
+    fileSystem: fileSystemStack.fileSystem
 })
 
 const loadBalancerStack = new LoadBalancerStack(app, 'loadBalancerStack', {
