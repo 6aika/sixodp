@@ -1,6 +1,6 @@
 import {
     aws_autoscaling,
-    aws_ec2,
+    aws_ec2, aws_efs,
     aws_elasticloadbalancingv2,
     aws_iam,
     aws_rds,
@@ -26,9 +26,20 @@ export class WebServerStack extends Stack {
         webServerUserData.addCommands(
             'apt-get update',
             'apt-get -y dist-upgrade',
-            'apt-get -y install python3 python3-pip',
+            'apt-get -y install python3 python3-pip cargo pkg-config libssl-dev',
             'snap install aws-cli --classic',
             'pip install ansible botocore boto3',
+            'cd /root',
+            'git clone https://github.com/aws/efs-utils',
+            'cd efs-utils',
+            './build-deb.sh',
+            'apt-get -y install ./build/amazon-efs-utils*deb',
+            `echo ${props.fileSystem.fileSystemId}:/ /mnt efs _netdev,noresvport,tls,iam 0 0 >> /etc/fstab`,
+            `echo ${props.fileSystem.fileSystemId}:/opt_datacatalog_data_ckan /opt/datacatalog/data/ckan efs _netdev,noresvport,tls,iam 0 0 >> /etc/fstab`,
+            'mount /mnt',
+            'mkdir -p /opt/datacatalog/data/ckan /mnt/opt_datacatalog_data_ckan',
+            'mount /opt/datacatalog/data/ckan',
+            'install -d -o www-data -g www-data /mnt/wp-uploads',
             'cd /root',
             'git clone https://github.com/6aika/sixodp.git',
             'cd /root/sixodp',
@@ -81,6 +92,13 @@ export class WebServerStack extends Stack {
             managedPolicyArn: 'arn:aws:iam::aws:policy/AmazonSSMReadOnlyAccess'
         })
 
+        role.addManagedPolicy({
+            managedPolicyArn: 'arn:aws:iam::aws:policy/AmazonElasticFileSystemClientFullAccess'
+        })
+
+        role.addManagedPolicy({
+            managedPolicyArn: 'arn:aws:iam::aws:policy/AmazonElasticFileSystemsUtils'
+        })
 
         this.webServerAsg = new AutoScalingGroup(this, 'webAsg', {
             vpc: props.vpc,
@@ -104,7 +122,7 @@ export class WebServerStack extends Stack {
         this.webServerAsg.connections.allowTo(props.ckanDatabase, aws_ec2.Port.tcp(5432), 'web server to ckan postgres')
         this.webServerAsg.connections.allowTo(props.wpDatabase, aws_ec2.Port.tcp(3306), 'web server to wp mysql')
 
-
+        this.webServerAsg.connections.allowTo(props.fileSystem, aws_ec2.Port.tcp(2049), 'web server to efs')
 
 
 

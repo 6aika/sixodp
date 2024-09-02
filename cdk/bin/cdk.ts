@@ -8,6 +8,7 @@ import {KmsKeyStack} from "../lib/kms-key-stack";
 import {LoadBalancerStack} from "../lib/load-balancer-stack";
 import {WebServerStack} from "../lib/web-server-stack";
 import {BackgroundServerStack} from "../lib/background-server-stack";
+import {FileSystemStack} from "../lib/file-system-stack";
 
 const app = new cdk.App();
 
@@ -71,7 +72,17 @@ const backgroundServerStack = new BackgroundServerStack(app, 'backgroundServerSt
     wpDatabaseCredentials: databaseStack.wpDatabaseCredentials,
 })
 
-
+const fileSystemStack = new FileSystemStack(app, 'fileSystemStack', {
+    env: {
+        account: stackProps.account,
+        region: stackProps.region
+    },
+    vpc: vpcStack.vpc,
+    environment: env.environment,
+    fqdn: env.fqdn,
+    migrationFileSystemId: 'fs-7a2de6b3',
+    migrationFileSystemSecurityGroupId: 'sg-483dd430'
+})
 
 
 const webServerStack = new WebServerStack(app, 'webServerStack', {
@@ -89,7 +100,9 @@ const webServerStack = new WebServerStack(app, 'webServerStack', {
     wpDatabaseCredentials: databaseStack.wpDatabaseCredentials,
     minWebServerCapacity: 1,
     maxWebServerCapacity: 1,
-    backgroundServer: backgroundServerStack.backgroundServer
+    backgroundServer: backgroundServerStack.backgroundServer,
+    fileSystem: fileSystemStack.fileSystem,
+    migrationFs: fileSystemStack.migrationFileSystem
 
 })
 
@@ -103,3 +116,5 @@ const loadBalancerStack = new LoadBalancerStack(app, 'loadBalancerStack', {
     vpc: vpcStack.vpc,
     webServerAsg: webServerStack.webServerAsg
 })
+
+

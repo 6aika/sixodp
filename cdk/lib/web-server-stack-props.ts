@@ -1,5 +1,5 @@
 import {NetworkStackProps} from "./network-stack-props";
-import {aws_ec2, aws_rds, aws_secretsmanager} from "aws-cdk-lib";
+import {aws_ec2, aws_efs, aws_rds, aws_secretsmanager} from "aws-cdk-lib";
 
 export interface WebServerStackProps extends NetworkStackProps {
     secretBucketName: string,
@@ -9,5 +9,7 @@ export interface WebServerStackProps extends NetworkStackProps {
     wpDatabaseCredentials: aws_secretsmanager.ISecret,
     minWebServerCapacity: number,
     maxWebServerCapacity: number,
-    backgroundServer: aws_ec2.IInstance
+    backgroundServer: aws_ec2.IInstance,
+    fileSystem: aws_efs.FileSystem,
+    migrationFs: aws_efs.IFileSystem
 }
