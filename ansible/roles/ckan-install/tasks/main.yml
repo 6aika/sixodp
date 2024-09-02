@@ -11,7 +11,7 @@
 
 - name: Download CKAN
   git:
-    repo: https://github.com/ckan/ckan.git
+    repo: https://github.com/derilinx/ckan-backports.git
     dest: "{{ cache_path }}/ckan.git"
     bare: yes
 
