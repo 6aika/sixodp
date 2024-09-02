@@ -16,6 +16,7 @@ from ckan.common import _, c
 from ckan.logic import get_action
 import ckan.lib.helpers as helpers
 
+import requests
 
 NotFound = logic.NotFound
 abort = base.abort
@@ -29,11 +30,9 @@ log = logging.getLogger(__name__)
 def get_wp_api_content(endpoint, action):
     response_data_dict = {}
     try:
-        connection = httplib.HTTPConnection(config.get('ckanext.sixodp.cms_site_url'))
         url = endpoint + "/" + action
-        connection.request("GET", url)
-        response_data_dict = json.loads(connection.getresponse().read())
-        connection.close()
+        response = requests.get(config.get('ckanext.sixodp.cms_site_url') + '/' + url)
+        response_data_dict = response.json()
     except:
         log.error('Connection to WP api failed')
 
