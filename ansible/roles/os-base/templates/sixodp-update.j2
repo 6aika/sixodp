@@ -19,5 +19,5 @@ if [ "$GIT_COMMIT_NEW" != "$GIT_COMMIT_OLD" ] ; then
 	chmod -R go-rwx /root/sixodp-secrets/*
 
 	cd /root/sixodp/ansible
-	ansible-playbook -i inventories/{{ deployment_environment_id }} deploy-transitional.yml
+	ansible-playbook -i inventories/{{ deployment_environment_id }} deploy-servers.yml --limit {{ inventory_hostname }}
 fi
