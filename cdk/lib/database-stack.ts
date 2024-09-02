@@ -45,7 +45,7 @@ export class DatabaseStack extends Stack {
         this.ckanDatabase = new aws_rds.DatabaseInstanceFromSnapshot(this, 'ckanDatabase', {
             vpc: props.vpc,
             snapshotIdentifier: ckanSnapshotIdentifier.valueAsString,
-            engine: aws_rds.DatabaseInstanceEngine.postgres({version: aws_rds.PostgresEngineVersion.VER_12}),
+            engine: aws_rds.DatabaseInstanceEngine.postgres({version: aws_rds.PostgresEngineVersion.VER_14}),
             instanceType: aws_ec2.InstanceType.of(aws_ec2.InstanceClass.T4G, aws_ec2.InstanceSize.SMALL),
             allocatedStorage: 50,
             maxAllocatedStorage: 100,
@@ -56,7 +56,8 @@ export class DatabaseStack extends Stack {
             credentials: SnapshotCredentials.fromSecret(this.ckanDatabaseCredentials),
             securityGroups: [
                 this.ckanDatabaseSecurityGroup
-            ]
+            ],
+            allowMajorVersionUpgrade: true
         })
 
         const postgresHostParameter = new aws_ssm.StringParameter(this, 'postgrestHostParameter', {
