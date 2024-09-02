@@ -30,8 +30,8 @@ log = logging.getLogger(__name__)
 def get_wp_api_content(endpoint, action):
     response_data_dict = {}
     try:
-        url = endpoint + "/" + action
-        response = requests.get(config.get('ckanext.sixodp.cms_site_url') + '/' + url)
+        url = 'http://' + config.get('ckanext.sixodp.cms_site_url') +  endpoint + "/" + action
+        response = requests.get(url)
         response_data_dict = response.json()
     except:
         log.error('Connection to WP api failed')
