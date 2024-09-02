@@ -5,7 +5,7 @@ sixodp-web ansible_connection=local ansible_ssh_user=vagrant
 deployment_environment_id=vagrant
 secrets_file_path="vars/secrets-defaults.yml"
 google_analytics_secrets_file_path="{{ cache_path}}/google_analytics_credentials.json"
-background_server=false
+background_server=False
 
 [backgroundserver]
 sixodp-background ansible_connection=local ansible_ssh_user=vagrant
@@ -14,4 +14,4 @@ sixodp-background ansible_connection=local ansible_ssh_user=vagrant
 deployment_environment_id=vagrant
 secrets_file_path="vars/secrets-defaults.yml"
 mysql_server_install = true
-background_server=true
+background_server=True

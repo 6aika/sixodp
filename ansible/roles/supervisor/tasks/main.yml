@@ -20,7 +20,7 @@
     state: present
   with_items:
     - "ckan-uwsgi:"
-  when: background_server is false
+  when: background_server == False
 
 - name: Ensure ckan background services in supervisor
   supervisorctl:
@@ -29,7 +29,7 @@
   with_items:
     - "ckan-worker-bulk"
     - "ckan-worker-priority"
-  when: background_server is true
+  when: background_server == True
 
 
 - name: Ensure ckan services are started
