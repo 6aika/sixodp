@@ -1,4 +1,4 @@
-import {aws_certificatemanager, aws_elasticloadbalancingv2, aws_route53, Stack} from "aws-cdk-lib";
+import {aws_certificatemanager, aws_elasticloadbalancingv2, aws_route53, Duration, Stack} from "aws-cdk-lib";
 import {Construct} from "constructs";
 import {ApplicationProtocol} from "aws-cdk-lib/aws-elasticloadbalancingv2";
 import {LoadBalancerTarget} from "aws-cdk-lib/aws-route53-targets";
@@ -47,7 +47,8 @@ export class LoadBalancerStack extends Stack {
             targets: [props.webServerAsg],
             healthCheck: {
                 path: '/health'
-            }
+            },
+            stickinessCookieDuration: Duration.hours(1)
         })
 
 
