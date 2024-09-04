@@ -3,7 +3,7 @@
 set -o errexit
 set -o nounset
 
-PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin;/snap/bin/aws
 
 cd /root/sixodp
 GIT_COMMIT_OLD="$(git rev-parse HEAD)"
