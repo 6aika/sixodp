@@ -13,6 +13,7 @@ import {Construct} from "constructs";
 import {AutoScalingGroup} from "aws-cdk-lib/aws-autoscaling";
 import {WebServerStackProps} from "./web-server-stack-props";
 import {Key} from "aws-cdk-lib/aws-kms";
+import {EbsDeviceVolumeType} from "aws-cdk-lib/aws-ec2";
 
 export class WebServerStack extends Stack {
     readonly webServerAsg: aws_autoscaling.AutoScalingGroup;
@@ -112,7 +113,16 @@ export class WebServerStack extends Stack {
             minCapacity: props.minWebServerCapacity,
             maxCapacity: props.maxWebServerCapacity,
             userData: webServerUserData,
-            role: role
+            role: role,
+            blockDevices : [
+                {
+                    deviceName: '/dev/sda1',
+                    volume: aws_autoscaling.BlockDeviceVolume.ebs(30, {
+                        volumeType: aws_autoscaling.EbsDeviceVolumeType.GP3,
+                        deleteOnTermination: true,
+                    })
+                }
+            ]
         })
 
 

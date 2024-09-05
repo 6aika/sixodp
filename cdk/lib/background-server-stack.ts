@@ -2,6 +2,7 @@ import {aws_ec2, aws_iam, aws_s3, aws_ssm, Stack} from "aws-cdk-lib";
 import {Construct} from "constructs";
 import {Key} from "aws-cdk-lib/aws-kms";
 import {BackgroundServerStackProps} from "./background-server-stack-props";
+import {EbsDeviceVolumeType} from "aws-cdk-lib/aws-ec2";
 
 export class BackgroundServerStack extends Stack {
     readonly backgroundServer: aws_ec2.IInstance
@@ -68,7 +69,16 @@ export class BackgroundServerStack extends Stack {
                 'eu-west-1': 'ami-082257ce7f51354df'
             }),
             userData: userData,
-            role: role
+            role: role,
+            blockDevices : [
+                {
+                    deviceName: '/dev/sda1',
+                    volume: aws_ec2.BlockDeviceVolume.ebs(30, {
+                        volumeType: EbsDeviceVolumeType.GP3,
+                        deleteOnTermination: true,
+                    })
+                }
+            ]
         })
 
         const secretBucket = aws_s3.Bucket.fromBucketName(this, 'secretBucket', props.secretBucketName)
