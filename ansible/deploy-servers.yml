@@ -12,6 +12,7 @@
     - solr
     - redis
     - nodejs
+    - postfix
     - ckan-extensions
     - ckan-install
     - ckan-config
@@ -32,6 +33,7 @@
   roles:
     - os-base
     - nodejs
+    - postfix
     - ckan-extensions
     - ckan-install
     - ckan-config
