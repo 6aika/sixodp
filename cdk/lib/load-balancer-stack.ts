@@ -1,9 +1,10 @@
-import {aws_certificatemanager, aws_elasticloadbalancingv2, aws_route53, Duration, Stack} from "aws-cdk-lib";
+import {aws_certificatemanager, aws_elasticloadbalancingv2, aws_route53, aws_s3, Duration, Stack} from "aws-cdk-lib";
 import {Construct} from "constructs";
 import {ApplicationProtocol} from "aws-cdk-lib/aws-elasticloadbalancingv2";
 import {LoadBalancerTarget} from "aws-cdk-lib/aws-route53-targets";
 import {CertificateValidation} from "aws-cdk-lib/aws-certificatemanager";
 import {LoadBalancerStackProps} from "./load-balancer-stack-props";
+import {BucketEncryption} from "aws-cdk-lib/aws-s3";
 
 
 export class LoadBalancerStack extends Stack {
@@ -58,5 +59,20 @@ export class LoadBalancerStack extends Stack {
             recordName: props.environment
         })
 
+
+        const logBucket = new aws_s3.Bucket(this, 'logBucket', {
+            bucketName: `sixodp-${props.environment}-loadbalancer-logs`,
+            blockPublicAccess: aws_s3.BlockPublicAccess.BLOCK_ALL,
+            encryption: BucketEncryption.S3_MANAGED,
+            versioned: true,
+            lifecycleRules: [
+                {
+                    enabled: true,
+                    expiration: Duration.days(30)
+                }
+            ]
+        })
+
+        loadBalancer.logAccessLogs(logBucket, this.stackName)
     }
 }
