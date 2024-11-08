@@ -1,10 +1,19 @@
-import {aws_certificatemanager, aws_elasticloadbalancingv2, aws_route53, aws_s3, Duration, Stack} from "aws-cdk-lib";
+import {
+    aws_certificatemanager,
+    aws_ec2,
+    aws_elasticloadbalancingv2,
+    aws_route53,
+    aws_s3,
+    Duration,
+    Stack
+} from "aws-cdk-lib";
 import {Construct} from "constructs";
 import {ApplicationProtocol} from "aws-cdk-lib/aws-elasticloadbalancingv2";
 import {LoadBalancerTarget} from "aws-cdk-lib/aws-route53-targets";
 import {CertificateValidation} from "aws-cdk-lib/aws-certificatemanager";
 import {LoadBalancerStackProps} from "./load-balancer-stack-props";
 import {BucketEncryption} from "aws-cdk-lib/aws-s3";
+import {StringParameter} from "aws-cdk-lib/aws-ssm";
 
 
 export class LoadBalancerStack extends Stack {
@@ -59,6 +68,46 @@ export class LoadBalancerStack extends Stack {
             recordName: props.environment
         })
 
+
+        if ( props.pgAdminEnabled ) {
+
+            const pgAdminCertificate = new aws_certificatemanager.Certificate(this, 'pgAdmincertificate', {
+                domainName: `phppgadmin.${props.environment}.${props.fqdn}`,
+                validation: CertificateValidation.fromDns(zone)
+            })
+
+            const pgAdminListener = loadBalancer.addListener('pgAdminListener', {
+                port: 8000,
+                open: false,
+                protocol: ApplicationProtocol.HTTPS,
+                certificates: [
+                    pgAdminCertificate
+                ]
+            })
+
+            pgAdminListener.addTargets('pgAdminMachines', {
+                port: 8000,
+                targets: [props.webServerAsg],
+                healthCheck: {
+                    path: '/health'
+                },
+                stickinessCookieDuration: Duration.hours(1)
+            })
+
+            new aws_route53.ARecord(this, 'pgAdminARecord', {
+                zone: zone,
+                target: aws_route53.RecordTarget.fromAlias(new LoadBalancerTarget(loadBalancer)),
+                recordName: `phppgadmin.${props.environment}`
+            })
+
+            for (let i = 1; i <= props.numberOfAllowedIpsInPgAdmin; i++) {
+
+                let allowedIpParameter = StringParameter.fromStringParameterName(this, `allowedIp${i}`,
+                    `${props.pgAdminAllowedIpPrefix}${i}`)
+
+                pgAdminListener.connections.allowFrom(aws_ec2.Peer.ipv4(allowedIpParameter.stringValue), aws_ec2.Port.tcp(8000))
+            }
+        }
 
         const logBucket = new aws_s3.Bucket(this, 'logBucket', {
             bucketName: `sixodp-${props.environment}-loadbalancer-logs`,

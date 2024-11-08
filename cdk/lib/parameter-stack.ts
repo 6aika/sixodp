@@ -6,6 +6,7 @@ export class ParameterStack extends Stack {
 
     readonly ckanDatabaseSnapshotParameterName: string
     readonly wpDatabaseSnapshotParameterName: string
+    readonly pgAdminAllowedPrefix: string
 
     constructor(scope: Construct, id: string, props: StackProps) {
         super(scope, id, props);
@@ -22,6 +23,33 @@ export class ParameterStack extends Stack {
             stringValue: 'some placeholder',
             description: 'Snapshot identifier of wp rds database',
             parameterName: this.wpDatabaseSnapshotParameterName,
+        })
+
+        this.pgAdminAllowedPrefix = '/elb/pgAdminAllowedIp';
+
+        new aws_ssm.StringParameter(this, 'pgAdminAllowedIp1', {
+            stringValue: 'some placeholder',
+            description: 'Allowed ip 1 in pgadmin',
+            parameterName: `${this.pgAdminAllowedPrefix}1`
+        })
+
+        new aws_ssm.StringParameter(this, 'pgAdminAllowedIp2', {
+            stringValue: 'some placeholder',
+            description: 'Allowed ip 2 in pgadmin',
+            parameterName: `${this.pgAdminAllowedPrefix}2`
+        })
+
+
+        new aws_ssm.StringParameter(this, 'pgAdminAllowedIp3', {
+            stringValue: 'some placeholder',
+            description: 'Allowed ip 3 in pgadmin',
+            parameterName: `${this.pgAdminAllowedPrefix}3`
+        })
+
+        new aws_ssm.StringParameter(this, 'pgAdminAllowedIp4', {
+            stringValue: 'some placeholder',
+            description: 'Allowed ip 4 in pgadmin',
+            parameterName: `${this.pgAdminAllowedPrefix}4`
         })
 
     }
