@@ -58,7 +58,7 @@ server {
     rewrite ^(.*)$ $not_found break;
   }
 
-  if ( $http_user_agent = "facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)" ) {
+  if ( $http_user_agent ~* "facebookexternalhit/1.1|meta-externalagent/1.1" ) {
     return 403;
   }
 
