@@ -8,7 +8,7 @@
   <link rel="shortcut icon" href="/assets/images/favicon.ico" />
 
   {% if h.get_cookiehub_domain_code() %}
-    <script src="https://cdn.cookiehub.eu/c2/{{cookiehub_domain_code}}.js"></script>
+    <script src="https://cdn.cookiehub.eu/c2/{{h.get_cookiehub_domain_code()}}.js"></script>
     <script type="text/javascript">
       document.addEventListener("DOMContentLoaded", function(event) {
         var cpm = {
