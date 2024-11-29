@@ -42,12 +42,12 @@
     mysql_user:
       name: "{{ mysql.users.wordpress.username }}"
       host: "%"
-      password: "{{ mysql.users.wordpress.password  }}"
+      password: "{{ mysql.users.wordprescs.password  }}"
       priv: "wordpress.*:ALL"
       login_host: "{{ mysql.server.host }}"
       login_user: "{{ mysql.server.admin_user }}"
       login_password: "{{ mysql.server.admin_password }}"
-  when: not mysql_server_install | default(false)
+  when: mysql_server_install | default(false)
 
 
 
