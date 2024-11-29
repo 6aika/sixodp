@@ -1,40 +1,34 @@
 <!-- Cookiehub -->
-
+<script src="https://cdn.cookiehub.eu/c2/{{cookiehub_domain_code}}.js"></script>
 <script type="text/javascript">
-    var cpm = {
-        onInitialise: function(status) {
-            if (this.hasConsented('analytics')) {
-                console.log('The analytics category is allowed');
-                _paq.push(['setCookieConsentGiven']);
-            }
-        },
-        onStatusChange: function(status, previousStatus)
-        {
-            if (this.hasConsented("analytics"))
-            {
-                console.log('The analytics category is allowed');
-                _paq.push(['setCookieConsentGiven']);
-            }
-        },
-        onAllow: function(category) {
-            if (category == 'analytics') {
-                console.log('The analytics category was just allowed');
-                _paq.push(['setCookieConsentGiven']);
-            }
-        },
-        onRevoke: function(category) {
-            if (category == 'analytics') {
-                console.log('The analytics category was just revoked');
-                _paq.push(['forgetCookieConsentGiven']);
-            }
-        },
-     language: "<?php echo get_lang(); ?>"
-    };
-
-    (function(h,u,b){
-        var d=h.getElementsByTagName("script")[0],e=h.createElement("script");
-        e.async=true;e.src='https://cookiehub.net/c2/{{cookiehub_domain_code}}.js';
-        e.onload=function(){u.cookiehub.load(b);}
-        d.parentNode.insertBefore(e,d);
-    })(document,window,cpm);
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var cpm = {
+            onInitialise: function(status) {
+                if (this.hasConsented('analytics')) {
+                    console.log('The analytics category is allowed');
+                    _paq.push(['setCookieConsentGiven']);
+                }
+            },
+            onStatusChange: function(status, previousStatus) {
+                if (this.hasConsented("analytics")) {
+                    console.log('The analytics category is allowed');
+                    _paq.push(['setCookieConsentGiven']);
+                }
+            },
+            onAllow: function(category) {
+                if (category == 'analytics') {
+                    console.log('The analytics category was just allowed');
+                    _paq.push(['setCookieConsentGiven']);
+                }
+            },
+            onRevoke: function(category) {
+                if (category == 'analytics') {
+                    console.log('The analytics category was just revoked');
+                    _paq.push(['forgetCookieConsentGiven']);
+                }
+            },
+           language: "<?php echo get_lang(); ?>"
+        };
+        window.cookiehub.load(cpm);
+    });
 </script>
