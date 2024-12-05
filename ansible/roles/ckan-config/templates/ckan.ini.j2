@@ -106,7 +106,7 @@ ckanext.sixodp.cookiehub_domain_code = {{ cookiehub_domain_code }}
 
 smtp.server = {{ email.smtp_server }}
 
-{% if email.smtp_user %}
+{% if email.smtp_user is defined %}
 smtp_username = {{ email.smtp_user }}
 smtp_password = {{ email.smtp_password }}
 smtp_use_tls = true
