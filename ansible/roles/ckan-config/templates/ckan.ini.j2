@@ -105,6 +105,14 @@ ckanext.sixodp.cookiehub_domain_code = {{ cookiehub_domain_code }}
 # error_email_from =
 
 smtp.server = {{ email.smtp_server }}
+
+{% if email.smtp_user %}
+smtp_username = {{ email.smtp_user }}
+smtp_password = {{ email.smtp_password }}
+smtp_use_tls = true
+{% endif %}
+
+
 smtp.starttls = False
 smtp.mail_from = no-reply
 
