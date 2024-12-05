@@ -176,8 +176,8 @@ ckan_site_id: "default"
 email_domain: "{{ public_facing_hostname }}"
 email:
   smtp_server: email-smtp.eu-west-1.amazonaws.com
-  smtp_user: {{ lookup('amazon.aws.aws_ssm', '/generic_qa/smtp/user', region='eu-west-1' ) }}
-  smtp_password: {{ lookup('amazon.aws.aws_ssm', '/generic-qa/smtp/password', region='eu-west-1' ) }}
+  smtp_user: "{{ lookup('amazon.aws.aws_ssm', '/generic_qa/smtp/user', region='eu-west-1' ) }}"
+  smtp_password: "{{ lookup('amazon.aws.aws_ssm', '/generic-qa/smtp/password', region='eu-west-1' ) }}"
   from: no-reply@{{ email_domain }}
   error_recipient: admin@localhost
   error_from: error@{{ email_domain }}
