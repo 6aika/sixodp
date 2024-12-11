@@ -15,6 +15,7 @@ wordpress_plugins:
   - classic-editor
   - wordpress-seo
   - wordfence
+  - configure-smtp
 
 removed_wordpress_plugins:
   - addthis
