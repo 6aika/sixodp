@@ -4,24 +4,37 @@ import {
     aws_s3,
     aws_ses,
     aws_ses_actions,
-    aws_sns,
+    aws_sns, aws_sns_subscriptions,
     aws_ssm,
     custom_resources,
     Stack
 } from "aws-cdk-lib";
 import {Construct} from "constructs";
-import {EnvProps} from "./env-props";
 import {RetentionDays} from "aws-cdk-lib/aws-logs";
 import {HostedZone, PublicHostedZone} from "aws-cdk-lib/aws-route53";
+import {SendToTeams} from "./lambdas/send-to-teams";
+import {StringParameter} from "aws-cdk-lib/aws-ssm";
+import {SesStackProps} from "./ses-stack-props";
 
 export class SesStack extends Stack {
-    constructor(scope: Construct, id: string, props: EnvProps) {
+    constructor(scope: Construct, id: string, props: SesStackProps) {
         super(scope, id, props);
 
+        const hostedZone = HostedZone.fromLookup(this, 'HostedZone', {
+            domainName: props.domain
+        })
+
         const identity = new aws_ses.EmailIdentity(this, 'EmailIdentity', {
-            identity: aws_ses.Identity.publicHostedZone(HostedZone.fromLookup(this, 'HostedZone', {
-                domainName: props.domain
-            })),
+            identity: aws_ses.Identity.publicHostedZone(hostedZone),
+        })
+
+        new aws_route53.MxRecord(this, 'MxRecord', {
+            zone: hostedZone,
+            recordName: props.environment,
+            values: [{
+                hostName: "inbound-smtp.eu-west-1.amazonaws.com",
+                priority: 10
+            }]
         })
 
 
@@ -68,6 +81,25 @@ export class SesStack extends Stack {
                 })
             ])
         })
+
+        const teamsHostParameter = StringParameter.fromStringParameterName(this, 'teamsHostParameter',
+            props.teamsHostParameterName)
+
+        const teamsPathParameter = StringParameter.fromStringParameterName(this, 'teamsPathParameter',
+            props.teamsPathParameterName)
+
+
+        const sendToTeams = new SendToTeams(this, 'SendToTeams', {
+            environment: props.environment,
+            fqdn: props.fqdn,
+            domain: props.domain,
+            teamsHost: teamsHostParameter.stringValue,
+            teamsPath: teamsPathParameter.stringValue
+        })
+
+        receivedMailSnsTopic.addSubscription(new aws_sns_subscriptions.LambdaSubscription(sendToTeams.lambda, {
+
+        }))
 
 
         const smtpUserNameParameter = new aws_ssm.StringParameter(this, 'smtpUserNameParameter', {

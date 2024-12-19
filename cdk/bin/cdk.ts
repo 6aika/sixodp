@@ -130,7 +130,9 @@ const sesStack = new SesStack(app, 'sesStack', {
     },
     environment: env.environment,
     fqdn: env.fqdn,
-    domain: env.domain
+    domain: env.domain,
+    teamsPathParameterName: parameterStack.teamsWorkflowPathParameterName,
+    teamsHostParameterName: parameterStack.teamsHostnameParameterName
 })
 
 
