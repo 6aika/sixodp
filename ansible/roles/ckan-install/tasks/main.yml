@@ -24,7 +24,7 @@
     virtualenv: "{{ virtualenv }}"
 
 - name: Copy requirements file
-  copy: src=requirements.txt dest="{{ cache_path }}/requirements.txt" mode="0644" owner=root group=root
+  copy: src="/{{ playbook_dir }}/../requirements.txt" dest="{{ cache_path }}/requirements.txt" mode="0644" owner=root group=root
 
 
 - name: Install CKAN
