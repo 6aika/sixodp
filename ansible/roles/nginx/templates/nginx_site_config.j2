@@ -5,7 +5,7 @@ server {
   #listen 127.0.0.1:80;
   listen 80;
   #listen 443 ssl;
-  server_name {{ public_facing_hostname }};
+  server_name {{ public_facing_hostname }} localhost;
 
   location = /health {
     access_log off;
