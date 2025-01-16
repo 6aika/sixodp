@@ -416,7 +416,7 @@ class SixodpPlugin(plugins.SingletonPlugin, DefaultTranslation):
                 }
 
     # IBlueprint
-    def get_blueprints(self):
+    def get_blueprint(self):
         return [sixodp]
 
     # IValidators
