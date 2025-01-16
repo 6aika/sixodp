@@ -22,3 +22,6 @@ sentry:
 
 translation_projects:
   - ckanext-matomo
+
+datapusher:
+  api_token: replacethis

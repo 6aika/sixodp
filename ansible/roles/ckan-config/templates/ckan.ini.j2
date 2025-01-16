@@ -130,6 +130,7 @@ ckan.storage_path = {{ ckan_storage_path }}
 solr_url = http://{{ solr.host }}:{{ solr.port }}/solr/ckan
 
 ckan.datapusher.url = http://0.0.0.0:8800/
+ckan.datapusher.api_token = {{ datapusher.api_token }}
 
 {% if AWS.enabled -%}
 ckanext.cloudstorage.driver = {{ AWS.region }}
