@@ -9917,12 +9917,6 @@ input {
   background-color: #ffffff;
   border-radius: 3px;
 }
-input[type=file] {
-  cursor: pointer;
-  position: absolute;
-  z-index: 1;
-  opacity: 0;
-}
 
 .input-lg, .input-group-lg > .form-control,
 .input-group-lg > .input-group-addon,
@@ -11989,6 +11983,48 @@ ul.pagination li.disabled a:focus {
 .organization-tree .organization-row .badge {
   background-color: #F5F6F7;
   color: #656D74;
+}
+
+.resource-upload-field > input[type=radio] {
+  display: none;
+}
+.resource-upload-field > div.select-type {
+  position: relative;
+  display: none;
+}
+.resource-upload-field > input[type=radio]:checked + div.select-type {
+  display: block;
+}
+.resource-upload-field label.btn::after {
+  content: "";
+}
+.resource-upload-field .btn-remove-url {
+  position: absolute;
+  margin-right: 0;
+  margin-top: 2px;
+  top: 30px;
+  right: 5px;
+  padding: 0 12px;
+  border-radius: 100px;
+  z-index: 1;
+}
+.resource-upload-field .btn-remove-url .icon-remove {
+  margin-right: 0;
+}
+.resource-upload-field input#field-clear-upload {
+  display: none;
+}
+.resource-upload-field input#field-clear-upload + div.upload-type {
+  display: block;
+}
+.resource-upload-field input#field-clear-upload ~ .upload-type {
+  display: none;
+}
+.resource-upload-field input#field-clear-upload:checked + div.upload-type {
+  display: none;
+}
+.resource-upload-field input#field-clear-upload:checked ~ .upload-type {
+  display: block;
 }
 
 /*# sourceMappingURL=sixodp_theme.css.map */
