@@ -23,7 +23,7 @@
             {% endif %}
           {% endfor %}
         </select>
-        {% if not request.params.get('sort') %}
+        {% if not request.args.get('sort') %}
           <input type="hidden" name="sort" value="score desc, metadata_modified desc" />
         {% endif %}
         {% block search_sortby_button %}
