@@ -11896,7 +11896,7 @@ ul.pagination li.disabled a:focus {
   color: #ffffff;
 }
 
-.image-upload #field-image-upload {
+.image-upload #field-image-upload, .image-upload .image-upload-input {
   cursor: pointer;
   position: absolute;
   z-index: 1;
