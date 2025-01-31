@@ -78,7 +78,7 @@ class ShowcaseSubmitterView(MethodView):
             user = model.User.get(username)
 
             context = {'model': model, 'session': model.Session,
-                       'user': user.id, 'auth_user_obj': user.id,
+                       'user': user.id, 'auth_user_obj': user,
                        'save': 'save' in request.args,
                        'keep_deletable_attributes_in_api': True}
 
