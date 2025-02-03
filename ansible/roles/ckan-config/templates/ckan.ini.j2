@@ -109,8 +109,17 @@ ckanext.sixodp.cookiehub_domain_code = {{ cookiehub_domain_code }}
 # error_email_from =
 
 smtp.server = {{ email.smtp_server }}
+
+{% if email.smtp_user is defined %}
+smtp.user = {{ email.smtp_user }}
+smtp.password = {{ email.smtp_password }}
+smtp.starttls = True
+smtp.mail_from = no-reply@{{ public_facing_hostname }}
+{% else %}
 smtp.starttls = False
 smtp.mail_from = no-reply
+{% endif %}
+
 
 ckan.harvest.mq.type = redis
 ckan.harvest.mq.hostname = {{ redis.host }}

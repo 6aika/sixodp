@@ -7,6 +7,8 @@ export class ParameterStack extends Stack {
     readonly ckanDatabaseSnapshotParameterName: string
     readonly wpDatabaseSnapshotParameterName: string
     readonly pgAdminAllowedPrefix: string
+    readonly teamsHostnameParameterName: string
+    readonly teamsWorkflowPathParameterName: string
 
     constructor(scope: Construct, id: string, props: StackProps) {
         super(scope, id, props);
@@ -52,5 +54,21 @@ export class ParameterStack extends Stack {
             parameterName: `${this.pgAdminAllowedPrefix}4`
         })
 
+
+        this.teamsHostnameParameterName = '/ses/teamsHostname';
+
+        new aws_ssm.StringParameter(this,'snsTeamsHost', {
+            stringValue: 'some placeholder',
+            description: 'Teams workflow hostname',
+            parameterName: this.teamsHostnameParameterName
+        })
+
+        this.teamsWorkflowPathParameterName = '/ses/teamsPath';
+
+        new aws_ssm.StringParameter(this,'snsTeamsPath', {
+            stringValue: 'some placeholder',
+            description: 'Teams workflow path',
+            parameterName: this.teamsWorkflowPathParameterName
+        })
     }
 }
