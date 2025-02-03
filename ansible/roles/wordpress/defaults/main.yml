@@ -15,6 +15,7 @@ wordpress_plugins:
   - classic-editor
   - wordpress-seo
   - wordfence
+  - wp-mail-smtp
 
 removed_wordpress_plugins:
   - addthis
@@ -22,6 +23,7 @@ removed_wordpress_plugins:
   - google-analytics-dashboard-for-wp
   - wp-piwik
   - cookiehub
+  - configure-smtp
 
 polylang_languages: 
   - { name: 'Suomi', code: 'fi', locale: 'fi', flag: 'fi' }
