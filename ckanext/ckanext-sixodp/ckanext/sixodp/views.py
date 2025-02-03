@@ -12,12 +12,12 @@ def tag_autocomplete():
     if vocabulary_id:
         create_vocabulary(vocabulary_id)
 
-    q = request.str_params.get('incomplete', '')
+    q = request.params.get('incomplete', '')
     limit = request.params.get('limit', 10)
     tag_names = []
     if q:
         context = {'model': model, 'session': model.Session,
-                   'user': g.user, 'auth_user_obj': c.userobj}
+                   'user': g.user, 'auth_user_obj': g.userobj}
 
         data_dict = {'q': q, 'limit': limit}
         if vocabulary_id:

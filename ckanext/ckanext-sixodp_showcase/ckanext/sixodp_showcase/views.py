@@ -39,7 +39,7 @@ class CreateView(views.CreateView):
     def get(self, data=None, errors=None, error_summary=None):
         package_type = showcase_utils.DATASET_TYPE_NAME
         showcase_utils.check_new_view_auth()
-        context = self._prepare(data)
+        context = self._prepare()
 
         data = data or clean_dict(
             dict_fns.unflatten(

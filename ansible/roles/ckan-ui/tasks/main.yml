@@ -1,7 +1,2 @@
-- name: re-minify ckanext-sixodp module javascript files
-  shell: ./bin/paster --plugin=ckan minify "{{ sixodp_ckanext_path }}/fanstatic/javascript/modules" "--config={{ ckan_ini }}" chdir="{{ virtualenv }}"
-  tags:
-    - frontend-build
-
 - name: rebuild ckanext-sixodp less
   shell: lessc "{{ sixodp_path }}/less/main.less" "{{ sixodp_ckanext_path }}/fanstatic/main.css"

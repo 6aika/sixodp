@@ -302,7 +302,7 @@ class SixodpPlugin(plugins.SingletonPlugin, DefaultTranslation):
             'get_field_from_schema': helpers.get_field_from_schema
         }
 
-    def before_search(self, search_params):
+    def before_dataset_search(self, search_params):
         '''Initializes default sorting if sorting is missing, replaces metadata_created with custom date_released.'''
         sort = search_params.get('sort', '')
         if len(sort) == 0:
@@ -314,7 +314,7 @@ class SixodpPlugin(plugins.SingletonPlugin, DefaultTranslation):
 
         return search_params
 
-    def after_search(self, search_results, search_params):
+    def after_dataset_search(self, search_results, search_params):
         if(search_results['search_facets'].get('groups')):
             context = {'for_view': True, 'with_private': False}
             data_dict = {
@@ -330,7 +330,7 @@ class SixodpPlugin(plugins.SingletonPlugin, DefaultTranslation):
                         search_results['search_facets']['groups']['items'][i]['title_translated'] = group.get('title_translated')
         return search_results
 
-    def before_index(self, data_dict):
+    def before_dataset_index(self, data_dict):
 
         if data_dict.get('date_released', None) is None:
             data_dict['date_released'] = data_dict['metadata_created']
@@ -382,7 +382,7 @@ class SixodpPlugin(plugins.SingletonPlugin, DefaultTranslation):
         return data_dict
 
     # This function requires overriding resource_create and resource_update by adding keep_deletable_attributes_in_api to context
-    def after_show(self, context, data_dict):
+    def after_dataset_show(self, context, data_dict):
 
         keep_deletable_attributes_in_api = config.get('ckanext.sixodp.keep_deletable_attributes_in_api',
                                                       context.get('keep_deletable_attributes_in_api', False))
@@ -416,7 +416,7 @@ class SixodpPlugin(plugins.SingletonPlugin, DefaultTranslation):
                 }
 
     # IBlueprint
-    def get_blueprints(self):
+    def get_blueprint(self):
         return [sixodp]
 
     # IValidators

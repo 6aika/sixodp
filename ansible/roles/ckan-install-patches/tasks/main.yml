@@ -14,17 +14,3 @@
   with_items: "{{ ckan_patches }}"
   tags:
   - patch_ckan
-
-- name: Re-minify CKAN core javascript files after patches
-  shell:
-    cmd: "./bin/ckan --config={{ ckan_ini }} minify {{ ckan_source_path }}/ckan/public/base/javascript"
-    chdir: "{{ virtualenv }}"
-  tags:
-  - patch_ckan
-
-- name: Re-minify CKAN vendor javascript files after patches
-  shell:
-    cmd: "./bin/ckan --config={{ ckan_ini }} minify {{ ckan_source_path }}/ckan/public/base/vendor"
-    chdir: "{{ virtualenv }}"
-  tags:
-    - patch_ckan

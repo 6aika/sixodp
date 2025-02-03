@@ -17,8 +17,13 @@ datapusherenv: /usr/lib/ckan/datapusher
 
 rds_domain_common_part: cxzvfvoncnm2.eu-west-1.rds.amazonaws.com
 
+site_protocol: https
+
 sentry:
   dsn: ""
 
 translation_projects:
   - ckanext-matomo
+
+datapusher:
+  api_token: replacethis

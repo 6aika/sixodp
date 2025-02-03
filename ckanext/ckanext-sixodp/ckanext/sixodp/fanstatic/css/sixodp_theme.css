@@ -9917,12 +9917,6 @@ input {
   background-color: #ffffff;
   border-radius: 3px;
 }
-input[type=file] {
-  cursor: pointer;
-  position: absolute;
-  z-index: 1;
-  opacity: 0;
-}
 
 .input-lg, .input-group-lg > .form-control,
 .input-group-lg > .input-group-addon,
@@ -11902,12 +11896,85 @@ ul.pagination li.disabled a:focus {
   color: #ffffff;
 }
 
+.image-upload #field-image-upload, .image-upload .image-upload-input {
+  cursor: pointer;
+  position: absolute;
+  z-index: 1;
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+.image-upload .controls {
+  position: relative;
+}
 .image-upload .btn {
-  margin-right: 20px;
+  position: relative;
+  top: 0;
+  margin-right: 10px;
+}
+.image-upload .btn.hover {
+  color: #343434;
+  text-decoration: none;
+  background-position: 0 -15px;
+  -webkit-transition: background-position 0.1s linear 0.2s ease-in-out;
+  -moz-transition: background-position 0.1s linear 0.2s ease-in-out;
+  transition: background-position 0.1s linear 0.2s ease-in-out;
 }
 .image-upload .btn.hover {
   cursor: pointer;
   color: #000000;
+}
+.image-upload .btn-remove-url {
+  position: absolute;
+  margin-right: 0;
+  top: 6px;
+  right: 5px;
+  padding: 0 12px;
+  border-radius: 100px;
+}
+.image-upload .btn-remove-url .icon-remove {
+  margin-right: 0;
+}
+
+.resource-upload-field > input[type=radio] {
+  display: none;
+}
+.resource-upload-field > div.select-type {
+  position: relative;
+  display: none;
+}
+.resource-upload-field > input[type=radio]:checked + div.select-type {
+  display: block;
+}
+.resource-upload-field label.btn::after {
+  content: "";
+}
+.resource-upload-field .btn-remove-url {
+  position: absolute;
+  margin-right: 0;
+  margin-top: 2px;
+  top: 30px;
+  right: 5px;
+  padding: 0 12px;
+  border-radius: 100px;
+  z-index: 1;
+}
+.resource-upload-field .btn-remove-url .icon-remove {
+  margin-right: 0;
+}
+.resource-upload-field input#field-clear-upload {
+  display: none;
+}
+.resource-upload-field input#field-clear-upload + div.upload-type {
+  display: block;
+}
+.resource-upload-field input#field-clear-upload ~ .upload-type {
+  display: none;
+}
+.resource-upload-field input#field-clear-upload:checked + div.upload-type {
+  display: none;
+}
+.resource-upload-field input#field-clear-upload:checked ~ .upload-type {
+  display: block;
 }
 
 .modal-body {

@@ -26,13 +26,13 @@ who.log_file = %(cache_dir)s/who_log.ini
 # Secure cookie
 who.secure = True
 
-sqlalchemy.url = postgres://{{ postgres.users.ckan.username }}:{{ postgres.users.ckan.password }}@{{ postgres.server.host }}/{{ postgres.databases.ckan.name }}
+sqlalchemy.url = postgresql://{{ postgres.users.ckan.username }}:{{ postgres.users.ckan.password }}@{{ postgres.server.host }}/{{ postgres.databases.ckan.name }}
 
-ckan.datastore.write_url = postgres://{{ postgres.users.ckan.username }}:{{ postgres.users.ckan.password }}@{{ postgres.server.host }}/{{ postgres.databases.ckan_datastore.name }}
-ckan.datastore.read_url = postgres://{{ postgres.users.ckan_datastore.username }}:{{ postgres.users.ckan_datastore.password }}@{{ postgres.server.host }}/{{ postgres.databases.ckan_datastore.name }}
+ckan.datastore.write_url = postgresql://{{ postgres.users.ckan.username }}:{{ postgres.users.ckan.password }}@{{ postgres.server.host }}/{{ postgres.databases.ckan_datastore.name }}
+ckan.datastore.read_url = postgresql://{{ postgres.users.ckan_datastore.username }}:{{ postgres.users.ckan_datastore.password }}@{{ postgres.server.host }}/{{ postgres.databases.ckan_datastore.name }}
 
-ckan.site_url = https://{{ public_facing_hostname }}
-ckan.site_url_internally = https://{{ public_facing_hostname }}/data/
+ckan.site_url = {{ site_protocol }}://{{ public_facing_hostname }}
+ckan.site_url_internally = {{ site_protocol }}://{{ public_facing_hostname }}/data/
 {% raw %}
 ckan.root_path = /data/{{LANG}}
 {% endraw %}
@@ -78,6 +78,10 @@ ckan.feeds.authority_name =
 ckan.feeds.date =
 ckan.feeds.author_name =
 ckan.feeds.author_link =
+
+ckan.base_public_folder = public-bs3
+ckan.base_templates_folder = templates-bs3
+
 
 scheming.presets = ckanext.scheming:presets.json
                    ckanext.fluent:presets.json
@@ -135,6 +139,7 @@ ckan.storage_path = {{ ckan_storage_path }}
 solr_url = http://{{ solr.host }}:{{ solr.port }}/solr/ckan
 
 ckan.datapusher.url = http://0.0.0.0:8800/
+ckan.datapusher.api_token = {{ datapusher.api_token }}
 
 {% if AWS.enabled -%}
 ckanext.cloudstorage.driver = {{ AWS.region }}

@@ -29,7 +29,7 @@ url_label='', upload_label='', field_name='image_url')  %}
 
 
   {% if is_upload_enabled %}
-  {{ form.input(field_upload, label=upload_label, id=field_upload, type='file', placeholder='', value='', error='', classes=['control-full']) }}
+  {{ form.input(field_upload, label=upload_label, id=field_upload, type='file', placeholder='', value='', error='', classes=['control-full'], attrs={'class': 'image-upload-input'}) }}
   {% if is_upload %}
   {{ form.checkbox(field_clear, label=_('Clear Upload'), id=field_clear, value='true', error='', classes=['control-full']) }}
   {% endif %}
@@ -47,7 +47,7 @@ url_label='', upload_label='', field_name='image_url')  %}
   }
 </script>
 
-<form id="submit-showcase-form" enctype="multipart/form-data" class="dataset-form form-horizontal" method="post" action="submit-showcase" data-module="basic-form" >
+<form id="submit-showcase-form" enctype="multipart/form-data" class="dataset-form form-horizontal" method="post" action="" data-module="basic-form" >
   {% block errors %}
   {{ form.errors(error_summary) }}
   {% endblock %}
