@@ -20,7 +20,7 @@
     - ckan-database
     - ckan-cron
     - supervisor
-    - datapusher
+    #- datapusher
     - mysql
     - solr-reindex
 
