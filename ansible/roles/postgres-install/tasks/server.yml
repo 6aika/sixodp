@@ -5,11 +5,6 @@
   with_items:
     - postgresql
 
-- name: Install PostGIS
-  apt:
-    name: postgresql-12-postgis-3
-    state: latest
-
 - name: Copy postgres configurations
   template: src={{ item.file }} dest={{ item.dest }} owner=postgres group=postgres mode="0640"
   with_items:
