@@ -34,6 +34,7 @@
 
 - name: Initialize QA database
   command: ./bin/ckan "--config={{ ckan_ini }}" qa init  chdir={{ virtualenv }}
+  when: "'qa' in enabled_ckan_extensions"
 
 #- name: Initialize Rating database
 #  command: ./bin/paster --plugin=ckanext-rating rating init "--config={{ ckan_ini }}" chdir={{ virtualenv }}
