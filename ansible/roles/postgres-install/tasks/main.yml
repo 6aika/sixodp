@@ -1,7 +1,7 @@
 ---
 
-- include: server.yml
+- include_tasks: server.yml
   when: postgres.server.installed_locally
 
-- include: client.yml
+- include_tasks: client.yml
   when: not postgres.server.installed_locally

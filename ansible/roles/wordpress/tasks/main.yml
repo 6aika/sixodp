@@ -261,7 +261,7 @@
   become: yes
   become_user: www-data
   
-- include: local_plugin.yml
+- include_tasks: local_plugin.yml
   with_items: "{{ wordpress_local_plugins }}"
 
 #- name: Create symbolic link for wordpress tools includes
