@@ -139,7 +139,7 @@ enabled_ckan_extensions:
     - recline_map_view
     - sixodp_showcase
     - matomo
-    - qa
+    #- qa
     - archiver
     - collection
     - reminder
