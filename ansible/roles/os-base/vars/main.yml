@@ -5,5 +5,5 @@ timezone: UTC
 
 # Apt repository configuration
 apt_source_url: http://archive.ubuntu.com
-ubuntu_codename: focal
+ubuntu_codename: jammy
 
