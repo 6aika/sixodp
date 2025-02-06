@@ -28,9 +28,7 @@
     pkg:
       - htop
       - unattended-upgrades
-
-      #- python-psycopg2
-      - postgresql-server-dev-12
+      - postgresql-server-dev-14
       - libpq5
       - git-core
       - zip
