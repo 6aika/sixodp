@@ -1,11 +1,25 @@
 ---
+#- name: Add NodeSource GPG key
+#  apt_key:
+#    data: "{{ lookup('file', 'nodesource.gpg.key') }}"
+
 - name: Add NodeSource GPG key
-  apt_key:
-    data: "{{ lookup('file', 'nodesource.gpg.key') }}"
+  copy:
+    src: 'nodesource.gpg.key'
+    dest: '/etc/apt/signing-key-nodesource-repo.asc'
+    owner: root
+    group: root
+    mode: '0444'
+  register: node_signing_key
 
 - name: Add NodeSource APT repository
-  apt_repository:
-    repo: 'deb http://deb.nodesource.com/node_12.x {{ ansible_distribution_release }} main'
+  deb822_repository:
+    name: 'nodesource_22.x'
+    uris: 'http://deb.nodesource.com/node_22.x'
+    types: 'deb'
+    suites: 'nodistro'
+    components: 'main'
+    signed_by: "{{ node_signing_key.dest }}"
 
 - name: Install Node.js
   apt:
