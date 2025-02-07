@@ -37,7 +37,7 @@ polylang_config:
   - { option: 'redirect_lang', value: 1 }
 
 # Polylang cli requires ^1.5.0
-wp_cli_version: "1.5.1"
-wp_cli_checksum: sha512:8dd68c98c6fa00e1acc5e036f9393c8b052937045b5232e4aa0eb4f15773908eae48760607bc853a4f951bd5ba69e5050337e5d9dcfa48df87a12cebb1de3432
+wp_cli_version: "2.11.0"
+wp_cli_checksum: sha512:adb12146bab8d829621efed41124dcd0012f9027f47e0228be7080296167566070e4a026a09c3989907840b21de94b7a35f3bfbd5f827c12f27c5803546d1bba
 
 wordpress_version: "latest"

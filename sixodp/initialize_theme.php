@@ -1,6 +1,5 @@
 <?php
 
-create_default_pages();
 create_default_categories();
 create_primary_menus();
 create_secondary_menus();
