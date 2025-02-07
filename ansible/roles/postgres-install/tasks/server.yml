@@ -5,22 +5,33 @@
   with_items:
     - postgresql
 
-- name: Install PostGIS
-  apt:
-    name: postgresql-12-postgis-3
-    state: latest
+#- name: Copy postgres configurations
+#  template: src={{ item.file }} dest={{ item.dest }} owner=postgres group=postgres mode="0640"
+#  with_items:
+#    - { file: pg_hba.conf.j2, dest: /etc/postgresql/12/main/pg_hba.conf }
+#    - { file: postgresql.conf.j2, dest: /etc/postgresql/12/main/postgresql.conf }
 
-- name: Copy postgres configurations
-  template: src={{ item.file }} dest={{ item.dest }} owner=postgres group=postgres mode="0640"
+#- name: Generate self-signed SSL certificate
+#  command: openssl req -new -nodes -x509 -subj "/C=FI/ST=Helsinki/L=Helsinki/O=IT/CN={{ public_facing_hostname }}" -days 3650 -keyout "/var/lib/postgresql/12/main/server.key" -out "/var/lib/postgresql/12/main/server.crt" -extensions v3_ca creates="/var/lib/postgresql/12/main/server.crt"
+
+#- name: Set certificate file ownership and mode
+#  shell: chmod 600 /var/lib/postgresql/12/main/server.* && chown "postgres:postgres" /var/lib/postgresql/12/main/server.*
+
+- name: Allow connections from all addresses in local environment
+  lineinfile:
+    path: "/etc/postgresql/14/main/postgresql.conf"
+    line: "listen_addresses = '*'"
+
+- name: Allow authentication to database
+  lineinfile:
+    path: "/etc/postgresql/14/main/pg_hba.conf"
+    line: "{{ item }}"
   with_items:
-    - { file: pg_hba.conf.j2, dest: /etc/postgresql/12/main/pg_hba.conf }
-    - { file: postgresql.conf.j2, dest: /etc/postgresql/12/main/postgresql.conf }
+      - "host {{ postgres.databases.ckan.name }} {{ postgres.users.ckan.username }} {{ postgres.server.trusted_ip_range }} md5"
+      - "host {{ postgres.databases.ckan_datastore.name }} {{ postgres.users.ckan.username }} {{ postgres.server.trusted_ip_range }} md5"
+      - "host {{ postgres.databases.ckan_datastore.name }} {{ postgres.users.ckan_datastore.username }} {{ postgres.server.trusted_ip_range }} md5"
 
-- name: Generate self-signed SSL certificate
-  command: openssl req -new -nodes -x509 -subj "/C=FI/ST=Helsinki/L=Helsinki/O=IT/CN={{ public_facing_hostname }}" -days 3650 -keyout "/var/lib/postgresql/12/main/server.key" -out "/var/lib/postgresql/12/main/server.crt" -extensions v3_ca creates="/var/lib/postgresql/12/main/server.crt"
 
-- name: Set certificate file ownership and mode
-  shell: chmod 600 /var/lib/postgresql/12/main/server.* && chown "postgres:postgres" /var/lib/postgresql/12/main/server.*
 
 - name: Restart postgres
   service: name=postgresql state=restarted

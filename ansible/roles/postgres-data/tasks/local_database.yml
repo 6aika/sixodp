@@ -28,14 +28,14 @@
   shell: cat /tmp/{{ item }} | psql --set ON_ERROR_STOP=1
   with_items: "{{ sql_files_to_execute }}"
 
-- name: Initialize Spatial database
-  command: "{{item}}"
-  with_items:
-    - "sudo -u postgres psql -d ckan_default -f /usr/share/postgresql/12/contrib/postgis-3.0/postgis.sql"
-    - "sudo -u postgres psql -d ckan_default -f /usr/share/postgresql/12/contrib/postgis-3.0/spatial_ref_sys.sql"
+#- name: Initialize Spatial database
+#  command: "{{item}}"
+#  with_items:
+#    - "sudo -u postgres psql -d ckan_default -f /usr/share/postgresql/12/contrib/postgis-3.0/postgis.sql"
+#    - "sudo -u postgres psql -d ckan_default -f /usr/share/postgresql/12/contrib/postgis-3.0/spatial_ref_sys.sql"
 
-- name: Update owner of Spatial tables
-  command: "{{item}}"
-  with_items:
-    - "sudo -u postgres psql -d ckan_default -c 'ALTER VIEW geometry_columns OWNER TO ckan_default;'"
-    - "sudo -u postgres psql -d ckan_default -c 'ALTER TABLE spatial_ref_sys OWNER TO ckan_default;'"
+#- name: Update owner of Spatial tables
+#  command: "{{item}}"
+#  with_items:
+#    - "sudo -u postgres psql -d ckan_default -c 'ALTER VIEW geometry_columns OWNER TO ckan_default;'"
+#    - "sudo -u postgres psql -d ckan_default -c 'ALTER TABLE spatial_ref_sys OWNER TO ckan_default;'"

@@ -6,9 +6,9 @@
   tags:
   - clear-cache
 
-- include: timezone.yml
-- include: hostname.yml
-- include: hosts.yml
+- include_tasks: timezone.yml
+- include_tasks: hostname.yml
+- include_tasks: hosts.yml
 
 - name: Copy apt sources.list
   template: src=sources.list.j2 dest=/etc/apt/sources.list mode="0644" owner=root group=root
@@ -28,9 +28,7 @@
     pkg:
       - htop
       - unattended-upgrades
-
-      #- python-psycopg2
-      - postgresql-server-dev-12
+      - postgresql-server-dev-14
       - libpq5
       - git-core
       - zip
@@ -99,7 +97,7 @@
     job: "/usr/local/bin/sixodp-update 2>&1 | mail -s 'sixodp-update results' {{ automatic_updates_recipient }}"
     state: "{{ 'present' if automatic_updates else 'absent' }}"
 
-- include: pip.yml
+- include_tasks: pip.yml
 
 - name: Install guest additions in vagrant
   apt:

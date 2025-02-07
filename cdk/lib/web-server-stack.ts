@@ -106,9 +106,9 @@ export class WebServerStack extends Stack {
             vpcSubnets:{
                 subnets: props.vpc.privateSubnets
             },
-            instanceType: aws_ec2.InstanceType.of(aws_ec2.InstanceClass.T3A, aws_ec2.InstanceSize.SMALL),
+            instanceType: aws_ec2.InstanceType.of(aws_ec2.InstanceClass.T4G, aws_ec2.InstanceSize.SMALL),
             machineImage: aws_ec2.MachineImage.genericLinux({
-                'eu-west-1': 'ami-082257ce7f51354df'
+                'eu-west-1': 'ami-032a56ad5e480189c'
             }),
             minCapacity: props.minWebServerCapacity,
             maxCapacity: props.maxWebServerCapacity,

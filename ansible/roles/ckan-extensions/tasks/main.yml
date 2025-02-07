@@ -16,7 +16,7 @@
 
   when: deployment_environment_id != "vagrant" and deployment_environment_id != "vagrant_multi"
 
-- include: extension.yml
+- include_tasks: extension.yml
   with_items: "{{ ckan_extensions }}"
 
 - name: Copy googleanalytics secrets to vagrant

@@ -3,7 +3,7 @@
 - name: Ensure SSL certificate directory
   file: path="{{ ssl_certificate_path }}" state=directory mode="0700" owner=root group=root
 
-- include: ssl_self-signed.yml
+- include_tasks: ssl_self-signed.yml
   when: nginx.use_selfsigned_certificate|bool
 
 - block:

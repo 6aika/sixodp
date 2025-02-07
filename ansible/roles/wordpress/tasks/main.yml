@@ -93,7 +93,7 @@
     command: >
       wp core install
         --path=/opt/wordpress
-        --url=https://{{ public_facing_hostname }}/
+        --url={{ site_protocol }}://{{ public_facing_hostname }}/
         --title=6aika
         --admin_user={{ wordpress_users.admin.username }}
         --admin_password={{ wordpress_users.admin.password }}
@@ -104,7 +104,7 @@
     command: >
       wp core install
         --path=/opt/wordpress
-        --url=https://{{ public_facing_hostname }}/
+        --url={{ site_protocol }}://{{ public_facing_hostname }}/
         --title=6aika
         --admin_user={{ wordpress_users.admin.username }}
         --admin_password={{ wordpress_users.admin.password }}
@@ -156,9 +156,11 @@
       path: /opt/wordpress/wp-config.php
       insertbefore: "Sets up WordPress vars and included files."
       block: |
-        if (strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false) {
+        if ((isset($_SERVER['HTTP_X_FORWARDED_PROTO'])) && strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false) {
           $_SERVER['HTTPS'] = 'on';
         }
+
+
 
   become: yes
   become_user: www-data
@@ -170,36 +172,7 @@
     path: /opt/wp-cli
     owner: www-data
     group: www-data
-
-- block:
-
-  - name: Check if polylang-cli is installed
-    command: wp package list
-    register: wp_installed_packages
-
-  - name: Install polylang-cli
-    command: wp package install git@github.com:diggy/polylang-cli.git
-    when: "'diggy/polylang-cli' not in wp_installed_packages.stdout"
-
-  - name: Add languages to polylang-cli
-    command: wp pll lang create "{{ item.name }}" "{{ item.code }}" "{{ item.locale }}" --flag="{{ item.flag }}" --path=/opt/wordpress
-    with_items: "{{ polylang_languages }}"
-    ignore_errors: true
-
-  - name: Configure polylang
-    command: wp pll option update "{{ item.option }}" "{{ item.value }}" --path=/opt/wordpress
-    with_items: "{{ polylang_config }}"
-    ignore_errors: true
-
-
-  become: yes
-  become_user: www-data
-
-  environment:
-    WP_CLI_CACHE_DIR: /opt/wp-cli/cache
-    WP_CLI_CONFIG_PATH: /opt/wp-cli/config.yml
-    WP_CLI_PACKAGES_DIR: /opt/wp-cli/packages
-
+    
 
 - block:
   - name: Configure ReCaptcha sitekey
@@ -261,7 +234,7 @@
   become: yes
   become_user: www-data
   
-- include: local_plugin.yml
+- include_tasks: local_plugin.yml
   with_items: "{{ wordpress_local_plugins }}"
 
 #- name: Create symbolic link for wordpress tools includes

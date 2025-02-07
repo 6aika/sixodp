@@ -4,8 +4,8 @@
   pip:
     name: psycopg2
 
-- include: local_database.yml
+- include_tasks: local_database.yml
   when: postgres.server.installed_locally
 
-- include: rds.yml
+- include_tasks: rds.yml
   when: not postgres.server.installed_locally

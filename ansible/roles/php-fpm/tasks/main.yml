@@ -9,7 +9,7 @@
 
 - name: Configure php max children
   ini_file:
-    path: /etc/php/7.4/fpm/pool.d/www.conf
+    path: /etc/php/8.1/fpm/pool.d/www.conf
     section: www
     option: pm.max_children
     value: 20
@@ -17,7 +17,7 @@
 
 - name: Configure php max file size
   ini_file:
-    path:  /etc/php/7.4/fpm/php.ini
+    path:  /etc/php/8.1/fpm/php.ini
     section: PHP
     option: upload_max_filesize
     value: 100M
@@ -25,7 +25,7 @@
 
 - name: Configure php max post size
   ini_file:
-    path:  /etc/php/7.4/fpm/php.ini
+    path:  /etc/php/8.1/fpm/php.ini
     section: PHP
     option: post_max_size
     value: 100M
@@ -34,7 +34,7 @@
 
 - name: Configure php max input time
   ini_file:
-    path:  /etc/php/7.4/fpm/php.ini
+    path:  /etc/php/8.1/fpm/php.ini
     section: PHP
     option: max_input_time
     value: 300
@@ -42,5 +42,5 @@
 
 - name: Restart PHP FPM
   service:
-    name: php7.4-fpm
+    name: php8.1-fpm
     state: restarted

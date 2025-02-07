@@ -6,7 +6,7 @@
     - gcc
     - libpq-dev
     - libxslt1-dev
-    - python-dev
+    - python3-dev
     - zlib1g-dev
 
 - name: Download CKAN

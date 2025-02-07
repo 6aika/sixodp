@@ -5,7 +5,7 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.define "sixodp-background", primary: true do |server|
-    server.vm.box = "bento/ubuntu-20.04"
+    server.vm.box = "bento/ubuntu-22.04"
     server.vm.network :private_network, ip: "10.106.10.20"
     server.vm.hostname = "sixodp-background"
 
@@ -35,7 +35,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.define "sixodp-web", primary: true do |server|
-      server.vm.box = "bento/ubuntu-20.04"
+      server.vm.box = "bento/ubuntu-22.04"
       server.vm.network :private_network, ip: "10.106.10.21"
       server.vm.hostname = "sixodp-web"
 
