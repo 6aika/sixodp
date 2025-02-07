@@ -1,6 +1,6 @@
 ---
 wordpress_local_plugins:
-  - wp-trello
+  #- wp-trello
   - wp-api-menus
   - contact-widgets
 wordpress_plugins:
