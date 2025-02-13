@@ -24,6 +24,7 @@ removed_wordpress_plugins:
   - wp-piwik
   - cookiehub
   - configure-smtp
+  - wp-trello
 
 polylang_languages: 
   - { name: 'Suomi', code: 'fi', locale: 'fi', flag: 'fi' }
