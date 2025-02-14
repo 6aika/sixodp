@@ -70,7 +70,19 @@ this.ckan.module('confirm-action', function (jQuery, _) {
         action: this.el.attr('href'),
         method: 'POST'
       });
-      $('form[method=POST]').find('input[type=hidden][name=csrf-token]').appendTo(form);
+      // use parent to el form if data-module-with-data == true
+      if (this.options.withData) {
+        var form = this.el.closest('form');
+      }
+
+      // get the csrf value
+      var csrf_field = $('meta[name=csrf_field_name]').attr('content');
+      var csrf_value = $('meta[name=' + csrf_field + ']').attr('content')
+      // set the hidden input
+      var hidden_csrf_input = $('<input name="'+csrf_field+'" type="hidden" value="'+csrf_value+'">')
+      // insert the hidden input at the beginning of the form
+      hidden_csrf_input.prependTo(form)
+
       form.appendTo('body').submit();
     },
 
