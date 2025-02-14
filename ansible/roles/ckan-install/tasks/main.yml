@@ -9,12 +9,6 @@
     - python3-dev
     - zlib1g-dev
 
-- name: Download CKAN
-  git:
-    repo: https://github.com/ckan/ckan.git
-    dest: "{{ cache_path }}/ckan.git"
-    bare: yes
-
 - name: Copy recommended setuptools requirements file
   copy: src=requirement-setuptools.txt dest="{{ cache_path }}/requirement-setuptools.txt" mode="0644" owner=root group=root
 
