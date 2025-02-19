@@ -6,6 +6,7 @@
     <h3 class="card-title"><?php echo $item['title']; ?></h3>
     <div class="card-title-secondary">
       <?php
+        /*
         if ($item['show_rating']) {
           $rating = get_ckan_package_rating($item['package_id'])['rating'];
           $j = $rating['rating'];
@@ -18,9 +19,9 @@
             }
           }
         }
-        else {
+        else { */
           echo parse_date($item['date_updated']);
-        }
+        //}
       ?>
     </div>
   </div>
