@@ -215,7 +215,7 @@ class EditView(views.EditView):
         )
 
     def post(self, id):
-        context = self._prepare(id)
+        context = self._prepare()
         showcase_utils.check_edit_view_auth(id)
 
         data_dict = dataset.clean_dict(
