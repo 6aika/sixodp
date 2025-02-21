@@ -37,7 +37,7 @@
     line-height: $line-height-base;
   }
 }
-
+/*
 .btn-primary {
   @include btn-colors($btn-primary-bg, $btn-primary-color, $btn-primary-bg);
 }
@@ -94,6 +94,7 @@
   @include btn-colors(transparent, $brand-latest, $brand-latest);
 }
 
+*/
 .btn-secondary--search {
   @extend .btn-secondary;
   color: $btn-main-bg;

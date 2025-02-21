@@ -337,7 +337,7 @@ $card-meta-height: $font-size-small + $card-padding * 3;
   line-height: $font-size-small;
   width: 100%;
   text-transform: uppercase;
-  padding: 0 $card-padding - 3px;
+  padding: 0 $card-padding - 0.188rem;
   margin: $card-padding*2 0 $card-padding 0;
 }
 

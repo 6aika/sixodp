@@ -1,7 +1,7 @@
 .image-modal {
   display: none;
   position: fixed;
-  z-index: $zindex-modal-background;
+  z-index: $zindex-modal-backdrop;
   padding-top: $base*6;
   left: 0;
   top: 0;

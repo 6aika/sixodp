@@ -6,7 +6,7 @@
     cursor: pointer;
     position: absolute;
     z-index: 1;
-    @include opacity(0);
+    opacity: 0;
   }
 
   .controls {
