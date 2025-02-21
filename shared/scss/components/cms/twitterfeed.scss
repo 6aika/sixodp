@@ -89,8 +89,8 @@
   .ctf-tweet-actions {
     padding: $base $base*2 !important;
     margin: 0 !important;
-    border-bottom-left-radius: $base/2;
-    border-bottom-right-radius: $base/2;
+    border-bottom-left-radius: $base*0.5;
+    border-bottom-right-radius: $base*0.5;
     border: 1px solid $gray-lighter;
     border-top: 0;
     position: absolute;

@@ -1,4 +1,6 @@
-$relative-logo-position: 3/6;
+@use "sass:math";
+
+$relative-logo-position: math.div(3, 6);
 
 .logos {
   top: $page-hero-height * $relative-logo-position;

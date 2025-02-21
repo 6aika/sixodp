@@ -1,6 +1,8 @@
+@use "sass:math";
+
 $card-img-height: $card-height - $card-content-height;
 $card-padding: $padding-large-horizontal;
-$card-line-height: ($card-content-height - $card-padding * 3) / ($card-heading-rows + 1);
+$card-line-height: math.div($card-content-height - $card-padding * 3, $card-heading-rows + 1);
 $card-meta-height: $font-size-small + $card-padding * 3;
 
 .cards,

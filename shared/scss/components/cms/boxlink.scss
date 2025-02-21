@@ -53,14 +53,14 @@
     bottom: 0;
     left: 0;
   padding: $base $base*2;
-  border-bottom-left-radius: $base/2;
-  border-bottom-right-radius: $base/2;
+  border-bottom-left-radius: $base*0.5;
+  border-bottom-right-radius: $base*0.5;
   background-color: $gray-lighter;
 
   .heading {
     float: left;
-    margin-top: $base/2;
-    margin-bottom: $base/2;
+    margin-top: $base*0.5;
+    margin-bottom: $base*0.5;
 
     a {
       text-transform: uppercase;
