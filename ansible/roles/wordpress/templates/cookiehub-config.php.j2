@@ -29,6 +29,8 @@
             },
            language: "<?php echo get_lang(); ?>"
         };
-        window.cookiehub.load(cpm);
+        if (window.cookiehub ){
+            window.cookiehub.load(cpm);
+        }
     });
 </script>
