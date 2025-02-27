@@ -25,3 +25,8 @@ git:
       source_language: en
       source_file: 'ckanext/ckanext-statistics/ckanext/statistics/i18n/ckanext-statistics.pot'
       translation_files_expression: 'ckanext/ckanext-statistics/ckanext/statistics/i18n/<lang>/LC_MESSAGES/ckanext-statistics.po'
+    - filter_type: file
+      file_format: PO
+      source_language: en
+      source_file: 'sixodp/i18n/sixodp.pot'
+      translation_files_expression: 'sixodp/i18n/<lang>/LC_MESSAGES/sixodp.po'
