@@ -15,7 +15,6 @@
 }
 
 .hero .input-group {
-  display: table;
 
   input {
     height: $input-height-large;
@@ -28,13 +27,13 @@
     }
 
     &::placeholder {
-      font-size: $font-size-small + 1;
+      font-size: $font-size-small;
       letter-spacing: 1px;
     }
   }
 
   button.btn-secondary {
-    font-size: $font-size-small + 1;
+    font-size: $font-size-small - 0.187;
     padding: $padding-large-vertical $padding-large-horizontal*2;
     letter-spacing: 2px;
     text-transform: uppercase;
