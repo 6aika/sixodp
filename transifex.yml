@@ -1,0 +1,7 @@
+git:
+  filters:
+    - filter_type: file
+      file_format: PO
+      source_language: en
+      source_file: 'ckanext/ckanext-sixodp/ckanext/sixodp/i18n/ckanext-sixodp.pot'
+      translation_files_expression: 'ckanext/ckanext-sixodp/ckanext/sixodp/i18n/<lang>/LC_MESSAGES/ckanext-sixodp.po'
