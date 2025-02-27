@@ -5,3 +5,8 @@ git:
       source_language: en
       source_file: 'ckanext/ckanext-sixodp/ckanext/sixodp/i18n/ckanext-sixodp.pot'
       translation_files_expression: 'ckanext/ckanext-sixodp/ckanext/sixodp/i18n/<lang>/LC_MESSAGES/ckanext-sixodp.po'
+    - filter_type: file
+      file_format: PO
+      source_language: en
+      source_file: 'ckanext/ckanext-datasubmitter/ckanext/datasubmitter/i18n/ckanext-datasubmitter.pot'
+      translation_files_expression: 'ckanext/ckanext-datasubmitter/ckanext/datasubmitter/i18n/<lang>/LC_MESSAGES/ckanext-datasubmitter.po'
