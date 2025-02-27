@@ -10,3 +10,8 @@ git:
       source_language: en
       source_file: 'ckanext/ckanext-datasubmitter/ckanext/datasubmitter/i18n/ckanext-datasubmitter.pot'
       translation_files_expression: 'ckanext/ckanext-datasubmitter/ckanext/datasubmitter/i18n/<lang>/LC_MESSAGES/ckanext-datasubmitter.po'
+    - filter_type: file
+      file_format: PO
+      source_language: en
+      source_file: 'ckanext/ckanext-sixodp_showcase/ckanext/sixodp_showcase/i18n/ckanext-sixodp_showcase.pot'
+      translation_files_expression: 'ckanext/ckanext-sixodp_showcase/ckanext/sixodp_showcase/i18n/<lang>/LC_MESSAGES/ckanext-sixodp_showcase.po'
