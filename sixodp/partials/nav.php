@@ -4,12 +4,12 @@
 *
 **/
 ?>
-<nav class="navbar navbar-default" id="main-navbar" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'sixodp' ); ?>">
+<nav class="navbar navbar-light navbar-expand-lg" id="main-navbar" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'sixodp' ); ?>">
 
     <div class="container">
 
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-nav-collapse" aria-expanded="false">
+      <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#top-nav-collapse" aria-expanded="false">
         <span class="sr-only"><?php _e('Toggle navigation', 'sixodp');?> </span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -21,31 +21,31 @@
         <a class="sr-only sr-only-focusable" href="#maincontent">
             <?php _e( 'Skip to content', 'sixodp' ); ?></a>
 
-        <ul class="nav navbar-nav">
+        <ul class="navbar-nav me-auto">
         <?php
           foreach ( get_nav_menu_items("primary") as $navItem ) {
             if ( count($navItem["children"]) > 0 ) {
-              $class = '';
+              $class = ' nav-item';
               if ( $navItem["isActive"] ) {
-                $class = ' active';
+                $class += ' active';
               }
-              echo '<li class="has-subnav' . $class.'"><a href="'.$navItem["url"].'" title="'.$navItem["title"].'">'.$navItem["title"].'</a>
+              echo '<li class="has-subnav' . $class.'"><a class="nav-link" href="'.$navItem["url"].'" title="'.$navItem["title"].'">'.$navItem["title"].'</a>
               <button class="subnav-toggle"><span class="sr-only">' . __('Show submenu for ', 'sixodp') .  $navItem['title'] . '</span><i class="fa fa-chevron-down"></i></button>
               <ul class="nav navbar-nav subnav">';
               foreach ($navItem["children"] as $sub_nav_item) {
-                $class = '';
+                $class = 'nav-item';
                 if ( isset($sub_nav_item["isActive"]) and $sub_nav_item["isActive"] ) {
-                  $class = 'active';
+                  $class += ' active';
                 }
-                echo '<li class="'.$class.'"><a href="'.$sub_nav_item["url"].'" title="'.$sub_nav_item["title"].'"><span class="fa fa-long-arrow-right"></span>'.$sub_nav_item["title"].'</a></li>';
+                echo '<li class="'.$class.'"><a class="nav-link" href="'.$sub_nav_item["url"].'" title="'.$sub_nav_item["title"].'"><span class="fa fa-long-arrow-right"></span>'.$sub_nav_item["title"].'</a></li>';
               }
               echo '</ul></li>';
             } else {
-              $class = '';
+              $class = 'nav-item';
               if ( $navItem["isActive"] ) {
-                $class = 'active';
+                $class += ' active';
               }
-              echo '<li class="'.$class.'"><a href="'.$navItem["url"].'" title="'.$navItem["title"].'">'.$navItem["title"].'</a></li>';
+              echo '<li class="'.$class.'"><a class="nav-link" href="'.$navItem["url"].'" title="'.$navItem["title"].'">'.$navItem["title"].'</a></li>';
             }
           }
         ?>
