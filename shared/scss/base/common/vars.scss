@@ -331,13 +331,13 @@ $padding-base-horizontal: 0.375rem;
 $margin-base-vertical: 0.375rem;
 $margin-base-horizontal: 0.375rem;
 
-$font-size-base: 1rem;
+$font-size-base: 0.875rem;
 $font-size: $font-size-base;
 $font-size-xxlarge: floor(($font-size-base * 2.6));
-$font-size-xlarge: ceil(($font-size-base * 1.6)); // ~23px
-$font-size-large: ceil(($font-size-base * 1.25)); // ~18px
-$font-size-medium: floor(($font-size-base * 1.15)); // ~16px
-$font-size-small: ceil(($font-size-base * 0.85)); // ~12px
+$font-size-xlarge: 1.438rem; // ~23px
+$font-size-large: 1.125rem; // ~18px
+$font-size-medium: 1rem; // ~16px
+$font-size-small: 0.75rem; // ~12px
 
 $font-size-h1: floor(($font-size-base * 2.4)); // ~36px
 $font-size-h2: floor(($font-size-base * 2.15)); // ~30px
