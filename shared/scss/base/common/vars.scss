@@ -117,6 +117,16 @@ $category-box-count-color: $brand-primary-extralight;
 $stats-text-color: $brand-white;
 $brand-categories: darken($category-box-bg, 20%);
 
+$theme-colors: (
+        "primary":    $brand-primary,
+        "secondary":  $brand-secondary,
+        "success":    $brand-success,
+        "info":       $brand-info,
+        "warning":    $brand-warning,
+        "danger":     $brand-danger,
+        "categories": $brand-categories
+);
+
 $accordion-bg: $brand-bg-alt;
 $accordion-tab-bg: $brand-bg-alt;
 $accordion-tab-overlay-bg: $brand-bg-alt;
@@ -365,3 +375,5 @@ $input-color-placeholder: $brand-input-color;
 $transition-speed-base: .2s;
 $transition-curve-base: ease-in-out;
 $transition: all $transition-speed-base $transition-curve-base;
+
+
