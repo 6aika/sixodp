@@ -53,9 +53,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li class="navbar-search">
           <div class="input-group navbar-search-form">
-            <span class="input-group-btn">
-              <button class="btn btn-secondary navbar-search-submit-btn" type="button"><span class="fa fa-search" aria-hidden="true"></span></button>
-            </span>
+            <button class="btn btn-secondary navbar-search-submit-btn" type="button"><span class="fa fa-search" aria-hidden="true"></span></button>
             <input type="text" class="form-control navbar-search-input" id="navbar-search-q" aria-label="...">
           </div>
           <button class="btn btn-secondary navbar-search-btn" type="button" aria-label="<?php _e('Search', 'sixodp');?>"><span class="fa fa-search" aria-hidden="true"></span></button>

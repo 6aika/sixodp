@@ -12,6 +12,9 @@
 .navbar {
   border: none;
   border-radius: 0;
+  --bs-navbar-padding-y: 0;
+  --bs-navbar-nav-link-padding-x: 0.938rem;
+  --bs-nav-link-font-size: 0.875rem;
 
   .container {
     padding-left: 15px;
