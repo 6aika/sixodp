@@ -3,6 +3,7 @@
 - name: Remove existing files created by patches
   file: path={{ item.file }} state=absent
   with_items: "{{ files_created_by_patches }}"
+  when: files_created_by_patches is defined
   tags:
     - patch_ckan
 

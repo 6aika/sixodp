@@ -1,6 +1,6 @@
 {% ckan_extends %}
 
 {% block content_primary_nav %}
-  {{ h.build_nav_icon('group.read', _('Datasets'), id=c.group_dict.name) }}
-  {{ h.build_nav_icon('activity.group_activity', _('Activity Stream'), id=c.group_dict.name, offset=0) }}
+  {{ h.build_nav_icon('group.read', _('Datasets'), id=group_dict.name) }}
+  {{ h.build_nav_icon('activity.group_activity', _('Activity Stream'), id=group_dict.name, offset=0) }}
 {% endblock %}

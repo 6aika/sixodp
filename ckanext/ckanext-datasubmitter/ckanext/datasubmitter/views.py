@@ -119,7 +119,6 @@ class DatasubmitterView(MethodView):
 
             validateReCaptcha(data_dict.get('g-recaptcha-response'))
 
-            log.info(context)
             get_action('package_create')(context, data_dict)
         except NotAuthorized:
             log.info('Unauthorized to create a package')

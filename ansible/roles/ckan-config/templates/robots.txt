@@ -1,4 +1,0 @@
-User-agent: *
-{% if not robots_allowed %}
-Disallow: /
-{% endif %}
