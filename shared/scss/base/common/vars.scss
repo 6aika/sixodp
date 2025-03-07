@@ -365,7 +365,7 @@ $margin-small-horizontal: 0.312rem;
 $line-height-computed: 1.25rem;
 $input-background-color: $brand-background;
 $input-height-base: ($line-height-computed + ($padding-base-vertical * 2) - 1);
-$input-height-large: (ceil($font-size-large * $line-height-large) + ($padding-large-vertical * 2) - 4);
+$input-height-large: 2rem;
 $input-height-small: (floor($font-size-small * $line-height-small) + ($padding-small-vertical * 2) - 1);
 $input-border-focus: $brand-secondary-light;
 $input-color: $brand-input-color;
