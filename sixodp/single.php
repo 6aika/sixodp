@@ -32,20 +32,20 @@ get_header(); ?>
       <div class="toolbar">
         <div class="container">
             <ol class="breadcrumb">
-            <li><a href="<?php echo get_home_url() ?>"><?php _e('Home', 'sixodp') ?></a></li>
+            <li class="breadcrumb-item"><a href="<?php echo get_home_url() ?>"><?php _e('Home', 'sixodp') ?></a></li>
             <?php if ($cat_parent != $category && $cat_parent->name != $cat->name) : ?>
-              <li><a href="<?php echo get_category_link($cat_parent_id) ?>"><?php echo $cat_parent->name ?></a></li>
+              <li class="breadcrumb-item"><a href="<?php echo get_category_link($cat_parent_id) ?>"><?php echo $cat_parent->name ?></a></li>
             <?php endif;?>
             <?php if($cat) : ?>
-            <li><a href="<?php echo get_category_link($cat) ?>"><?php echo $cat->name ?></a></li>
+            <li class="breadcrumb-item"><a href="<?php echo get_category_link($cat) ?>"><?php echo $cat->name ?></a></li>
             <?php endif; ?>
             <?php if ($post_type->name === 'data_request') : ?>
-                <li><a href="<?php echo get_post_type_archive_link($post_type->name) ?>"><?php _e('Data Requests', 'sixodp'); ?></a></li>
+                <li class="breadcrumb-item"><a href="<?php echo get_post_type_archive_link($post_type->name) ?>"><?php _e('Data Requests', 'sixodp'); ?></a></li>
             <?php endif; ?>
             <?php if ($post_type->name === 'showcase_idea') : ?>
-                <li><a href="<?php echo get_post_type_archive_link($post_type->name) ?>"><?php _e('Showcase ideas', 'sixodp'); ?></a></li>
+                <li class="breadcrumb-item"><a href="<?php echo get_post_type_archive_link($post_type->name) ?>"><?php _e('Showcase ideas', 'sixodp'); ?></a></li>
             <?php endif; ?>
-            <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+            <li class="breadcrumb-item"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
           </ol>
         </div>
       </div>
