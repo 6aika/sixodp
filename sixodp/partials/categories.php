@@ -31,8 +31,8 @@
         ?>
       </div>
     </div>
-    <div class="row" style="text-align: center; padding: 32px 0;">
-      <a href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale_ckan(); ?>/dataset" class="btn btn-transparent btn-categories"><?php _e('All datasets', 'sixodp');?></a>
+    <div class="row justify-content-center" style="padding: 32px 0;">
+      <a style="width: auto" href="<?php echo CKAN_BASE_URL; ?>/<?php echo get_current_locale_ckan(); ?>/dataset" class="btn btn-transparent btn-categories btn--banner"><?php _e('All datasets', 'sixodp');?></a>
     </div>
   </div>
 </div>
