@@ -3,8 +3,8 @@
 
 {% block pre_primary %}
   <div class="page-hero"></div>
-  <div class="search-form-container search-form-container-borderless row">
-    <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12">
+  <div class="search-form-container search-form-container-borderless row justify-content-center">
+    <div class="col-lg-6 col-md-6 col-sm-12">
       {{ h.snippet('snippets/search_input.html', query=g.q, placeholder=_('Search showcases...'), query_params=fields_grouped, sorting=g.sort_by_selected) }}
     </div>
   </div>
