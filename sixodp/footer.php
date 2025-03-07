@@ -14,8 +14,8 @@
 
 		<footer id="colophon" class="site-footer bgcolor-primary" role="contentinfo">
 			<div class="container">
-				<div class="row footer-row">
-					<div class="col-md-4 pull-right text-right footer-column">
+				<div class="row footer-row justify-content-end">
+					<div class="col-md-4 footer-column">
 						<div class="popper">
 							<ul class="popper__list">
 								<li class="popper__item">
@@ -26,7 +26,7 @@
 								</li>
 							</ul>
 						</div>
-						<button type="button" class="btn btn-transparent" data-trigger="popper"><?php _e('Management', 'sixodp');?></button>
+						<button type="button" class="float-end btn btn-transparent" data-trigger="popper"><?php _e('Management', 'sixodp');?></button>
 					</div>
 				</div>
 				<div class="row footer-row">
