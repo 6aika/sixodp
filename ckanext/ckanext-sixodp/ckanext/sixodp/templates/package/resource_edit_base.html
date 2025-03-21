@@ -1,0 +1,23 @@
+{% ckan_extends %}
+
+{% block breadcrumb_content %}
+    {% set dataset = h.dataset_display_name(pkg) %}
+        {% if pkg.organization %}
+            {% set organization = pkg.organization.title %}
+            {% set group_type = pkg.organization.type %}
+            <li class="breadcrumb-item">{% link_for _('Organizations'), controller=group_type, action='index' %}</li>
+            {% set parent_list =  h.group_tree_parents(pkg.organization.name)  %}
+            {% for parent_node in parent_list %}
+                <li class="breadcrumb-item">{% link_for  parent_node.title|truncate(35), controller=group_type, action='read', id=parent_node.name %}</li>
+            {% endfor %}
+            <li class="breadcrumb-item">{% link_for organization|truncate(30), controller=group_type, action='read', id=pkg.organization.name %}</li>
+            {% else %}
+                <li class="breadcrumb-item">{% link_for _('Datasets'), controller='dataset' if h.ckan_version().split('.')[1] | int >= 9 else 'package', action='search' %}</li>
+            {% endif %}
+            <li class="breadcrumb-item" {{ self.breadcrumb_content_selected() }}>{% link_for dataset|truncate(30), controller='dataset' if h.ckan_version().split('.')[1] | int >= 9 else 'package', action='read', id=pkg.name %}</li>
+
+    {% if res %}
+        <li class="breadcrumb-item">{% link_for h.resource_display_name(res)|truncate(30), named_route=pkg.type ~ '_resource.read', id=pkg.name, resource_id=res.id, title=h.resource_display_name(res) %}</li>
+        <li{% block breadcrumb_edit_selected %} class="breadcrumb-item active"{% endblock %}><a href="">{{ _('Edit') }}</a></li>
+    {% endif %}
+{% endblock %}
