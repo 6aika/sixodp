@@ -3,6 +3,8 @@
     border: none;
     margin: 0;
     padding: 0;
+    width: 100%;
+    display: block;
 
     a,
     a:focus,
@@ -12,6 +14,7 @@
       margin: 0;
       background: $filter-bg;
       color: $filter-color;
+      display: block;
     }
 
     a:hover{
