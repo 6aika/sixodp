@@ -22,7 +22,7 @@ Example:
 <li class="dataset-item">
     <div class="row">
       {% block content %}
-        <div class="col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0 dataset-content">
+        <div class="col-md-10 offset-md-1 col-sm-12 offset-sm-0 dataset-content">
           <a class="dataset-item-link" href="{{ h.url_for('dataset.read', id=package.name) }}">
           {% block metadata %}
           {#
