@@ -3715,7 +3715,7 @@ form .form-group .input-group.has-validation > .form-floating:nth-last-child(n+3
   list-style: none;
 }
 
-.nav-link {
+.nav-link, .nav-tabs li a {
   display: block;
   padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
   font-size: var(--bs-nav-link-font-size);
@@ -3727,18 +3727,18 @@ form .form-group .input-group.has-validation > .form-floating:nth-last-child(n+3
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
-  .nav-link {
+  .nav-link, .nav-tabs li a {
     transition: none;
   }
 }
-.nav-link:hover, .nav-link:focus {
+.nav-link:hover, .nav-tabs li a:hover, .nav-link:focus, .nav-tabs li a:focus {
   color: var(--bs-nav-link-hover-color);
 }
-.nav-link:focus-visible {
+.nav-link:focus-visible, .nav-tabs li a:focus-visible {
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
-.nav-link.disabled, .nav-link:disabled {
+.nav-link.disabled, .nav-tabs li a.disabled, .nav-link:disabled, .nav-tabs li a:disabled {
   color: var(--bs-nav-link-disabled-color);
   pointer-events: none;
   cursor: default;
@@ -3754,18 +3754,20 @@ form .form-group .input-group.has-validation > .form-floating:nth-last-child(n+3
   --bs-nav-tabs-link-active-border-color: var(--bs-border-color) var(--bs-border-color) var(--bs-body-bg);
   border-bottom: var(--bs-nav-tabs-border-width) solid var(--bs-nav-tabs-border-color);
 }
-.nav-tabs .nav-link {
+.nav-tabs .nav-link, .nav-tabs li a {
   margin-bottom: calc(-1 * var(--bs-nav-tabs-border-width));
   border: var(--bs-nav-tabs-border-width) solid transparent;
   border-top-left-radius: var(--bs-nav-tabs-border-radius);
   border-top-right-radius: var(--bs-nav-tabs-border-radius);
 }
-.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+.nav-tabs .nav-link:hover, .nav-tabs li a:hover, .nav-tabs .nav-link:focus, .nav-tabs li a:focus {
   isolation: isolate;
   border-color: var(--bs-nav-tabs-link-hover-border-color);
 }
-.nav-tabs .nav-link.active,
-.nav-tabs .nav-item.show .nav-link {
+.nav-tabs .nav-link.active, .nav-tabs li a.active,
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-item.show li a,
+.nav-tabs li .nav-item.show a {
   color: var(--bs-nav-tabs-link-active-color);
   background-color: var(--bs-nav-tabs-link-active-bg);
   border-color: var(--bs-nav-tabs-link-active-border-color);
@@ -3781,11 +3783,13 @@ form .form-group .input-group.has-validation > .form-floating:nth-last-child(n+3
   --bs-nav-pills-link-active-color: #fff;
   --bs-nav-pills-link-active-bg: #0d6efd;
 }
-.nav-pills .nav-link {
+.nav-pills .nav-link, .nav-pills .nav-tabs li a, .nav-tabs li .nav-pills a {
   border-radius: var(--bs-nav-pills-border-radius);
 }
-.nav-pills .nav-link.active,
-.nav-pills .show > .nav-link {
+.nav-pills .nav-link.active, .nav-pills .nav-tabs li a.active, .nav-tabs li .nav-pills a.active,
+.nav-pills .show > .nav-link,
+.nav-pills .nav-tabs li .show > a,
+.nav-tabs li .nav-pills .show > a {
   color: var(--bs-nav-pills-link-active-color);
   background-color: var(--bs-nav-pills-link-active-bg);
 }
@@ -3796,36 +3800,40 @@ form .form-group .input-group.has-validation > .form-floating:nth-last-child(n+3
   --bs-nav-underline-link-active-color: var(--bs-emphasis-color);
   gap: var(--bs-nav-underline-gap);
 }
-.nav-underline .nav-link {
+.nav-underline .nav-link, .nav-underline .nav-tabs li a, .nav-tabs li .nav-underline a {
   padding-right: 0;
   padding-left: 0;
   border-bottom: var(--bs-nav-underline-border-width) solid transparent;
 }
-.nav-underline .nav-link:hover, .nav-underline .nav-link:focus {
+.nav-underline .nav-link:hover, .nav-underline .nav-tabs li a:hover, .nav-tabs li .nav-underline a:hover, .nav-underline .nav-link:focus, .nav-underline .nav-tabs li a:focus, .nav-tabs li .nav-underline a:focus {
   border-bottom-color: currentcolor;
 }
-.nav-underline .nav-link.active,
-.nav-underline .show > .nav-link {
+.nav-underline .nav-link.active, .nav-underline .nav-tabs li a.active, .nav-tabs li .nav-underline a.active,
+.nav-underline .show > .nav-link,
+.nav-underline .nav-tabs li .show > a,
+.nav-tabs li .nav-underline .show > a {
   font-weight: 700;
   color: var(--bs-nav-underline-link-active-color);
   border-bottom-color: currentcolor;
 }
 
-.nav-fill > .nav-link,
+.nav-fill > .nav-link, .nav-tabs li .nav-fill > a,
 .nav-fill .nav-item {
   flex: 1 1 auto;
   text-align: center;
 }
 
-.nav-justified > .nav-link,
+.nav-justified > .nav-link, .nav-tabs li .nav-justified > a,
 .nav-justified .nav-item {
   flex-basis: 0;
   flex-grow: 1;
   text-align: center;
 }
 
-.nav-fill .nav-item .nav-link,
-.nav-justified .nav-item .nav-link {
+.nav-fill .nav-item .nav-link, .nav-fill .nav-item .nav-tabs li a, .nav-tabs li .nav-fill .nav-item a,
+.nav-justified .nav-item .nav-link,
+.nav-justified .nav-item .nav-tabs li a,
+.nav-tabs li .nav-justified .nav-item a {
   width: 100%;
 }
 
@@ -3902,7 +3910,7 @@ form .form-group .input-group.has-validation > .form-floating:nth-last-child(n+3
   margin-bottom: 0;
   list-style: none;
 }
-.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+.navbar-nav .nav-link.active, .navbar-nav .nav-tabs li a.active, .nav-tabs li .navbar-nav a.active, .navbar-nav .nav-link.show, .navbar-nav .nav-tabs li a.show, .nav-tabs li .navbar-nav a.show {
   color: var(--bs-navbar-active-color);
 }
 .navbar-nav .dropdown-menu {
@@ -3977,7 +3985,7 @@ form .form-group .input-group.has-validation > .form-floating:nth-last-child(n+3
   .navbar-expand-sm .navbar-nav .dropdown-menu {
     position: absolute;
   }
-  .navbar-expand-sm .navbar-nav .nav-link {
+  .navbar-expand-sm .navbar-nav .nav-link, .navbar-expand-sm .navbar-nav .nav-tabs li a, .nav-tabs li .navbar-expand-sm .navbar-nav a {
     padding-right: var(--bs-navbar-nav-link-padding-x);
     padding-left: var(--bs-navbar-nav-link-padding-x);
   }
@@ -4024,7 +4032,7 @@ form .form-group .input-group.has-validation > .form-floating:nth-last-child(n+3
   .navbar-expand-md .navbar-nav .dropdown-menu {
     position: absolute;
   }
-  .navbar-expand-md .navbar-nav .nav-link {
+  .navbar-expand-md .navbar-nav .nav-link, .navbar-expand-md .navbar-nav .nav-tabs li a, .nav-tabs li .navbar-expand-md .navbar-nav a {
     padding-right: var(--bs-navbar-nav-link-padding-x);
     padding-left: var(--bs-navbar-nav-link-padding-x);
   }
@@ -4071,7 +4079,7 @@ form .form-group .input-group.has-validation > .form-floating:nth-last-child(n+3
   .navbar-expand-lg .navbar-nav .dropdown-menu {
     position: absolute;
   }
-  .navbar-expand-lg .navbar-nav .nav-link {
+  .navbar-expand-lg .navbar-nav .nav-link, .navbar-expand-lg .navbar-nav .nav-tabs li a, .nav-tabs li .navbar-expand-lg .navbar-nav a {
     padding-right: var(--bs-navbar-nav-link-padding-x);
     padding-left: var(--bs-navbar-nav-link-padding-x);
   }
@@ -4118,7 +4126,7 @@ form .form-group .input-group.has-validation > .form-floating:nth-last-child(n+3
   .navbar-expand-xl .navbar-nav .dropdown-menu {
     position: absolute;
   }
-  .navbar-expand-xl .navbar-nav .nav-link {
+  .navbar-expand-xl .navbar-nav .nav-link, .navbar-expand-xl .navbar-nav .nav-tabs li a, .nav-tabs li .navbar-expand-xl .navbar-nav a {
     padding-right: var(--bs-navbar-nav-link-padding-x);
     padding-left: var(--bs-navbar-nav-link-padding-x);
   }
@@ -4165,7 +4173,7 @@ form .form-group .input-group.has-validation > .form-floating:nth-last-child(n+3
   .navbar-expand-xxl .navbar-nav .dropdown-menu {
     position: absolute;
   }
-  .navbar-expand-xxl .navbar-nav .nav-link {
+  .navbar-expand-xxl .navbar-nav .nav-link, .navbar-expand-xxl .navbar-nav .nav-tabs li a, .nav-tabs li .navbar-expand-xxl .navbar-nav a {
     padding-right: var(--bs-navbar-nav-link-padding-x);
     padding-left: var(--bs-navbar-nav-link-padding-x);
   }
@@ -4211,7 +4219,7 @@ form .form-group .input-group.has-validation > .form-floating:nth-last-child(n+3
 .navbar-expand .navbar-nav .dropdown-menu {
   position: absolute;
 }
-.navbar-expand .navbar-nav .nav-link {
+.navbar-expand .navbar-nav .nav-link, .navbar-expand .navbar-nav .nav-tabs li a, .nav-tabs li .navbar-expand .navbar-nav a {
   padding-right: var(--bs-navbar-nav-link-padding-x);
   padding-left: var(--bs-navbar-nav-link-padding-x);
 }
@@ -4371,7 +4379,7 @@ form .form-group .input-group.has-validation > .form-floating:nth-last-child(n+3
   margin-left: calc(-0.5 * var(--bs-card-cap-padding-x));
   border-bottom: 0;
 }
-.card-header-tabs .nav-link.active {
+.card-header-tabs .nav-link.active, .card-header-tabs .nav-tabs li a.active, .nav-tabs li .card-header-tabs a.active {
   background-color: var(--bs-card-bg);
   border-bottom-color: var(--bs-card-bg);
 }
@@ -11969,6 +11977,7 @@ body {
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+  margin-top: 20px;
   line-height: 1.5;
 }
 
@@ -12124,6 +12133,9 @@ a:hover {
 .navbar .navbar-nav {
   margin-top: 0;
   margin-bottom: 0;
+}
+.navbar .navbar-nav #profile {
+  left: initial;
 }
 .navbar .navbar-nav li,
 .navbar .navbar-nav li:focus,
@@ -12418,7 +12430,6 @@ a:hover {
 }
 
 .hero .input-group input {
-  height: 2rem;
   border: none;
   font-size: 0.875rem;
 }
@@ -12955,6 +12966,11 @@ form .form-actions .control-required-message {
   margin: 10px 0 10px -20px;
   border: none;
 }
+@media (min-width: 768px) {
+  .offcanvas-toggle {
+    visibility: hidden;
+  }
+}
 .offcanvas-toggle .icon-bar {
   background: #ffffff;
   -webkit-transition: all 0.25s ease-in-out;
@@ -12984,7 +13000,7 @@ form .form-actions .control-required-message {
   padding-left: 80px;
   margin: 0;
 }
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .offcanvas-button-row {
     display: none;
   }
@@ -14534,10 +14550,10 @@ label.checkbox input[type=checkbox] {
   position: absolute;
 }
 
-.input-group .input-group-btn .btn {
-  height: 1rem;
+.input-group .btn {
+  padding: 5px 12px 4px 12px;
 }
-.input-group .input-group-btn .btn-lg, .input-group .input-group-btn .btn-group-lg > .btn {
+.input-group .btn-lg, .input-group .btn-group-lg > .btn {
   height: 2rem;
 }
 
@@ -14911,6 +14927,8 @@ label.checkbox input[type=checkbox] {
   border: none;
   margin: 0;
   padding: 0;
+  width: 100%;
+  display: block;
 }
 .navbar-offcanvas .nav-facet li.nav-item a,
 .navbar-offcanvas .nav-facet li.nav-item a:focus,
@@ -14920,6 +14938,7 @@ label.checkbox input[type=checkbox] {
   margin: 0;
   background: transparent;
   color: #676767;
+  display: block;
 }
 .navbar-offcanvas .nav-facet li.nav-item a:hover {
   background: white;
@@ -14965,9 +14984,7 @@ label.checkbox input[type=checkbox] {
 }
 .resource-list .resource-item .resource-col {
   padding: 0;
-}
-.resource-list .resource-item .resource-col + .resource-col {
-  margin-left: 15px;
+  position: relative;
 }
 .resource-list .resource-item a:not(.dropdown-toggle) {
   height: 100%;
@@ -14996,7 +15013,6 @@ label.checkbox input[type=checkbox] {
   width: initial;
 }
 .resource-list .resource-item .resource-labels {
-  position: absolute;
   top: 25px;
   right: 0;
   text-align: right;
@@ -15059,6 +15075,11 @@ label.checkbox input[type=checkbox] {
 .page-header {
   margin: 0.625rem 0;
   padding: 0;
+}
+.page-header::after {
+  display: block;
+  clear: both;
+  content: "";
 }
 .page-header h1, .page-header .h1 {
   font-size: 1.125rem;
@@ -15171,7 +15192,7 @@ label.checkbox input[type=checkbox] {
 select {
   background-color: #ffffff;
   border: 1px solid #dddddd;
-  height: 0.624rem;
+  height: 2rem;
   line-height: 1.5;
   color: #656D74;
   text-transform: uppercase;
@@ -15255,9 +15276,6 @@ select {
   top: 2px;
   width: 16px;
   height: 16px;
-  background-image: url("/assets/images/sprite-ckan-icons.png");
-  background-repeat: no-repeat;
-  background-position: 16px 16px;
   text-indent: -900em;
   background: url("/assets/images/sprite-resource-icons.png") no-repeat 0 0;
 }
@@ -16471,6 +16489,19 @@ ul.pagination li.disabled a:focus {
 
 .nav-tabs {
   border: none;
+  float: left;
+  margin-bottom: -1px;
+}
+.nav-tabs li a {
+  padding: 10px 15px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.nav-tabs li.active a {
+  border: 1px solid #534f97;
+  background-color: #534f97;
+  color: #ffffff;
+  border-bottom-color: transparent;
 }
 
 .main-content .nav li {
