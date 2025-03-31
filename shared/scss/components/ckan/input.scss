@@ -35,13 +35,11 @@ label.checkbox {
 }
 
 .input-group {
-  .input-group-btn {
-    .btn {
-      height: $input-height-base;
-    }
+  .btn {
+    padding: 5px 12px 4px 12px;
+  }
 
-    .btn-lg {
-      height: $input-height-large;
-    }
+  .btn-lg {
+    height: $input-height-large;
   }
 }
