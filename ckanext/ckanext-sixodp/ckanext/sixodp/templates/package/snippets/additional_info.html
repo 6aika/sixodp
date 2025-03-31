@@ -2,8 +2,8 @@
   <h2>{{ _('Additional Info') }}</h2>
 
   {% block api_link %}
-    <div class="api-link">
-      <a class="btn btn-block btn-transparent--inverse" href="{{ h.url_for('/', locale='default', qualified=true) }}api/action/package_show?id={{c.pkg_dict.name}}">
+    <div class="api-link d-grid">
+      <a class="btn btn-transparent--inverse" href="{{ h.url_for('/', locale='default', qualified=true) }}api/action/package_show?id={{c.pkg_dict.name}}">
         {{ _('Metadata API') }} <i class="material-icons">arrow_forward</i>
       </a>
     </div>
