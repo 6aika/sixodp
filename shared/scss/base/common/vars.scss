@@ -117,13 +117,18 @@ $category-box-count-color: $brand-primary-extralight;
 $stats-text-color: $brand-white;
 $brand-categories: darken($category-box-bg, 20%);
 
+// bootstrap colors
+$gray-100: #f8f9fa !default;
+$light: $gray-100 !default;
+
 $theme-colors: (
         "primary":    $brand-primary,
         "secondary":  $brand-secondary,
         "success":    $brand-success,
         "info":       $brand-info,
         "warning":    $brand-warning,
-        "danger":     $brand-danger
+        "danger":     $brand-danger,
+        "light":      $light
 );
 
 $accordion-bg: $brand-bg-alt;
