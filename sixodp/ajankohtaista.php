@@ -44,8 +44,8 @@ get_header(); ?>
         echo do_shortcode('[custom-twitter-feeds num=12 class="twitterfeed" showheader=false showbutton=false]');
       ?>
       <div class="container">
-        <div class="row btn-container">
-          <a href="https://twitter.com/@6Aika" class="btn btn-transparent--inverse" target="_blank">Lue lisää Twitterissä</a>
+        <div class="row btn-container justify-content-center">
+          <a href="https://twitter.com/@6Aika" class="btn btn-transparent--inverse btn--banner" target="_blank">Lue lisää Twitterissä</a>
         </div>
       </div>
     </div>
