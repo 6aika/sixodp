@@ -22,6 +22,7 @@ a {
   -moz-hyphens: none;
   -webkit-hyphens: none;
   hyphens: none;
+  text-decoration: none;
 
   &:hover {
     color: $link-color-active;
