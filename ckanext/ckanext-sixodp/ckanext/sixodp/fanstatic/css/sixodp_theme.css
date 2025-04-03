@@ -11826,7 +11826,6 @@ form .form-group .input-group.has-validation > .form-floating:nth-last-child(n+3
 .select2-container .select2-choice .select2-search-choice,
 .select2-container-multi .select2-choices .select2-search-choice,
 .select2-container-multi .select2-choice .select2-search-choice {
-  border: 0;
   font-weight: 300;
   transition: all 0.2s ease-in-out;
 }
