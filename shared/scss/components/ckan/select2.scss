@@ -12,11 +12,11 @@
     border-radius: $border-radius-base;
 
     input {
-      height: $input-height-small;
+      height: $input-height-large;
       line-height: $line-height-small;
     }
 
-    .select2-search-choice {
+    li.select2-search-choice {
       @extend %button-primary;
       background-image: none;
       padding: 5px 5px 5px 18px;
