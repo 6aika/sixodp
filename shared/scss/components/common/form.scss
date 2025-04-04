@@ -1,14 +1,14 @@
-.control-label[for="field-order-by"] {
+.form-label[for="field-order-by"] {
   line-height: $base*3;
   padding-right: 0;
 }
 
-.control-label {
+.form-label {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: bold;
   color: $gray-base;
-  padding-top: ($padding-base-vertical + 1);
+  padding-top: ($padding-base-vertical + 0.063);
 
   + .controls {
     textarea {
