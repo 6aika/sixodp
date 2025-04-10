@@ -1,0 +1,6 @@
+{% ckan_extends %}
+
+{% block breadcrumb_content %}
+    <li class="breadcrumb-item">{% link_for _('Users'), named_route='user.index' %}</li>
+    <li class="active breadcrumb-item">{% link_for user.display_name|truncate(35), named_route='user.read', id=user.name %}
+{% endblock %}

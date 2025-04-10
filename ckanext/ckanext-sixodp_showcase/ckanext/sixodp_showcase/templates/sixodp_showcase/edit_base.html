@@ -13,12 +13,12 @@
 {% block breadcrumb_content %}
   {% if pkg %}
     {% set showcase = pkg.title or pkg.name %}
-    <li>{% link_for _('Showcases'), named_route='sixodp_showcase.search' %}</li>
-    <li>{{ self.breadcrumb_content_selected() }}{% link_for showcase|truncate(30), named_route='sixodp_showcase.read', id=pkg.name %}</li>
-    <li class="active">{% link_for _('Edit'), 'sixodp_showcase.edit', id=pkg.name %}</li>
+    <li class="breadcrumb-item">{% link_for _('Showcases'), named_route='sixodp_showcase.search' %}</li>
+    <li class="breadcrumb-item">{{ self.breadcrumb_content_selected() }}{% link_for showcase|truncate(30), named_route='sixodp_showcase.read', id=pkg.name %}</li>
+    <li class="active breadcrumb-item">{% link_for _('Edit'), 'sixodp_showcase.edit', id=pkg.name %}</li>
   {% else %}
-    <li>{% link_for _('Showcases'), named_route='sixodp_showcase.search' %}</li>
-    <li class="active"><a href="">{{ _('Create Showcase') }}</a></li>
+    <li class="breadcrumb-item">{% link_for _('Showcases'), named_route='sixodp_showcase.search' %}</li>
+    <li class="active breadcrumb-item"><a href="">{{ _('Create Showcase') }}</a></li>
   {% endif %}
 {% endblock %}
 
