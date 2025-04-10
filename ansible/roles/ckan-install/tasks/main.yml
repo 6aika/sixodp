@@ -20,10 +20,20 @@
 - name: Copy requirements file
   copy: src="/{{ playbook_dir }}/../requirements.txt" dest="{{ cache_path }}/requirements.txt" mode="0644" owner=root group=root
 
+- name: Copy dev-requirements file
+  copy: src="/{{ playbook_dir }}/../requirements-dev.txt" dest="{{ cache_path }}/requirements-dev.txt" mode="0644" owner=root group=root
+  when: deployment_environment_id == "vagrant"
+
 - name: Install ckan requirements
   pip:
     requirements: "{{ cache_path }}/requirements.txt"
     virtualenv: "{{ virtualenv }}"
+
+- name: Install ckan dev requirements
+  pip:
+    requirements: "{{ cache_path }}/requirements-dev.txt"
+    virtualenv: "{{ virtualenv }}"
+  when: deployment_environment_id == "vagrant"
 
 - name: Create CKAN paths
   file: path={{ item }} state=directory mode="0770" owner={{ www_user }} group={{ www_group }}
