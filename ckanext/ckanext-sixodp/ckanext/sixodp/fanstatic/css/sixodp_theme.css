@@ -13597,6 +13597,11 @@ form .form-actions .control-required-message {
   margin-bottom: 25px;
 }
 
+:not(.btn-check) + .btn:active {
+  color: #a55efa;
+  background-color: #ffffff;
+}
+
 .image-slider-wrapper {
   text-align: center;
   width: 100%;

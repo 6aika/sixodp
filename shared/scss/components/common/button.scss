@@ -122,3 +122,8 @@
 .btn-container-inverse {
   margin-bottom: $base*2.5;
 }
+
+:not(.btn-check) + .btn:active {
+  color: $btn-main-bg;
+  background-color: $btn-main-color;
+}
