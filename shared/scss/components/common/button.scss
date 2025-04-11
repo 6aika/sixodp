@@ -58,8 +58,8 @@
 }
 
 
-.btn-secondary--search {
-  @extend .btn-secondary;
+.btn-tertiary--search {
+  @extend .btn-tertiary;
   color: $btn-main-bg;
   background-color: $btn-main-color;
   border: none;

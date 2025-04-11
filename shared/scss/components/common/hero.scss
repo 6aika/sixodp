@@ -31,7 +31,7 @@
     }
   }
 
-  button.btn-secondary {
+  button.btn-tertiary {
     font-size: $font-size-small;
     padding: $padding-large-vertical $padding-large-horizontal*2;
     letter-spacing: 2px;
@@ -56,7 +56,7 @@
       border-top-left-radius: 3px;
       border-top-right-radius: 3px;
 
-      .btn-secondary.dropdown-toggle {
+      .btn-tertiary.dropdown-toggle {
         width: 100%;
       }
     }

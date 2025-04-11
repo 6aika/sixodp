@@ -123,7 +123,8 @@ $light: $gray-100 !default;
 
 $theme-colors: (
         "primary":    $brand-primary,
-        "secondary":  $brand-secondary,
+        "secondary":  $brand-white,
+        "tertiary":   $brand-secondary,
         "success":    $brand-success,
         "info":       $brand-info,
         "warning":    $brand-warning,
