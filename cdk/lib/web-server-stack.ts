@@ -85,6 +85,11 @@ export class WebServerStack extends Stack {
 
         secretBucket.grantRead(role)
 
+        const datasetBucket = aws_s3.Bucket.fromBucketName(this, 'datasetBucket', `sixodp-${props.environment}-datasets`)
+
+        
+        datasetBucket.grantReadWrite(role)
+
         role.addManagedPolicy({
             managedPolicyArn: 'arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore'
         })
