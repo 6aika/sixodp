@@ -85,6 +85,11 @@ export class WebServerStack extends Stack {
 
         secretBucket.grantRead(role)
 
+        const datasetBucket = aws_s3.Bucket.fromBucketName(this, 'datasetBucket', `sixodp-${props.environment}-datasets`)
+
+        
+        datasetBucket.grantReadWrite(role)
+
         role.addManagedPolicy({
             managedPolicyArn: 'arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore'
         })
@@ -108,7 +113,7 @@ export class WebServerStack extends Stack {
             },
             instanceType: aws_ec2.InstanceType.of(aws_ec2.InstanceClass.T4G, aws_ec2.InstanceSize.SMALL),
             machineImage: aws_ec2.MachineImage.genericLinux({
-                'eu-west-1': 'ami-032a56ad5e480189c'
+                'eu-west-1': 'ami-0fe825d0b661d4950'
             }),
             minCapacity: props.minWebServerCapacity,
             maxCapacity: props.maxWebServerCapacity,

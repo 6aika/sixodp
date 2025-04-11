@@ -1,6 +1,6 @@
 ---
 wordpress_local_plugins:
-  - wp-trello
+  #- wp-trello
   - wp-api-menus
   - contact-widgets
 wordpress_plugins:
@@ -24,6 +24,7 @@ removed_wordpress_plugins:
   - wp-piwik
   - cookiehub
   - configure-smtp
+  - wp-trello
 
 polylang_languages: 
   - { name: 'Suomi', code: 'fi', locale: 'fi', flag: 'fi' }

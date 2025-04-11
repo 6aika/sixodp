@@ -49,4 +49,12 @@ http {
 
     # Always enforce same origin policy
     add_header X-Frame-Options SAMEORIGIN;
+
+    # Set correct ip to logs
+    real_ip_header X-Forwarded-For;
+    {% if deployment_environment_id == "vagrant" %}
+    set_real_ip_from 0.0.0.0/0;
+    {% else %}
+    set_real_ip_from 10.0.0.0/8;
+    {% endif %}
 }

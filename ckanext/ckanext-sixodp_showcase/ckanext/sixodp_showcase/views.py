@@ -131,7 +131,7 @@ class EditView(views.EditView):
     def get(self, id, data=None, errors=None, error_summary=None):
         showcase_utils.check_new_view_auth()
 
-        context = self._prepare(id, data)
+        context = self._prepare()
         package_type = showcase_utils.DATASET_TYPE_NAME
 
         try:
@@ -215,7 +215,7 @@ class EditView(views.EditView):
         )
 
     def post(self, id):
-        context = self._prepare(id)
+        context = self._prepare()
         showcase_utils.check_edit_view_auth(id)
 
         data_dict = dataset.clean_dict(
