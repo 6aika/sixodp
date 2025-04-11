@@ -52,8 +52,8 @@ get_header(); ?>
       <div class="toolbar">
         <div class="container">
           <ol class="breadcrumb">
-            <li><a href="<?php echo get_home_url() ?>"><?php _e('Home', 'sixodp') ?></a></li>
-            <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+            <li class="breadcrumb-item"><a href="<?php echo get_home_url() ?>"><?php _e('Home', 'sixodp') ?></a></li>
+            <li class="breadcrumb-item"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
           </ol>
         </div>
       </div>

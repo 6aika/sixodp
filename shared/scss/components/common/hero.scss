@@ -15,10 +15,8 @@
 }
 
 .hero .input-group {
-  display: table;
 
   input {
-    height: $input-height-large;
     border: none;
     font-size: $font-size-base;
 
@@ -28,13 +26,13 @@
     }
 
     &::placeholder {
-      font-size: $font-size-small + 1;
+      font-size: $font-size-small;
       letter-spacing: 1px;
     }
   }
 
-  button.btn-secondary {
-    font-size: $font-size-small + 1;
+  button.btn-tertiary {
+    font-size: $font-size-small;
     padding: $padding-large-vertical $padding-large-horizontal*2;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -58,7 +56,7 @@
       border-top-left-radius: 3px;
       border-top-right-radius: 3px;
 
-      .btn-secondary.dropdown-toggle {
+      .btn-tertiary.dropdown-toggle {
         width: 100%;
       }
     }

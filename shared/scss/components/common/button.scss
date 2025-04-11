@@ -1,17 +1,3 @@
-@mixin btn-colors($background, $text, $border) {
-  background: $background;
-  color: $text;
-  border-color: $border;
-
-  &:hover,
-  &:focus,
-  &:active {
-    background: lighten($background, 10%);
-    color: lighten($text, 10%);
-    border-color: lighten($border, 10%);
-  }
-}
-
 .btn {
   @extend %button;
   padding: $btn-padding-large;
@@ -22,9 +8,6 @@
   border-width: 1px;
   border-style: solid;
 
-  &:hover {
-    color: $brand-black;
-  }
 
   .material-icons {
     font-size: $font-size-base;
@@ -38,64 +21,45 @@
   }
 }
 
-.btn-primary {
-  @include btn-colors($btn-primary-bg, $btn-primary-color, $btn-primary-bg);
-}
-
-.btn-success {
-  @include btn-colors($btn-success-bg, $btn-success-color, $btn-success-bg);
-}
-
-.btn-secondary {
-  @include btn-colors($btn-main-bg, $btn-main-color, $btn-main-bg);
-}
-
 .btn-transparent {
-  @include btn-colors(transparent, $brand-white, $brand-lightgray);
+  @include button-variant(transparent, $brand-lightgray, $brand-white);
 }
 
 .btn-transparent--inverse {
-  @include btn-colors(transparent, $brand-primary, $brand-primary);
-}
-
-.btn-danger--inverse {
-  @include btn-colors(transparent, $brand-danger, $brand-danger);
-}
-
-.btn-warning--inverse {
-  @include btn-colors(transparent, $brand-warning, $brand-warning);
+  @include button-variant(transparent, $brand-primary, $brand-primary)
 }
 
 .btn-categories {
-  @include btn-colors($brand-categories, $brand-white, $brand-categories);
+  @include button-variant($brand-categories, $brand-categories, $brand-white);
 }
 
 .btn-app {
-  @include btn-colors($brand-app, $brand-white, $brand-app);
+  @include button-variant($brand-app, $brand-app, $brand-white);
 }
 
 .btn-app--inverse {
-  @include btn-colors(transparent, $brand-app, $brand-app);
+  @include button-variant(transparent, $brand-app, $brand-app);
 }
 
 .btn-dataset {
-  @include btn-colors($brand-dataset, $brand-white, $brand-dataset);
+  @include button-variant($brand-dataset, $brand-dataset, $brand-white);
 }
 
 .btn-dataset--inverse {
-  @include btn-colors(transparent, $brand-dataset, $brand-dataset);
+  @include button-variant(transparent, $brand-dataset, $brand-dataset);
 }
 
 .btn-latest {
-  @include btn-colors($brand-latest, $brand-white, $brand-latest);
+  @include button-variant($brand-latest, $brand-latest, $brand-white);
 }
 
 .btn-latest--inverse {
-  @include btn-colors(transparent, $brand-latest, $brand-latest);
+  @include button-variant(transparent, $brand-latest, $brand-latest);
 }
 
-.btn-secondary--search {
-  @extend .btn-secondary;
+
+.btn-tertiary--search {
+  @extend .btn-tertiary;
   color: $btn-main-bg;
   background-color: $btn-main-color;
   border: none;
@@ -157,4 +121,9 @@
 
 .btn-container-inverse {
   margin-bottom: $base*2.5;
+}
+
+:not(.btn-check) + .btn:active {
+  color: $btn-main-bg;
+  background-color: $btn-main-color;
 }

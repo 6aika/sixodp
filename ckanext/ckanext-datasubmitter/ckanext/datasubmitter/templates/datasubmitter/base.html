@@ -8,5 +8,5 @@
 {% block breadcrumb_content_selected %}{% endblock %}
 
 {% block breadcrumb_content %}
-  <li>{{ h.nav_link(_('Open your data'), controller='ckanext.datasubmitter.controller:DatasubmitterController', action='index') }}</li>
+  <li class="breadcrumb-item">{{ h.nav_link(_('Open your data'), controller='ckanext.datasubmitter.controller:DatasubmitterController', action='index') }}</li>
 {% endblock %}

@@ -46,7 +46,7 @@ jQuery(document).ready(function($) {
 
     $(this).hide();
     var container = $('.navbar-search-form');
-    container.css('display', 'table');
+    container.css('display', 'flex');
 
     $(document).on('click', function(e) {
       if (!container.is(e.target) && container.has(e.target).length === 0) {

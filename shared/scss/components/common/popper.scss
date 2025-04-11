@@ -57,7 +57,7 @@ a.popper__link:focus {
 .popper:after {
   border-color: rgba(0, 0, 0, 0);
   border-top-color: $brand-white;
-  border-width: $base/2;
+  border-width: $base*0.5;
   margin-left: $base*5;
 }
 .popper:before {

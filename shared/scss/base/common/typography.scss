@@ -1,3 +1,7 @@
+:root {
+  --bs-body-line-height: 1.25rem;
+}
+
 body {
   font-family: $font;
   font-size: $font-size;
@@ -5,6 +9,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
+  margin-top: 20px;
   line-height: 1.5;
 }
 
@@ -17,6 +22,7 @@ a {
   -moz-hyphens: none;
   -webkit-hyphens: none;
   hyphens: none;
+  text-decoration: none;
 
   &:hover {
     color: $link-color-active;

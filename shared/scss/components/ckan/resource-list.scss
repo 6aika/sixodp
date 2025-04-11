@@ -17,10 +17,7 @@
 
     .resource-col {
       padding: 0;
-    }
-
-    .resource-col + .resource-col{
-      margin-left: 15px;
+      position: relative;
     }
 
     a {
@@ -58,7 +55,6 @@
     }
 
     & .resource-labels {
-      position: absolute;
       top: 25px;
       right: 0;
       text-align: right;

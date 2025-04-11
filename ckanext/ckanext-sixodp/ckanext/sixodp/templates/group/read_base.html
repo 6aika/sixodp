@@ -4,3 +4,8 @@
   {{ h.build_nav_icon('group.read', _('Datasets'), id=group_dict.name) }}
   {{ h.build_nav_icon('activity.group_activity', _('Activity Stream'), id=group_dict.name, offset=0) }}
 {% endblock %}
+
+{% block breadcrumb_content %}
+  <li class="breadcrumb-item">{% link_for h.humanize_entity_type('group', group_type, 'breadcrumb') or _('Groups'), named_route=group_type+'.index' %}</li>
+  <li class="breadcrumb-item active">{% link_for group_dict.display_name|truncate(35), named_route=group_type+'.read', id=group_dict.name, title=group_dict.display_name %}</li>
+{% endblock %}

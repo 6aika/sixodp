@@ -26,11 +26,11 @@ get_header();
     <div class="toolbar">
       <div class="container">
         <ol class="breadcrumb">
-          <li><a href="<?php echo get_home_url() ?>"><?php _e('Home', 'sixodp') ?></a></li>
+          <li class="breadcrumb-item"><a href="<?php echo get_home_url() ?>"><?php _e('Home', 'sixodp') ?></a></li>
           <?php if ($grandparent_cat != $category) : ?>
-            <li><a href="<?php echo get_category_link($grandparent_id) ?>"><?php echo $grandparent_cat->name ?></a></li>
+            <li class="breadcrumb-item"><a href="<?php echo get_category_link($grandparent_id) ?>"><?php echo $grandparent_cat->name ?></a></li>
           <?php endif;?>
-          <li><a href="<?php echo get_category_link($category) ?>"><?php echo $category->name ?></a></li>
+          <li class="breadcrumb-item"><a href="<?php echo get_category_link($category) ?>"><?php echo $category->name ?></a></li>
         </ol>
       </div>
     </div>

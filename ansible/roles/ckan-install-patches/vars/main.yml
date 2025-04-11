@@ -13,6 +13,7 @@ ckan_patches:
   - { file: "optimize_template_loading" }
   - { file: "group_include_extras" }
   - { file: "add_group_type_to_group_search" }
+  - { file: "replace_btn-default_with_btn-secondary" }
 
 #files_created_by_patches:
 #  - { file: '/usr/lib/ckan/default/src/ckan/ckan/lib/csrf_token.py'}

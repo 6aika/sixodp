@@ -72,9 +72,9 @@
     <div class="btn-container">
       <div class="heading--small"><?php _e('Do you have a request for a dataset or an idea for application?', 'sixodp');?> <?php _e('Tell us!', 'sixodp');?></div>
     </div>
-    <div class="row btn-container">
-      <a href="<?php echo CKAN_BASE_URL.'/'.get_current_locale_ckan() ?>/submit-data" class="btn btn-dataset btn--banner-jaa"><?php _e('Submit a dataset', 'sixodp');?></a>
-      <a href="<?php echo get_permalink(get_translated_page_by_title('Uusi datatoive')); ?>" class="btn btn-dataset--inverse btn--banner-jaa"><?php _e('Share an open data idea', 'sixodp');?></a>
+    <div class="row btn-container justify-content-center">
+      <a href="<?php echo CKAN_BASE_URL.'/'.get_current_locale_ckan() ?>/submit-data" class="btn btn-dataset btn--banner"><?php _e('Submit a dataset', 'sixodp');?></a>
+      <a href="<?php echo get_permalink(get_translated_page_by_title('Uusi datatoive')); ?>" class="btn btn-dataset--inverse btn--banner"><?php _e('Share an open data idea', 'sixodp');?></a>
     </div>
   </div>
 

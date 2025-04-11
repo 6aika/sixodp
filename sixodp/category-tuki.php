@@ -25,10 +25,10 @@ $category = get_queried_object();
       <div class="toolbar">
         <div class="container">
           <ol class="breadcrumb">
-            <li><a href="<?php echo get_home_url() ?>"><?php _e('Home', 'sixodp') ?></a></li>
-            <li><a href="<?php echo get_category_link($parent_category) ?>"><?php echo $parent_category->name ?></a></li>
+            <li class="breadcrumb-item"><a href="<?php echo get_home_url() ?>"><?php _e('Home', 'sixodp') ?></a></li>
+            <li class="breadcrumb-item"><a href="<?php echo get_category_link($parent_category) ?>"><?php echo $parent_category->name ?></a></li>
             <?php if ($parent_category->term_id != $category->term_id) { ?>
-              <li><a href="<?php echo get_category_link($category) ?>"><?php echo $category->name ?></a></li>
+              <li class="breadcrumb-item"><a href="<?php echo get_category_link($category) ?>"><?php echo $category->name ?></a></li>
             <?php } ?>
           </ol>
         </div>

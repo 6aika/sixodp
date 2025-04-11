@@ -1,6 +1,7 @@
 .page-header {
   margin: $padding-large-vertical 0;
   padding: 0;
+  @include clearfix;
 
   h1 {
     @include heading;

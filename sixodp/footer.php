@@ -14,8 +14,8 @@
 
 		<footer id="colophon" class="site-footer bgcolor-primary" role="contentinfo">
 			<div class="container">
-				<div class="row footer-row">
-					<div class="col-md-4 pull-right text-right footer-column">
+				<div class="row footer-row justify-content-end">
+					<div class="col-md-4 footer-column">
 						<div class="popper">
 							<ul class="popper__list">
 								<li class="popper__item">
@@ -26,7 +26,7 @@
 								</li>
 							</ul>
 						</div>
-						<button type="button" class="btn btn-transparent" data-trigger="popper"><?php _e('Management', 'sixodp');?></button>
+						<button type="button" class="float-end btn btn-transparent" data-trigger="popper"><?php _e('Management', 'sixodp');?></button>
 					</div>
 				</div>
 				<div class="row footer-row">
@@ -74,6 +74,6 @@
 </div><!-- .site -->
 
 <?php wp_footer(); ?>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

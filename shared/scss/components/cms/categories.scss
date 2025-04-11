@@ -64,12 +64,12 @@
 .category__name {
   display: block;
   color: $category-box-text-color;
-  margin: 0 $base/2;
+  margin: 0 $base*0.5;
   text-transform: uppercase;
   word-break: normal;
   
   @media (min-width: $width-xs) {
-    margin: $base/2 auto;
+    margin: $base*0.5 auto;
   }
 }
 

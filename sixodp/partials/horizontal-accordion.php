@@ -88,8 +88,8 @@
       ?>
     </div>
 
-    <div class="row btn-container">
-      <a type="button" href="<?php echo get_category_link(get_translated_category_by_slug('ajankohtaista')) ?>" class="btn btn-transparent--inverse btn--show-all">
+    <div class="row btn-container justify-content-center">
+      <a type="button" href="<?php echo get_category_link(get_translated_category_by_slug('ajankohtaista')) ?>" class="btn btn-transparent--inverse btn--banner">
         <?php _e('Show all', 'sixodp');?>
       </a>
     </div>

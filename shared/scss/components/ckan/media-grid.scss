@@ -1,6 +1,8 @@
+@use "sass:math";
+
 $media-grid-item-img-height: $card-height - $card-content-height;
 $media-grid-item-padding: $padding-large-horizontal;
-$media-grid-item-line-height: ($card-content-height - $media-grid-item-padding * 3) / ($card-heading-rows + 1);
+$media-grid-item-line-height: math.div($card-content-height - $media-grid-item-padding * 3, $card-heading-rows + 1);
 
 .media-grid {
   margin: 0 15px 20px -15px;

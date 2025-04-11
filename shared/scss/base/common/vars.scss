@@ -117,6 +117,21 @@ $category-box-count-color: $brand-primary-extralight;
 $stats-text-color: $brand-white;
 $brand-categories: darken($category-box-bg, 20%);
 
+// bootstrap colors
+$gray-100: #f8f9fa !default;
+$light: $gray-100 !default;
+
+$theme-colors: (
+        "primary":    $brand-primary,
+        "secondary":  $brand-white,
+        "tertiary":   $brand-secondary,
+        "success":    $brand-success,
+        "info":       $brand-info,
+        "warning":    $brand-warning,
+        "danger":     $brand-danger,
+        "light":      $light
+);
+
 $accordion-bg: $brand-bg-alt;
 $accordion-tab-bg: $brand-bg-alt;
 $accordion-tab-overlay-bg: $brand-bg-alt;
@@ -149,9 +164,9 @@ $btn-padding-small: 4px 6px;
 $btn-padding-large: 8px 20px;
 
 // Card
-$card-height: 280px;
+$card-height: 17.5rem;
 $card-max-width: 250px;
-$card-content-height: 110px;
+$card-content-height: 6.875rem;
 $card-heading-rows: 3;
 
 $card-bg: $brand-primary-extralight;
@@ -316,18 +331,18 @@ $width-lg: 1248px;
 $width-xl: 1400px;
 $grid-float-breakpoint: $width-md; // Navbar collapse point
 
-$padding-base-vertical: 6px;
-$padding-base-horizontal: 6px;
-$margin-base-vertical: 6px;
-$margin-base-horizontal: 6px;
+$padding-base-vertical: 0.375rem;
+$padding-base-horizontal: 0.375rem;
+$margin-base-vertical: 0.375rem;
+$margin-base-horizontal: 0.375rem;
 
-$font-size-base: 14px;
+$font-size-base: 0.875rem;
 $font-size: $font-size-base;
 $font-size-xxlarge: floor(($font-size-base * 2.6));
-$font-size-xlarge: ceil(($font-size-base * 1.6)); // ~23px
-$font-size-large: ceil(($font-size-base * 1.25)); // ~18px
-$font-size-medium: floor(($font-size-base * 1.15)); // ~16px
-$font-size-small: ceil(($font-size-base * 0.85)); // ~12px
+$font-size-xlarge: 1.438rem; // ~23px
+$font-size-large: 1.125rem; // ~18px
+$font-size-medium: 1rem; // ~16px
+$font-size-small: 0.75rem; // ~12px
 
 $font-size-h1: floor(($font-size-base * 2.4)); // ~36px
 $font-size-h2: floor(($font-size-base * 2.15)); // ~30px
@@ -338,24 +353,24 @@ $font-size-h6: ceil(($font-size-base * 0.85));
 
 $featured-font-weight: bold;
 
-$padding-large-vertical: 10px;
-$padding-large-horizontal: 10px;
-$margin-large-vertical: 10px;
-$margin-large-horizontal: 10px;
+$padding-large-vertical: 0.625rem;
+$padding-large-horizontal: 0.625rem;
+$margin-large-vertical: 0.625rem;
+$margin-large-horizontal: 0.625rem;
 
 $line-height-base:  1.571428571; // 22/14
 $line-height-large: 1.3333333; // extra decimals for Win 8.1 Chrome
 $line-height-small: 1.5;
 
-$padding-small-vertical: 5px;
-$padding-small-horizontal: 5px;
-$margin-small-vertical: 5px;
-$margin-small-horizontal: 5px;
+$padding-small-vertical: 0.312rem;
+$padding-small-horizontal: 0.312rem;
+$margin-small-vertical: 0.312rem;
+$margin-small-horizontal: 0.312rem;
 
-$line-height-computed: 20px;
+$line-height-computed: 1.25rem;
 $input-background-color: $brand-background;
 $input-height-base: ($line-height-computed + ($padding-base-vertical * 2) - 1);
-$input-height-large: (ceil($font-size-large * $line-height-large) + ($padding-large-vertical * 2) - 4);
+$input-height-large: 2rem;
 $input-height-small: (floor($font-size-small * $line-height-small) + ($padding-small-vertical * 2) - 1);
 $input-border-focus: $brand-secondary-light;
 $input-color: $brand-input-color;
@@ -365,3 +380,5 @@ $input-color-placeholder: $brand-input-color;
 $transition-speed-base: .2s;
 $transition-curve-base: ease-in-out;
 $transition: all $transition-speed-base $transition-curve-base;
+
+

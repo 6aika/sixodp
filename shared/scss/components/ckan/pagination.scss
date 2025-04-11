@@ -11,7 +11,7 @@ ul.pagination {
     li.disabled{
       background: $pagination-bg;
       color: $pagination-color;
-      border: 1px solid $pagination-border;
+      border: 1px solid $pagination-border-color;
       border-radius: 50%;
       height: 38px;
       width: 38px;
@@ -23,14 +23,14 @@ ul.pagination {
       &:hover {
         background: $pagination-hover-bg;
         color: $pagination-hover-color;
-        border-color: $pagination-hover-border;
+        border-color: $pagination-hover-border-color;
       }
 
       &.current,
       &.active{
         background: $pagination-active-bg;
         color: $pagination-active-color;
-        border-color: $pagination-active-border;
+        border-color: $pagination-active-border-color;
       }
 
       a {

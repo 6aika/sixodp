@@ -22,8 +22,8 @@ get_header(); ?>
       <div class="toolbar">
         <div class="container">
           <ol class="breadcrumb">
-            <li><a href="<?php echo get_home_url() ?>"><?php _e('Home', 'sixodp') ?></a></li>
-            <li><a href="<?php echo get_home_url() ?>/ajankohtaista"><?php _e('Current', 'sixodp') ?></a></li>
+            <li class="breadcrumb-item"><a href="<?php echo get_home_url() ?>"><?php _e('Home', 'sixodp') ?></a></li>
+            <li class="breadcrumb-item"><a href="<?php echo get_home_url() ?>/ajankohtaista"><?php _e('Current', 'sixodp') ?></a></li>
           </ol>
         </div>
       </div>
@@ -44,8 +44,8 @@ get_header(); ?>
         echo do_shortcode('[custom-twitter-feeds num=12 class="twitterfeed" showheader=false showbutton=false]');
       ?>
       <div class="container">
-        <div class="row btn-container">
-          <a href="https://twitter.com/@6Aika" class="btn btn-transparent--inverse" target="_blank">Lue lisää Twitterissä</a>
+        <div class="row btn-container justify-content-center">
+          <a href="https://twitter.com/@6Aika" class="btn btn-transparent--inverse btn--banner" target="_blank">Lue lisää Twitterissä</a>
         </div>
       </div>
     </div>

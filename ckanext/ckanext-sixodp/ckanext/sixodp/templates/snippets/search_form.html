@@ -2,21 +2,19 @@
 
   {% block search_input %}
     <div class="input-group {{ search_class }}">
-      <input type="text" class="form-control input-lg" name="q" value="{{ query }}" placeholder="{{ placeholder }}" autocomplete="off" aria-label="{{ _('Search') }}">
-      <span class="input-group-btn">
+      <input type="text" class="form-control form-control-lg" name="q" value="{{ query }}" placeholder="{{ placeholder }}" autocomplete="off" aria-label="{{ _('Search') }}">
         {% block search_input_button %}
           <button class="btn btn-primary btn-lg" type="submit" value="search">
             {{ _('Submit') }}
           </button>
         {% endblock %}
-      </span>
     </div><!-- /input-group -->
   {% endblock %}
 
   {% block search_sortby %}
     {% if sorting %}
-      <div class="form-select form-group control-order-by">
-        <select id="field-order-by" name="sort" class="form-control" aria-label="{{ _('Sort') }}">
+      <div class="form-group control-order-by">
+        <select id="field-order-by" name="sort" class="form-control form-select" aria-label="{{ _('Sort') }}">
           {% for label, value in sorting %}
             {% if label and value %}
               <option value="{{ value }}"{% if sorting_selected == value %} selected="selected"{% endif %}>{{ label }}</option>

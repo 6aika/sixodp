@@ -285,7 +285,7 @@ def build_nav_main():
 
         if len(children) > 0:
             subnav_toggle = literal('<button class="subnav-toggle"><span class="sr-only">' + _('Show submenu for ') + menu.get('title') + '</span><i class="fa fa-chevron-down"></i></button>')
-            subnav = literal('<ul class="nav navbar-nav subnav">') + children + literal('</ul>')
+            subnav = literal('<ul class="navbar-nav subnav">') + children + literal('</ul>')
             return make_menu_item(menu, active, is_submenu) + subnav_toggle + subnav + literal('</li>')
         else:
             return make_menu_item(menu, active, is_submenu) + literal('</li>')
@@ -302,11 +302,11 @@ def make_menu_item(menu_item, active = False, is_submenu = False):
     if is_submenu:
         icon = literal('<span class="fa fa-long-arrow-right"></span>')
 
-    link = literal('<a href="') + menu_item.get('url') + literal('">') + icon + menu_item.get('title') + literal('</a>')
-    item_classes = ''
+    link = literal('<a class="nav-link" href="') + menu_item.get('url') + literal('">') + icon + menu_item.get('title') + literal('</a>')
+    item_classes = 'nav-item'
 
     if active:
-        item_classes += 'active';
+        item_classes += ' active';
     return literal('<li class="' + item_classes + '">') + link
 
 

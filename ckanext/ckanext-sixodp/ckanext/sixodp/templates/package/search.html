@@ -2,8 +2,8 @@
 
 {% block pre_primary %}
   <div class="page-hero"></div>
-  <div class="search-form-container row">
-    <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12">
+  <div class="search-form-container row justify-content-center">
+    <div class="col-lg-6 col-md-6 col-sm-12">
       {% set selected = 'score desc, metadata_modified desc' %}
       {% if request.args.get('sort') %}}
         {% set selected = c.sort_by_selected %}
@@ -14,6 +14,10 @@
   {% block toolbar %}
     {{ super() }}
   {% endblock %}
+{% endblock %}
+
+{% block breadcrumb_content %}
+  <li class="active breadcrumb-item">{{ h.nav_link(_(dataset_type.title() + 's'), named_route='%s.search' % dataset_type) }}</li>
 {% endblock %}
 
 {% block primary_content %}

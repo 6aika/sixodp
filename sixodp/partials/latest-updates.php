@@ -127,8 +127,8 @@
   </div>
 
   <div class="container">
-    <div class="row btn-container">
-      <a href="<?php echo get_permalink(get_translated_page_by_slug('viimeisimmat-paivitykset')); ?>" class="btn btn-latest--inverse btn--sovellukset">
+    <div class="row btn-container justify-content-center">
+      <a href="<?php echo get_permalink(get_translated_page_by_slug('viimeisimmat-paivitykset')); ?>" class="btn btn-latest--inverse btn--banner">
         <?php _e('More updates', 'sixodp');?>
       </a>
     </div>

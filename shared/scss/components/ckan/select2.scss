@@ -6,17 +6,17 @@
     color: $input-color;
     font-size: $font-size-base;
     padding: 0;
-    border: 1px solid $input-border;
+    border: 1px solid $input-border-color;
     transition: border-color .2s ease-in-out;
     background: $input-background-color;
     border-radius: $border-radius-base;
 
     input {
-      height: $input-height-small;
+      height: $input-height-large;
       line-height: $line-height-small;
     }
 
-    .select2-search-choice {
+    li.select2-search-choice {
       @extend %button-primary;
       background-image: none;
       padding: 5px 5px 5px 18px;

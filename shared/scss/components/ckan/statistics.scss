@@ -422,7 +422,7 @@
 .statistics-tooltip {
   background: $toolbar-default-bg;
   color: $text-color;
-  padding: $padding-xs-vertical $padding-small-horizontal;
+  padding: $padding-small-vertical $padding-small-horizontal;
   position: absolute;
   border-radius: $border-radius-large;
   font-size: $font-size-small;
@@ -436,7 +436,7 @@
 
 .col-statistics-condensed {
   @media(max-width: $width-xs) {
-    padding-left: $padding-xs-horizontal;
-    padding-right: $padding-xs-horizontal;
+    padding-left: $padding-small-horizontal;
+    padding-right: $padding-small-horizontal;
   }
 }

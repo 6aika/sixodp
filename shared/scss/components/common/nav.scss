@@ -1,15 +1,20 @@
+@use "sass:math";
+
 .nav-wrapper {
   @include box-shadow();
   position: relative;
   top: 0;
   right: 0;
   left: 0;
-  z-index: $zindex-navbar-fixed;
+  z-index: $zindex-fixed;
 }
 
 .navbar {
   border: none;
   border-radius: 0;
+  --bs-navbar-padding-y: 0;
+  --bs-navbar-nav-link-padding-x: 0.938rem;
+  --bs-nav-link-font-size: 0.875rem;
 
   .container {
     padding-left: 15px;
@@ -19,6 +24,10 @@
   .navbar-nav {
     margin-top: 0;
     margin-bottom: 0;
+
+    #profile {
+      left: initial;
+    }
 
     li,
     li:focus,
@@ -35,14 +44,14 @@
       }
 
       > a {
-        border-top: $base/2 solid transparent;
-        border-bottom: $base/2 solid transparent;
-        padding-top: $navbar-height/6;
-        padding-bottom: $navbar-height/6;
+        border-top: $base*0.5 solid transparent;
+        border-bottom: $base*0.5 solid transparent;
+        padding-top: math.div($navbar-height, 6);
+        padding-bottom: math.div($navbar-height, 6);
 
         @media(min-width: $grid-float-breakpoint) {
-          padding-top: $navbar-height/4;
-          padding-bottom: $navbar-height/4;
+          padding-top: $navbar-height*0.25;
+          padding-bottom: $navbar-height*0.25;
         }
       }
 
@@ -58,7 +67,7 @@
             max-height: none;
             visibility: visible;
             display: block;
-            z-index: $zindex-navbar-fixed;
+            z-index: $zindex-fixed;
             position: absolute;
           }
         }
@@ -67,7 +76,7 @@
   }
 }
 
-.navbar-default {
+.navbar-light {
 
   .navbar-toggle {
     border-radius: 0;
@@ -83,7 +92,7 @@
   width: 100%;
   margin: 0;
   height: $navbar-height;
-  padding: $navbar-height/4;
+  padding: $navbar-height*0.25;
 
   .navbar-search-btn {
     display: none;
@@ -143,7 +152,7 @@
   top: 0;
   border: none;
   width: $navbar-height;
-  height: $navbar-height - $navbar-height/6;
+  height: $navbar-height - math.div($navbar-height, 6);
   color: $navbar-secondary-toggle-color;
   transition: all $transition-speed-base $transition-curve-base;
 
@@ -152,7 +161,7 @@
   }
 
   .fa {
-    line-height: $navbar-height - $navbar-height/6;
+    line-height: $navbar-height - math.div($navbar-height, 6);
     vertical-align: middle;
     width: 100%;
   }
@@ -204,7 +213,7 @@
 }
 
 
-.navbar-default .navbar-nav.subnav {
+.navbar-light .navbar-nav.subnav {
   margin: 0;
   position: relative;
   background: $navbar-secondary-bg;
@@ -219,7 +228,7 @@
     > a,
     > a:focus {
       color: $navbar-secondary-link-color;
-      padding: $padding-large-vertical/2 $padding-large-horizontal*3;
+      padding: $padding-large-vertical*0.5 $padding-large-horizontal*3;
 
       .fa {
         display: none;
@@ -229,9 +238,9 @@
     @media(min-width: $grid-float-breakpoint) {
       > a,
       > a:focus {
-        padding: $padding-large-vertical/2
+        padding: $padding-large-vertical*0.5
                 $padding-large-horizontal*3
-                $padding-large-vertical/2
+                $padding-large-vertical*0.5
                 $padding-large-horizontal;
         transition: padding $transition-speed-base $transition-curve-base;
 
@@ -283,7 +292,7 @@
   .navbar-toggle-footer {
     display: inline-block;
     width: 100%;
-    height: $navbar-height/2;
+    height: $navbar-height*0.5;
     color: $navbar-secondary-link-color;
     background: transparent;
     border: none;

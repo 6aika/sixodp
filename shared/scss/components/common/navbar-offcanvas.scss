@@ -1,5 +1,5 @@
 .navbar-offcanvas {
-  z-index: $zindex-navbar-fixed;
+  z-index: $zindex-fixed;
   padding: 0 0 0 0;
   border-width: 0;
   
@@ -176,6 +176,10 @@
   margin: 10px 0 10px -20px;
   border: none;
 
+  @include media-breakpoint-up(md) {
+    visibility: hidden;
+  }
+
   .icon-bar {
     background: $navbar-offcanvas-toggle-icon-color;
     -webkit-transition: all 0.25s ease-in-out;
@@ -212,7 +216,7 @@
   padding-left: 80px;
   margin: 0;
 
-  @media(min-width: $width-md) {
+  @include media-breakpoint-up(md) {
     display: none;
   }
 }

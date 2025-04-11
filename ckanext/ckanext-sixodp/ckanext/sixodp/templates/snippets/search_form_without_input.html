@@ -32,8 +32,8 @@
 
   {% block search_sortby %}
     {% if disableable_sorting %}
-    <div class="form-select control-group control-order-by">
-      <select id="field-order-by" name="sort" class="form-control" aria-label="{{ _('Sort results') }}">
+    <div class="control-group control-order-by">
+      <select id="field-order-by" name="sort" class="form-control form-select" aria-label="{{ _('Sort results') }}">
         {% for label, value in disableable_sorting %}
           {% if label and value %}
             <option value="{{ value }}"{% if sorting_selected == value %} selected="selected"{% endif %}>{{ label }}</option>

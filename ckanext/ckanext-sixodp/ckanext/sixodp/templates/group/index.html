@@ -2,12 +2,16 @@
 
 {% block pre_primary %}
   <div class="page-hero"></div>
-  <div class="search-form-container row">
-    <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12">
+  <div class="search-form-container row justify-content-center">
+    <div class="col-lg-6 col-md-6 col-sm-12">
       {{ h.snippet('snippets/search_input.html', query=c.q, placeholder=_('Search groups...'), query_params=c.fields_grouped, sorting=c.sort_by_selected) }}
     </div>
   </div>
   {% block toolbar %}{{ super() }}{% endblock %}
+{% endblock %}
+
+{% block breadcrumb_content %}
+  <li class="breadcrumb-item active">{% link_for h.humanize_entity_type('group', group_type, 'breadcrumb') or _('Groups'), named_route=group_type+'.index' %}</li>
 {% endblock %}
 
 {% block groups_search_form %}

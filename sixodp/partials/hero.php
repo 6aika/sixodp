@@ -13,21 +13,17 @@
 
         <div class="search-container">
           <div class="input-group">
-            <div class="input-group-btn">
-              <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <button type="button" class="btn btn-tertiary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span id="selected-domain" data-value="/dataset"><?php _e('Datasets', 'sixodp');?> </span>&nbsp;<span class="fa fa-chevron-down"></span>
               </button>
               <ul class="dropdown-menu dropdown-menu-right">
-                <li><a data-value="/dataset"><?php _e('Datasets', 'sixodp');?> </a></li>
-                <li><a data-value="/showcase"><?php _e('Applications', 'sixodp');?> </a></li>
-                <li role="separator" class="divider"></li>
-                <li><a data-value="/posts"><?php _e('Other', 'sixodp');?> </a></li>
+                <li ><a class="dropdown-item" data-value="/dataset"><?php _e('Datasets', 'sixodp');?> </a></li>
+                <li><a class="dropdown-item" data-value="/showcase"><?php _e('Applications', 'sixodp');?> </a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" data-value="/posts"><?php _e('Other', 'sixodp');?> </a></li>
               </ul>
-            </div><!-- /btn-group -->
-            <input type="text" id="q" class="form-control input-lg" aria-label="..." placeholder="<?php _e('Keyword', 'sixodp');?>">
-            <span class="input-group-btn">
-              <button id="search" class="btn btn-secondary--search" type="button"><?php _e('Search', 'sixodp');?> </button>
-            </span>
+            <input type="text" id="q" class="form-control form-control-lg" aria-label="..." placeholder="<?php _e('Keyword', 'sixodp');?>">
+            <button id="search" class="btn btn-tertiary--search" type="button"><?php _e('Search', 'sixodp');?> </button>
           </div><!-- /input-group -->
         </div>
       </div>
