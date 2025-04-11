@@ -27,7 +27,7 @@
             if ( count($navItem["children"]) > 0 ) {
               $class = ' nav-item';
               if ( $navItem["isActive"] ) {
-                $class += ' active';
+                $class .= ' active';
               }
               echo '<li class="has-subnav' . $class.'"><a class="nav-link" href="'.$navItem["url"].'" title="'.$navItem["title"].'">'.$navItem["title"].'</a>
               <button class="subnav-toggle"><span class="sr-only">' . __('Show submenu for ', 'sixodp') .  $navItem['title'] . '</span><i class="fa fa-chevron-down"></i></button>
@@ -35,7 +35,7 @@
               foreach ($navItem["children"] as $sub_nav_item) {
                 $class = 'nav-item';
                 if ( isset($sub_nav_item["isActive"]) and $sub_nav_item["isActive"] ) {
-                  $class += ' active';
+                  $class .= ' active';
                 }
                 echo '<li class="'.$class.'"><a class="nav-link" href="'.$sub_nav_item["url"].'" title="'.$sub_nav_item["title"].'"><span class="fa fa-long-arrow-right"></span>'.$sub_nav_item["title"].'</a></li>';
               }
@@ -43,7 +43,7 @@
             } else {
               $class = 'nav-item';
               if ( $navItem["isActive"] ) {
-                $class += ' active';
+                $class .= ' active';
               }
               echo '<li class="'.$class.'"><a class="nav-link" href="'.$navItem["url"].'" title="'.$navItem["title"].'">'.$navItem["title"].'</a></li>';
             }
