@@ -120,7 +120,7 @@ enabled_ckan_extensions:
     - datapusher
     - text_view
     - image_view
-    #- sixodp_showcase
+    - sixodp_showcase
     #- matomo
     #- qa
     - archiver
