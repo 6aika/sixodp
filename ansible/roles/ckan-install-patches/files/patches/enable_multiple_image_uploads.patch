@@ -1,7 +1,7 @@
 diff --git a/ckan/public-bs3/base/javascript/modules/image-upload.js b/ckan/public-bs3/base/javascript/modules/image-upload.js
 index b9bc56897..d41a75bef 100644
---- a/ckan/public-bs3/base/javascript/modules/image-upload.js
-+++ b/ckan/public-bs3/base/javascript/modules/image-upload.js
+--- a/ckan/public/base/javascript/modules/image-upload.js
++++ b/ckan/public/base/javascript/modules/image-upload.js
 @@ -77,7 +77,7 @@ this.ckan.module('image-upload', function($) {
          .insertBefore(this.field_url_input);
 

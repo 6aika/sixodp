@@ -1,17 +1,17 @@
 diff --git a/ckan/lib/dictization/model_dictize.py b/ckan/lib/dictization/model_dictize.py
-index ef6bb071b..d85a54341 100644
+index 4211bc435..d71f3c10e 100644
 --- a/ckan/lib/dictization/model_dictize.py
 +++ b/ckan/lib/dictization/model_dictize.py
-@@ -332,6 +332,8 @@ def group_dictize(group: model.Group, context: Context,
-                   include_tags: bool=True,
+@@ -346,6 +346,8 @@ def group_dictize(group: model.Group, context: Context,
                    include_users: bool=True,
                    include_extras: bool=True,
+                   include_member_count: bool=False,
 +                  include_user_extras: bool=True,
 +                  include_user_emails: bool=False,
                    packages_field: Optional[str]='datasets',
                    **kw: Any) -> dict[str, Any]:
      '''
-@@ -430,7 +432,8 @@ def group_dictize(group: model.Group, context: Context,
+@@ -444,7 +446,8 @@ def group_dictize(group: model.Group, context: Context,
      if include_users:
          result_dict['users'] = user_list_dictize(
              _get_members(context, group, 'users'),
@@ -19,9 +19,9 @@ index ef6bb071b..d85a54341 100644
 +            context, include_number_of_created_packages=include_user_extras,
 +            include_emails=include_user_emails)
 
-     context['with_capacity'] = False
-
-@@ -533,15 +536,19 @@ def user_list_dictize(
+     if include_member_count:
+         result_dict['member_count'] = len(_get_members(context, group, 'users'))
+@@ -550,15 +553,19 @@ def user_list_dictize(
          obj_list: Union[list[model.User], list[tuple[model.User, str]]],
          context: Context,
          sort_key: Callable[[Any], Any] = lambda x: h.strxfrm(x['name']),
@@ -44,7 +44,7 @@ index ef6bb071b..d85a54341 100644
          result_list.append(user_dict)
      return sorted(result_list, key=sort_key, reverse=reverse)
 
-@@ -552,7 +559,8 @@ def member_dictize(member: Union[model.Member, model.PackageMember],
+@@ -569,7 +576,8 @@ def member_dictize(member: Union[model.Member, model.PackageMember],
  def user_dictize(
          user: Union[model.User, tuple[model.User, str]], context: Context,
          include_password_hash: bool=False,
@@ -54,14 +54,13 @@ index ef6bb071b..d85a54341 100644
      model = context['model']
 
      if context.get('with_capacity'):
-@@ -568,9 +576,11 @@ def user_dictize(
+@@ -585,9 +593,10 @@ def user_dictize(
 
      result_dict['display_name'] = user.display_name
      result_dict['email_hash'] = user.email_hash
 -    result_dict['number_created_packages'] = user.number_created_packages(
 -        include_private_and_draft=context.get(
 -            'count_private_and_draft_datasets', False))
-+
 +    if include_number_of_created_packages:
 +        result_dict['number_created_packages'] = user.number_created_packages(
 +            include_private_and_draft=context.get(
@@ -70,15 +69,15 @@ index ef6bb071b..d85a54341 100644
      requester = context.get('user')
 
 diff --git a/ckan/logic/action/get.py b/ckan/logic/action/get.py
-index 4002e2d33..b040c9812 100644
+index 2f6effb4c..75bb31a34 100644
 --- a/ckan/logic/action/get.py
 +++ b/ckan/logic/action/get.py
-@@ -1234,7 +1234,9 @@ def _group_or_org_show(
-                                              include_tags=include_tags,
+@@ -1205,7 +1205,9 @@ def _group_or_org_show(
                                               include_extras=include_extras,
                                               include_groups=include_groups,
--                                             include_users=include_users,)
-+                                             include_users=include_users,
+                                              include_users=include_users,
+-                                             include_member_count=include_member_count,)
++                                             include_member_count=include_member_count,
 +                                             include_user_extras=False,
 +                                             include_user_emails=context.get('keep_email', False))
  
