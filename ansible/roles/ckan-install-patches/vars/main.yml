@@ -3,7 +3,6 @@
 patches_cache_path: "{{ cache_path }}/patch"
 
 ckan_patches:
-  - { file: "alert_fix" }
   - { file: "allow_org_admins_create_users" }
   - { file: "set_attachment_content_disposition" }
   - { file: "enable_multiple_image_uploads" }
