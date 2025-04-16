@@ -133,11 +133,7 @@ enabled_ckan_extensions:
     - datapusher
     - text_view
     - image_view
-    - recline_view
-    - recline_graph_view
-    - recline_grid_view
-    - recline_map_view
-    - sixodp_showcase
+    #- sixodp_showcase
     - matomo
     #- qa
     - archiver
