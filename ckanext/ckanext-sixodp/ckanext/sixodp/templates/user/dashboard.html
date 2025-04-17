@@ -1,5 +1,10 @@
 {% ckan_extends %}
 
+{% block breadcrumb_content %}
+  <li class="active breadcrumb-item"><a href="{{ h.url_for('dashboard.datasets') }}">{{ _('Dashboard') }}</a></li>
+{% endblock %}
+
+
 {% block primary %}
   <article class="module">
     {% block page_header %}
