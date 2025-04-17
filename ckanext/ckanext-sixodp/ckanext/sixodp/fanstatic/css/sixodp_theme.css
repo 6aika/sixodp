@@ -14739,6 +14739,8 @@ label.checkbox input[type=checkbox] {
   width: auto;
   height: auto;
   position: absolute;
+  margin-left: -20px;
+  appearance: auto;
 }
 
 .input-group .btn {
