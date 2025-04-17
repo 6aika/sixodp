@@ -1,5 +1,9 @@
 {% ckan_extends %}
 
+{% block breadcrumb_content %}
+  <li class="active breadcrumb-item">{{ h.nav_link(_('Login'), named_route='user.login') }}</li>
+{% endblock %}
+
 {% block primary_content %}
   <section class="module">
     <div class="module-content main-content">
