@@ -97,13 +97,6 @@ class Sixodp_ShowcaseController(ShowcaseController):
 
         package_type = self._guess_package_type()
 
-        try:
-            context = {'model': model, 'user': c.user,
-                       'auth_user_obj': c.userobj}
-            check_access('site_read', context)
-        except NotAuthorized:
-            abort(403, _('Not authorized to see this page'))
-
         # unicode format (decoded from utf8)
         q = c.q = request.params.get('q', u'')
         c.query_error = False

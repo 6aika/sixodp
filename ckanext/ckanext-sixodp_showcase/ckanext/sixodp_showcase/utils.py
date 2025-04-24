@@ -51,16 +51,6 @@ def remove_field(package_type, key, value=None, replace=None):
 def index(package_type):
     extra_vars = {}
 
-    try:
-        context = {
-            u'model': model,
-            u'user': g.user,
-            u'auth_user_obj': g.userobj
-        }
-        check_access(u'site_read', context)
-    except NotAuthorized:
-        toolkit.abort(403, _(u'Not authorized to see this page'))
-
     # unicode format (decoded from utf8)
     extra_vars[u'q'] = q = request.args.get(u'q', u'')
 
