@@ -4685,7 +4685,7 @@ form .form-group .input-group.has-validation > .form-floating:nth-last-child(n+3
   --bs-pagination-focus-bg: var(--bs-secondary-bg);
   --bs-pagination-focus-box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
   --bs-pagination-active-color: #fff;
-  --bs-pagination-active-bg: #0d6efd;
+  --bs-pagination-active-bg: #534f97;
   --bs-pagination-active-border-color: #0d6efd;
   --bs-pagination-disabled-color: var(--bs-secondary-color);
   --bs-pagination-disabled-bg: var(--bs-secondary-bg);
@@ -16630,7 +16630,7 @@ ul.pagination li:focus.current,
 ul.pagination li:focus.active,
 ul.pagination li.disabled.current,
 ul.pagination li.disabled.active {
-  background: #0d6efd;
+  background: #534f97;
   color: #fff;
   border-color: #0d6efd;
 }
@@ -16642,8 +16642,6 @@ ul.pagination li.disabled a {
   float: none;
   padding: 0;
   background: none;
-  width: 80%;
-  height: 60%;
 }
 ul.pagination li a:hover, ul.pagination li a:focus,
 ul.pagination li:active a:hover,
@@ -16653,6 +16651,18 @@ ul.pagination li:focus a:focus,
 ul.pagination li.disabled a:hover,
 ul.pagination li.disabled a:focus {
   background: none;
+}
+ul.pagination li a.page-link,
+ul.pagination li:active a.page-link,
+ul.pagination li:focus a.page-link,
+ul.pagination li.disabled a.page-link {
+  background: none;
+}
+ul.pagination li a.page-link:focus,
+ul.pagination li:active a.page-link:focus,
+ul.pagination li:focus a.page-link:focus,
+ul.pagination li.disabled a.page-link:focus {
+  box-shadow: initial;
 }
 
 .pagination-centered {

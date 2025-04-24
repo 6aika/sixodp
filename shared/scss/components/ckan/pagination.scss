@@ -38,12 +38,17 @@ ul.pagination {
         float: none;
         padding: 0;
         background: none;
-        width: 80%;
-        height: 60%;
 
         &:hover,
         &:focus {
           background: none;
+        }
+
+        &.page-link {
+          background: none;
+          &:focus {
+            box-shadow: initial;
+          }
         }
       }
     }
