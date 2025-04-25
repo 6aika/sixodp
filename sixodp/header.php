@@ -19,7 +19,10 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php endif; ?>
 	<?php wp_head(); ?>
-	<script src="https://use.fontawesome.com/4f2a9d3d3d.js"></script>
+    <link href="/wp-content/themes/sixodp/css/fontawesome.css" rel="stylesheet" />
+    <link href="/wp-content/themes/sixodp/css/solid.css" rel="stylesheet">
+    <link href="/wp-content/themes/sixodp/css/brands.css" rel="stylesheet" />
+    <link href="/wp-content/themes/sixodp/css/v4-shims.css" rel="stylesheet" />
 	<link rel="stylesheet" href="<?php echo site_url(); ?>/wp-content/themes/sixodp/app.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
