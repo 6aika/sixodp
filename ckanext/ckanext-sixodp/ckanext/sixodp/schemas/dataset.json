@@ -174,7 +174,8 @@
         "data-module-tags": "",
         "data-module-source": "/api/2/util/tag/autocomplete?incomplete=?&vocabulary_id=time_series_precision"
       },
-      "description": "A string which describes the precision of the entered time series."
+      "description": "A string which describes the precision of the entered time series.",
+      "display_snippet": "fluent_list.html"
     },
     {
       "field_name": "reminder",
