@@ -4,11 +4,18 @@
   <h2 class="module-heading">{{ _("Resources") }}</h2>
 {% endblock %}
 {% block resources_list %}
-  <ul class="unstyled nav nav-simple">
+  <ul class="unstyled nav nav-simple flex-column">
     {% for resource in resources %}
-      <li class="nav-item{{ ' active' if active == resource.id }}">
-        {% link_for h.resource_display_name(resource)|truncate(45), pkg.type ~ (action or 'resource_read'), id=pkg.name, resource_id=resource.id, inner_span=true %}
-      </li>
+      {% set url = h.url_for('%s_resource.read' % pkg.type, id=pkg.name, resource_id=resource.id) %}
+      {% if active == resource.id %}
+        <li class="nav-item active">
+          <a class="nav-link" href="#" title="{{ h.resource_display_name(resource) }}">{{ h.resource_display_name(resource)|truncate(25) }}</a>
+        </li>
+      {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url }}" title="{{ h.resource_display_name(resource) }}">{{ h.resource_display_name(resource)|truncate(25) }}</a>
+        </li>
+      {% endif %}
     {% endfor %}
   </ul>
 {% endblock %}
