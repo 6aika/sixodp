@@ -17,11 +17,11 @@
              else if($service == 'linkedin') {$socialiconclass = 'fa-brands fa-linkedin';}
              else if($service == 'flickr') {$socialiconclass = 'fa-brands fa-flickr';}
              else if($service == 'slideshare') {$socialiconclass = 'fa-brands fa-slideshare';}
-             else if($service == 'newsletter') {$socialiconclass = 'fa-regular fa-envelope';}
-             else if($service == 'uutiskirje') {$socialiconclass = 'fa-regular fa-envelope';}
+             else if($service == 'newsletter') {$socialiconclass = 'fa-solid fa-envelope';}
+             else if($service == 'uutiskirje') {$socialiconclass = 'fa-solid fa-envelope';}
              else if($service == 'speakerdeck') {$socialiconclass = 'fa-brands fa-speaker-deck';}
              else if($service == 'mastodon') {$socialiconclass = 'fa-brands fa-mastodon';}
-             else if($service == 'bluesky') {$socialiconclass = 'fa-brands fa-square-bluesky';}
+             else if($service == 'bluesky') {$socialiconclass = 'fa-brands fa-bluesky';}
              else {$socialiconclass = 'fa-solid fa-external-link-square';} ?>
                 <a href="<?php echo $item->url; ?>" title="<?php echo $item->title; ?>" class="footer-follow-link"><i class="<?php echo $socialiconclass; ?> fa-2x"></i></a>
        <?php } ?>

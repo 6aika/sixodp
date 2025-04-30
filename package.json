@@ -11,7 +11,7 @@
     "build:ckan": "sass ./shared/scss/main.scss ckanext/ckanext-sixodp/ckanext/sixodp/fanstatic/css/sixodp_theme.css",
     "build:cms": "sass ./shared/scss/cms.scss sixodp/app.css",
     "dev": "run-p watch-sass watch-js",
-    "fontawesome": "cp -r ./node_modules/@fortawesome/fontawesome-free/css/ ./sixodp/css && cp -r ./node_modules/@fortawesome/fontawesome-free/webfonts ./sixodp/webfonts",
+    "fontawesome": "mkdir -p ./sixodp/css/ && cp -r ./node_modules/@fortawesome/fontawesome-free/css/* ./sixodp/css/ && mkdir -p ./sixodp/webfonts/ && cp -r ./node_modules/@fortawesome/fontawesome-free/webfonts/* ./sixodp/webfonts/",
     "postinstall": "run-p build browserify fontawesome"
   },
   "author": "Mikko Nieminen",

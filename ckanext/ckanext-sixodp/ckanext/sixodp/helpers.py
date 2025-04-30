@@ -106,15 +106,15 @@ def get_social_link_icon_class(item):
     elif title == 'slideshare':
         return 'fa-brands fa-slideshare'
     elif title == 'newsletter':
-        return 'fa-regular fa-envelope'
+        return 'fa-solid fa-envelope'
     elif title == 'uutiskirje':
-        return 'fa-regular fa-envelope'
+        return 'fa-solid fa-envelope'
     elif title == 'speakerdeck':
         return 'fa-brands fa-speaker-deck'
     elif title == 'mastodon':
         return 'fa-brands fa-mastodon'
     elif title == 'bluesky':
-        return 'fa-brands fa-square-bluesky'
+        return 'fa-brands fa-bluesky'
     else:
         return 'fa-solid fa-external-link-square'
 
