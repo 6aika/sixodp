@@ -6,19 +6,23 @@
           foreach(wp_get_nav_menu_items('socialmedia') as $item) {
             $socialiconclass = '';
             $service = strtolower($item->post_title);
-             if($service == 'facebook') {$socialiconclass = 'fa fa-facebook-square';}
-             else if($service == 'twitter') {$socialiconclass = 'fa fa-twitter-square';}
-             else if($service == 'youtube') {$socialiconclass = 'fa fa-youtube-square';}
-             else if($service == 'rss') {$socialiconclass = 'fa fa-rss-square';}
-             else if($service == 'tumblr') {$socialiconclass = 'fa fa-tumblr-square';}
-             else if($service == 'github') {$socialiconclass = 'fa fa-github-square';}
-             else if($service == 'instagram') {$socialiconclass = 'fa fa-instagram';}
-             else if($service == 'linkedin') {$socialiconclass = 'fa fa-linkedin-square';}
-             else if($service == 'flickr') {$socialiconclass = 'fa fa-flickr';}
-             else if($service == 'slideshare') {$socialiconclass = 'fa fa-slideshare';}
-             else if($service == 'newsletter') {$socialiconclass = 'fa fa-news-o';}
-             else if($service == 'speakerdeck') {$socialiconclass = 'fa fa-caret-square-o-right';}
-             else {$socialiconclass = 'fa fa-external-link-square';} ?>
+             if($service == 'facebook') {$socialiconclass = 'fa-brands fa-square-facebook';}
+             else if($service == 'twitter') {$socialiconclass = 'fa-brands fa-square-x-twitter';}
+             else if($service == 'x') {$socialiconclass = 'fa-brands fa-square-x-twitter';}
+             else if($service == 'youtube') {$socialiconclass = 'fa-brands fa-youtube-square';}
+             else if($service == 'rss') {$socialiconclass = 'fa-solid fa-square-rss';}
+             else if($service == 'tumblr') {$socialiconclass = 'fa-brands fa-square-tumblr';}
+             else if($service == 'github') {$socialiconclass = 'fa-brands fa-square-github';}
+             else if($service == 'instagram') {$socialiconclass = 'fa-brands fa-square-instagram';}
+             else if($service == 'linkedin') {$socialiconclass = 'fa-brands fa-linkedin';}
+             else if($service == 'flickr') {$socialiconclass = 'fa-brands fa-flickr';}
+             else if($service == 'slideshare') {$socialiconclass = 'fa-brands fa-slideshare';}
+             else if($service == 'newsletter') {$socialiconclass = 'fa-regular fa-envelope';}
+             else if($service == 'uutiskirje') {$socialiconclass = 'fa-regular fa-envelope';}
+             else if($service == 'speakerdeck') {$socialiconclass = 'fa-brands fa-speaker-deck';}
+             else if($service == 'mastodon') {$socialiconclass = 'fa-brands fa-mastodon';}
+             else if($service == 'bluesky') {$socialiconclass = 'fa-brands fa-square-bluesky';}
+             else {$socialiconclass = 'fa-solid fa-external-link-square';} ?>
                 <a href="<?php echo $item->url; ?>" title="<?php echo $item->title; ?>" class="footer-follow-link"><i class="<?php echo $socialiconclass; ?> fa-2x"></i></a>
        <?php } ?>
     </div>

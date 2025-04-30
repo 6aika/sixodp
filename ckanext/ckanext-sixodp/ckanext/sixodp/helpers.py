@@ -84,31 +84,39 @@ def get_social_links():
 def get_social_link_icon_class(item):
     title = item.get('title').lower()
     if title == 'facebook':
-        return 'fa fa-facebook-square'
+        return 'fa-brands fa-square-facebook'
     elif title == 'twitter':
-        return 'fa fa-twitter-square'
+        return 'fa-brands fa-square-x-twitter'
+    elif title == 'x':
+        return 'fa-brands fa-square-x-twitter'
     elif title == 'youtube':
-        return 'fa fa-youtube-square'
+        return 'fa-brands fa-youtube-square'
     elif title == 'rss':
-        return 'fa fa-rss-square'
+        return 'fa-solid fa-square-rss'
     elif title == 'tumblr':
-        return 'fa fa-tumblr-square'
+        return 'fa-brands fa-square-tumblr'
     elif title == 'github':
-        return 'fa fa-github-square'
+        return 'fa-brands fa-square-github'
     elif title == 'instagram':
-        return 'fa fa-instagram'
+        return 'fa-brands fa-square-instagram'
     elif title == 'linkedin':
-        return 'fa fa-linkedin-square'
+        return 'fa-brands fa-linkedin'
     elif title == 'flickr':
-        return 'fa fa-flickr'
+        return 'fa-brands fa-flickr'
     elif title == 'slideshare':
-        return 'fa fa-slideshare'
+        return 'fa-brands fa-slideshare'
     elif title == 'newsletter':
-        return 'fa fa-news-o'
+        return 'fa-regular fa-envelope'
+    elif title == 'uutiskirje':
+        return 'fa-regular fa-envelope'
     elif title == 'speakerdeck':
-        return 'fa fa-caret-square-o-right'
+        return 'fa-brands fa-speaker-deck'
+    elif title == 'mastodon':
+        return 'fa-brands fa-mastodon'
+    elif title == 'bluesky':
+        return 'fa-brands fa-square-bluesky'
     else:
-        return 'icon-external-link-sign'
+        return 'fa-solid fa-external-link-square'
 
 
 def menu_is_active(menu_url, current_path):
