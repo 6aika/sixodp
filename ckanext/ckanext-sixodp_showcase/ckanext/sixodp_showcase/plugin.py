@@ -148,7 +148,7 @@ class Sixodp_ShowcasePlugin(ShowcasePlugin):
         return pkg_dict
 
     # IPackageController
-    def after_show(self, context, data_dict):
+    def after_dataset_show(self, context, data_dict):
 
         keep_deletable_attributes_in_api = config.get('ckanext.sixodp.keep_deletable_attributes_in_api',
                                                       context.get('keep_deletable_attributes_in_api', False))
@@ -161,7 +161,7 @@ class Sixodp_ShowcasePlugin(ShowcasePlugin):
 
         return self._add_to_pkg_dict(context, data_dict)
 
-    def before_index(self, data_dict):
+    def before_dataset_index(self, data_dict):
 
         if data_dict.get('platform'):
             data_dict['vocab_platform'] = [tag for tag in json.loads(data_dict['platform'])]
