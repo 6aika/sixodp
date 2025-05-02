@@ -12,7 +12,8 @@
     - solr
     - redis
     - nodejs
-    - postfix
+    - role: postfix
+      when: deployment_environment_id == "vagrant"
     - ckan-extensions
     - ckan-install
     - ckan-config
@@ -33,14 +34,14 @@
   roles:
     - os-base
     - nodejs
-    - postfix
+    - role: postfix
+      when: deployment_environment_id == "vagrant"
     - ckan-extensions
     - ckan-install
     - ckan-config
     - ckan-install-patches
     - supervisor
     - nginx
-    - transifex-install
     - ckan-translations
     - ckan-restart
     - mysql
