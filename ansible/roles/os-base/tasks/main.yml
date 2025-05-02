@@ -28,7 +28,7 @@
     pkg:
       - htop
       - unattended-upgrades
-      - postgresql-server-dev-14
+      - postgresql-server-dev-16
       - libpq5
       - git-core
       - zip
@@ -79,9 +79,6 @@
     - "{{ server_path }}"
     - "{{ cache_path }}"
 
-- name: Install virtualenv
-  pip:
-    name: virtualenv
 
 - name: Copy environment update script
   template:
