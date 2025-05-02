@@ -16,8 +16,8 @@
       state: restarted
 
   - name: Install PyMySQL
-    pip:
-      name: PyMySQL
+    apt:
+      name: python3-pymysql
 
   - name: Create database
     mysql_db:

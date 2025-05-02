@@ -111,7 +111,7 @@ ckan_extensions:
   - ckanext-report
   - ckanext-ga-report
   - ckanext-archiver
-  - ckanext-qa
+  #- ckanext-qa
   - ckanext-hierarchy
   - ckanext-disqus
   - ckanext-reminder

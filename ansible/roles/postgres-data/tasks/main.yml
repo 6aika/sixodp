@@ -1,8 +1,8 @@
 ---
 
-- name: Install psycopg2
-  pip:
-    name: psycopg2
+#- name: Install psycopg2
+#  pip:
+#    name: psycopg2
 
 - include_tasks: local_database.yml
   when: postgres.server.installed_locally

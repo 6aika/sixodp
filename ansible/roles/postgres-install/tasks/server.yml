@@ -19,12 +19,12 @@
 
 - name: Allow connections from all addresses in local environment
   lineinfile:
-    path: "/etc/postgresql/14/main/postgresql.conf"
+    path: "/etc/postgresql/16/main/postgresql.conf"
     line: "listen_addresses = '*'"
 
 - name: Allow authentication to database
   lineinfile:
-    path: "/etc/postgresql/14/main/pg_hba.conf"
+    path: "/etc/postgresql/16/main/pg_hba.conf"
     line: "{{ item }}"
   with_items:
       - "host {{ postgres.databases.ckan.name }} {{ postgres.users.ckan.username }} {{ postgres.server.trusted_ip_range }} md5"
