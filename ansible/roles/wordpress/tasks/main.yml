@@ -1,7 +1,7 @@
 ---
 - name: Install PyMySQL
-  pip:
-    name: PyMySQL
+  apt:
+    name: python3-pymysql
 
 - name: Download WP-CLI
   get_url:
