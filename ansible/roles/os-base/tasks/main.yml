@@ -79,9 +79,6 @@
     - "{{ server_path }}"
     - "{{ cache_path }}"
 
-#- name: Install virtualenv
-#  pip:
-#    name: virtualenv
 
 - name: Copy environment update script
   template:
