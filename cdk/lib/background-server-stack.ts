@@ -18,7 +18,8 @@ export class BackgroundServerStack extends Stack {
             'apt-get -y dist-upgrade',
             'apt-get -y install python3 python3-pip',
             'snap install aws-cli --classic',
-            'pip install ansible botocore boto3',
+            'add-apt-repository --yes --update ppa:ansible/ansible',
+            'apt-get -y install ansible',
             'cd /root',
             'git clone https://github.com/6aika/sixodp.git',
             'cd /root/sixodp',
@@ -66,7 +67,7 @@ export class BackgroundServerStack extends Stack {
             },
             instanceType: aws_ec2.InstanceType.of(aws_ec2.InstanceClass.T4G, aws_ec2.InstanceSize.SMALL),
             machineImage: aws_ec2.MachineImage.genericLinux({
-                'eu-west-1': 'ami-0fe825d0b661d4950'
+                'eu-west-1': 'ami-0bbd3f89449af0b30'
             }),
             userData: userData,
             role: role,
