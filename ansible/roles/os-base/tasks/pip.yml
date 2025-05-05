@@ -5,6 +5,6 @@
     name:
       - pip
       - setuptools==66.1.1
-      - boto
+      - boto3
     virtualenv: "{{ virtualenv }}"
     state: latest
