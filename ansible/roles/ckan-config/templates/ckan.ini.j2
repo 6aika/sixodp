@@ -147,7 +147,7 @@ ckan.datapusher.api_token = {{ datapusher.api_token }}
 {% if AWS.enabled -%}
 ckanext.cloudstorage.driver = {{ AWS.region }}
 ckanext.cloudstorage.container_name = {{ AWS.ckan_s3_bucket }}
-ckanext.cloudstorage.use_secure_urls = 1
+ckanext.cloudstorage.use_secure_urls = true
 ckanext.cloudstorage.datapusher.formats = csv application/csv tsv ods application/vnd.oasis.opendocument.spreadsheet
 ckan.datapusher.formats = nonexistingformat
 googleanalytics.download_handler = ckanext.cloudstorage.views:download
