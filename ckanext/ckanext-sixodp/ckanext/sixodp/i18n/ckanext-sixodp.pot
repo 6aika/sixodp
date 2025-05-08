@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-05-08 09:12+0000\n"
+"POT-Creation-Date: 2025-05-08 12:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -473,19 +473,40 @@ msgstr ""
 msgid "Username or Email"
 msgstr ""
 
+#: ckanext/sixodp/translations.py:138
+msgid "Current Sysadmins"
+msgstr ""
+
+#: ckanext/sixodp/translations.py:139
+msgid "Promote user to Sysadmin"
+msgstr ""
+
 #: ckanext/sixodp/translations.py:140
-msgid "Add Group"
+msgid "Sysadmin password"
 msgstr ""
 
 #: ckanext/sixodp/translations.py:141
+#, python-format
+msgid ""
+"<p>As a sysadmin user you have full control over this CKAN instance. Proceed "
+"with care!</p> <p>For guidance on using sysadmin features, see the CKAN  <a "
+"href=\"%(docs_url)s\" target=\"_blank\" rel=\"noreferrer\">sysadmin "
+"guide</a></p>"
+msgstr ""
+
+#: ckanext/sixodp/translations.py:147
+msgid "Add Group"
+msgstr ""
+
+#: ckanext/sixodp/translations.py:148
 msgid "There are currently no groups for this site"
 msgstr ""
 
-#: ckanext/sixodp/translations.py:142
+#: ckanext/sixodp/translations.py:149
 msgid "Create a Group"
 msgstr ""
 
-#: ckanext/sixodp/translations.py:143
+#: ckanext/sixodp/translations.py:150
 msgid "Save Group"
 msgstr ""
 

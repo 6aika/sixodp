@@ -135,6 +135,15 @@ def _translations():
 
     # Translations missing from ckan
     _('Username or Email')
+    _('Current Sysadmins')
+    _('Promote user to Sysadmin')
+    _('Promote')
+    
+    _('Sysadmin password')
+    _("<p>As a sysadmin user you have full control over this CKAN instance. Proceed "
+      "with care!</p> <p>For guidance on using sysadmin features, see the CKAN  <a "
+      "href=\"%(docs_url)s\" target=\"_blank\" rel=\"noreferrer\">sysadmin "
+      "guide</a></p>")
 
     # Overridden translations not in templates
     _('Add Group')
