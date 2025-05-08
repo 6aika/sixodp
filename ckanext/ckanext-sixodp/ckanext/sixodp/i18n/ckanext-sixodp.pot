@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-sixodp 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-05-08 12:09+0000\n"
+"POT-Creation-Date: 2025-05-08 12:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -482,10 +482,14 @@ msgid "Promote user to Sysadmin"
 msgstr ""
 
 #: ckanext/sixodp/translations.py:140
-msgid "Sysadmin password"
+msgid "Promote"
 msgstr ""
 
 #: ckanext/sixodp/translations.py:141
+msgid "Sysadmin password"
+msgstr ""
+
+#: ckanext/sixodp/translations.py:142
 #, python-format
 msgid ""
 "<p>As a sysadmin user you have full control over this CKAN instance. Proceed "
@@ -494,19 +498,36 @@ msgid ""
 "guide</a></p>"
 msgstr ""
 
-#: ckanext/sixodp/translations.py:147
+#: ckanext/sixodp/translations.py:146
+#, python-format
+msgid ""
+"<p><strong>Site Title:</strong> This is the title of this CKAN instance It "
+"appears in various places throughout CKAN.</p> <p><strong>Custom "
+"Stylesheet:</strong> Define an alternative main CSS file.</p> <p><strong>Site"
+" Tag Logo:</strong> This is the logo that appears in the header of all the "
+"CKAN instance templates.</p> <p><strong>About:</strong> This text will appear"
+" on this CKAN instances <a href=\"%(about_url)s\">about page</a>.</p> "
+"<p><strong>Intro Text:</strong> This text will appear on this CKAN instances "
+"<a href=\"%(home_url)s\">home page</a> as a welcome to visitors.</p> "
+"<p><strong>Custom CSS:</strong> This is a block of CSS that appears in "
+"<code>&lt;head&gt;</code> tag of every page. If you wish to customize the "
+"templates more fully we recommend <a href=\"%(docs_url)s\" target=\"_blank\" "
+"rel=\"noreferrer\">reading the documentation</a>.</p>"
+msgstr ""
+
+#: ckanext/sixodp/translations.py:160
 msgid "Add Group"
 msgstr ""
 
-#: ckanext/sixodp/translations.py:148
+#: ckanext/sixodp/translations.py:161
 msgid "There are currently no groups for this site"
 msgstr ""
 
-#: ckanext/sixodp/translations.py:149
+#: ckanext/sixodp/translations.py:162
 msgid "Create a Group"
 msgstr ""
 
-#: ckanext/sixodp/translations.py:150
+#: ckanext/sixodp/translations.py:163
 msgid "Save Group"
 msgstr ""
 
