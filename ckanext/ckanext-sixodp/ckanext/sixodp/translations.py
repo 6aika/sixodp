@@ -131,3 +131,14 @@ def _translations():
     _('None - top level')
     _('Icon URL')
     _('My Group')
+
+
+    # Translations missing from ckan
+    _('Username or Email')
+
+    # Overridden translations not in templates
+    _('Add Group')
+    _('There are currently no groups for this site')
+    _('Create a Group')
+    _('Save Group')
+
