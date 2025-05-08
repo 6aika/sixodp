@@ -8,3 +8,6 @@
   with_items: "{{ translation_projects }}"
   args:
       chdir: "{{ ckanext_sync_path }}/{{ item }}"
+
+- name: Generate JS translations
+  command: "{{ virtualenv }}/bin/ckan -c {{ ckan_ini }} translation js"
