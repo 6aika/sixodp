@@ -264,7 +264,7 @@ msgid ""
 " unit, bureau or as an exception a single employee."
 msgstr ""
 "Datan tekninen ylläpitäjä. Voi olla sama kuin dataa sisällöllisesti "
-"ylläpitävä yksikkö."
+"ylläpitävä taho."
 
 #: ckanext/sixodp/translations.py:54
 msgid "Maintainer Email"
