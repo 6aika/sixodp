@@ -111,7 +111,7 @@ msgstr "Nimi"
 
 #: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:122
 msgid "Submitter email"
-msgstr "Ilmoittajan sähköpostiosoite"
+msgstr "Sähköpostiosoite"
 
 #: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:146
 msgid "Submit"
