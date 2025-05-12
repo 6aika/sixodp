@@ -500,7 +500,7 @@ msgstr "esim. vuorokausi, viikko tai vuosi"
 msgid "A string which describes the precision of the entered time series."
 msgstr ""
 "Aikasarjan tarkkuus, esim. \"vuorokausi\", \"viikko\" tai \"vuosi\". "
-"Syöttökenttä hakee dataportaalissa jo käytössä olevia sanoja. Voit "
+"Syöttökenttä hakee tietokannassa jo käytössä olevia sanoja. Voit "
 "tarvittaessa myös syöttää uuden."
 
 #: ckanext/sixodp/translations.py:122
