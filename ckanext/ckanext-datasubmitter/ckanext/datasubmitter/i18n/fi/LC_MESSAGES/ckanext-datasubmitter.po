@@ -49,8 +49,8 @@ msgstr "Datan lähetys onnistui"
 msgid ""
 "Dataset submit notification email addresses (separate emails with a space)"
 msgstr ""
-"Sähköpostiosoitteet, joihin ilmoitetaan uudesta tietoaineistosta (erota "
-"osoitteet välilyönnillä)"
+"Sähköpostiosoitteet, joihin ilmoitetaan uudesta datasta (erota osoitteet "
+"välilyönnillä)"
 
 #: ckanext/datasubmitter/templates/admin/config.html:9
 msgid ""
