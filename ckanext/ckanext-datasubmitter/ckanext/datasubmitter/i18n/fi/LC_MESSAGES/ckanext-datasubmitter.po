@@ -78,7 +78,7 @@ msgstr ""
 
 #: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:26
 msgid "Dataset info"
-msgstr "Aineiston tiedot"
+msgstr "Datan tiedot"
 
 #: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:33
 msgid "Title"
@@ -86,7 +86,7 @@ msgstr "Nimi"
 
 #: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:34
 msgid "A descriptive title for the dataset"
-msgstr "Aineistoa mahdollisimman tarkasti kuvaava otsikko"
+msgstr "Dataa mahdollisimman tarkasti kuvaava otsikko"
 
 #: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:52
 msgid ""
