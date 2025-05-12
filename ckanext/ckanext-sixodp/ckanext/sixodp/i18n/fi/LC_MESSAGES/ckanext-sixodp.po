@@ -1844,8 +1844,8 @@ msgstr "Järjestä tulokset"
 #: ckanext/sixodp/templates/snippets/search_form_without_input.html:82
 msgid "<p class=\"extra\">Please try another search or change search facets.</p>"
 msgstr ""
-" <p class=\"extra\">Kokeile erilaisia hakusanoja tai vaihda hakutermejä.</p>"
-" "
+" <p class=\"extra\">Kokeile erilaisia hakusanoja tai vaihda "
+"hakusuodattimia.</p> "
 
 #: ckanext/sixodp/templates/snippets/search_form_without_input.html:88
 msgid ""
