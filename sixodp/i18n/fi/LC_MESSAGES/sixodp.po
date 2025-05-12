@@ -332,7 +332,7 @@ msgstr "Viimeksi päivitetyt datat"
 #: partials/featured-content.php:25 partials/featured-content.php:60
 #: partials/latest-updates.php:26 partials/latest-updates.php:90
 msgid "Dataset"
-msgstr "Tietoaineisto"
+msgstr "Data"
 
 #: partials/featured-content.php:73
 msgid "Do you have a request for a dataset or an idea for application?"
