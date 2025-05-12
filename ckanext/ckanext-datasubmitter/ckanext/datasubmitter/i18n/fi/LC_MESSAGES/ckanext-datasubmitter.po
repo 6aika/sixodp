@@ -99,7 +99,7 @@ msgstr ""
 
 #: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:66
 msgid "Owner organization"
-msgstr "Omistajaorganisaatio"
+msgstr "Omistava organisaatio"
 
 #: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:97
 msgid "Submitter info"
