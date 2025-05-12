@@ -1105,8 +1105,8 @@ msgid ""
 "particular theme, or as a very simple way to help people find and search "
 "your own published datasets."
 msgstr ""
-"Kategorioiden avulla datoja ryhmitellään eri teemojen mukaan. Yksi aineisto "
-"voi kuulua useampaan kategoriaan."
+"Kategorioiden avulla datoja ryhmitellään eri teemojen mukaan. Yksi data voi "
+"kuulua useampaan kategoriaan."
 
 #: ckanext/sixodp/templates/home/snippets/sixodp_language-changer.html:6
 msgid "In Finnish"
