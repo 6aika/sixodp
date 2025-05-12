@@ -1344,7 +1344,7 @@ msgstr "Etkö näe näkymiä?"
 #: ckanext/sixodp/templates/package/resource_read.html:105
 #: ckanext/sixodp/templates/package/snippets/resource_view.html:18
 msgid "Click here for more information."
-msgstr "Klikkaa tästä saadaksesi lisätietoa..."
+msgstr "Klikkaa tästä saadaksesi lisätietoa."
 
 #: ckanext/sixodp/templates/package/resource_read.html:109
 msgid "Here are some reasons you may not be seeing expected views:"
