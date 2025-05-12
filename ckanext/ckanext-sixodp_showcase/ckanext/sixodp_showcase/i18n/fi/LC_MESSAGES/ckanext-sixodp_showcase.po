@@ -5,10 +5,8 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
 # 
 # Translators:
-# Mikko Nieminen <mikko.nieminen@gofore.com>, 2017
-# Hami Kekkonen <hami.kekkonen@hel.fi>, 2020
-# Joonas Dukpa, 2020
-# Zharktas <jari-pekka.voutilainen@gofore.com>, 2023
+# Zharktas <jari-pekka.voutilainen@gofore.com>, 2025
+# Hami Kekkonen <hami.kekkonen@hel.fi>, 2025
 # 
 #, fuzzy
 msgid ""
@@ -16,8 +14,8 @@ msgstr ""
 "Project-Id-Version: ckanext-sixodp_showcase 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-05-08 11:56+0000\n"
-"PO-Revision-Date: 2017-03-17 06:42+0000\n"
-"Last-Translator: Zharktas <jari-pekka.voutilainen@gofore.com>, 2023\n"
+"PO-Revision-Date: 2025-02-27 07:33+0000\n"
+"Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2025\n"
 "Language-Team: Finnish (https://app.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -178,8 +176,8 @@ msgstr "Sovelluksen ilmoittajan sähköpostiosoite"
 msgid ""
 "A global id can be assigned to identify the showcase in external services."
 msgstr ""
-"Sovellukselle voidaan antaa globaali id, jolla se voidaan yksilöidä muissa "
-"palveluissa, kuten avoindata.fi:ssä."
+"Sovellukselle voidaan antaa globaali ID, jolla se voidaan yksilöidä muissa "
+"sivustoissa, kuten avoindata.fi:ssä."
 
 #: ckanext/sixodp_showcase/translations.py:23
 msgid "Name of the showcase author."
@@ -199,20 +197,20 @@ msgstr "Harvestointilupa myönnetty"
 
 #: ckanext/sixodp_showcase/utils.py:211
 msgid "Parameter u\"{parameter_name}\" is not an integer"
-msgstr ""
+msgstr "Parametri u\"{parameter_name}\" ei ole kokonaisluku"
 
 #: ckanext/sixodp_showcase/utils.py:241
 msgid "Unauthorized to read showcase"
-msgstr ""
+msgstr "Ei oikeuksia nähdä sovellusta"
 
 #: ckanext/sixodp_showcase/views.py:151
 msgid "Dataset not found"
-msgstr ""
+msgstr "Dataa ei löytynyt"
 
 #: ckanext/sixodp_showcase/views.py:171
 #, python-format
 msgid "User %r not authorized to edit %s"
-msgstr ""
+msgstr "Käyttäjällä %r ei ole oikeuksia muokata %s"
 
 #: ckanext/sixodp_showcase/templates/admin/base.html:6
 #: ckanext/sixodp_showcase/templates/admin/manage_showcase_admins.html:38
@@ -282,6 +280,8 @@ msgid ""
 "<p><strong>Showcase Admin:</strong> Can create and remove showcases. Can add"
 " and remove datasets from showcases.</p>"
 msgstr ""
+"<p><strong>Sovellusten ylläpitäjä:</strong> Voi luoda ja poistaa sovelluksia"
+" sekä lisätä ja poistaa datoja sovelluksista.</p>"
 
 #: ckanext/sixodp_showcase/templates/package/dataset_showcase_list.html:3
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/edit_base.html:5
@@ -334,7 +334,7 @@ msgstr "Muokkaa sovellusta"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/edit_base.html:41
 msgid "Manage datasets"
-msgstr "Hallitse tietoaineistoja"
+msgstr "Hallitse datoja"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/new.html:8
 msgid "Create a Showcase"
@@ -366,7 +366,7 @@ msgstr "Julkaistu"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:94
 msgid "updated"
-msgstr "Päivitetty"
+msgstr "päivitetty"
 
 #: ckanext/sixodp_showcase/templates/sixodp_showcase/read.html:127
 msgid "Manage"
