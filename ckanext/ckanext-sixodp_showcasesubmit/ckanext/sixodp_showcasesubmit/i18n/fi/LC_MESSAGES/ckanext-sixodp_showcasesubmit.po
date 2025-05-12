@@ -221,11 +221,11 @@ msgstr "Ilmoittajan tiedot"
 
 #: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:321
 msgid "Name of the submitter"
-msgstr "Ilmoittajan nimi"
+msgstr "Nimi"
 
 #: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:339
 msgid "Submitter email"
-msgstr "Ilmoittajan sähköpostiosoite"
+msgstr "Sähköpostiosoite"
 
 #: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:357
 msgid ""
