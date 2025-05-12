@@ -427,7 +427,7 @@ msgstr ""
 #: ckanext/sixodp/translations.py:97
 msgid ""
 "A file or url which describes the location of the desired resource file."
-msgstr "Tiedosto tai sen verkko-osoite."
+msgstr "Tiedosto tai verkko-osoite."
 
 #: ckanext/sixodp/templates/scheming/package/resource_read.html:34
 #: ckanext/sixodp/translations.py:99
