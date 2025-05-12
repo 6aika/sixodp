@@ -595,8 +595,8 @@ msgstr ""
 " näkyy CKAN:in <a href=\"%(about_url)s\">tietoja-"
 "sivulla</a>.</p><p><strong>Johdantoteksti:</strong>Teksti näkyy CKAN:in <a "
 "href=\"%(home_url)s\">etusivulla</a>.</p><p><strong>Muokattu "
-"CSS:</strong>Tmä on CSS-lohko, joka näkyy <code>&lt;head&gt;</code>-tagissa "
-"jokaisella sivulla. <a href=\"%(docs_url)s\" target=\"_blank\" "
+"CSS:</strong>Tämä on CSS-lohko, joka näkyy <code>&lt;head&gt;</code>-tagissa"
+" jokaisella sivulla. <a href=\"%(docs_url)s\" target=\"_blank\" "
 "rel=\"noreferrer\">Lisätietoa</a> lohkon muokkaamisesta.</p>"
 
 #: ckanext/sixodp/translations.py:160
