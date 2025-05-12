@@ -832,7 +832,7 @@ msgstr ""
 #: ckanext/sixodp/fanstatic/javascript/modules/resource-view-reorder.js:8
 #: ckanext/sixodp/fanstatic/javascript/modules/resource-view-reorder.min.js:1
 msgid "Reorder resource view"
-msgstr "Uudelleenjärjestä resurssinäyttö"
+msgstr "Uudelleenjärjestä resurssinäkymä"
 
 #: ckanext/sixodp/fanstatic/javascript/modules/slug-preview.js:36
 #: ckanext/sixodp/fanstatic/javascript/modules/slug-preview.min.js:1
