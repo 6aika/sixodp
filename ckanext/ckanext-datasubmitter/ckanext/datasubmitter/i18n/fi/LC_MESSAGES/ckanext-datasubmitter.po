@@ -43,7 +43,7 @@ msgstr "Tiedoston tai rajapintakuvauksen www-osoite"
 
 #: ckanext/datasubmitter/views.py:137
 msgid "Dataset submitted successfully"
-msgstr "Tietoaineiston lähetys onnistui"
+msgstr "Datan lähetys onnistui"
 
 #: ckanext/datasubmitter/templates/admin/config.html:7
 msgid ""
