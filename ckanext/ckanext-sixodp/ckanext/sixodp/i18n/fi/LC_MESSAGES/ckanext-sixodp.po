@@ -605,7 +605,7 @@ msgstr "Lisää kategoria"
 
 #: ckanext/sixodp/translations.py:161
 msgid "There are currently no groups for this site"
-msgstr "Kategorioita ei ole yhtään"
+msgstr "Kategorioita ei ole "
 
 #: ckanext/sixodp/translations.py:162
 msgid "Create a Group"
