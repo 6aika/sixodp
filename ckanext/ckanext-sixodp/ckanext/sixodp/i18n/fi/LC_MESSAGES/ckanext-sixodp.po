@@ -25,7 +25,7 @@ msgstr ""
 
 #: ckanext/sixodp/helpers.py:184 ckanext/sixodp/helpers.py:389
 msgid "Dataset not found"
-msgstr "Tietoaineistoa ei löytynyt"
+msgstr "Dataa ei löytynyt"
 
 #: ckanext/sixodp/helpers.py:295
 msgid "Show submenu for "
