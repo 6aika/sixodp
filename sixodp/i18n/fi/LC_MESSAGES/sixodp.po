@@ -512,8 +512,8 @@ msgstr ""
 #: showcase_idea_form.php:163
 msgid "Your email will not be published with showcase idea."
 msgstr ""
-"Sähköpostiosoitettasi ei julkaista sovellusidean yhteydessä.  Sitä käytetään"
-" tarvittaessa yhteydenottoon esimerkiksi sovellusidean edistämisen tai "
+"Sähköpostiosoitettasi ei julkaista sovellusidean yhteydessä. Sitä käytetään "
+"tarvittaessa yhteydenottoon esimerkiksi sovellusidean edistämisen tai "
 "tarvittavien lisätietojen osalta."
 
 #: single.php:66
