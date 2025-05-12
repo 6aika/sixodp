@@ -65,7 +65,7 @@ msgid ""
 msgstr ""
 "Tällä lomakkeella voit ilmoittaa kehittämäsi sovelluksen esiteltäväksi tällä"
 " sivustolla. Sovellukseksi kelpaa kaikenlaiset avoimen datan käyttökohteet "
-"kuten esimerkiksi mobiiliapplikaatiot, artikkelit, tutkimukset ja uutiset. "
+"kuten esimerkiksi mobiilisovellukset, artikkelit, tutkimukset ja uutiset. "
 "Täytä ainakin tähdellä merkityt pakolliset kentät. Sivuston ylläpitäjä ottaa"
 " tarvittaessa yhteyttä lisätietoja varten."
 
