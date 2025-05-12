@@ -147,7 +147,7 @@ msgstr ""
 
 #: data_request_form.php:156 showcase_idea_form.php:157
 msgid "Email"
-msgstr "Sähköposti"
+msgstr "Sähköpostiosoite"
 
 #: data_request_form.php:162
 msgid "Your email will not be published with data request."
