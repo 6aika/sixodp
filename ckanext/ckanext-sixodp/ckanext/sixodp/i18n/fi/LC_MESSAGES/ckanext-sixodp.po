@@ -288,7 +288,7 @@ msgstr "Ylläpitäjän verkkosivusto"
 
 #: ckanext/sixodp/translations.py:59
 msgid "http://www.example.com"
-msgstr "http://www.example.com"
+msgstr "https://www.example.com"
 
 #: ckanext/sixodp/templates/scheming/form_snippets/private.html:2
 #: ckanext/sixodp/translations.py:61
