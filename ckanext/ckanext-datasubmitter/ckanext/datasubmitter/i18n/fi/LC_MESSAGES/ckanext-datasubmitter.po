@@ -6,6 +6,7 @@
 # 
 # Translators:
 # Zharktas <jari-pekka.voutilainen@gofore.com>, 2025
+# Hami Kekkonen <hami.kekkonen@hel.fi>, 2025
 # 
 #, fuzzy
 msgid ""
@@ -14,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-05-17 07:27+0000\n"
 "PO-Revision-Date: 2025-02-27 07:31+0000\n"
-"Last-Translator: Zharktas <jari-pekka.voutilainen@gofore.com>, 2025\n"
+"Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2025\n"
 "Language-Team: Finnish (https://app.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,11 +26,11 @@ msgstr ""
 
 #: ckanext/datasubmitter/views.py:49
 msgid "A user has submitted a new dataset"
-msgstr "Käyttäjä on ilmoittanut uuden tietoaineiston"
+msgstr "Käyttäjä on ilmoittanut uuden datan"
 
 #: ckanext/datasubmitter/views.py:52
 msgid "New dataset notification"
-msgstr "Ilmoitus uudesta tietoaineistosta"
+msgstr "Ilmoitus uudesta datasta"
 
 #: ckanext/datasubmitter/views.py:115
 msgid "Organization"
