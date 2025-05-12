@@ -93,9 +93,9 @@ msgid ""
 "Example: The dataset includes financial information for Acme corporation "
 "starting from the year 2012"
 msgstr ""
-"Yleiskielinen helposti ymmärrettävä, mutta samalla kattava tietoaineiston "
-"kuvaus. Kuvaa mahdollisimman hyvin tietoaineiston luontiprosessi, "
-"käyttötarkoitus sekä myös mahdolliset rajoitteet tai puutteet aineistossa."
+"Yleiskielinen helposti ymmärrettävä, mutta samalla kattava datan kuvaus. "
+"Kuvaa mahdollisimman hyvin datan luontiprosessi, käyttötarkoitus sekä myös "
+"sen mahdolliset rajoitteet tai puutteet."
 
 #: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:66
 msgid "Owner organization"
