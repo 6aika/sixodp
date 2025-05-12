@@ -107,7 +107,7 @@ msgstr "Ilmoittajan tiedot"
 
 #: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:104
 msgid "Name of the submitter"
-msgstr "Datan ilmoittajan nimi"
+msgstr "Nimi"
 
 #: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:122
 msgid "Submitter email"
