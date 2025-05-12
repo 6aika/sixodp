@@ -163,7 +163,7 @@ msgid ""
 "the showcase info page."
 msgstr ""
 "Lähetä tai lisää linkki korkeintaan kolmeen kuvatiedostoon sekä "
-"esittelykuvaan. Kuvat tulevat sovelluksen esittelysivulle."
+"kuvakkeeseen. Kuvat tulevat sovelluksen esittelysivulle."
 
 #: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:205
 #: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:206
