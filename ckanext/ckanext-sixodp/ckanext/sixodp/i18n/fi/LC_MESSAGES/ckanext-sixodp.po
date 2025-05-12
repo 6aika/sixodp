@@ -178,7 +178,7 @@ msgstr "esim. kunnan nimi"
 
 #: ckanext/sixodp/translations.py:33
 msgid "Select the municipalities from which the dataset contains data."
-msgstr "Valitse, mistä kunnista tai alueista tietoaineisto sisältää tietoa."
+msgstr "Valitse, mitä kuntia tai alueita data koskee."
 
 #: ckanext/sixodp/templates/package/snippets/resource_form.html:33
 #: ckanext/sixodp/templates/package/snippets/view_form.html:9
