@@ -57,8 +57,8 @@ msgid ""
 "The organization name (ending in organization's url) into which submitted "
 "datasets will be added"
 msgstr ""
-"Organisaation nimi (organisaation url:n loppuosa), johon ilmoitetut "
-"tietoaineistot lisätään"
+"Organisaation nimi (organisaation URL:n loppuosa), johon ilmoitetut uudet "
+"datat lisätään"
 
 #: ckanext/datasubmitter/templates/datasubmitter/base.html:11
 #: ckanext/datasubmitter/templates/datasubmitter/base_form_page.html:14
