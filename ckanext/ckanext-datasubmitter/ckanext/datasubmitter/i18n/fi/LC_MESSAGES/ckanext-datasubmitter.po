@@ -39,7 +39,7 @@ msgstr "Organisaatio"
 #: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:84
 #: ckanext/datasubmitter/views.py:118
 msgid "Dataset url"
-msgstr "Aineiston www-osoite"
+msgstr "Tiedoston tai rajapintakuvauksen www-osoite"
 
 #: ckanext/datasubmitter/views.py:137
 msgid "Dataset submitted successfully"
