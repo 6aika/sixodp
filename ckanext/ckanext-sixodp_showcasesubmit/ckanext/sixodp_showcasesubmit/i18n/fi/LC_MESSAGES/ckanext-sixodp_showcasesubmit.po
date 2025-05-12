@@ -232,8 +232,8 @@ msgid ""
 "I accept that metadata of the application is distributed to other data "
 "portals."
 msgstr ""
-"Hyväksyn, että lähettämäni metatiedot ja kuvat sovelluksesta välitetään "
-"muihin dataportaaleihin, kuten avoindata.fi:hin."
+"Hyväksyn, että lähettämäni metatiedot ja kuvat sovelluksesta saatetaan "
+"välittää muihin dataportaaleihin, kuten avoindata.fi:hin."
 
 #: ckanext/sixodp_showcasesubmit/templates/sixodp_showcasesubmit/snippets/new_package_form.html:379
 msgid "Submit"
