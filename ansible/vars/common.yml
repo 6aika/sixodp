@@ -25,6 +25,11 @@ sentry:
 
 translation_projects:
   - ckanext-matomo
+  - ckanext-sixodp
+  - ckanext-sixodp_showcase
+  - ckanext-sixodp_showcasesubmit
+  - ckanext-datasubmitter
+  - ckanext-statistics
 
 datapusher:
   api_token: replacethis

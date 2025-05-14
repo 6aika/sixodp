@@ -1,7 +1,7 @@
 ---
 
-- name: Ensure CKAN JavaScript translation privileges
-  file: path="{{ ckan_source_path }}/ckan/public/base/i18n" owner={{ www_user }} group={{ www_group }} mode="0755" recurse=yes
+#- name: Ensure CKAN JavaScript translation privileges
+#  file: path="{{ ckan_source_path }}/ckan/public/base/i18n" owner={{ www_user }} group={{ www_group }} mode="0755" recurse=yes
 
 - name: Compile extension translations
   command: "{{ virtualenv }}/bin/python setup.py compile_catalog -f"
