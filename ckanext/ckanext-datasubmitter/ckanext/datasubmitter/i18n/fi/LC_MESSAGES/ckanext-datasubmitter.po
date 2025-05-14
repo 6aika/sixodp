@@ -6,6 +6,7 @@
 # 
 # Translators:
 # Zharktas <jari-pekka.voutilainen@gofore.com>, 2025
+# Hami Kekkonen <hami.kekkonen@hel.fi>, 2025
 # 
 #, fuzzy
 msgid ""
@@ -14,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-05-17 07:27+0000\n"
 "PO-Revision-Date: 2025-02-27 07:31+0000\n"
-"Last-Translator: Zharktas <jari-pekka.voutilainen@gofore.com>, 2025\n"
+"Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2025\n"
 "Language-Team: Finnish (https://app.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,11 +26,11 @@ msgstr ""
 
 #: ckanext/datasubmitter/views.py:49
 msgid "A user has submitted a new dataset"
-msgstr "Käyttäjä on ilmoittanut uuden tietoaineiston"
+msgstr "Käyttäjä on ilmoittanut uuden datan"
 
 #: ckanext/datasubmitter/views.py:52
 msgid "New dataset notification"
-msgstr "Ilmoitus uudesta tietoaineistosta"
+msgstr "Ilmoitus uudesta datasta"
 
 #: ckanext/datasubmitter/views.py:115
 msgid "Organization"
@@ -38,26 +39,26 @@ msgstr "Organisaatio"
 #: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:84
 #: ckanext/datasubmitter/views.py:118
 msgid "Dataset url"
-msgstr "Aineiston www-osoite"
+msgstr "Tiedoston tai rajapintakuvauksen www-osoite"
 
 #: ckanext/datasubmitter/views.py:137
 msgid "Dataset submitted successfully"
-msgstr "Tietoaineiston lähetys onnistui"
+msgstr "Datan lähetys onnistui"
 
 #: ckanext/datasubmitter/templates/admin/config.html:7
 msgid ""
 "Dataset submit notification email addresses (separate emails with a space)"
 msgstr ""
-"Sähköpostiosoitteet, joihin ilmoitetaan uudesta tietoaineistosta (erota "
-"osoitteet välilyönnillä)"
+"Sähköpostiosoitteet, joihin ilmoitetaan uudesta datasta (erota osoitteet "
+"välilyönnillä)"
 
 #: ckanext/datasubmitter/templates/admin/config.html:9
 msgid ""
 "The organization name (ending in organization's url) into which submitted "
 "datasets will be added"
 msgstr ""
-"Organisaation nimi (organisaation url:n loppuosa), johon ilmoitetut "
-"tietoaineistot lisätään"
+"Organisaation nimi (organisaation URL:n loppuosa), johon ilmoitetut uudet "
+"datat lisätään"
 
 #: ckanext/datasubmitter/templates/datasubmitter/base.html:11
 #: ckanext/datasubmitter/templates/datasubmitter/base_form_page.html:14
@@ -77,7 +78,7 @@ msgstr ""
 
 #: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:26
 msgid "Dataset info"
-msgstr "Aineiston tiedot"
+msgstr "Datan tiedot"
 
 #: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:33
 msgid "Title"
@@ -85,20 +86,20 @@ msgstr "Nimi"
 
 #: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:34
 msgid "A descriptive title for the dataset"
-msgstr "Aineistoa mahdollisimman tarkasti kuvaava otsikko"
+msgstr "Dataa mahdollisimman tarkasti kuvaava otsikko"
 
 #: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:52
 msgid ""
 "Example: The dataset includes financial information for Acme corporation "
 "starting from the year 2012"
 msgstr ""
-"Yleiskielinen helposti ymmärrettävä, mutta samalla kattava tietoaineiston "
-"kuvaus. Kuvaa mahdollisimman hyvin tietoaineiston luontiprosessi, "
-"käyttötarkoitus sekä myös mahdolliset rajoitteet tai puutteet aineistossa."
+"Yleiskielinen helposti ymmärrettävä, mutta samalla kattava datan kuvaus. "
+"Kuvaa mahdollisimman hyvin datan luontiprosessi, käyttötarkoitus sekä myös "
+"sen mahdolliset rajoitteet tai puutteet."
 
 #: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:66
 msgid "Owner organization"
-msgstr "Omistajaorganisaatio"
+msgstr "Omistava organisaatio"
 
 #: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:97
 msgid "Submitter info"
@@ -106,11 +107,11 @@ msgstr "Ilmoittajan tiedot"
 
 #: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:104
 msgid "Name of the submitter"
-msgstr "Datan ilmoittajan nimi"
+msgstr "Nimi"
 
 #: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:122
 msgid "Submitter email"
-msgstr "Ilmoittajan sähköpostiosoite"
+msgstr "Sähköpostiosoite"
 
 #: ckanext/datasubmitter/templates/datasubmitter/snippets/new_package_form.html:146
 msgid "Submit"
