@@ -198,6 +198,13 @@
     delete: true
   when: deployment_environment_id != "vagrant"
 
+- name: Ensure theme language directory
+  file:
+    state: directory
+    path: /opt/wordpress/wp-content/languages/themes
+    owner: www-data
+    group: www-data
+
 - name: Compile translations
   command:
    cmd: "msgfmt ../sixodp/i18n/{{ item.locale }}/LC_MESSAGES/sixodp.po -o /opt/wordpress/wp-content/languages/themes/sixodp-{{ item.locale }}.mo"
