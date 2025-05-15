@@ -131,3 +131,34 @@ def _translations():
     _('None - top level')
     _('Icon URL')
     _('My Group')
+
+
+    # Translations missing from ckan
+    _('Username or Email')
+    _('Current Sysadmins')
+    _('Promote user to Sysadmin')
+    _('Promote')
+    _('Sysadmin password')
+    _("<p>As a sysadmin user you have full control over this CKAN instance. Proceed "
+      "with care!</p> <p>For guidance on using sysadmin features, see the CKAN  <a "
+      "href=\"%(docs_url)s\" target=\"_blank\" rel=\"noreferrer\">sysadmin "
+      "guide</a></p>")
+    _("<p><strong>Site Title:</strong> This is the title of this CKAN instance It "
+      "appears in various places throughout CKAN.</p> <p><strong>Custom "
+      "Stylesheet:</strong> Define an alternative main CSS file.</p> <p><strong>Site"
+      " Tag Logo:</strong> This is the logo that appears in the header of all the "
+      "CKAN instance templates.</p> <p><strong>About:</strong> This text will appear"
+      " on this CKAN instances <a href=\"%(about_url)s\">about page</a>.</p> "
+      "<p><strong>Intro Text:</strong> This text will appear on this CKAN instances "
+      "<a href=\"%(home_url)s\">home page</a> as a welcome to visitors.</p> "
+      "<p><strong>Custom CSS:</strong> This is a block of CSS that appears in "
+      "<code>&lt;head&gt;</code> tag of every page. If you wish to customize the "
+      "templates more fully we recommend <a href=\"%(docs_url)s\" target=\"_blank\" "
+      "rel=\"noreferrer\">reading the documentation</a>.</p>")
+
+    # Overridden translations not in templates
+    _('Add Group')
+    _('There are currently no groups for this site')
+    _('Create a Group')
+    _('Save Group')
+

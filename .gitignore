@@ -17,3 +17,5 @@ sixodp/disqus-config.php
 sixodp/matomo-config.php
 npm-debug.log
 src
+
+*.mo

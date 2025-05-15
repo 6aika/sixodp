@@ -60,18 +60,19 @@ index 4a4f78fe2..f56f80ef9 100644
      ].join('\n')
    };
 diff --git a/ckan/templates/development/primer.html b/ckan/templates/development/primer.html
-index fe4ddc8d5..1c2d77981 100644
+index 10c22275a..431540212 100644
 --- a/ckan/templates/development/primer.html
 +++ b/ckan/templates/development/primer.html
-@@ -31,7 +31,7 @@
+@@ -30,7 +30,7 @@
+ <div class="module-content">
    <div class="input-group input-group-lg search-giant">
      <input type="text" class="search form-control" name="q" value="" autocomplete="off" placeholder="Search something...">
-     <span class="input-group-btn">
--        <button class="btn btn-default" type="submit">
-+        <button class="btn btn-secondary" type="submit">
-           <i class="fa fa-search"></i>
-           <span class="sr-only">Search</span>
-         </button>
+-      <button class="btn btn-default" type="submit">
++      <button class="btn btn-secondary" type="submit">
+         <i class="fa fa-search"></i>
+         <span class="sr-only">Search</span>
+       </button>
+
 diff --git a/ckan/templates/development/snippets/actions.html b/ckan/templates/development/snippets/actions.html
 index fe9519c86..015c74bc8 100644
 --- a/ckan/templates/development/snippets/actions.html
@@ -275,7 +276,7 @@ index af1a47fc8..1c65cd4c5 100644
 
  {% block content_action %}
    {% if h.check_access('package_update', {'id':pkg.id }) %}
--    {% link_for _('Manage'), named_route=pkg.type ~ '.edit', id=pkg.name, class_='btn btn-light', icon='wrench' %}
+-    {% link_for _('Manage'), named_route=pkg.type ~ '.edit', id=pkg.name, class_='btn btn-default', icon='wrench' %}
 +    {% link_for _('Manage'), named_route=pkg.type ~ '.edit', id=pkg.name, class_='btn btn-secondary', icon='wrench' %}
    {% endif %}
  {% endblock %}
@@ -386,7 +387,7 @@ index 8b8a0c6f9..d96b6f06b 100644
                  <li class="nav-item d-flex justify-content-between position-relative">
                    <a class="flex-fill" href="{{ url }}" title="{{ h.resource_display_name(resource) }}">{{ h.resource_display_name(resource)|truncate(25) }}</a>
                    <div class="dropdown position-absolute end-0 me-2">
--                    <button class="btn btn-light btn-sm dropdown-toggle" type="button" id="dropdownRes{{ loop.index }}" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-wrench"></i></button>
+-                    <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownRes{{ loop.index }}" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-wrench"></i></button>
 +                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownRes{{ loop.index }}" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-wrench"></i></button>
                      <ul class="dropdown-menu" aria-labelledby="dropdownRes{{ loop.index }}">
                        <li>{% link_for _('Edit resource'), named_route=pkg.type ~ '_resource.edit', id=pkg.name, resource_id=resource.id, class_='dropdown-item', icon='pencil' %}</li>
@@ -395,7 +396,7 @@ index 8b8a0c6f9..d96b6f06b 100644
 
  {% if can_edit and not is_activity_archive %}
    <div class="module-content">
--    {% link_for _('Add new resource'), named_route=pkg.type ~ '_resource.new', id=pkg.name, class_='btn btn-light btn-sm', icon='plus' %}
+-    {% link_for _('Add new resource'), named_route=pkg.type ~ '_resource.new', id=pkg.name, class_='btn btn-default btn-sm', icon='plus' %}
 +    {% link_for _('Add new resource'), named_route=pkg.type ~ '_resource.new', id=pkg.name, class_='btn btn-secondary btn-sm', icon='plus' %}
    </div>
  {% endif %}
@@ -430,19 +431,19 @@ index 16c387754..591b95133 100644
 
 
 diff --git a/ckan/templates/snippets/search_form.html b/ckan/templates/snippets/search_form.html
-index b77f2b990..bca653755 100644
+index 3bdd08f9e..f2d037750 100644
 --- a/ckan/templates/snippets/search_form.html
 +++ b/ckan/templates/snippets/search_form.html
-@@ -13,7 +13,7 @@
+@@ -12,7 +12,7 @@
+     <div class="input-group search-input-group">
        <input aria-label="{% block header_site_search_label %}{{ placeholder }}{% endblock %}" id="field-giant-search" type="text" class="form-control input-lg" name="q" value="{{ query }}" autocomplete="off" placeholder="{{ placeholder }}">
        {% block search_input_button %}
-       <span class="input-group-btn">
--        <button class="btn btn-default btn-lg" type="submit" value="search" aria-label="{{_('Submit')}}">
-+        <button class="btn btn-secondary btn-lg" type="submit" value="search" aria-label="{{_('Submit')}}">
-           <i class="fa fa-search"></i>
-         </button>
-       </span>
-@@ -39,7 +39,7 @@
+-      <button class="btn btn-default btn-lg" type="submit" value="search" aria-label="{{_('Submit')}}">
++      <button class="btn btn-secondary btn-lg" type="submit" value="search" aria-label="{{_('Submit')}}">
+         <i class="fa fa-search"></i>
+       </button>
+       {% endblock %}
+@@ -37,7 +37,7 @@
            {% endfor %}
          </select>
          {% block search_sortby_button %}
@@ -451,7 +452,7 @@ index b77f2b990..bca653755 100644
          {% endblock %}
        </div>
      {% endif %}
-@@ -73,7 +73,7 @@
+@@ -71,7 +71,7 @@
            {% endfor %}
          {% endfor %}
        </p>

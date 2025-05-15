@@ -1,25 +1,13 @@
 ---
 
-- name: Install gettext
-  apt: name=gettext
-
-- name: Ensure CKAN translation directories
-  file: path="{{ ckan_source_path }}/ckan/i18n/{{ item }}/LC_MESSAGES" state=directory mode="0755"
-  with_items: "{{ ckan_languages }}"
-
-- name: Copy CKAN translations
-  copy: src="{{ item }}.po" dest="{{ ckan_source_path }}/ckan/i18n/{{ item }}/LC_MESSAGES/ckan.po"
-  with_items: "{{ ckan_languages }}"
-
-- name: Compile translation files
-  command: msgfmt "{{ ckan_source_path }}/ckan/i18n/{{ item }}/LC_MESSAGES/ckan.po" -o "{{ ckan_source_path }}/ckan/i18n/{{ item }}/LC_MESSAGES/ckan.mo"
-  with_items: "{{ ckan_languages }}"
-
-- name: Ensure CKAN JavaScript translation privileges
-  file: path="{{ ckan_source_path }}/ckan/public/base/i18n" owner={{ www_user }} group={{ www_group }} mode="0755" recurse=yes
+#- name: Ensure CKAN JavaScript translation privileges
+#  file: path="{{ ckan_source_path }}/ckan/public/base/i18n" owner={{ www_user }} group={{ www_group }} mode="0755" recurse=yes
 
 - name: Compile extension translations
   command: "{{ virtualenv }}/bin/python setup.py compile_catalog -f"
   with_items: "{{ translation_projects }}"
   args:
       chdir: "{{ ckanext_sync_path }}/{{ item }}"
+
+- name: Generate JS translations
+  command: "{{ virtualenv }}/bin/ckan -c {{ ckan_ini }} translation js"
