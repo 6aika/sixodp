@@ -1,16 +1,14 @@
 # CKAN
 
-CKAN is installed from source via ansible. Current version is 2.8.7. The installed ckan is modified with bugfixes or other needs not yet present in the current release. These are available as patch files in [https://github.com/6aika/sixodp/tree/master/ansible/roles/ckan-install-patches](https://github.com/6aika/sixodp/tree/master/ansible/roles/ckan-install-patches). When CKAN is upgraded, installation of these patches most likely will fail. The developer needs to go through them and port necessary ones to new CKAN.
+CKAN is installed from source via ansible. Current version is 2.9.8. The installed ckan is modified with bugfixes or other needs not yet present in the current release. These are available as patch files in [https://github.com/6aika/sixodp/tree/master/ansible/roles/ckan-install-patches](https://github.com/6aika/sixodp/tree/master/ansible/roles/ckan-install-patches). When CKAN is upgraded, installation of these patches most likely will fail. The developer needs to go through them and port necessary ones to new CKAN.
 
 ## Extensions
 
-Most of the actual customization is done via ckan extensions.  Some of them are implemented specifically for 6aika data portal, some are built by other with various degrees of modifications done in 6aika data portal. Below are lists of used extensions divided by responsible party of the extension.
+Most of the actual customization is done via ckan extensions. Some of them are implemented specifically for 6aika data portal, some are built by other with various degrees of modifications done in 6aika data portal. Below are lists of used extensions divided by responsible party of the extension.
 
 ### Maintained by 6aika developers:
 
-* [Sixodp\_routes](https://github.com/6aika/sixodp/tree/master/ckanext/ckanext-sixodp_routes), handles most of the custom routing.
-* [Sixodp\_ui](https://github.com/6aika/sixodp/tree/master/ckanext/ckanext-sixodp_ui), implements most of the UI design and customization.
-* [Sixodp\_scheming](https://github.com/6aika/sixodp/tree/master/ckanext/ckanext-sixodp_scheming), specifies meta model for datasets and groups.
+* [Sixodp](https://github.com/6aika/sixodp/tree/master/ckanext/ckanext-sixodp), Most of the custom theme, routing and schema changes.
 * [Sixodp\_showcase](https://github.com/6aika/sixodp/tree/master/ckanext/ckanext-sixodp_showcase), extends showcase extension with customized meta model schema and UI.
 * [Sixodp\_showcasesubmit](https://github.com/6aika/sixodp/tree/master/ckanext/ckanext-sixodp_showcasesubmit), provides anonymous submitting of showcases to 6aika showcase schema.
 * [Collection](https://github.com/6aika/ckanext-collection), creates a duplicate feature of groups, so that there are similar collections. Groups are used as categories.
@@ -34,4 +32,3 @@ Most of the actual customization is done via ckan extensions.  Some of them are 
 * [Fluent](https://github.com/ckan/ckanext-fluent), adds multilingual capabilities to scheming.
 * [Hierarchy](https://github.com/6aika/ckanext-hierarchy), adds hierarchies to organizations.
 * [Cloudstorage](https://github.com/6aika/ckanext-cloudstorage), enables storing dataset data to AWS S3.
-
