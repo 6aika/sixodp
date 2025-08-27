@@ -3,7 +3,7 @@
 beautifulsoup4==4.12.3
 cookiecutter==2.6.0
 coveralls   #Let Unpinned - Requires latest coveralls
-Faker==26.0.0
+Faker==37.6.0
 factory-boy==3.3.0
 flask-debugtoolbar==0.15.1
 freezegun==1.5.1
