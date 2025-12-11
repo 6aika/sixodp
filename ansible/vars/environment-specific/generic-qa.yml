@@ -113,7 +113,6 @@ ckan_extensions:
   - ckanext-archiver
   #- ckanext-qa
   - ckanext-hierarchy
-  - ckanext-disqus
   - ckanext-reminder
   - ckanext-rating
   - ckanext-editor
@@ -142,7 +141,6 @@ enabled_ckan_extensions:
     - datasetcopy
     - sixodp
     - activity
-    - disqus
     - datastore
     - scheming_datasets
     - scheming_groups
