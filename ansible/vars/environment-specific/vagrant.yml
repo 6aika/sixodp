@@ -68,10 +68,6 @@ ckan_users:
     username: admin
     password: "{{ secret.ckan_admin_password }}"
     email: vagrant@localhost
-  harvest:
-    username: harvest
-    password: "{{ secret.ckan_harvest_password }}"
-    email: harvest@localhost
   test:
     username: test
     password: "{{ secret.ckan_test_password }}"
@@ -85,7 +81,6 @@ wordpress_users:
 
 ckan_admins:
   - "{{ ckan_users.admin.username }}"
-  - "{{ ckan_users.harvest.username }}"
 
 ckan_extensions:
   - ckanext-sixodp
