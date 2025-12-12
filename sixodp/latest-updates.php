@@ -23,7 +23,6 @@ if ($_GET['types']) {
   $types = array(
     'datasets' => in_array('datasets', $_GET['types']),
     'showcases' => in_array('showcases', $_GET['types']),
-    'comments' => in_array('comments', $_GET['types']),
     'posts' => in_array('posts', $_GET['types']),
     'pages' => in_array('pages', $_GET['types']),
     'data_requests' => in_array('data_requests', $_GET['types']),
@@ -34,7 +33,6 @@ else {
   $types = array(
     'datasets' => true,
     'showcases' => true,
-    'comments' => true,
     'posts' => true,
     'pages' => true,
     'data_requests' => true,
@@ -67,9 +65,6 @@ get_header(); ?>
           </label>
           <label>
               <input type="checkbox" value="showcases" name="types[]" <?php if ($types['showcases']) echo 'checked="checked"' ?> /> <?php _e('Applications','sixodp') ?>
-          </label>
-          <label>
-              <input type="checkbox" value="comments" name="types[]" <?php if ($types['comments']) echo 'checked="checked"' ?> /> <?php _e('Comments', 'sixodp') ?>
           </label>
           <label>
               <input type="checkbox" value="posts" name="types[]" <?php if ($types['posts']) echo 'checked="checked"' ?> /> <?php _e('Posts', 'sixodp') ?>

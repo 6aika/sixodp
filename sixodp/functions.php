@@ -499,99 +499,9 @@ function get_popular_tags() {
   return $data['result']['facets']['tags'];
 }
 
-function get_disqus_posts($args, $date = false, $cursor = false) {
-  $fields = [];
 
-  if ($date) {
-    $start_of_week = strtotime($date);
-    $end_of_week = strtotime($date . ' + 1 MONTH');
-    $fields['since'] = date('Y-m-d\T23:59:59', $end_of_week);
-  }
 
-  if ($cursor) $fields['cursor'] = $cursor;
 
-  $posts_data = json_decode(file_get_contents('http://disqus.com/api/3.0/forums/listPosts.json?'. http_build_query(array_merge($args, $fields))), true);
-
-  $cursor_result = $posts_data['cursor'];
-  $posts_data = isset($posts_data['response']) ? $posts_data['response'] : [];
-
-  if ($date) {
-    for ($i = 0; $i < sizeof($posts_data); $i++) {
-      $post_time = strtotime($posts_data[$i]['createdAt']);
-
-      if ($start_of_week > $post_time) break;
-    }
-
-    if ($i < sizeof($posts_data)) return array_splice($posts_data, 0, $i);
-    else if ($cursor_result['more']) return array_merge($posts_data, get_disqus_posts($args, $date, $cursor_result['next']));
-    else return $posts_data;
-  }
-  else return $posts_data;
-}
-
-function get_disqus_threads($args, $threads_query, $cursor = false) {
-  $fields = [];
-
-  if ($cursor) $fields['cursor'] = $cursor;
-
-  $threads_data = json_decode(file_get_contents('http://disqus.com/api/3.0/forums/listThreads.json?'. http_build_query(array_merge($args, $fields)) . $threads_query), true);
-
-  $cursor_result = $threads_data['cursor'];
-  $threads_data = isset($threads_data['response']) ? $threads_data['response'] : [];
-
-  if ($cursor_result['more']) return array_merge($threads_data, get_disqus_threads($args, $threads_query, $cursor_result['next']));
-  else return $threads_data;
-}
-
-function get_recent_comments($date = false) {
-  $fields = array(
-    'api_secret' => DISQUS_SECRET_KEY,
-    'forum' => DISQUS_SHORT_NAME,
-    'limit' => 100
-  );
-
-  $posts_data = get_disqus_posts($fields, $date);
-
-  $threads_query = '&thread=' . implode('&thread=', array_map(function ($row) { return $row['thread']; }, $posts_data ));
-
-  $threads_data = get_disqus_threads($fields, $threads_query);
-
-  $threads = array();
-
-  foreach ($threads_data as $thread) {
-    $threads[$thread['id']] = $thread;
-  }
-
-  $comments = array_map(function ($row) use ($threads) {
-    $thread = $threads[$row['thread']];
-
-    return array(
-      'date' => $row['createdAt'],
-      'updated_at' => $row['createdAt'],
-      'type' => 'comment',
-      'link' => $thread['link'],
-      'title' => $thread['title'],
-      'notes' => $row['raw_message']
-    );
-  }, $posts_data);
-
-  if(isset($comments)) {
-    return $comments;
-  }
-  return [];
-}
-
-function get_disqus_comment_count($post) {
-  $fields = array(
-    'api_secret' => DISQUS_SECRET_KEY,
-    'forum' => DISQUS_SHORT_NAME,
-    'thread' => 'link:'. get_permalink($post)
-  );
-
-  $thread_data = json_decode(file_get_contents('http://disqus.com/api/3.0/threads/set.json?'. http_build_query($fields)), true);
-
-  return $thread_data['response'][0]['posts'];
-}
 
 function get_recent_content($date = false) {
   if ($date) {
@@ -825,7 +735,6 @@ function get_latest_updates($types = array(), $date = false, $limit = 4) {
   $defaults = array(
     'datasets' => true,
     'showcases' => true,
-    'comments' => true,
     'posts' => true,
     'pages' => true,
     'data_requests' => false,
@@ -843,13 +752,12 @@ function get_latest_updates($types = array(), $date = false, $limit = 4) {
       $showcases  = $types['showcases'] ? array_map('format_ckan_row', get_latest_showcases_from_cache($limit)) : [];
   }
 
-  $comments   = $types['comments'] ? get_recent_comments($date) : [];
   $posts = $types['posts'] ? get_recent_posts('post', $date) : [];
   $pages = $types['pages'] ? get_recent_posts('page', $date) : [];
   $data_requests = $types['data_requests'] ? get_recent_posts('data_request', $date) : [];
   $showcase_ideas = $types['showcase_ideas'] ? get_recent_posts('showcase_idea', $date) : [];
 
-  $arr = array_merge($datasets, $showcases, $comments, $posts, $pages, $data_requests, $showcase_ideas);
+  $arr = array_merge($datasets, $showcases, $posts, $pages, $data_requests, $showcase_ideas);
 
   if ($limit) return array_slice(sort_results($arr), 0, $limit);
   else return sort_results($arr);
@@ -1093,5 +1001,3 @@ jQuery("#post-status-info #wp-word-count .word-count").after(" Character count: 
 }
 add_action( 'admin_head-post.php', 'excerpt_count_js');
 add_action( 'admin_head-post-new.php', 'excerpt_count_js');
-
-add_filter('disqus_language_filter', 'get_lang');
