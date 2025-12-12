@@ -7,7 +7,7 @@
 <?php
   include('ckan-config.php');
 
-  include('disqus-config.php');
+
 
   define( 'DEFAULT_PAGES', array(
     array(
