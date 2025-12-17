@@ -21,7 +21,7 @@
     <div class="toolbar--site-subtitle">
       <h1>{% block subtitle %}{{ _('Open your data') }}{% endblock %}</h1>
       <div class="row">
-        <div class="col-sm-8 col-sm-offset-2 col-xs-12">
+        <div class="col-sm-8 offset-sm-2">
           <p class="text-center">
             {% trans %}
               By filling this form you can submit your data to be published on this website.
@@ -39,7 +39,7 @@
       {% block pre_primary_content %}
 
         <div class="row">
-          <div class="col-sm-8 col-sm-offset-2 col-xs-12">
+          <div class="col-sm-8 offset-sm-2">
             {%- snippet 'datasubmitter/snippets/new_package_form.html', c=c, data=data, errors=errors, error_summary=error_summary, message=message -%}
           </div>
         </div>
