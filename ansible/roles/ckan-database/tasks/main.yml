@@ -58,3 +58,6 @@
 #- name: Initialize ckanext-cloudstorage database
 #  command: ./bin/paster --plugin=ckanext-cloudstorage cloudstorage initdb "--config={{ ckan_ini }}" chdir={{ virtualenv }}
 #  when: AWS.enabled
+
+- name: Initialize ckanext-showcase database
+  command: ./bin/ckan "--config={{ ckan_ini }}" db upgrade -p sixodp_showcase  chdir={{ virtualenv }}
