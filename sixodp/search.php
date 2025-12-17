@@ -13,7 +13,7 @@
  	<main id="main" class="site-main site-main--search" role="main">
     <?php get_template_part('partials/page-hero'); ?>
     <div class="search-form-container">
-      <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12">
+      <div class="col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-sm-12">
         <?php get_search_form(); ?>
       </div>
     </div>
