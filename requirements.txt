@@ -30,7 +30,7 @@ charset-normalizer==3.3.2
     # via
     #   ckan
     #   requests
-ckan[requirements]==2.11.3
+ckan[requirements]==2.11.4
     # via -r requirements.in
 click==8.1.7
     # via
@@ -135,7 +135,7 @@ redis==5.0.7
     # via
     #   ckan
     #   rq
-requests==2.32.3
+requests==2.32.4
     # via
     #   ckan
     #   pysolr
