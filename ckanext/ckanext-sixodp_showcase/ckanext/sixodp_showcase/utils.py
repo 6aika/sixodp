@@ -57,7 +57,8 @@ def index(package_type):
     extra_vars['query_error'] = False
     page = h.get_page_number(request.args)
 
-    limit = int(config.get(u'ckan.datasets_per_page', 21))
+    # limit showcases to 18, hopefully doesn't affect to other dataset types
+    limit = 18
 
     # most search operations should reset the page counter:
     params_nopage = [(k, v) for k, v in request.args.items(multi=True)
