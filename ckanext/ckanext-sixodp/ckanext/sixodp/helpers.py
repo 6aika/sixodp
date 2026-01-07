@@ -27,11 +27,11 @@ literal = tk.literal
 log = logging.getLogger(__name__)
 
 # Fetches any CMS content under the configured wp_api_base_url endpoint
-def get_wp_api_content(endpoint, action):
+def get_wp_api_content(endpoint, action, params=[]):
     response_data_dict = {}
     try:
         url = 'http://' + config.get('ckanext.sixodp.cms_site_url') +  endpoint + "/" + action
-        response = requests.get(url)
+        response = requests.get(url, params=params)
         response_data_dict = response.json()
     except:
         log.error('Connection to WP api failed')
@@ -79,6 +79,41 @@ def get_footer_navigation_items():
 
 def get_social_links():
     return get_navigation_items_by_menu_location(config.get('ckanext.sixodp.wp_social_menu_location'), False)
+
+
+def get_navigation_items():
+    api_endpoint = config.get('ckanext.sixodp.wp_api_base_url')
+    main_menu = config.get('ckanext.sixodp.wp_main_menu_location')
+    footer_menu = config.get('ckanext.sixodp.wp_footer_menu_location')
+    social_menu = config.get('ckanext.sixodp.wp_social_menu_location')
+
+    params = {
+        'slugs[]': [],
+        'lang': i18n.get_lang()
+    }
+    if main_menu:
+        params['slugs[]'].append(main_menu)
+
+    if footer_menu:
+        params['slugs[]'].append(footer_menu)
+
+    if social_menu:
+        params['slugs[]'].append(social_menu
+                                 )
+    response_data = get_wp_api_content(api_endpoint, 'menus_by_slugs', params)
+
+    navigation_items = {}
+    if response_data:
+        for nav_menu in response_data:
+            navigation_items[nav_menu] = []
+            for item in response_data.get(nav_menu):
+                navigation_items[nav_menu].append({
+                    'title': item.get('title'),
+                    'url': item.get('url'),
+                    'children': item.get('children')
+                })
+
+    return navigation_items
 
 
 def get_social_link_icon_class(item):
@@ -273,9 +308,7 @@ def check_if_active(parent_menu, menu):
     return active
 
 
-def build_nav_main():
-    navigation_tree = get_navigation_items_by_menu_location(config.get('ckanext.sixodp.wp_main_menu_location'), True)
-
+def build_nav_main(navigation_tree):
     def construct_menu_tree(menu, is_submenu = False):
         active = check_if_active(None, menu)
         children = ''
@@ -472,3 +505,11 @@ def get_field_from_schema(schema, field_name):
 
     field = next(field for field in schema.get('dataset_fields', []) if field.get('field_name') == field_name)
     return field
+
+
+def get_navigation_slug(config_name, localized=True):
+    slug = config.get(config_name)
+    if localized:
+        slug += '_' + i18n.get_lang()
+
+    return slug

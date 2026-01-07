@@ -25,7 +25,7 @@
             {% block skip %}
             <a href="#content" class="sr-only sr-only-focusable">{{ _('Skip to content') }}</a>
             {% endblock %}
-            {% snippet 'snippets/navigation_tabs.html' %}
+            {% snippet 'snippets/navigation_tabs.html', navigation_items=navigation_items %}
           </div>
         </div>
         {% block header_debug %}

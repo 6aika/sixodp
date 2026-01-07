@@ -1,6 +1,6 @@
 {% block header_site_navigation_tabs %}
   <ul class="navbar-nav me-auto">
-    {{ h.build_nav_main() }}
+    {{ h.build_nav_main(navigation_items) }}
   </ul>
   <ul class="nav navbar-nav navbar-right">
     {% snippet 'home/snippets/sixodp_navbar_search.html' %}

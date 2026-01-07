@@ -1001,3 +1001,138 @@ jQuery("#post-status-info #wp-word-count .word-count").after(" Character count: 
 }
 add_action( 'admin_head-post.php', 'excerpt_count_js');
 add_action( 'admin_head-post-new.php', 'excerpt_count_js');
+
+
+function get_menus_by_slugs($request){
+    $menu_array = array();
+
+    $menu_slugs = array();
+
+    $slugs = $request->get_param( 'slugs' );
+    $lang = $request->get_param( 'lang' );
+
+
+    if (is_array($slugs)) {
+        foreach ($slugs as $slug) {
+            $menu_slugs[] = $slug . '_' . $lang;
+        }
+    }
+
+    foreach ($menu_slugs as $menu_slug) {
+        $menu_items = wp_get_nav_menu_items($menu_slug);
+
+        // try without lang
+        if ($menu_items === false) {
+            $non_localized_slug = explode('_', $menu_slug)[0];
+            $menu_items = wp_get_nav_menu_items($non_localized_slug);
+        }
+        $rest_menu_items = array();
+        foreach ( $menu_items as $item_object ) {
+            $rest_menu_items[] = format_menu_item( $item_object );
+        }
+        $menu_array[$menu_slug] = nested_menu_items($rest_menu_items, 0);
+    }
+    return $menu_array;
+}
+
+
+
+add_action('rest_api_init', function () {
+    register_rest_route( 'wp/v2', 'menus_by_slugs', array(
+        'methods' => 'GET',
+        'callback' => 'get_menus_by_slugs'
+    ) );
+});
+
+
+/**
+ * Check if a collection of menu items contains an item that is the parent id of 'id'.
+ *
+ * Copied from wp-api-menus
+ *
+ * @param array $items
+ * @param int $id
+ * @return array
+ */
+function has_children(array $items, int $id ): array
+{
+    return array_filter( $items, function( $i ) use ( $id ) {
+        return $i['parent'] == $id;
+    } );
+}
+
+/**
+ * Handle nested menu items.
+ *
+ * Given a flat array of menu items, split them into parent/child items
+ * and recurse over them to return children nested in their parent.
+ *
+ * Copied from wp-api-menus
+ *
+ * @param  $menu_items
+ * @param  $parent
+ * @return array
+ */
+function nested_menu_items( &$menu_items, $parent = null ): array
+{
+    $parents = array();
+    $children = array();
+
+    // Separate menu_items into parents & children.
+    array_map( function( $i ) use ( $parent, &$children, &$parents ){
+        if ( $i['id'] != $parent && $i['parent'] == $parent ) {
+            $parents[] = $i;
+        } else {
+            $children[] = $i;
+        }
+    }, $menu_items );
+
+    foreach ( $parents as &$parent ) {
+
+        if ( has_children( $children, $parent['id'] ) ) {
+            $parent['children'] = nested_menu_items( $children, $parent['id'] );
+        }
+    }
+
+    return $parents;
+}
+
+/**
+ * Format a menu item for REST API consumption.
+ *
+ * Copied from wp-api-menus
+ *
+ * @param  object|array $menu_item  The menu item
+ * @param  bool         $children   Get menu item children (default false)
+ * @param  array        $menu       The menu the item belongs to (used when $children is set to true)
+ * @return array	a formatted menu item for REST
+ */
+function format_menu_item( $menu_item, $children = false, $menu = array() ): array
+{
+
+    $item = (array) $menu_item;
+
+    $menu_item = array(
+        'id'          => abs( $item['ID'] ),
+        'order'       => (int) $item['menu_order'],
+        'parent'      => abs( $item['menu_item_parent'] ),
+        'title'       => $item['title'],
+        'url'         => $item['url'],
+        'attr'        => $item['attr_title'],
+        'target'      => $item['target'],
+        'classes'     => implode( ' ', $item['classes'] ),
+        'xfn'         => $item['xfn'],
+        'description' => $item['description'],
+        'object_id'   => abs( $item['object_id'] ),
+        'object'      => $item['object'],
+        'object_slug' => get_post( $item['object_id'] )->post_name,
+        'type'        => $item['type'],
+        'type_label'  => $item['type_label'],
+    );
+
+    if ( $children === true && ! empty( $menu ) ) {
+        $menu_item['children'] = $this->get_nav_menu_item_children( $item['ID'], $menu );
+    }
+
+    return apply_filters( 'rest_menus_format_menu_item', $menu_item );
+}

@@ -2,13 +2,15 @@
 
 {%- block page -%}
 
+  {% set navigation_items = h.get_navigation_items() %}
   {#
   Override the header on a page by page basis by extending this block. If
   making sitewide header changes it is preferable to override the header.html
   file.
   #}
-  {%- block header %}
-    {% include "sixodp_header.html" %}
+  {%- block header scoped %}
+      {% set navigation_slug = h.get_navigation_slug('ckanext.sixodp.wp_main_menu_location') %}
+      {% snippet "sixodp_header.html", navigation_items=navigation_items[navigation_slug] %}
   {% endblock -%}
 
   {# The content block allows you to replace the content of the page if needed #}
@@ -128,8 +130,11 @@
   making sitewide header changes it is preferable to override the footer.html-u
   file.
   #}
-  {%- block footer %}
-    {% include "footer.html" %}
+  {%- block footer scoped %}
+    {% set footer_navigation_slug = h.get_navigation_slug('ckanext.sixodp.wp_footer_menu_location') %}
+    {% set social_navigation_slug = h.get_navigation_slug('ckanext.sixodp.wp_social_menu_location') %}
+
+    {% snippet "footer.html", footer_navigation_items=navigation_items[footer_navigation_slug], social_navigation_items=navigation_items[social_navigation_slug] %}
   {% endblock -%}
 {%- endblock -%}
 

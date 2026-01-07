@@ -273,6 +273,8 @@ class SixodpPlugin(plugins.SingletonPlugin, DefaultTranslation):
             'get_current_lang': helpers.get_current_lang,
             'get_qa_openness': get_qa_openness,
             'dataset_display_name': helpers.dataset_display_name,
+            'get_navigation_slug': helpers.get_navigation_slug,
+            'get_navigation_items': helpers.get_navigation_items,
             'get_navigation_items_by_menu_location': helpers.get_navigation_items_by_menu_location,
             'get_footer_navigation_items': helpers.get_footer_navigation_items,
             'get_social_links': helpers.get_social_links,

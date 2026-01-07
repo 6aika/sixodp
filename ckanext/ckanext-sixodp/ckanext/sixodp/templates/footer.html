@@ -26,7 +26,7 @@
           <!-- Placeholder for additional city logos -->
         </div>
         <div class="col-md-6 pull-right footer-column">
-          {% set social_links = h.get_social_links() %}
+          {% set social_links = social_navigation_items %}
           <div class="row row-compensate footer-row">
             <div class="col-xs-12 text-right">
               <div class="footer-follow-links">
@@ -46,7 +46,7 @@
       <div class="row row-compensate footer-row">
         <div class="col-md-12 footer-section footer-section--links">
           <ul class="footer-links">
-            {% for item in h.get_footer_navigation_items() %}
+            {% for item in footer_navigation_items %}
               <li class="footer__item"><a href="{{item.url}}" class="footer__link" title="{{item.title}}">{{item.title}}</a></li>
             {% endfor %}
           </ul>
