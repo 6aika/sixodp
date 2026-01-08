@@ -40,6 +40,10 @@
     .fa {
       margin-left: $padding-large-horizontal;
     }
+
+    &:after {
+      display: none;
+    }
   }
 
   .form-control {
@@ -47,17 +51,19 @@
     margin-bottom: $base;
   }
 
-  @media (max-width: $width-xs) {
-    display: block;
-
-    div.input-group-btn {
+  @include media-breakpoint-down(sm) {
+    .btn.dropdown-toggle {
       display: block;
       width: 100%;
       border-top-left-radius: 3px;
       border-top-right-radius: 3px;
 
-      .btn-tertiary.dropdown-toggle {
-        width: 100%;
+      span#selected-domain {
+        float: left;
+      }
+
+      span.fa-chevron-down {
+        float: right;
       }
     }
 
@@ -78,21 +84,13 @@
       border-bottom-left-radius: 3px;
     }
 
-    span.input-group-btn {
+    #search.btn {
       float: right;
       width: 30%;
     }
   }
 
-  @media(min-width: $width-sm) {
-
-    button {
-      padding-left: $padding-large-horizontal*4;
-      padding-right: $padding-large-horizontal*4;
-    }
-  }
-
-  @media(min-width: $width-md) {
+  @include media-breakpoint-up(sm) {
     .form-control {
       margin-top: 0;
       margin-bottom: 0;
