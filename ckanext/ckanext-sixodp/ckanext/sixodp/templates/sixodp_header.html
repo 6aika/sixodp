@@ -1,8 +1,9 @@
 {% block header_wrapper %}
   {% block header_account %}
-    {%- set extra_classes = ' has-notification' if h.get_notifications() | length > 0 else '' -%}
+    {%- set notifications = h.get_notifications() -%}
+    {%- set extra_classes = ' has-notification' if notifications | length > 0 else '' -%}
     <div class="nav-wrapper{{ extra_classes }}">
-      {% for notification in h.get_notifications() %}
+      {% for notification in notifications %}
         <div class="notification">
             <p class="notification-content">
               <i class="fa fa-exclamation-circle"></i>{{ notification.title }}
