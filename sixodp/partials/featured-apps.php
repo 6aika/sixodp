@@ -17,7 +17,7 @@
         <?php foreach($showcases as $showcase) : ?>
           <?php $extra_classes = $showcase === reset($showcases) ? ' active' : ''; ?>
 
-          <div class="item<?php echo $extra_classes ?>">
+          <div class="carousel-item<?php echo $extra_classes ?>">
             <?php
             $lang = get_current_locale_ckan();
             $item = array(
@@ -36,21 +36,21 @@
         <?php endforeach; ?>
       </div>
 
-      <a class="left carousel-control" href="#featured-apps-carousel" role="button" data-slide="prev">
+      <button class="carousel-control-prev" href="#featured-apps-carousel" role="button" data-bs-slide="prev">
         <span class="fa fa-chevron-left" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#featured-apps-carousel" role="button" data-slide="next">
+      </button>
+      <a class="carousel-control-next" href="#featured-apps-carousel" role="button" data-bs-slide="next">
         <span class="fa fa-chevron-right" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
 
-      <ol class="carousel-indicators">
+      <div class="carousel-indicators">
         <?php foreach($showcases as $index => $showcase) : ?>
           <?php $extra_classes = $showcase === reset($showcases) ? 'active' : ''; ?>
-          <li data-target="#featured-apps-carousel" data-slide-to="<?php echo $index ?>" class="<?php echo $extra_classes ?>"></li>
+          <button data-bs-target="#featured-apps-carousel" data-bs-slide-to="<?php echo $index ?>" class="<?php echo $extra_classes ?>"></button>
         <?php endforeach; ?>
-      </ol>
+      </div>
     </div>
 
     <div class="row cards cards--4 desktop-only">

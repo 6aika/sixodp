@@ -9,7 +9,8 @@
     }
   }
 
-  .carousel-control {
+  .carousel-control-prev,
+  .carousel-control-next{
     background-image: none;
 
     .fa {
@@ -30,12 +31,13 @@
     bottom: 0;
     margin-bottom: $padding-large-vertical;
 
-    li {
+    button {
       width: 30px;
       height: 6px;
       margin: 1px;
       background-color: $gray-light;
       border-color: $gray-light;
+      border-width: 0;
 
       &.active {
         background-color: $gray;

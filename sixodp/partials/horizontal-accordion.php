@@ -33,7 +33,7 @@
           $extra_classes = $post === reset($posts) ? ' active' : '';
         ?>
 
-          <div class="item<?php echo $extra_classes ?>">
+          <div class="carousel-item<?php echo $extra_classes ?>">
             <?php
               $item = array(
                 'image_url' => $image[0],
@@ -48,21 +48,21 @@
         <?php endforeach; ?>
       </div>
 
-      <a class="left carousel-control" href="#featured-content-carousel" role="button" data-slide="prev">
+      <button class="carousel-control-prev" href="#featured-content-carousel" role="button" data-bs-slide="prev">
         <span class="fa fa-chevron-left" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#featured-content-carousel" role="button" data-slide="next">
+      </button>
+      <button class="carousel-control-next" href="#featured-content-carousel" role="button" data-bs-slide="next">
         <span class="fa fa-chevron-right" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
-      </a>
+      </button>
 
-      <ol class="carousel-indicators">
+      <div class="carousel-indicators">
         <?php foreach($posts as $index => $post) : ?>
           <?php $extra_classes = $post === reset($posts) ? 'active' : ''; ?>
-          <li data-target="#featured-content-carousel" data-slide-to="<?php echo $index ?>" class="<?php echo $extra_classes ?>"></li>
+          <button data-bs-target="#featured-content-carousel" data-bs-slide-to="<?php echo $index ?>" class="<?php echo $extra_classes ?>"></button>
         <?php endforeach; ?>
-      </ol>
+      </div>
     </div>
 
     <div class="row cards cards--4 desktop-only">

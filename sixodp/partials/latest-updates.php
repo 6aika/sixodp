@@ -17,7 +17,7 @@
         <?php foreach($updated_items as $updated_item) : ?>
           <?php $extra_classes = $updated_item === reset($updated_items) ? ' active' : ''; ?>
 
-          <div class="item<?php echo $extra_classes ?>">
+          <div class="carousel-item<?php echo $extra_classes ?>">
             <?php
               $label = is_array($updated_item['type']) ? $updated_item['type']['label'] : $updated_item['type'];
               $meta_label = '';
@@ -62,21 +62,21 @@
         <?php endforeach; ?>
       </div>
 
-      <a class="left carousel-control" href="#latest-updates-carousel" role="button" data-slide="prev">
+      <button class="carousel-control-prev" href="#latest-updates-carousel" role="button" data-bs-slide="prev">
         <span class="fa fa-chevron-left" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#latest-updates-carousel" role="button" data-slide="next">
+      </button>
+      <button class="carousel-control-next" href="#latest-updates-carousel" role="button" data-bs-slide="next">
         <span class="fa fa-chevron-right" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
-      </a>
+      </button>
 
-      <ol class="carousel-indicators">
+      <div class="carousel-indicators">
         <?php foreach($updated_items as $index => $updated_item) : ?>
           <?php $extra_classes = $updated_item === reset($updated_items) ? 'active' : ''; ?>
-          <li data-target="#latest-updates-carousel" data-slide-to="<?php echo $index ?>" class="<?php echo $extra_classes ?>"></li>
+          <button data-bs-target="#latest-updates-carousel" data-bs-slide-to="<?php echo $index ?>" class="<?php echo $extra_classes ?>"></button>
         <?php endforeach; ?>
-      </ol>
+      </div>
     </div>
 
     <div class="row cards cards--4 desktop-only">
