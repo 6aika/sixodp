@@ -5,27 +5,27 @@
   <div class="carousel-inner" role="listbox">
     {% for item in items %}
       {%- set extra_classes = ' active' if loop.index == 1 else ''  -%}
-      <div class="item{{ extra_classes }}">
+      <div class="carousel-item{{ extra_classes }}">
         {% snippet 'snippets/page_highlight_item.html', item=item, image_url=item[image_identifier] %}
       </div>
     {% endfor %}
   </div>
 
-  <a class="left carousel-control" href="#page-highlight-carousel" role="button" data-slide="prev">
+  <button class="carousel-control-prev" href="#page-highlight-carousel" role="button" data-bs-slide="prev">
     <span class="fa fa-chevron-left" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#page-highlight-carousel" role="button" data-slide="next">
+  </button>
+  <button class="carousel-control-next" href="#page-highlight-carousel" role="button" data-bs-slide="next">
     <span class="fa fa-chevron-right" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
-  </a>
+  </button>
 
-  <ol class="carousel-indicators">
+  <div class="carousel-indicators">
     {% for item in items %}
       {%- set extra_classes = ' active' if loop.index == 1 else ''  -%}
-      <li data-target="#page-highlight-carousel" data-slide-to="{{ loop.index - 1 }}" class="{{extra_classes}}"></li>
+      <button data-bs-target="#page-highlight-carousel" data-bs-slide-to="{{ loop.index - 1 }}" class="{{extra_classes}}"></button>
     {% endfor %}
-  </ol>
+  </div>
 </div>
 
 <div class="container desktop-only">
