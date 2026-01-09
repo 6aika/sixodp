@@ -81,6 +81,7 @@
 
 .navbar-light {
 
+  background-color: $brand-background;
   .navbar-toggle {
     border-radius: 0;
     border-color: $navbar-toggle-background-color;
@@ -306,6 +307,17 @@
   text-transform: uppercase;
 }
 
+@include media-breakpoint-down(lg) {
+  .navbar-right {
+    flex-direction: row;
+    .language-changer {
+      padding: 10px;
+      margin: 5px;
+    }
+  }
+}
+
+
 // Compensate for the wp admin bar and notification bar
 $admin-bar-height: 46px;
 $admin-bar-height-desktop: 32px;
@@ -323,3 +335,4 @@ $admin-bar-height-desktop: 32px;
     position: fixed;
   }
 }
+

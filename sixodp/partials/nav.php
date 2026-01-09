@@ -63,8 +63,8 @@
       <div class="navbar-footer">
         <button type="button"
                 class="navbar-toggle-footer collapsed"
-                data-toggle="collapse"
-                data-target="#top-nav-collapse"
+                data-bs-toggle="collapse"
+                data-bs-target="#top-nav-collapse"
                 aria-expanded="false"
                 aria-label="<?php _e('Search', 'sixodp');?>">
           <span class="fa fa-chevron-up"></span>

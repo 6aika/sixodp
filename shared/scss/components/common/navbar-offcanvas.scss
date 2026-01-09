@@ -225,7 +225,7 @@
   ~ #main .navbar-offcanvas {
     padding-top: $navbar-height + $notificationbar-height;
 
-    @media(min-width: $width-md) {
+    @include media-breakpoint-down(lg) {
       padding-top: 0;
     }
   }
