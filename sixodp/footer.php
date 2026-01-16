@@ -35,16 +35,7 @@
 							<img class="footer-logo" src="<?php echo assets_url(); ?>/images/footer_logo.png" alt="6Aika logo">
 						</div>
 					</div>
-					<div class="col-md-4 footer-column">
-						<div class="row">
-						  <div class="col-xs-12">
-						    <div class="footer-follow-links">
-						      <?php dynamic_sidebar( 'footer_content' ); ?>
-						    </div>
-						  </div>
-						</div>
-					</div>
-					<div class="col-md-6 pull-right footer-column">
+					<div class="col-md-6 offset-md-4 pull-right footer-column">
 						<?php
 							get_template_part( 'partials/social_links' );
 						?>

@@ -242,6 +242,7 @@
   
 - include_tasks: local_plugin.yml
   with_items: "{{ wordpress_local_plugins }}"
+  when: wordpress_local_plugins is defined
 
 #- name: Create symbolic link for wordpress tools includes
 #  file:

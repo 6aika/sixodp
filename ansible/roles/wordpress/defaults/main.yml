@@ -1,15 +1,15 @@
 ---
 wordpress_local_plugins:
   #- wp-trello
-  - wp-api-menus
-  - contact-widgets
+  #- wp-api-menus
+  #- contact-widgets
 wordpress_plugins:
   - advanced-custom-fields
-  - custom-twitter-feeds
+  #- custom-twitter-feeds
   - polylang
   #- wpcustom-category-image
   - wp-recaptcha-integration
-  - wordpress-importer
+  #- wordpress-importer
   - wp-user-avatars
   - classic-editor
   - wordpress-seo
@@ -25,6 +25,10 @@ removed_wordpress_plugins:
   - configure-smtp
   - wp-trello
   - disqus-comment-system
+  - wp-api-menus
+  - custom-twitter-feeds
+  - wordpress-importer
+  - contact-widgets
 
 polylang_languages: 
   - { name: 'Suomi', code: 'fi', locale: 'fi', flag: 'fi' }
