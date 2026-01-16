@@ -1,5 +1,5 @@
 ---
-wordpress_local_plugins:
+#wordpress_local_plugins:
   #- wp-trello
   #- wp-api-menus
   #- contact-widgets
