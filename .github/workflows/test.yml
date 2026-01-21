@@ -43,7 +43,7 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest --ckan-ini=ckanext/ckanext-sixodp/test.ini --cov=ckanext.sixodp --disable-warnings ckanext/ckanext-sickanext/ytp/tests
+          pytest --ckan-ini=ckanext/ckanext-sixodp/test.ini --cov=ckanext.sixodp --disable-warnings ckanext/ckanext-sixodp/sixodp/tests
 
       - name: install codecov requirements
         run: |
