@@ -1,5 +1,6 @@
-"""Tests for plugin.py."""
-import ckanext.sixodp_ui.plugin as plugin
+import pytest
 
-def test_plugin():
-    pass
+@pytest.mark.usefixtures('clean_db', 'clean_index')
+class TestSixodpPlugin():
+    def test_plugin(self):
+        pass
