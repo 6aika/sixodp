@@ -1,6 +1,3 @@
 # Continuous integration
 
-Everytime there is a new commit in project Github, Jenkins runs a build for it. Jenkins tests if the codebase is still installable with ansible and notifies Github and slack about it.
-
-In the future Jenkins might run tests but currently it doesn't as there are no tests.
-
+Github Actions run unit tests using pytest, these produce coverage reports in [https://app.codecov.io/gh/6aika/sixodp](https://app.codecov.io/gh/6aika/sixodp)
