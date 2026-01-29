@@ -1,5 +1,5 @@
 import pytest
-from factories import SixodpDataset
+from .factories import SixodpDataset
 from ckan.tests.helpers import call_action
 
 @pytest.mark.usefixtures('clean_db', 'clean_index')
