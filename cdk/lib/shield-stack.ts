@@ -197,7 +197,7 @@ export class ShieldStack extends Stack {
                             sampledRequestsEnabled: true
                         }
                     }
-                    rules.push(limitASNRule)
+                    rules.push(blockASNRule)
                 }
             }
         }
