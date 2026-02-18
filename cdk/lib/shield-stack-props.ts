@@ -12,5 +12,6 @@ export interface ShieldStackProps extends EnvProps {
     whitelistedCountriesParameterName: string,
     blockBlacklistedCountries: boolean,
     blacklistedCountriesParameterName: string,
-    loadBalancer: aws_elasticloadbalancingv2.ApplicationLoadBalancer
+    loadBalancer: aws_elasticloadbalancingv2.ApplicationLoadBalancer,
+    blockASNs: boolean
 }

@@ -178,6 +178,27 @@ export class ShieldStack extends Stack {
                     }
                 }
                 rules.push(limitASNRule)
+
+                if (props.blockASNs) {
+                    const blockASNRule: aws_wafv2.CfnWebACL.RuleProperty = {
+                        name: 'blocked-ASNs',
+                        priority: rules.length,
+                        action: {
+                            block: {}
+                        },
+                        statement: {
+                            asnMatchStatement: {
+                                asnList: rateLimitedASNs
+                            }
+                        },
+                        visibilityConfig: {
+                            cloudWatchMetricsEnabled: true,
+                            metricName: "blocked-ASNs",
+                            sampledRequestsEnabled: true
+                        }
+                    }
+                    rules.push(limitASNRule)
+                }
             }
         }
 
