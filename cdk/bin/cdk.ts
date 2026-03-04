@@ -59,6 +59,7 @@ const databaseStack = new DatabaseStack(app, 'databaseStack', {
     fqdn: env.fqdn,
     domain: env.domain,
     vpc: vpcStack.vpc,
+    databaseInsightsEnabled: true
 })
 
 

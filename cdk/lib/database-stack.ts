@@ -1,11 +1,10 @@
-import {aws_ec2, aws_rds, aws_secretsmanager, aws_ssm, Duration, Stack} from "aws-cdk-lib";
+import {aws_ec2, aws_rds, aws_secretsmanager, aws_ssm, CfnParameter, Duration, Stack} from "aws-cdk-lib";
 import {Construct} from "constructs";
 
 import {DatabaseStackProps} from "./database-stack-props";
 import {Key} from "aws-cdk-lib/aws-kms";
-import {SnapshotCredentials} from "aws-cdk-lib/aws-rds";
+import {DatabaseInsightsMode, PerformanceInsightRetention, SnapshotCredentials} from "aws-cdk-lib/aws-rds";
 import {ISecurityGroup, SecurityGroup} from "aws-cdk-lib/aws-ec2";
-import {CfnParameter} from "aws-cdk-lib";
 
 
 export class DatabaseStack extends Stack {
@@ -41,6 +40,14 @@ export class DatabaseStack extends Stack {
             default: props.ckanDatabaseSnapshotParameterName
         })
 
+        let enablePerformanceInsights = false;
+        let databaseInsightsMode;
+        let performanceInsightRetention = PerformanceInsightRetention.DEFAULT;
+        if ( props.databaseInsightsEnabled ) {
+            enablePerformanceInsights = true;
+            databaseInsightsMode = DatabaseInsightsMode.ADVANCED;
+            performanceInsightRetention = PerformanceInsightRetention.MONTHS_15;
+        }
 
         this.ckanDatabase = new aws_rds.DatabaseInstanceFromSnapshot(this, 'ckanDatabase', {
             vpc: props.vpc,
@@ -57,7 +64,10 @@ export class DatabaseStack extends Stack {
             securityGroups: [
                 this.ckanDatabaseSecurityGroup
             ],
-            allowMajorVersionUpgrade: true
+            allowMajorVersionUpgrade: true,
+            enablePerformanceInsights: enablePerformanceInsights,
+            performanceInsightRetention: performanceInsightRetention,
+            databaseInsightsMode: databaseInsightsMode
         })
 
         const postgresHostParameter = new aws_ssm.StringParameter(this, 'postgrestHostParameter', {
