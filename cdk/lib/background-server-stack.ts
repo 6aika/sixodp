@@ -3,6 +3,7 @@ import {Construct} from "constructs";
 import {Key} from "aws-cdk-lib/aws-kms";
 import {BackgroundServerStackProps} from "./background-server-stack-props";
 import {EbsDeviceVolumeType} from "aws-cdk-lib/aws-ec2";
+import {ManagedPolicy} from "aws-cdk-lib/aws-iam";
 
 export class BackgroundServerStack extends Stack {
     readonly backgroundServer: aws_ec2.IInstance
@@ -90,14 +91,8 @@ export class BackgroundServerStack extends Stack {
         this.backgroundServer.connections.allowTo(props.ckanDatabase, aws_ec2.Port.tcp(5432), 'background server to ckan postgres')
         this.backgroundServer.connections.allowTo(props.wpDatabase, aws_ec2.Port.tcp(3306), 'background server to wp mysql')
 
-        role.addManagedPolicy({
-            managedPolicyArn: 'arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore'
-        })
-
-        role.addManagedPolicy({
-            managedPolicyArn: 'arn:aws:iam::aws:policy/AmazonSSMReadOnlyAccess'
-        })
-
+        role.addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName("AmazonSSMManagedInstanceCore"))
+        role.addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName("AmazonSSMReadOnlyAccess"))
 
         const bgServerHostParamater = new aws_ssm.StringParameter(this, 'bgServerHost', {
             parameterName: 'bg_server_host',

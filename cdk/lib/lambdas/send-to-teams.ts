@@ -14,7 +14,7 @@ export class SendToTeams extends Construct {
                 TEAMS_HOST: props.teamsHost,
                 TEAMS_PATH: props.teamsPath
             },
-            runtime: aws_lambda.Runtime.NODEJS_20_X,
+            runtime: aws_lambda.Runtime.NODEJS_24_X,
         })
     }
 }

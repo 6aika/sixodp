@@ -14,6 +14,7 @@ import {AutoScalingGroup} from "aws-cdk-lib/aws-autoscaling";
 import {WebServerStackProps} from "./web-server-stack-props";
 import {Key} from "aws-cdk-lib/aws-kms";
 import {EbsDeviceVolumeType} from "aws-cdk-lib/aws-ec2";
+import {ManagedPolicy} from "aws-cdk-lib/aws-iam";
 
 export class WebServerStack extends Stack {
     readonly webServerAsg: aws_autoscaling.AutoScalingGroup;
@@ -91,21 +92,10 @@ export class WebServerStack extends Stack {
         
         datasetBucket.grantReadWrite(role)
 
-        role.addManagedPolicy({
-            managedPolicyArn: 'arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore'
-        })
-
-        role.addManagedPolicy({
-            managedPolicyArn: 'arn:aws:iam::aws:policy/AmazonSSMReadOnlyAccess'
-        })
-
-        role.addManagedPolicy({
-            managedPolicyArn: 'arn:aws:iam::aws:policy/AmazonElasticFileSystemClientFullAccess'
-        })
-
-        role.addManagedPolicy({
-            managedPolicyArn: 'arn:aws:iam::aws:policy/AmazonElasticFileSystemsUtils'
-        })
+        role.addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName("AmazonSSMManagedInstanceCore"))
+        role.addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName("AmazonSSMReadOnlyAccess"))
+        role.addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName("AmazonElasticFileSystemClientFullAccess"))
+        role.addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName("AmazonElasticFileSystemsUtils"))
 
         this.webServerAsg = new AutoScalingGroup(this, 'webAsg', {
             vpc: props.vpc,
