@@ -108,7 +108,7 @@
   {% endif %}
 
 
-  {% set package_groups = h.get_package_groups(pkg_dict.id) %}
+  {% set package_groups = h.get_package_groups_by_type(pkg_dict.id, 'group') %}
   {% if package_groups %}
     <tr>
       <th scope="row" class="dataset-label">{{ _("Groups") }}</th>
@@ -124,13 +124,14 @@
     </tr>
   {% endif %}
 
-  {% if h.get_package_groups_by_type(pkg_dict.id, 'collection') %}
+  {% set package_collections = h.get_package_groups_by_type(pkg_dict.id, 'collection') %}
+  {% if package_collections %}
     <tr>
       <th scope="row" class="dataset-label">{{ _("Collections") }}</th>
       <td class="dataset-details">
         <section class="tags">
           <ul class="tag-list">
-            {% for collection in h.get_package_groups_by_type(pkg_dict.id, 'collection') %}
+            {% for collection in package_collections %}
               <li><a class="tag" href="{{h.url_for('collection.read', id=collection.name)}}">{{ h.get_translated_or_default_locale(collection, 'title') }}</a></li>
             {% endfor %}
           </ul>

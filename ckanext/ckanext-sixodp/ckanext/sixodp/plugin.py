@@ -229,36 +229,51 @@ class SixodpPlugin(plugins.SingletonPlugin, DefaultTranslation):
                 )
 
     # IFacets #
+    _LOCALE_ALIASES = {'en_GB': 'en'}
 
     def dataset_facets(self, facets_dict, package_type):
         if package_type == 'dataset':
+            lang = i18n.get_lang()
+            if lang in self._LOCALE_ALIASES:
+                lang = self._LOCALE_ALIASES[lang]
+
             facets_dict = OrderedDict()
             facets_dict.update({'res_format': _('Formats')})
             facets_dict.update({'vocab_geographical_coverage': _('Geographical Coverage')})
-            facets_dict.update({'groups': _('Groups')})
+            facets_dict.update({'vocab_translated_group_title_' + lang: _('Groups')})
             facets_dict.update({'organization': _('Organizations')})
-            facets_dict.update({'collections': _('Collections')})
+            facets_dict.update({'vocab_translated_collection_title_' + lang: _('Collections')})
 
         return facets_dict
 
     def organization_facets(self, facets_dict, organization_type, package_type):
         if organization_type == 'organization':
+            lang = i18n.get_lang()
+            if lang in self._LOCALE_ALIASES:
+                lang = self._LOCALE_ALIASES[lang]
+
             facets_dict = OrderedDict()
             facets_dict.update({'res_format': _('Formats')})
             facets_dict.update({'vocab_geographical_coverage': _('Geographical Coverage')})
-            facets_dict.update({'groups': _('Groups')})
+            facets_dict.update({'vocab_translated_group_title_' + lang: _('Groups')})
             facets_dict.update({'organization': _('Organizations')})
-            facets_dict.update({'collections': _('Collections')})
+            facets_dict.update({'vocab_translated_collection_title_' + lang: _('Collections')})
+
         return facets_dict
 
     def group_facets(self, facets_dict, group_type, package_type):
         if group_type == 'group':
+            lang = i18n.get_lang()
+            if lang in self._LOCALE_ALIASES:
+                lang = self._LOCALE_ALIASES[lang]
+
             facets_dict = OrderedDict()
             facets_dict.update({'res_format': _('Formats')})
             facets_dict.update({'vocab_geographical_coverage': _('Geographical Coverage')})
-            facets_dict.update({'groups': _('Groups')})
+            facets_dict.update({'vocab_translated_group_title_' + lang: _('Groups')})
             facets_dict.update({'organization': _('Organizations')})
-            facets_dict.update({'collections': _('Collections')})
+            facets_dict.update({'vocab_translated_collection_title_' + lang: _('Collections')})
+
         return facets_dict
 
     def get_helpers(self):
@@ -316,21 +331,6 @@ class SixodpPlugin(plugins.SingletonPlugin, DefaultTranslation):
 
         return search_params
 
-    def after_dataset_search(self, search_results, search_params):
-        if(search_results['search_facets'].get('groups')):
-            context = {'for_view': True, 'with_private': False}
-            data_dict = {
-                'all_fields': True,
-                'include_extras': True,
-                'type': 'group',
-            }
-            groups_with_extras = get_action('group_list')(context, data_dict)
-
-            for i, facet in enumerate(search_results['search_facets']['groups'].get('items', [])):
-                for group in groups_with_extras:
-                    if facet['name'] == group['name']:
-                        search_results['search_facets']['groups']['items'][i]['title_translated'] = group.get('title_translated')
-        return search_results
 
     def before_dataset_index(self, data_dict):
 
@@ -381,6 +381,25 @@ class SixodpPlugin(plugins.SingletonPlugin, DefaultTranslation):
             if update_frequency_json.get('en'):
                 data_dict['vocab_update_frequency_en'] = [tag for tag in update_frequency_json['en']]
 
+        # Index translated group names for facet filters
+        groups = data_dict.get('groups')
+        translated_group_names = {'fi': [], 'en': [], 'sv': []}
+        if groups:
+            for group in groups:
+                full_group = get_action('group_show')({}, {'id': group, 'include_datasets': False,
+                                                           'include_dataset_count': False, 'include_extras': True,
+                                                           'include_users': False, 'include_groups': False,
+                                                           'include_tags': False, 'include_followers': False})
+                translated_group_title = full_group.get('title_translated', {})
+                if translated_group_title.get('fi'):
+                    translated_group_names['fi'].append(translated_group_title['fi'])
+                if translated_group_title.get('en'):
+                    translated_group_names['en'].append(translated_group_title['en'])
+                if translated_group_title.get('sv'):
+                    translated_group_names['sv'].append(translated_group_title['sv'])
+        data_dict['vocab_translated_group_title_fi'] = translated_group_names.get('fi')
+        data_dict['vocab_translated_group_title_en'] = translated_group_names.get('en')
+        data_dict['vocab_translated_group_title_sv'] = translated_group_names.get('sv')
         return data_dict
 
     # This function requires overriding resource_create and resource_update by adding keep_deletable_attributes_in_api to context
