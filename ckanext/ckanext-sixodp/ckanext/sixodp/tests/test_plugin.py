@@ -4,6 +4,7 @@ from .factories import SixodpDataset, SixodpGroup
 from ckan.tests.helpers import call_action
 
 from ckan.plugins import toolkit
+from ckan.lib.helpers import url_for
 
 @pytest.mark.usefixtures('with_plugins', 'clean_db', 'clean_index')
 class TestSixodpPlugin():
@@ -46,4 +47,17 @@ class TestSixodpPlugin():
         assert group['title_translated']['en'] in resp_en
 
         resp_sv = app.get('/sv/dataset')
+        assert group['title_translated']['sv'] in resp_sv
+
+    def test_translated_facet_in_group_search(self, app):
+        group = SixodpGroup()
+        SixodpDataset(groups=[{'id': group['id']}])
+
+        resp = app.get(url=url_for("group.read", id=group["name"]))
+        assert group['title_translated']['fi'] in resp
+
+        resp_en = app.get(url=url_for("group.read", id=group["name"], locale='en_GB'))
+        assert group['title_translated']['en'] in resp_en
+
+        resp_sv = app.get(url=url_for("group.read", id=group["name"], locale='sv'))
         assert group['title_translated']['sv'] in resp_sv
