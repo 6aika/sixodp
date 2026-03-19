@@ -1,6 +1,6 @@
 import pytest
 
-from .factories import SixodpDataset
+from .factories import SixodpDataset, SixodpGroup
 from ckan.tests.helpers import call_action
 
 from ckan.plugins import toolkit
@@ -34,3 +34,16 @@ class TestSixodpPlugin():
             'name': ['Missing value']
         }
         assert exc_info.value.error_dict == expected
+
+    def test_translated_facets_in_dataset_search(self, app):
+        group = SixodpGroup()
+        SixodpDataset(groups=[{'id': group['id']}])
+
+        resp = app.get('/dataset')
+        assert group['title_translated']['fi'] in resp
+
+        resp_en = app.get('/en_GB/dataset')
+        assert group['title_translated']['en'] in resp_en
+
+        resp_sv = app.get('/sv/dataset')
+        assert group['title_translated']['sv'] in resp_sv
