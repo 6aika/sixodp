@@ -42,7 +42,14 @@ jobs:
           pip install -e .
           # Replace default path to CKAN core config file with the one on the container
           sed -i -e 's/use = config:.*/use = config:\/srv\/app\/src\/ckan\/test-core.ini/' test.ini
-
+          
+          # create placeholder files for webassets
+          mkfile() {
+            mkdir -p -- "$1" && touch -- "$1"/"$2"
+          }
+        
+          mkfile ckanext/sixodp/fanstatic/javascript app.js
+          
           cd ../ckanext-scheming
           pip install -e .
           cd ../ckanext-fluent
