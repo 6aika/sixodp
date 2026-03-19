@@ -1,5 +1,6 @@
 import pytest
 
+from ckan.tests.factories import Organization
 from .factories import SixodpDataset, SixodpGroup
 from ckan.tests.helpers import call_action
 
@@ -60,4 +61,18 @@ class TestSixodpPlugin():
         assert group['title_translated']['en'] in resp_en
 
         resp_sv = app.get(url=url_for("group.read", id=group["name"], locale='sv'))
+        assert group['title_translated']['sv'] in resp_sv
+
+    def test_translated_facet_in_organization_search(self, app):
+        org = Organization()
+        group = SixodpGroup()
+        SixodpDataset(groups=[{'id': group['id']}], owner_org=org['id'])
+
+        resp = app.get(url=url_for("organization.read", id=org["name"]))
+        assert group['title_translated']['fi'] in resp
+
+        resp_en = app.get(url=url_for("organization.read", id=org["name"], locale='en_GB'))
+        assert group['title_translated']['en'] in resp_en
+
+        resp_sv = app.get(url=url_for("organization.read", id=org["name"], locale='sv'))
         assert group['title_translated']['sv'] in resp_sv
