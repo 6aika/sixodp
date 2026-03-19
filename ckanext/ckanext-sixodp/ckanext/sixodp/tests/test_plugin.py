@@ -7,6 +7,8 @@ from ckan.tests.helpers import call_action
 from ckan.plugins import toolkit
 from ckan.lib.helpers import url_for
 
+from ckanext.sixodp.helpers import get_package_groups_by_type
+
 @pytest.mark.usefixtures('with_plugins', 'clean_db', 'clean_index')
 class TestSixodpPlugin():
     def test_mandatory_values_in_dataset(self):
@@ -77,3 +79,13 @@ class TestSixodpPlugin():
 
         resp_sv = app.get(url=url_for("organization.read", id=org["name"], locale='sv'))
         assert group['title_translated']['sv'] in resp_sv
+
+
+    def test_helper_get_package_groups_by_type(self):
+        group1 = SixodpGroup()
+        group2 = SixodpGroup()
+        dataset = SixodpDataset(groups=[{'id': group1['id']}])
+
+        package_groups = get_package_groups_by_type(dataset['id'], group_type='group')
+        assert len(package_groups) == 1
+        assert package_groups[0]['id'] == group1['id']
