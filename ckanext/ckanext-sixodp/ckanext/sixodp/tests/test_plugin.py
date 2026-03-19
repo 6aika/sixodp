@@ -1,6 +1,6 @@
 import pytest
 
-from ckan.tests.factories import Organization
+from ckan.tests.factories import Organization, User
 from .factories import SixodpDataset, SixodpGroup
 from ckan.tests.helpers import call_action
 
@@ -10,8 +10,9 @@ from ckan.lib.helpers import url_for
 @pytest.mark.usefixtures('with_plugins', 'clean_db', 'clean_index')
 class TestSixodpPlugin():
     def test_mandatory_values_in_dataset(self):
+        user = User()
         dataset = vars(SixodpDataset.stub())
-        result = call_action('package_create', **dataset)
+        result = call_action('package_create', context={"user": user['name']}, **dataset)
 
         assert result['title'] == dataset['title_translated']['fi']
         assert result['notes'] == dataset['notes_translated']['fi']
