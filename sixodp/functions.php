@@ -490,8 +490,16 @@ function get_current_locale() {
 }
 
 function get_ckan_data($url) {
-  $data = json_decode(file_get_contents($url), TRUE);
-  return $data;
+    $ctx = stream_context_create(array('http'=>
+        array(
+            'timeout' => 5,
+        )
+    ));
+    $content = file_get_contents($url, false, $ctx);
+    if ( $content === FALSE ){
+        return FALSE;
+    }
+    return json_decode($content, TRUE)['result'];
 }
 
 function get_popular_tags() {
@@ -545,7 +553,12 @@ function get_latest_showcases($limit, $date = false) {
     $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=metadata_created%20desc&fq=dataset_type:showcase&rows='.$limit.'&q=metadata_created:['. date('Y-m-d\T00:00:00', strtotime($date)) .'Z%20TO%20'. date('Y-m-d\T00:00:00', strtotime($date . '+ 1 MONTH')) .'Z]');
   }
   else $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=metadata_created%20desc&fq=dataset_type:showcase&rows='.$limit);
-  return $data['result']['results'];
+
+  if ( $data ){
+      return $data['results'];
+  }
+
+  return [];
 }
 
 function get_organizations_count() {
@@ -555,8 +568,8 @@ function get_organizations_count() {
 function get_api_count() {
   $api_collection = get_ckan_data(CKAN_API_URL."/action/api_collection_show");
 
-  if($api_collection['result']['package_count']) {
-    return $api_collection['result']['package_count'];
+  if($api_collection && $api_collection['package_count']) {
+    return $api_collection['package_count'];
   }
   return 0;
 }
@@ -578,7 +591,10 @@ function get_count($type) {
 
 function get_ckan_categories() {
   $data = get_ckan_data(CKAN_API_URL.'/action/group_list?all_fields=true&include_extras=true&sort=name%20asc');
-  return $data['result'];
+  if ( $data ){
+      return $data;
+  }
+  return [];
 }
 
 function get_ckan_package_rating($package_id) {
@@ -595,26 +611,45 @@ $datasets = null;
 $api_collection = null;
 function cache_frontpage_ckan_data($dataset_limit, $showcase_limit){
     global $showcases, $datasets, $api_collection;
-    $showcases = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=metadata_created%20desc&fq=dataset_type:showcase&rows='.$showcase_limit)['result'];
-    $datasets = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_updated%20desc&rows=' . $dataset_limit)['result'];
+    $showcases = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=metadata_created%20desc&fq=dataset_type:showcase&rows='.$showcase_limit);
+    if ( !$showcases ) {
+        $showcases = array(
+            "results" => array()
+        );
+    }
+    $datasets = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_updated%20desc&rows=' . $dataset_limit);
+    if ( !$datasets ){
+        $datasets = array(
+            "results" => array()
+        );
+    }
     $api_collection = get_ckan_data(CKAN_API_URL."/action/api_collection_show");
+
+
 
     get_recent_dates($datasets);
 }
 
 function get_dataset_count_from_cache(){
     global $datasets;
-    return $datasets['count'] ? $datasets['count'] : 0;
+    if ($datasets && array_key_exists('count', $datasets)) {
+        return $datasets['count'];
+    }
+    return 0;
+
 }
 
 function get_showcases_count_from_cache(){
     global $showcases;
-    return $showcases['count'] ? $showcases['count'] : 0;
+    if ( $showcases && array_key_exists('count', $showcases)){
+        return $showcases['count'];
+    }
+    return 0;
 }
 
 function get_api_count_from_cache(){
     global $api_collection;
-    if($api_collection['result']['package_count']) {
+    if($api_collection && array_key_exists('package_count', $api_collection)) {
         return $api_collection['result']['package_count'];
     }
     return 0;
@@ -622,8 +657,8 @@ function get_api_count_from_cache(){
 
 function get_api_link_from_cache(){
     global $api_collection;
-    if($api_collection['result']['name']) {
-        return CKAN_BASE_URL . '/'. get_current_locale_ckan() . '/collection/'. $api_collection['result']['name'];
+    if($api_collection && array_key_exists('name', $api_collection)) {
+        return CKAN_BASE_URL . '/'. get_current_locale_ckan() . '/collection/'. $api_collection['name'];
     }
     return '';
 }
@@ -676,7 +711,12 @@ function sort_results($arr) {
   $temp = array();
   foreach ($arr as $key => $row)
   {
-    $temp[$key] = strtotime($row['date_recent'] ? $row['date_recent'] : $row['date']);
+      if ( array_key_exists('date_recent', $row) ) {
+          $temp[$key] = $row['date_recent'];
+      }
+      else{
+          $temp[$key] = $row['date'];
+      }
   }
 
   array_multisort($temp, SORT_DESC, $arr);
@@ -695,13 +735,21 @@ function get_recent_dates(&$arr){
 }
 
 function format_ckan_row($row) {
-  return array(
-    'date' => isset($row['date_created']) ? $row['date_created'] : $row['metadata_created'],
-    'date_recent' => isset($row['date_recent']) ? $row['date_recent'] : $row['date_released'],
+    $date_recent = "";
+    if (array_key_exists('date_recent', $row)) {
+        $date_recent = $row['date_recent'];
+    }
+    elseif (array_key_exists('date_released', $row)){
+        $date_recent = $row['date_released'];
+    }
+
+    return array(
+    'date' => $row['date_created'] ?? $row['metadata_created'],
+    'date_recent' => $date_recent,
     'type' => array('link' => CKAN_BASE_URL .'/'. get_current_locale_ckan() .'/'. $row['type'], 'label' => $row['type']),
     'link' => CKAN_BASE_URL .'/'. get_current_locale_ckan() .'/'. $row['type'] .'/'. $row['name'],
     'title' => $row['title'],
-    'title_translated' => isset($row['title_translated']) ? $row['title_translated'] : (object) array('fi' => $row['title'], 'sv' => $row['title'], 'en_GB' => $row['title']),
+    'title_translated' => $row['title_translated'] ?? (object)array('fi' => $row['title'], 'sv' => $row['title'], 'en_GB' => $row['title']),
     'notes_translated' => $row['notes_translated'],
     'name' => $row['name']
   );
