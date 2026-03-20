@@ -1,6 +1,7 @@
 import factory
+from functools import partial
 
-from ckan.tests.factories import Dataset, Group
+from ckan.tests.factories import Dataset, Group, _name
 
 from faker import Faker
 
@@ -14,7 +15,7 @@ class SixodpDataset(Dataset):
         'fi': fake.sentence(nb_words=5)
     }
     date_released = factory.LazyFunction(fake.date)
-    geographical_coverage = factory.LazyFunction(lambda: fake.words(nb=5))
+    geographical_coverage = factory.LazyFunction(partial(_name, 'tag'))
     keywords = {
         'fi': ['somekeyword']
     }
