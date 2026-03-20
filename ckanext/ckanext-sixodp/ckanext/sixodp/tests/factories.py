@@ -14,7 +14,7 @@ class SixodpDataset(Dataset):
         'fi': fake.sentence(nb_words=5)
     }
     date_released = factory.LazyFunction(fake.date)
-    geographical_coverage = [factory.LazyFunction(lambda: fake.pystr(min_chars=2))]
+    geographical_coverage = [fake.pystr(min_chars=2)]
     keywords = {
         'fi': ['somekeyword']
     }
