@@ -20,7 +20,7 @@
           {% set label_truncated = h.truncate(label, 34) if not label_function else label %}
           {% set count = count_label(item['count']) if count_label else ('(%d)' % item['count']) %}
             <li class="{{ nav_item_class or 'nav-item' }}{% if item.active %} active{% endif %}">
-              <a href="{{ href }}" title="{{ label if label != label_truncated else '' }}">
+              <a href="{{ href }}" title="{{ label if label != label_truncated else '' }}" rel="nofollow">
                 <span>{{ label_truncated }} {{ count }}</span>
                 <span class="plusglyph pull-right">+</span>
                 <span class="minusglyph pull-right">&minus;</span>
@@ -33,10 +33,10 @@
     <p class="module-footer">
       {% if h.get_param_int('_%s_limit' % name) %}
         {% if h.has_more_facets(name, search_facets or c.search_facets) %}
-          <a href="{{ h.remove_url_param('_%s_limit' % name, replace=0, extras=extras, alternative_url=alternative_url) }}" class="read-more">{{ _('Show more') }}</a>
+          <a href="{{ h.remove_url_param('_%s_limit' % name, replace=0, extras=extras, alternative_url=alternative_url) }}" class="read-more" rel="nofollow">{{ _('Show more') }}</a>
         {% endif %}
       {% else %}
-        <a href="{{ h.remove_url_param('_%s_limit' % name, extras=extras, alternative_url=alternative_url) }}" class="read-more">{{ _('Show less')}}</a>
+        <a href="{{ h.remove_url_param('_%s_limit' % name, extras=extras, alternative_url=alternative_url) }}" class="read-more" rel="nofollow">{{ _('Show less')}}</a>
       {% endif %}
     </p>
   {% else %}

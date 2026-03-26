@@ -1,5 +1,11 @@
 {% ckan_extends %}
 
+{%- block head_extras %}
+  {{ super() }}
+  <link rel="canonical" href="{{ h.url_for('%s.search' % dataset_type, locale='default' ) }}" >
+{% endblock %}
+
+
 {% block pre_primary %}
   <div class="page-hero"></div>
   <div class="search-form-container row justify-content-center">
