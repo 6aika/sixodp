@@ -2,6 +2,11 @@
 
 {% set pkg = c.pkg_dict %}
 
+{%- block head_extras %}
+  {{ super() }}
+  <link rel="canonical" href="{{ h.url_for('%s.read' % dataset_type, locale='default', id=pkg.name) }}" >
+{% endblock %}
+
 {% block primary_content_inner %}
   {{ super() }}
   {% block package_description %}
