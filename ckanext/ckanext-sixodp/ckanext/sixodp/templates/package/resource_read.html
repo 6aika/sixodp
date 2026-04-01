@@ -1,5 +1,10 @@
 {% ckan_extends %}
 
+{%- block head_extras %}
+  {{ super() }}
+  <link rel="canonical" href="{{ h.url_for('%s_resource.read' % dataset_type, locale='default', id=pkg.name, resource_id=res.id) }}" >
+{% endblock %}
+
 {% block pre_primary %}
   <div class="page-hero"></div>
   {% block toolbar %}

@@ -1,5 +1,10 @@
 {% ckan_extends %}
 
+{%- block head_extras %}
+  {{ super() }}
+  <link rel="canonical" href="{{ h.url_for('%s.read' % group_dict.type, locale='default', id=group_dict.name ) }}" >
+{% endblock %}
+
 {% block groups_search_form %}
   {% set facets = {
     'fields': c.fields_grouped,

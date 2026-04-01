@@ -51,13 +51,13 @@
   color: $category-box-count-color;
   text-align: center;
 
-  svg {
+  img {
     height: 35px;
     width: 35px;
   }
 
-  svg path {
-    fill: $category-box-icon-color;
+  img {
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(329deg) brightness(101%) contrast(100%);
   }
 }
 

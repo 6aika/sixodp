@@ -36,15 +36,17 @@ var App = {
 (function($) {
 
   $('.counter').each(function () {
-    $(this).prop('Counter',0).animate({
-      Counter: $(this).text()
-    }, {
-      duration: 1000,
-      easing: 'swing',
-      step: function (now) {
-        $(this).text(Math.ceil(now));
-      }
-    });
+    if (Number.isInteger($(this).prop('Counter', 0).text())) {
+      $(this).prop('Counter', 0).animate({
+        Counter: $(this).text()
+      }, {
+        duration: 1000,
+        easing: 'swing',
+        step: function (now) {
+          $(this).text(Math.ceil(now));
+        }
+      });
+    }
   });
 
   $('button[data-toggle="collapse"]').on('click', function() {

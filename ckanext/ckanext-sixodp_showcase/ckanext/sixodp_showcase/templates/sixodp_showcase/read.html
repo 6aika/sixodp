@@ -19,6 +19,7 @@
   {% if pkg.image_display_url %}
      <meta property="og:image" content="{{ pkg.image_display_url }}">
   {% endif %}
+  <link rel="canonical" href="{{ h.url_for('%s.read' % dataset_type, locale='default', id=pkg.name) }}" >
 {% endblock -%}
 
 {% block breadcrumb_content_selected %} class="active breadcrumb-item"{% endblock %}
