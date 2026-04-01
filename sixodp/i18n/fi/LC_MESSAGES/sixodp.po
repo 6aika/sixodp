@@ -1,34 +1,32 @@
-# Copyright (C) 2020
-# This file is distributed under the same license as the  package.
 # Translators:
-# Zharktas <jari-pekka.voutilainen@gofore.com>, 2025
 # Hami Kekkonen <hami.kekkonen@hel.fi>, 2025
+# Zharktas <jari-pekka.voutilainen@gofore.com>, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sixodp\n"
-"POT-Creation-Date: 2020-09-11 11:45:18+00:00\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-01T10:53:41+00:00\n"
 "PO-Revision-Date: 2025-02-27 08:30+0000\n"
-"Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2025\n"
+"Last-Translator: Zharktas <jari-pekka.voutilainen@gofore.com>, 2026\n"
 "Language-Team: Finnish (https://app.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: sixodp\n"
+"X-Generator: WP-CLI 2.11.0\n"
 
-#. #-#-#-#-#  sixodp.pot  #-#-#-#-#
-#. Template Name of the plugin/theme
 #: ajankohtaista.php:25 archive-data_request.php:24
 #: archive-showcase_idea.php:24 category-tuki.php:28 category.php:29
-#: data_request_form.php:78 header.php:63 latest-updates.php:55
+#: data_request_form.php:78 header.php:67 latest-updates.php:53
 #: page_with_menu.php:30 roadmap.php:26 search.php:24
 #: showcase_idea_form.php:79 single.php:35 tuki.php:26 tukichild.php:30
 msgid "Home"
 msgstr "Etusivu"
 
-#: ajankohtaista.php:26 category.php:41 partials/horizontal-accordion.php:10
+#: ajankohtaista.php:26 category.php:44 partials/horizontal-accordion.php:10
 msgid "Current"
 msgstr "Ajankohtaista"
 
@@ -42,7 +40,7 @@ msgid "Twitter"
 msgstr "Twitter"
 
 #: archive-data_request.php:25 archive-data_request.php:30
-#: latest-updates.php:81 single.php:43
+#: latest-updates.php:76 single.php:43
 msgid "Data Requests"
 msgstr "Datatoiveet"
 
@@ -55,15 +53,13 @@ msgstr "Uusi datatoive"
 msgid "Data request"
 msgstr "Datatoive"
 
-#: archive-data_request.php:73 archive-showcase_idea.php:71 category.php:100
-#: index.php:46 partials/search-content-data.php:91
-#: partials/search-content.php:78
+#: archive-data_request.php:73 archive-showcase_idea.php:71 category.php:103
+#: partials/search-content-data.php:91 partials/search-content.php:78
 msgid "Previous page"
 msgstr "Edellinen"
 
-#: archive-data_request.php:74 archive-showcase_idea.php:72 category.php:101
-#: index.php:47 partials/search-content-data.php:114
-#: partials/search-content.php:79
+#: archive-data_request.php:74 archive-showcase_idea.php:72 category.php:104
+#: partials/search-content-data.php:114 partials/search-content.php:79
 msgid "Next page"
 msgstr "Seuraava"
 
@@ -188,107 +184,52 @@ msgstr "Somelinkkivalikko"
 msgid "Footer Menu"
 msgstr "Alatunnisteen valikko"
 
-#: functions.php:189
-msgctxt "post type general name"
-msgid "Notifications"
-msgstr "Ilmoitukset"
-
-#: functions.php:190
-msgctxt "post type singular name"
-msgid "Notification"
-msgstr "Ilmoitus"
-
-#: functions.php:191
-msgctxt "Notification"
-msgid "Add New"
-msgstr "Lisää uusi"
-
-#: functions.php:192
-msgid "Add New Notification"
-msgstr "Lisää uusi ilmoitus"
-
-#: functions.php:193
-msgid "Edit Notification"
-msgstr "Muokkaa ilmoitusta"
-
-#: functions.php:194
-msgid "New Notification"
-msgstr "Uusi ilmoitus"
-
-#: functions.php:195
-msgid "All Notifications"
-msgstr "Kaikki ilmoitukset"
-
-#: functions.php:196
-msgid "View Notification"
-msgstr "Näytä ilmoitus"
-
-#: functions.php:197
-msgid "Search notifications"
-msgstr "Etsi ilmoituksia"
-
-#: functions.php:198
-msgid "No notifications found"
-msgstr "Ilmoituksia ei löytynyt"
-
-#: functions.php:199
-msgid "No notifications found in the Trash"
-msgstr "Ei ilmoituksia roskakorissa"
-
-#: functions.php:740 partials/featured-datasets.php:23
+#: functions.php:685 partials/featured-datasets.php:23
 msgid "days"
 msgstr "päivää"
 
-#: functions.php:740 partials/featured-datasets.php:24
+#: functions.php:685 partials/featured-datasets.php:24
 msgid "hours"
 msgstr "tuntia"
 
-#: functions.php:740 partials/featured-datasets.php:25
+#: functions.php:685 partials/featured-datasets.php:25
 msgid "ago"
 msgstr "sitten"
 
-#: index.php:48 partials/latest-updates.php:35 partials/latest-updates.php:99
-msgid "Page"
-msgstr "Sivu"
-
-#: latest-updates.php:66 partials/featured-datasets.php:11
-#: partials/hero.php:18 partials/hero.php:21
+#: latest-updates.php:64 partials/featured-datasets.php:11
+#: partials/hero.php:17 partials/hero.php:20
 #: partials/search-content-data.php:25 partials/search-content-data.php:27
 #: partials/search-content.php:25
 msgid "Datasets"
 msgstr "Datat"
 
-#: latest-updates.php:69 partials/hero.php:22
+#: latest-updates.php:67 partials/hero.php:21
 #: partials/search-content-data.php:31 partials/search-content-data.php:33
 #: partials/search-content.php:31
 msgid "Applications"
 msgstr "Sovellukset"
 
-#: latest-updates.php:72
-msgid "Comments"
-msgstr "Kommentit"
-
-#: latest-updates.php:75
+#: latest-updates.php:70
 msgid "Posts"
 msgstr "Artikkelit"
 
-#: latest-updates.php:78
+#: latest-updates.php:73
 msgid "Pages"
 msgstr "Sivut"
 
-#: latest-updates.php:84
+#: latest-updates.php:79
 msgid "App Requests"
 msgstr "Sovellusideat"
 
-#: latest-updates.php:86
+#: latest-updates.php:81
 msgid "Update"
 msgstr "Päivitä"
 
-#: latest-updates.php:93
+#: latest-updates.php:88
 msgid "No updates found between %1$s and %2$s."
 msgstr "Ei päivityksiä ajalla %1$s-%2$s."
 
-#: latest-updates.php:95
+#: latest-updates.php:90
 msgid "Updates between %1$s and %2$s."
 msgstr "Päivitykset ajalla %1$s-%2$s."
 
@@ -302,6 +243,10 @@ msgid "Author"
 msgstr "Tekijä"
 
 #: partials/categories.php:35
+msgid "Could not fetch categories"
+msgstr "Kategorioita ei pystytty hakemaan"
+
+#: partials/categories.php:41
 msgid "All datasets"
 msgstr "Kaikki datat"
 
@@ -309,19 +254,23 @@ msgstr "Kaikki datat"
 msgid "Latest applications"
 msgstr "Uusimmat sovellukset"
 
-#: partials/featured-apps.php:77
+#: partials/featured-apps.php:74
+msgid "Could not fetch showcases"
+msgstr "Sovelluksia ei pystytty hakemaan"
+
+#: partials/featured-apps.php:81
 msgid "Do you have a dataset or an application to share?"
 msgstr "Onko sinulla valmis sovellus tai idea sovelluksesta?"
 
-#: partials/featured-apps.php:77
+#: partials/featured-apps.php:81
 msgid "Share it!"
 msgstr "Julkaise se palvelussamme!"
 
-#: partials/featured-apps.php:80
+#: partials/featured-apps.php:84
 msgid "Submit an application"
 msgstr "Ilmoita sovellus"
 
-#: partials/featured-apps.php:81
+#: partials/featured-apps.php:85
 msgid "Share an application"
 msgstr "Kerro sovellusidea"
 
@@ -334,19 +283,23 @@ msgstr "Viimeksi päivitetyt datat"
 msgid "Dataset"
 msgstr "Data"
 
-#: partials/featured-content.php:73
+#: partials/featured-content.php:71
+msgid "Could not fetch datasets"
+msgstr "Tietoaineistoja ei pystytty hakemaan"
+
+#: partials/featured-content.php:77
 msgid "Do you have a request for a dataset or an idea for application?"
 msgstr "Onko sinulla dataa tai datatoive?"
 
-#: partials/featured-content.php:73
+#: partials/featured-content.php:77
 msgid "Tell us!"
 msgstr "Kerro se meille!"
 
-#: partials/featured-content.php:76
+#: partials/featured-content.php:80
 msgid "Submit a dataset"
 msgstr "Ilmoita data"
 
-#: partials/featured-content.php:77
+#: partials/featured-content.php:81
 msgid "Share an open data idea"
 msgstr "Kerro datatoive"
 
@@ -354,15 +307,15 @@ msgstr "Kerro datatoive"
 msgid "More updates"
 msgstr "Lisää päivityksiä"
 
-#: partials/hero.php:24
+#: partials/hero.php:23
 msgid "Other"
 msgstr "Muu sisältö"
 
-#: partials/hero.php:27
+#: partials/hero.php:25
 msgid "Keyword"
 msgstr "Hakusana"
 
-#: partials/hero.php:29 partials/nav.php:61 partials/nav.php:73 search.php:25
+#: partials/hero.php:26 partials/nav.php:57 partials/nav.php:69 search.php:25
 #: searchform.php:8
 msgid "Search"
 msgstr "Hae"
@@ -379,6 +332,10 @@ msgstr "Sovellus"
 msgid "Article"
 msgstr "Artikkeli"
 
+#: partials/latest-updates.php:35 partials/latest-updates.php:99
+msgid "Page"
+msgstr "Sivu"
+
 #: partials/latest-updates.php:38 partials/latest-updates.php:102
 msgid "Comment"
 msgstr "Kommentti"
@@ -387,23 +344,23 @@ msgstr "Kommentti"
 msgid "Toggle navigation"
 msgstr "Näytä tai piilota valikko"
 
-#: partials/nav.php:22
+#: partials/nav.php:20
 msgid "Skip to content"
 msgstr "Siirry sisältöön"
 
-#: partials/nav.php:33
+#: partials/nav.php:31
 msgid "Show submenu for "
 msgstr "Näytä alavalikko"
 
-#: partials/nav.php:63
+#: partials/nav.php:59
 msgid "In Finnish"
 msgstr "Suomeksi"
 
-#: partials/nav.php:64
+#: partials/nav.php:60
 msgid "In English"
 msgstr "Englanniksi"
 
-#: partials/nav.php:65
+#: partials/nav.php:61
 msgid "In Swedish"
 msgstr "Ruotsiksi"
 
@@ -458,8 +415,6 @@ msgstr "Kysymyksiä?"
 msgid "Contact us"
 msgstr "Ota yhteyttä"
 
-#. #-#-#-#-#  sixodp.pot  #-#-#-#-#
-#. Template Name of the plugin/theme
 #: partials/tuki-sidebar.php:8
 msgid "Tuki"
 msgstr "Ohjeet"
@@ -571,35 +526,3 @@ msgstr "Sovellusidea"
 #: tuki.php:27 tuki.php:32 tukichild.php:31 tukichild.php:37
 msgid "Support"
 msgstr "Ohjeet"
-
-#. Template Name of the plugin/theme
-msgid "Ajankohtaista"
-msgstr "Ajankohtaista"
-
-#. Template Name of the plugin/theme
-msgid "Datatoive-lomake"
-msgstr "Datatoive-lomake"
-
-#. Template Name of the plugin/theme
-msgid "Viimeisimmät päivitykset"
-msgstr "Viimeisimmät päivitykset"
-
-#. Template Name of the plugin/theme
-msgid "Oletuspohja valikolla"
-msgstr "Oletuspohja valikolla"
-
-#. Template Name of the plugin/theme
-msgid "Roadmap"
-msgstr "Työn alla"
-
-#. Template Name of the plugin/theme
-msgid "Sovellusidea-lomake"
-msgstr "Sovellusidea-lomake"
-
-#. Template Name of the plugin/theme
-msgid "Kiitos"
-msgstr "Kiitos"
-
-#. Template Name of the plugin/theme
-msgid "Tuki childpage"
-msgstr "Tuki: alasivu"
