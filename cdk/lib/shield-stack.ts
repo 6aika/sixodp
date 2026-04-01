@@ -81,6 +81,38 @@ export class ShieldStack extends Stack {
             }
         ]
 
+        const blockMetaExternalAgent: aws_wafv2.CfnWebACL.RuleProperty = {
+            name: "block-meta-externalagent",
+            priority: rules.length,
+            action: {
+                block: {}
+            },
+            statement: {
+                byteMatchStatement: {
+                    searchString: "meta-externalagent/1.1",
+                    fieldToMatch: {
+                        singleHeader: {
+                            name: "user-agent"
+                        }
+                    },
+                    positionalConstraint: "STARTS_WITH",
+                    textTransformations: [
+                        {
+                            priority: 0,
+                            type: "NONE"
+                        }
+                    ]
+                }
+            },
+            visibilityConfig: {
+                cloudWatchMetricsEnabled: false,
+                sampledRequestsEnabled: false,
+                metricName: "block-meta-externalagent",
+            }
+        }
+
+        rules.push(blockMetaExternalAgent)
+
         if (props.onlyAllowWhitelistedCountries) {
             const whitelistedCountryCodesParameter = new CfnParameter(this,  'whitelistedCountryCodesParameter', {
                 type: 'AWS::SSM::Parameter::Value<List<String>>',
