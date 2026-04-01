@@ -650,7 +650,7 @@ function get_showcases_count_from_cache(){
 function get_api_count_from_cache(){
     global $api_collection;
     if($api_collection && array_key_exists('package_count', $api_collection)) {
-        return $api_collection['result']['package_count'];
+        return $api_collection['package_count'];
     }
     return 'XX';
 }
