@@ -56,9 +56,9 @@
           </div>
           <button class="btn btn-tertiary navbar-search-btn" type="button" aria-label="<?php _e('Search', 'sixodp');?>"><span class="fa fa-search" aria-hidden="true"></span></button>
         </li>
-          <li class="language-changer nav-inline"><a href="/fi" title=FI'" class="nav-link" aria-label="<?php _e('In Finnish', 'Sixodp') ?>">FI</a></li>
-          <li class="language-changer nav-inline"><a href="/en_gb" title=EN'" class="nav-link" aria-label="<?php _e('In English', 'Sixodp') ?>">EN</a></li>
-          <li class="language-changer nav-inline"><a href="/sv" title=SV'" class="nav-link" aria-label="<?php _e('In Swedish', 'Sixodp') ?>">SV</a></li>
+          <li class="language-changer nav-inline"><a href="/fi" title=FI'" class="nav-link" aria-label="<?php _e('In Finnish', 'sixodp') ?>">FI</a></li>
+          <li class="language-changer nav-inline"><a href="/en_gb" title=EN'" class="nav-link" aria-label="<?php _e('In English', 'sixodp') ?>">EN</a></li>
+          <li class="language-changer nav-inline"><a href="/sv" title=SV'" class="nav-link" aria-label="<?php _e('In Swedish', 'sixodp') ?>">SV</a></li>
       </ul>
       <div class="navbar-footer">
         <button type="button"
