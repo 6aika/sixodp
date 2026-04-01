@@ -9,25 +9,31 @@
     <div class="row">
       <div class="categories">
         <?php
-          foreach(get_ckan_categories() as $category) : 
-            $title     = get_translated($category, 'title');
-            $name      = $category['name'];
-            $lang = get_current_locale_ckan();
-            $url       = CKAN_BASE_URL. '/' . $lang . '/group/'.$name;
-            $image_url = $category['image_display_url'];
-            $package_count = $category['package_count']; ?>
-            <div class="category__wrapper">
-              <div class="category--box">
-                <a href="<?php echo $url; ?>" class="category__link">
-                  <div class="category__link-content">
-                    <span class="category__icon"><img src="<?php echo $image_url; ?>"/></span>
-                    <span class="category__name"><?php echo $title; ?></span>
-                    <span class="category__count"><?php echo $package_count; ?></span>
+          $categories = get_ckan_categories();
+          if ( $categories ){
+              foreach($categories as $category) :
+                $title     = get_translated($category, 'title');
+                $name      = $category['name'];
+                $lang = get_current_locale_ckan();
+                $url       = CKAN_BASE_URL. '/' . $lang . '/group/'.$name;
+                $image_url = $category['image_display_url'];
+                $package_count = $category['package_count']; ?>
+                <div class="category__wrapper">
+                  <div class="category--box">
+                    <a href="<?php echo $url; ?>" class="category__link">
+                      <div class="category__link-content">
+                        <span class="category__icon"><img src="<?php echo $image_url; ?>"/></span>
+                        <span class="category__name"><?php echo $title; ?></span>
+                        <span class="category__count"><?php echo $package_count; ?></span>
+                      </div>
+                    </a>
                   </div>
-                </a>
-              </div>
-            </div><?php
-          endforeach;
+                </div><?php
+              endforeach;
+          }
+          else { ?>
+              <div class="btn-container"><div class="heading--small-inverse"><?php _e('Could not fetch categories', 'sixodp') ?></div></div>
+          <?php }
         ?>
       </div>
     </div>
