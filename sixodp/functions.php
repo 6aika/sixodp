@@ -635,7 +635,7 @@ function get_dataset_count_from_cache(){
     if ($datasets && array_key_exists('count', $datasets)) {
         return $datasets['count'];
     }
-    return 0;
+    return 'XX';
 
 }
 
@@ -644,7 +644,7 @@ function get_showcases_count_from_cache(){
     if ( $showcases && array_key_exists('count', $showcases)){
         return $showcases['count'];
     }
-    return 0;
+    return 'XX';
 }
 
 function get_api_count_from_cache(){
@@ -652,7 +652,7 @@ function get_api_count_from_cache(){
     if($api_collection && array_key_exists('package_count', $api_collection)) {
         return $api_collection['result']['package_count'];
     }
-    return 0;
+    return 'XX';
 }
 
 function get_api_link_from_cache(){
