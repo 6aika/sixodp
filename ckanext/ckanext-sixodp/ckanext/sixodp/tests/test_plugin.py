@@ -89,3 +89,10 @@ class TestSixodpPlugin():
         package_groups = get_package_groups_by_type(dataset['id'], group_type='group')
         assert len(package_groups) == 1
         assert package_groups[0]['id'] == group1['id']
+
+    def test_helper_get_package_groups_by_type_when_dataset_does_not_belong_to_group(self):
+        SixodpGroup()
+        dataset = SixodpDataset()
+
+        package_groups = get_package_groups_by_type(dataset['id'], group_type='group')
+        assert len(package_groups) == 0

@@ -408,14 +408,15 @@ def get_package_groups_by_type(package_id, group_type):
         pkg_obj = Package.get(package_id)
         pkg_group_names = set(group['name'] for group in group_list_dictize(pkg_obj.get_groups(group_type, None), context))
 
-        data_dict = {
-            'all_fields': True,
-            'include_extras': True,
-            'type': group_type,
-            'groups': pkg_group_names
-        }
+        if pkg_group_names:
+            data_dict = {
+                'all_fields': True,
+                'include_extras': True,
+                'type': group_type,
+                'groups': pkg_group_names
+            }
 
-        group_list = logic.get_action('group_list')(context, data_dict)
+            group_list = logic.get_action('group_list')(context, data_dict)
 
     except (NotFound):
         abort(404, _('Dataset not found'))
