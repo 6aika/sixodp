@@ -508,22 +508,6 @@ function get_popular_tags() {
 }
 
 
-
-
-
-function get_recent_content($date = false) {
-  if ($date) {
-    $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_updated%20desc&rows=8&q=date_updated:['. date('Y-m-d\T00:00:00', strtotime($date)) .'Z%20TO%20'. date('Y-m-d\T00:00:00', strtotime($date . '+ 1 MONTH')) .'Z]');
-  }
-  else $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_updated%20desc&rows=8');
-  if ($data['result']['results']) {
-      return $data['result']['results'];
-  }
-  else {
-      return [];
-  }
-}
-
 function get_latest_datasets($limit = 4) {
   $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_updated%20desc&rows=' . $limit);
   return $data['result']['results'];
@@ -553,18 +537,6 @@ function get_showcases_count() {
   return get_count('ckanext_showcase');
 }
 
-function get_latest_showcases($limit, $date = false) {
-  if ($date) {
-    $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=metadata_created%20desc&fq=dataset_type:showcase&rows='.$limit.'&q=metadata_created:['. date('Y-m-d\T00:00:00', strtotime($date)) .'Z%20TO%20'. date('Y-m-d\T00:00:00', strtotime($date . '+ 1 MONTH')) .'Z]');
-  }
-  else $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=metadata_created%20desc&fq=dataset_type:showcase&rows='.$limit);
-
-  if ( $data ){
-      return $data['results'];
-  }
-
-  return [];
-}
 
 function get_organizations_count() {
   return get_count('organization');
@@ -611,29 +583,7 @@ function get_ckan_package_rating($package_id) {
   );
 }
 
-$showcases = null;
-$datasets = null;
-$api_collection = null;
-function cache_frontpage_ckan_data($dataset_limit, $showcase_limit){
-    global $showcases, $datasets, $api_collection;
-    $showcases = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=metadata_created%20desc&fq=dataset_type:showcase&rows='.$showcase_limit);
-    if ( !$showcases ) {
-        $showcases = array(
-            "results" => array()
-        );
-    }
-    $datasets = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_updated%20desc&rows=' . $dataset_limit);
-    if ( !$datasets ){
-        $datasets = array(
-            "results" => array()
-        );
-    }
-    $api_collection = get_ckan_data(CKAN_API_URL."/action/api_collection_show");
 
-
-
-    get_recent_dates($datasets);
-}
 
 function get_dataset_count_from_cache(){
     global $datasets;
@@ -666,16 +616,6 @@ function get_api_link_from_cache(){
         return CKAN_BASE_URL . '/'. get_current_locale_ckan() . '/collection/'. $api_collection['name'];
     }
     return '';
-}
-
-function get_latest_datasets_from_cache($limit=4){
-    global $datasets;
-    return array_slice($datasets['results'], 0, $limit);
-}
-
-function get_latest_showcases_from_cache($limit=4){
-    global $showcases;
-    return array_slice($showcases['results'], 0, $limit);
 }
 
 function parse_date($date) {
@@ -729,36 +669,6 @@ function sort_results($arr) {
   return $arr;
 }
 
-function get_recent_dates(&$arr){
-    array_walk($arr['results'], function(&$dataset) {
-        $dataset['date_recent'] = $dataset['date_released'];
-        if ($dataset['date_updated'] && $dataset['date_updated'] > $dataset['date_released']) {
-            $dataset['date_recent'] = $dataset['date_updated'];
-        }
-    });
-
-}
-
-function format_ckan_row($row) {
-    $date_recent = "";
-    if (array_key_exists('date_recent', $row)) {
-        $date_recent = $row['date_recent'];
-    }
-    elseif (array_key_exists('date_released', $row)){
-        $date_recent = $row['date_released'];
-    }
-
-    return array(
-    'date' => $row['date_created'] ?? $row['metadata_created'],
-    'date_recent' => $date_recent,
-    'type' => array('link' => CKAN_BASE_URL .'/'. get_current_locale_ckan() .'/'. $row['type'], 'label' => $row['type']),
-    'link' => CKAN_BASE_URL .'/'. get_current_locale_ckan() .'/'. $row['type'] .'/'. $row['name'],
-    'title' => $row['title'],
-    'title_translated' => $row['title_translated'] ?? (object)array('fi' => $row['title'], 'sv' => $row['title'], 'en_GB' => $row['title']),
-    'notes_translated' => $row['notes_translated'],
-    'name' => $row['name']
-  );
-}
 
 function get_recent_posts($type, $date = false) {
   $args = array(
@@ -786,31 +696,18 @@ function get_recent_posts($type, $date = false) {
 
 function get_latest_updates($types = array(), $date = false, $limit = 4) {
   $defaults = array(
-    'datasets' => true,
-    'showcases' => true,
     'posts' => true,
     'pages' => true,
-    'data_requests' => false,
-    'showcase_ideas' => false,
   );
 
   $types = array_merge($defaults, $types);
-
-  if ( $date != false){
-      $datasets   = $types['datasets'] ? array_map('format_ckan_row', get_recent_content($date)) : [];
-      $showcases  = $types['showcases'] ? array_map('format_ckan_row', get_latest_showcases(20, $date)) : [];
-  }
-  else{
-      $datasets   = $types['datasets'] ? array_map('format_ckan_row', get_latest_datasets_from_cache($limit)) : [];
-      $showcases  = $types['showcases'] ? array_map('format_ckan_row', get_latest_showcases_from_cache($limit)) : [];
-  }
 
   $posts = $types['posts'] ? get_recent_posts('post', $date) : [];
   $pages = $types['pages'] ? get_recent_posts('page', $date) : [];
   $data_requests = $types['data_requests'] ? get_recent_posts('data_request', $date) : [];
   $showcase_ideas = $types['showcase_ideas'] ? get_recent_posts('showcase_idea', $date) : [];
 
-  $arr = array_merge($datasets, $showcases, $posts, $pages, $data_requests, $showcase_ideas);
+  $arr = array_merge($posts, $pages, $data_requests, $showcase_ideas);
 
   if ($limit) return array_slice(sort_results($arr), 0, $limit);
   else return sort_results($arr);

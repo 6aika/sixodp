@@ -22,12 +22,6 @@
               $label = is_array($updated_item['type']) ? $updated_item['type']['label'] : $updated_item['type'];
               $meta_label = '';
               switch ($label) {
-                case 'dataset':
-                  $meta_label = __('Dataset', 'sixodp');
-                  break;
-                case 'showcase':
-                  $meta_label = __('Showcase', 'sixodp');
-                  break;
                 case 'post':
                   $meta_label = __('Article', 'sixodp');
                   break;
@@ -86,12 +80,6 @@
           $label = is_array($updated_item['type']) ? $updated_item['type']['label'] : $updated_item['type'];
           $meta_label = '';
           switch ($label) {
-            case 'dataset':
-              $meta_label = __('Dataset', 'sixodp');
-              break;
-            case 'showcase':
-              $meta_label = __('Showcase', 'sixodp');
-              break;
             case 'post':
               $meta_label = __('Article', 'sixodp');
               break;

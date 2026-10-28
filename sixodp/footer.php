@@ -19,9 +19,6 @@
 						<div class="popper">
 							<ul class="popper__list">
 								<li class="popper__item">
-									<a href="/data/user/login" class="popper__link"><?php _e('Data portal', 'sixodp');?> <i class="material-icons">arrow_forward</i></a>
-								</li>
-								<li class="popper__item">
 									<a href="/admin" class="popper__link"><?php _e('Content manangement system', 'sixodp');?> <i class="material-icons">arrow_forward</i></a>
 								</li>
 							</ul>
