@@ -32,11 +32,7 @@
     </div>
 
     <div id="maincontent" class="page-content container">
-      <?php if(isset($_GET['datasearch'])) {
-          get_template_part( 'partials/search-content-data' );
-      } else {
-          get_template_part( 'partials/search-content' );
-      } ?>
+      <?php get_template_part( 'partials/search-content' ); ?>
     </div>
  	</main><!-- .site-main -->
  </div><!-- .content-area -->

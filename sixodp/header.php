@@ -28,7 +28,6 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<script type="text/javascript">
 		var locale = '<?php echo get_current_locale() ?>';
-		var locale_ckan = '<?php echo get_current_locale_ckan() ?>';
 	</script>
 
     <?php include('matomo-config.php'); ?>

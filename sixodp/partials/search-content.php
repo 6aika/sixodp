@@ -5,12 +5,6 @@
 
   global $wp_query;
   $searchterm = trim($_GET['s']);
-  $baseurl = CKAN_API_URL;
-  $url = $baseurl."/action/package_search?q=".rawurlencode($searchterm);
-  $data_dataset = get_ckan_data($url."&fq=dataset_type:dataset");
-  $data_dataset = $data_dataset['result'];
-  $data_showcase = get_ckan_data($url."&fq=dataset_type:showcase");
-  $data_showcase = $data_showcase['result'];
   $count = $wp_query->found_posts;
 ?>
 <div class="container">
@@ -19,18 +13,6 @@
     <div class="sidebar col-md-3 col-sm-12">
       <h2 class="heading-sidebar"><?php _e('Results in groups', 'sixodp');?></h2>
       <ul>
-        <li class="sidebar-item">
-          <a href="<?php echo get_site_url(); ?>/<?php echo get_current_locale() ?>/?s=<?php echo $searchterm;?>&datasearch" title="">
-            <span class="sidebar-icon-wrapper"><span class="fa fa-long-arrow-right"></span></span>
-            <span><?php _e('Datasets', 'sixodp');?>  (<?php echo $data_dataset['count']; ?>)</span>
-          </a>
-        </li>
-        <li class="sidebar-item">
-          <a href="<?php echo get_site_url(); ?>/<?php echo get_current_locale() ?>/?s=<?php echo $searchterm;?>&datasearch&showcase" title="">
-            <span class="sidebar-icon-wrapper"><span class="fa fa-long-arrow-right"></span></span>
-            <span><?php _e('Applications', 'sixodp');?>  (<?php echo $data_showcase['count']; ?>)</span>
-          </a>
-        </li>
         <li class="sidebar-item active">
           <a href="<?php echo get_site_url(); ?>/<?php echo get_current_locale() ?>/?s=<?php echo $searchterm;?>" title="" class="active">
             <span class="sidebar-icon-wrapper"><span class="fa fa-long-arrow-right"></span></span>
