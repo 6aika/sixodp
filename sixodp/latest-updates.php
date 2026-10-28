@@ -61,12 +61,6 @@ get_header(); ?>
     </div>
       <form action="" method="GET" class="form-container text-center">
           <label>
-              <input type="checkbox" value="datasets" name="types[]" <?php if ($types['datasets']) echo 'checked="checked"' ?> /> <?php _e('Datasets','sixodp') ?>
-          </label>
-          <label>
-              <input type="checkbox" value="showcases" name="types[]" <?php if ($types['showcases']) echo 'checked="checked"' ?> /> <?php _e('Applications','sixodp') ?>
-          </label>
-          <label>
               <input type="checkbox" value="posts" name="types[]" <?php if ($types['posts']) echo 'checked="checked"' ?> /> <?php _e('Posts', 'sixodp') ?>
           </label>
           <label>
