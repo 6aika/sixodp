@@ -1,20 +1,7 @@
 jQuery(document).ready(function($) {
 
-  search = function(domain, q) {
-    var wordpressIndicator = $('#wordpress-indicator').is(':visible');
-
-    // Handle search differently when in wordpress
-    if (wordpressIndicator)  {
-      if(domain == "/posts") {
-        window.location.href= '/' + locale + '/?s=' + encodeURI(q);
-      }
-      else {
-        window.location.href= '/data/' + locale_ckan+domain + '?q=' + encodeURI(q) + '&sort=score desc, metadata_modified desc';
-      }
-    }
-    else {
-      window.location.href='/' + jQuery('html').attr('lang') + '/?s=' + encodeURI(q);
-    }
+  search = function(q) {
+    window.location.href= '/' + locale + '/?s=' + encodeURI(q);
   };
 
   getLocale = function() {
@@ -23,20 +10,18 @@ jQuery(document).ready(function($) {
 
   $('#search').on('click', function() {
     var q = $('#q').val();
-    var domain = $('#selected-domain').data('value');
-    search(domain, q);
+    search(q);
   });
 
   $(document).keypress(function(e) {
     if(e.which == 13) {
       if($('#q').is(":focus")){
         var q = $('#q').val();
-        var domain = $('#selected-domain').data('value');
-        search(domain, q);
+        search(q);
       }
       else if ($('#navbar-search-q').is(':focus')) {
         var q = $('#navbar-search-q').val();
-        search('/posts', q);
+        search(q);
       }
     }
   });
@@ -61,6 +46,6 @@ jQuery(document).ready(function($) {
   $('.navbar-search-submit-btn').on('click', function(e) {
     e.preventDefault();
     var q = $('#navbar-search-q').val();
-    search('/posts', q);
+    search(q);
   });
 });
