@@ -12,6 +12,7 @@ export class ShieldParameterStack extends Stack {
     readonly blacklistedCountriesParameterName: string;
     readonly rateLimitedPathsParameterName: string;
     readonly mediumPriorityCountryCodeListParameterName: string;
+    readonly blockedUserAgentsParameterName: string;
 
     constructor(scope: Construct, id: string, props: EnvProps) {
         super(scope, id, props);
@@ -77,6 +78,13 @@ export class ShieldParameterStack extends Stack {
             stringListValue: ["Some bogus country code"],
             description: 'Medium priority country codes',
             parameterName: this.mediumPriorityCountryCodeListParameterName
+        })
+
+        this.blockedUserAgentsParameterName = `/${props.environment}/waf/blocked_user_agents`
+        new aws_ssm.StringParameter(this, 'blockedUserAgents', {
+            stringValue: "Some bogus user agent",
+            description: 'User Agents to be blocked in JSON',
+            parameterName: this.blockedUserAgentsParameterName
         })
 
     }
