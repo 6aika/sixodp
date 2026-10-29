@@ -516,7 +516,12 @@ function get_recent_content($date = false) {
     $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_updated%20desc&rows=8&q=date_updated:['. date('Y-m-d\T00:00:00', strtotime($date)) .'Z%20TO%20'. date('Y-m-d\T00:00:00', strtotime($date . '+ 1 MONTH')) .'Z]');
   }
   else $data = get_ckan_data(CKAN_API_URL.'/action/package_search?sort=date_updated%20desc&rows=8');
-  return $data['result']['results'];
+  if ($data['result']['results']) {
+      return $data['result']['results'];
+  }
+  else {
+      return [];
+  }
 }
 
 function get_latest_datasets($limit = 4) {
