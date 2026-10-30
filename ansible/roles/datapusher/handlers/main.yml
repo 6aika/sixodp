@@ -1,5 +1,0 @@
----
-
-- name: Restart datapusher
-  supervisorctl: name="{{ item }}" state=restarted
-  with_items: "datapusher-uwsgi:"

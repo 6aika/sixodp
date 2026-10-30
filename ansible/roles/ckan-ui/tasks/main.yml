@@ -1,2 +1,0 @@
-- name: rebuild ckanext-sixodp less
-  shell: lessc "{{ sixodp_path }}/less/main.less" "{{ sixodp_ckanext_path }}/fanstatic/main.css"

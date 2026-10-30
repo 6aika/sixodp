@@ -1,4 +1,0 @@
----
-
-sixodp_path: "/vagrant/ckanext/ckanext-sixodp"
-sixodp_ckanext_path: "{{ sixodp_path }}/ckanext/sixodp"

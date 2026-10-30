@@ -1,4 +1,0 @@
----
-
-backup_path: "{{ server_path }}/backup_postgres"
-backup_scripts_path: "{{ server_path }}/backup_postgres"

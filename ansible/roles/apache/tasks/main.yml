@@ -1,6 +1,0 @@
----
-
-- name: Ensure apache in removed
-  apt:
-    pkg: apache2
-    state: absent
