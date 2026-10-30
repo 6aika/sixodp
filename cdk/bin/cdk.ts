@@ -122,8 +122,8 @@ const loadBalancerStack = new LoadBalancerStack(app, 'loadBalancerStack', {
     domain: env.domain,
     vpc: vpcStack.vpc,
     webServerAsg: webServerStack.webServerAsg,
-    pgAdminEnabled: true,
-    numberOfAllowedIpsInPgAdmin: 1,
+    pgAdminEnabled: false,
+    numberOfAllowedIpsInPgAdmin: 0,
     pgAdminAllowedIpPrefix: parameterStack.pgAdminAllowedPrefix
 })
 
