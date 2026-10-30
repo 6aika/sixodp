@@ -81,38 +81,6 @@ export class ShieldStack extends Stack {
             }
         ]
 
-        const blockMetaExternalAgent: aws_wafv2.CfnWebACL.RuleProperty = {
-            name: "block-meta-externalagent",
-            priority: rules.length,
-            action: {
-                block: {}
-            },
-            statement: {
-                byteMatchStatement: {
-                    searchString: "meta-externalagent/1.1",
-                    fieldToMatch: {
-                        singleHeader: {
-                            name: "user-agent"
-                        }
-                    },
-                    positionalConstraint: "STARTS_WITH",
-                    textTransformations: [
-                        {
-                            priority: 0,
-                            type: "NONE"
-                        }
-                    ]
-                }
-            },
-            visibilityConfig: {
-                cloudWatchMetricsEnabled: false,
-                sampledRequestsEnabled: false,
-                metricName: "block-meta-externalagent",
-            }
-        }
-
-        rules.push(blockMetaExternalAgent)
-
         if (props.onlyAllowWhitelistedCountries) {
             const whitelistedCountryCodesParameter = new CfnParameter(this,  'whitelistedCountryCodesParameter', {
                 type: 'AWS::SSM::Parameter::Value<List<String>>',
@@ -504,6 +472,62 @@ export class ShieldStack extends Stack {
         const nonBotRules: any[] = [rateLimitNonBotTrafficRule]
 
         rules = rules.concat(nonBotRules)
+
+        const blockedUserAgentsParameter = aws_ssm.StringParameter.valueFromLookup(this, props.blockedUserAgentsParameterName, '[]')
+        const blockedUserAgentsJson = JSON.parse(blockedUserAgentsParameter)
+
+        const BlockedUserAgentsSchema = z.array(z.string())
+
+
+        const userAgentList: string[] = []
+
+        const validatedUserAgents = BlockedUserAgentsSchema.parse(blockedUserAgentsJson)
+        validatedUserAgents.forEach((useragent, index: number) => {
+            userAgentList.push(useragent)
+        })
+
+        const userAgentRegexPattern = new aws_wafv2.CfnRegexPatternSet(this, 'userAgentRegexPatternSet', {
+            description: 'Blocked user agents',
+            name: 'BlockedUserAgents',
+            scope: 'REGIONAL',
+            regularExpressionList: userAgentList
+        })
+
+
+        const blockedUserAgentRules: any[] = []
+        const blockedUserAgentRule: aws_wafv2.CfnWebACL.RuleProperty = {
+            name: "blocked-useragents",
+            priority: rules.length,
+            action: {
+                block: {}
+            },
+            statement: {
+                regexPatternSetReferenceStatement: {
+                    fieldToMatch: {
+                        singleHeader: {
+                            Name: "User-Agent"
+                        }
+                    },
+                    arn: userAgentRegexPattern.attrArn,
+                    textTransformations: [
+                        {
+                            type: "NONE",
+                            priority: 0
+                        }
+                    ]
+                }
+            },
+            visibilityConfig: {
+                cloudWatchMetricsEnabled: true,
+                metricName: "blocked-useragents",
+                sampledRequestsEnabled: true
+            }
+        }
+
+        blockedUserAgentRules.push(blockedUserAgentRule)
+
+        rules = rules.concat(blockedUserAgentRules)
+
 
 
         const cfnWebAcl = new aws_wafv2.CfnWebACL(this, 'WAFWebACL', {
