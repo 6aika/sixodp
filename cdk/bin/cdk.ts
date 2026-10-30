@@ -174,6 +174,7 @@ if (env.shieldEnabled) {
         blockASNs: false,
         loadBalancer: loadBalancerStack.loadBalancer,
         rateLimitedPathsParameterName: shieldParameterStack.rateLimitedPathsParameterName,
-        mediumPriorityCountryCodeListParameterName: shieldParameterStack.mediumPriorityCountryCodeListParameterName
+        mediumPriorityCountryCodeListParameterName: shieldParameterStack.mediumPriorityCountryCodeListParameterName,
+        blockedUserAgentsParameterName: shieldParameterStack.blockedUserAgentsParameterName
     })
 }
