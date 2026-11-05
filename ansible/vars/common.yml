@@ -6,30 +6,10 @@ www_group: www-data
 server_path: /opt/datacatalog
 cache_path: "{{ server_path }}/cache"
 data_path: "{{ server_path }}/data"
-ckan_storage_path: "{{ data_path }}/ckan"
 resource_cache_path: "{{ server_path }}/resource_cache"
-
-ckan_ini: /etc/ckan/default/ckan.ini
-ckan_test_core_ini: /etc/ckan/default/test-core.ini
-ckan_who_ini: /etc/ckan/default/who.ini
 virtualenv: /usr/lib/ckan/default
-ckan_source_path: "{{ virtualenv }}/lib/python3.12/site-packages"
 datapusherenv: /usr/lib/ckan/datapusher
 
 rds_domain_common_part: cxzvfvoncnm2.eu-west-1.rds.amazonaws.com
 
 site_protocol: https
-
-sentry:
-  dsn: ""
-
-translation_projects:
-  - ckanext-matomo
-  - ckanext-sixodp
-  - ckanext-sixodp_showcase
-  - ckanext-sixodp_showcasesubmit
-  - ckanext-datasubmitter
-  - ckanext-statistics
-
-datapusher:
-  api_token: replacethis

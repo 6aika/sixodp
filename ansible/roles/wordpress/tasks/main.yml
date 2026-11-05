@@ -218,9 +218,6 @@
     recurse: yes
 
 
-- name: Copy ckan-config to theme
-  template: src="ckan-config.php.j2" dest="/opt/wordpress/wp-content/themes/sixodp/ckan-config.php" mode=0644 owner=www-data group=www-data
-
 
 - name: Copy matomo-config to theme
   template: src="matomo-config.php.j2" dest="/opt/wordpress/wp-content/themes/sixodp/matomo-config.php" mode=0644 owner=www-data group=www-data

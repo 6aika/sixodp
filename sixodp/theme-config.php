@@ -5,10 +5,6 @@
 ?>
 
 <?php
-  include('ckan-config.php');
-
-
-
   define( 'DEFAULT_PAGES', array(
     array(
       'locale' => 'fi',
