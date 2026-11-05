@@ -1,7 +1,0 @@
----
-
-- include_tasks: local_database.yml
-  when: postgres.server.installed_locally
-
-- include_tasks: rds.yml
-  when: not postgres.server.installed_locally

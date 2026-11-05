@@ -1,6 +1,0 @@
----
-
-- name: Install postgres client
-  apt: pkg={{ item }} state=latest
-  with_items:
-    - postgresql-client

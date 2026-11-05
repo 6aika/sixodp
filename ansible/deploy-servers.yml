@@ -6,18 +6,12 @@
     - "{{ secrets_file_path }}"
   roles:
     - os-base
-    - java
-    - postgres-install
-    - postgres-data
-    - solr
-    - redis
     - nodejs
     - role: postfix
       when: deployment_environment_id == "vagrant"
     - ckan-cron
     - supervisor
     - mysql
-    - solr-reindex
 
 - hosts: webserver
   become: true
