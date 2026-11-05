@@ -3,10 +3,10 @@
 - name: Disable emails in cron
   cronvar: name="MAILTO" value="\"\""
 
-# Check new harvester jobs every hour, does not execute harvesting if there are no new jobs
+# Remove all can cronjobs
+
 - name: Ensure harvester cronjob
-  cron: name="Harvester run" minute="0" job="/usr/lib/ckan/default/bin/ckan -c {{ ckan_ini }} harvester  run"
-  when: "'ckanext-harvest' in ckan_extensions"
+  cron: name="Harvester run" state=absent
 
 - name: Disable qa update
   cron: name="QA update" state=absent
@@ -15,21 +15,19 @@
   cron: name="Qa run" state=absent
 
 - name: Ensure reminder cronjob
-  cron: name="Reminder send" minute="0" hour="7" job="/usr/lib/ckan/default/bin/ckan --config={{ckan_ini}} reminder send"
+  cron: name="Reminder send" state=absent
 
 - name: Ensure reminder notify subscribers cronjob
-  cron: name="Reminder run" minute="0" hour="8" job="/usr/lib/ckan/default/bin/ckan --config={{ckan_ini}} reminder notify"
+  cron: name="Reminder run" state=absent
 
 - name: Ensure CKAN tracking
-  cron: name="CKAN tracking" minute="0" hour="0" job="/usr/lib/ckan/default/bin/ckan --config={{ckan_ini}} tracking update && /usr/lib/ckan/default/bin/ckan --config={{ckan_ini}} search-index rebuild -r"
+  cron: name="CKAN tracking" state=absent
 
 - name: disable googleanalytics loadanalytics cronjob
   cron: name="Load Google Analytics" state=absent
 
 - name: Ensure matomo analytics cronjob
-  cron: name="Load matomo" minute="0" hour="1" job="/usr/lib/ckan/default/bin/ckan --config={{ckan_ini}} matomo fetch"
-  when: "'ckanext-matomo' in ckan_extensions"
+  cron: name="Load matomo" state=absent
 
 - name: Ensure archiver update
-  cron: name="Archiver update" minute="0" hour="2" job="/usr/lib/ckan/default/bin/ckan --config={{ckan_ini}} archiver update"
-  when: "'ckanext-archiver' in ckan_extensions"
+  cron: name="Archiver update" state=absent

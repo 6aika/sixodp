@@ -32,7 +32,7 @@
   when: background_server == True
 
 
-- name: Ensure ckan services are started
+- name: Ensure ckan services are stopped
   supervisorctl:
     name: all
-    state: started
+    state: stopped

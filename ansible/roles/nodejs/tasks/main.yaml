@@ -26,3 +26,16 @@
     update_cache: true
     name: nodejs
     state: latest
+
+- block:
+    - name: Install npm dependencies
+      npm:
+        path: "{{ playbook_dir }}/.."
+        unsafe_perm: yes
+
+    - name: Build CSS
+      command: npm run build
+      args:
+        chdir: "{{ playbook_dir }}/.."
+
+  when: deployment_environment_id != "vagrant" and deployment_environment_id != "vagrant_multi"

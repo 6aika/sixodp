@@ -1,5 +1,0 @@
----
-
-redis_harvest_database: 0
-redis_celery_database: 1
-ckan_max_resource_size: 50000

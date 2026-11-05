@@ -14,11 +14,6 @@
     - nodejs
     - role: postfix
       when: deployment_environment_id == "vagrant"
-    - ckan-extensions
-    - ckan-install
-    - ckan-config
-    - ckan-install-patches
-    - ckan-database
     - ckan-cron
     - supervisor
     - mysql
@@ -35,14 +30,8 @@
     - nodejs
     - role: postfix
       when: deployment_environment_id == "vagrant"
-    - ckan-extensions
-    - ckan-install
-    - ckan-config
-    - ckan-install-patches
     - supervisor
     - nginx
-    - ckan-translations
-    - ckan-restart
     - mysql
     - php-fpm
     - wordpress
