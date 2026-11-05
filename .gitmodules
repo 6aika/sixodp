@@ -1,3 +1,0 @@
-[submodule "ckanext/ckanext-disqus"]
-	path = ckanext/ckanext-disqus
-	url = https://github.com/ckan/ckanext-disqus
